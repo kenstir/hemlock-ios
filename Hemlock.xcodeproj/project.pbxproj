@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
+		D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* ViewController.swift */; };
+		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
+		D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D287D502207AEF2C001AF644 /* Assets.xcassets */; };
+		D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D287D511207AEF2D001AF644 /* HemlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D510207AEF2D001AF644 /* HemlockTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D287D50D207AEF2D001AF644 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287D4F0207AEF2B001AF644 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D287D4F7207AEF2B001AF644;
+			remoteInfo = Hemlock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D287D4F8207AEF2B001AF644 /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D287D4FD207AEF2B001AF644 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D287D500207AEF2B001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D287D502207AEF2C001AF644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D287D505207AEF2C001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D287D507207AEF2C001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D287D50C207AEF2D001AF644 /* HemlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D287D510207AEF2D001AF644 /* HemlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockTests.swift; sourceTree = "<group>"; };
+		D287D512207AEF2D001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D287D4F5207AEF2B001AF644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D287D509207AEF2D001AF644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D287D4EF207AEF2B001AF644 = {
+			isa = PBXGroup;
+			children = (
+				D287D4FA207AEF2B001AF644 /* Hemlock */,
+				D287D50F207AEF2D001AF644 /* HemlockTests */,
+				D287D4F9207AEF2B001AF644 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D287D4F9207AEF2B001AF644 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D287D4F8207AEF2B001AF644 /* Hemlock.app */,
+				D287D50C207AEF2D001AF644 /* HemlockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D287D4FA207AEF2B001AF644 /* Hemlock */ = {
+			isa = PBXGroup;
+			children = (
+				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
+				D287D4FD207AEF2B001AF644 /* ViewController.swift */,
+				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
+				D287D502207AEF2C001AF644 /* Assets.xcassets */,
+				D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */,
+				D287D507207AEF2C001AF644 /* Info.plist */,
+			);
+			path = Hemlock;
+			sourceTree = "<group>";
+		};
+		D287D50F207AEF2D001AF644 /* HemlockTests */ = {
+			isa = PBXGroup;
+			children = (
+				D287D510207AEF2D001AF644 /* HemlockTests.swift */,
+				D287D512207AEF2D001AF644 /* Info.plist */,
+			);
+			path = HemlockTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D287D4F7207AEF2B001AF644 /* Hemlock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D287D515207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "Hemlock" */;
+			buildPhases = (
+				D287D4F4207AEF2B001AF644 /* Sources */,
+				D287D4F5207AEF2B001AF644 /* Frameworks */,
+				D287D4F6207AEF2B001AF644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hemlock;
+			productName = Hemlock;
+			productReference = D287D4F8207AEF2B001AF644 /* Hemlock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D287D50B207AEF2D001AF644 /* HemlockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D287D518207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "HemlockTests" */;
+			buildPhases = (
+				D287D508207AEF2D001AF644 /* Sources */,
+				D287D509207AEF2D001AF644 /* Frameworks */,
+				D287D50A207AEF2D001AF644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D287D50E207AEF2D001AF644 /* PBXTargetDependency */,
+			);
+			name = HemlockTests;
+			productName = HemlockTests;
+			productReference = D287D50C207AEF2D001AF644 /* HemlockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D287D4F0207AEF2B001AF644 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Ken Cox";
+				TargetAttributes = {
+					D287D4F7207AEF2B001AF644 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					D287D50B207AEF2D001AF644 = {
+						CreatedOnToolsVersion = 9.3;
+						TestTargetID = D287D4F7207AEF2B001AF644;
+					};
+				};
+			};
+			buildConfigurationList = D287D4F3207AEF2B001AF644 /* Build configuration list for PBXProject "Hemlock" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D287D4EF207AEF2B001AF644;
+			productRefGroup = D287D4F9207AEF2B001AF644 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D287D4F7207AEF2B001AF644 /* Hemlock */,
+				D287D50B207AEF2D001AF644 /* HemlockTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D287D4F6207AEF2B001AF644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
+				D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */,
+				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D287D50A207AEF2D001AF644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D287D4F4207AEF2B001AF644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */,
+				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D287D508207AEF2D001AF644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D287D511207AEF2D001AF644 /* HemlockTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D287D50E207AEF2D001AF644 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D287D4F7207AEF2B001AF644 /* Hemlock */;
+			targetProxy = D287D50D207AEF2D001AF644 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D287D4FF207AEF2B001AF644 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D287D500207AEF2B001AF644 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D287D505207AEF2C001AF644 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D287D513207AEF2D001AF644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D287D514207AEF2D001AF644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D287D516207AEF2D001AF644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FCHUE4234N;
+				INFOPLIST_FILE = Hemlock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kenstir.net.Hemlock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D287D517207AEF2D001AF644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FCHUE4234N;
+				INFOPLIST_FILE = Hemlock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kenstir.net.Hemlock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D287D519207AEF2D001AF644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FCHUE4234N;
+				INFOPLIST_FILE = HemlockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kenstir.net.HemlockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hemlock.app/Hemlock";
+			};
+			name = Debug;
+		};
+		D287D51A207AEF2D001AF644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FCHUE4234N;
+				INFOPLIST_FILE = HemlockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kenstir.net.HemlockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hemlock.app/Hemlock";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D287D4F3207AEF2B001AF644 /* Build configuration list for PBXProject "Hemlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D287D513207AEF2D001AF644 /* Debug */,
+				D287D514207AEF2D001AF644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D287D515207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "Hemlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D287D516207AEF2D001AF644 /* Debug */,
+				D287D517207AEF2D001AF644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D287D518207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "HemlockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D287D519207AEF2D001AF644 /* Debug */,
+				D287D51A207AEF2D001AF644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D287D4F0207AEF2B001AF644 /* Project object */;
+}
