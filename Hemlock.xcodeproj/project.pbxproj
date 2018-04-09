@@ -13,6 +13,8 @@
 		D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D287D502207AEF2C001AF644 /* Assets.xcassets */; };
 		D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D287D511207AEF2D001AF644 /* HemlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D510207AEF2D001AF644 /* HemlockTests.swift */; };
+		D287D51C207AEF3D001AF644 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
+		D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51D207AEF54001AF644 /* AccountTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		D287D50C207AEF2D001AF644 /* HemlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D510207AEF2D001AF644 /* HemlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockTests.swift; sourceTree = "<group>"; };
 		D287D512207AEF2D001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D287D51B207AEF3D001AF644 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		D287D51D207AEF54001AF644 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				D287D502207AEF2C001AF644 /* Assets.xcassets */,
 				D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */,
 				D287D507207AEF2C001AF644 /* Info.plist */,
+				D287D51B207AEF3D001AF644 /* Account.swift */,
 			);
 			path = Hemlock;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			children = (
 				D287D510207AEF2D001AF644 /* HemlockTests.swift */,
 				D287D512207AEF2D001AF644 /* Info.plist */,
+				D287D51D207AEF54001AF644 /* AccountTests.swift */,
 			);
 			path = HemlockTests;
 			sourceTree = "<group>";
@@ -199,6 +205,7 @@
 			files = (
 				D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
+				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D287D511207AEF2D001AF644 /* HemlockTests.swift in Sources */,
+				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
