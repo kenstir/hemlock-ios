@@ -9,6 +9,9 @@
 import Foundation
 
 struct API {
+    // endpoints
+    static let librariesURL = "https://evergreen-ils.org/directory/libraries.json"
+
     // auth
     static let auth = "open-ils.auth"
     static let authInit = "open-ils.auth.authenticate.init"
