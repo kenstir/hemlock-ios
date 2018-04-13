@@ -28,13 +28,17 @@ class AlamoTests: XCTestCase {
             print("Response: \(String(describing: response.response))")
             print("Result: \(response.result)")
             
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
+            XCTAssertTrue(response.result.isSuccess)
             
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
+            guard let json = response.result.value else {
+                XCTFail("no result value")
+                return
             }
+            print("JSON: \(json)") // serialized json response
+
+//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+//                print("Data: \(utf8Text)") // original server data as UTF8 string
+//            }
         }
     }
     
