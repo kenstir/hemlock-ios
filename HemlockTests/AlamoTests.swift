@@ -21,20 +21,42 @@ class AlamoTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
+    func printInfo(_ name: String, _ value: Any) {
+        let t = type(of: value)
+        print("\(name) has type \(t)")
+    }
+
     func test_basicGet() {
-        Alamofire.request(API.librariesURL).responseJSON { response in
+        let request = Alamofire.request(API.librariesURL)
+
+        debugPrint(request)
+        request.responseJSON { response in
             print("Request: \(String(describing: response.request))")
             print("Response: \(String(describing: response.response))")
             print("Result: \(response.result)")
-            
+            self.printInfo("response.result", response.result);
+
             XCTAssertTrue(response.result.isSuccess)
             
+            XCTAssertTrue(response.result.value != nil, "result has value")
             guard let json = response.result.value else {
-                XCTFail("no result value")
                 return
             }
-            print("JSON: \(json)") // serialized json response
+            self.printInfo("json", json);
+            debugPrint(json)
+
+            XCTAssertTrue(json is [Any], "is array");
+            XCTAssertTrue(json is [[String: Any]], "is array of dictionaries");
+            // [[String: Any]] is equivalent to Array<Dictionary<String,Any>>
+            if let libraries = response.result.value as? [[String: Any]] {
+                for library in libraries {
+                    let lib: [String: Any] = library
+                    debugPrint(lib)
+                }
+            } else {
+                XCTFail("not array of [String:String]")
+            }
 
 //            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
 //                print("Data: \(utf8Text)") // original server data as UTF8 string
