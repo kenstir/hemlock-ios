@@ -47,28 +47,23 @@ class AlamoTests: XCTestCase {
             debugPrint(json)
 
             XCTAssertTrue(json is [Any], "is array");
-            XCTAssertTrue(json is [[String: Any]], "is array of dictionaries");
-            // [[String: Any]] is equivalent to Array<Dictionary<String,Any>>
-            if let libraries = response.result.value as? [[String: Any]] {
-                for library in libraries {
-                    let lib: [String: Any] = library
-                    debugPrint(lib)
-                }
-            } else {
-                XCTFail("not array of [String:String]")
+            XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
+            XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
+            guard let libraries = response.result.value as? [[String: Any]] else {
+                return
             }
-
-//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-//                print("Data: \(utf8Text)") // original server data as UTF8 string
-//            }
+            for library in libraries {
+                let lib: [String: Any] = library
+                debugPrint(lib)
+            }
         }
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
     
 }
