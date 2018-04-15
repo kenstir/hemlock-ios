@@ -25,4 +25,10 @@ class AccountTests: XCTestCase {
         XCTAssertEqual(sut.name, "hemlock")
     }
     
+    func test_authToken() {
+        XCTAssertNil(sut.authToken)
+        sut.authToken = "f1d0f00d"
+        XCTAssertNotNil(sut.authToken)
+        XCTAssertEqual(sut.authToken, "f1d0f00d")
+    }
 }

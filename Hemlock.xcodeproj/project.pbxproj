@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
+		D231B52C2083C08000478D25 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
+		D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52D2083C1E500478D25 /* LibraryTests.swift */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* ViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D231B52B2083C08000478D25 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		D231B52D2083C1E500478D25 /* LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTests.swift; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 				D287D507207AEF2C001AF644 /* Info.plist */,
 				D287D51B207AEF3D001AF644 /* Account.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
+				D231B52B2083C08000478D25 /* Library.swift */,
 			);
 			path = Hemlock;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 				D287D512207AEF2D001AF644 /* Info.plist */,
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
 				D231B52120804DF900478D25 /* AlamoTests.swift */,
+				D231B52D2083C1E500478D25 /* LibraryTests.swift */,
 			);
 			path = HemlockTests;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 			files = (
 				D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
+				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 			);
@@ -253,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D287D511207AEF2D001AF644 /* HemlockTests.swift in Sources */,
+				D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */,
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
 			);
