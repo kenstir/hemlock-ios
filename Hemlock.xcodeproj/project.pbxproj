@@ -11,7 +11,6 @@
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D22D02692083EA7600DC1F5B /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* APITests.swift */; };
 		D22D026B2083EBB100DC1F5B /* PINES.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026A2083EBB100DC1F5B /* PINES.swift */; };
-		D22D026D20843ACD00DC1F5B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22D026C20843ACD00DC1F5B /* Security.framework */; };
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
 		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
@@ -46,7 +45,6 @@
 		D22D02662083E45700DC1F5B /* Corsortium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corsortium.swift; sourceTree = "<group>"; };
 		D22D02682083EA7600DC1F5B /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		D22D026A2083EBB100DC1F5B /* PINES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINES.swift; sourceTree = "<group>"; };
-		D22D026C20843ACD00DC1F5B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D22D026F2084F53E00DC1F5B /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		D22D0272208506C500DC1F5B /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
 		D22D0274208516D600DC1F5B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D22D026D20843ACD00DC1F5B /* Security.framework in Frameworks */,
 				D231B5292081628900478D25 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,7 +106,6 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D22D026C20843ACD00DC1F5B /* Security.framework */,
 				D231B5282081628900478D25 /* Alamofire.framework */,
 				D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */,
 			);
