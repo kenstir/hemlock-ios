@@ -14,6 +14,7 @@
 		D22D026D20843ACD00DC1F5B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22D026C20843ACD00DC1F5B /* Security.framework */; };
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
+		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
 		D231B52C2083C08000478D25 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
@@ -48,6 +49,7 @@
 		D22D026C20843ACD00DC1F5B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D22D026F2084F53E00DC1F5B /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		D22D0272208506C500DC1F5B /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
+		D22D0274208516D600DC1F5B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				D287D4F9207AEF2B001AF644 /* Products */,
 				D231B52520815EAC00478D25 /* Frameworks */,
 				D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */,
+				D22D0274208516D600DC1F5B /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,6 +256,7 @@
 			files = (
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */,
+				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
