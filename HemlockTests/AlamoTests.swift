@@ -39,42 +39,51 @@ class AlamoTests: XCTestCase {
     }
 
     func test_basicGet() {
+        let expectation = XCTestExpectation(description: "wait for async request")
+        let request = Alamofire.request("https://www.apple.com")
+        request.responseData { response in
+            XCTAssertTrue(response.result.isSuccess)
+            let size = response.data?.count
+            print("size: \(String(describing: size))")
+            expectation.fulfill()
+        }
+ 
+         print("after")
+        wait(for: [expectation], timeout: 10.0)
+    }
+
+    func test_directory_responseJSON() {
+        let expectation = XCTestExpectation(description: "wait for async request")
         let request = Alamofire.request(API.directoryURL)
 
         debugPrint(request)
         request.responseJSON { response in
-            print("Request: \(String(describing: response.request))")
-            print("Response: \(String(describing: response.response))")
-            print("Result: \(response.result)")
-            self.printInfo("response.result", response.result);
+//            print("Request:  \(String(describing: response.request))")
+//            print("Response: \(String(describing: response.response))")
+//            print("Result:   \(response.result)")
+//            self.printInfo("response.result", response.result);
 
             XCTAssertTrue(response.result.isSuccess)
             
             XCTAssertTrue(response.result.value != nil, "result has value")
-            guard let json = response.result.value else {
-                return
-            }
-            self.printInfo("json", json);
-            debugPrint(json)
+            if let json = response.result.value {
+                self.printInfo("json", json);
+                debugPrint(json)
 
-            XCTAssertTrue(json is [Any], "is array");
-            XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
-            XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
-            guard let libraries = response.result.value as? [[String: Any]] else {
-                return
+                XCTAssertTrue(json is [Any], "is array");
+                XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
+                XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
+                if let libraries = response.result.value as? [[String: Any]] {
+                    for library in libraries {
+                        let lib: [String: Any] = library
+                        debugPrint(lib)
+                    }
+                }
             }
-            for library in libraries {
-                let lib: [String: Any] = library
-                debugPrint(lib)
-            }
+
+            expectation.fulfill()
         }
+
+        wait(for: [expectation], timeout: 10.0)
     }
-    
-//    func testPerformanceExample() {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
-    
 }
