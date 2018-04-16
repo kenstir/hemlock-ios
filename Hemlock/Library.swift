@@ -9,11 +9,11 @@
 import Foundation
 
 class Library {
-    let name: String
-    let directoryName: String
     let url: String
-    
-    init(name: String, directoryName: String, url: String) {
+    let name: String?
+    let directoryName: String?
+
+    init(_ url: String, name: String? = nil, directoryName: String? = nil) {
         self.name = name
         self.directoryName = directoryName
         self.url = url

@@ -19,10 +19,17 @@ class LibraryTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        let sut: Library = Library(name: "Georgia PINES", directoryName: "Georgia, US (Georgia PINES)", url: "https://gapines.org")
+    func test_basic() {
+        let sut: Library = Library("https://gapines.org", name: "Georgia PINES", directoryName: "Georgia, US (Georgia PINES)")
         XCTAssertEqual(sut.name, "Georgia PINES")
         XCTAssertEqual(sut.url, "https://gapines.org")
     }
     
+    func test_optionalArgs() {
+        var sut = Library("https://gapines.org")
+        XCTAssertEqual(sut.url, "https://gapines.org")
+        sut = Library("https://catalog.cwmars.org", name: "C/W MARS")
+        XCTAssertEqual(sut.name, "C/W MARS")
+    }
+
 }

@@ -28,7 +28,7 @@ class AlamoTests: XCTestCase {
     }
 
     func test_basicGet() {
-        let request = Alamofire.request(API.librariesURL)
+        let request = Alamofire.request(API.directoryURL)
 
         debugPrint(request)
         request.responseJSON { response in

@@ -16,4 +16,6 @@ struct Account {
     init(name: String) {
         self.name = name
     }
+    
+    
 }
