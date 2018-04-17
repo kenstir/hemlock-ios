@@ -14,6 +14,8 @@
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
 		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
+		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
+		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
 		D231B52C2083C08000478D25 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
@@ -48,6 +50,8 @@
 		D22D026F2084F53E00DC1F5B /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		D22D0272208506C500DC1F5B /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
 		D22D0274208516D600DC1F5B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
+		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -103,6 +107,24 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		D22D027620857DFE00DC1F5B /* Evergreen */ = {
+			isa = PBXGroup;
+			children = (
+				D287D51F207AF88E001AF644 /* API.swift */,
+				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
+			);
+			path = Evergreen;
+			sourceTree = "<group>";
+		};
+		D22D027B208588A100DC1F5B /* Evergreen */ = {
+			isa = PBXGroup;
+			children = (
+				D22D02682083EA7600DC1F5B /* APITests.swift */,
+				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
+			);
+			path = Evergreen;
+			sourceTree = "<group>";
+		};
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,9 +158,9 @@
 		D287D4FA207AEF2B001AF644 /* Hemlock */ = {
 			isa = PBXGroup;
 			children = (
+				D22D027620857DFE00DC1F5B /* Evergreen */,
 				D22D026E2084F52300DC1F5B /* Utils */,
 				D287D51B207AEF3D001AF644 /* Account.swift */,
-				D287D51F207AF88E001AF644 /* API.swift */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
 				D287D502207AEF2C001AF644 /* Assets.xcassets */,
 				D22D02662083E45700DC1F5B /* Corsortium.swift */,
@@ -156,10 +178,10 @@
 		D287D50F207AEF2D001AF644 /* HemlockTests */ = {
 			isa = PBXGroup;
 			children = (
+				D22D027B208588A100DC1F5B /* Evergreen */,
 				D22D0271208506A700DC1F5B /* Utils */,
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
 				D231B52120804DF900478D25 /* AlamoTests.swift */,
-				D22D02682083EA7600DC1F5B /* APITests.swift */,
 				D287D510207AEF2D001AF644 /* HemlockTests.swift */,
 				D287D512207AEF2D001AF644 /* Info.plist */,
 				D231B52D2083C1E500478D25 /* LibraryTests.swift */,
@@ -293,6 +315,7 @@
 				D22D026B2083EBB100DC1F5B /* PINES.swift in Sources */,
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
+				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
@@ -307,6 +330,7 @@
 				D287D511207AEF2D001AF644 /* HemlockTests.swift in Sources */,
 				D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */,
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
+				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* APITests.swift in Sources */,
