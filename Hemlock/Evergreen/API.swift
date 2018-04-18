@@ -19,7 +19,13 @@
 import Foundation
 import Alamofire
 
+enum GatewayError: Error {
+    case missing(String)
+    case unexpectedPayload
+}
+
 struct API {
+    
     // endpoints
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
 

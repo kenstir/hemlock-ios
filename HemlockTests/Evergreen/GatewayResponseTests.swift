@@ -35,19 +35,84 @@ class GatewayResponseTests: XCTestCase {
         }
     }
     
-    func test_degenerate() {
-        if
-            let map = decodeJSON("{\"payload\":[[]],\"status\":200}"),
-            let status = map["status"] as? Int
-        {
-            XCTAssertEqual(status, 200)
-        } else {
-            XCTFail()
-        }
-
-        //        let r = GatewayResponse(responseJSON)
-//        XCTAssertEqual(r.status, 200)
-//        XCTAssertEqual(r.payload, [])
+    func createGatewayResponse(_ json: [String: Any]) -> GatewayResponse {
+        let resp = GatewayResponse(json)
+        return resp
     }
     
+    func test_responseMissingStatus() {
+        guard let map = decodeJSON("""
+                {}
+                """) else {
+            XCTFail()
+            return
+        }
+        let resp = GatewayResponse(map)
+        XCTAssertTrue(resp.failed)
+        XCTAssertNotNil(resp.error)
+    }
+    
+    func test_degenerateResponse() {
+        guard let map = decodeJSON("""
+        {"payload":[[]],"status":200}
+        """) else {
+            XCTFail()
+            return
+        }
+        let resp = GatewayResponse(map)
+        XCTAssertEqual(resp.status, 200)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        XCTAssertNil(resp.payloadString)
+        XCTAssertEqual(resp.payloadObject?.count, 0)
+    }
+    
+    func test_authInitResponse() {
+        guard let map = decodeJSON("""
+        {"payload":["nonce"],"status":200}
+        """) else {
+            XCTFail()
+            return
+        }
+        let resp = GatewayResponse(map)
+        debugPrint(map)
+        debugPrint(resp)
+        XCTAssertEqual(resp.status, 200)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        XCTAssertEqual(resp.payloadString, "nonce")
+        XCTAssertNil(resp.payloadObject)
+    }
+    
+    func test_authCompleteFailed() {
+        guard let map = decodeJSON("""
+            {"payload":[{"ilsevent":1000,"textcode":"LOGIN_FAILED","desc":"User login failed"}],"status":200}
+            """) else {
+            XCTFail()
+            return
+        }
+        let resp = GatewayResponse(map)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        let textcode = resp.getString("textcode")
+        XCTAssertEqual(textcode, "LOGIN_FAILED")
+    }
+    
+    func test_actorCheckedOut() {
+        guard let map = decodeJSON("""
+            {"status":200,"payload":[{"long_overdue":[],"overdue":[],"out":["73107615","72954513"],"lost":[],"claims_returned":[]}]}
+            """) else {
+                XCTFail()
+                return
+        }
+        let resp = GatewayResponse(map)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        XCTAssertNotNil(resp.payloadObject)
+        guard let overdue = resp.getObject("overdue") as? [String],
+            let out = resp.getObject("out") as? [String] else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(overdue.count, 0)
+        XCTAssertEqual(out.count, 2)
+        let outIds = resp.getListOfIDs("out")
+        XCTAssertEqual(outIds, [73107615, 72954513])
+    }
 }
