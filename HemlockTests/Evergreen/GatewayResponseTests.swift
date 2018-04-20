@@ -40,10 +40,11 @@ class GatewayResponseTests: XCTestCase {
         return resp
     }
     
-    func test_responseMissingStatus() {
+    func test_failed_noStatusResponse() {
         guard let map = decodeJSON("""
-                {}
-                """) else {
+            {}
+            """) else
+        {
             XCTFail()
             return
         }
@@ -54,8 +55,9 @@ class GatewayResponseTests: XCTestCase {
     
     func test_degenerateResponse() {
         guard let map = decodeJSON("""
-        {"payload":[[]],"status":200}
-        """) else {
+            {"payload":[[]],"status":200}
+            """) else
+        {
             XCTFail()
             return
         }
@@ -68,8 +70,9 @@ class GatewayResponseTests: XCTestCase {
     
     func test_authInitResponse() {
         guard let map = decodeJSON("""
-        {"payload":["nonce"],"status":200}
-        """) else {
+            {"payload":["nonce"],"status":200}
+            """) else
+        {
             XCTFail()
             return
         }
@@ -85,34 +88,34 @@ class GatewayResponseTests: XCTestCase {
     func test_authCompleteFailed() {
         guard let map = decodeJSON("""
             {"payload":[{"ilsevent":1000,"textcode":"LOGIN_FAILED","desc":"User login failed"}],"status":200}
-            """) else {
+            """) else
+        {
             XCTFail()
             return
         }
         let resp = GatewayResponse(map)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
-        let textcode = resp.getString("textcode")
-        XCTAssertEqual(textcode, "LOGIN_FAILED")
+        XCTAssertEqual(resp.getString("textcode"), "LOGIN_FAILED")
     }
     
     func test_actorCheckedOut() {
         guard let map = decodeJSON("""
-            {"status":200,"payload":[{"long_overdue":[],"overdue":[],"out":["73107615","72954513"],"lost":[],"claims_returned":[]}]}
-            """) else {
-                XCTFail()
-                return
+            {"status":200,"payload":[{"overdue":[],"out":["73107615","72954513"],"lost":[1,2]}]}
+            """) else
+        {
+            XCTFail()
+            return
         }
         let resp = GatewayResponse(map)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertNotNil(resp.payloadObject)
-        guard let overdue = resp.getObject("overdue") as? [String],
-            let out = resp.getObject("out") as? [String] else {
+        guard let out = resp.getObject("out") as? [Any] else {
             XCTFail()
             return
         }
-        XCTAssertEqual(overdue.count, 0)
         XCTAssertEqual(out.count, 2)
-        let outIds = resp.getListOfIDs("out")
-        XCTAssertEqual(outIds, [73107615, 72954513])
+        XCTAssertEqual(resp.getListOfIDs("overdue"), [])
+        XCTAssertEqual(resp.getListOfIDs("out"), [73107615, 72954513])
+        XCTAssertEqual(resp.getListOfIDs("lost"), [1,2])
     }
 }
