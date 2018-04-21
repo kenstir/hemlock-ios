@@ -23,45 +23,41 @@ import Foundation
 
 class GatewayResponseTests: XCTestCase {
     
+    // decode a json string into a Dictionary
     func decodeJSON(_ jsonString: String) -> [String: Any]? {
         if
             let data = jsonString.data(using: .utf8),
-            let jsonObject = try? JSONSerialization.jsonObject(with: data),
-            let map = jsonObject as? [String: Any]
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonObject = json as? [String: Any]
         {
-            return map
+            return jsonObject
         } else {
             return nil
         }
     }
     
-    func createGatewayResponse(_ json: [String: Any]) -> GatewayResponse {
-        let resp = GatewayResponse(json)
-        return resp
-    }
-    
     func test_failed_noStatusResponse() {
-        guard let map = decodeJSON("""
+        guard let json = decodeJSON("""
             {}
             """) else
         {
             XCTFail()
             return
         }
-        let resp = GatewayResponse(map)
+        let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
         XCTAssertNotNil(resp.error)
     }
     
     func test_degenerateResponse() {
-        guard let map = decodeJSON("""
+        guard let json = decodeJSON("""
             {"payload":[[]],"status":200}
             """) else
         {
             XCTFail()
             return
         }
-        let resp = GatewayResponse(map)
+        let resp = GatewayResponse(json)
         XCTAssertEqual(resp.status, 200)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertNil(resp.payloadString)
@@ -69,16 +65,14 @@ class GatewayResponseTests: XCTestCase {
     }
     
     func test_authInitResponse() {
-        guard let map = decodeJSON("""
+        guard let json = decodeJSON("""
             {"payload":["nonce"],"status":200}
             """) else
         {
             XCTFail()
             return
         }
-        let resp = GatewayResponse(map)
-        debugPrint(map)
-        debugPrint(resp)
+        let resp = GatewayResponse(json)
         XCTAssertEqual(resp.status, 200)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertEqual(resp.payloadString, "nonce")
@@ -86,27 +80,27 @@ class GatewayResponseTests: XCTestCase {
     }
     
     func test_authCompleteFailed() {
-        guard let map = decodeJSON("""
+        guard let json = decodeJSON("""
             {"payload":[{"ilsevent":1000,"textcode":"LOGIN_FAILED","desc":"User login failed"}],"status":200}
             """) else
         {
             XCTFail()
             return
         }
-        let resp = GatewayResponse(map)
+        let resp = GatewayResponse(json)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertEqual(resp.getString("textcode"), "LOGIN_FAILED")
     }
     
     func test_actorCheckedOut() {
-        guard let map = decodeJSON("""
+        guard let json = decodeJSON("""
             {"status":200,"payload":[{"overdue":[],"out":["73107615","72954513"],"lost":[1,2]}]}
             """) else
         {
             XCTFail()
             return
         }
-        let resp = GatewayResponse(map)
+        let resp = GatewayResponse(json)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertNotNil(resp.payloadObject)
         guard let out = resp.getObject("out") as? [Any] else {

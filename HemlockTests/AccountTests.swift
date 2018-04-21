@@ -25,7 +25,7 @@ class AccountTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = Account(name: "hemlock")
+        sut = Account(name: "hemlock", password: "***")
     }
     
     override func tearDown() {
@@ -34,6 +34,7 @@ class AccountTests: XCTestCase {
     
     func test_Account_init() {
         XCTAssertEqual(sut.name, "hemlock")
+        XCTAssertEqual(sut.password, "***")
     }
     
     func test_authToken() {

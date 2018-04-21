@@ -24,7 +24,7 @@ class Library {
     let name: String?
     let directoryName: String?
 
-    init(_ url: String, name: String? = nil, directoryName: String? = nil) {
+    init(_ url: String, name: String? = "", directoryName: String? = "") {
         self.name = name
         self.directoryName = directoryName
         self.url = url

@@ -65,6 +65,7 @@ struct API {
         guard var url = library?.url else {
             return String()
         }
+
         url += "/osrf-gateway-v1?service="
         url.append(service)
         url.append("&method=")

@@ -16,6 +16,8 @@
 		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
+		D22D027D208B93A900DC1F5B /* LoginControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */; };
+		D22D027F208BA11F00DC1F5B /* TestConfig in Resources */ = {isa = PBXBuildFile; fileRef = D22D027E208BA11F00DC1F5B /* TestConfig */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
 		D231B52C2083C08000478D25 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
@@ -52,6 +54,8 @@
 		D22D0274208516D600DC1F5B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
 		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
+		D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginControllerTests.swift; path = HemlockTests/Evergreen/LoginControllerTests.swift; sourceTree = SOURCE_ROOT; };
+		D22D027E208BA11F00DC1F5B /* TestConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestConfig; sourceTree = SOURCE_ROOT; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			children = (
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
+				D22D02642083DE9100DC1F5B /* LoginController.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			children = (
 				D22D02682083EA7600DC1F5B /* APITests.swift */,
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
+				D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -167,7 +173,6 @@
 				D287D507207AEF2C001AF644 /* Info.plist */,
 				D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */,
 				D231B52B2083C08000478D25 /* Library.swift */,
-				D22D02642083DE9100DC1F5B /* LoginController.swift */,
 				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
 				D22D026A2083EBB100DC1F5B /* PINES.swift */,
 				D287D4FD207AEF2B001AF644 /* ViewController.swift */,
@@ -178,6 +183,7 @@
 		D287D50F207AEF2D001AF644 /* HemlockTests */ = {
 			isa = PBXGroup;
 			children = (
+				D22D027E208BA11F00DC1F5B /* TestConfig */,
 				D22D027B208588A100DC1F5B /* Evergreen */,
 				D22D0271208506A700DC1F5B /* Utils */,
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
@@ -283,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D22D027F208BA11F00DC1F5B /* TestConfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +339,7 @@
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
+				D22D027D208B93A900DC1F5B /* LoginControllerTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* APITests.swift in Sources */,
 			);

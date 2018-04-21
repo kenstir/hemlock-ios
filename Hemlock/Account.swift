@@ -20,10 +20,12 @@ import Foundation
 
 struct Account {
     let name: String
+    var password: String
     var authToken: String?
     var userID: Int?
     
-    init(name: String) {
+    init(name: String, password: String) {
         self.name = name
+        self.password = password
     }
 }

@@ -18,17 +18,21 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import Alamofire
 
 class LoginController {
+    let account: Account
     var nonce: String?
-    var authToken: String?
-    var authTime: String?
-    var account: Account?
     
-    init() {
+    init(username: String, password: String) {
+        account = Account(name: username, password: password)
     }
     
-//    func startLogin(username: String, password: String) {
-//        var request = API.createRequest(API.auth, API.authInit, username)
-//    }
+    func login(completion: (_ response: GatewayResponse) -> Void) {
+//        var request = API.createRequest(service: API.auth, method: API.authInit, args: [username])
+//        debugPrint(request)
+        let whatevs = GatewayResponse([:])
+        completion(whatevs)
+    }
+    
 }
