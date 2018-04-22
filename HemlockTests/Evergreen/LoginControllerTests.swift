@@ -12,7 +12,6 @@ import XCTest
 class LoginControllerTests: XCTestCase {
     
     let configFile = "TestConfig/testAccount" // .json
-    var library: Library?
     var username = "read from testAccount.json"
     var password = "read from testAccount.json"
     
@@ -33,10 +32,9 @@ class LoginControllerTests: XCTestCase {
             XCTFail("unable to read data from \(configFile).json")
             return
         }
-        self.library = Library(url)
+        API.library = Library(url)
         self.username = username
         self.password = password
-        API.library = library
     }
     
     override func tearDown() {
@@ -46,12 +44,15 @@ class LoginControllerTests: XCTestCase {
     
     func testBasic() {
         let expectation = XCTestExpectation(description: "wait for async request")
-        LoginController(username: username, password: password).login { response in
+        LoginController(username: username, password: password).login { account, resp in
             
-            //todo
+            XCTAssertEqual(account.username, self.username)
+            XCTAssertFalse(resp.failed, String(describing: resp.error))
 
             expectation.fulfill()
         }
+
+        wait(for: [expectation], timeout: 2.0)
     }
     
 }

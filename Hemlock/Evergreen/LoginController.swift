@@ -25,14 +25,25 @@ class LoginController {
     var nonce: String?
     
     init(username: String, password: String) {
-        account = Account(name: username, password: password)
+        account = Account(username: username, password: password)
     }
     
-    func login(completion: (_ response: GatewayResponse) -> Void) {
-//        var request = API.createRequest(service: API.auth, method: API.authInit, args: [username])
-//        debugPrint(request)
-        let whatevs = GatewayResponse([:])
-        completion(whatevs)
+    func login(completion: @escaping (_: Account, _: GatewayResponse) -> Void) {
+        let request = API.createRequest(service: API.auth, method: API.authInit, args: [account.username])
+        debugPrint(request)
+/*
+        request.responseJSON { response in
+            guard let json = response.result.value else
+            {
+                completion(self.account, GatewayResponse.makeError())
+                return
+            }
+            let resp = GatewayResponse(json)
+            guard let self.nonce = resp.payloadString else {
+                completion(self.account, GatewayResponse.makeError())
+            }
+        }
+ */
+        completion(self.account, GatewayResponse.makeError("EFAIL"))
     }
-    
 }

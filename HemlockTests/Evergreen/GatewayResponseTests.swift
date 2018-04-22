@@ -23,93 +23,79 @@ import Foundation
 
 class GatewayResponseTests: XCTestCase {
     
-    // decode a json string into a Dictionary
-    func decodeJSON(_ jsonString: String) -> [String: Any]? {
-        if
-            let data = jsonString.data(using: .utf8),
-            let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonObject = json as? [String: Any]
-        {
-            return jsonObject
-        } else {
-            return nil
-        }
+    func test_failed_badJSON() {
+        let json = """
+            xyzzy
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertNotNil(resp.error)
     }
     
-    func test_failed_noStatusResponse() {
-        guard let json = decodeJSON("""
+    func test_failed_noStatus() {
+        let json = """
             {}
-            """) else
-        {
-            XCTFail()
-            return
-        }
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertNotNil(resp.error)
+    }
+    
+    func test_failed_badStatus() {
+        let json = """
+            {"status":404}
+            """
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
         XCTAssertNotNil(resp.error)
     }
     
     func test_degenerateResponse() {
-        guard let json = decodeJSON("""
+        let json = """
             {"payload":[[]],"status":200}
-            """) else
-        {
-            XCTFail()
-            return
-        }
+            """
         let resp = GatewayResponse(json)
-        XCTAssertEqual(resp.status, 200)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
-        XCTAssertNil(resp.payloadString)
-        XCTAssertEqual(resp.payloadObject?.count, 0)
+        XCTAssertEqual(resp.type, .array)
+        XCTAssertEqual(resp.arrayResult?.count, 0)
     }
-    
+
     func test_authInitResponse() {
-        guard let json = decodeJSON("""
+        let json = """
             {"payload":["nonce"],"status":200}
-            """) else
-        {
-            XCTFail()
-            return
-        }
+            """
         let resp = GatewayResponse(json)
-        XCTAssertEqual(resp.status, 200)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
-        XCTAssertEqual(resp.payloadString, "nonce")
-        XCTAssertNil(resp.payloadObject)
+        XCTAssertEqual(resp.stringResult, "nonce")
     }
     
     func test_authCompleteFailed() {
-        guard let json = decodeJSON("""
+        let json = """
             {"payload":[{"ilsevent":1000,"textcode":"LOGIN_FAILED","desc":"User login failed"}],"status":200}
-            """) else
-        {
-            XCTFail()
-            return
-        }
+            """
         let resp = GatewayResponse(json)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertEqual(resp.getString("textcode"), "LOGIN_FAILED")
     }
     
     func test_actorCheckedOut() {
-        guard let json = decodeJSON("""
+        let json = """
             {"status":200,"payload":[{"overdue":[],"out":["73107615","72954513"],"lost":[1,2]}]}
-            """) else
-        {
-            XCTFail()
-            return
-        }
+            """
         let resp = GatewayResponse(json)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
-        XCTAssertNotNil(resp.payloadObject)
+
+        // we can treat "out" as a list of Any
         guard let out = resp.getObject("out") as? [Any] else {
             XCTFail()
             return
         }
         XCTAssertEqual(out.count, 2)
-        XCTAssertEqual(resp.getListOfIDs("overdue"), [])
+        
+        // or as a list of IDs
         XCTAssertEqual(resp.getListOfIDs("out"), [73107615, 72954513])
+        XCTAssertEqual(resp.getListOfIDs("overdue"), [])
         XCTAssertEqual(resp.getListOfIDs("lost"), [1,2])
     }
+
 }

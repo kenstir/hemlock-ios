@@ -19,6 +19,7 @@
 
 import XCTest
 import Alamofire
+import Foundation
 @testable import Hemlock
 
 class AlamoTests: XCTestCase {
@@ -36,6 +37,17 @@ class AlamoTests: XCTestCase {
     func printInfo(_ name: String, _ value: Any) {
         let t = type(of: value)
         print("\(name) has type \(t)")
+    }
+
+    func decodeJSON(_ data: Data) -> [String: Any]? {
+        if
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonObject = json as? [String: Any]
+        {
+            return jsonObject
+        } else {
+            return nil
+        }
     }
 
     func test_basicGet() {
@@ -64,16 +76,12 @@ class AlamoTests: XCTestCase {
 //            self.printInfo("response.result", response.result);
 
             XCTAssertTrue(response.result.isSuccess)
-            
             XCTAssertTrue(response.result.value != nil, "result has value")
             if let json = response.result.value {
-                self.printInfo("json", json);
-                debugPrint(json)
-
                 XCTAssertTrue(json is [Any], "is array");
                 XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
                 XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
-                if let libraries = response.result.value as? [[String: Any]] {
+                if let libraries = json as? [[String: Any]] {
                     for library in libraries {
                         let lib: [String: Any] = library
                         debugPrint(lib)
@@ -84,6 +92,43 @@ class AlamoTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 2.0)
+    }
+
+    func test_directory_responseData() {
+        let expectation = XCTestExpectation(description: "wait for async request")
+        let request = Alamofire.request(API.directoryURL)
+        request.responseData { response in
+            print("Request:  \(String(describing: response.request))")
+            print("Response: \(String(describing: response.response))")
+            print("Result:   \(response.result)")
+            self.printInfo("response.result", response.result);
+            
+            XCTAssertTrue(response.result.isSuccess)
+            
+            XCTAssertTrue(response.result.value != nil, "result has value")
+            if let data = response.result.value,
+                let json = try? JSONSerialization.jsonObject(with: data)
+            {
+                self.printInfo("json", json);
+                debugPrint(json)
+                
+                XCTAssertTrue(json is [Any], "is array");
+                XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
+                XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
+                if let libraries = json as? [[String: Any]] {
+                    for library in libraries {
+                        let lib: [String: Any] = library
+                        debugPrint(lib)
+                    }
+                }
+            } else {
+                XCTFail()
+            }
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
     }
 }

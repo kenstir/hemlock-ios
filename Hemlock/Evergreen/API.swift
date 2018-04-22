@@ -19,11 +19,6 @@
 import Foundation
 import Alamofire
 
-enum GatewayError: Error {
-    case missing(String)
-    case unexpectedPayload
-}
-
 struct API {
     
     // endpoints
@@ -37,7 +32,7 @@ struct API {
 
     static var library: Library?
     
-    static func createRequest(service: String, method: String, args: [Any]) -> Alamofire.Request
+    static func createRequest(service: String, method: String, args: [Any]) -> Alamofire.DataRequest
     {
         let url = API.gatewayURL(service: service, method: method, args: args)
         let request = Alamofire.request(url)

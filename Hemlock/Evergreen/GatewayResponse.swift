@@ -19,64 +19,100 @@
 
 import Foundation
 
+enum GatewayError: Error {
+    case malformedPayload(String)
+    case failure(String)
+}
+
+enum GatewayResultType {
+    case string
+    case object
+    case array
+    case error
+}
+
 struct GatewayResponse {
-    let status: Int
-    let payloadString: String?
-    let payloadObject: [String: Any]?
-    let error: GatewayError?
+    var type: GatewayResultType
+    var stringResult: String?
+    var objectResult: [String: Any]?
+    var arrayResult: [Any]?
+    var error: GatewayError?
     var failed: Bool {
-        return error != nil
+        return type == .error
     }
+    
+    init() {
+        type = .error
+        error = .failure("unknown")
+    }
+    
+    init(_ jsonString: String) {
+        self.init()
+        
+        guard var json = decodeJSON(jsonString) else {
+            error = .failure("Response not JSON")
+            return
+        }
 
-    init(_ json: [String: Any]) {
-        // refactor after green?
-        var status = -1
-        var payloadString: String?
-        var payloadObject: [String: Any]?
-        var error: GatewayError?
-
-        // status must be an Int
-        if let val = json["status"] as? Int {
-            status = val
+        guard let status = json["status"] as? Int else {
+            error = .failure("Response missing status")
+            return
+        }
+        if status != 200 {
+            error = .failure("Response status \(status)")
+            return
         }
 
         // payload is always an array,
         // usually an array of one json object,
-        // but sometimes is an array of one string
-        if let val = json["payload"] as? [Any] {
-            if let obj = val.first as? [String: Any] {
-                payloadObject = obj
-            } else if let str = val.first as? String {
-                payloadString = str
-            } else if let arr = val.first as? [Any] {
-                if arr.count == 0 {
-                    payloadObject = [:]
-                }
-            }
+        // but in the cases of authInit it is an array of one string
+        guard let payload = json["payload"] as? [Any] else {
+            error = .failure("Response missing payload")
+            return
         }
-        
-        // error checking
-        if status == -1 {
-            error = GatewayError.missing("status")
-        } else if payloadObject == nil && payloadString == nil {
-            error = GatewayError.unexpectedPayload
+        if let val = payload.first as? [String: Any] {
+            type = .object
+            objectResult = val
+        } else if let val = payload.first as? [Any] {
+            type = .array
+            arrayResult = val
+        } else if let val = payload.first as? String {
+            type = .string
+            stringResult = val
+        } else {
+            error = .failure("Response has unexpected payload: \(String(describing: payload))")
+            return
         }
+        error = nil
+    }
+    
+    func decodeJSON(_ jsonString: String) -> [String: Any]? {
+        if
+            let data = jsonString.data(using: .utf8),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonObject = json as? [String: Any]
+        {
+            return jsonObject
+        } else {
+            return nil
+        }
+    }
 
-        self.status = status
-        self.payloadString = payloadString
-        self.payloadObject = payloadObject
-        self.error = error
+    static func makeError(_ reason: String) -> GatewayResponse {
+        var resp = GatewayResponse()
+        resp.error = .failure(reason)
+        return resp
     }
     
     func getString(_ key: String) -> String? {
-        if let val = payloadObject?[key] as? String {
+        if let val = objectResult?[key] as? String {
             return val
         }
-        return payloadString
+        return stringResult
     }
     
     func getObject(_ key: String) -> Any? {
-        if let val = payloadObject?[key] {
+        if let val = objectResult?[key] {
             return val
         }
         return nil
