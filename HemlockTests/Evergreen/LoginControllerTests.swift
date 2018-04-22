@@ -42,6 +42,7 @@ class LoginControllerTests: XCTestCase {
         super.tearDown()
     }
     
+    /*
     func testBasic() {
         let expectation = XCTestExpectation(description: "wait for async request")
         LoginController(username: username, password: password).login { account, resp in
@@ -54,5 +55,5 @@ class LoginControllerTests: XCTestCase {
 
         wait(for: [expectation], timeout: 2.0)
     }
-    
+    */
 }
