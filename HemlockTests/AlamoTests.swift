@@ -23,58 +23,28 @@ import Foundation
 @testable import Hemlock
 
 class AlamoTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func printInfo(_ name: String, _ value: Any) {
-        let t = type(of: value)
-        print("\(name) has type \(t)")
-    }
-
-    func decodeJSON(_ data: Data) -> [String: Any]? {
-        if
-            let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonObject = json as? [String: Any]
-        {
-            return jsonObject
-        } else {
-            return nil
-        }
-    }
+    let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
 
     func test_basicGet() {
-        let expectation = XCTestExpectation(description: "wait for async request")
-        let request = Alamofire.request("https://www.apple.com")
+        let expectation = XCTestExpectation(description: "wait for async response")
+        let request = Alamofire.request("https://httpbin.org/get")
+        print("request:  \(request.description)")
         request.responseData { response in
             XCTAssertTrue(response.result.isSuccess)
-            let size = response.data?.count
-            print("size: \(String(describing: size))")
+            print("response: \(response.description)")
             expectation.fulfill()
         }
  
-         print("after")
         wait(for: [expectation], timeout: 10.0)
     }
 
-    func test_directory_responseJSON() {
-        let expectation = XCTestExpectation(description: "wait for async request")
+    // use responseJSON to get response as decoded JSON
+    func test_responseJSON() {
+        let expectation = XCTestExpectation(description: "wait for async response")
         let request = Alamofire.request(API.directoryURL)
-
-        debugPrint(request)
+        print("request:  \(request.description)")
         request.responseJSON { response in
-//            print("Request:  \(String(describing: response.request))")
-//            print("Response: \(String(describing: response.response))")
-//            print("Result:   \(response.result)")
-//            self.printInfo("response.result", response.result);
-
+            print("response: \(response.description)")
             XCTAssertTrue(response.result.isSuccess)
             XCTAssertTrue(response.result.value != nil, "result has value")
             if let json = response.result.value {
@@ -95,24 +65,19 @@ class AlamoTests: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
 
-    func test_directory_responseData() {
-        let expectation = XCTestExpectation(description: "wait for async request")
+    // use responseData to get response as Data then decode it as JSON
+    func test_responseData() {
+        let expectation = XCTestExpectation(description: "wait for async response")
         let request = Alamofire.request(API.directoryURL)
+        print("request:  \(request.description)")
         request.responseData { response in
-            print("Request:  \(String(describing: response.request))")
-            print("Response: \(String(describing: response.response))")
-            print("Result:   \(response.result)")
-            self.printInfo("response.result", response.result);
-            
+            print("response: \(response.description)")
             XCTAssertTrue(response.result.isSuccess)
-            
             XCTAssertTrue(response.result.value != nil, "result has value")
             if let data = response.result.value,
                 let json = try? JSONSerialization.jsonObject(with: data)
             {
-                self.printInfo("json", json);
                 debugPrint(json)
-                
                 XCTAssertTrue(json is [Any], "is array");
                 XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
                 XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
@@ -131,4 +96,49 @@ class AlamoTests: XCTestCase {
         
         wait(for: [expectation], timeout: 2.0)
     }
+    
+    // test using gatewayEncoding to encode as param=1&param=2
+    func test_gatewayEncoding() {
+        let url = URL(string: "https://httpbin.org/get")!
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        let parameters: Parameters = ["param": [1,2]]
+        if let encodedURLRequest = try? gatewayEncoding.encode(urlRequest, with: parameters),
+            let data = encodedURLRequest.httpBody,
+            let str = String(data: data, encoding: .utf8) {
+            XCTAssertEqual(str, "param=1&param=2")
+        } else {
+            XCTFail("getting httpBody as string")
+        }
+    }
+    
+    // make a request using gatewayEncoding
+    func test_gatewayEncodingResponse() {
+        let expectation = XCTestExpectation(description: "wait for async response")
+        let parameters = ["param": ["\"stringish\"", "{\"objish\":1}"]]
+        let request = Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: gatewayEncoding)
+        print("request:  \(request.description)")
+        request.responseData { response in
+            print("response: \(response.description)")
+            XCTAssertTrue(response.result.isSuccess)
+            XCTAssertTrue(response.result.value != nil, "result has value")
+            if let data = response.result.value,
+                let json = try? JSONSerialization.jsonObject(with: data),
+                let jsonObj = json as? [String: Any],
+                let form = jsonObj["form"] as? [String: Any],
+                let params = form["param"] as? [String]
+            {
+                print(json)
+                print(form)
+                XCTAssertEqual(params[0], "\"stringish\"")
+                XCTAssertEqual(params[1], "{\"objish\":1}")
+                expectation.fulfill()
+            } else {
+                XCTFail("validating form in json response")
+            }
+        }
+
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
 }

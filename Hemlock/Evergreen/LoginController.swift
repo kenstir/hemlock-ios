@@ -30,20 +30,54 @@ class LoginController {
     
     func login(completion: @escaping (_: Account, _: GatewayResponse) -> Void) {
         let request = API.createRequest(service: API.auth, method: API.authInit, args: [account.username])
-        debugPrint(request)
-/*
-        request.responseJSON { response in
-            guard let json = response.result.value else
+        print("request:  \(request.description)")
+        if let httpBody = request.request?.httpBody {
+            print("body:      \(httpBody)")
+        }
+        request.responseData { response in
+            if let httpBody = request.request?.httpBody {
+                print("body:      \(httpBody)")
+            }
+            print("response: \(response.description)")
+            guard response.result.isSuccess,
+                let data = response.result.value else
             {
-                completion(self.account, GatewayResponse.makeError())
+                let errorMessage = response.description 
+                completion(self.account, GatewayResponse.makeError(errorMessage))
                 return
             }
-            let resp = GatewayResponse(json)
-            guard let self.nonce = resp.payloadString else {
-                completion(self.account, GatewayResponse.makeError())
+            debugPrint(data)
+            let resp = GatewayResponse(data)
+            guard let nonce = resp.stringResult else {
+                completion(self.account, GatewayResponse.makeError("unexpected response to login"))
+                return
             }
+            self.nonce = nonce
+            
+            self.loginComplete(completion: completion)
         }
- */
-        completion(self.account, GatewayResponse.makeError("EFAIL"))
+    }
+    
+    func loginComplete(completion: @escaping (_: Account, _: GatewayResponse) -> Void) {
+        let md5password = md5(self.nonce! + self.account.password)
+        let osrfObject = ["type": "opac", "username": self.account.username, "password": md5password]
+        let request = API.createRequest(service: API.auth, method: API.authComplete, args: [osrfObject])
+        print("request:  \(request.description)")
+        request.responseData { response in
+            if let httpBody = request.request?.httpBody {
+                print("body:      \(httpBody)")
+            }
+            print("response: \(response.description)")
+            guard response.result.isSuccess,
+                let data = response.result.value else
+            {
+                let errorMessage = response.description
+                completion(self.account, GatewayResponse.makeError(errorMessage))
+                return
+            }
+            debugPrint(data)
+            let resp = GatewayResponse(data)
+            completion(self.account, resp)
+        }
     }
 }

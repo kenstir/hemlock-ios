@@ -30,47 +30,42 @@ struct API {
     static let authComplete = "open-ils.auth.authenticate.complete"
     static let authGetSession = "open-ils.auth.session.retrieve"
 
+    // todo: does this belong in GatewayRequest?
     static var library: Library?
     
+    // an encoding that serializes parameters as param=1&param=2
+    static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
+
+    // todo: factor request handling out into GatewayRequest
     static func createRequest(service: String, method: String, args: [Any]) -> Alamofire.DataRequest
     {
-        let url = API.gatewayURL(service: service, method: method, args: args)
-        let request = Alamofire.request(url)
+        let url = API.gatewayURL()
+        let parameters: [String: Any] = ["service": service, "method": method, "param": API.gatewayParams(args)]
+        let request = Alamofire.request(url, method: .post, parameters: parameters, encoding: gatewayEncoding)
         return request
     }
     
-    // serialize an HTTP param
-    static func gatewayParam(_ arg: Any) -> String
+    static func gatewayParams(_ args: [Any]) -> [String]
     {
-        var ret: String
-        if arg is String {
-            ret = "\"\(arg)\""
-        } else if arg is Double {
-            ret = "\(arg)"
-        } else if arg is Int {
-            ret = "\(arg)"
-        } else {
-            ret = ""
+        var params: [String] = []
+        for arg in args {
+            if arg is String {
+                params.append("\"\(arg)\"")
+            } else if arg is Double {
+                params.append("\(arg)")
+            } else if arg is Int {
+                params.append("\(arg)")
+            } else {
+                params.append("*unexpectedType*")
+            }
         }
-        return ret
+        return params
     }
     
-    static func gatewayURL(service: String, method: String, args: [Any]) -> String
+    static func gatewayURL() -> String
     {
-        guard var url = library?.url else {
-            return String()
-        }
-
-        url += "/osrf-gateway-v1?service="
-        url.append(service)
-        url.append("&method=")
-        url += method
-        
-        for arg in args {
-            url += "&param="
-            url += API.gatewayParam(arg)
-        }
-
+        var url = library?.url ?? ""
+        url += "/osrf-gateway-v1"
         return url
     }
 }

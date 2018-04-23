@@ -33,26 +33,36 @@ enum GatewayResultType {
 
 struct GatewayResponse {
     var type: GatewayResultType
+    var error: GatewayError?
     var stringResult: String?
     var objectResult: [String: Any]?
     var arrayResult: [Any]?
-    var error: GatewayError?
     var failed: Bool {
         return type == .error
     }
     
     init() {
         type = .error
-        error = .failure("unknown")
+        error = .failure("unintialized")
     }
     
     init(_ jsonString: String) {
         self.init()
-        
-        guard var json = decodeJSON(jsonString) else {
+        guard let data = jsonString.data(using: .utf8) else {
+            error = .failure("Unable to encode as utf8: \(jsonString)")
+            return
+        }
+        self.init(data)
+    }
+
+    init(_ data: Data) {
+        self.init()
+
+        guard var json = decodeJSON(data) else {
             error = .failure("Response not JSON")
             return
         }
+        debugPrint(json)
 
         guard let status = json["status"] as? Int else {
             error = .failure("Response missing status")
@@ -86,9 +96,8 @@ struct GatewayResponse {
         error = nil
     }
     
-    func decodeJSON(_ jsonString: String) -> [String: Any]? {
+    func decodeJSON(_ data: Data) -> [String: Any]? {
         if
-            let data = jsonString.data(using: .utf8),
             let json = try? JSONSerialization.jsonObject(with: data),
             let jsonObject = json as? [String: Any]
         {

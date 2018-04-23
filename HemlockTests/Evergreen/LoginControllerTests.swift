@@ -29,7 +29,7 @@ class LoginControllerTests: XCTestCase {
             let username = jsonObject["username"],
             let password = jsonObject["password"] else
         {
-            XCTFail("unable to read data from \(configFile).json")
+            XCTFail("unable to read data from \(configFile).json, see TestConfig/README.md")
             return
         }
         API.library = Library(url)
@@ -42,7 +42,6 @@ class LoginControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    /*
     func testBasic() {
         let expectation = XCTestExpectation(description: "wait for async request")
         LoginController(username: username, password: password).login { account, resp in
@@ -53,7 +52,6 @@ class LoginControllerTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 2.0)
+        wait(for: [expectation], timeout: 240.0)
     }
-    */
 }
