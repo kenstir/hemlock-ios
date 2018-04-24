@@ -51,20 +51,15 @@ struct API {
         for arg in args {
             if arg is String {
                 params.append("\"\(arg)\"")
-            } else if arg is Double {
+            } else if arg is Double || arg is Int {
                 params.append("\(arg)")
-            } else if arg is Int {
-                params.append("\(arg)")
-            } else if arg is [String: Any] {
-                if let jsonData = try? JSONSerialization.data(withJSONObject: arg),
-                    let str = String(data: jsonData, encoding: .utf8)
-                {
-                    params.append(str)
-                } else {
-                    params.append("???")
-                }
+            } else if let dict = arg as? [String: Any],
+                let jsonData = try? JSONSerialization.data(withJSONObject: dict),
+                let str = String(data: jsonData, encoding: .utf8)
+            {
+                params.append(str)
             } else {
-                params.append("???2")
+                params.append("???")
             }
         }
         return params
