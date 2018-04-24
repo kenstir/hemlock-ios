@@ -55,8 +55,16 @@ struct API {
                 params.append("\(arg)")
             } else if arg is Int {
                 params.append("\(arg)")
+            } else if arg is [String: Any] {
+                if let jsonData = try? JSONSerialization.data(withJSONObject: arg),
+                    let str = String(data: jsonData, encoding: .utf8)
+                {
+                    params.append(str)
+                } else {
+                    params.append("???")
+                }
             } else {
-                params.append("*unexpectedType*")
+                params.append("???2")
             }
         }
         return params

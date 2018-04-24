@@ -37,9 +37,11 @@ class APITests: XCTestCase {
         XCTAssertEqual(p3, ["3.14"])
     }
     
-    func test_gatewayParam_unknownType() {
-        let p1 = API.gatewayParams([Set<Int>()])
-        XCTAssertEqual(p1, ["*unexpectedType*"])
+    func test_gatewayParam_jsonObject() {
+        let authToken = "deadbeef"
+        let complexParam = ["active": 1]
+        let p1 = API.gatewayParams([authToken, complexParam])
+        XCTAssertEqual(p1, ["\"deadbeef\"","{\"active\":1}"])
     }
     
     func test_createRequest_basic() {
