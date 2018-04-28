@@ -17,20 +17,27 @@
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
 		D22D027D208B93A900DC1F5B /* LoginControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */; };
-		D22D027F208BA11F00DC1F5B /* TestConfig in Resources */ = {isa = PBXBuildFile; fileRef = D22D027E208BA11F00DC1F5B /* TestConfig */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
 		D231B52C2083C08000478D25 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52D2083C1E500478D25 /* LibraryTests.swift */; };
+		D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */; };
+		D2385E2E20914E6C00FE0C89 /* TestData in Resources */ = {isa = PBXBuildFile; fileRef = D2385E2D20914E6B00FE0C89 /* TestData */; };
+		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* ViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
 		D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D287D502207AEF2C001AF644 /* Assets.xcassets */; };
 		D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
-		D287D511207AEF2D001AF644 /* HemlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D510207AEF2D001AF644 /* HemlockTests.swift */; };
 		D287D51C207AEF3D001AF644 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51D207AEF54001AF644 /* AccountTests.swift */; };
 		D287D520207AF88E001AF644 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51F207AF88E001AF644 /* API.swift */; };
+		D29C720E209245E200E90952 /* TestUserData in Resources */ = {isa = PBXBuildFile; fileRef = D29C720D209245E200E90952 /* TestUserData */; };
+		D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
+		D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C721120924CF000E90952 /* OSRFCoderTests.swift */; };
+		D29C72142092691A00E90952 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
+		D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
+		D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72172094002100E90952 /* OSRFObjectTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +62,14 @@
 		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
 		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
 		D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginControllerTests.swift; path = HemlockTests/Evergreen/LoginControllerTests.swift; sourceTree = SOURCE_ROOT; };
-		D22D027E208BA11F00DC1F5B /* TestConfig */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestConfig; sourceTree = SOURCE_ROOT; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D231B52B2083C08000478D25 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D231B52D2083C1E500478D25 /* LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTests.swift; sourceTree = "<group>"; };
+		D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParserTests.swift; sourceTree = "<group>"; };
+		D2385E2D20914E6B00FE0C89 /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = SOURCE_ROOT; };
+		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,11 +78,16 @@
 		D287D505207AEF2C001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D287D507207AEF2C001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D287D50C207AEF2D001AF644 /* HemlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D287D510207AEF2D001AF644 /* HemlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockTests.swift; sourceTree = "<group>"; };
 		D287D512207AEF2D001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D287D51B207AEF3D001AF644 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D287D51D207AEF54001AF644 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		D287D51F207AF88E001AF644 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D29C720D209245E200E90952 /* TestUserData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUserData; sourceTree = SOURCE_ROOT; };
+		D29C720F209248F500E90952 /* OSRFCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoder.swift; sourceTree = "<group>"; };
+		D29C721120924CF000E90952 /* OSRFCoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoderTests.swift; sourceTree = "<group>"; };
+		D29C72132092691A00E90952 /* OSRFClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFClass.swift; sourceTree = "<group>"; };
+		D29C72152093A2C000E90952 /* OSRFObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObject.swift; sourceTree = "<group>"; };
+		D29C72172094002100E90952 /* OSRFObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObjectTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +131,10 @@
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
 				D22D02642083DE9100DC1F5B /* LoginController.swift */,
+				D270C4082091FCAA00D27159 /* IDLParser.swift */,
+				D29C720F209248F500E90952 /* OSRFCoder.swift */,
+				D29C72132092691A00E90952 /* OSRFClass.swift */,
+				D29C72152093A2C000E90952 /* OSRFObject.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -127,6 +145,9 @@
 				D22D02682083EA7600DC1F5B /* APITests.swift */,
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
 				D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */,
+				D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */,
+				D29C721120924CF000E90952 /* OSRFCoderTests.swift */,
+				D29C72172094002100E90952 /* OSRFObjectTests.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -183,12 +204,12 @@
 		D287D50F207AEF2D001AF644 /* HemlockTests */ = {
 			isa = PBXGroup;
 			children = (
-				D22D027E208BA11F00DC1F5B /* TestConfig */,
+				D29C720D209245E200E90952 /* TestUserData */,
+				D2385E2D20914E6B00FE0C89 /* TestData */,
 				D22D027B208588A100DC1F5B /* Evergreen */,
 				D22D0271208506A700DC1F5B /* Utils */,
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
 				D231B52120804DF900478D25 /* AlamoTests.swift */,
-				D287D510207AEF2D001AF644 /* HemlockTests.swift */,
 				D287D512207AEF2D001AF644 /* Info.plist */,
 				D231B52D2083C1E500478D25 /* LibraryTests.swift */,
 			);
@@ -289,7 +310,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D22D027F208BA11F00DC1F5B /* TestConfig in Resources */,
+				D2385E2E20914E6C00FE0C89 /* TestData in Resources */,
+				D29C720E209245E200E90952 /* TestUserData in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,13 +339,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
 				D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */,
+				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				D22D026B2083EBB100DC1F5B /* PINES.swift in Sources */,
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
+				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
+				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 				D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */,
@@ -334,13 +360,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D287D511207AEF2D001AF644 /* HemlockTests.swift in Sources */,
 				D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */,
+				D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */,
+				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
 				D22D027D208B93A900DC1F5B /* LoginControllerTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
+				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* APITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

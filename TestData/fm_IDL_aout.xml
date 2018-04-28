@@ -1,0 +1,26 @@
+<IDL xmlns='http://opensrf.org/spec/IDL/base/v1' xmlns:idl='http://opensrf.org/spec/IDL/base/v1' xmlns:oils_persist='http://open-ils.org/spec/opensrf/IDL/persistence/v1' xmlns:oils_obj='http://open-ils.org/spec/opensrf/IDL/objects/v1' xmlns:reporter='http://open-ils.org/spec/opensrf/IDL/reporter/v1' xmlns:permacrud='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'><class id='aout' controller='open-ils.cstore open-ils.pcrud' oils_obj:fieldmapper='actor::org_unit_type' oils_persist:tablename='actor.org_unit_type' reporter:label='Organizational Unit Type' oils_persist:field_safe='true'>
+		<fields oils_persist:primary='id' oils_persist:sequence='actor.org_unit_type_id_seq'>
+			<field reporter:label='Subordinate Types' name='children' oils_persist:virtual='true' reporter:datatype='link'></field>
+			<field reporter:label='Can Have Users?' name='can_have_users' reporter:datatype='bool'></field>
+			<field reporter:label='Can Have Volumes?' name='can_have_vols' reporter:datatype='bool'></field>
+			<field reporter:label='Type Depth' name='depth' reporter:datatype='int'></field>
+			<field reporter:label='Type ID' name='id' reporter:selector='name' reporter:datatype='id'></field>
+			<field reporter:label='Type Name' name='name' reporter:datatype='text' oils_persist:i18n='true'></field>
+			<field reporter:label='OPAC Label' name='opac_label' reporter:datatype='text' oils_persist:i18n='true'></field>
+			<field reporter:label='Parent Type' name='parent' reporter:datatype='link'></field>
+			<field reporter:label='Org Units' name='org_units' oils_persist:virtual='true' reporter:datatype='org_unit'></field>
+		</fields>
+		<links>
+			<link field='parent' reltype='has_a' key='id' map='' class='aout'></link>
+			<link field='children' reltype='has_many' key='parent' map='' class='aout'></link>
+			<link field='org_units' reltype='has_many' key='ou_type' map='' class='aou'></link>
+		</links>
+        <permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+            <actions>
+                <create permission='CREATE_ORG_TYPE' global_required='true'></create>
+                <retrieve></retrieve>
+                <update permission='UPDATE_ORG_TYPE' global_required='true'></update>
+                <delete permission='DELETE_ORG_TYPE' global_required='true'></delete>
+            </actions>
+        </permacrud>
+	</class></IDL>

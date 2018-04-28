@@ -11,7 +11,7 @@ import XCTest
 
 class LoginControllerTests: XCTestCase {
     
-    let configFile = "TestConfig/testAccount" // .json
+    let configFile = "TestUserData/testAccount" // .json
     var username = "read from testAccount.json"
     var password = "read from testAccount.json"
     
@@ -29,7 +29,7 @@ class LoginControllerTests: XCTestCase {
             let username = jsonObject["username"],
             let password = jsonObject["password"] else
         {
-            XCTFail("unable to read data from \(configFile).json, see TestConfig/README.md")
+            XCTFail("unable to read data from \(configFile).json, see TestUserData/README.md")
             return
         }
         API.library = Library(url)

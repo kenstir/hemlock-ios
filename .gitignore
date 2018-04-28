@@ -5,3 +5,4 @@ Carthage
 
 # exclude test data
 TestConfig/**
+TestUserData/**
