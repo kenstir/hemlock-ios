@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D22D02692083EA7600DC1F5B /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* APITests.swift */; };
@@ -24,6 +25,7 @@
 		D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */; };
 		D2385E2E20914E6C00FE0C89 /* TestData in Resources */ = {isa = PBXBuildFile; fileRef = D2385E2D20914E6B00FE0C89 /* TestData */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
+		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* ViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
@@ -51,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D22D02662083E45700DC1F5B /* Corsortium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corsortium.swift; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 		D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParserTests.swift; sourceTree = "<group>"; };
 		D2385E2D20914E6B00FE0C89 /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = SOURCE_ROOT; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
+		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = /Users/kenstir/Documents/xcode/Hemlock/README.md; sourceTree = "<absolute>"; };
+		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,12 +169,14 @@
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
+				D27EFD5B2094E46400D7E22E /* Documentation */,
 				D287D4FA207AEF2B001AF644 /* Hemlock */,
 				D287D50F207AEF2D001AF644 /* HemlockTests */,
 				D287D4F9207AEF2B001AF644 /* Products */,
 				D231B52520815EAC00478D25 /* Frameworks */,
 				D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */,
 				D22D0274208516D600DC1F5B /* LICENSE */,
+				D27EFD5A2094E1EB00D7E22E /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +219,7 @@
 				D231B52120804DF900478D25 /* AlamoTests.swift */,
 				D287D512207AEF2D001AF644 /* Info.plist */,
 				D231B52D2083C1E500478D25 /* LibraryTests.swift */,
+				D20EE9D72094BC9100AF261D /* MiscTests.swift */,
 			);
 			path = HemlockTests;
 			sourceTree = "<group>";
@@ -302,6 +310,7 @@
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */,
 				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
+				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +378,7 @@
 				D22D027D208B93A900DC1F5B /* LoginControllerTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
 				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,
+				D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* APITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

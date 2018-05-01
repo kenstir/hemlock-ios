@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Hemlock.xcodeproj">
+      location = "group:/Users/kenstir/Documents/xcode/Hemlock/README.md">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
