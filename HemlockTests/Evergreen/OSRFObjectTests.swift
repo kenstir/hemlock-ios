@@ -43,7 +43,7 @@ class OSRFObjectTests: XCTestCase {
             let str2 = String(data: jsonData2, encoding: .utf8) {
             print(String(describing: str1))
             print(String(describing: str2))
-            // NB: this check fails
+            // NB: this check fails, natch
             //XCTAssertEqual(str1, str2)
         } else {
             XCTFail("strings of identical objects are not identical")
@@ -78,5 +78,4 @@ class OSRFObjectTests: XCTestCase {
             }
         }
     }
-    
 }

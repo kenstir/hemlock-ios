@@ -28,7 +28,7 @@ class OSRFCoderTests: XCTestCase {
         OSRFCoder.clear()
     }
     
-    func test_encode_basic() {
+    func test_register() {
         OSRFCoder.registerClass("aout", fields: ["children","can_have_users","can_have_vols","depth","id","name","opac_label","parent","org_units"])
         
         var coder = OSRFCoder.findClass("xyzzy")
@@ -38,7 +38,7 @@ class OSRFCoderTests: XCTestCase {
         XCTAssertEqual(coder?.netClass, "aout")
         XCTAssertEqual(coder?.fields.count, 9)
     }
-    /*
+
     func test_decode_basic() {
         OSRFCoder.registerClass("aout", fields: ["children","can_have_users","can_have_vols","depth","id","name","opac_label","parent","org_units"])
         
@@ -46,29 +46,30 @@ class OSRFCoderTests: XCTestCase {
         XCTAssertEqual(coder?.netClass, "aout")
         XCTAssertEqual(coder?.fields.count, 9)
         
-        let jsonString = """
+        let wireString = """
             [null,"t","t",3,11,"Non-member Library","Non-member Library",10]
             """
         guard
-            let data = jsonString.data(using: .utf8),
+            let data = wireString.data(using: .utf8),
             let json = try? JSONSerialization.jsonObject(with: data),
-            let dict = json as? [Any] else
+            let jsonArray = json as? [Any?] else
         {
-            XCTFail("unable to decode json string as [Any?]")
+            XCTFail("unable to decode json string as array")
             return
         }
+        let first = jsonArray[0]
+        if first == nil {
+            print("ok but how")
+        } else {
+            print("ok but now I'm really confused")
+        }
+        XCTAssertNil(jsonArray[0])
 
-        let decodedObj = OSRFCoder.decode("aout", dict)
-        debugPrint(decodedObj)
+        let decodedObj = OSRFCoder.decode("aout", wireString: wireString)
+        debugPrint(decodedObj ?? "??")
         let expectedObj = OSRFObject(["children": nil, "can_have_users": true, "can_have_vols": true,
                                       "depth": 3, "id": 11, "name": "Non-member Library",
                                       "opac_label": "Non-member Library", "org_units": 10])
-        if decodedObj == expectedObj {
-            XCTAssertTrue(true)
-        } else {
-            XCTFail()
-        }
         XCTAssertEqual(decodedObj, expectedObj)
     }
-    */
 }

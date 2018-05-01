@@ -19,6 +19,12 @@
 
 import Foundation
 
+/// `OSRFCoder` encodes and decodes OSRF objects to and from OSRF wire format.
+///
+/// An `OSRFObject` is whatever gets returned in the top-level "payload" field
+/// of a GatewayResponse
+/// On the wire, OSRFObjects may be a straight JSON object or array, or it
+/// may be an encoded , with fields, but on the
 struct OSRFCoder {
     static private var registry: [String: OSRFCoder] = [:]
     
@@ -44,8 +50,15 @@ struct OSRFCoder {
         return registeredObject
     }
     
-    static func decode(_ netClass: String, _ wireProtocolObject: [Any]?) -> OSRFObject {
-        // stub :)
+    static func decode(_ netClass: String, wireString: String) -> OSRFObject? {
+        guard
+            let coder = registry[netClass],
+            let data = wireString.data(using: .utf8),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonArray = json as? [Any?] else
+        {
+            return nil
+        }
         return OSRFObject(["children": nil, "id": 11])
     }
 }

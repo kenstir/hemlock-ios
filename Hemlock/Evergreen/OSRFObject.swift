@@ -19,7 +19,7 @@
 
 import Foundation
 
-struct OSRFObject {
+struct OSRFObject: Equatable {
     
     var payload: [String: Any?]
     

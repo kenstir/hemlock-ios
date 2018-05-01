@@ -34,9 +34,12 @@ enum GatewayResultType {
 struct GatewayResponse {
     var type: GatewayResultType
     var error: GatewayError?
+
+    // a field for each GatewayResultType; I'm sure there's a better way
     var stringResult: String?
     var objectResult: [String: Any]?
     var arrayResult: [Any]?
+
     var failed: Bool {
         return type == .error
     }
