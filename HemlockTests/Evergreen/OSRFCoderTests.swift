@@ -63,7 +63,7 @@ class OSRFCoderTests: XCTestCase {
         XCTAssertEqual("t", jsonArray[1] as? String)
         XCTAssertEqual(jsonArray.count, 8)
 
-        let expectedObj = OSRFObject(["children": nil, "can_have_users": true, "can_have_vols": true,
+        let expectedObj = OSRFObject(["children": nil, "can_have_users": "t", "can_have_vols": "t",
                                       "depth": 3, "id": 11, "name": "Non-member Library",
                                       "opac_label": "Non-member Library", "parent": 10])
         do {
