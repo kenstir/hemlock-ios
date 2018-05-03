@@ -21,7 +21,8 @@ import Foundation
 struct Account {
     let username: String
     var password: String
-    var authToken: String?
+    var authtoken: String?
+    var authtokenExpiryDate: Date?
     var userID: Int?
     
     init(username: String, password: String) {

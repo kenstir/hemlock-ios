@@ -58,16 +58,16 @@ open-ils.circ.holds.retrieve payload: array
 
 #### OSRF object
 
-A gateway response payload may be an OSRF object, which is an Evergreen database object encoded in "wire format" for space.
+A gateway response payload may be an OSRF object, which is an Evergreen database object encoded in "wire format".
 
 open-ils.circ.retrieve payload: an OSRF "circ" object
 ```
 {"__c":"circ","__p":[null,null,null,69,3788,"f","2018-05-02T23:59:59-0400","7 days","7_days_1_renew","1 day",73493047,"3.00","default","f","f","0.00","0_cent",1,"00:00:00",null,null,17124983,409071,null,"2018-04-25T17:05:08-0400","2018-04-25T17:05:08-0400",1720,null,null,null,null,null,null,null,null,null,null,323]}
 ```
 
-This circ object cannot be reconstructed without access to the interface definition language (IDL), which is available from the catalog server at the path `/reports/fm_IDL.xml`.  The IDL is huge, so there is a significant performance gain to be had by parsing only a subset, e.g. `fm_IDL.xml?class=aout&class=circ` 
+This circ object cannot be reconstructed without access to the interface definition language (IDL), which describes the order of the fields, and their names.  The IDL is available from the catalog server at the path `/reports/fm_IDL.xml`.  The full IDL is huge, so there is a significant performance gain to be had by parsing only the subset describing the classes we are interested in, e.g. `fm_IDL.xml?class=aout&class=circ` 
 
-#### Nested object hierarchies
+#### Collection of OSRF objects
 
-A gateway response payload may contain an arbitrarily nested hierarchy of OSRF objects.  Exercise: visit `/osrf-gateway-v1?service=open-ils.actor&method=open-ils.actor.org_tree.retrieve`
+A gateway response payload may be an arbitrarily complex collection of OSRF objects, e.g. an array of "circ" (Circulation) objects or a tree of "aou" (Organizational Unit) objects.  For an example of a nested collection, visit `/osrf-gateway-v1?service=open-ils.actor&method=open-ils.actor.org_tree.retrieve`
 

@@ -24,7 +24,7 @@ enum GatewayError: Error {
     case failure(String)
 }
 
-enum GatewayResultType {
+enum GatewayResponseType {
     case string
     case object
     case array
@@ -32,7 +32,7 @@ enum GatewayResultType {
 }
 
 struct GatewayResponse {
-    var type: GatewayResultType
+    var type: GatewayResponseType
     var error: GatewayError?
 
     // a field for each GatewayResultType; I'm sure there's a better way

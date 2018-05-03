@@ -19,12 +19,12 @@
 
 import Foundation
 
+enum OSRFDecodingError: Error {
+    case classNotFound(String)
+    case jsonDecodingFailed
+}
+
 /// `OSRFCoder` encodes and decodes OSRF objects to and from OSRF wire format.
-///
-/// An `OSRFObject` is whatever gets returned in the top-level "payload" field
-/// of a GatewayResponse
-/// On the wire, OSRFObjects may be a straight JSON object or array, or it
-/// may be an encoded , with fields, but on the
 struct OSRFCoder {
     static private var registry: [String: OSRFCoder] = [:]
     
@@ -50,15 +50,26 @@ struct OSRFCoder {
         return registeredObject
     }
     
-    static func decode(_ netClass: String, wireString: String) -> OSRFObject? {
+    static func decode(_ netClass: String, wireString: String) throws -> OSRFObject {
         guard
-            let coder = registry[netClass],
             let data = wireString.data(using: .utf8),
             let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonArray = json as? [Any?] else
+            let arr = json as? [Any?],
+            let coder = registry[netClass] else
         {
-            return nil
+            throw OSRFDecodingError.jsonDecodingFailed
         }
-        return OSRFObject(["children": nil, "id": 11])
+        debugPrint(json)
+        
+        var dict: [String: Any?] = [:]
+        let fields = coder.fields
+        for i in 0...arr.count-1 {
+            let key = fields[i]
+            let val = arr[i]
+            dict[key] = val
+            print("field at index \(i) is \(key) => \(String(describing: val))")
+        }
+        
+        return OSRFObject(dict)
     }
 }

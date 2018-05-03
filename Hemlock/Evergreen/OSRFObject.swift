@@ -21,10 +21,10 @@ import Foundation
 
 struct OSRFObject: Equatable {
     
-    var payload: [String: Any?]
+    var dict: [String: Any?]
     
-    init(_ payload: [String: Any?] = [:]) {
-        self.payload = payload
+    init(_ dict: [String: Any?] = [:]) {
+        self.dict = dict
     }
 
     // MARK: Equatable
@@ -32,11 +32,11 @@ struct OSRFObject: Equatable {
     // but this is just for unit tests.  So we treat two OSRFObjects
     // as equal if they serialize to the same JSON String.
     static func == (lhs: OSRFObject, rhs: OSRFObject) -> Bool {
-        if lhs.payload.count != rhs.payload.count {
+        if lhs.dict.count != rhs.dict.count {
             return false
         }
-        let keys = lhs.payload.keys
-        if keys != rhs.payload.keys {
+        let keys = lhs.dict.keys
+        if keys != rhs.dict.keys {
             return false
         }
         if

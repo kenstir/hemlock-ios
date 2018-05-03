@@ -39,7 +39,9 @@ class OSRFCoderTests: XCTestCase {
         XCTAssertEqual(coder?.fields.count, 9)
     }
 
-    func test_decode_basic() {
+    // Case: decoding an object having 9 fields given an array of only 8 elements.
+    // The result should be an OSRFObject with the last field omitted.
+    func test_decode_shortObject() {
         OSRFCoder.registerClass("aout", fields: ["children","can_have_users","can_have_vols","depth","id","name","opac_label","parent","org_units"])
         
         let coder = OSRFCoder.findClass("aout")
@@ -57,19 +59,21 @@ class OSRFCoderTests: XCTestCase {
             XCTFail("unable to decode json string as array")
             return
         }
-        let first = jsonArray[0]
-        if first == nil {
-            print("ok but how")
-        } else {
-            print("ok but now I'm really confused")
-        }
         XCTAssertNil(jsonArray[0])
+        XCTAssertEqual("t", jsonArray[1] as? String)
+        XCTAssertEqual(jsonArray.count, 8)
 
-        let decodedObj = OSRFCoder.decode("aout", wireString: wireString)
-        debugPrint(decodedObj ?? "??")
         let expectedObj = OSRFObject(["children": nil, "can_have_users": true, "can_have_vols": true,
                                       "depth": 3, "id": 11, "name": "Non-member Library",
-                                      "opac_label": "Non-member Library", "org_units": 10])
-        XCTAssertEqual(decodedObj, expectedObj)
+                                      "opac_label": "Non-member Library", "parent": 10])
+        do {
+            let decodedObj = try OSRFCoder.decode("aout", wireString: wireString)
+            debugPrint(decodedObj)
+            XCTAssertEqual(decodedObj, expectedObj)
+            XCTAssertEqual(decodedObj.dict.keys.count, 8)
+        } catch {
+            debugPrint(error)
+            XCTFail(String(describing: error))
+        }
     }
 }

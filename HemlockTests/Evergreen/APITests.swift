@@ -38,9 +38,9 @@ class APITests: XCTestCase {
     }
     
     func test_gatewayParam_jsonObject() {
-        let authToken = "deadbeef"
+        let authtoken = "deadbeef"
         let complexParam = ["active": 1]
-        let p1 = API.gatewayParams([authToken, complexParam])
+        let p1 = API.gatewayParams([authtoken, complexParam])
         XCTAssertEqual(p1, ["\"deadbeef\"","{\"active\":1}"])
     }
     
