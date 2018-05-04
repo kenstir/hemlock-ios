@@ -36,46 +36,9 @@ struct OSRFObject: Equatable {
         if lhs.dict.count != rhs.dict.count {
             return false
         }
-        let keys = lhs.dict.keys
-        if keys != rhs.dict.keys {
+        if lhs.dict.keys != rhs.dict.keys {
             return false
         }
-        for key in keys {
-            print("key \(key):")
-            if lhs.dict[key] == nil {
-                print("    lhs nil")
-                if rhs.dict[key] == nil {
-                    print("    rhs nil")
-                    continue
-                }
-                return false
-            }
-            guard let v1 = lhs.dict[key],
-                let v2 = rhs.dict[key] else
-            {
-                print("    *** unable to unwrap")
-                return false
-            }
-            let t1 = type(of: v1)
-            let t2 = type(of: v2)
-            if v1 == nil {
-                print("    lhs nil")
-                if v2 == nil {
-                    print("    rhs nil")
-                    continue
-                }
-//                return false
-            }
-            print("    lhs '\(v1!)' type '\(t1)'")
-            print("    rhs '\(v2!)' type '\(t2)'")
-//            if isEqual(type: t1, a: v1, b: v2) {
-//                print("     lhs == rhs")
-//            } else {
-//                return false
-//            }
-        }
-        debugPrint("lhs", lhs)
-        debugPrint("rhs", rhs)
         if
             let jsonDataLHS = try? JSONSerialization.data(withJSONObject: lhs.dict),
             let strLHS = String(data: jsonDataLHS, encoding: .utf8),
