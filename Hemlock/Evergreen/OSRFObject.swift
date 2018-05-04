@@ -32,6 +32,7 @@ struct OSRFObject: Equatable {
     // but this is just for unit tests.  So we treat two OSRFObjects
     // as equal if they serialize to the same JSON String.
     static func == (lhs: OSRFObject, rhs: OSRFObject) -> Bool {
+        
         if lhs.dict.count != rhs.dict.count {
             return false
         }
@@ -39,10 +40,46 @@ struct OSRFObject: Equatable {
         if keys != rhs.dict.keys {
             return false
         }
+        for key in keys {
+            print("key \(key):")
+            if lhs.dict[key] == nil {
+                print("    lhs nil")
+                if rhs.dict[key] == nil {
+                    print("    rhs nil")
+                    continue
+                }
+                return false
+            }
+            guard let v1 = lhs.dict[key],
+                let v2 = rhs.dict[key] else
+            {
+                print("    *** unable to unwrap")
+                return false
+            }
+            let t1 = type(of: v1)
+            let t2 = type(of: v2)
+            if v1 == nil {
+                print("    lhs nil")
+                if v2 == nil {
+                    print("    rhs nil")
+                    continue
+                }
+//                return false
+            }
+            print("    lhs '\(v1!)' type '\(t1)'")
+            print("    rhs '\(v2!)' type '\(t2)'")
+//            if isEqual(type: t1, a: v1, b: v2) {
+//                print("     lhs == rhs")
+//            } else {
+//                return false
+//            }
+        }
+        debugPrint("lhs", lhs)
+        debugPrint("rhs", rhs)
         if
-            let jsonDataLHS = try? JSONSerialization.data(withJSONObject: lhs),
+            let jsonDataLHS = try? JSONSerialization.data(withJSONObject: lhs.dict),
             let strLHS = String(data: jsonDataLHS, encoding: .utf8),
-            let jsonDataRHS = try? JSONSerialization.data(withJSONObject: rhs),
+            let jsonDataRHS = try? JSONSerialization.data(withJSONObject: rhs.dict),
             let strRHS = String(data: jsonDataRHS, encoding: .utf8) {
             return strLHS == strRHS
         }

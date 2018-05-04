@@ -18,6 +18,9 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import os.log
+
+let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Gateway")
 
 enum GatewayError: Error {
     case malformedPayload(String)
@@ -65,7 +68,7 @@ struct GatewayResponse {
             error = .failure("Response not JSON")
             return
         }
-        debugPrint(json)
+        os_log("json: %@", log: log, type: .info, json)
 
         guard let status = json["status"] as? Int else {
             error = .failure("Response missing status")
