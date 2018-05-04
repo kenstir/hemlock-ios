@@ -54,7 +54,7 @@ class LoginController {
     }
     
     func loginComplete(completion: @escaping (_: Account, _: GatewayResponse) -> Void) {
-        let md5password = md5(self.nonce! + self.account.password)
+        let md5password = md5(self.nonce! + md5(self.account.password))
         let objectParam = ["type": "opac",
                           "username": self.account.username,
                           "password": md5password]
