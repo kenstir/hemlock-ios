@@ -1,5 +1,5 @@
 //
-//  PINES.swift
+//  MainButtonLayoutNode.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -17,6 +17,20 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-struct PINES {
-    static let url = "https://gapines.org"
+import AsyncDisplayKit
+
+class MainButtonLayoutNode: ASDisplayNode {
+    override required init() {
+        super.init()
+        automaticallyManagesSubnodes = true
+        backgroundColor = .white
+    }
+    
+    class func title() -> String {
+        return "Title Here"
+    }
+    
+    class func descriptionTitle() -> String? {
+        return "A Tremendous Description"
+    }
 }

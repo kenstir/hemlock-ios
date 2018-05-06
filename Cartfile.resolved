@@ -1,1 +1,6 @@
+git "https://chromium.googlesource.com/webm/libwebp" "v0.6.0"
 github "Alamofire/Alamofire" "4.7.2"
+github "pinterest/PINCache" "2.3"
+github "pinterest/PINOperation" "1.1.1"
+github "pinterest/PINRemoteImage" "3.0.0-beta.13"
+github "texturegroup/texture" "2.6"
