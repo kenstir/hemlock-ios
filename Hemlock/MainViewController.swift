@@ -20,21 +20,27 @@
 import AsyncDisplayKit
 
 class MainViewController: ASViewController<ASTableNode> {
-    let tableNode = ASTableNode()
+    var buttons: [MainButtonCellNode.Type]
     
     init() {
-        super.init(node: tableNode)
+        self.buttons = [
+            ItemsCheckedOutButton.self
+        ]
+
+        super.init(node: ASTableNode(style: .plain))
         
         self.title = AppSettings.appTitle
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//        tableNode.delegate = self
-//        tableNode.dataSource = self
+//        node.view.separatorStyle = .none
+        node.delegate = self
+        node.dataSource = self
+//        node.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//
+
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
 //
@@ -43,24 +49,33 @@ class MainViewController: ASViewController<ASTableNode> {
 //        }
 //    }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupData()
+    }
+    
+    func setupData() {
+        var childNode: ASDisplayNode?
+
+    }
 }
 
-/*
 extension MainViewController: ASTableDataSource {
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        return layoutExamples.count
+        return buttons.count
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
-        return OverviewCellNode(layoutExampleType: layoutExamples[indexPath.row])
+        let node = MainButtonCellNode(type: buttons[indexPath.row])
+        return node
     }
 }
 
 extension MainViewController: ASTableDelegate {
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        let layoutExampleType = (tableNode.nodeForRow(at: indexPath) as! OverviewCellNode).layoutExampleType
-        let detail = LayoutExampleViewController(layoutExampleType: layoutExampleType)
-        self.navigationController?.pushViewController(detail, animated: true)
+        let tn = (tableNode.nodeForRow(at: indexPath) as! MainButtonCellNode)
+        debugPrint(tn)
+//        let detail = LayoutExampleViewController(layoutExampleType: layoutExampleType)
+//        self.navigationController?.pushViewController(detail, animated: true)
     }
 }
-*/
