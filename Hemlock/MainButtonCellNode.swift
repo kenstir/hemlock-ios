@@ -17,14 +17,32 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+/*
 import AsyncDisplayKit
 import Foundation
 
 class MainButtonCellNode: ASDisplayNode {
-    override required init() {
+    let layoutType: MainButtonLayoutNode.Type
+    fileprivate let titleNode = ASTextNode()
+    fileprivate let descriptionNode = ASTextNode()
+
+    init(type: MainButtonLayoutNode.Type) {
+        layoutType = type
+        
         super.init()
+
         automaticallyManagesSubnodes = true
         backgroundColor = .white
+        
+        let attrs = [NSAttributedStringKey.foregroundColor: UIColor.blue,
+                     NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 20)]
+        
+        titleNode.attributedText = NSAttributedString(string: layoutType.title(), attributes: attrs)
+        titleNode.maximumNumberOfLines = 1
+        titleNode.truncationMode = .byTruncatingTail
+        descriptionNode.attributedText = NSAttributedString.attributedString(string: layoutType.descriptionTitle(), attributes: attrs)
+        descriptionNode.maximumNumberOfLines = 1
+        descriptionNode.truncationMode = .byTruncatingTail
     }
     
     class func title() -> String {
@@ -35,11 +53,18 @@ class MainButtonCellNode: ASDisplayNode {
     class func descriptionTitle() -> String? {
         return nil
     }
+
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        let verticalStackSpec = ASStackLayoutSpec.vertical()
+        verticalStackSpec.alignItems = .start
+        verticalStackSpec.spacing = 5.0
+        verticalStackSpec.children = [titleNode, descriptionNode]
+        
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 10), child: verticalStackSpec)
+    }
 }
 
 class ItemsCheckedOutButton: MainButtonCellNode {
-    let titleNode     = ASTextNode()
-//    let subHeadNode   = ASTextNode()
 
     required init() {
         super.init()
@@ -65,3 +90,4 @@ class ItemsCheckedOutButton: MainButtonCellNode {
     }
 
 }
+*/

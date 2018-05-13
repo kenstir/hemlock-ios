@@ -31,7 +31,7 @@
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
-		D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* ViewController.swift */; };
+		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
 		D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D287D502207AEF2C001AF644 /* Assets.xcassets */; };
 		D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
@@ -86,7 +86,7 @@
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D287D4FD207AEF2B001AF644 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D287D500207AEF2B001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D287D502207AEF2C001AF644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D287D505207AEF2C001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -144,12 +144,15 @@
 		D22D027620857DFE00DC1F5B /* Evergreen */ = {
 			isa = PBXGroup;
 			children = (
+				D287D51B207AEF3D001AF644 /* Account.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
+				D22D02662083E45700DC1F5B /* Corsortium.swift */,
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
-				D22D02642083DE9100DC1F5B /* LoginController.swift */,
 				D270C4082091FCAA00D27159 /* IDLParser.swift */,
-				D29C720F209248F500E90952 /* OSRFCoder.swift */,
+				D231B52B2083C08000478D25 /* Library.swift */,
+				D22D02642083DE9100DC1F5B /* LoginController.swift */,
 				D29C72132092691A00E90952 /* OSRFClass.swift */,
+				D29C720F209248F500E90952 /* OSRFCoder.swift */,
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
 			);
 			path = Evergreen;
@@ -205,21 +208,18 @@
 		D287D4FA207AEF2B001AF644 /* Hemlock */ = {
 			isa = PBXGroup;
 			children = (
-				D287D51B207AEF3D001AF644 /* Account.swift */,
+				D22D027620857DFE00DC1F5B /* Evergreen */,
+				D22D026E2084F52300DC1F5B /* Utils */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
 				D22D026A2083EBB100DC1F5B /* AppSettings.swift */,
 				D287D502207AEF2C001AF644 /* Assets.xcassets */,
-				D22D02662083E45700DC1F5B /* Corsortium.swift */,
-				D22D027620857DFE00DC1F5B /* Evergreen */,
 				D287D507207AEF2C001AF644 /* Info.plist */,
 				D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */,
-				D231B52B2083C08000478D25 /* Library.swift */,
 				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
 				D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */,
 				D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */,
 				D268D477209F9F830008D8C1 /* MainViewController.swift */,
-				D22D026E2084F52300DC1F5B /* Utils */,
-				D287D4FD207AEF2B001AF644 /* ViewController.swift */,
+				D287D4FD207AEF2B001AF644 /* LoginViewController.swift */,
 			);
 			path = Hemlock;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
-				D287D4FE207AEF2B001AF644 /* ViewController.swift in Sources */,
+				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				D22D026B2083EBB100DC1F5B /* AppSettings.swift in Sources */,
