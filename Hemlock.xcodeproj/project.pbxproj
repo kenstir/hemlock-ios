@@ -17,7 +17,6 @@
 		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
-		D22D027D208B93A900DC1F5B /* LoginControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
 		D231B52C2083C08000478D25 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
@@ -45,6 +44,7 @@
 		D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
 		D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72172094002100E90952 /* OSRFObjectTests.swift */; };
 		D2CE228C20A10C9B00D45CE4 /* MainButtonCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */; };
+		D2D49BFF20A91328000B3A27 /* LoginControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LoginControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,6 @@
 		D22D0274208516D600DC1F5B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
 		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
-		D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginControllerTests.swift; path = HemlockTests/Evergreen/LoginControllerTests.swift; sourceTree = SOURCE_ROOT; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		D29C72152093A2C000E90952 /* OSRFObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObject.swift; sourceTree = "<group>"; };
 		D29C72172094002100E90952 /* OSRFObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObjectTests.swift; sourceTree = "<group>"; };
 		D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonCellNode.swift; sourceTree = "<group>"; };
+		D2D49BFE20A91328000B3A27 /* LoginControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,8 +163,8 @@
 			children = (
 				D22D02682083EA7600DC1F5B /* APITests.swift */,
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
-				D22D027C208B93A900DC1F5B /* LoginControllerTests.swift */,
 				D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */,
+				D2D49BFE20A91328000B3A27 /* LoginControllerTests.swift */,
 				D29C721120924CF000E90952 /* OSRFCoderTests.swift */,
 				D29C72172094002100E90952 /* OSRFObjectTests.swift */,
 			);
@@ -188,8 +188,8 @@
 				D22D0274208516D600DC1F5B /* LICENSE */,
 				D27EFD5A2094E1EB00D7E22E /* README.md */,
 				D27EFD5B2094E46400D7E22E /* Documentation */,
-				D287D4FA207AEF2B001AF644 /* Hemlock */,
-				D287D50F207AEF2D001AF644 /* HemlockTests */,
+				D287D4FA207AEF2B001AF644 /* Source */,
+				D287D50F207AEF2D001AF644 /* Tests */,
 				D287D4F9207AEF2B001AF644 /* Products */,
 				D231B52520815EAC00478D25 /* Frameworks */,
 				D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */,
@@ -205,13 +205,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D287D4FA207AEF2B001AF644 /* Hemlock */ = {
+		D287D4FA207AEF2B001AF644 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				D22D027620857DFE00DC1F5B /* Evergreen */,
+				D2D49BFB20A90CA9000B3A27 /* PINES */,
 				D22D026E2084F52300DC1F5B /* Utils */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
-				D22D026A2083EBB100DC1F5B /* AppSettings.swift */,
 				D287D502207AEF2C001AF644 /* Assets.xcassets */,
 				D287D507207AEF2C001AF644 /* Info.plist */,
 				D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */,
@@ -221,10 +221,10 @@
 				D268D477209F9F830008D8C1 /* MainViewController.swift */,
 				D287D4FD207AEF2B001AF644 /* LoginViewController.swift */,
 			);
-			path = Hemlock;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		D287D50F207AEF2D001AF644 /* HemlockTests */ = {
+		D287D50F207AEF2D001AF644 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				D29C720D209245E200E90952 /* TestUserData */,
@@ -237,7 +237,15 @@
 				D231B52D2083C1E500478D25 /* LibraryTests.swift */,
 				D20EE9D72094BC9100AF261D /* MiscTests.swift */,
 			);
-			path = HemlockTests;
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		D2D49BFB20A90CA9000B3A27 /* PINES */ = {
+			isa = PBXGroup;
+			children = (
+				D22D026A2083EBB100DC1F5B /* AppSettings.swift */,
+			);
+			path = PINES;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,8 +406,8 @@
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
-				D22D027D208B93A900DC1F5B /* LoginControllerTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
+				D2D49BFF20A91328000B3A27 /* LoginControllerTests.swift in Sources */,
 				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,
 				D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* APITests.swift in Sources */,
@@ -561,12 +569,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Hemlock/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kenstir.net.Hemlock;
+				PRODUCT_BUNDLE_IDENTIFIER = kenstir.net.apps.hemlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -586,12 +594,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Hemlock/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kenstir.net.Hemlock;
+				PRODUCT_BUNDLE_IDENTIFIER = kenstir.net.apps.hemlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -610,7 +618,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = HemlockTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,7 +643,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = HemlockTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

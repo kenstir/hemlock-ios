@@ -19,6 +19,7 @@
 
 import UIKit
 
+//todo make this a protocol
 struct AppSettings {
     static let appTitle = "PINES"
     static let url = "https://gapines.org"
