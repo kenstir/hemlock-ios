@@ -65,7 +65,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Error: User login failed" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcQ-Mc-WA2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcQ-Mc-WA2">
                                 <rect key="frame" x="28" y="370" width="319" height="113"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -101,17 +101,34 @@
                         <outlet property="passwordField" destination="2fV-yF-Bl6" id="z1k-CK-gCv"/>
                         <outlet property="statusLabel" destination="QcQ-Mc-WA2" id="aEI-8x-p8L"/>
                         <outlet property="usernameField" destination="2Ky-33-NgZ" id="eQo-jX-g9D"/>
+                        <segue destination="lJi-dZ-su3" kind="show" identifier="ShowMain" id="wNI-Je-fQ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xr1-h5-oNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1a7-9k-zr2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1256.8" y="92.203898050974516"/>
+            <point key="canvasLocation" x="-1258" y="91"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="2SI-wU-38L">
+            <objects>
+                <navigationController id="lJi-dZ-su3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ocF-Hd-bJC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xqe-Fu-Ne1" kind="relationship" relationship="rootViewController" id="9IL-Ie-eT1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxo-F2-JPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-487" y="92"/>
+        </scene>
+        <!--PINES-->
         <scene sceneID="pOa-oD-aH5">
             <objects>
-                <tableViewController storyboardIdentifier="MainStoryboard" id="Xqe-Fu-Ne1" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainStoryboard" id="Xqe-Fu-Ne1" customClass="MainViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bny-iN-u9U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,10 +156,11 @@
                             <outlet property="delegate" destination="Xqe-Fu-Ne1" id="deS-Ck-kBY"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="PINES" id="xUo-oL-WrT"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-482.39999999999998" y="92.203898050974516"/>
+            <point key="canvasLocation" x="250" y="92"/>
         </scene>
     </scenes>
     <resources>

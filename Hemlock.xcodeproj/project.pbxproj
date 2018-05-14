@@ -23,7 +23,8 @@
 		D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52D2083C1E500478D25 /* LibraryTests.swift */; };
 		D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */; };
 		D2385E2E20914E6C00FE0C89 /* TestData in Resources */ = {isa = PBXBuildFile; fileRef = D2385E2D20914E6B00FE0C89 /* TestData */; };
-		D268D478209F9F830008D8C1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D477209F9F830008D8C1 /* MainViewController.swift */; };
+		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
+		D268D478209F9F830008D8C1 /* MainTextureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D477209F9F830008D8C1 /* MainTextureViewController.swift */; };
 		D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */; };
 		D268D47C209FA1AF0008D8C1 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D268D47B209FA1AF0008D8C1 /* AsyncDisplayKit.framework */; };
 		D268D47E209FA1C70008D8C1 /* AsyncDisplayKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = D268D47D209FA1C70008D8C1 /* AsyncDisplayKit.framework.dSYM */; };
@@ -76,7 +77,8 @@
 		D231B52D2083C1E500478D25 /* LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTests.swift; sourceTree = "<group>"; };
 		D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParserTests.swift; sourceTree = "<group>"; };
 		D2385E2D20914E6B00FE0C89 /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = SOURCE_ROOT; };
-		D268D477209F9F830008D8C1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D268D477209F9F830008D8C1 /* MainTextureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextureViewController.swift; sourceTree = "<group>"; };
 		D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonLayoutNode.swift; sourceTree = "<group>"; };
 		D268D47B209FA1AF0008D8C1 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
 		D268D47D209FA1C70008D8C1 /* AsyncDisplayKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AsyncDisplayKit.framework.dSYM; path = Carthage/Build/iOS/AsyncDisplayKit.framework.dSYM; sourceTree = "<group>"; };
@@ -218,8 +220,9 @@
 				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
 				D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */,
 				D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */,
-				D268D477209F9F830008D8C1 /* MainViewController.swift */,
+				D268D477209F9F830008D8C1 /* MainTextureViewController.swift */,
 				D287D4FD207AEF2B001AF644 /* LoginViewController.swift */,
+				D246990320A9D80E0006DFF9 /* MainViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -385,12 +388,13 @@
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
-				D268D478209F9F830008D8C1 /* MainViewController.swift in Sources */,
+				D268D478209F9F830008D8C1 /* MainTextureViewController.swift in Sources */,
 				D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D2CE228C20A10C9B00D45CE4 /* MainButtonCellNode.swift in Sources */,
+				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 				D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */,
 			);

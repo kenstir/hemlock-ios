@@ -62,10 +62,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.statusLabel.text = "Error: \n" + (resp.error?.localizedDescription)!
             }
             if account.authtoken != nil {
-                self.statusLabel.text = "Success: \n" + account.authtoken!
+                self.performSegue(withIdentifier: "ShowMain", sender: nil)
             }
-            print("account: \(account)")
-            print("resp:    \(resp)")
         }
 
     }
