@@ -20,14 +20,12 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    //MARK: fields
-//    var username: String?
-//    var password: String?
     
-    //MARK: Outlets
+    //MARK: Properties
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +33,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // handle Return in the text fields
         usernameField.delegate = self
         passwordField.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     //MARK: UITextFieldDelegate
@@ -54,6 +47,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: Actions
     @IBAction func loginPressed(_ sender: Any) {
+        statusLabel.text = ""
         guard
             usernameField.hasText,
             passwordField.hasText,
@@ -64,6 +58,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         LoginController(username: username, password: password).login { account, resp in
 
+            if resp.failed {
+                self.statusLabel.text = "Error: \n" + (resp.error?.localizedDescription)!
+            }
+            if account.authtoken != nil {
+                self.statusLabel.text = "Success: \n" + account.authtoken!
+            }
             print("account: \(account)")
             print("resp:    \(resp)")
         }

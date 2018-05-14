@@ -24,4 +24,5 @@ struct AppSettings {
     static let appTitle = "PINES"
     static let url = "https://gapines.org"
     static let uicolor = UIColor(red: 0x37/255.0, green: 0x96/255.0, blue: 0x76/255.0, alpha: 1.0)
+    static var account: Account?
 }
