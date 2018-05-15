@@ -32,9 +32,9 @@ struct MainViewButtonData {
 class MainViewController: UITableViewController {
     
     var buttons: [(String, String?)] = [
-        ("Search", nil),
+        ("Search", "ShowSearchSegue"),
         ("Items Checked Out", "ShowItemsCheckedOutSegue"),
-        ("Holds", nil),
+        ("Holds", "ShowHoldsSegue"),
         ("Fines", nil),
         ("My Lists", nil)]
     
