@@ -20,13 +20,23 @@
 import Foundation
 import UIKit
 
+struct MainViewButtonData {
+    let title: String
+    let segue: String
+    init(_ title: String, _ segue: String) {
+        self.title = title
+        self.segue = segue
+    }
+}
+
 class MainViewController: UITableViewController {
     
-    var buttons = ["Search",
-                   "Items Checked Out",
-                   "Holds",
-                   "Fines",
-                   "My Lists"]
+    var buttons: [(String, String?)] = [
+        ("Search", nil),
+        ("Items Checked Out", "ShowItemsCheckedOutSegue"),
+        ("Holds", nil),
+        ("Fines", nil),
+        ("My Lists", nil)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +44,8 @@ class MainViewController: UITableViewController {
     }
     
     func setupData() {
-        
     }
+
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,12 +62,23 @@ class MainViewController: UITableViewController {
             fatalError("dequeued cell of wrong class!")
         }
         
-        let title = buttons[indexPath.row]
-        debugPrint(cell)
-        if let button = cell.button {
-            button.setTitle(title, for: .normal)
+        let tuple = buttons[indexPath.row]
+        if let button = cell.button as? MainButton {
+            button.setTitle(tuple.0, for: .normal)
+            if let segue = tuple.1 {
+                button.segue = segue
+                button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+            }
         }
         
         return cell
+    }
+    
+    @IBAction func buttonPressed(sender: UIButton) {
+        if let button = sender as? MainButton,
+            let segue = button.segue
+        {
+            self.performSegue(withIdentifier: segue, sender: nil)
+        }
     }
 }

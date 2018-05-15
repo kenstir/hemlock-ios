@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D209445F20AA7CD4003E1970 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D209445E20AA7CD3003E1970 /* MainButton.swift */; };
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D209445E20AA7CD3003E1970 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */,
 				D287D4FD207AEF2B001AF644 /* LoginViewController.swift */,
 				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
+				D209445E20AA7CD3003E1970 /* MainButton.swift */,
 				D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */,
 				D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */,
 				D246990520AA5C620006DFF9 /* MainTableViewCell.swift */,
@@ -386,6 +389,7 @@
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
+				D209445F20AA7CD4003E1970 /* MainButton.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				D22D026B2083EBB100DC1F5B /* AppSettings.swift in Sources */,
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
