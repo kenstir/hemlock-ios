@@ -1,5 +1,5 @@
 //
-//  AppSettings.swift
+//  MainTableViewCell.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -19,11 +19,20 @@
 
 import UIKit
 
-//todo make this a protocol
-struct AppSettings {
-    static let appTitle = "PINES"
-    static let url = "https://gapines.org"
-    static let themeBackgroundColor = UIColor(red: 0x37/255.0, green: 0x96/255.0, blue: 0x76/255.0, alpha: 1.0)
-    static let themeForegroundColor = UIColor.white
-    static var account: Account?
+class MainTableViewCell: UITableViewCell {
+    
+    //MARK: Properties
+    @IBOutlet weak var button: UIButton!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
 }

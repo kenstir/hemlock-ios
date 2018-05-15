@@ -33,6 +33,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // handle Return in the text fields
         usernameField.delegate = self
         passwordField.delegate = self
+        
+        // color the login button
+        loginButton.backgroundColor = AppSettings.themeBackgroundColor
+        loginButton.tintColor = AppSettings.themeForegroundColor
+        loginButton.layer.cornerRadius = 8
     }
 
     //MARK: UITextFieldDelegate
@@ -62,7 +67,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.statusLabel.text = "Error: \n" + (resp.error?.localizedDescription)!
             }
             if account.authtoken != nil {
-                self.performSegue(withIdentifier: "ShowMain", sender: nil)
+                AppSettings.account = account
+                self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
             }
         }
 

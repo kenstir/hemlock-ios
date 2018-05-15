@@ -20,5 +20,44 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UITableViewController {
+    
+    var buttons = ["Search",
+                   "Items Checked Out",
+                   "Holds",
+                   "Fines",
+                   "My Lists"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupData()
+    }
+    
+    func setupData() {
+        
+    }
+    // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return buttons.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "MainTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MainTableViewCell else {
+            fatalError("dequeued cell of wrong class!")
+        }
+        
+        let title = buttons[indexPath.row]
+        debugPrint(cell)
+        if let button = cell.button {
+            button.setTitle(title, for: .normal)
+        }
+        
+        return cell
+    }
 }
