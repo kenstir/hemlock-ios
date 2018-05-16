@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D209445F20AA7CD4003E1970 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D209445E20AA7CD3003E1970 /* MainButton.swift */; };
+		D209446120ABAE1E003E1970 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D209446020ABAE1E003E1970 /* PINCache.framework */; };
+		D209446320ABAE29003E1970 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D209446220ABAE29003E1970 /* PINOperation.framework */; };
+		D209446520ABAE35003E1970 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D209446420ABAE35003E1970 /* PINRemoteImage.framework */; };
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
@@ -62,6 +65,9 @@
 
 /* Begin PBXFileReference section */
 		D209445E20AA7CD3003E1970 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		D209446020ABAE1E003E1970 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
+		D209446220ABAE29003E1970 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
+		D209446420ABAE35003E1970 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -118,6 +124,9 @@
 			files = (
 				D231B5292081628900478D25 /* Alamofire.framework in Frameworks */,
 				D268D47C209FA1AF0008D8C1 /* AsyncDisplayKit.framework in Frameworks */,
+				D209446120ABAE1E003E1970 /* PINCache.framework in Frameworks */,
+				D209446320ABAE29003E1970 /* PINOperation.framework in Frameworks */,
+				D209446520ABAE35003E1970 /* PINRemoteImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +189,9 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D209446420ABAE35003E1970 /* PINRemoteImage.framework */,
+				D209446220ABAE29003E1970 /* PINOperation.framework */,
+				D209446020ABAE1E003E1970 /* PINCache.framework */,
 				D231B5282081628900478D25 /* Alamofire.framework */,
 				D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */,
 				D268D47B209FA1AF0008D8C1 /* AsyncDisplayKit.framework */,
@@ -369,10 +381,16 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
