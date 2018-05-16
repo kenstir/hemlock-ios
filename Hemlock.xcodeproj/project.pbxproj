@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D209445F20AA7CD4003E1970 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D209445E20AA7CD3003E1970 /* MainButton.swift */; };
-		D209446120ABAE1E003E1970 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D209446020ABAE1E003E1970 /* PINCache.framework */; };
-		D209446320ABAE29003E1970 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D209446220ABAE29003E1970 /* PINOperation.framework */; };
-		D209446520ABAE35003E1970 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D209446420ABAE35003E1970 /* PINRemoteImage.framework */; };
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
@@ -31,8 +28,6 @@
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D268D478209F9F830008D8C1 /* MainTextureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D477209F9F830008D8C1 /* MainTextureViewController.swift */; };
 		D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */; };
-		D268D47C209FA1AF0008D8C1 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D268D47B209FA1AF0008D8C1 /* AsyncDisplayKit.framework */; };
-		D268D47E209FA1C70008D8C1 /* AsyncDisplayKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = D268D47D209FA1C70008D8C1 /* AsyncDisplayKit.framework.dSYM */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
@@ -65,9 +60,6 @@
 
 /* Begin PBXFileReference section */
 		D209445E20AA7CD3003E1970 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
-		D209446020ABAE1E003E1970 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
-		D209446220ABAE29003E1970 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
-		D209446420ABAE35003E1970 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -80,7 +72,6 @@
 		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
 		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
-		D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D231B52B2083C08000478D25 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D231B52D2083C1E500478D25 /* LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTests.swift; sourceTree = "<group>"; };
@@ -90,8 +81,6 @@
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D268D477209F9F830008D8C1 /* MainTextureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextureViewController.swift; sourceTree = "<group>"; };
 		D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonLayoutNode.swift; sourceTree = "<group>"; };
-		D268D47B209FA1AF0008D8C1 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
-		D268D47D209FA1C70008D8C1 /* AsyncDisplayKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AsyncDisplayKit.framework.dSYM; path = Carthage/Build/iOS/AsyncDisplayKit.framework.dSYM; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = /Users/kenstir/Documents/xcode/Hemlock/README.md; sourceTree = "<absolute>"; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
@@ -123,10 +112,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D231B5292081628900478D25 /* Alamofire.framework in Frameworks */,
-				D268D47C209FA1AF0008D8C1 /* AsyncDisplayKit.framework in Frameworks */,
-				D209446120ABAE1E003E1970 /* PINCache.framework in Frameworks */,
-				D209446320ABAE29003E1970 /* PINOperation.framework in Frameworks */,
-				D209446520ABAE35003E1970 /* PINRemoteImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,13 +174,7 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D209446420ABAE35003E1970 /* PINRemoteImage.framework */,
-				D209446220ABAE29003E1970 /* PINOperation.framework */,
-				D209446020ABAE1E003E1970 /* PINCache.framework */,
 				D231B5282081628900478D25 /* Alamofire.framework */,
-				D231B52620815EAC00478D25 /* Alamofire.framework.dSYM */,
-				D268D47B209FA1AF0008D8C1 /* AsyncDisplayKit.framework */,
-				D268D47D209FA1C70008D8C1 /* AsyncDisplayKit.framework.dSYM */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -357,7 +336,6 @@
 				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
-				D268D47E209FA1C70008D8C1 /* AsyncDisplayKit.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,17 +358,9 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
