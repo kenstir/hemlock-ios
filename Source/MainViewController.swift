@@ -35,8 +35,8 @@ class MainViewController: UITableViewController {
         ("Search", "ShowSearchSegue"),
         ("Items Checked Out", "ShowItemsCheckedOutSegue"),
         ("Holds", "ShowHoldsSegue"),
-        ("Fines", nil),
-        ("My Lists", nil)]
+        ("Fines", "ShowFinesSegue"),
+        ("My Lists", "ShowMyListsSegue")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class MainViewController: UITableViewController {
     func setupData() {
     }
 
-    // MARK: - Table view data source
+    // MARK: UITableViewController
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -65,20 +65,31 @@ class MainViewController: UITableViewController {
         let tuple = buttons[indexPath.row]
         if let button = cell.button as? MainButton {
             button.setTitle(tuple.0, for: .normal)
-            if let segue = tuple.1 {
-                button.segue = segue
-                button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-            }
+//            if let segue = tuple.1 {
+//                button.segue = segue
+//                button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+//            }
         }
         
         return cell
     }
     
-    @IBAction func buttonPressed(sender: UIButton) {
-        if let button = sender as? MainButton,
-            let segue = button.segue
+    // MARK: UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tuple = buttons[indexPath.row]
+        if let segue = tuple.1
         {
             self.performSegue(withIdentifier: segue, sender: nil)
         }
     }
+    
+//    @IBAction func buttonPressed(sender: UIButton) {
+//        // no longer used
+//        if let button = sender as? MainButton,
+//            let segue = button.segue
+//        {
+//            self.performSegue(withIdentifier: segue, sender: nil)
+//        }
+//    }
 }
