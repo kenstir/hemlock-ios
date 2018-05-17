@@ -25,7 +25,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var statusLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +51,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: Actions
     @IBAction func loginPressed(_ sender: Any) {
-        statusLabel.text = ""
         guard
             usernameField.hasText,
             passwordField.hasText,
@@ -63,8 +61,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         LoginController(username: username, password: password).login { account, resp in
 
-            if resp.failed {
-                self.statusLabel.text = "Error: \n" + (resp.error?.localizedDescription)!
+            var msg = "Unknown error"
+            if let error = resp.error
+            {
+                switch error {
+                case .failure(let reason):
+                    msg = reason
+                case .malformedPayload(let reason):
+                    msg = reason
+                }
+                let alertController = UIAlertController(title: "Login failed", message: msg, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+
             }
             if account.authtoken != nil {
                 AppSettings.account = account

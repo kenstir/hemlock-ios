@@ -68,12 +68,6 @@
                                 <rect key="frame" x="26" y="386" width="323" height="30"/>
                                 <state key="normal" title="Forgot Password"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcQ-Mc-WA2">
-                                <rect key="frame" x="48" y="432" width="299" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Jason" translatesAutoresizingMaskIntoConstraints="NO" id="ZHk-Zc-H6p">
                                 <rect key="frame" x="6" y="489" width="54" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -134,10 +128,7 @@
                             <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="UqT-VS-ogx" secondAttribute="bottom" constant="66" id="GGL-G8-qyb"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="UqT-VS-ogx" secondAttribute="trailing" constant="28" id="GLd-oV-gVz"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="2fV-yF-Bl6" secondAttribute="trailing" constant="28" id="MIs-Ke-hBH"/>
-                            <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="QcQ-Mc-WA2" secondAttribute="trailing" constant="48" id="RPq-Lh-1iJ"/>
-                            <constraint firstItem="QcQ-Mc-WA2" firstAttribute="top" secondItem="L0t-oX-Cjw" secondAttribute="bottom" constant="16" id="RuB-AZ-ZDM"/>
                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="16" id="hdg-lL-6Zn"/>
-                            <constraint firstItem="QcQ-Mc-WA2" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="48" id="l0z-bD-LfD"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="2Ky-33-NgZ" secondAttribute="trailing" constant="28" id="oAP-Y1-U1s"/>
                             <constraint firstItem="2Ky-33-NgZ" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="28" id="pYZ-a9-5VY"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="ofn-Nj-gGI" secondAttribute="trailing" constant="28" id="psL-Qz-ena"/>
@@ -145,7 +136,6 @@
                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="28" id="raL-L2-tT6"/>
                             <constraint firstItem="UqT-VS-ogx" firstAttribute="top" secondItem="Qfi-3X-Rfr" secondAttribute="top" constant="66" id="sUB-5i-KbS"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="L0t-oX-Cjw" secondAttribute="trailing" constant="26" id="the-jy-PTy"/>
-                            <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="QcQ-Mc-WA2" secondAttribute="trailing" constant="28" id="vWg-DZ-vnb"/>
                             <constraint firstItem="UqT-VS-ogx" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="28" id="xOX-kl-oX3"/>
                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="26" id="ywc-T7-dKb"/>
                         </constraints>
@@ -156,7 +146,6 @@
                     <connections>
                         <outlet property="loginButton" destination="ofn-Nj-gGI" id="Uqg-lY-AtJ"/>
                         <outlet property="passwordField" destination="2fV-yF-Bl6" id="z1k-CK-gCv"/>
-                        <outlet property="statusLabel" destination="QcQ-Mc-WA2" id="aEI-8x-p8L"/>
                         <outlet property="usernameField" destination="2Ky-33-NgZ" id="eQo-jX-g9D"/>
                         <segue destination="lJi-dZ-su3" kind="show" identifier="ShowMainSegue" id="wNI-Je-fQ4"/>
                     </connections>
@@ -164,7 +153,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xr1-h5-oNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1a7-9k-zr2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1258.4000000000001" y="90.404797601199405"/>
+            <point key="canvasLocation" x="-1258.5" y="89.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2SI-wU-38L">
@@ -199,9 +188,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="it0-Io-5GI" customClass="MainButton" customModule="Hemlock" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="0.0" width="69" height="41"/>
+                                            <rect key="frame" x="16" y="0.0" width="73" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" title="Search"/>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -214,6 +203,7 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="Xqe-Fu-Ne1" id="0Nj-Ww-35L"/>
                             <outlet property="delegate" destination="Xqe-Fu-Ne1" id="deS-Ck-kBY"/>
