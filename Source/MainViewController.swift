@@ -31,7 +31,7 @@ struct MainViewButtonData {
 
 class MainViewController: UITableViewController {
     
-    var buttons: [(String, String?)] = [
+    var buttons: [(String, String)] = [
         ("Search", "ShowSearchSegue"),
         ("Items Checked Out", "ShowItemsCheckedOutSegue"),
         ("Holds", "ShowHoldsSegue"),
@@ -63,14 +63,14 @@ class MainViewController: UITableViewController {
         }
         
         let tuple = buttons[indexPath.row]
-        if let button = cell.button as? MainButton {
-            button.setTitle(tuple.0, for: .normal)
-//            if let segue = tuple.1 {
-//                button.segue = segue
-//                button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-//            }
-        }
+        let label = tuple.0
+        let segue = tuple.1
         
+        cell.cellImage.image = UIImage(named: label)
+        cell.cellLabel.text = label
+        cell.title = label
+        cell.segue = segue
+
         return cell
     }
     
@@ -78,10 +78,8 @@ class MainViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuple = buttons[indexPath.row]
-        if let segue = tuple.1
-        {
-            self.performSegue(withIdentifier: segue, sender: nil)
-        }
+        let segue = tuple.1
+        self.performSegue(withIdentifier: segue, sender: nil)
     }
     
 //    @IBAction func buttonPressed(sender: UIButton) {

@@ -22,7 +22,11 @@ import UIKit
 class MainTableViewCell: UITableViewCell {
     
     //MARK: Properties
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var cellLabel: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!
+
+    var title: String?
+    var segue: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
