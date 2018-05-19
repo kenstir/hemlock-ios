@@ -56,11 +56,11 @@ open-ils.circ.holds.retrieve payload: array
 []
 ```
 
-#### OSRF object
+#### Encoded OSRF object
 
-A gateway response payload may be an OSRF object, which is an Evergreen object encoded in "wire format".
+A gateway response payload may be an encoded OSRF object, which is an Evergreen object encoded in "wire format".
 
-open-ils.circ.retrieve payload: an OSRF "circ" object
+open-ils.circ.retrieve payload: an encoded OSRF "circ" object
 ```
 {"__c":"circ","__p":[null,null,null,69,3788,"f","2018-05-02T23:59:59-0400","7 days","7_days_1_renew","1 day",73493047,"3.00","default","f","f","0.00","0_cent",1,"00:00:00",null,null,17124983,409071,null,"2018-04-25T17:05:08-0400","2018-04-25T17:05:08-0400",1720,null,null,null,null,null,null,null,null,null,null,323]}
 ```

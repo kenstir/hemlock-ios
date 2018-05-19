@@ -24,17 +24,25 @@ struct API {
     // endpoints
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
 
-    // auth service
+    //MARK: - actor service
+    static let actor = "open-ils.actor"
+    static let actorUserCheckedOut = "open-ils.actor.user.checked_out"
+
+    //MARK: - auth service
     static let auth = "open-ils.auth"
     static let authInit = "open-ils.auth.authenticate.init"
     static let authComplete = "open-ils.auth.authenticate.complete"
     static let authGetSession = "open-ils.auth.session.retrieve"
+
+    //MARK: - fields
 
     // todo: does this belong in GatewayRequest?
     static var library: Library?
     
     // an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
+    
+    //MARK: - static methods
 
     // todo: factor request handling out into GatewayRequest
     static func createRequest(service: String, method: String, args: [Any]) -> Alamofire.DataRequest

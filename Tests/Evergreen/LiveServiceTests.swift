@@ -9,11 +9,13 @@
 import XCTest
 @testable import Hemlock
 
-class LoginControllerTests: XCTestCase {
+/// These tests run against the live service configured in testAccount.json.
+/// Don't do anything crazy here.
+class LiveServiceTests: XCTestCase {
     
     let configFile = "TestUserData/testAccount" // .json
-    var username = "read from testAccount.json"
-    var password = "read from testAccount.json"
+    var username = "" //read from testAccount.json
+    var password = "" //read from testAccount.json
     
     override func setUp() {
         super.setUp()
@@ -29,7 +31,7 @@ class LoginControllerTests: XCTestCase {
             let username = jsonObject["username"],
             let password = jsonObject["password"] else
         {
-            XCTFail("unable to read data from \(configFile).json, see TestUserData/README.md")
+            XCTFail("unable to read JSON data from \(configFile).json, see TestUserData/README.md")
             return
         }
         API.library = Library(url)
@@ -37,21 +39,37 @@ class LoginControllerTests: XCTestCase {
         self.password = password
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    //MARK: - LoginController Tests
     
-    func testBasic() {
+    func test_LoginController_success() {
         let expectation = XCTestExpectation(description: "wait for async request")
         LoginController(username: username, password: password).login { account, resp in
             
-            XCTAssertEqual(account.username, self.username)
             XCTAssertFalse(resp.failed, String(describing: resp.error))
+            XCTAssertEqual(account.username, self.username)
+            XCTAssertNotNil(account.authtoken)
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    func test_LoginController_failure() {
+        let expectation = XCTestExpectation(description: "wait for async request")
+        LoginController(username: username, password: "bogus").login { account, resp in
+            
+            XCTAssertTrue(resp.failed, String(describing: resp.error))
+            XCTAssertEqual(account.username, self.username)
+            XCTAssertNil(account.authtoken)
+            
+            XCTAssertNotNil(resp.error)
+            let msg = resp.errorMessage
+            XCTAssertEqual(msg, "User login failed")
 
             expectation.fulfill()
         }
-
-        wait(for: [expectation], timeout: 240.0)
+        
+        wait(for: [expectation], timeout: 20.0)
     }
 }

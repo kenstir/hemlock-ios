@@ -46,6 +46,16 @@ struct GatewayResponse {
     var failed: Bool {
         return type == .error
     }
+    var errorMessage: String {
+        guard let error = self.error else {
+            return "no error"
+        }
+        switch error {
+        case .malformedPayload(let reason): return reason
+        case .failure(let reason):          return reason
+        }
+        //NOTREACHED: switch statements must be exhaustive
+    }
     
     init() {
         type = .error

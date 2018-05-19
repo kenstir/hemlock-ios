@@ -19,6 +19,8 @@
 
 import Foundation
 
+/// An `OSRFObject` represents the decoded Evergreen objects returned in a `GatewayResponse`
+/// In practice this is just a [String:Any?] dictionary that is equatable.
 struct OSRFObject: Equatable {
     
     var dict: [String: Any?]
