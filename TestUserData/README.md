@@ -3,6 +3,7 @@ These files contain passwords and should be excluded from source control.
 
 To get started
 
- cp testAccount.json.sample testAccount.json
- vi testAccount.json
-
+```
+cp testAccount.json.sample testAccount.json
+vi testAccount.json
+```

@@ -6,7 +6,7 @@ Hemlock is an app for library catalogs powered by [Evergreen](www.evergreen-ils.
 
 * Hemlock calls OSRF through the JSON gateway, installed at path `/osrf-gateway-v1` on the catalog server
 * Gateway requests take `service`, `method`, and zero or more `param` parameters.  `service` and `method` parameters are strings, `param` parameters are JSON values.
-* Gateway responses are JSON values.  Sometimes they are plain JSON values that can be used directly, but mostly they contain OSRF objects encoded in "wire protocol" that require decoding.
+* Gateway responses are JSON values.  Sometimes they are plain JSON values that can be used directly, but usually they contain OSRF objects encoded in "wire protocol" that require decoding.
 
 ## Gateway Requests
 
@@ -58,7 +58,7 @@ open-ils.circ.holds.retrieve payload: array
 
 #### OSRF object
 
-A gateway response payload may be an OSRF object, which is an Evergreen database object encoded in "wire format".
+A gateway response payload may be an OSRF object, which is an Evergreen object encoded in "wire format".
 
 open-ils.circ.retrieve payload: an OSRF "circ" object
 ```
