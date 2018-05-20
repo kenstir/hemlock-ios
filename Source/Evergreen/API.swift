@@ -25,10 +25,12 @@ struct API {
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
 
     //MARK: - actor service
+
     static let actor = "open-ils.actor"
-    static let actorUserCheckedOut = "open-ils.actor.user.checked_out"
+    static let actorCheckedOut = "open-ils.actor.user.checked_out"
 
     //MARK: - auth service
+
     static let auth = "open-ils.auth"
     static let authInit = "open-ils.auth.authenticate.init"
     static let authComplete = "open-ils.auth.authenticate.complete"

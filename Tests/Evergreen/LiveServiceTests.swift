@@ -14,8 +14,12 @@ import XCTest
 class LiveServiceTests: XCTestCase {
     
     let configFile = "TestUserData/testAccount" // .json
+    var account: Account?
     var username = "" //read from testAccount.json
     var password = "" //read from testAccount.json
+    var authtoken: String?
+    
+    //MARK: - functions
     
     override func setUp() {
         super.setUp()
@@ -35,19 +39,16 @@ class LiveServiceTests: XCTestCase {
             return
         }
         API.library = Library(url)
-        self.username = username
-        self.password = password
+        account = Account(username, password: password)
     }
-    
+
     //MARK: - LoginController Tests
-    
+
     func test_LoginController_success() {
-        let expectation = XCTestExpectation(description: "wait for async request")
-        LoginController(username: username, password: password).login { account, resp in
-            
+        let expectation = XCTestExpectation(description: "async response")
+        LoginController(for: account!).login { resp in
             XCTAssertFalse(resp.failed, String(describing: resp.error))
-            XCTAssertEqual(account.username, self.username)
-            XCTAssertNotNil(account.authtoken)
+            XCTAssertNotNil(self.account?.authtoken)
             
             expectation.fulfill()
         }
@@ -56,18 +57,52 @@ class LiveServiceTests: XCTestCase {
     }
     
     func test_LoginController_failure() {
-        let expectation = XCTestExpectation(description: "wait for async request")
-        LoginController(username: username, password: "bogus").login { account, resp in
-            
+        let expectation = XCTestExpectation(description: "async response")
+        let altAccount = Account(username, password: "bogus")
+        LoginController(for: altAccount).login { resp in
             XCTAssertTrue(resp.failed, String(describing: resp.error))
-            XCTAssertEqual(account.username, self.username)
-            XCTAssertNil(account.authtoken)
-            
+            XCTAssertNil(altAccount.authtoken)
             XCTAssertNotNil(resp.error)
-            let msg = resp.errorMessage
-            XCTAssertEqual(msg, "User login failed")
+            XCTAssertEqual(resp.errorMessage, "User login failed")
 
             expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    func test_LoginController_getSession() {
+        let expectation = XCTestExpectation(description: "async response")
+        LoginController(for: account!).login { resp in
+            XCTAssertFalse(resp.failed, String(describing: resp.error))
+            XCTAssertNotNil(self.account?.authtoken)
+            LoginController.getSession(self.account!) { resp in
+                debugPrint(resp)
+                expectation.fulfill()
+            }
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    //MARK: - actorCheckedOut
+    
+    func test_actorCheckedOut_basic() {
+        let expectation = XCTestExpectation(description: "async response")
+        LoginController(for: account!).login { resp in
+            guard let authtoken = self.account?.authtoken,
+                let userID = self.account?.userID else
+            {
+                XCTFail()
+                expectation.fulfill()
+                return
+            }
+            let request = API.createRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userID])
+            request.responseData { response in
+                print("response: \(response.description)")
+                XCTAssertTrue(response.result.isSuccess)
+                expectation.fulfill()
+            }
         }
         
         wait(for: [expectation], timeout: 20.0)

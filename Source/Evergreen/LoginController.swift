@@ -24,11 +24,11 @@ class LoginController {
     var account: Account
     var nonce: String?
     
-    init(username: String, password: String) {
-        account = Account(username: username, password: password)
+    init(for account: Account) {
+        self.account = account
     }
     
-    func login(completion: @escaping (_: Account, _: GatewayResponse) -> Void) {
+    func login(completion: @escaping (_: GatewayResponse) -> Void) {
         account.authtoken = nil
         account.authtokenExpiryDate = nil
         let request = API.createRequest(service: API.auth, method: API.authInit, args: [account.username])
@@ -38,13 +38,13 @@ class LoginController {
                 let data = response.result.value else
             {
                 let errorMessage = response.description 
-                completion(self.account, GatewayResponse.makeError(errorMessage))
+                completion(GatewayResponse.makeError(errorMessage))
                 return
             }
             debugPrint(data)
             let resp = GatewayResponse(data)
             guard let nonce = resp.stringResult else {
-                completion(self.account, GatewayResponse.makeError("unexpected response to login"))
+                completion(GatewayResponse.makeError("unexpected response to login"))
                 return
             }
             self.nonce = nonce
@@ -53,7 +53,7 @@ class LoginController {
         }
     }
     
-    func loginComplete(completion: @escaping (_: Account, _: GatewayResponse) -> Void) {
+    func loginComplete(completion: @escaping (_: GatewayResponse) -> Void) {
         let md5password = md5(self.nonce! + md5(self.account.password))
         let objectParam = ["type": "opac",
                           "username": self.account.username,
@@ -66,7 +66,7 @@ class LoginController {
                 let data = response.result.value else
             {
                 let errorMessage = response.description
-                completion(self.account, GatewayResponse.makeError(errorMessage))
+                completion(GatewayResponse.makeError(errorMessage))
                 return
             }
             debugPrint(data)
@@ -75,24 +75,47 @@ class LoginController {
                 let textcode = obj["textcode"] as? String,
                 let desc = obj["desc"] as? String else
             {
-                completion(self.account, GatewayResponse.makeError("Unexpected response to login"))
+                completion(GatewayResponse.makeError("Unexpected response to login"))
                 return
             }
             guard textcode == "SUCCESS" else {
-                completion(self.account, GatewayResponse.makeError(desc))
+                completion(GatewayResponse.makeError(desc))
                 return
             }
             guard let payload = obj["payload"] as? [String: Any],
                 let authtoken = payload["authtoken"] as? String,
                 let authtime = payload["authtime"] as? Int else
             {
-                completion(self.account, GatewayResponse.makeError("Unexpected response to login"))
+                completion(GatewayResponse.makeError("Unexpected response to login"))
                 return
             }
             
             self.account.authtoken = authtoken
+            debugPrint(self.account)
             self.account.authtokenExpiryDate = Date(timeIntervalSinceNow: TimeInterval(authtime))
-            completion(self.account, resp)
+            completion(resp)
+        }
+    }
+    
+    static func getSession(_ account: Account, completion: @escaping (_: GatewayResponse) -> Void) {
+        guard let authtoken = account.authtoken else {
+            completion(GatewayResponse.makeError("No auth token"))
+            return
+        }
+        let request = API.createRequest(service: API.auth, method: API.authGetSession, args: [authtoken])
+        print("request:  \(request.description)")
+        request.responseData { response in
+            print("response: \(response.description)")
+            guard response.result.isSuccess,
+                let data = response.result.value else
+            {
+                let errorMessage = response.description
+                completion(GatewayResponse.makeError(errorMessage))
+                return
+            }
+            debugPrint(data)
+            let resp = GatewayResponse(data)
+            completion(resp)
         }
     }
 }

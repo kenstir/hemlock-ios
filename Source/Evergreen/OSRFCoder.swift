@@ -24,7 +24,8 @@ enum OSRFDecodingError: Error {
     case jsonDecodingFailed
 }
 
-/// `OSRFCoder` encodes and decodes OSRF objects to and from OSRF wire format.
+/// `OSRFCoder` decodes OSRF objects from OSRF wire format.
+/// At the moment, I don't think I need encoding.
 struct OSRFCoder {
     static private var registry: [String: OSRFCoder] = [:]
     
@@ -36,7 +37,7 @@ struct OSRFCoder {
         self.fields = fields
     }
     
-    static func clear() -> Void {
+    static func clearRegistry() -> Void {
         registry.removeAll()
     }
     

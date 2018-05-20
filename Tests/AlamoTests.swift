@@ -26,7 +26,7 @@ class AlamoTests: XCTestCase {
     let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
 
     func test_basicGet() {
-        let expectation = XCTestExpectation(description: "wait for async response")
+        let expectation = XCTestExpectation(description: "async response")
         let request = Alamofire.request("https://httpbin.org/get")
         print("request:  \(request.description)")
         request.responseData { response in
@@ -40,7 +40,7 @@ class AlamoTests: XCTestCase {
 
     // use responseJSON to get response as decoded JSON
     func test_responseJSON() {
-        let expectation = XCTestExpectation(description: "wait for async response")
+        let expectation = XCTestExpectation(description: "async response")
         let request = Alamofire.request(API.directoryURL)
         print("request:  \(request.description)")
         request.responseJSON { response in
@@ -67,7 +67,7 @@ class AlamoTests: XCTestCase {
 
     // use responseData to get response as Data then decode it as JSON
     func test_responseData() {
-        let expectation = XCTestExpectation(description: "wait for async response")
+        let expectation = XCTestExpectation(description: "async response")
         let request = Alamofire.request(API.directoryURL)
         print("request:  \(request.description)")
         request.responseData { response in
@@ -114,7 +114,7 @@ class AlamoTests: XCTestCase {
     
     // make a request using gatewayEncoding
     func test_gatewayEncodingResponse() {
-        let expectation = XCTestExpectation(description: "wait for async response")
+        let expectation = XCTestExpectation(description: "async response")
         let parameters = ["param": ["\"stringish\"", "{\"objish\":1}"]]
         let request = Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: gatewayEncoding)
         print("request:  \(request.description)")

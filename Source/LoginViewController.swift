@@ -59,7 +59,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         {
             return
         }
-        LoginController(username: username, password: password).login { account, resp in
+        let account = Account(username, password: password)
+        LoginController(for: account).login { resp in
 
             var msg = "Unknown error"
             if let error = resp.error

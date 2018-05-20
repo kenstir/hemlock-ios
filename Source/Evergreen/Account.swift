@@ -18,14 +18,14 @@
 
 import Foundation
 
-struct Account {
+class Account {
     let username: String
     var password: String
     var authtoken: String?
     var authtokenExpiryDate: Date?
     var userID: Int?
     
-    init(username: String, password: String) {
+    init(_ username: String, password: String) {
         self.username = username
         self.password = password
     }
