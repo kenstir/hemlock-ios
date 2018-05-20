@@ -17,12 +17,11 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
-import Alamofire
 
+/// `API` defines the services and methods of the Gateway
 struct API {
-    
-    // endpoints
-    static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
+    //MARK: - classes used
+    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,cbreb,cbrebi,cbrebin,cbrebn,ccs,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
@@ -35,50 +34,4 @@ struct API {
     static let authInit = "open-ils.auth.authenticate.init"
     static let authComplete = "open-ils.auth.authenticate.complete"
     static let authGetSession = "open-ils.auth.session.retrieve"
-
-    //MARK: - fields
-
-    // todo: does this belong in GatewayRequest?
-    static var library: Library?
-    
-    // an encoding that serializes parameters as param=1&param=2
-    static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
-    
-    //MARK: - static methods
-
-    // todo: factor request handling out into GatewayRequest
-    static func createRequest(service: String, method: String, args: [Any]) -> Alamofire.DataRequest
-    {
-        let url = API.gatewayURL()
-        let parameters: [String: Any] = ["service": service, "method": method, "param": API.gatewayParams(args)]
-        let request = Alamofire.request(url, method: .post, parameters: parameters, encoding: gatewayEncoding)
-        return request
-    }
-    
-    static func gatewayParams(_ args: [Any]) -> [String]
-    {
-        var params: [String] = []
-        for arg in args {
-            if arg is String {
-                params.append("\"\(arg)\"")
-            } else if arg is Double || arg is Int {
-                params.append("\(arg)")
-            } else if let dict = arg as? [String: Any],
-                let jsonData = try? JSONSerialization.data(withJSONObject: dict),
-                let str = String(data: jsonData, encoding: .utf8)
-            {
-                params.append(str)
-            } else {
-                params.append("???")
-            }
-        }
-        return params
-    }
-    
-    static func gatewayURL() -> String
-    {
-        var url = library?.url ?? ""
-        url += "/osrf-gateway-v1"
-        return url
-    }
 }

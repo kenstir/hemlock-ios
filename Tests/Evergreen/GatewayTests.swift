@@ -1,5 +1,5 @@
 //
-//  APITests.swift
+//  GatewayTests.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -20,32 +20,32 @@
 import XCTest
 @testable import Hemlock
 
-class APITests: XCTestCase {
+class GatewayTests: XCTestCase {
     var sut: API?
     
     override func setUp() {
         super.setUp()
-        API.library = Library("https://example.org")
+        Gateway.library = Library("https://example.org")
     }
     
     func test_gatewayParam_podTypes() {
-        let p1 = API.gatewayParams(["hemlock"])
+        let p1 = Gateway.gatewayParams(["hemlock"])
         XCTAssertEqual(p1, ["\"hemlock\""])
-        let p2 = API.gatewayParams([42])
+        let p2 = Gateway.gatewayParams([42])
         XCTAssertEqual(p2, ["42"])
-        let p3 = API.gatewayParams([3.14])
+        let p3 = Gateway.gatewayParams([3.14])
         XCTAssertEqual(p3, ["3.14"])
     }
     
     func test_gatewayParam_jsonObject() {
         let authtoken = "deadbeef"
         let complexParam = ["active": 1]
-        let p1 = API.gatewayParams([authtoken, complexParam])
+        let p1 = Gateway.gatewayParams([authtoken, complexParam])
         XCTAssertEqual(p1, ["\"deadbeef\"","{\"active\":1}"])
     }
     
     func test_createRequest_basic() {
-        let request = API.createRequest(service: API.auth, method: API.authInit, args: ["hemlock"])
+        let request = Gateway.createRequest(service: API.auth, method: API.authInit, args: ["hemlock"])
         print("request:  \(request.description)")
         XCTAssertEqual(request.request?.url?.path, "/osrf-gateway-v1")
     }

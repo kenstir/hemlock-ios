@@ -25,6 +25,7 @@ class OSRFCoderTests: XCTestCase {
     var payload: [Any?]?
     
     override func setUp() {
+        super.setUp()
         OSRFCoder.clearRegistry()
     }
     

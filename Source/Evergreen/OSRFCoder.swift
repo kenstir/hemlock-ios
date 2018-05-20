@@ -25,12 +25,12 @@ enum OSRFDecodingError: Error {
 }
 
 /// `OSRFCoder` decodes OSRF objects from OSRF wire format.
-/// At the moment, I don't think I need encoding.
+/// For now, I don't need encoding.
 struct OSRFCoder {
     static private var registry: [String: OSRFCoder] = [:]
     
-    var fields: [String]
     var netClass: String
+    var fields: [String]
     
     init(netClass: String, fields: [String]) {
         self.netClass = netClass
@@ -39,6 +39,10 @@ struct OSRFCoder {
     
     static func clearRegistry() -> Void {
         registry.removeAll()
+    }
+    
+    static func registryCount() -> Int {
+        return registry.count
     }
     
     static func registerClass(_ netClass: String, fields: [String]) -> Void {

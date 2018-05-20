@@ -32,6 +32,7 @@ class IDLParserTests: XCTestCase {
         super.setUp()
         
         testBundle = Bundle(for: type(of: self))
+        OSRFCoder.clearRegistry()
     }
     
     func test_IDL_singleClass() {
@@ -58,6 +59,7 @@ class IDLParserTests: XCTestCase {
             let parser = IDLParser(contentsOf: URL(fileURLWithPath: path))
             let ok = parser.parse()
             XCTAssertTrue(ok)
+            XCTAssertEqual(OSRFCoder.registryCount(), 1)
         }
     }
 
@@ -71,6 +73,7 @@ class IDLParserTests: XCTestCase {
             let parser = IDLParser(contentsOf: URL(fileURLWithPath: path))
             let ok = parser.parse()
             XCTAssertTrue(ok)
+            XCTAssertGreaterThan(OSRFCoder.registryCount(), 1)
         }
     }
 
@@ -84,6 +87,7 @@ class IDLParserTests: XCTestCase {
             let parser = IDLParser(contentsOf: URL(fileURLWithPath: path))
             let ok = parser.parse()
             XCTAssertTrue(ok)
+            XCTAssertGreaterThan(OSRFCoder.registryCount(), 1)
         }
     }
 
