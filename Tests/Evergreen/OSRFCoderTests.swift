@@ -39,6 +39,17 @@ class OSRFCoderTests: XCTestCase {
         XCTAssertEqual(coder?.netClass, "aout")
         XCTAssertEqual(coder?.fields.count, 9)
     }
+    
+    func decodeWirePayloadAsArray(_ wireString: String) -> [Any?]? {
+        if
+            let data = wireString.data(using: .utf8),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonArray = json as? [Any?] {
+            return jsonArray
+        } else {
+            return nil
+        }
+    }
 
     // Case: decoding an object having 9 fields given an array of only 8 elements.
     // The result should be an OSRFObject with the last field omitted.
@@ -46,18 +57,14 @@ class OSRFCoderTests: XCTestCase {
         OSRFCoder.registerClass("aout", fields: ["children","can_have_users","can_have_vols","depth","id","name","opac_label","parent","org_units"])
         
         let coder = OSRFCoder.findClass("aout")
-        XCTAssertEqual(coder?.netClass, "aout")
+        XCTAssertNotNil(coder)
         XCTAssertEqual(coder?.fields.count, 9)
         
-        let wireString = """
+        let wirePayload = """
             [null,"t","t",3,11,"Non-member Library","Non-member Library",10]
             """
-        guard
-            let data = wireString.data(using: .utf8),
-            let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonArray = json as? [Any?] else
-        {
-            XCTFail("unable to decode json string as array")
+        guard let jsonArray = decodeWirePayloadAsArray(wirePayload) else {
+            XCTFail("ERROR decoding wire payload string")
             return
         }
         XCTAssertNil(jsonArray[0])
@@ -68,7 +75,7 @@ class OSRFCoderTests: XCTestCase {
                                       "depth": 3, "id": 11, "name": "Non-member Library",
                                       "opac_label": "Non-member Library", "parent": 10])
         do {
-            let decodedObj = try OSRFCoder.decode("aout", wireString: wireString)
+            let decodedObj = try OSRFCoder.decode("aout", fromArray: jsonArray)
             debugPrint(decodedObj)
             XCTAssertEqual(decodedObj, expectedObj)
             XCTAssertEqual(decodedObj.dict.keys.count, 8)

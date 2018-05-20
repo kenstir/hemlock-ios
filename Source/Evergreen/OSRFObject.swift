@@ -28,8 +28,61 @@ struct OSRFObject: Equatable {
     init(_ dict: [String: Any?] = [:]) {
         self.dict = dict
     }
+    
+    //MARK: - accessors
+    
+    /*
+    func getString(_ key: String) -> String? {
+        if let val = dict[key] as? String {
+            return val
+        }
+        return nil
+    }
+    
+    func getInt(_ key: String) -> Int? {
+        if let val = dict[key] as? Int {
+            return val
+        }
+        return nil
+    }
+    
+    func getBool(_ key: String) -> Bool? {
+        if let val = dict[key] as? Bool {
+            return val
+        }
+        if let val = dict[key] as? Int {
+            if val == 0 {
+                return false
+            } else {
+                return true
+            }
+        }
+        return nil
+    }
+    
+    func getAny(_ key: String) -> Any? {
+        return dict[key]
+    }
+    
+    // some queries return at times a list of String IDs and at times
+    // a list of Int IDs; smooth that path
+    func getListOfIDs(_ key: String) -> [Int] {
+        var ret: [Int] = []
+        if let listOfStrings = dict[key] as? [String] {
+            for str in listOfStrings {
+                if let id = Int(str) {
+                    ret.append(id)
+                }
+            }
+        } else if let listOfInt = dict[key] as? [Int] {
+            ret = listOfInt
+        }
+        return ret
+    }
+ */
 
-    // MARK: Equatable
+    // MARK: - Equatable
+
     // It seems like there should be an easier way to implement this
     // but this is just for unit tests.  So we treat two OSRFObjects
     // as equal if they serialize to the same JSON String.

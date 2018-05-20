@@ -22,6 +22,7 @@ import Foundation
 enum OSRFDecodingError: Error {
     case classNotFound(String)
     case jsonDecodingFailed
+    case unexpectedError(String)
 }
 
 /// `OSRFCoder` decodes OSRF objects from OSRF wire format.
@@ -55,22 +56,29 @@ struct OSRFCoder {
         return registeredObject
     }
     
-    static func decode(_ netClass: String, wireString: String) throws -> OSRFObject {
+    /// decode an OSRFObject from a wireString
+    /*
+    static func decode(_ netClass: String, fromWireString wireString: String) throws -> OSRFObject {
         guard
             let data = wireString.data(using: .utf8),
-            let json = try? JSONSerialization.jsonObject(with: data),
-            let arr = json as? [Any?],
-            let coder = registry[netClass] else
+            let json = try? JSONSerialization.jsonObject(with: data) else
         {
             throw OSRFDecodingError.jsonDecodingFailed
         }
         debugPrint(json)
-        
+        return decode(netClass, fromJsonObject: json)
+    }*/
+    
+    /// decode an OSRFObject from an array in wire format
+    static func decode(_ netClass: String, fromArray json: [Any?]) throws -> OSRFObject {
+        guard let coder = registry[netClass] else {
+            throw OSRFDecodingError.classNotFound(netClass)
+        }
         var dict: [String: Any?] = [:]
         let fields = coder.fields
-        for i in 0...arr.count-1 {
+        for i in 0...json.count-1 {
             let key = fields[i]
-            let val = arr[i]
+            let val = json[i]
             dict[key] = val
             print("field at index \(i) is \(key) => \(String(describing: val))")
         }

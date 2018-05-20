@@ -86,7 +86,7 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertFalse(resp.failed, String(describing: resp.error))
 
         // we can treat "out" as a list of Any
-        guard let out = resp.getObject("out") as? [Any] else {
+        guard let out = resp.getAny("out") as? [Any] else {
             XCTFail()
             return
         }

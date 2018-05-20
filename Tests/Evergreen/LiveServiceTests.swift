@@ -72,6 +72,10 @@ class LiveServiceTests: XCTestCase {
     }
     
     func test_LoginController_getSession() {
+        let parser = IDLParser(contentsOf: Gateway.idlURL()!)
+        let ok = parser.parse()
+        XCTAssertTrue(ok)
+
         let expectation = XCTestExpectation(description: "async response")
         LoginController(for: account!).login { resp in
             XCTAssertFalse(resp.failed, String(describing: resp.error))

@@ -40,7 +40,7 @@ struct GatewayResponse {
 
     // a field for each GatewayResultType; I'm sure there's a better way
     var stringResult: String?
-    var objectResult: [String: Any]?
+    var objectResult: OSRFObject?
     var arrayResult: [Any]?
 
     var failed: Bool {
@@ -96,9 +96,9 @@ struct GatewayResponse {
             error = .failure("Response missing payload")
             return
         }
-        if let val = payload.first as? [String: Any] {
+        if let val = payload.first as? [String: Any?] {
             type = .object
-            objectResult = val
+            objectResult = decodeObject(val)
         } else if let val = payload.first as? [Any] {
             type = .array
             arrayResult = val
@@ -122,6 +122,16 @@ struct GatewayResponse {
             return nil
         }
     }
+    
+    func decodeObject(_ jsonObject: [String: Any?]) -> OSRFObject? {
+        if let netClass = jsonObject["__c"],
+            let payload = jsonObject["__p"] {
+            // todo: add decoding
+            return OSRFObject(jsonObject)
+        } else {
+            return OSRFObject(jsonObject)
+        }
+    }
 
     static func makeError(_ reason: String) -> GatewayResponse {
         var resp = GatewayResponse()
@@ -130,14 +140,35 @@ struct GatewayResponse {
     }
     
     func getString(_ key: String) -> String? {
-        if let val = objectResult?[key] as? String {
+        if let val = objectResult?.dict[key] as? String {
             return val
         }
         return stringResult
     }
     
-    func getObject(_ key: String) -> Any? {
-        if let val = objectResult?[key] {
+    func getInt(_ key: String) -> Int? {
+        if let val = objectResult?.dict[key] as? Int {
+            return val
+        }
+        return nil
+    }
+
+    func getBool(_ key: String) -> Bool? {
+        if let val = objectResult?.dict[key] as? Bool {
+            return val
+        }
+        if let val = objectResult?.dict[key] as? Int {
+            if val == 0 {
+                return false
+            } else {
+                return true
+            }
+        }
+        return nil
+    }
+
+    func getAny(_ key: String) -> Any? {
+        if let val = objectResult?.dict[key] {
             return val
         }
         return nil
@@ -147,13 +178,13 @@ struct GatewayResponse {
     // a list of Int IDs; smooth that path
     func getListOfIDs(_ key: String) -> [Int] {
         var ret: [Int] = []
-        if let listOfStrings = getObject(key) as? [String] {
+        if let listOfStrings = objectResult?.dict[key] as? [String] {
             for str in listOfStrings {
                 if let id = Int(str) {
                     ret.append(id)
                 }
             }
-        } else if let listOfInt = getObject(key) as? [Int] {
+        } else if let listOfInt = getAny(key) as? [Int] {
             ret = listOfInt
         }
         return ret

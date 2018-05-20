@@ -71,9 +71,9 @@ class LoginController {
             }
             debugPrint(data)
             let resp = GatewayResponse(data)
-            guard let obj = resp.objectResult,
-                let textcode = obj["textcode"] as? String,
-                let desc = obj["desc"] as? String else
+            guard
+                let textcode = resp.getString("textcode"),
+                let desc = resp.getString("desc") else
             {
                 completion(GatewayResponse.makeError("Unexpected response to login"))
                 return
@@ -82,7 +82,7 @@ class LoginController {
                 completion(GatewayResponse.makeError(desc))
                 return
             }
-            guard let payload = obj["payload"] as? [String: Any],
+            guard let payload = resp.getAny("payload") as? [String: Any],
                 let authtoken = payload["authtoken"] as? String,
                 let authtime = payload["authtime"] as? Int else
             {
