@@ -165,11 +165,11 @@ struct GatewayResponse {
         if let val = objectResult?.dict[key] as? Bool {
             return val
         }
-        if let val = objectResult?.dict[key] as? Int {
-            if val == 0 {
-                return false
-            } else {
+        if let val = objectResult?.dict[key] as? String {
+            if val == "t" {
                 return true
+            } else {
+                return false
             }
         }
         return nil

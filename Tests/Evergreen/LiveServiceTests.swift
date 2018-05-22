@@ -82,6 +82,14 @@ class LiveServiceTests: XCTestCase {
             XCTAssertNotNil(self.account?.authtoken)
             LoginController.getSession(self.account!) { resp in
                 debugPrint(resp)
+                let obj = resp.objectResult
+                debugPrint(obj)
+                for key in (obj?.dict.keys)! {
+                    let val = obj?.dict[key]
+                    print("\(key) -> \(String(describing: val))")
+                }
+                let deleted = resp.getBool("deleted")
+                XCTAssertFalse(deleted!)
                 expectation.fulfill()
             }
         }
