@@ -24,10 +24,38 @@ class OSRFCoderTests: XCTestCase {
     
     var payload: [Any?]?
     
+    //MARK: - methods
+
     override func setUp() {
         super.setUp()
         OSRFCoder.clearRegistry()
     }
+    
+    // Decode a wire protocol payload string into an array of foundation objects
+    func decodeWirePayloadAsArray(_ wireString: String) -> [Any?]? {
+        if
+            let data = wireString.data(using: .utf8),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonArray = json as? [Any?] {
+            return jsonArray
+        } else {
+            return nil
+        }
+    }
+    
+    // Decode a wire protocol string from JSON
+    func decodeJSON(_ wireString: String) -> [String: Any?]? {
+        if
+            let data = wireString.data(using: .utf8),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let dict = json as? [String: Any?] {
+            return dict
+        } else {
+            return nil
+        }
+    }
+    
+    //MARK: - tests
     
     func test_register() {
         OSRFCoder.registerClass("aout", fields: ["children","can_have_users","can_have_vols","depth","id","name","opac_label","parent","org_units"])
@@ -38,17 +66,6 @@ class OSRFCoderTests: XCTestCase {
         coder = OSRFCoder.findClass("aout")
         XCTAssertEqual(coder?.netClass, "aout")
         XCTAssertEqual(coder?.fields.count, 9)
-    }
-    
-    func decodeWirePayloadAsArray(_ wireString: String) -> [Any?]? {
-        if
-            let data = wireString.data(using: .utf8),
-            let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonArray = json as? [Any?] {
-            return jsonArray
-        } else {
-            return nil
-        }
     }
 
     // Case: decoding an object having 9 fields given an array of only 8 elements.
@@ -64,7 +81,7 @@ class OSRFCoderTests: XCTestCase {
             [null,"t","t",3,11,"Non-member Library","Non-member Library",10]
             """
         guard let jsonArray = decodeWirePayloadAsArray(wirePayload) else {
-            XCTFail("ERROR decoding wire payload string")
+            XCTFail("ERROR decoding JSON")
             return
         }
         XCTAssertNil(jsonArray[0])
@@ -75,7 +92,7 @@ class OSRFCoderTests: XCTestCase {
                                       "depth": 3, "id": 11, "name": "Non-member Library",
                                       "opac_label": "Non-member Library", "parent": 10])
         do {
-            let decodedObj = try OSRFCoder.decode("aout", fromArray: jsonArray)
+            let decodedObj = try OSRFCoder.decode("aout", fromWireProtocol: jsonArray)
             debugPrint(decodedObj)
             XCTAssertEqual(decodedObj, expectedObj)
             XCTAssertEqual(decodedObj.dict.keys.count, 8)
@@ -84,4 +101,30 @@ class OSRFCoderTests: XCTestCase {
             XCTFail(String(describing: error))
         }
     }
+    
+    // Case: decoding an OSRF object from the wire protocol {"__c": netClass, "__p": [...]}
+    func test_decode_wireObject() {
+        OSRFCoder.registerClass("test", fields: ["can_haz_bacon","id","name"])
+        
+        let wireProtocol = """
+            {"__c":"test","__p":["t",1,"Hormel"]}
+            """
+        guard let dict = decodeJSON(wireProtocol) else {
+            XCTFail("ERROR decoding JSON")
+            return
+        }
+        
+        let expectedObj = OSRFObject(["can_haz_bacon": "t",
+                                      "id": 1,
+                                      "name": "Hormel"])
+        do {
+            let decodedObj = try OSRFCoder.decode(fromWireProtocol: dict)
+            debugPrint(decodedObj)
+            XCTAssertEqual(decodedObj, expectedObj)
+        } catch {
+            debugPrint(error)
+            XCTFail(String(describing: error))
+        }
+    }
+
 }

@@ -56,21 +56,20 @@ struct OSRFCoder {
         return registeredObject
     }
     
-    /// decode an OSRFObject from a wireString
-    /*
-    static func decode(_ netClass: String, fromWireString wireString: String) throws -> OSRFObject {
+    /// decode an OSRFObject from an object in wire protocol
+    static func decode(fromWireProtocol dict: [String: Any?]) throws -> OSRFObject {
         guard
-            let data = wireString.data(using: .utf8),
-            let json = try? JSONSerialization.jsonObject(with: data) else
+            let netClass = dict["__c"] as? String,
+            let payload = dict["__p"] as? [Any?] else
         {
-            throw OSRFDecodingError.jsonDecodingFailed
+            // if it doesn't have a class, it doesn't need decoding
+            return OSRFObject(dict)
         }
-        debugPrint(json)
-        return decode(netClass, fromJsonObject: json)
-    }*/
+        return try decode(netClass, fromWireProtocol: payload)
+    }
     
-    /// decode an OSRFObject from an array in wire format
-    static func decode(_ netClass: String, fromArray json: [Any?]) throws -> OSRFObject {
+    /// decode an OSRFObject from a payload array in wire protocol
+    static func decode(_ netClass: String, fromWireProtocol json: [Any?]) throws -> OSRFObject {
         guard let coder = registry[netClass] else {
             throw OSRFDecodingError.classNotFound(netClass)
         }
