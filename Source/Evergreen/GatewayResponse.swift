@@ -97,8 +97,14 @@ struct GatewayResponse {
             return
         }
         if let val = payload.first as? [String: Any?] {
+            do {
+                try objectResult = decodeObject(val)
+            }
+            catch {
+                self.error = .failure("Error decoding OSRF object")
+                return
+            }
             type = .object
-            objectResult = decodeObject(val)
         } else if let val = payload.first as? [Any] {
             type = .array
             arrayResult = val
@@ -123,14 +129,16 @@ struct GatewayResponse {
         }
     }
     
-    func decodeObject(_ jsonObject: [String: Any?]) -> OSRFObject? {
+    func decodeObject(_ jsonObject: [String: Any?]) throws -> OSRFObject? {
+        /*
         if let netClass = jsonObject["__c"],
             let payload = jsonObject["__p"] {
             // todo: add decoding
             return OSRFObject(jsonObject)
         } else {
             return OSRFObject(jsonObject)
-        }
+        }*/
+        return try OSRFCoder.decode(fromWireProtocol: jsonObject)
     }
 
     static func makeError(_ reason: String) -> GatewayResponse {

@@ -65,11 +65,11 @@ struct OSRFCoder {
             // if it doesn't have a class, it doesn't need decoding
             return OSRFObject(dict)
         }
-        return try decode(netClass, fromWireProtocol: payload)
+        return try decode(netClass, wirePayload: payload)
     }
     
     /// decode an OSRFObject from a payload array in wire protocol
-    static func decode(_ netClass: String, fromWireProtocol json: [Any?]) throws -> OSRFObject {
+    static func decode(_ netClass: String, wirePayload json: [Any?]) throws -> OSRFObject {
         guard let coder = registry[netClass] else {
             throw OSRFDecodingError.classNotFound(netClass)
         }

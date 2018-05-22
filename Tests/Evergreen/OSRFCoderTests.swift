@@ -92,7 +92,7 @@ class OSRFCoderTests: XCTestCase {
                                       "depth": 3, "id": 11, "name": "Non-member Library",
                                       "opac_label": "Non-member Library", "parent": 10])
         do {
-            let decodedObj = try OSRFCoder.decode("aout", fromWireProtocol: jsonArray)
+            let decodedObj = try OSRFCoder.decode("aout", wirePayload: jsonArray)
             debugPrint(decodedObj)
             XCTAssertEqual(decodedObj, expectedObj)
             XCTAssertEqual(decodedObj.dict.keys.count, 8)
