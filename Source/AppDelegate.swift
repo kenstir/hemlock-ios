@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         Gateway.library = Library(AppSettings.url)
-        
+        let parser = IDLParser(contentsOf: Gateway.idlURL()!)
+        AppSettings.idlParserStatus = parser.parse()
+
         /*
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.backgroundColor = UIColor.white

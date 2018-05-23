@@ -62,26 +62,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let account = Account(username, password: password)
         LoginController(for: account).login { resp in
 
-            var msg = "Unknown error"
-            if let error = resp.error
-            {
-                switch error {
-                case .failure(let reason):
-                    msg = reason
-                case .malformedPayload(let reason):
-                    msg = reason
-                }
-                let alertController = UIAlertController(title: "Login failed", message: msg, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-
+            if resp.failed {
+                self.showAlert(title: "Login failed", message: resp.errorMessage)
+                return
             }
+
             if account.authtoken != nil {
-                AppSettings.account = account
-                self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
+                self.getSession(account)
             }
         }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func getSession(_ account: Account) {
+        LoginController.getSession(account) { resp in
 
+            if resp.failed {
+                self.showAlert(title: "Failed to initialize session", message: resp.errorMessage)
+                return
+            }
+
+            account.userID = resp.getInt("id")
+            AppSettings.account = account
+            self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
+        }
     }
 }
-

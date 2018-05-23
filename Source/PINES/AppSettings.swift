@@ -25,5 +25,7 @@ struct AppSettings {
     static let url = "https://gapines.org"
     static let themeBackgroundColor = UIColor(red: 0x37/255.0, green: 0x96/255.0, blue: 0x76/255.0, alpha: 1.0)
     static let themeForegroundColor = UIColor.white
+
+    static var idlParserStatus: Bool?
     static var account: Account?
 }
