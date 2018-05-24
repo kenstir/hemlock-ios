@@ -31,6 +31,10 @@ struct MainViewButtonData {
 
 class MainViewController: UITableViewController {
     
+    //MARK: - fields
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    @IBOutlet var table: UITableView!
+    
     var buttons: [(String, String)] = [
         ("Search", "ShowSearchSegue"),
         ("Items Checked Out", "ShowItemsCheckedOutSegue"),
@@ -40,13 +44,12 @@ class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupData()
-    }
-    
-    func setupData() {
+
+        logoutButton.target = self
+        logoutButton.action = #selector(logoutPressed(sender:))
     }
 
-    // MARK: UITableViewController
+    // MARK: - UITableViewController
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -54,6 +57,13 @@ class MainViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return buttons.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let username = AppSettings.account?.username {
+            return "User: " + username
+        }
+        return ""
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,12 +92,8 @@ class MainViewController: UITableViewController {
         self.performSegue(withIdentifier: segue, sender: nil)
     }
     
-//    @IBAction func buttonPressed(sender: UIButton) {
-//        // no longer used
-//        if let button = sender as? MainButton,
-//            let segue = button.segue
-//        {
-//            self.performSegue(withIdentifier: segue, sender: nil)
-//        }
-//    }
+    @IBAction func logoutPressed(sender: UIButton) {
+        AppSettings.account?.logout()
+        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
+    }
 }

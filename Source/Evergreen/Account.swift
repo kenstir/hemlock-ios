@@ -29,4 +29,11 @@ class Account {
         self.username = username
         self.password = password
     }
+    
+    func logout() -> Void {
+        self.password = ""
+        self.authtoken = nil
+        self.authtokenExpiryDate = nil
+        self.userID = nil
+    }
 }

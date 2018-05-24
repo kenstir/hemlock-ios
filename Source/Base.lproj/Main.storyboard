@@ -211,13 +211,18 @@
                             <outlet property="delegate" destination="Xqe-Fu-Ne1" id="deS-Ck-kBY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="PINES" id="xUo-oL-WrT"/>
+                    <navigationItem key="navigationItem" title="PINES" id="xUo-oL-WrT">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="GJD-cg-1UD"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="logoutButton" destination="GJD-cg-1UD" id="Fq3-pw-ltt"/>
+                        <outlet property="table" destination="Bny-iN-u9U" id="uPy-9U-wwm"/>
                         <segue destination="nrb-5n-3Qo" kind="show" identifier="ShowItemsCheckedOutSegue" id="dHC-0i-leE"/>
                         <segue destination="aZb-1B-51Z" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>
                         <segue destination="x2b-x0-F7V" kind="show" identifier="ShowHoldsSegue" id="QLz-GT-rH2"/>
                         <segue destination="Vj0-Na-E34" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
                         <segue destination="EVt-En-7Wz" kind="show" identifier="ShowMyListsSegue" id="cd4-OG-ah5"/>
+                        <segue destination="L5E-wb-4wF" kind="show" identifier="ShowLoginSegue" id="zgh-oQ-owQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
