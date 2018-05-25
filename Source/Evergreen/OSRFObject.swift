@@ -31,7 +31,6 @@ struct OSRFObject: Equatable {
     
     //MARK: - accessors
     
-    /*
     func getString(_ key: String) -> String? {
         if let val = dict[key] as? String {
             return val
@@ -50,18 +49,21 @@ struct OSRFObject: Equatable {
         if let val = dict[key] as? Bool {
             return val
         }
-        if let val = dict[key] as? Int {
-            if val == 0 {
-                return false
-            } else {
+        if let val = dict[key] as? String {
+            if val == "t" {
                 return true
+            } else {
+                return false
             }
         }
         return nil
     }
     
     func getAny(_ key: String) -> Any? {
-        return dict[key]
+        if let val = dict[key] {
+            return val
+        }
+        return nil
     }
     
     // some queries return at times a list of String IDs and at times
@@ -74,12 +76,11 @@ struct OSRFObject: Equatable {
                     ret.append(id)
                 }
             }
-        } else if let listOfInt = dict[key] as? [Int] {
+        } else if let listOfInt = getAny(key) as? [Int] {
             ret = listOfInt
         }
         return ret
     }
- */
 
     // MARK: - Equatable
 

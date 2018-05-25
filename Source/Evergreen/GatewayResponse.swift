@@ -43,6 +43,9 @@ struct GatewayResponse {
     var objectResult: OSRFObject?
     var arrayResult: [Any]?
 
+    var obj: OSRFObject? {
+        return objectResult
+    }
     var failed: Bool {
         return type == .error
     }
@@ -146,55 +149,4 @@ struct GatewayResponse {
         resp.error = .failure(reason)
         return resp
     }
-    
-    func getString(_ key: String) -> String? {
-        if let val = objectResult?.dict[key] as? String {
-            return val
-        }
-        return stringResult
     }
-    
-    func getInt(_ key: String) -> Int? {
-        if let val = objectResult?.dict[key] as? Int {
-            return val
-        }
-        return nil
-    }
-
-    func getBool(_ key: String) -> Bool? {
-        if let val = objectResult?.dict[key] as? Bool {
-            return val
-        }
-        if let val = objectResult?.dict[key] as? String {
-            if val == "t" {
-                return true
-            } else {
-                return false
-            }
-        }
-        return nil
-    }
-
-    func getAny(_ key: String) -> Any? {
-        if let val = objectResult?.dict[key] {
-            return val
-        }
-        return nil
-    }
-    
-    // some queries return at times a list of String IDs and at times
-    // a list of Int IDs; smooth that path
-    func getListOfIDs(_ key: String) -> [Int] {
-        var ret: [Int] = []
-        if let listOfStrings = objectResult?.dict[key] as? [String] {
-            for str in listOfStrings {
-                if let id = Int(str) {
-                    ret.append(id)
-                }
-            }
-        } else if let listOfInt = getAny(key) as? [Int] {
-            ret = listOfInt
-        }
-        return ret
-    }
-}

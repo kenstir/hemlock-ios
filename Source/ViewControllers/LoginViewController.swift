@@ -87,7 +87,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
 
-            account.userID = resp.getInt("id")
+            account.userID = resp.obj?.getInt("id")
             AppSettings.account = account
             self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
         }

@@ -20,80 +20,77 @@
 import Foundation
 import UIKit
 
-struct MainViewButtonData {
+struct CheckoutsViewButtonData {
     let title: String
-    let segue: String
-    init(_ title: String, _ segue: String) {
+    init(_ title: String) {
         self.title = title
-        self.segue = segue
     }
 }
 
-class MainViewController: UITableViewController {
+struct CheckoutsList {
+    let title: String
+    var items: [CircRecord] = []
+    init(_ title: String) {
+        self.title = title
+    }
+}
+
+class CheckoutsViewController: UITableViewController {
     
     //MARK: - fields
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
-    @IBOutlet var table: UITableView!
-    
-    var buttons: [(String, String)] = [
-        ("Search", "ShowSearchSegue"),
-        ("Items Checked Out", "ShowItemsCheckedOutSegue"),
-        ("Holds", "ShowHoldsSegue"),
-        ("Fines", "ShowFinesSegue"),
-        ("My Lists", "ShowMyListsSegue")]
-    
+    var lists = [CheckoutsList("checked out"), CheckoutsList("overdue")]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        logoutButton.target = self
-        logoutButton.action = #selector(logoutPressed(sender:))
+        //tableView.tableHeaderView?.backgroundColor = UIColor.cyan
+        //tableView.tableFooterView?.backgroundColor = UIColor.cyan
     }
-
+    
     // MARK: - UITableViewController
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return lists.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return buttons.count
+        return lists[section].items.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let username = AppSettings.account?.username {
-            return "User: " + username
+        if lists[section].items.count == 0 {
+            return "No items " + lists[section].title
+        } else {
+            return lists[section].title
         }
-        return ""
     }
-    
+
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 34
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "MainTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MainTableViewCell else {
+        let cellIdentifier = "CheckoutsTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CheckoutsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
         
-        let tuple = buttons[indexPath.row]
-        let label = tuple.0
-        let segue = tuple.1
+        let item = lists[indexPath.section].items[indexPath.row]
+        cell.title.text = item.obj.getString("title")
         
-        cell.cellImage.image = UIImage(named: label)
-        cell.cellLabel.text = label
-        cell.title = label
-        cell.segue = segue
-
         return cell
     }
     
     // MARK: UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tuple = buttons[indexPath.row]
-        let segue = tuple.1
-        self.performSegue(withIdentifier: segue, sender: nil)
+//        let tuple = buttons[indexPath.row]
+//        let segue = tuple.1
+//        self.performSegue(withIdentifier: segue, sender: nil)
     }
     
-    @IBAction func logoutPressed(sender: UIButton) {
-        AppSettings.account?.logout()
-        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
+    @IBAction func buttonPressed(sender: UIButton) {
+//        AppSettings.account?.logout()
+//        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
     }
 }

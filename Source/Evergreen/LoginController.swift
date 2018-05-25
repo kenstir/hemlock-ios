@@ -31,7 +31,7 @@ class LoginController {
     func login(completion: @escaping (_: GatewayResponse) -> Void) {
         account.authtoken = nil
         account.authtokenExpiryDate = nil
-        let request = Gateway.createRequest(service: API.auth, method: API.authInit, args: [account.username])
+        let request = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [account.username])
         request.responseData { response in
             print("response: \(response.description)")
             guard response.result.isSuccess,
@@ -58,7 +58,7 @@ class LoginController {
         let objectParam = ["type": "opac",
                           "username": self.account.username,
                           "password": md5password]
-        let request = Gateway.createRequest(service: API.auth, method: API.authComplete, args: [objectParam])
+        let request = Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam])
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
@@ -72,8 +72,8 @@ class LoginController {
             debugPrint(data)
             let resp = GatewayResponse(data)
             guard
-                let textcode = resp.getString("textcode"),
-                let desc = resp.getString("desc") else
+                let textcode = resp.obj?.getString("textcode"),
+                let desc = resp.obj?.getString("desc") else
             {
                 completion(GatewayResponse.makeError("Unexpected response to login"))
                 return
@@ -82,7 +82,7 @@ class LoginController {
                 completion(GatewayResponse.makeError(desc))
                 return
             }
-            guard let payload = resp.getAny("payload") as? [String: Any],
+            guard let payload = resp.obj?.getAny("payload") as? [String: Any],
                 let authtoken = payload["authtoken"] as? String,
                 let authtime = payload["authtime"] as? Int else
             {
@@ -102,7 +102,7 @@ class LoginController {
             completion(GatewayResponse.makeError("No auth token"))
             return
         }
-        let request = Gateway.createRequest(service: API.auth, method: API.authGetSession, args: [authtoken])
+        let request = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [authtoken])
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")

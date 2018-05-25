@@ -37,7 +37,7 @@ class Gateway {
     //MARK: - static methods
     
     /// create an Alamofire request for calling the gateway
-    static func createRequest(service: String, method: String, args: [Any]) -> Alamofire.DataRequest
+    static func makeRequest(service: String, method: String, args: [Any]) -> Alamofire.DataRequest
     {
         let url = gatewayURL()
         let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args)]

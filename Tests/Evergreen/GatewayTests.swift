@@ -45,7 +45,7 @@ class GatewayTests: XCTestCase {
     }
     
     func test_createRequest_basic() {
-        let request = Gateway.createRequest(service: API.auth, method: API.authInit, args: ["hemlock"])
+        let request = Gateway.makeRequest(service: API.auth, method: API.authInit, args: ["hemlock"])
         print("request:  \(request.description)")
         XCTAssertEqual(request.request?.url?.path, "/osrf-gateway-v1")
     }
