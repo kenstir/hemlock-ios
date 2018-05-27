@@ -75,7 +75,7 @@ class GatewayResponseTests: XCTestCase {
             """
         let resp = GatewayResponse(json)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
-        XCTAssertEqual(resp.getString("textcode"), "LOGIN_FAILED")
+        XCTAssertEqual(resp.obj?.getString("textcode"), "LOGIN_FAILED")
     }
     
     func test_actorCheckedOut() {
@@ -86,16 +86,16 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertFalse(resp.failed, String(describing: resp.error))
 
         // we can treat "out" as a list of Any
-        guard let out = resp.getAny("out") as? [Any] else {
+        guard let out = resp.obj?.getAny("out") as? [Any] else {
             XCTFail()
             return
         }
         XCTAssertEqual(out.count, 2)
-        
+
         // or as a list of IDs
-        XCTAssertEqual(resp.getListOfIDs("out"), [73107615, 72954513])
-        XCTAssertEqual(resp.getListOfIDs("overdue"), [])
-        XCTAssertEqual(resp.getListOfIDs("lost"), [1,2])
+        XCTAssertEqual(resp.obj?.getListOfIDs("out"), [73107615, 72954513])
+        XCTAssertEqual(resp.obj?.getListOfIDs("overdue"), [])
+        XCTAssertEqual(resp.obj?.getListOfIDs("lost"), [1,2])
     }
 
 }

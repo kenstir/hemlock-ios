@@ -33,6 +33,7 @@ class LoginController {
         account.authtokenExpiryDate = nil
         let request = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [account.username])
         request.responseData { response in
+            // TODO this needs to be simpler
             print("response: \(response.description)")
             guard response.result.isSuccess,
                 let data = response.result.value else
@@ -62,6 +63,7 @@ class LoginController {
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
+            // TODO this needs to be simpler
             guard response.result.isSuccess,
                 let data = response.result.value else
             {

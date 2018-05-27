@@ -19,11 +19,14 @@
 
 import Foundation
 import Alamofire
+import os.log
 
 /// `Gateway` represents the endpoint or catalog OSRF server.
 class Gateway {
 
     //MARK: - fields
+
+    static let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Gateway")
 
     /// the URL of the JSON directory of library systems available for use in the Hemlock app
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
@@ -42,6 +45,7 @@ class Gateway {
         let url = gatewayURL()
         let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args)]
         let request = Alamofire.request(url, method: .post, parameters: parameters, encoding: gatewayEncoding)
+        os_log("req.params: %@", log: log, type: .info, parameters)
         return request
     }
     
@@ -50,10 +54,13 @@ class Gateway {
     {
         var params: [String] = []
         for arg in args {
-            if arg is String {
-                params.append("\"\(arg)\"")
-            } else if arg is Double || arg is Int {
-                params.append("\(arg)")
+            if let s = arg as? String {
+                let jsonStr = "\"" + s + "\""
+                params.append(jsonStr)
+            } else if let d = arg as? Double {
+                params.append(String(d))
+            } else if let i = arg as? Int {
+                params.append(String(i))
             } else if let dict = arg as? [String: Any],
                 let jsonData = try? JSONSerialization.data(withJSONObject: dict),
                 let str = String(data: jsonData, encoding: .utf8)

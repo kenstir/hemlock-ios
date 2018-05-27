@@ -45,9 +45,58 @@ class CheckoutsViewController: UITableViewController {
 
         //tableView.tableHeaderView?.backgroundColor = UIColor.cyan
         //tableView.tableFooterView?.backgroundColor = UIColor.cyan
+        
+        fetchItemsCheckedOut()
     }
     
-    // MARK: - UITableViewController
+    //MARK: - functions
+    
+    func fetchItemsCheckedOut() {
+        let request = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [AppSettings.account?.authtoken, AppSettings.account?.userID])
+        print("request:  \(request.description)")
+        request.responseData { response in
+            // TODO this needs to be simpler
+            print("body:     \(request.request?.httpBody ?? nil)")
+            print("response: \(response.description)")
+            guard response.result.isSuccess,
+                let data = response.result.value else
+            {
+                let msg = response.description
+                self.showAlert(title: "Request failed", message: msg)
+                return
+            }
+            print("respdata: \(data)")
+            let resp = GatewayResponse(data)
+            guard let obj = resp.obj else
+            {
+                return
+            }
+            self.fetchItemDetails(obj.getListOfIDs("out"), obj.getListOfIDs("overdue"))
+        }
+    }
+    
+    func fetchItemDetails(_ outIds: [Int], _ overdueIds: [Int]) {
+        var out: [CircRecord] = []
+        var overdue: [CircRecord] = []
+        for id in outIds { out.append(CircRecord(id: id)) }
+        for id in overdueIds { overdue.append(CircRecord(id: id)) }
+        //todo: flesh circ records before showing
+        updateItemsCheckedOut(out, overdue)
+    }
+    
+    func updateItemsCheckedOut(_ out: [CircRecord], _ overdue: [CircRecord]) {
+        lists[0].items = out
+        lists[1].items = overdue
+        tableView.reloadData()
+    }
+        
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    //MARK: - UITableViewController
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return lists.count
@@ -76,7 +125,7 @@ class CheckoutsViewController: UITableViewController {
         }
         
         let item = lists[indexPath.section].items[indexPath.row]
-        cell.title.text = item.obj.getString("title")
+        cell.title.text = item.obj?.getString("title")
         
         return cell
     }

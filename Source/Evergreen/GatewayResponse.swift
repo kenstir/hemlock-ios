@@ -20,8 +20,6 @@
 import Foundation
 import os.log
 
-let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Gateway")
-
 enum GatewayError: Error {
     case malformedPayload(String)
     case failure(String)
@@ -78,10 +76,11 @@ struct GatewayResponse {
         self.init()
 
         guard var json = decodeJSON(data) else {
+            os_log("resp.json: decode_error", log: Gateway.log, type: .info)
             error = .failure("Response not JSON")
             return
         }
-        os_log("json: %@", log: log, type: .info, json)
+        os_log("resp.json: %@", log: Gateway.log, type: .info, json)
 
         guard let status = json["status"] as? Int else {
             error = .failure("Response missing status")
@@ -133,14 +132,6 @@ struct GatewayResponse {
     }
     
     func decodeObject(_ jsonObject: [String: Any?]) throws -> OSRFObject? {
-        /*
-        if let netClass = jsonObject["__c"],
-            let payload = jsonObject["__p"] {
-            // todo: add decoding
-            return OSRFObject(jsonObject)
-        } else {
-            return OSRFObject(jsonObject)
-        }*/
         return try OSRFCoder.decode(fromWireProtocol: jsonObject)
     }
 
@@ -149,4 +140,4 @@ struct GatewayResponse {
         resp.error = .failure(reason)
         return resp
     }
-    }
+}
