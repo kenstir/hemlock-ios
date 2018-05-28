@@ -34,4 +34,10 @@ struct API {
     static let authInit = "open-ils.auth.authenticate.init"
     static let authComplete = "open-ils.auth.authenticate.complete"
     static let authGetSession = "open-ils.auth.session.retrieve"
+    
+    //MARK: - circ service
+    
+    static let circ = "open-ils.circ"
+    static let circRetrieve = "open-ils.circ.retrieve"
+
 }

@@ -39,6 +39,7 @@ class CheckoutsViewController: UITableViewController {
     
     //MARK: - fields
     var lists = [CheckoutsList("checked out"), CheckoutsList("overdue")]
+    var itemsToFetch = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +53,15 @@ class CheckoutsViewController: UITableViewController {
     //MARK: - functions
     
     func fetchItemsCheckedOut() {
-        let request = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [AppSettings.account?.authtoken, AppSettings.account?.userID])
-        print("request:  \(request.description)")
+        guard let authtoken = AppSettings.account?.authtoken,
+            let id = AppSettings.account?.userID else
+        {
+            self.showAlert(title: "Internal Error", message: "Not logged in")
+            return
+        }
+        let request = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, id])
         request.responseData { response in
-            // TODO this needs to be simpler
-            print("body:     \(request.request?.httpBody ?? nil)")
-            print("response: \(response.description)")
+            // todo factor out common response handling
             guard response.result.isSuccess,
                 let data = response.result.value else
             {
@@ -65,10 +69,11 @@ class CheckoutsViewController: UITableViewController {
                 self.showAlert(title: "Request failed", message: msg)
                 return
             }
-            print("respdata: \(data)")
             let resp = GatewayResponse(data)
-            guard let obj = resp.obj else
+            guard !resp.failed,
+                let obj = resp.obj else
             {
+                self.showAlert(title: "Request failed", message: resp.errorMessage)
                 return
             }
             self.fetchItemDetails(obj.getListOfIDs("out"), obj.getListOfIDs("overdue"))
@@ -80,16 +85,59 @@ class CheckoutsViewController: UITableViewController {
         var overdue: [CircRecord] = []
         for id in outIds { out.append(CircRecord(id: id)) }
         for id in overdueIds { overdue.append(CircRecord(id: id)) }
-        //todo: flesh circ records before showing
-        updateItemsCheckedOut(out, overdue)
-    }
-    
-    func updateItemsCheckedOut(_ out: [CircRecord], _ overdue: [CircRecord]) {
+
+        // update items lists, but wait to call reloadData
         lists[0].items = out
         lists[1].items = overdue
-        tableView.reloadData()
-    }
+
+        guard let authtoken = AppSettings.account?.authtoken else
+        {
+            self.showAlert(title: "Internal Error", message: "Not logged in")
+            return
+        }
         
+        itemsToFetch = out.count + overdue.count
+        
+        let allRecords = out + overdue
+        for circ in allRecords {
+            let request = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circ.id!])
+            request.responseData { response in
+                self.itemsToFetch -= 1
+
+                // todo factor out common response handling
+                guard response.result.isSuccess,
+                    let data = response.result.value else
+                {
+                    self.maybeReloadTable()
+                    return
+                }
+                let resp = GatewayResponse(data)
+                guard !resp.failed,
+                    let obj = resp.obj else
+                {
+                    self.maybeReloadTable()
+                    return
+                }
+                
+                circ.obj = obj
+
+                self.maybeReloadTable()
+            }
+        }
+    }
+            
+    func maybeReloadTable() {
+        if self.itemsToFetch == 0 {
+            tableView.reloadData()
+        }
+    }
+
+//    func updateItemsCheckedOut(_ out: [CircRecord], _ overdue: [CircRecord]) {
+//        lists[0].items = out
+//        lists[1].items = overdue
+//        tableView.reloadData()
+//    }
+
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
