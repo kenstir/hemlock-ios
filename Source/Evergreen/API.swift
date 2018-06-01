@@ -40,4 +40,8 @@ struct API {
     static let circ = "open-ils.circ"
     static let circRetrieve = "open-ils.circ.retrieve"
 
+    //MARK: - search service
+    
+    static let search = "open-ils.search"
+    static let modsFromCopy = "open-ils.search.biblio.mods_from_copy"
 }

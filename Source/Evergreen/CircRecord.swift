@@ -23,16 +23,11 @@ import Foundation
 class CircRecord {
     
     //MARK: - fields
-    let id: Int?
-    var obj: OSRFObject?
-    
-    init(obj: OSRFObject) {
-        self.id = obj.getInt("id")
-        self.obj = obj
-    }
+    let id: Int
+    var circObj: OSRFObject?
+    var mvrObj: OSRFObject?
     
     init(id: Int) {
         self.id = id
-        self.obj = nil
     }
 }

@@ -79,7 +79,6 @@ struct OSRFCoder {
             let key = fields[i]
             let val = json[i]
             dict[key] = val
-            print("field at index \(i) is \(key) => \(String(describing: val))")
         }
         
         return OSRFObject(dict)

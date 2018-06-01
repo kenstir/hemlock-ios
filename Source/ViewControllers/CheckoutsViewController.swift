@@ -27,7 +27,7 @@ struct CheckoutsViewButtonData {
     }
 }
 
-struct CheckoutsList {
+class Checkouts {
     let title: String
     var items: [CircRecord] = []
     init(_ title: String) {
@@ -38,9 +38,11 @@ struct CheckoutsList {
 class CheckoutsViewController: UITableViewController {
     
     //MARK: - fields
-    var lists = [CheckoutsList("checked out"), CheckoutsList("overdue")]
+    let lists = [Checkouts("checked out"), Checkouts("overdue")]
+    lazy var out = lists[0]
+    lazy var overdue = lists[1]
     var itemsToFetch = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -76,31 +78,34 @@ class CheckoutsViewController: UITableViewController {
                 self.showAlert(title: "Request failed", message: resp.errorMessage)
                 return
             }
-            self.fetchItemDetails(obj.getListOfIDs("out"), obj.getListOfIDs("overdue"))
+
+            // update items lists now, but wait to call reloadData
+            self.out.items = self.makeCircRecords(obj.getListOfIDs("out"))
+            self.overdue.items = self.makeCircRecords(obj.getListOfIDs("overdue"))
+
+            self.fetchCircRecords()
         }
     }
     
-    func fetchItemDetails(_ outIds: [Int], _ overdueIds: [Int]) {
-        var out: [CircRecord] = []
-        var overdue: [CircRecord] = []
-        for id in outIds { out.append(CircRecord(id: id)) }
-        for id in overdueIds { overdue.append(CircRecord(id: id)) }
-
-        // update items lists, but wait to call reloadData
-        lists[0].items = out
-        lists[1].items = overdue
-
-        guard let authtoken = AppSettings.account?.authtoken else
-        {
+    func makeCircRecords(_ ids: [Int]) -> [CircRecord] {
+        var ret: [CircRecord] = []
+        for id in ids {
+            ret.append(CircRecord(id: id))
+        }
+        return ret
+    }
+    
+    func fetchCircRecords() {
+        guard let authtoken = AppSettings.account?.authtoken else {
             self.showAlert(title: "Internal Error", message: "Not logged in")
             return
         }
         
-        itemsToFetch = out.count + overdue.count
+        itemsToFetch = out.items.count + overdue.items.count
         
-        let allRecords = out + overdue
+        let allRecords = out.items + overdue.items
         for circ in allRecords {
-            let request = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circ.id!])
+            let request = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circ.id])
             request.responseData { response in
                 self.itemsToFetch -= 1
 
@@ -119,29 +124,53 @@ class CheckoutsViewController: UITableViewController {
                     return
                 }
                 
-                circ.obj = obj
+                debugPrint(obj)
+                circ.circObj = obj
 
-                self.maybeReloadTable()
+                self.fetchMVR(circ)
             }
         }
     }
+    
+    func fetchMVR(_ circ: CircRecord) {
+        guard let id = circ.circObj?.getInt("target_copy") else {
+            return // todo assert
+        }
+        
+        let request = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [id])
+        request.responseData { response in
             
+            // todo factor out common response handling
+            guard response.result.isSuccess,
+                let data = response.result.value else
+            {
+                self.maybeReloadTable()
+                return
+            }
+            let resp = GatewayResponse(data)
+            guard !resp.failed,
+                let obj = resp.obj else
+            {
+                self.maybeReloadTable()
+                return
+            }
+            
+            debugPrint(obj)
+            circ.mvrObj = obj
+            self.maybeReloadTable()
+        }
+    }
+
     func maybeReloadTable() {
         if self.itemsToFetch == 0 {
             tableView.reloadData()
         }
     }
 
-//    func updateItemsCheckedOut(_ out: [CircRecord], _ overdue: [CircRecord]) {
-//        lists[0].items = out
-//        lists[1].items = overdue
-//        tableView.reloadData()
-//    }
-
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true)
     }
 
     //MARK: - UITableViewController
@@ -173,12 +202,15 @@ class CheckoutsViewController: UITableViewController {
         }
         
         let item = lists[indexPath.section].items[indexPath.row]
-        cell.title.text = item.obj?.getString("title")
+        let id = item.id
+        let title = item.mvrObj?.getString("title")
+        print("cell index \(indexPath) id \(id) title \(title)")
+        cell.title.text = title
         
         return cell
     }
     
-    // MARK: UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let tuple = buttons[indexPath.row]
