@@ -29,6 +29,7 @@
 		D2385E2E20914E6C00FE0C89 /* TestData in Resources */ = {isa = PBXBuildFile; fileRef = D2385E2D20914E6B00FE0C89 /* TestData */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
+		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D268D478209F9F830008D8C1 /* MainTextureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D477209F9F830008D8C1 /* MainTextureViewController.swift */; };
 		D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
@@ -86,6 +87,7 @@
 		D2385E2D20914E6B00FE0C89 /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = SOURCE_ROOT; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D268D477209F9F830008D8C1 /* MainTextureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextureViewController.swift; sourceTree = "<group>"; };
 		D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonLayoutNode.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
+				D253343B20C23305008176B9 /* Theme.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
+				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
 				D268D478209F9F830008D8C1 /* MainTextureViewController.swift in Sources */,
 				D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */,

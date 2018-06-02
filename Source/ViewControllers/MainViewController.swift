@@ -73,7 +73,10 @@ class MainViewController: UITableViewController {
         let label = tuple.0
         let segue = tuple.1
         
-        cell.cellImage.image = UIImage(named: label)
+        let image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
+
+        cell.tintColor = AppSettings.themeBackgroundDark4
+        cell.cellImage.image = image
         cell.cellLabel.text = label
         cell.title = label
         cell.segue = segue

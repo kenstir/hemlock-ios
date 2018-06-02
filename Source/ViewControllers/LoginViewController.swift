@@ -25,6 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +35,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordField.delegate = self
         
         // color the login button
-        loginButton.backgroundColor = AppSettings.themeBackgroundColor
-        loginButton.tintColor = AppSettings.themeForegroundColor
-        loginButton.layer.cornerRadius = 8
+        Theme.styleInverseButton(button: loginButton, color: AppSettings.themeBackgroundColor)
+        Theme.styleButton(button: forgotPasswordButton, color: AppSettings.themeBackgroundColor)
     }
-
+    
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // hide the keyboard

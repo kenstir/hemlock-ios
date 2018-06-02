@@ -44,7 +44,8 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-Nj-gGI">
-                                <rect key="frame" x="28" y="340" width="319" height="30"/>
+                                <rect key="frame" x="28" y="340" width="319" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginPressed:" destination="pCn-5I-KnN" eventType="primaryActionTriggered" id="E5X-ns-2Bx"/>
@@ -64,7 +65,8 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-oX-Cjw">
-                                <rect key="frame" x="26" y="386" width="323" height="30"/>
+                                <rect key="frame" x="26" y="389" width="323" height="33"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <state key="normal" title="Forgot Password"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Jason" translatesAutoresizingMaskIntoConstraints="NO" id="ZHk-Zc-H6p">
@@ -143,6 +145,7 @@
                     <navigationItem key="navigationItem" id="M88-BU-ROK"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="forgotPasswordButton" destination="L0t-oX-Cjw" id="N8N-28-8Ee"/>
                         <outlet property="loginButton" destination="ofn-Nj-gGI" id="Uqg-lY-AtJ"/>
                         <outlet property="passwordField" destination="2fV-yF-Bl6" id="z1k-CK-gCv"/>
                         <outlet property="usernameField" destination="2Ky-33-NgZ" id="eQo-jX-g9D"/>
