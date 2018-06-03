@@ -24,7 +24,7 @@ class IDLParser: NSObject, XMLParserDelegate {
     var error: Error?
     var currentClass: OSRFClass?
     
-    // MARK: initializers
+    //MARK: initializers
     
     init(contentsOf: URL) {
         parser = XMLParser(contentsOf: contentsOf)
@@ -34,7 +34,7 @@ class IDLParser: NSObject, XMLParserDelegate {
         parser = XMLParser(data: data)
     }
     
-    // MARK: other methods
+    //MARK: other methods
     
     func parse() -> Bool {
         guard let parser = self.parser else {
@@ -44,7 +44,7 @@ class IDLParser: NSObject, XMLParserDelegate {
         return parser.parse()
     }
     
-    // MARK: XMLParserDelegate
+    //MARK: XMLParserDelegate
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes: [String : String]) {
         if elementName == "class" {

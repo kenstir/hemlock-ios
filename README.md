@@ -9,7 +9,7 @@ Before opening the project in Xcode, install the prerequisites using Carthage.
 ```
  brew update
  brew install carthage
- carthage update --platform iOS
+ ./carthage-update --platform iOS
 ```
 
 Read [the Developer Documentation](Documentation/README.md)

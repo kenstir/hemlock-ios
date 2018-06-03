@@ -210,7 +210,7 @@ class CheckoutsViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - UITableViewDelegate
+    //MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let tuple = buttons[indexPath.row]

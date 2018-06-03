@@ -12,6 +12,8 @@
 		D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
+		D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
+		D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */; };
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
@@ -34,7 +36,7 @@
 		D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
 		D253344220C3078F008176B9 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
 		D253344420C30A60008176B9 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D268D478209F9F830008D8C1 /* MainTextureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D477209F9F830008D8C1 /* MainTextureViewController.swift */; };
+		D268D478209F9F830008D8C1 /* XMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D477209F9F830008D8C1 /* XMainViewController.swift */; };
 		D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
@@ -73,6 +75,8 @@
 		D20D14D020B783C1008F66B0 /* CircRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecord.swift; sourceTree = "<group>"; };
 		D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutsTableViewCell.swift; sourceTree = "<group>"; };
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
+		D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCheckoutsViewController.swift; sourceTree = "<group>"; };
+		D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCheckoutsTableNode.swift; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D22D02662083E45700DC1F5B /* Corsortium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corsortium.swift; sourceTree = "<group>"; };
@@ -96,7 +100,7 @@
 		D253343F20C30789008176B9 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		D253344120C3078F008176B9 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		D253344320C30A60008176B9 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
-		D268D477209F9F830008D8C1 /* MainTextureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextureViewController.swift; sourceTree = "<group>"; };
+		D268D477209F9F830008D8C1 /* XMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMainViewController.swift; sourceTree = "<group>"; };
 		D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonLayoutNode.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
@@ -156,27 +160,54 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		D20D14D320B7850F008F66B0 /* ViewControllers */ = {
+		D212DB1020C3717200267503 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */,
-				D287D4FD207AEF2B001AF644 /* LoginViewController.swift */,
-				D268D477209F9F830008D8C1 /* MainTextureViewController.swift */,
-				D246990320A9D80E0006DFF9 /* MainViewController.swift */,
+				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
 			);
-			path = ViewControllers;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		D20D14D420B789C0008F66B0 /* Views */ = {
+		D212DB1120C3726F00267503 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D212DB1220C3731C00267503 /* Checkouts */,
+				D212DB1620C37B2600267503 /* Login */,
+				D212DB1520C37B0600267503 /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D212DB1220C3731C00267503 /* Checkouts */ = {
 			isa = PBXGroup;
 			children = (
 				D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */,
+				D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */,
+				D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */,
+				D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */,
+			);
+			path = Checkouts;
+			sourceTree = "<group>";
+		};
+		D212DB1520C37B0600267503 /* Main */ = {
+			isa = PBXGroup;
+			children = (
 				D209445E20AA7CD3003E1970 /* MainButton.swift */,
 				D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */,
 				D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */,
 				D246990520AA5C620006DFF9 /* MainTableViewCell.swift */,
+				D246990320A9D80E0006DFF9 /* MainViewController.swift */,
+				D268D477209F9F830008D8C1 /* XMainViewController.swift */,
 			);
-			path = Views;
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D212DB1620C37B2600267503 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D287D4FD207AEF2B001AF644 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		D22D026E2084F52300DC1F5B /* Utils */ = {
@@ -201,7 +232,6 @@
 			children = (
 				D287D51B207AEF3D001AF644 /* Account.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
-				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
 				D22D02662083E45700DC1F5B /* Corsortium.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
@@ -269,11 +299,11 @@
 			isa = PBXGroup;
 			children = (
 				D22D027620857DFE00DC1F5B /* Evergreen */,
+				D212DB1020C3717200267503 /* Models */,
 				D2D49BFB20A90CA9000B3A27 /* PINES */,
+				D212DB1120C3726F00267503 /* Scenes */,
 				D20D14D220B784E3008F66B0 /* Storyboards */,
 				D22D026E2084F52300DC1F5B /* Utils */,
-				D20D14D320B7850F008F66B0 /* ViewControllers */,
-				D20D14D420B789C0008F66B0 /* Views */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
 				D287D502207AEF2C001AF644 /* Assets.xcassets */,
 				D287D507207AEF2C001AF644 /* Info.plist */,
@@ -438,6 +468,7 @@
 			files = (
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
+				D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
 				D209445F20AA7CD4003E1970 /* MainButton.swift in Sources */,
@@ -450,10 +481,11 @@
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
-				D268D478209F9F830008D8C1 /* MainTextureViewController.swift in Sources */,
+				D268D478209F9F830008D8C1 /* XMainViewController.swift in Sources */,
 				D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
+				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,

@@ -35,12 +35,12 @@ class MainViewController: UITableViewController {
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet var table: UITableView!
     
-    var buttons: [(String, String)] = [
-        ("Search", "ShowSearchSegue"),
-        ("Items Checked Out", "ShowCheckoutsSegue"),
-        ("Holds", "ShowHoldsSegue"),
-        ("Fines", "ShowFinesSegue"),
-        ("My Lists", "ShowMyListsSegue")]
+    var buttons: [(String, String, UIViewController?)] = [
+        ("Search", "ShowSearchSegue", nil),
+        ("Items Checked Out", "ShowCheckoutsSegue", XCheckoutsViewController()),
+        ("Holds", "ShowHoldsSegue", nil),
+        ("Fines", "ShowFinesSegue", nil),
+        ("My Lists", "ShowMyListsSegue", nil)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class MainViewController: UITableViewController {
         logoutButton.action = #selector(logoutPressed(sender:))
     }
 
-    // MARK: - UITableViewController
+    //MARK: - UITableViewController
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -84,12 +84,16 @@ class MainViewController: UITableViewController {
         return cell
     }
     
-    // MARK: UITableViewDelegate
+    //MARK: UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuple = buttons[indexPath.row]
         let segue = tuple.1
-        self.performSegue(withIdentifier: segue, sender: nil)
+        if let vc = tuple.2 {
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            self.performSegue(withIdentifier: segue, sender: nil)
+        }
     }
     
     @IBAction func logoutPressed(sender: UIButton) {

@@ -82,7 +82,7 @@ struct OSRFObject: Equatable {
         return ret
     }
 
-    // MARK: - Equatable
+    //MARK: - Equatable
 
     // It seems like there should be an easier way to implement this
     // but this is just for unit tests.  So we treat two OSRFObjects
