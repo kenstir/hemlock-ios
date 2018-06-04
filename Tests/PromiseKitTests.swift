@@ -49,12 +49,14 @@ class PromiseKitTests: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
     
-    func test_parallelGet() {
+    // run multiple promise chains independently
+    func test_parallelPromiseChains() {
         var expectations: [XCTestExpectation] = []
-    
+        
         for i in 0...9 {
             let expectation = XCTestExpectation(description: "\(i): response")
             expectations.append(expectation)
+
             let params = ["i": i]
             let req = Alamofire.request("https://httpbin.org/get", method: .get, parameters: params)
             print("\(i): req")
@@ -68,8 +70,98 @@ class PromiseKitTests: XCTestCase {
                 expectation.fulfill()
             }
         }
-
+        
         print("-: wait")
         wait(for: expectations, timeout: 10.0)
     }
+    
+    // run multiple promise chains until 'done' then wait for them all with 'when'
+    // I like this pattern
+    func test_whenFulfilled() {
+        var expectations: [XCTestExpectation] = []
+        var promises: [Promise<Void>] = []
+        
+        for i in 0...9 {
+            let expectation = XCTestExpectation(description: "\(i): response")
+            expectations.append(expectation)
+
+            let params = ["i": i]
+            let req = Alamofire.request("https://httpbin.org/get", method: .get, parameters: params)
+            print("\(i): req")
+            
+            let promise = req.responseJSON().done { json in
+                print("\(i): done")
+                expectation.fulfill()
+            }
+            promises.append(promise)
+        }
+
+        print("-: when")
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            print("-: done")
+        }.catch { error in
+            print("-: error")
+            self.showAlert(error)
+        }.finally {
+            print("-: finally")
+        }
+        
+        print("-: wait")
+        wait(for: expectations, timeout: 10)
+    }
+ 
+    // You can also fire off multiple requests and handle 'done' for all
+    // promises together as an array of (json,response) tuples.
+    // I don't like this pattern for unit testing, because I have to associate
+    // the response with the XCTestExpectation.  The test_whenFulfilled looks cleaner.
+    func test_whenFulfilledDoneAllAtOnce() {
+        var expectations: [XCTestExpectation] = []
+        var expectationMap: [Int: XCTestExpectation] = [:]
+        var promises: [Promise<(json: Any, response: PMKAlamofireDataResponse)>] = []
+        
+        for i in 0..<10 {
+            let expectation = XCTestExpectation(description: "\(i): response")
+            expectations.append(expectation)
+            expectationMap[i] = expectation
+            
+            let params = ["i": i]
+            let req = Alamofire.request("https://httpbin.org/get", method: .get, parameters: params)
+            print("\(i): req")
+            
+            let promise = req.responseJSON()
+            promises.append(promise)
+        }
+        
+        print("-: when")
+        firstly {
+            when(fulfilled: promises)
+        }.done { tuples in
+            print("-: done")
+            for tuple in tuples {
+                let (json, response) = tuple
+                print("-: done " + (response.request!.url?.absoluteString)!)
+                //debugPrint(json)
+                if let dict = json as? [String: Any?],
+                    let args = dict["args"] as? [String: Any?],
+                    let arg_i = args["i"] as? String,
+                    let i = Int(arg_i)
+                {
+                    expectationMap[i]?.fulfill()
+                }
+            }
+        }.catch { error in
+            print("-: error")
+            self.showAlert(error)
+        }.finally {
+            print("-: finally")
+        }
+        
+        print("-: wait")
+        wait(for: expectations, timeout: 10)
+    }
+    
+    //todo: single promise chain expecting json getting httpbin.org/xml
+    //todo: parallel promise chains with http 404 error httpbin.org/not_found
 }
