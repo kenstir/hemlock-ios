@@ -62,7 +62,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         tableNode.backgroundColor = UIColor.white
         tableNode.view.separatorStyle = .singleLine
         
-        // not accessible; see Texture #143
+        // tableHeaderView is not accessible; see Texture #143
         tableNode.view.tableHeaderView = headerNode.view
         tableNode.view.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: 320, height: 48) // todo ???
         headerNode.maximumNumberOfLines = 1
