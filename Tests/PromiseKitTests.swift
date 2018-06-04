@@ -36,16 +36,12 @@ class PromiseKitTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
         
         let req = Alamofire.request("https://httpbin.org/get")
-        let promise = req.responseJSON()
-        debugPrint(promise)
-        let promise2 = promise.done { json in
+        req.responseJSON().done { json in
             print("json:     \(json)")
-        }
-        let p3 = promise2.catch { error in
+        }.catch { error in
             print("error!!!")
             self.showAlert(error)
-        }
-        p3.finally {
+        }.finally {
             print("finally")
             expectation.fulfill()
         }
