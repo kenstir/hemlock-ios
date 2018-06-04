@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# 'carthage update' but with fix to issue https://github.com/TextureGroup/Texture/issues/873
+# courtesy of https://github.com/Saik0s
 
 set -euo pipefail
 IFS=$'\n\t'
