@@ -38,32 +38,38 @@ class PromiseKitTests: XCTestCase {
         let req = Alamofire.request("https://httpbin.org/get")
         req.responseJSON().done { json in
             print("json:     \(json)")
-        }.catch { error in
-            print("error!!!")
-            self.showAlert(error)
-        }.finally {
-            print("finally")
-            expectation.fulfill()
+            }.catch { error in
+                print("error!!!")
+                self.showAlert(error)
+            }.finally {
+                print("finally")
+                expectation.fulfill()
         }
         
-//            debugPrint(rsp)
-//            let (json, response) = arg
-//            print("json:     \(json)")
-//            print("response: \(response)")
-//        }.catch{ error in
-//            showAlert(error)
-//        }.finally {
-//            expectation.fulfill()
-//        }
-        //            .responseJSON().then { json, response in
-        //                print("json:     \(json)")
-        //                print("response: \(response)")
-        //            }.catch{ error in
-        //                showAlert(error)
-        //            }.finally {
-        //                expectation.fulfill()
-        //        }
-        
         wait(for: [expectation], timeout: 2.0)
+    }
+    
+    func test_parallelGet() {
+        var expectations: [XCTestExpectation] = []
+    
+        for i in 0...9 {
+            let expectation = XCTestExpectation(description: "\(i): response")
+            expectations.append(expectation)
+            let params = ["i": i]
+            let req = Alamofire.request("https://httpbin.org/get", method: .get, parameters: params)
+            print("\(i): req")
+            req.responseJSON().done { json in
+                print("\(i): done")
+            }.catch { error in
+                print("\(i): error")
+                self.showAlert(error)
+            }.finally {
+                print("\(i): finally")
+                expectation.fulfill()
+            }
+        }
+
+        print("-: wait")
+        wait(for: expectations, timeout: 10.0)
     }
 }
