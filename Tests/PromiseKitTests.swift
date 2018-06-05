@@ -32,23 +32,61 @@ class PromiseKitTests: XCTestCase {
         debugPrint(error)
     }
     
-    func test_basicGet() {
+    func test_basicPromiseChain() {
         let expectation = XCTestExpectation(description: "async response")
+        
+        var savedResult: Any?
         
         let req = Alamofire.request("https://httpbin.org/get")
         req.responseJSON().done { json in
-            print("json:     \(json)")
-            }.catch { error in
-                print("error!!!")
-                self.showAlert(error)
-            }.finally {
-                print("finally")
-                expectation.fulfill()
+            print("done: \(json)")
+            savedResult = json
+        }.ensure {
+            print("ensure")
+            expectation.fulfill()
+        }.catch { error in
+            print("error")
+            self.showAlert(error)
         }
         
         wait(for: [expectation], timeout: 2.0)
+        
+        XCTAssertNotNil(savedResult)
     }
     
+    // verify that when JSON decoding fails we catch an error
+    func test_jsonErrorInPromiseChain() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        var savedError: Error?
+        
+        firstly {
+            // this url returns xml
+            return Alamofire.request("https://httpbin.org/xml").responseJSON()
+        }.done { json in
+            print("done: \(json)")
+        }.ensure {
+            print("ensure")
+            expectation.fulfill()
+        }.catch { error in
+            print("error")
+            self.showAlert(error)
+            savedError = error
+        }
+
+        wait(for: [expectation], timeout: 2.0)
+
+        XCTAssertNotNil(savedError)
+        guard let aferror = savedError as? AFError,
+            let description = aferror.errorDescription else
+        {
+            XCTFail()
+            return
+        }
+        XCTAssertNotNil(aferror)
+        XCTAssertNotNil(description)
+    }
+
     // run multiple promise chains independently
     func test_parallelPromiseChains() {
         var expectations: [XCTestExpectation] = []
@@ -62,12 +100,12 @@ class PromiseKitTests: XCTestCase {
             print("\(i): req")
             req.responseJSON().done { json in
                 print("\(i): done")
+            }.ensure {
+                print("\(i): ensure")
+                expectation.fulfill()
             }.catch { error in
                 print("\(i): error")
                 self.showAlert(error)
-            }.finally {
-                print("\(i): finally")
-                expectation.fulfill()
             }
         }
         
@@ -75,8 +113,8 @@ class PromiseKitTests: XCTestCase {
         wait(for: expectations, timeout: 10.0)
     }
     
-    // run multiple promise chains until 'done' then wait for them all with 'when'
-    // I like this pattern
+    // Run multiple promise chains until 'done' then wait for them all with when(fulfilled:).
+    // I like this pattern.
     func test_whenFulfilled() {
         var expectations: [XCTestExpectation] = []
         var promises: [Promise<Void>] = []
@@ -101,11 +139,11 @@ class PromiseKitTests: XCTestCase {
             when(fulfilled: promises)
         }.done {
             print("-: done")
+        }.ensure {
+            print("-: ensure")
         }.catch { error in
             print("-: error")
             self.showAlert(error)
-        }.finally {
-            print("-: finally")
         }
         
         print("-: wait")
@@ -151,17 +189,14 @@ class PromiseKitTests: XCTestCase {
                     expectationMap[i]?.fulfill()
                 }
             }
+        }.ensure {
+            print("-: ensure")
         }.catch { error in
             print("-: error")
             self.showAlert(error)
-        }.finally {
-            print("-: finally")
         }
         
         print("-: wait")
         wait(for: expectations, timeout: 10)
     }
-    
-    //todo: single promise chain expecting json getting httpbin.org/xml
-    //todo: parallel promise chains with http 404 error httpbin.org/not_found
 }
