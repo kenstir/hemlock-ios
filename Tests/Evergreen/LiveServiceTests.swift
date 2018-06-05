@@ -7,11 +7,15 @@
 //
 
 import XCTest
+import PromiseKit
+import PMKAlamofire
 @testable import Hemlock
 
 /// These tests run against the live service configured in testAccount.json.
 /// Don't do anything crazy here.
 class LiveServiceTests: XCTestCase {
+    
+    //MARK: - properties
     
     let configFile = "TestUserData/testAccount" // .json
     var account: Account?
@@ -40,6 +44,32 @@ class LiveServiceTests: XCTestCase {
         }
         Gateway.library = Library(url)
         account = Account(username, password: password)
+    }
+    
+    //MARK: - Promise tests
+    
+    func test_promiseBasic() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let args: [Any] = [account!.username]
+        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
+        req.responseJSON().then { (json: Any, response: PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> in
+            print("then: \(json)")
+//            guard let nonce = json as? String else {
+//                throw GatewayError("expected string")
+//            }
+            //todo fix args
+            let args: [Any] = []
+            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: args).responseJSON()
+        }.done { (json,response) in
+            print("done: \(json)")
+        }.ensure {
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
     }
 
     //MARK: - LoginController Tests
