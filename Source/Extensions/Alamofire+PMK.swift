@@ -1,5 +1,5 @@
 //
-//  Gateway+Extensions.swift
+//  Alamofire+PMK.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -17,18 +17,26 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+@_exported import Alamofire
 import Foundation
-import Alamofire
 import PromiseKit
 import PMKAlamofire
-import os.log
 
-extension Gateway {
-    
-//    /// create a promise for calling the gateway
-//    static func makePromise(service: String, method: String, args: [Any]) -> Promise<(json: Any, response: PMKAlamofireDataResponse)>
-//    {
-//        let request = makeRequest(service: service, method: method, args: args)
-//        return request.responseJSON()
-//    }
+extension Alamofire.DataRequest {
+    func responseGateway(queue: DispatchQueue? = nil) -> Promise<(gwresp: GatewayResponse, response: PMKAlamofireDataResponse)>
+    {
+        return Promise { seal in
+            responseData(queue: queue) { response in
+                if response.result.isSuccess,
+                    let data = response.result.value
+                {
+                    let gwresp = GatewayResponse(data)
+                    seal.fulfill((gwresp, PMKAlamofireDataResponse(response)))
+                } else {
+                    let errorMessage = response.description
+                    seal.reject(GatewayError.failure(errorMessage))
+                }
+            }
+        }
+    }
 }

@@ -58,15 +58,42 @@ class LiveServiceTests: XCTestCase {
 //            guard let nonce = json as? String else {
 //                throw GatewayError("expected string")
 //            }
-            //todo fix args
-            let args: [Any] = []
-            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: args).responseJSON()
+            let objectParam = ["type": "opac",
+                               "username": self.account!.username,
+                               "password": "badbeef"]
+            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam]).responseJSON()
         }.done { (json,response) in
             print("done: \(json)")
         }.ensure {
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    func test_gatewayPromise() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let args: [Any] = [account!.username]
+        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
+        req.responseGateway().then { (gwresp: GatewayResponse, response: PMKAlamofireDataResponse) -> Promise<(gwresp: GatewayResponse, response: PMKAlamofireDataResponse)> in
+            print("gwresp: \(gwresp)")
+            //            guard let nonce = json as? String else {
+            //                throw GatewayError("expected string")
+            //            }
+            let objectParam = ["type": "opac",
+                               "username": self.account!.username,
+                               "password": "badbeef"]
+            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam]).responseGateway()
+        }.done { gwresp, response in
+            print("gwresp: \(gwresp)")
+            print("here")
+        }.ensure {
+            expectation.fulfill()
+//        }.catch { error in
+//            XCTFail(error.localizedDescription)
         }
         
         wait(for: [expectation], timeout: 20.0)
