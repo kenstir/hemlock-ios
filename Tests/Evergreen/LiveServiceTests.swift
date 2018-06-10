@@ -48,6 +48,8 @@ class LiveServiceTests: XCTestCase {
     
     //MARK: - Promise tests
     
+    // Test a basic promise chain, it does not actually login
+    // but it goes through the mechanics of logging in.
     func test_promiseBasic() {
         let expectation = XCTestExpectation(description: "async response")
         
@@ -55,9 +57,6 @@ class LiveServiceTests: XCTestCase {
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
         req.responseJSON().then { (json: Any, response: PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> in
             print("then: \(json)")
-//            guard let nonce = json as? String else {
-//                throw GatewayError("expected string")
-//            }
             let objectParam = ["type": "opac",
                                "username": self.account!.username,
                                "password": "badbeef"]
@@ -75,6 +74,7 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
+    // Test actually loggin in using a promise chain
     func test_gatewayPromise() {
         let expectation = XCTestExpectation(description: "async response")
         
