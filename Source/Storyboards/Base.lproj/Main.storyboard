@@ -222,7 +222,7 @@
                         <outlet property="table" destination="Bny-iN-u9U" id="uPy-9U-wwm"/>
                         <segue destination="aZb-1B-51Z" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>
                         <segue destination="x2b-x0-F7V" kind="show" identifier="ShowHoldsSegue" id="QLz-GT-rH2"/>
-                        <segue destination="Vj0-Na-E34" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
+                        <segue destination="RCs-ov-Y8N" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
                         <segue destination="EVt-En-7Wz" kind="show" identifier="ShowMyListsSegue" id="cd4-OG-ah5"/>
                         <segue destination="L5E-wb-4wF" kind="show" identifier="ShowLoginSegue" id="zgh-oQ-owQ"/>
                         <segue destination="8d8-w4-47w" kind="show" identifier="ShowCheckoutsSegue" id="aRF-ID-OQ8"/>
@@ -275,21 +275,6 @@
             </objects>
             <point key="canvasLocation" x="1591.2" y="160.56971514242881"/>
         </scene>
-        <!--Fines-->
-        <scene sceneID="AGR-hk-E78">
-            <objects>
-                <viewController title="Fines" id="Vj0-Na-E34" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HDo-Fu-fYP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="78J-wo-VWu"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C3O-tC-9wZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1134" y="1634"/>
-        </scene>
         <!--My Lists-->
         <scene sceneID="BSw-YC-fzo">
             <objects>
@@ -334,6 +319,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8U-68-kFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1134" y="-547"/>
+        </scene>
+        <!--Fines-->
+        <scene sceneID="Kq4-zb-RuZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Fines" id="RCs-ov-Y8N" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HNY-I9-YrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134" y="1634"/>
         </scene>
     </scenes>
     <resources>
