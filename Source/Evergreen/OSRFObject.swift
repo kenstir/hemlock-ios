@@ -45,6 +45,16 @@ struct OSRFObject: Equatable {
         return nil
     }
     
+    func getDouble(_ key: String) -> Double? {
+        if let val = dict[key] as? Double {
+            return val
+        }
+        if let val = dict[key] as? String {
+            return Double(val)
+        }
+        return nil
+    }
+
     func getBool(_ key: String) -> Bool? {
         if let val = dict[key] as? Bool {
             return val

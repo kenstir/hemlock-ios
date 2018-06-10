@@ -27,6 +27,8 @@ struct API {
 
     static let actor = "open-ils.actor"
     static let actorCheckedOut = "open-ils.actor.user.checked_out"
+    static let finesSummary = "open-ils.actor.user.fines.summary"
+    static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"
 
     //MARK: - auth service
 

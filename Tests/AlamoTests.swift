@@ -85,6 +85,9 @@ class AlamoTests: XCTestCase {
                     for library in libraries {
                         let lib: [String: Any] = library
                         debugPrint(lib)
+                        if let lat = lib["latitude"] as? Double, let longitude = lib["longitude"] as? Double {
+                            debugPrint((lat,longitude))
+                        }
                     }
                 }
             } else {
