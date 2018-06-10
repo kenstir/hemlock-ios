@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import XCTest
+@testable import Hemlock
 
 /// This class exists to evaluate random questions relating to Swift.
 /// The error messages are better here than in the Swift playground.
@@ -34,6 +35,15 @@ class MiscTests: XCTestCase {
     }
     
     func testExample() {
+        let err = HemlockError.loginFailed("because")
+        let desc = err.errorDescription
+        print("desc: \(desc)")
+        XCTAssertEqual("Login failed: because", desc)
+        
+        let baseError = err as Error
+        let baseDesc = baseError.localizedDescription
+        print("base: \(baseDesc)")
+        XCTAssertEqual("Login failed: because", baseDesc)
     }
     
 }

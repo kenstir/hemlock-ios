@@ -293,7 +293,7 @@
         <!--My Lists-->
         <scene sceneID="BSw-YC-fzo">
             <objects>
-                <viewController title="My Lists" id="EVt-En-7Wz" customClass="XCheckoutsViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="My Lists" id="EVt-En-7Wz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CNE-7D-vAZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

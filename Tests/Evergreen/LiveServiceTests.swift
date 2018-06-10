@@ -7,11 +7,15 @@
 //
 
 import XCTest
+import PromiseKit
+import PMKAlamofire
 @testable import Hemlock
 
 /// These tests run against the live service configured in testAccount.json.
 /// Don't do anything crazy here.
 class LiveServiceTests: XCTestCase {
+    
+    //MARK: - properties
     
     let configFile = "TestUserData/testAccount" // .json
     var account: Account?
@@ -40,6 +44,70 @@ class LiveServiceTests: XCTestCase {
         }
         Gateway.library = Library(url)
         account = Account(username, password: password)
+    }
+    
+    //MARK: - Promise tests
+    
+    func test_promiseBasic() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let args: [Any] = [account!.username]
+        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
+        req.responseJSON().then { (json: Any, response: PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> in
+            print("then: \(json)")
+//            guard let nonce = json as? String else {
+//                throw GatewayError("expected string")
+//            }
+            let objectParam = ["type": "opac",
+                               "username": self.account!.username,
+                               "password": "badbeef"]
+            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam]).responseJSON()
+        }.done { (json,response) in
+            print("done: \(json)")
+            expectation.fulfill()
+        }.ensure {
+            // nada
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    func test_gatewayPromise() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let args: [Any] = [account!.username]
+        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
+        req.gatewayResponse().then { (resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> in
+            print("resp: \(resp)")
+            // todo: refactor to Account.loginContinue(authInitReponse:)
+            guard let nonce = resp.str else {
+                throw HemlockError.unexpectedNetworkResponse("expected string")
+            }
+            let password = md5(nonce + md5((self.account?.password)!))
+            let objectParam = ["type": "opac",
+                               "username": self.account!.username,
+                               "password": password]
+            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam]).gatewayResponse()
+        }.done { (resp, pmkresp) in
+            print("resp: \(resp)")
+            try self.account?.loadFromAuthResponse(resp.obj)
+            print("here")
+            expectation.fulfill()
+        }.ensure {
+            print("no ensure today")
+        }.catch { error in
+            print("error: \(error)")
+            let desc = error.localizedDescription
+            print("desc: \(desc)")
+            XCTFail(desc)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 10.0)
+        print("ok")
     }
 
     //MARK: - LoginController Tests
