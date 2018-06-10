@@ -17,13 +17,19 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+import Foundation
 import UIKit
 
 class FinesViewController: UIViewController {
     //MARK: - Properties
+    @IBOutlet weak var finesSummary: UIStackView!
+    @IBOutlet weak var totalOwed: UILabel!
+    @IBOutlet weak var totalPaid: UILabel!
+    @IBOutlet weak var balanceOwed: UILabel!
+    @IBOutlet weak var finesTable: UITableView!
     
     //MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFines()
