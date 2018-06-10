@@ -58,6 +58,7 @@
 		D2CE228C20A10C9B00D45CE4 /* MainButtonCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
 		FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
+		FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonCellNode.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
 		FACD141C20CDACFF008F02D3 /* Fines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Fines.storyboard; path = Source/Scenes/Fines/Fines.storyboard; sourceTree = SOURCE_ROOT; };
+		FACD142020CDB01C008F02D3 /* Holds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Holds.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		D212DB1120C3726F00267503 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FACD141F20CDAFFD008F02D3 /* Holds */,
 				FACD141920CDA97E008F02D3 /* Fines */,
 				D212DB1220C3731C00267503 /* Checkouts */,
 				D212DB1620C37B2600267503 /* Login */,
@@ -345,6 +348,14 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		FACD141F20CDAFFD008F02D3 /* Holds */ = {
+			isa = PBXGroup;
+			children = (
+				FACD142020CDB01C008F02D3 /* Holds.storyboard */,
+			);
+			path = Holds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -431,6 +442,7 @@
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */,
 				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
+				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
