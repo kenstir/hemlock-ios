@@ -78,25 +78,33 @@ class LiveServiceTests: XCTestCase {
         
         let args: [Any] = [account!.username]
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
-        req.responseGateway().then { (gwresp: GatewayResponse, response: PMKAlamofireDataResponse) -> Promise<(gwresp: GatewayResponse, response: PMKAlamofireDataResponse)> in
-            print("gwresp: \(gwresp)")
-            //            guard let nonce = json as? String else {
-            //                throw GatewayError("expected string")
-            //            }
+        req.gatewayResponse().then { (resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> in
+            print("resp: \(resp)")
+            guard let nonce = resp.str else {
+                throw HemlockError.unexpectedNetworkResponse("expected string")
+            }
+            let password = md5(nonce + md5((self.account?.password)!))
             let objectParam = ["type": "opac",
                                "username": self.account!.username,
-                               "password": "badbeef"]
-            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam]).responseGateway()
-        }.done { gwresp, response in
-            print("gwresp: \(gwresp)")
+                               "password": password]
+            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam]).gatewayResponse()
+        }.done { (resp, pmkresp) in
+            print("resp: \(resp)")
+            try self.account?.loadFromAuthResponse(resp.obj)
             print("here")
-        }.ensure {
             expectation.fulfill()
-//        }.catch { error in
-//            XCTFail(error.localizedDescription)
+        }.ensure {
+            print("no ensure today")
+        }.catch { error in
+            print("error: \(error)")
+            let desc = error.localizedDescription
+            print("desc: \(desc)")
+            XCTFail(desc)
+            expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 20.0)
+        wait(for: [expectation], timeout: 10.0)
+        print("ok")
     }
 
     //MARK: - LoginController Tests

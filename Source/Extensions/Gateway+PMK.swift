@@ -23,18 +23,20 @@ import PromiseKit
 import PMKAlamofire
 
 extension Alamofire.DataRequest {
-    func responseGateway(queue: DispatchQueue? = nil) -> Promise<(gwresp: GatewayResponse, response: PMKAlamofireDataResponse)>
+    func gatewayResponse(queue: DispatchQueue? = nil) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
-                    let gwresp = GatewayResponse(data)
-                    seal.fulfill((gwresp, PMKAlamofireDataResponse(response)))
-                } else {
+                    seal.fulfill((GatewayResponse(data), PMKAlamofireDataResponse(response)))
+                } else if response.result.isFailure,
+                    let error = response.error {
                     let errorMessage = response.description
-                    seal.reject(GatewayError.failure(errorMessage))
+                    seal.reject(error)
+                } else {
+                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
                 }
             }
         }

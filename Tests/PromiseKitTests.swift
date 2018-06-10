@@ -29,7 +29,8 @@ class PromiseKitTests: XCTestCase {
     let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
     
     func showAlert(_ error: Error) {
-        debugPrint(error)
+        let desc = error.localizedDescription
+        print("ERROR: \(desc)")
     }
     
     func test_basicPromiseChain() {
@@ -49,7 +50,7 @@ class PromiseKitTests: XCTestCase {
             self.showAlert(error)
         }
         
-        wait(for: [expectation], timeout: 2.0)
+        wait(for: [expectation], timeout: 5.0)
         
         XCTAssertNotNil(savedResult)
     }
@@ -60,21 +61,21 @@ class PromiseKitTests: XCTestCase {
         
         var savedError: Error?
         
-        firstly {
-            // this url returns xml
-            return Alamofire.request("https://httpbin.org/xml").responseJSON()
-        }.done { json in
+        // this url returns xml
+        let req = Alamofire.request("https://httpbin.org/xml")
+        req.responseJSON().done { json in
             print("done: \(json)")
+            expectation.fulfill()
         }.ensure {
             print("ensure")
-            expectation.fulfill()
         }.catch { error in
             print("error")
             self.showAlert(error)
             savedError = error
+            expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 2.0)
+        wait(for: [expectation], timeout: 10.0)
 
         XCTAssertNotNil(savedError)
         guard let aferror = savedError as? AFError,
