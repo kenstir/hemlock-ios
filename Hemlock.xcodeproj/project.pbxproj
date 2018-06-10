@@ -42,6 +42,7 @@
 		D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
 		D253344220C3078F008176B9 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
 		D253344420C30A60008176B9 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
+		D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D268D478209F9F830008D8C1 /* XMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D477209F9F830008D8C1 /* XMainViewController.swift */; };
 		D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
@@ -116,6 +117,7 @@
 		D253343F20C30789008176B9 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		D253344120C3078F008176B9 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		D253344320C30A60008176B9 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
+		D2562FB020CDD3080072F750 /* FinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesViewController.swift; sourceTree = "<group>"; };
 		D268D477209F9F830008D8C1 /* XMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMainViewController.swift; sourceTree = "<group>"; };
 		D268D479209FA0B10008D8C1 /* MainButtonLayoutNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonLayoutNode.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				FACD141C20CDACFF008F02D3 /* Fines.storyboard */,
+				D2562FB020CDD3080072F750 /* FinesViewController.swift */,
 			);
 			path = Fines;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
+				D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */,
 				D209445F20AA7CD4003E1970 /* MainButton.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				D22D026B2083EBB100DC1F5B /* AppSettings.swift in Sources */,
