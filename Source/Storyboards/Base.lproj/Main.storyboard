@@ -220,48 +220,120 @@
                     <connections>
                         <outlet property="logoutButton" destination="GJD-cg-1UD" id="Fq3-pw-ltt"/>
                         <outlet property="table" destination="Bny-iN-u9U" id="uPy-9U-wwm"/>
-                        <segue destination="Rgl-GN-9cy" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>
-                        <segue destination="aSn-Ob-ZbE" kind="show" identifier="ShowHoldsSegue" id="QLz-GT-rH2"/>
-                        <segue destination="RCs-ov-Y8N" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
-                        <segue destination="gyY-7F-Ras" kind="show" identifier="ShowMyListsSegue" id="cd4-OG-ah5"/>
+                        <segue destination="aZb-1B-51Z" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>
+                        <segue destination="x2b-x0-F7V" kind="show" identifier="ShowHoldsSegue" id="QLz-GT-rH2"/>
+                        <segue destination="Vj0-Na-E34" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
+                        <segue destination="EVt-En-7Wz" kind="show" identifier="ShowMyListsSegue" id="cd4-OG-ah5"/>
                         <segue destination="L5E-wb-4wF" kind="show" identifier="ShowLoginSegue" id="zgh-oQ-owQ"/>
+                        <segue destination="8d8-w4-47w" kind="show" identifier="ShowCheckoutsSegue" id="aRF-ID-OQ8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="296.80000000000001" y="89.505247376311857"/>
         </scene>
-        <!--Fines-->
-        <scene sceneID="Kq4-zb-RuZ">
+        <!--Items Checked Out-->
+        <scene sceneID="Lim-Vh-9VD">
             <objects>
-                <viewControllerPlaceholder storyboardName="Fines" id="RCs-ov-Y8N" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HNY-I9-YrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController title="Items Checked Out" id="8d8-w4-47w" customClass="CheckoutsViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="5dA-fz-7mv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CheckoutsTableViewCell" id="big-A1-FBo" customClass="CheckoutsTableViewCell" customModule="Hemlock" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="big-A1-FBo" id="6qM-sC-2d7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Project management for dummies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btq-bN-2S2">
+                                            <rect key="frame" x="61" y="11" width="298" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="title" destination="btq-bN-2S2" id="1H9-BG-dcp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8d8-w4-47w" id="Yf0-0q-e0W"/>
+                            <outlet property="delegate" destination="8d8-w4-47w" id="wB6-bQ-AUm"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="5dA-fz-7mv" id="HfK-Si-oF1"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zSq-vL-jRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="762"/>
+            <point key="canvasLocation" x="1591.2" y="160.56971514242881"/>
+        </scene>
+        <!--Fines-->
+        <scene sceneID="AGR-hk-E78">
+            <objects>
+                <viewController title="Fines" id="Vj0-Na-E34" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HDo-Fu-fYP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="78J-wo-VWu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C3O-tC-9wZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134" y="1634"/>
+        </scene>
+        <!--My Lists-->
+        <scene sceneID="BSw-YC-fzo">
+            <objects>
+                <viewController title="My Lists" id="EVt-En-7Wz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CNE-7D-vAZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KDx-Ji-lZJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWl-i5-Qdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134" y="2346"/>
         </scene>
         <!--Holds-->
-        <scene sceneID="6Lk-6H-wk1">
+        <scene sceneID="dKB-lk-kGq">
             <objects>
-                <viewControllerPlaceholder storyboardName="Holds" id="aSn-Ob-ZbE" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12k-ED-7ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Holds" id="x2b-x0-F7V" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VDA-qc-FqJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SSX-Jh-0F3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="870-bw-BU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="542"/>
-        </scene>
-        <!--MyLists-->
-        <scene sceneID="DqL-hX-c4e">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MyLists" id="gyY-7F-Ras" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fEn-vH-L7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="818" y="971"/>
+            <point key="canvasLocation" x="1134" y="923"/>
         </scene>
         <!--Search-->
-        <scene sceneID="qrm-lx-Zg1">
+        <scene sceneID="YtA-Zg-eFL">
             <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="Rgl-GN-9cy" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ppl-xk-L7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Search" id="aZb-1B-51Z" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IXW-CF-GhP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ljx-32-4Q7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8U-68-kFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="-199"/>
+            <point key="canvasLocation" x="1134" y="-547"/>
         </scene>
     </scenes>
     <resources>

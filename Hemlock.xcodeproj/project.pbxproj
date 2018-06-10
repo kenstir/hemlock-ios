@@ -14,6 +14,11 @@
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
 		D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
 		D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */; };
+		D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2720C5B90A00267503 /* PromiseKitTests.swift */; };
+		D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
+		D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
+		D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
+		D2216B7920CCA724005D06B1 /* Error+description.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2216B7820CCA724005D06B1 /* Error+description.swift */; };
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
@@ -23,6 +28,7 @@
 		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
+		D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
 		D231B52C2083C08000478D25 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
@@ -81,6 +87,11 @@
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
 		D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCheckoutsViewController.swift; sourceTree = "<group>"; };
 		D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCheckoutsTableNode.swift; sourceTree = "<group>"; };
+		D212DB2720C5B90A00267503 /* PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKitTests.swift; sourceTree = "<group>"; };
+		D212DB2920C5C0D200267503 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
+		D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Gateway+PMK.swift"; path = "Source/Extensions/Gateway+PMK.swift"; sourceTree = SOURCE_ROOT; };
+		D2216B7820CCA724005D06B1 /* Error+description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+description.swift"; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D22D02662083E45700DC1F5B /* Corsortium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corsortium.swift; sourceTree = "<group>"; };
@@ -91,6 +102,7 @@
 		D22D0274208516D600DC1F5B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
 		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
+		D2318BD720CC44FA00A027EE /* HemlockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockError.swift; sourceTree = "<group>"; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D231B52B2083C08000478D25 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
@@ -146,6 +158,8 @@
 				D253343E20C3076D008176B9 /* AsyncDisplayKit.framework in Frameworks */,
 				D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */,
 				D253344220C3078F008176B9 /* PINCache.framework in Frameworks */,
+				D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */,
+				D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +241,8 @@
 			children = (
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
+				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
+				D2216B7820CCA724005D06B1 /* Error+description.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -246,6 +262,7 @@
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D22D02662083E45700DC1F5B /* Corsortium.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
+				D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */,
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
 				D270C4082091FCAA00D27159 /* IDLParser.swift */,
 				D231B52B2083C08000478D25 /* Library.swift */,
@@ -279,6 +296,8 @@
 				D253344120C3078F008176B9 /* PINCache.framework */,
 				D253343F20C30789008176B9 /* PINRemoteImage.framework */,
 				D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */,
+				D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */,
+				D212DB2920C5C0D200267503 /* PromiseKit.framework */,
 				D231B5282081628900478D25 /* Alamofire.framework */,
 			);
 			name = Frameworks;
@@ -331,6 +350,7 @@
 				D22D027B208588A100DC1F5B /* Evergreen */,
 				D22D0271208506A700DC1F5B /* Utils */,
 				D231B52120804DF900478D25 /* AlamoTests.swift */,
+				D212DB2720C5B90A00267503 /* PromiseKitTests.swift */,
 				D287D512207AEF2D001AF644 /* Info.plist */,
 				D20EE9D72094BC9100AF261D /* MiscTests.swift */,
 			);
@@ -496,6 +516,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -503,6 +525,8 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -526,6 +550,7 @@
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
+				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
@@ -533,6 +558,8 @@
 				D268D478209F9F830008D8C1 /* XMainViewController.swift in Sources */,
 				D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
+				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
+				D2216B7920CCA724005D06B1 /* Error+description.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
@@ -555,6 +582,7 @@
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
+				D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
 				D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */,
 				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,

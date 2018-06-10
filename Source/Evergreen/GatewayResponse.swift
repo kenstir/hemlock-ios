@@ -20,7 +20,7 @@
 import Foundation
 import os.log
 
-enum GatewayError: Error {
+public enum GatewayError: Error {
     case malformedPayload(String)
     case failure(String)
 }
@@ -33,6 +33,8 @@ enum GatewayResponseType {
 }
 
 struct GatewayResponse {
+    //MARK: - Properties
+
     var type: GatewayResponseType
     var error: GatewayError?
 
@@ -40,10 +42,10 @@ struct GatewayResponse {
     var stringResult: String?
     var objectResult: OSRFObject?
     var arrayResult: [Any]?
+    var str: String? { return stringResult }
+    var obj: OSRFObject? { return objectResult }
+    var array: [Any]? { return arrayResult }
 
-    var obj: OSRFObject? {
-        return objectResult
-    }
     var failed: Bool {
         return type == .error
     }
@@ -57,6 +59,8 @@ struct GatewayResponse {
         }
         //NOTREACHED: switch statements must be exhaustive
     }
+    
+    //MARK: - Lifecycle
     
     init() {
         type = .error
@@ -119,6 +123,8 @@ struct GatewayResponse {
         }
         error = nil
     }
+    
+    // MARK: - Functions
     
     func decodeJSON(_ data: Data) -> [String: Any]? {
         if
