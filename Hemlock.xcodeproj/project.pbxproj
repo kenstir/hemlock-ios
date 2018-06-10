@@ -370,8 +370,7 @@
 			children = (
 				FACD141C20CDACFF008F02D3 /* Fines.storyboard */,
 			);
-			name = Fines;
-			path = "New Group";
+			path = Fines;
 			sourceTree = "<group>";
 		};
 		FACD141F20CDAFFD008F02D3 /* Holds */ = {
