@@ -80,6 +80,7 @@ class LiveServiceTests: XCTestCase {
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
         req.gatewayResponse().then { (resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> in
             print("resp: \(resp)")
+            // todo: refactor to Account.loginContinue(authInitReponse:)
             guard let nonce = resp.str else {
                 throw HemlockError.unexpectedNetworkResponse("expected string")
             }
