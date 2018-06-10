@@ -39,6 +39,7 @@ class LibraryTests: XCTestCase {
     func test_optionalArgs() {
         var sut = Library("https://gapines.org")
         XCTAssertEqual(sut.url, "https://gapines.org")
+        XCTAssertEqual(sut.name, "")
         sut = Library("https://catalog.cwmars.org", name: "C/W MARS")
         XCTAssertEqual(sut.name, "C/W MARS")
     }
