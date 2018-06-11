@@ -80,8 +80,8 @@ class CheckoutsViewController: UITableViewController {
             }
 
             // update items lists now, but wait to call reloadData
-            self.out.items = self.makeCircRecords(obj.getListOfIDs("out"))
-            self.overdue.items = self.makeCircRecords(obj.getListOfIDs("overdue"))
+            self.out.items = self.makeCircRecords(obj.getIntList("out"))
+            self.overdue.items = self.makeCircRecords(obj.getIntList("overdue"))
 
             self.fetchCircRecords()
         }

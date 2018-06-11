@@ -53,17 +53,12 @@ class FinesViewController: UIViewController {
         }
         
         // fetch the transactions
-        /* not working yet
         let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid])
-        req2.gatewayResponse().done { resp, pmkresp in
-            guard let obj = resp.obj else {
-                throw HemlockError.unexpectedNetworkResponse("transactions summary") //todo add analytics
-            }
-            self.loadTransactions(fromObj: obj)
+        req2.gatewayArrayResponse().done { array in
+            self.loadTransactions(fromArray: array)
         }.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)
         }
-        */
     }
     
     func loadFinesSummary(fromObj obj: OSRFObject) {
@@ -77,8 +72,8 @@ class FinesViewController: UIViewController {
         print("stop here")
     }
     
-    func loadTransactions(fromObj obj: OSRFObject) {
-        debugPrint(obj)
+    func loadTransactions(fromArray array: [OSRFObject]) {
+        debugPrint(array)
         print("here")
     }
 }

@@ -19,6 +19,8 @@
 
 import Foundation
 
+typealias JSONDictionary = [String: Any?]
+
 /// An `OSRFObject` represents the decoded Evergreen objects returned in a `GatewayResponse`
 /// In practice this is just a [String:Any?] dictionary that is equatable.
 struct OSRFObject: Equatable {
@@ -69,6 +71,13 @@ struct OSRFObject: Equatable {
         return nil
     }
     
+    func getObject(_ key: String) -> OSRFObject? {
+        if let val = dict[key] as? OSRFObject {
+            return val
+        }
+        return nil
+    }
+    
     func getAny(_ key: String) -> Any? {
         if let val = dict[key] {
             return val
@@ -76,18 +85,18 @@ struct OSRFObject: Equatable {
         return nil
     }
     
-    // some queries return at times a list of String IDs and at times
-    // a list of Int IDs; smooth that path
-    func getListOfIDs(_ key: String) -> [Int] {
+    // Some queries return at times a list of String IDs and at times
+    // a list of Int IDs; handle both cases
+    func getIntList(_ key: String) -> [Int] {
         var ret: [Int] = []
-        if let listOfStrings = dict[key] as? [String] {
-            for str in listOfStrings {
+        if let strList = dict[key] as? [String] {
+            for str in strList {
                 if let id = Int(str) {
                     ret.append(id)
                 }
             }
-        } else if let listOfInt = getAny(key) as? [Int] {
-            ret = listOfInt
+        } else if let intList = getAny(key) as? [Int] {
+            ret = intList
         }
         return ret
     }

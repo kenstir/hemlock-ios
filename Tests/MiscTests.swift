@@ -33,11 +33,12 @@ class MiscTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
+
+    // Test that HemlockError can override the localizedDescription by conforming to LocalizedError
+    func testHemlockError() {
         let err = HemlockError.loginFailed("because")
         let desc = err.errorDescription
-        print("desc: \(desc)")
+        print("desc: \(desc ?? "")")
         XCTAssertEqual("Login failed: because", desc)
         
         let baseError = err as Error

@@ -56,8 +56,8 @@ struct OSRFCoder {
         return registeredObject
     }
     
-    /// decode an OSRFObject from an object in wire protocol
-    static func decode(fromWireProtocol dict: [String: Any?]) throws -> OSRFObject {
+    /// decode an OSRFObject from wire protocol
+    static func decode(fromDictionary dict: [String: Any?]) throws -> OSRFObject {
         guard
             let netClass = dict["__c"] as? String,
             let payload = dict["__p"] as? [Any?] else
@@ -66,6 +66,15 @@ struct OSRFCoder {
             return OSRFObject(dict)
         }
         return try decode(netClass, wirePayload: payload)
+    }
+    
+    /// decode an array of OSRFObjects from wire protocol
+    static func decode(fromArray array: [[String: Any?]]) throws -> [OSRFObject] {
+        var ret: [OSRFObject] = []
+        for elem in array {
+            try ret.append(decode(fromDictionary: elem))
+        }
+        return ret
     }
     
     /// decode an OSRFObject from a payload array in wire protocol

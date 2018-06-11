@@ -1,5 +1,5 @@
 //
-//  OSRFRegistryTests.swift
+//  OSRFCoderTests.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -31,10 +31,9 @@ class OSRFCoderTests: XCTestCase {
         OSRFCoder.clearRegistry()
     }
     
-    // Decode a wire protocol payload string into an array of foundation objects
-    func decodeWirePayloadAsArray(_ wireString: String) -> [Any?]? {
-        if
-            let data = wireString.data(using: .utf8),
+    // Deserialize an array from JSON
+    func deserializeJSONArray(_ wireString: String) -> [Any?]? {
+        if let data = wireString.data(using: .utf8),
             let json = try? JSONSerialization.jsonObject(with: data),
             let jsonArray = json as? [Any?] {
             return jsonArray
@@ -43,10 +42,9 @@ class OSRFCoderTests: XCTestCase {
         }
     }
     
-    // Decode a wire protocol string from JSON
-    func decodeJSON(_ wireString: String) -> [String: Any?]? {
-        if
-            let data = wireString.data(using: .utf8),
+    // Deserialize a dictionary from JSON
+    func deserializeJSONObject(_ wireString: String) -> [String: Any?]? {
+        if let data = wireString.data(using: .utf8),
             let json = try? JSONSerialization.jsonObject(with: data),
             let dict = json as? [String: Any?] {
             return dict
@@ -55,6 +53,16 @@ class OSRFCoderTests: XCTestCase {
         }
     }
     
+    func deserializeJSONObjectArray(_ wireString: String) -> [[String: Any?]]? {
+        if let data = wireString.data(using: .utf8),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonArray = json as? [[String: Any?]] {
+            return jsonArray
+        } else {
+            return nil
+        }
+    }
+
     //MARK: - tests
     
     func test_register() {
@@ -80,7 +88,7 @@ class OSRFCoderTests: XCTestCase {
         let wirePayload = """
             [null,"t","t",3,11,"Non-member Library","Non-member Library",10]
             """
-        guard let jsonArray = decodeWirePayloadAsArray(wirePayload) else {
+        guard let jsonArray = deserializeJSONArray(wirePayload) else {
             XCTFail("ERROR decoding JSON")
             return
         }
@@ -109,7 +117,7 @@ class OSRFCoderTests: XCTestCase {
         let wireProtocol = """
             {"__c":"test","__p":["t",1,"Hormel"]}
             """
-        guard let dict = decodeJSON(wireProtocol) else {
+        guard let dict = deserializeJSONObject(wireProtocol) else {
             XCTFail("ERROR decoding JSON")
             return
         }
@@ -118,7 +126,7 @@ class OSRFCoderTests: XCTestCase {
                                       "id": 1,
                                       "name": "Hormel"])
         do {
-            let decodedObj = try OSRFCoder.decode(fromWireProtocol: dict)
+            let decodedObj = try OSRFCoder.decode(fromDictionary: dict)
             debugPrint(decodedObj)
             XCTAssertEqual(decodedObj, expectedObj)
         } catch {
@@ -127,4 +135,45 @@ class OSRFCoderTests: XCTestCase {
         }
     }
 
+    // Case: decoding an array of OSRF objects from wire protocol
+    func test_decode_wireArray() {
+        OSRFCoder.registerClass("mbts", fields: ["balance_owed","id","last_billing_ts"])
+        OSRFCoder.registerClass("circ", fields: ["checkin_lib","checkin_staff","checkin_time"])
+        OSRFCoder.registerClass("mvr", fields: ["title","author","doc_id"])
+
+        let wireProtocol = """
+            [
+                {
+                    "transaction":{"__c":"mbts","__p":["1.15",182746988,"2018-01-10T23:59:59-0500"]},
+                    "circ":{"__c":"circ","__p":[66,1175852,"2018-01-10T16:32:17-0500"]},
+                    "record":{"__c":"mvr","__p":["Georgia adult literacy resources manual","State Bar of Georgia",1475710]},
+                    "copy":null
+                },
+                {
+                    "transaction":{"__c":"mbts","__p":["0.10",174615422,"2017-05-01T14:03:24-0400"]}
+                }
+            ]
+            """
+        guard let array = deserializeJSONObjectArray(wireProtocol) else {
+            XCTFail("ERROR decoding JSON")
+            return
+        }
+
+        do {
+            let decodedArray = try OSRFCoder.decode(fromArray: array)
+            XCTAssertEqual(decodedArray.count, 2)
+
+            let obj0 = decodedArray[0]
+            let record0 = obj0.getObject("record")
+            XCTAssertNotNil(record0)
+
+            let obj1 = decodedArray[1]
+            let record1 = obj1.getObject("record")
+            XCTAssertNil(record1)
+        } catch {
+            debugPrint(error)
+            XCTFail(String(describing: error))
+        }
+        print("stop here")
+    }
 }

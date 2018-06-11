@@ -41,10 +41,10 @@ struct GatewayResponse {
     // a field for each GatewayResultType; I'm sure there's a better way
     var stringResult: String?
     var objectResult: OSRFObject?
-    var arrayResult: [Any]?
+    var arrayResult: [OSRFObject]?
     var str: String? { return stringResult }
     var obj: OSRFObject? { return objectResult }
-    var array: [Any]? { return arrayResult }
+    var array: [OSRFObject]? { return arrayResult }
 
     var failed: Bool {
         return type == .error
@@ -69,6 +69,7 @@ struct GatewayResponse {
     
     init(_ jsonString: String) {
         self.init()
+        os_log("resp.str: %@", log: Gateway.log, type: .info, jsonString)
         guard let data = jsonString.data(using: .utf8) else {
             error = .failure("Unable to encode as utf8: \(jsonString)")
             return
@@ -79,6 +80,7 @@ struct GatewayResponse {
     init(_ data: Data) {
         self.init()
 
+        os_log("resp.data: %@", log: Gateway.log, type: .info, String(data: data, encoding: .utf8)!)
         guard var json = decodeJSON(data) else {
             os_log("resp.json: decode_error", log: Gateway.log, type: .info)
             error = .failure("Response not JSON")
@@ -105,15 +107,19 @@ struct GatewayResponse {
         if let val = payload.first as? [String: Any?] {
             do {
                 try objectResult = decodeObject(val)
-            }
-            catch {
+            } catch {
                 self.error = .failure("Error decoding OSRF object")
                 return
             }
             type = .object
-        } else if let val = payload.first as? [Any] {
+        } else if let val = payload.first as? [[String: Any?]] {
+            do {
+                try arrayResult = decodeArray(val)
+            } catch {
+                self.error = .failure("Error decoding OSRF object")
+                return
+            }
             type = .array
-            arrayResult = val
         } else if let val = payload.first as? String {
             type = .string
             stringResult = val
@@ -137,8 +143,12 @@ struct GatewayResponse {
         }
     }
     
-    func decodeObject(_ jsonObject: [String: Any?]) throws -> OSRFObject? {
-        return try OSRFCoder.decode(fromWireProtocol: jsonObject)
+    func decodeObject(_ jsonObject: [String: Any?]) throws -> OSRFObject {
+        return try OSRFCoder.decode(fromDictionary: jsonObject)
+    }
+    
+    func decodeArray(_ jsonArray: [[String: Any?]]) throws -> [OSRFObject] {
+        return try OSRFCoder.decode(fromArray: jsonArray)
     }
 
     static func makeError(_ reason: String) -> GatewayResponse {

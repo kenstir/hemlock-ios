@@ -93,9 +93,9 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(out.count, 2)
 
         // or as a list of IDs
-        XCTAssertEqual(resp.obj?.getListOfIDs("out"), [73107615, 72954513])
-        XCTAssertEqual(resp.obj?.getListOfIDs("overdue"), [])
-        XCTAssertEqual(resp.obj?.getListOfIDs("lost"), [1,2])
+        XCTAssertEqual(resp.obj?.getIntList("out"), [73107615, 72954513])
+        XCTAssertEqual(resp.obj?.getIntList("overdue"), [])
+        XCTAssertEqual(resp.obj?.getIntList("lost"), [1,2])
     }
 
 }
