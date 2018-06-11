@@ -65,7 +65,7 @@ class FinesViewController: UIViewController {
         // fetch the transactions
         let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid])
         req2.gatewayArrayResponse().done { objects in
-            self.loadTransactions(FineRecord.makeArray(objects))
+            self.loadTransactions(fines: FineRecord.makeArray(objects))
         }.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)
         }
@@ -85,7 +85,8 @@ class FinesViewController: UIViewController {
         print("stop here")
     }
     
-    func loadTransactions(_ fines: [FineRecord]) {
+    func loadTransactions(fines: [FineRecord]) {
+        self.fines = fines
         for fine in fines {
             print("-----------------------")
             print("title:    \(fine.title)")
