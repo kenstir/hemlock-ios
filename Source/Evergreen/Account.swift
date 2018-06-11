@@ -36,9 +36,9 @@ class Account {
             throw HemlockError.unexpectedNetworkResponse("Unexpected response to login")
         }
         
-        guard let payload = obj.getAny("payload") as? [String: Any],
-            let authtoken = payload["authtoken"] as? String,
-            let authtime = payload["authtime"] as? Int else
+        guard let payload = obj.getObject("payload"),
+            let authtoken = payload.getString("authtoken"),
+            let authtime = payload.getInt("authtime") else
         {
             var msg = "Login failed"
             if let desc = obj.getString("desc") {

@@ -69,6 +69,18 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.stringResult, "nonce")
     }
     
+    func test_authCompleteSuccess() {
+        let json = """
+            {"payload":[{"ilsevent":0,"textcode":"SUCCESS","desc":"Success","pid":6939,"stacktrace":"oils_auth.c:634","payload":{"authtoken":"985cda3d943232fbfd987d85d1f1a8af","authtime":420}}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        XCTAssertEqual(resp.obj?.getString("textcode"), "SUCCESS")
+        XCTAssertEqual(resp.obj?.getString("desc"), "Success")
+        let payload = resp.obj?.getObject("payload")
+        XCTAssertEqual(payload?.getInt("authtime"), 420)
+    }
+
     func test_authCompleteFailed() {
         let json = """
             {"payload":[{"ilsevent":1000,"textcode":"LOGIN_FAILED","desc":"User login failed"}],"status":200}

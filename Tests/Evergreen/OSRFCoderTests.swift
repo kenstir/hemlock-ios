@@ -163,9 +163,13 @@ class OSRFCoderTests: XCTestCase {
             let decodedArray = try OSRFCoder.decode(fromArray: array)
             XCTAssertEqual(decodedArray.count, 2)
 
-            let obj0 = decodedArray[0]
-            let record0 = obj0.getObject("record")
-            XCTAssertNotNil(record0)
+            let obj = decodedArray[0]
+            debugPrint(obj)
+            let record = obj.getObject("record")
+            XCTAssertNotNil(record)
+            let title = record?.getString("title")
+            XCTAssertEqual(title, "Georgia adult literacy resources manual")
+            XCTAssertEqual(record?.getInt("doc_id"), 1475710)
 
             let obj1 = decodedArray[1]
             let record1 = obj1.getObject("record")
@@ -174,6 +178,5 @@ class OSRFCoderTests: XCTestCase {
             debugPrint(error)
             XCTFail(String(describing: error))
         }
-        print("stop here")
     }
 }

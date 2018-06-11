@@ -74,7 +74,7 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
-    // Test actually loggin in using a promise chain
+    // Test successful login using a promise chain
     func test_gatewayPromise() {
         let expectation = XCTestExpectation(description: "async response")
         

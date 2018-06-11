@@ -57,36 +57,45 @@ struct OSRFCoder {
     }
     
     /// decode an OSRFObject from wire protocol
-    static func decode(fromDictionary dict: [String: Any?]) throws -> OSRFObject {
-        guard
-            let netClass = dict["__c"] as? String,
-            let payload = dict["__p"] as? [Any?] else
+    static func decode(fromDictionary dict: JSONDictionary) throws -> OSRFObject {
+        if let netClass = dict["__c"] as? String,
+            let payload = dict["__p"] as? [Any?]
         {
-            // if it doesn't have a class, it doesn't need decoding
-            return OSRFObject(dict)
+            return try decode(netClass, wirePayload: payload)
         }
-        return try decode(netClass, wirePayload: payload)
+
+        var ret: JSONDictionary = [:]
+        for (k,v) in dict {
+            if let vDictionary = v as? JSONDictionary {
+                ret[k] = try decode(fromDictionary: vDictionary)
+            } else if let vArray = v as? [JSONDictionary] {
+                ret[k] = try decode(fromArray: vArray)
+            } else {
+                ret[k] = v
+            }
+        }
+        return OSRFObject(ret)
     }
     
     /// decode an array of OSRFObjects from wire protocol
-    static func decode(fromArray array: [[String: Any?]]) throws -> [OSRFObject] {
+    static func decode(fromArray array: [JSONDictionary]) throws -> [OSRFObject] {
         var ret: [OSRFObject] = []
         for elem in array {
             try ret.append(decode(fromDictionary: elem))
         }
         return ret
     }
-    
+
     /// decode an OSRFObject from a payload array in wire protocol
-    static func decode(_ netClass: String, wirePayload json: [Any?]) throws -> OSRFObject {
+    static func decode(_ netClass: String, wirePayload jsonArray: [Any?]) throws -> OSRFObject {
         guard let coder = registry[netClass] else {
             throw OSRFDecodingError.classNotFound(netClass)
         }
         var dict: [String: Any?] = [:]
         let fields = coder.fields
-        for i in 0...json.count-1 {
+        for i in 0...jsonArray.count-1 {
             let key = fields[i]
-            let val = json[i]
+            let val = jsonArray[i]
             dict[key] = val
         }
         

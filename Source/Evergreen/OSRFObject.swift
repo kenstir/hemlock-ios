@@ -19,6 +19,7 @@
 
 import Foundation
 
+typealias JSONValue = Any?
 typealias JSONDictionary = [String: Any?]
 
 /// An `OSRFObject` represents the decoded Evergreen objects returned in a `GatewayResponse`
