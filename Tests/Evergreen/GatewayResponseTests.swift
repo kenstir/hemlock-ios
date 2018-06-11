@@ -110,4 +110,20 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.obj?.getIntList("lost"), [1,2])
     }
 
+    func test_withNullValue() {
+        let json = """
+            {"payload":[{"children":null}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        guard let obj = resp.obj else {
+            XCTFail()
+            return
+        }
+        if let children = obj.dict["children"] {
+            XCTAssertNil(children)
+        } else {
+            XCTFail()
+        }
+    }
 }

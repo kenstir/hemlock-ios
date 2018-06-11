@@ -24,14 +24,57 @@ import XCTest
 /// The error messages are better here than in the Swift playground.
 class MiscTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // Test how to deserialize from JSON
+    func test_howto_deserializeJSON() {
+        let str = """
+            {"__c": "aout", "num": 42, "opt": null, "arr": [1,2,3]}
+            """
+        
+        guard
+            let data = str.data(using: .utf8),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonObject = json as? [String: Any?],
+            let jsonObject2 = json as? [String: Any] else
+        {
+            XCTFail()
+            return
+        }
+        
+        debugPrint(jsonObject)
+        debugPrint(jsonObject2)
+        XCTAssertEqual(jsonObject["__c"] as? String, "aout")
+        XCTAssertEqual(jsonObject["num"] as? Int, 42)
+        XCTAssertEqual(jsonObject["arr"] as? [Int], [1,2,3])
+        
+        // If you coerce to [String: Any?], "opt" gets a value of nil
+        if let optval = jsonObject["opt"] {
+            print("obj[opt] is \(String(describing: optval))")
+            XCTAssertNil(optval)
+        } else {
+            XCTFail()
+        }
+
+        // If you coerce to [String: Any], "opt" gets a value of NSNull
+        if let optval = jsonObject2["opt"] {
+            print("obj[opt] is \(optval)")
+            XCTAssertTrue(optval is NSNull)
+        } else {
+            XCTFail()
+        }
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // Test how to serialize to JSON
+    func test_howto_serializeJSON() {
+        let dict: [String: Any?] = ["__c": "aout", "num": 42, "null": nil, "arr": [1,2,3]]
+        if
+            let jsonData = try? JSONSerialization.data(withJSONObject: dict),
+            let str = String(data: jsonData, encoding: .utf8)
+        {
+            debugPrint(str)
+            XCTAssertNotNil(str)
+        } else {
+            XCTFail()
+        }
     }
 
     // Test that HemlockError can override the localizedDescription by conforming to LocalizedError
@@ -47,4 +90,19 @@ class MiscTests: XCTestCase {
         XCTAssertEqual("Login failed: because", baseDesc)
     }
     
+    // Test ways to parse a date string
+    func testDateParsing() {
+        let apiDate = "2017-05-01T14:03:24-0400"
+
+        // hard way
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        let date1 = df.date(from: apiDate)
+
+        // easy way
+        let df2 = ISO8601DateFormatter()
+        let date2 = df2.date(from: apiDate)
+
+        XCTAssertEqual(date1, date2)
+    }
 }

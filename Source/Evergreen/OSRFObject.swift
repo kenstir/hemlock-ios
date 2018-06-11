@@ -27,6 +27,7 @@ typealias JSONDictionary = [String: Any?]
 struct OSRFObject: Equatable {
     
     var dict: [String: Any?]
+    static var dateFormatter = ISO8601DateFormatter()
     
     init(_ dict: [String: Any?] = [:]) {
         self.dict = dict
@@ -68,6 +69,13 @@ struct OSRFObject: Equatable {
             } else {
                 return false
             }
+        }
+        return nil
+    }
+    
+    func getDate(_ key: String) -> Date? {
+        if let val = dict[key] as? String {
+            return OSRFObject.dateFormatter.date(from: val)
         }
         return nil
     }

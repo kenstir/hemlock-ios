@@ -32,6 +32,7 @@ class FinesViewController: UIViewController {
     @IBOutlet weak var totalOwedVal: UILabel!
     @IBOutlet weak var totalPaidVal: UILabel!
     @IBOutlet weak var balanceOwedVal: UILabel!
+    var fines: [FineRecord] = []
     
     //MARK: - Lifecycle
 
@@ -63,8 +64,8 @@ class FinesViewController: UIViewController {
         
         // fetch the transactions
         let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid])
-        req2.gatewayArrayResponse().done { array in
-            self.loadTransactions(fromArray: array)
+        req2.gatewayArrayResponse().done { objects in
+            self.loadTransactions(FineRecord.makeArray(objects))
         }.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)
         }
@@ -84,8 +85,15 @@ class FinesViewController: UIViewController {
         print("stop here")
     }
     
-    func loadTransactions(fromArray array: [OSRFObject]) {
-        debugPrint(array)
-        print("here")
+    func loadTransactions(_ fines: [FineRecord]) {
+        for fine in fines {
+            print("-----------------------")
+            print("title:    \(fine.title)")
+            print("subtitle: \(fine.subtitle)")
+            print("status:   \(fine.status)")
+            if let balance = fine.balance {
+                print("balance:  \(balance)")
+            }
+        }
     }
 }
