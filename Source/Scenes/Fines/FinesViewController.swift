@@ -17,15 +17,24 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+import Foundation
 import UIKit
 import PromiseKit
 import PMKAlamofire
 
 class FinesViewController: UIViewController {
     //MARK: - Properties
+    @IBOutlet weak var finesTable: UITableView!
+    @IBOutlet weak var finesSummary: UIStackView!
+    @IBOutlet weak var totalOwedLabel: UILabel!
+    @IBOutlet weak var totalPaidLabel: UILabel!
+    @IBOutlet weak var balanceOwedLabel: UILabel!
+    @IBOutlet weak var totalOwedVal: UILabel!
+    @IBOutlet weak var totalPaidVal: UILabel!
+    @IBOutlet weak var balanceOwedVal: UILabel!
     
     //MARK: - Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFines()
@@ -63,12 +72,15 @@ class FinesViewController: UIViewController {
     
     func loadFinesSummary(fromObj obj: OSRFObject) {
         debugPrint(obj)
-        let totalOwed = obj.getDouble("total_owed")
-        let totalPaid = obj.getDouble("total_paid")
-        let balanceOwed = obj.getDouble("balance_owed")
-        print("totalOwed: \(totalOwed)")
-        print("totalPaid: \(totalPaid)")
-        print("balanceOwed: \(balanceOwed)")
+        let totalOwed = String(format: "$ %.2f", obj.getDouble("total_owed")!)
+        let totalPaid = String(format: "$ %.2f", obj.getDouble("total_paid")!)
+        let balanceOwed = String(format: "$ %.2f", obj.getDouble("balance_owed")!)
+        totalOwedVal.text = "\(totalOwed)"
+        totalPaidVal.text = "\(totalPaid)"
+        balanceOwedVal.text = "\(balanceOwed)"
+//        print("totalOwed: \(totalOwed)")
+//        print("totalPaid: \(totalPaid)")
+//        print("balanceOwed: \(balanceOwed)")
         print("stop here")
     }
     
