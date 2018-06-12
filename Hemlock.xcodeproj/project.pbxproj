@@ -69,6 +69,7 @@
 		FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		FACD142420CDBED6008F02D3 /* MyLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* MyLists.storyboard */; };
 		FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
+		FACD142920CE96FC008F02D3 /* FinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD142820CE96FC008F02D3 /* FinesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		FACD142020CDB01C008F02D3 /* Holds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Holds.storyboard; sourceTree = "<group>"; };
 		FACD142320CDBED6008F02D3 /* MyLists.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyLists.storyboard; sourceTree = "<group>"; };
 		FACD142620CDC0DF008F02D3 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		FACD142820CE96FC008F02D3 /* FinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +377,7 @@
 			children = (
 				FACD141C20CDACFF008F02D3 /* Fines.storyboard */,
 				D2562FB020CDD3080072F750 /* FinesViewController.swift */,
+				FACD142820CE96FC008F02D3 /* FinesTableViewController.swift */,
 			);
 			path = Fines;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
+				FACD142920CE96FC008F02D3 /* FinesTableViewController.swift in Sources */,
 				D268D478209F9F830008D8C1 /* XMainViewController.swift in Sources */,
 				D268D47A209FA0B10008D8C1 /* MainButtonLayoutNode.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,

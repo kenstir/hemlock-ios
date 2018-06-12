@@ -77,15 +77,9 @@ class FinesViewController: UIViewController {
     
     func loadFinesSummary(fromObj obj: OSRFObject) {
         debugPrint(obj)
-        let totalOwed = String(format: "$ %.2f", obj.getDouble("total_owed")!)
-        let totalPaid = String(format: "$ %.2f", obj.getDouble("total_paid")!)
-        let balanceOwed = String(format: "$ %.2f", obj.getDouble("balance_owed")!)
-        totalOwedVal.text = "\(totalOwed)"
-        totalPaidVal.text = "\(totalPaid)"
-        balanceOwedVal.text = "\(balanceOwed)"
-//        print("totalOwed: \(totalOwed)")
-//        print("totalPaid: \(totalPaid)")
-//        print("balanceOwed: \(balanceOwed)")
+        totalOwedVal.text = String(format: "$ %.2f", obj.getDouble("total_owed")!)
+        totalPaidVal.text = String(format: "$ %.2f", obj.getDouble("total_owed")!)
+        balanceOwedVal.text = String(format: "$ %.2f", obj.getDouble("balance_owed")!)
         print("stop here")
     }
     
