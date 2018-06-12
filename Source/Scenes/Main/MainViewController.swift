@@ -35,9 +35,9 @@ class MainViewController: UITableViewController {
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet var table: UITableView!
     
-    var buttons: [(String, String, UIViewController?)] = [
+    var buttons: [(String, String, UIViewController.Type?)] = [
         ("Search", "ShowSearchSegue", nil),
-        ("Items Checked Out", "", XCheckoutsViewController()),
+        ("Items Checked Out", "", XCheckoutsViewController.self),
         ("Holds", "ShowHoldsSegue", nil),
         ("Fines", "ShowFinesSegue", nil),
         ("My Lists", "ShowMyListsSegue", nil)]
@@ -89,7 +89,8 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuple = buttons[indexPath.row]
         let segue = tuple.1
-        if let vc = tuple.2 {
+        if let vctype = tuple.2 {
+            let vc = vctype.init()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             self.performSegue(withIdentifier: segue, sender: nil)
