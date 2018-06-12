@@ -18,6 +18,8 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import AsyncDisplayKit
+import PromiseKit
+import PMKAlamofire
 
 class XCheckoutsViewController: ASViewController<ASTableNode> {
     
@@ -41,7 +43,10 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - ViewController
+    
     override func viewWillAppear(_ animated: Bool) {
+        print("XXX viewWillAppear")
         super.viewWillAppear(animated)
         
         if let indexPath = tableNode.indexPathForSelectedRow {
@@ -50,8 +55,9 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     }
     
     override func viewDidLoad() {
+        print("XXX viewDidLoad")
         super.viewDidLoad()
-        self.setupData()
+        self.fetchData()
     }
 
     //MARK: - Setup
@@ -70,15 +76,73 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         self.updateHeaderText()
 
         // setting an empty UIView as the footer prevents the display of ghost rows at the end of the table
+        // TODO: factor out as UITableView extension
         tableNode.view.tableFooterView = UIView()
     }
     
-    func setupData() {
-        for i in 0...4 {
-            let circRecord = CircRecord(id: i)
-            circRecord.mvrObj = OSRFObject(["title": "Project Management for Dummies \(i)", "author": "Various"])
-            items.append(circRecord)
+    //MARK: - Functions
+    
+    func fetchData() {
+        guard let authtoken = AppSettings.account?.authtoken,
+            let userid = AppSettings.account?.userID else
+        {
+            showAlert(title: "No account", message: "Not logged in")
+            return //TODO: add analytics
         }
+        
+        // fetch the list of items
+        let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
+        req.gatewayObjectResponse().done { obj in
+            //self.loadSkeletonCircRecords(fromObject: obj)
+            self.fetchCircRecords(fromObject: obj)
+        }.catch { error in
+            self.showAlert(title: "Request failed", message: error.localizedDescription)
+        }
+    }
+    
+    func fetchCircRecords(fromObject obj: OSRFObject) {
+        let ids = obj.getIntList("out") + obj.getIntList("overdue")
+        var records: [CircRecord] = []
+        var promises: [Promise<Void>] = []
+        for id in ids {
+            let record = CircRecord(id: id)
+            records.append(record)
+            let promise = fetchCirc(forRecord: record)
+            promises.append(promise)
+        }
+        
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            self.updateItems(withRecords: records)
+        }.catch { error in
+            self.showAlert(error: error)
+        }
+    }
+    
+    func fetchCirc(forRecord record: CircRecord) -> Promise<Void> {
+        guard let authtoken = AppSettings.account?.authtoken else {
+            return Promise<Void>()
+        }
+        let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
+        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
+            record.circObj = obj
+            guard let target = obj.getInt("target_copy") else {
+                throw PMKError.cancelled
+            }
+            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
+            return req.gatewayObjectResponse()
+        }.done { obj in
+            record.mvrObj = obj
+        }
+        return promise
+    }
+
+    func updateItems(withRecords records: [CircRecord]) {
+        // TODO: sort by due date
+        self.items = records
+        updateHeaderText()
+        tableNode.reloadData()
     }
     
     func updateHeaderText() {
@@ -87,7 +151,6 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     
     private var headerTextAttributes = {
         return [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
-
     }
 }
 

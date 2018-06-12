@@ -49,10 +49,39 @@ extension Alamofire.DataRequest {
                     let data = response.result.value
                 {
                     let resp = GatewayResponse(data)
+                    if let error = resp.error {
+                        seal.reject(error)
+                    }
                     if let array = resp.array {
                         seal.fulfill(array)
                     } else {
                         seal.reject(HemlockError.unexpectedNetworkResponse("expected array"))
+                    }
+                } else if response.result.isFailure,
+                    let error = response.error {
+                    seal.reject(error)
+                } else {
+                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
+                }
+            }
+        }
+    }
+
+    func gatewayObjectResponse(queue: DispatchQueue? = nil) -> Promise<(OSRFObject)>
+    {
+        return Promise { seal in
+            responseData(queue: queue) { response in
+                if response.result.isSuccess,
+                    let data = response.result.value
+                {
+                    let resp = GatewayResponse(data)
+                    if let error = resp.error {
+                        seal.reject(error)
+                    }
+                    if let obj = resp.obj {
+                        seal.fulfill(obj)
+                    } else {
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected object"))
                     }
                 } else if response.result.isFailure,
                     let error = response.error {

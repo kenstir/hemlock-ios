@@ -80,13 +80,13 @@ struct GatewayResponse {
     init(_ data: Data) {
         self.init()
 
-        os_log("resp.data: %@", log: Gateway.log, type: .info, String(data: data, encoding: .utf8)!)
+        os_log("resp.json: %@", log: Gateway.log, type: .info, String(data: data, encoding: .utf8)!)
         guard var json = decodeJSON(data) else {
             os_log("resp.json: decode_error", log: Gateway.log, type: .info)
             error = .failure("Response not JSON")
             return
         }
-        os_log("resp.json: %@", log: Gateway.log, type: .info, json)
+        //os_log("resp.deser: %@", log: Gateway.log, type: .info, json)
 
         guard let status = json["status"] as? Int else {
             error = .failure("Response missing status")

@@ -26,17 +26,17 @@ class CircRecord {
     var circObj: OSRFObject?
     var mvrObj: OSRFObject?
     
-    var title: String { return safeStringFromMvr("title") }
-    var author: String { return safeStringFromMvr("author") }
+    var title: String { return safeStringFromMvr("title", withDefault: "Unknown Title") }
+    var author: String { return safeStringFromMvr("author", withDefault: "Unknown Author") }
 
     init(id: Int) {
         self.id = id
     }
     
-    func safeStringFromMvr(_ key: String) -> String {
+    func safeStringFromMvr(_ key: String, withDefault dflt: String = "") -> String {
         if let str = mvrObj?.getString(key) {
             return str
         }
-        return ""
+        return dflt
     }
 }

@@ -48,10 +48,6 @@ class CheckoutsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //tableView.tableHeaderView?.backgroundColor = UIColor.cyan
-        //tableView.tableFooterView?.backgroundColor = UIColor.cyan
-        
         fetchItemsCheckedOut()
     }
     
