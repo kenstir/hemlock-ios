@@ -63,7 +63,7 @@ class LoginController {
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
-            // TODO this needs to be simpler
+            // TODO: refactor using PMK
             guard response.result.isSuccess,
                 let data = response.result.value else
             {
@@ -84,9 +84,9 @@ class LoginController {
                 completion(GatewayResponse.makeError(desc))
                 return
             }
-            guard let payload = resp.obj?.getAny("payload") as? [String: Any],
-                let authtoken = payload["authtoken"] as? String,
-                let authtime = payload["authtime"] as? Int else
+            guard let payload = resp.obj?.getObject("payload"),
+                let authtoken = payload.getString("authtoken"),
+                let authtime = payload.getInt("authtime") else
             {
                 completion(GatewayResponse.makeError("Unexpected response to login"))
                 return

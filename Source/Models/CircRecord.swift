@@ -22,7 +22,6 @@ import Foundation
 /// A `CircRecord` is a record of an item in circulation
 class CircRecord {
     
-    //MARK: - fields
     let id: Int
     var circObj: OSRFObject?
     var mvrObj: OSRFObject?

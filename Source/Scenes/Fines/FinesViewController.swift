@@ -32,6 +32,7 @@ class FinesViewController: UIViewController {
     @IBOutlet weak var totalOwedVal: UILabel!
     @IBOutlet weak var totalPaidVal: UILabel!
     @IBOutlet weak var balanceOwedVal: UILabel!
+    var fines: [FineRecord] = []
     
     //MARK: - Lifecycle
 
@@ -62,17 +63,12 @@ class FinesViewController: UIViewController {
         }
         
         // fetch the transactions
-        /* not working yet
         let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid])
-        req2.gatewayResponse().done { resp, pmkresp in
-            guard let obj = resp.obj else {
-                throw HemlockError.unexpectedNetworkResponse("transactions summary") //todo add analytics
-            }
-            self.loadTransactions(fromObj: obj)
+        req2.gatewayArrayResponse().done { objects in
+            self.loadTransactions(fines: FineRecord.makeArray(objects))
         }.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)
         }
-        */
     }
     
     func loadFinesSummary(fromObj obj: OSRFObject) {
@@ -83,8 +79,16 @@ class FinesViewController: UIViewController {
         print("stop here")
     }
     
-    func loadTransactions(fromObj obj: OSRFObject) {
-        debugPrint(obj)
-        print("here")
+    func loadTransactions(fines: [FineRecord]) {
+        self.fines = fines
+        for fine in fines {
+            print("-----------------------")
+            print("title:    \(fine.title)")
+            print("subtitle: \(fine.subtitle)")
+            print("status:   \(fine.status)")
+            if let balance = fine.balance {
+                print("balance:  \(balance)")
+            }
+        }
     }
 }

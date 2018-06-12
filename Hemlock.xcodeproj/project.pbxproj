@@ -65,6 +65,8 @@
 		D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72172094002100E90952 /* OSRFObjectTests.swift */; };
 		D2CE228C20A10C9B00D45CE4 /* MainButtonCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
+		D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
+		D2DF196820CEF68700085255 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
 		FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		FACD142420CDBED6008F02D3 /* MyLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* MyLists.storyboard */; };
@@ -147,6 +149,8 @@
 		D29C72172094002100E90952 /* OSRFObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObjectTests.swift; sourceTree = "<group>"; };
 		D2CE228B20A10C9B00D45CE4 /* MainButtonCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonCellNode.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
+		D2DF196520CEEE1200085255 /* FineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineRecord.swift; sourceTree = "<group>"; };
+		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		FACD141C20CDACFF008F02D3 /* Fines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Fines.storyboard; path = Source/Scenes/Fines/Fines.storyboard; sourceTree = SOURCE_ROOT; };
 		FACD142020CDB01C008F02D3 /* Holds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Holds.storyboard; sourceTree = "<group>"; };
 		FACD142320CDBED6008F02D3 /* MyLists.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyLists.storyboard; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
+				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
 				D2216B7820CCA724005D06B1 /* Error+description.swift */,
 				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
+				D2DF196720CEF68700085255 /* Analytics.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
+				D2DF196820CEF68700085255 /* Analytics.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
 				FACD142920CE96FC008F02D3 /* FinesTableViewController.swift in Sources */,
 				D268D478209F9F830008D8C1 /* XMainViewController.swift in Sources */,
@@ -571,6 +578,7 @@
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				D2216B7920CCA724005D06B1 /* Error+description.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
+				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,

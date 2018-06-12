@@ -37,11 +37,14 @@ class Checkouts {
 
 class CheckoutsViewController: UITableViewController {
     
-    //MARK: - fields
+    //MARK: - Properties
+
     let lists = [Checkouts("checked out"), Checkouts("overdue")]
     lazy var out = lists[0]
     lazy var overdue = lists[1]
     var itemsToFetch = 0
+    
+    //MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +55,7 @@ class CheckoutsViewController: UITableViewController {
         fetchItemsCheckedOut()
     }
     
-    //MARK: - functions
+    //MARK: - Functions
     
     func fetchItemsCheckedOut() {
         guard let authtoken = AppSettings.account?.authtoken,
@@ -80,8 +83,8 @@ class CheckoutsViewController: UITableViewController {
             }
 
             // update items lists now, but wait to call reloadData
-            self.out.items = self.makeCircRecords(obj.getListOfIDs("out"))
-            self.overdue.items = self.makeCircRecords(obj.getListOfIDs("overdue"))
+            self.out.items = self.makeCircRecords(obj.getIntList("out"))
+            self.overdue.items = self.makeCircRecords(obj.getIntList("overdue"))
 
             self.fetchCircRecords()
         }

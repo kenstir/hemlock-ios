@@ -33,7 +33,29 @@ extension Alamofire.DataRequest {
                     seal.fulfill((GatewayResponse(data), PMKAlamofireDataResponse(response)))
                 } else if response.result.isFailure,
                     let error = response.error {
-                    let errorMessage = response.description
+                    seal.reject(error)
+                } else {
+                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
+                }
+            }
+        }
+    }
+
+    func gatewayArrayResponse(queue: DispatchQueue? = nil) -> Promise<([OSRFObject])>
+    {
+        return Promise { seal in
+            responseData(queue: queue) { response in
+                if response.result.isSuccess,
+                    let data = response.result.value
+                {
+                    let resp = GatewayResponse(data)
+                    if let array = resp.array {
+                        seal.fulfill(array)
+                    } else {
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected array"))
+                    }
+                } else if response.result.isFailure,
+                    let error = response.error {
                     seal.reject(error)
                 } else {
                     seal.reject(GatewayError.failure("unknown error")) //todo: add analytics

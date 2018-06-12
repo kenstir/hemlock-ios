@@ -69,6 +69,18 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.stringResult, "nonce")
     }
     
+    func test_authCompleteSuccess() {
+        let json = """
+            {"payload":[{"ilsevent":0,"textcode":"SUCCESS","desc":"Success","pid":6939,"stacktrace":"oils_auth.c:634","payload":{"authtoken":"985cda3d943232fbfd987d85d1f1a8af","authtime":420}}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        XCTAssertEqual(resp.obj?.getString("textcode"), "SUCCESS")
+        XCTAssertEqual(resp.obj?.getString("desc"), "Success")
+        let payload = resp.obj?.getObject("payload")
+        XCTAssertEqual(payload?.getInt("authtime"), 420)
+    }
+
     func test_authCompleteFailed() {
         let json = """
             {"payload":[{"ilsevent":1000,"textcode":"LOGIN_FAILED","desc":"User login failed"}],"status":200}
@@ -93,9 +105,25 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(out.count, 2)
 
         // or as a list of IDs
-        XCTAssertEqual(resp.obj?.getListOfIDs("out"), [73107615, 72954513])
-        XCTAssertEqual(resp.obj?.getListOfIDs("overdue"), [])
-        XCTAssertEqual(resp.obj?.getListOfIDs("lost"), [1,2])
+        XCTAssertEqual(resp.obj?.getIntList("out"), [73107615, 72954513])
+        XCTAssertEqual(resp.obj?.getIntList("overdue"), [])
+        XCTAssertEqual(resp.obj?.getIntList("lost"), [1,2])
     }
 
+    func test_withNullValue() {
+        let json = """
+            {"payload":[{"children":null}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        guard let obj = resp.obj else {
+            XCTFail()
+            return
+        }
+        if let children = obj.dict["children"] {
+            XCTAssertNil(children)
+        } else {
+            XCTFail()
+        }
+    }
 }

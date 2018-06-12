@@ -1,5 +1,5 @@
 //
-//  OSRFObjectTests.swift
+//  Analytics.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -17,16 +17,17 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import XCTest
-@testable import Hemlock
+import Foundation
+import os.log
 
-class OSRFObjectTests: XCTestCase {
-   
-    func test_getDate() {
-        let obj = OSRFObject(["checkin_time": "2017-05-01T14:03:24-0400"])
-        XCTAssertNil(obj.getDate("checkout_time"))
-        let checkinDate = obj.getDate("checkin_time")
-        let expectedDate = Date(timeIntervalSince1970: 1493661804)
-        XCTAssertEqual(checkinDate, expectedDate)
+enum AnalyticsErrorCode {
+    case shouldNotHappen
+}
+
+class Analytics {
+    static let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Analytics")
+
+    static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
+        os_log("%s:%d: %s", log: log, type: .info, file, line, msg)
     }
 }
