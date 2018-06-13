@@ -92,3 +92,24 @@ class FinesViewController: UIViewController {
         }
     }
 }
+
+extension FinesViewController: UITableViewDelegate {
+}
+
+extension FinesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fines.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FinesCellIdentifier") else {
+            fatalError("Could not dequeue a cell")
+        }
+        let fine = fines[indexPath.row]
+        cell.textLabel?.text = fine.title
+        return cell
+    }
+    
+}
+
+
