@@ -1,5 +1,6 @@
 //
 //  XCheckoutsTableNode.swift
+//  X is for teXture
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //

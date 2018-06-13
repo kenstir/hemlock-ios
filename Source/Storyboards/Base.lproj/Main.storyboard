@@ -225,11 +225,20 @@
                         <segue destination="RCs-ov-Y8N" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
                         <segue destination="gyY-7F-Ras" kind="show" identifier="ShowMyListsSegue" id="cd4-OG-ah5"/>
                         <segue destination="L5E-wb-4wF" kind="show" identifier="ShowLoginSegue" id="zgh-oQ-owQ"/>
+                        <segue destination="WoH-Us-ADe" kind="show" identifier="ShowCheckoutsSegue" id="lgg-cF-pgT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="296.80000000000001" y="89.505247376311857"/>
+        </scene>
+        <!--Checkouts-->
+        <scene sceneID="aTK-ho-xBV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Checkouts" id="WoH-Us-ADe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VNJ-gf-fC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="-55"/>
         </scene>
         <!--Fines-->
         <scene sceneID="Kq4-zb-RuZ">
@@ -237,7 +246,7 @@
                 <viewControllerPlaceholder storyboardName="Fines" id="RCs-ov-Y8N" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNY-I9-YrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="762"/>
+            <point key="canvasLocation" x="1031" y="242"/>
         </scene>
         <!--Holds-->
         <scene sceneID="6Lk-6H-wk1">
@@ -245,7 +254,7 @@
                 <viewControllerPlaceholder storyboardName="Holds" id="aSn-Ob-ZbE" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12k-ED-7ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="542"/>
+            <point key="canvasLocation" x="1022" y="91"/>
         </scene>
         <!--MyLists-->
         <scene sceneID="DqL-hX-c4e">
@@ -253,7 +262,7 @@
                 <viewControllerPlaceholder storyboardName="MyLists" id="gyY-7F-Ras" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEn-vH-L7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818" y="971"/>
+            <point key="canvasLocation" x="1032" y="365"/>
         </scene>
         <!--Search-->
         <scene sceneID="qrm-lx-Zg1">
@@ -261,7 +270,7 @@
                 <viewControllerPlaceholder storyboardName="Search" id="Rgl-GN-9cy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppl-xk-L7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="-199"/>
+            <point key="canvasLocation" x="1028" y="-197"/>
         </scene>
     </scenes>
     <resources>

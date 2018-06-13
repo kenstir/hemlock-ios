@@ -17,170 +17,106 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import Foundation
 import UIKit
+import PromiseKit
+import PMKAlamofire
 
-struct CheckoutsViewButtonData {
-    let title: String
-    init(_ title: String) {
-        self.title = title
-    }
-}
-
-class Checkouts {
-    let title: String
-    var items: [CircRecord] = []
-    init(_ title: String) {
-        self.title = title
-    }
-}
 
 class CheckoutsViewController: UITableViewController {
     
     //MARK: - Properties
 
-    let lists = [Checkouts("checked out"), Checkouts("overdue")]
-    lazy var out = lists[0]
-    lazy var overdue = lists[1]
-    var itemsToFetch = 0
+    var items: [CircRecord] = []
     
     //MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchItemsCheckedOut()
+        fetchData()
     }
     
     //MARK: - Functions
     
-    func fetchItemsCheckedOut() {
+    func fetchData() {
         guard let authtoken = AppSettings.account?.authtoken,
-            let id = AppSettings.account?.userID else
+            let userid = AppSettings.account?.userID else
         {
-            self.showAlert(title: "Internal Error", message: "Not logged in")
-            return
+            showAlert(title: "No account", message: "Not logged in")
+            return //TODO: add analytics
         }
-        let request = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, id])
-        request.responseData { response in
-            // todo factor out common response handling
-            guard response.result.isSuccess,
-                let data = response.result.value else
-            {
-                let msg = response.description
-                self.showAlert(title: "Request failed", message: msg)
-                return
-            }
-            let resp = GatewayResponse(data)
-            guard !resp.failed,
-                let obj = resp.obj else
-            {
-                self.showAlert(title: "Request failed", message: resp.errorMessage)
-                return
-            }
-
-            // update items lists now, but wait to call reloadData
-            self.out.items = self.makeCircRecords(obj.getIntList("out"))
-            self.overdue.items = self.makeCircRecords(obj.getIntList("overdue"))
-
-            self.fetchCircRecords()
+        
+        // fetch the list of items
+        let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
+        req.gatewayObjectResponse().done { obj in
+            self.fetchCircRecords(fromObject: obj)
+        }.catch { error in
+            self.showAlert(title: "Request failed", message: error.localizedDescription)
         }
     }
     
-    func makeCircRecords(_ ids: [Int]) -> [CircRecord] {
-        var ret: [CircRecord] = []
+    func fetchCircRecords(fromObject obj: OSRFObject) {
+        let ids = obj.getIntList("out") + obj.getIntList("overdue")
+        var records: [CircRecord] = []
+        var promises: [Promise<Void>] = []
         for id in ids {
-            ret.append(CircRecord(id: id))
+            let record = CircRecord(id: id)
+            records.append(record)
+            let promise = fetchCirc(forRecord: record)
+            promises.append(promise)
         }
-        return ret
+        print("xxx \(promises.count) promises made")
+        
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            print("xxx \(promises.count) promises fulfilled")
+            self.updateItems(withRecords: records)
+        }.catch { error in
+            self.showAlert(error: error)
+        }
     }
     
-    func fetchCircRecords() {
+    func fetchCirc(forRecord record: CircRecord) -> Promise<Void> {
         guard let authtoken = AppSettings.account?.authtoken else {
-            self.showAlert(title: "Internal Error", message: "Not logged in")
-            return
+            return Promise<Void>()
         }
-        
-        itemsToFetch = out.items.count + overdue.items.count
-        
-        let allRecords = out.items + overdue.items
-        for circ in allRecords {
-            let request = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circ.id])
-            request.responseData { response in
-                self.itemsToFetch -= 1
-
-                // todo factor out common response handling
-                guard response.result.isSuccess,
-                    let data = response.result.value else
-                {
-                    self.maybeReloadTable()
-                    return
-                }
-                let resp = GatewayResponse(data)
-                guard !resp.failed,
-                    let obj = resp.obj else
-                {
-                    self.maybeReloadTable()
-                    return
-                }
-                
-                debugPrint(obj)
-                circ.circObj = obj
-
-                self.fetchMVR(circ)
+        let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
+        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
+            print("xxx \(record.id) circ done")
+            record.circObj = obj
+            guard let target = obj.getInt("target_copy") else {
+                throw PMKError.cancelled
             }
+            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
+            return req.gatewayObjectResponse()
+        }.done { obj in
+            print("xxx \(record.id) mvr done")
+            record.mvrObj = obj
         }
-    }
-    
-    func fetchMVR(_ circ: CircRecord) {
-        guard let id = circ.circObj?.getInt("target_copy") else {
-            return // todo assert
-        }
-        
-        let request = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [id])
-        request.responseData { response in
-            
-            // todo factor out common response handling
-            guard response.result.isSuccess,
-                let data = response.result.value else
-            {
-                self.maybeReloadTable()
-                return
-            }
-            let resp = GatewayResponse(data)
-            guard !resp.failed,
-                let obj = resp.obj else
-            {
-                self.maybeReloadTable()
-                return
-            }
-            
-            debugPrint(obj)
-            circ.mvrObj = obj
-            self.maybeReloadTable()
-        }
+        return promise
     }
 
-    func maybeReloadTable() {
-        if self.itemsToFetch == 0 {
-            tableView.reloadData()
-        }
+    func updateItems(withRecords records: [CircRecord]) {
+        self.items = records
+        print("xxx \(records.count) records now, updating")
+        tableView.reloadData()
     }
 
     //MARK: - UITableViewController
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return lists.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lists[section].items.count
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if lists[section].items.count == 0 {
-            return "No items " + lists[section].title
+        if items.count == 0 {
+            return "No items checked out"
         } else {
-            return lists[section].title
+            return "\(items.count) items checked out"
         }
     }
 
@@ -194,11 +130,10 @@ class CheckoutsViewController: UITableViewController {
             fatalError("dequeued cell of wrong class!")
         }
         
-        let item = lists[indexPath.section].items[indexPath.row]
-        let id = item.id
-        let title = item.mvrObj?.getString("title")
-        print("cell index \(indexPath) id \(id) title \(title)")
-        cell.title.text = title
+        let item = items[indexPath.row]
+        cell.title.text = item.title
+        cell.author.text = item.author
+        cell.dueDate.text = ""
         
         return cell
     }
