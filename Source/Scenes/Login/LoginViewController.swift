@@ -30,6 +30,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let savedUsername = AppSettings.valet.string(forKey: "username")
+        usernameField.text = savedUsername
+
         // handle Return in the text fields
         usernameField.delegate = self
         passwordField.delegate = self
@@ -60,6 +63,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         let account = Account(username, password: password)
+        AppSettings.valet.set(string: username, forKey: "username")
+
         LoginController(for: account).login { resp in
 
             if resp.failed {
