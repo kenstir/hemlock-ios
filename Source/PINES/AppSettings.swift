@@ -23,6 +23,7 @@ import UIKit
 struct AppSettings {
     static let appTitle = "PINES"
     static let url = "https://gapines.org"
+//    static let url = "https://kenstir.ddns.net"
 
     static let themeForegroundColor = UIColor.white
     static let themeBackgroundColor = UIColor(red: 0x37/0xff, green: 0x96/0xff, blue: 0x76/0xff, alpha: 1.0)
