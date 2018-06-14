@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +38,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         usernameField.delegate = self
         passwordField.delegate = self
         
-        // color the login button
+        // style the login button
         Theme.styleInverseButton(button: loginButton, color: AppSettings.themeBackgroundColor)
         Theme.styleButton(button: forgotPasswordButton, color: AppSettings.themeBackgroundColor)
+        
+        // style the activity indicator
+        activityIndicator.color = AppSettings.themeBackgroundColor
     }
     
     //MARK: UITextFieldDelegate
@@ -64,11 +68,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         let account = Account(username, password: password)
         AppSettings.valet.set(string: username, forKey: "username")
+        
+        activityIndicator.startAnimating()
 
         LoginController(for: account).login { resp in
 
             if resp.failed {
                 self.showAlert(title: "Login failed", message: resp.errorMessage)
+                self.activityIndicator.stopAnimating()
                 return
             }
 
@@ -83,8 +90,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             if resp.failed {
                 self.showAlert(title: "Failed to initialize session", message: resp.errorMessage)
+                self.activityIndicator.stopAnimating()
                 return
             }
+
+            self.activityIndicator.stopAnimating()
 
             account.userID = resp.obj?.getInt("id")
             AppSettings.account = account
