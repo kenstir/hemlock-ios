@@ -28,12 +28,6 @@ class Gateway {
 
     static let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Gateway")
 
-    /// the URL of the JSON directory of library systems available for use in the Hemlock app
-    static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
-
-    /// the selected library system
-    static var library: Library?
-
     /// an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
     
@@ -75,13 +69,13 @@ class Gateway {
     
     static func gatewayURL() -> String
     {
-        var url = library?.url ?? ""
+        var url = App.library?.url ?? ""
         url += "/osrf-gateway-v1"
         return url
     }
     
     static func idlURL() -> URL? {
-        var url = library?.url ?? ""
+        var url = App.library?.url ?? ""
         url += "/reports/fm_IDL.xml?"
         var params: [String] = []
         for netClass in API.netClasses.split(separator: ",") {

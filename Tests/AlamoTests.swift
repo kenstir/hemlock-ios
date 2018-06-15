@@ -41,7 +41,7 @@ class AlamoTests: XCTestCase {
     // use responseJSON to get response as decoded JSON
     func test_responseJSON() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = Alamofire.request(Gateway.directoryURL)
+        let request = Alamofire.request(App.directoryURL)
         print("request:  \(request.description)")
         request.responseJSON { response in
             print("response: \(response.description)")
@@ -68,7 +68,7 @@ class AlamoTests: XCTestCase {
     // use responseData to get response as Data then decode it as JSON
     func test_responseData() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = Alamofire.request(Gateway.directoryURL)
+        let request = Alamofire.request(App.directoryURL)
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")

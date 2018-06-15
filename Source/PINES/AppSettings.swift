@@ -40,11 +40,4 @@ struct AppSettings {
     static let themeBackgroundDark6 = UIColor(red: 0x19/0xff, green: 0x45/0xff, blue: 0x36/0xff, alpha: 1.0)
     static let themeBackgroundDark7 = UIColor(red: 0x14/0xff, green: 0x37/0xff, blue: 0x2b/0xff, alpha: 1.0)
     static let themeBackgroundDark8 = UIColor(red: 0x0f/0xff, green: 0x29/0xff, blue: 0x21/0xff, alpha: 1.0)
-    
-    //MARK: - App State
-
-    static var idlParserStatus: Bool?
-    static var account: Account?
-    static let valet = Valet.valet(with: Identifier(nonEmpty: "Hemlock")!, accessibility: .whenUnlockedThisDeviceOnly)
-
 }

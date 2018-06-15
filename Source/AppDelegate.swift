@@ -27,23 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        Gateway.library = Library(AppSettings.url)
+        App.library = Library(AppSettings.url)
         let parser = IDLParser(contentsOf: Gateway.idlURL()!)
-        AppSettings.idlParserStatus = parser.parse()
+        App.idlParserStatus = parser.parse()
 
-        /*
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.backgroundColor = UIColor.white
-        //ASDK window.rootViewController = UINavigationController(rootViewController: MainViewController())
-        window.rootViewController = UINavigationController(rootViewController: ViewController())
-        window.makeKeyAndVisible()
-        self.window = window
-        
-        UINavigationBar.appearance().barTintColor = AppSettings.uicolor
-        UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.white]
-        */
         return true
     }
     

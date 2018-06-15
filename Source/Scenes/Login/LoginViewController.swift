@@ -31,7 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let savedUsername = AppSettings.valet.string(forKey: "username")
+        let savedUsername = App.valet.string(forKey: "username")
         usernameField.text = savedUsername
 
         // handle Return in the text fields
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         let account = Account(username, password: password)
-        AppSettings.valet.set(string: username, forKey: "username")
+        App.valet.set(string: username, forKey: "username")
         
         activityIndicator.startAnimating()
 
@@ -97,7 +97,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.activityIndicator.stopAnimating()
 
             account.userID = resp.obj?.getInt("id")
-            AppSettings.account = account
+            App.account = account
             self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
         }
     }

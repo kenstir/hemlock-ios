@@ -42,7 +42,7 @@ class LiveServiceTests: XCTestCase {
             XCTFail("unable to read JSON data from \(configFile).json, see TestUserData/README.md")
             return
         }
-        Gateway.library = Library(url)
+        App.library = Library(url)
         account = Account(username, password: password)
     }
     

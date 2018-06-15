@@ -121,7 +121,7 @@
                                 <rect key="frame" x="-18" y="469" width="38" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pgE-qg-OwC">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pgE-qg-OwC">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <rect key="contentStretch" x="0.40000000000000002" y="0.40000000000000002" width="1" height="1"/>
                             </activityIndicatorView>

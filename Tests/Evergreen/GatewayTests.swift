@@ -25,7 +25,7 @@ class GatewayTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        Gateway.library = Library("https://example.org")
+        App.library = Library("https://example.org")
     }
     
     func test_gatewayParam_podTypes() {

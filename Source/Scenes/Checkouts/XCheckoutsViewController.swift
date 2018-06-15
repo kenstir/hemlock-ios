@@ -84,8 +84,8 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     //MARK: - Functions
     
     func fetchData() {
-        guard let authtoken = AppSettings.account?.authtoken,
-            let userid = AppSettings.account?.userID else
+        guard let authtoken = App.account?.authtoken,
+            let userid = App.account?.userID else
         {
             showAlert(title: "No account", message: "Not logged in")
             return //TODO: add analytics
@@ -122,7 +122,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     }
     
     func fetchCirc(forRecord record: CircRecord) -> Promise<Void> {
-        guard let authtoken = AppSettings.account?.authtoken else {
+        guard let authtoken = App.account?.authtoken else {
             return Promise<Void>()
         }
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])

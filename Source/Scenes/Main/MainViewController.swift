@@ -60,7 +60,7 @@ class MainViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return AppSettings.account?.username
+        return App.account?.username
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,7 +98,7 @@ class MainViewController: UITableViewController {
     }
     
     @IBAction func logoutPressed(sender: UIButton) {
-        AppSettings.account?.logout()
+        App.account?.logout()
         self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
     }
 }

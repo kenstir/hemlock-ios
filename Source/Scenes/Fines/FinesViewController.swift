@@ -44,8 +44,8 @@ class FinesViewController: UIViewController {
     //MARK: - Functions
     
     func fetchFines() {
-        guard let authtoken = AppSettings.account?.authtoken,
-            let userid = AppSettings.account?.userID else
+        guard let authtoken = App.account?.authtoken,
+            let userid = App.account?.userID else
         {
             showAlert(title: "No account", message: "Not logged in")
             return //TODO: add analytics
