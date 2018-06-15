@@ -39,7 +39,7 @@ class FinesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFines()
-//        tableView.delegate = self
+        finesTable.delegate = self
         finesTable.dataSource = self
     }
     
@@ -96,11 +96,11 @@ class FinesViewController: UIViewController {
     }
 }
 
-//extension FinesViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        //need stuff here
-//    }
-//}
+extension FinesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //need stuff here
+    }
+}
 
 extension FinesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
