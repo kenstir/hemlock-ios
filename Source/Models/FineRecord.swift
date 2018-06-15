@@ -20,7 +20,9 @@
 import Foundation
 
 class FineRecord {
+
     //MARK: - Properties
+
     var transaction: OSRFObject //mbts obj
     var circ: OSRFObject? //circ obj //TODO: make this a CircRecord?
     var record: OSRFObject? //mvr obj
@@ -61,7 +63,7 @@ class FineRecord {
         return "fines accruing"
     }
     
-    //MARK: -
+    //MARK: - Functions
 
     init(transaction: OSRFObject) {
         self.transaction = transaction

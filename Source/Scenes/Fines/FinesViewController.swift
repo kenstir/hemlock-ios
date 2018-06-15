@@ -53,11 +53,7 @@ class FinesViewController: UIViewController {
         
         // fetch the summary
         let req = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid])
-        //todo: create gatewayResponseObj() promise that requires an osrfobject response
-        req.gatewayResponse().done { resp, pmkresp in
-            guard let obj = resp.obj else {
-                throw HemlockError.unexpectedNetworkResponse("fines summary") //todo add analytics
-            }
+        req.gatewayObjectResponse().done { obj in
             self.loadFinesSummary(fromObj: obj)
         }.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)

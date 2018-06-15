@@ -94,9 +94,19 @@ struct OSRFObject: Equatable {
         return nil
     }
     
+    func getID(_ key: String) -> Int? {
+        if let str = dict[key] as? String {
+            return Int(str)
+        } else if let i = dict[key] as? Int {
+            return i
+        } else {
+            return nil
+        }
+    }
+    
     // Some queries return at times a list of String IDs and at times
     // a list of Int IDs; handle both cases
-    func getIntList(_ key: String) -> [Int] {
+    func getIDList(_ key: String) -> [Int] {
         var ret: [Int] = []
         if let strList = dict[key] as? [String] {
             for str in strList {

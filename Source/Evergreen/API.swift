@@ -41,6 +41,7 @@ struct API {
     
     static let circ = "open-ils.circ"
     static let circRetrieve = "open-ils.circ.retrieve"
+    static let holdsRetrieve = "open-ils.circ.holds.retrieve"
 
     //MARK: - search service
     

@@ -105,9 +105,9 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(out.count, 2)
 
         // or as a list of IDs
-        XCTAssertEqual(resp.obj?.getIntList("out"), [73107615, 72954513])
-        XCTAssertEqual(resp.obj?.getIntList("overdue"), [])
-        XCTAssertEqual(resp.obj?.getIntList("lost"), [1,2])
+        XCTAssertEqual(resp.obj?.getIDList("out"), [73107615, 72954513])
+        XCTAssertEqual(resp.obj?.getIDList("overdue"), [])
+        XCTAssertEqual(resp.obj?.getIDList("lost"), [1,2])
     }
 
     func test_withNullValue() {

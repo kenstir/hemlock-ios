@@ -102,7 +102,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     }
     
     func fetchCircRecords(fromObject obj: OSRFObject) {
-        let ids = obj.getIntList("out") + obj.getIntList("overdue")
+        let ids = obj.getIDList("out") + obj.getIDList("overdue")
         var records: [CircRecord] = []
         var promises: [Promise<Void>] = []
         for id in ids {
