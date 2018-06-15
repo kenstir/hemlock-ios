@@ -39,6 +39,8 @@ class FinesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFines()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     //MARK: - Functions
@@ -94,6 +96,9 @@ class FinesViewController: UIViewController {
 }
 
 extension FinesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
 }
 
 extension FinesViewController: UITableViewDataSource {
