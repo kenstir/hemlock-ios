@@ -39,8 +39,8 @@ class FinesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFines()
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+        finesTable.dataSource = self
     }
     
     //MARK: - Functions
@@ -92,14 +92,15 @@ class FinesViewController: UIViewController {
                 print("balance:  \(balance)")
             }
         }
+        finesTable.reloadData()
     }
 }
 
-extension FinesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
-    }
-}
+//extension FinesViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        //need stuff here
+//    }
+//}
 
 extension FinesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
