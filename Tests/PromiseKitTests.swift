@@ -55,6 +55,49 @@ class PromiseKitTests: XCTestCase {
         XCTAssertNotNil(savedResult)
     }
     
+    // Test to make sure I understood how to exit a promise chain early.
+    // If you throw your own error, you can handle it in 'catch',
+    // if you throw PMKError.cancelled then 'catch' does not fire.
+    func test_cancelPromiseChain() {
+        let expectation = XCTestExpectation(description: "async response")
+
+        var stage = 0
+        var req: Alamofire.DataRequest
+        var parameters: [String: Any]
+
+        parameters = ["stage": stage]
+        req = Alamofire.request("https://httpbin.org/get", method: .get, parameters: parameters)
+        req.responseJSON().then { (json: Any, response: PMKAlamofire.PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofire.PMKAlamofireDataResponse)> in
+            stage = 1
+            print("stage \(stage)")
+            if stage > 0 {
+                throw PMKError.cancelled
+            }
+            parameters = ["stage": stage]
+            req = Alamofire.request("https://httpbin.org/get", method: .get, parameters: parameters)
+            return req.responseJSON()
+        }.then { (json: Any, response: PMKAlamofire.PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofire.PMKAlamofireDataResponse)> in
+            stage = 2
+            print("stage \(stage)")
+            parameters = ["stage": stage]
+            req = Alamofire.request("https://httpbin.org/get", method: .get, parameters: parameters)
+            return req.responseJSON()
+        }.done { json in
+            stage = 3
+            print("stage \(stage)")
+        }.ensure {
+            print("ensure")
+            expectation.fulfill()
+        }.catch { error in
+            print("error")
+            self.showAlert(error)
+        }
+        
+        wait(for: [expectation], timeout: 5.0)
+        
+        XCTAssertEqual(stage, 1)
+    }
+
     // verify that when JSON decoding fails we catch an error
     func test_jsonErrorInPromiseChain() {
         let expectation = XCTestExpectation(description: "async response")
