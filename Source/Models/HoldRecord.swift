@@ -24,10 +24,25 @@ class HoldRecord {
     //MARK: - Properties
 
     var ahrObj: OSRFObject
-    var arhObj: OSRFObject?
+    var mvrObj: OSRFObject?
+    var qstatsObj: OSRFObject?
     
     var target: Int? { return ahrObj.getID("target") }
-    
+    var holdType: String? { return ahrObj.getString("hold_type") }
+    var title: String { return OSRFObject.safeString(mvrObj, "title", withDefault: "Unknown Title") }
+    var author: String { return OSRFObject.safeString(mvrObj, "author", withDefault: "Unknown Author") }
+    var queuePosition: Int { return OSRFObject.safeInt(qstatsObj, "queue_position", withDefault: 0) }
+    var totalHolds: Int { return OSRFObject.safeInt(qstatsObj, "total_holds", withDefault: 0) }
+    var potentialCopies: Int { return OSRFObject.safeInt(qstatsObj, "potential_copies", withDefault: 0) }
+    var status: String {
+        let s = qstatsObj?.getInt("status") ?? -1
+        if s == 4 { return "Available" }
+        else if s == 7 { return "Suspended" }
+        else if s == 3 || s == 8 { return "In transit" }
+        else if s < 3 { return "Waiting for copy" }
+        else { return "" }
+    }
+
     //MARK: - Functions
     
     init(obj: OSRFObject) {

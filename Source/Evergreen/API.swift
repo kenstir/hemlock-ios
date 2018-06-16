@@ -42,9 +42,12 @@ struct API {
     static let circ = "open-ils.circ"
     static let circRetrieve = "open-ils.circ.retrieve"
     static let holdsRetrieve = "open-ils.circ.holds.retrieve"
+    static let holdQueueStats = "open-ils.circ.hold.queue_stats.retrieve"
 
     //MARK: - search service
     
     static let search = "open-ils.search"
+    static let metarecordModsRetrieve = "open-ils.search.biblio.metarecord.mods_slim.retrieve"
     static let modsFromCopy = "open-ils.search.biblio.mods_from_copy"
+    static let recordModsRetrieve = "open-ils.search.biblio.record.mods_slim.retrieve"
 }

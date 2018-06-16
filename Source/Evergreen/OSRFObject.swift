@@ -119,6 +119,22 @@ struct OSRFObject: Equatable {
         }
         return ret
     }
+    
+    static func safeString(_ optObj: OSRFObject?, _ key: String, withDefault dflt: String) -> String {
+        if let obj = optObj, let str = obj.getString(key) {
+            return str
+        } else {
+            return dflt
+        }
+    }
+    
+    static func safeInt(_ optObj: OSRFObject?, _ key: String, withDefault dflt: Int) -> Int {
+        if let obj = optObj, let i = obj.getInt(key) {
+            return i
+        } else {
+            return dflt
+        }
+    }
 
     //MARK: - Equatable
 

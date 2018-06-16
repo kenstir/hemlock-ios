@@ -26,7 +26,7 @@ struct AppSettings {
     //MARK: - Consortium Properties
 
     static let appTitle = "PINES"
-    static let url = "https://gapines.org"
+    static let url = "https://kenstir.ddns.net"// "https://gapines.org"
     
     //MARK: - Theme Properties
 

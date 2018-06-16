@@ -41,27 +41,27 @@ class CheckoutsViewController: UITableViewController {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            showAlert(title: "No account", message: "Not logged in")
+            showAlert(error: HemlockError.sessionExpired())
             return //TODO: add analytics
         }
         
         // fetch the list of items
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
         req.gatewayObjectResponse().done { obj in
-            self.fetchCircRecords(fromObject: obj)
+            try self.fetchCircRecords(fromObject: obj)
         }.catch { error in
-            self.showAlert(title: "Request failed", message: error.localizedDescription)
+            self.showAlert(error: error)
         }
     }
     
-    func fetchCircRecords(fromObject obj: OSRFObject) {
+    func fetchCircRecords(fromObject obj: OSRFObject) throws {
         let ids = obj.getIDList("out") + obj.getIDList("overdue")
         var records: [CircRecord] = []
         var promises: [Promise<Void>] = []
         for id in ids {
             let record = CircRecord(id: id)
             records.append(record)
-            let promise = fetchCirc(forRecord: record)
+            let promise = try fetchCircDetails(forRecord: record)
             promises.append(promise)
         }
         print("xxx \(promises.count) promises made")
@@ -76,9 +76,9 @@ class CheckoutsViewController: UITableViewController {
         }
     }
     
-    func fetchCirc(forRecord record: CircRecord) -> Promise<Void> {
+    func fetchCircDetails(forRecord record: CircRecord) throws -> Promise<Void> {
         guard let authtoken = App.account?.authtoken else {
-            return Promise<Void>()
+            throw HemlockError.sessionExpired()
         }
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
@@ -98,7 +98,7 @@ class CheckoutsViewController: UITableViewController {
 
     func updateItems(withRecords records: [CircRecord]) {
         self.items = records
-        print("xxx \(records.count) records now, updating")
+        print("xxx \(records.count) records now, time to reloadData")
         tableView.reloadData()
     }
 
