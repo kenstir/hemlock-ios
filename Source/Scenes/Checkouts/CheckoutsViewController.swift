@@ -33,20 +33,15 @@ class CheckoutsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
+        setupViews()
         fetchData()
     }
     
     //MARK: - Functions
     
-    func configureViews() {
+    func setupViews() {
         tableView.dataSource = self
         tableView.delegate = self
-        debugPrint(tableView)
-        debugPrint(tableView.rowHeight)
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 90
-        tableView.rowHeight = 90
     }
     
     func fetchData() {
@@ -138,7 +133,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         let item = items[indexPath.row]
         cell.title.text = item.title
         cell.author.text = item.author
-        cell.dueDate.text = item.dueDate
+        cell.dueDate.text = "Due " + item.dueDate
         
         return cell
     }
