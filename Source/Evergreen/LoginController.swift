@@ -120,4 +120,21 @@ class LoginController {
             completion(resp)
         }
     }
+    
+    static func saveLoginCredentials(account: Account) {
+        App.valet.set(string: account.username, forKey: "username")
+        App.valet.set(string: account.password, forKey: "password")
+    }
+    
+    static func getSavedLoginCredentials() -> (String?, String?) {
+        let savedUsername = App.valet.string(forKey: "username")
+        let savedPassword = App.valet.string(forKey: "password")
+        return (savedUsername, savedPassword)
+    }
+    
+    static func clearLoginCredentials(account: Account?) {
+        App.valet.removeObject(forKey: "username")
+        App.valet.removeObject(forKey: "password")
+        account?.clearCredentials()
+    }
 }

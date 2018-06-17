@@ -29,11 +29,11 @@ class HoldRecord {
     
     var target: Int? { return ahrObj.getID("target") }
     var holdType: String? { return ahrObj.getString("hold_type") }
-    var title: String { return OSRFObject.safeString(mvrObj, "title", withDefault: "Unknown Title") }
-    var author: String { return OSRFObject.safeString(mvrObj, "author", withDefault: "Unknown Author") }
-    var queuePosition: Int { return OSRFObject.safeInt(qstatsObj, "queue_position", withDefault: 0) }
-    var totalHolds: Int { return OSRFObject.safeInt(qstatsObj, "total_holds", withDefault: 0) }
-    var potentialCopies: Int { return OSRFObject.safeInt(qstatsObj, "potential_copies", withDefault: 0) }
+    var title: String { return mvrObj?.getString("title") ?? "Unknown" }
+    var author: String { return mvrObj?.getString("author") ?? "Unknown" }
+    var queuePosition: Int { return qstatsObj?.getInt("queue_position") ?? 0 }
+    var totalHolds: Int { return qstatsObj?.getInt("total_holds") ?? 0 }
+    var potentialCopies: Int { return qstatsObj?.getInt("potential_copies") ?? 0 }
     var status: String {
         let s = qstatsObj?.getInt("status") ?? -1
         if s == 4 { return "Available" }

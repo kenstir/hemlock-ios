@@ -51,7 +51,7 @@ class Account {
         self.authtokenExpiryDate = Date(timeIntervalSinceNow: TimeInterval(authtime))
     }
     
-    func logout() -> Void {
+    func clearCredentials() -> Void {
         self.password = ""
         self.authtoken = nil
         self.authtokenExpiryDate = nil

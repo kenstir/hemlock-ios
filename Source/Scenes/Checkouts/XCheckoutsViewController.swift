@@ -94,10 +94,9 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         // fetch the list of items
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
         req.gatewayObjectResponse().done { obj in
-            //self.loadSkeletonCircRecords(fromObject: obj)
             self.fetchCircRecords(fromObject: obj)
         }.catch { error in
-            self.showAlert(title: "Request failed", message: error.localizedDescription)
+            self.showAlert(error: error)
         }
     }
     

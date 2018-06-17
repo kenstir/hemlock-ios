@@ -98,7 +98,7 @@ class MainViewController: UITableViewController {
     }
     
     @IBAction func logoutPressed(sender: UIButton) {
-        App.account?.logout()
+        LoginController.clearLoginCredentials(account: App.account)
         self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
     }
 }

@@ -105,4 +105,20 @@ class MiscTests: XCTestCase {
 
         XCTAssertEqual(date1, date2)
     }
+    
+    func testDateFormatting() {
+        let apiDate = "2018-04-26T19:27:58-0400"
+        let apiDateFormatter = ISO8601DateFormatter()
+        let date = apiDateFormatter.date(from: apiDate)
+        let str = apiDateFormatter.string(from: date!)
+        XCTAssertEqual(str, "2018-04-26T23:27:58Z")
+
+        let outputDateFormatter = DateFormatter()
+        outputDateFormatter.dateStyle = .long
+        outputDateFormatter.timeStyle = .none
+        outputDateFormatter.locale = Locale(identifier: "en_US")
+        let str2 = outputDateFormatter.string(from: date!)
+        debugPrint(str2)
+        XCTAssertEqual(str2, "April 26, 2018")
+    }
 }

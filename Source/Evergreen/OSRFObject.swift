@@ -27,8 +27,15 @@ typealias JSONDictionary = [String: Any?]
 struct OSRFObject: Equatable {
     
     var dict: [String: Any?]
-    static var dateFormatter = ISO8601DateFormatter()
-    
+    static var apiDateFormatter = ISO8601DateFormatter()
+    static var outputDateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .long
+        df.timeStyle = .none
+        df.locale = Locale(identifier: "en_US")
+        return df
+    }()
+
     init(_ dict: [String: Any?] = [:]) {
         self.dict = dict
     }
@@ -75,11 +82,19 @@ struct OSRFObject: Equatable {
     
     func getDate(_ key: String) -> Date? {
         if let val = dict[key] as? String {
-            return OSRFObject.dateFormatter.date(from: val)
+            return OSRFObject.apiDateFormatter.date(from: val)
         }
         return nil
     }
     
+    func getDateString(_ key: String) -> String? {
+        if let val = dict[key] as? String,
+            let date = OSRFObject.apiDateFormatter.date(from: val) {
+            return OSRFObject.outputDateFormatter.string(from: date)
+        }
+        return nil
+    }
+
     func getObject(_ key: String) -> OSRFObject? {
         if let val = dict[key] as? OSRFObject {
             return val
@@ -120,7 +135,8 @@ struct OSRFObject: Equatable {
         return ret
     }
     
-    static func safeString(_ optObj: OSRFObject?, _ key: String, withDefault dflt: String) -> String {
+    /*
+    static func getString(_ optObj: OSRFObject?, _ key: String, withDefault dflt: String) -> String {
         if let obj = optObj, let str = obj.getString(key) {
             return str
         } else {
@@ -128,13 +144,14 @@ struct OSRFObject: Equatable {
         }
     }
     
-    static func safeInt(_ optObj: OSRFObject?, _ key: String, withDefault dflt: Int) -> Int {
+    static func getInt(_ optObj: OSRFObject?, _ key: String, withDefault dflt: Int) -> Int {
         if let obj = optObj, let i = obj.getInt(key) {
             return i
         } else {
             return dflt
         }
     }
+ */
 
     //MARK: - Equatable
 

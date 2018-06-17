@@ -22,20 +22,32 @@ import PromiseKit
 import PMKAlamofire
 
 
-class CheckoutsViewController: UITableViewController {
+class CheckoutsViewController: UIViewController {
     
     //MARK: - Properties
 
+    @IBOutlet var tableView: UITableView!
     var items: [CircRecord] = []
     
     //MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViews()
         fetchData()
     }
     
     //MARK: - Functions
+    
+    func configureViews() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        debugPrint(tableView)
+        debugPrint(tableView.rowHeight)
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = 90
+    }
     
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
@@ -85,6 +97,7 @@ class CheckoutsViewController: UITableViewController {
             print("xxx \(record.id) circ done")
             record.circObj = obj
             guard let target = obj.getInt("target_copy") else {
+                // TODO: add anayltics or, just let it throw?
                 throw PMKError.cancelled
             }
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
@@ -102,29 +115,21 @@ class CheckoutsViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    //MARK: - UITableViewController
+}
+
+extension CheckoutsViewController: UITableViewDataSource {
+
+    //MARK: - UITableViewDataSource
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if items.count == 0 {
-            return "No items checked out"
-        } else {
-            return "\(items.count) items checked out"
-        }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Items checked out: \(items.count)"
     }
 
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 34
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CheckoutsTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CheckoutsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
@@ -133,20 +138,24 @@ class CheckoutsViewController: UITableViewController {
         let item = items[indexPath.row]
         cell.title.text = item.title
         cell.author.text = item.author
-        cell.dueDate.text = ""
+        cell.dueDate.text = item.dueDate
         
         return cell
     }
-    
+}
+
+extension CheckoutsViewController: UITableViewDelegate {
+
     //MARK: - UITableViewDelegate
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let tuple = buttons[indexPath.row]
 //        let segue = tuple.1
 //        self.performSegue(withIdentifier: segue, sender: nil)
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
+        print("here")
 //        App.account?.logout()
 //        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
     }
