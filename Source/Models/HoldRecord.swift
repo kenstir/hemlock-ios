@@ -27,10 +27,12 @@ class HoldRecord {
     var mvrObj: OSRFObject?
     var qstatsObj: OSRFObject?
     
-    var target: Int? { return ahrObj.getID("target") }
-    var holdType: String? { return ahrObj.getString("hold_type") }
     var title: String { return mvrObj?.getString("title") ?? "Unknown" }
     var author: String { return mvrObj?.getString("author") ?? "Unknown" }
+
+    var target: Int? { return ahrObj.getID("target") }
+    var holdType: String? { return ahrObj.getString("hold_type") }
+
     var queuePosition: Int { return qstatsObj?.getInt("queue_position") ?? 0 }
     var totalHolds: Int { return qstatsObj?.getInt("total_holds") ?? 0 }
     var potentialCopies: Int { return qstatsObj?.getInt("potential_copies") ?? 0 }
