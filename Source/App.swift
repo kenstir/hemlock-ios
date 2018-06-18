@@ -43,7 +43,11 @@ class App {
 
     /// the valet saves things in the iOS keychain
     static let valet = Valet.valet(with: Identifier(nonEmpty: "Hemlock")!, accessibility: .whenUnlockedThisDeviceOnly)
-    
+
+    /// search formats
+    //TODO: get from server
+    static let searchFormats = ["All Formats", "All Books", "All Music", "Blu-ray", "DVD"]
+
     //MARK: - Functions
     
     static func loadIDL() -> Bool {
@@ -51,5 +55,4 @@ class App {
         App.idlParserStatus = parser.parse()
         return App.idlParserStatus!
     }
-
 }

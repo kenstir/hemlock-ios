@@ -67,6 +67,8 @@
 		D29C72142092691A00E90952 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
 		D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72172094002100E90952 /* OSRFObjectTests.swift */; };
+		D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
+		D29E87FF20D83A840003EB27 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
 		D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D2DF196820CEF68700085255 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -154,6 +156,8 @@
 		D29C72132092691A00E90952 /* OSRFClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFClass.swift; sourceTree = "<group>"; };
 		D29C72152093A2C000E90952 /* OSRFObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObject.swift; sourceTree = "<group>"; };
 		D29C72172094002100E90952 /* OSRFObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObjectTests.swift; sourceTree = "<group>"; };
+		D29E87FC20D831540003EB27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
 		D2DF196520CEEE1200085255 /* FineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineRecord.swift; sourceTree = "<group>"; };
 		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -426,6 +430,8 @@
 			isa = PBXGroup;
 			children = (
 				FACD142620CDC0DF008F02D3 /* Search.storyboard */,
+				D29E87FC20D831540003EB27 /* SearchViewController.swift */,
+				D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
+				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
@@ -600,6 +607,7 @@
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				D2216B7920CCA724005D06B1 /* Error+description.swift in Sources */,
+				D29E87FF20D83A840003EB27 /* SearchResultsViewController.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
