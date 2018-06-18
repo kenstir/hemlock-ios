@@ -30,7 +30,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupViews()
+    }
+    
+    func setupViews() {
         // restore saved username/password
         let (savedUsername, savedPassword) = LoginController.getSavedLoginCredentials();
         usernameField.text = savedUsername

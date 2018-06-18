@@ -17,6 +17,8 @@
 		D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
+		D21F683720D8042800D953C1 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21F683620D8042800D953C1 /* Details.storyboard */; };
+		D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21F683820D804DD00D953C1 /* DetailsViewController.swift */; };
 		D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2211B0620D0BA840043947B /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D2216B7920CCA724005D06B1 /* Error+description.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2216B7820CCA724005D06B1 /* Error+description.swift */; };
@@ -95,6 +97,8 @@
 		D212DB2920C5C0D200267503 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
 		D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Gateway+PMK.swift"; path = "Source/Extensions/Gateway+PMK.swift"; sourceTree = SOURCE_ROOT; };
+		D21F683620D8042800D953C1 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		D21F683820D804DD00D953C1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2211B0320CF68590043947B /* Checkouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkouts.storyboard; sourceTree = "<group>"; };
 		D2211B0520D0BA840043947B /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
 		D2216B7820CCA724005D06B1 /* Error+description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+description.swift"; sourceTree = "<group>"; };
@@ -206,13 +210,14 @@
 		D212DB1120C3726F00267503 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FACD142520CDC0C9008F02D3 /* Search */,
-				FACD142220CDBEBA008F02D3 /* MyLists */,
-				FACD141F20CDAFFD008F02D3 /* Holds */,
-				FACD141920CDA97E008F02D3 /* Fines */,
 				D212DB1220C3731C00267503 /* Checkouts */,
+				D21F683520D803F900D953C1 /* Details */,
+				FACD141920CDA97E008F02D3 /* Fines */,
+				FACD141F20CDAFFD008F02D3 /* Holds */,
 				D212DB1620C37B2600267503 /* Login */,
 				D212DB1520C37B0600267503 /* Main */,
+				FACD142220CDBEBA008F02D3 /* MyLists */,
+				FACD142520CDC0C9008F02D3 /* Search */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -244,6 +249,15 @@
 				D287D4FD207AEF2B001AF644 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		D21F683520D803F900D953C1 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				D21F683620D8042800D953C1 /* Details.storyboard */,
+				D21F683820D804DD00D953C1 /* DetailsViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		D22D026E2084F52300DC1F5B /* Utils */ = {
@@ -500,6 +514,7 @@
 				D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
+				D21F683720D8042800D953C1 /* Details.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
@@ -566,6 +581,7 @@
 				D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				D22D026B2083EBB100DC1F5B /* AppSettings.swift in Sources */,
+				D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */,
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  CheckoutsViewController.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -135,6 +135,11 @@ extension CheckoutsViewController: UITableViewDataSource {
         cell.author.text = item.author
         cell.dueDate.text = "Due " + item.dueDate
         
+        // add an action to the renewButton
+        cell.renewButton.tag = indexPath.row
+        cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+        Theme.styleButton(button: cell.renewButton, color: AppSettings.themeBackgroundDark4)
+        
         return cell
     }
 }
@@ -144,14 +149,21 @@ extension CheckoutsViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let tuple = buttons[indexPath.row]
-//        let segue = tuple.1
-//        self.performSegue(withIdentifier: segue, sender: nil)
+        let item = items[indexPath.row]
+        let title = item.title
+        print("xxx row \(indexPath) selected - \(title)")
+
+        // Manually instantiate the storyboard-based VC by first loading
+        // the storyboard then finding the VC by its Storyboard ID
+        let vc = UIStoryboard(name: "Details", bundle: nil).instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
-        print("here")
-//        App.account?.logout()
-//        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
+        let item = items[sender.tag]
+        let title = item.title
+        print("xxx renew button pressed - \(title)")
+        self.showAlert(title: "Not implemented yet", message: "Renew \(title)!")
     }
 }

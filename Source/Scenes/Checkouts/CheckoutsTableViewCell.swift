@@ -25,5 +25,6 @@ class CheckoutsTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var dueDate: UILabel!
+    @IBOutlet weak var renewButton: UIButton!
     
 }
