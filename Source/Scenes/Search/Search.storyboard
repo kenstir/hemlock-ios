@@ -42,9 +42,6 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3Z-jM-cTT" userLabel="Format Picker">
                                 <rect key="frame" x="0.0" y="120" width="414" height="216"/>
                             </pickerView>
-                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MGQ-Ba-wb4" userLabel="Location Picker">
-                                <rect key="frame" x="0.0" y="344" width="414" height="216"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -56,16 +53,12 @@
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="top" secondItem="Ljx-32-4Q7" secondAttribute="top" id="YzO-7x-hpA"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="ewr-nS-Wjt"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" id="icc-kP-RhZ"/>
-                            <constraint firstItem="MGQ-Ba-wb4" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="mnp-Na-s7A"/>
-                            <constraint firstItem="MGQ-Ba-wb4" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" id="o2R-Jq-Poi"/>
                             <constraint firstItem="W3Z-jM-cTT" firstAttribute="top" secondItem="GTx-vt-OB6" secondAttribute="bottom" constant="8" id="rYq-ur-8ZE"/>
-                            <constraint firstItem="MGQ-Ba-wb4" firstAttribute="top" secondItem="W3Z-jM-cTT" secondAttribute="bottom" constant="8" id="vIT-J4-6KK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ljx-32-4Q7"/>
                     </view>
                     <connections>
                         <outlet property="formatPicker" destination="W3Z-jM-cTT" id="C1A-ot-R2A"/>
-                        <outlet property="locationPicker" destination="MGQ-Ba-wb4" id="XeR-jS-BBs"/>
                         <outlet property="scopeControl" destination="GTx-vt-OB6" id="RuR-PJ-GrR"/>
                         <outlet property="searchBar" destination="efL-Ge-GEs" id="FT2-MP-jW2"/>
                     </connections>

@@ -30,6 +30,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var formatPicker: UIPickerView!
     @IBOutlet weak var locationPicker: UIPickerView!
     
+    var items = App.searchFormats
     let scopes = ["Keyword","Title","Author","Subject","Series"]
     
     //MARK: - UIViewController
@@ -55,10 +56,8 @@ class SearchViewController: UIViewController {
         
         // setup formatPicker
         formatPicker.tintColor = AppSettings.themeBackgroundColor
-//        formatPicker.backgroundColor = UIColor.black
-        let adapter = PickerArrayAdapter(items: App.searchFormats)
-        formatPicker.dataSource = adapter
-        formatPicker.delegate = adapter
+        formatPicker.dataSource = self
+        formatPicker.delegate = self
         print("setup - reload")
         formatPicker.reloadAllComponents()
         print("setup - 1")
@@ -74,12 +73,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-class PickerArrayAdapter: NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
-    var items: [String]
-
-    init(items: [String]) {
-        self.items = items
-    }
+extension SearchViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         print("xxx numberOfComponents")
@@ -101,6 +95,7 @@ class PickerArrayAdapter: NSObject, UIPickerViewDataSource, UIPickerViewDelegate
 //        return 37
 //    }
 
+    /*
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         print("xxx viewForRow")
         if let tmpView = view as? UILabel {
@@ -121,7 +116,7 @@ class PickerArrayAdapter: NSObject, UIPickerViewDataSource, UIPickerViewDelegate
         newView.text = items[row]
         return newView
     }
-    
+    */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("xxx selected row \(row)")
     }
