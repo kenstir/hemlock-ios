@@ -45,10 +45,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // style the login button
         Theme.styleInverseButton(button: loginButton, color: AppSettings.themeBackgroundColor)
-        Theme.styleButton(button: forgotPasswordButton, color: AppSettings.themeBackgroundColor)
+        Theme.styleButton(button: forgotPasswordButton, color: AppSettings.themeBackgroundDark2)
         
         // style the activity indicator
-        activityIndicator.color = AppSettings.themeBackgroundColor
+        activityIndicator.color = AppSettings.themeBackgroundDark5
     }
     
     //MARK: UITextFieldDelegate
