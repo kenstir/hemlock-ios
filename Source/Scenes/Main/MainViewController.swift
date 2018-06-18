@@ -42,6 +42,8 @@ class MainViewController: UITableViewController {
         ("Fines", "ShowFinesSegue", nil),
         ("My Lists", "ShowMyListsSegue", nil)]
     
+    //MARK: - UIViewController
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
