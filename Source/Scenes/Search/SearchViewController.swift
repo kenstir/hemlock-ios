@@ -27,11 +27,13 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var scopeControl: UISegmentedControl!
+    @IBOutlet weak var formatText: UITextField!
     @IBOutlet weak var formatPicker: UIPickerView!
-    @IBOutlet weak var locationPicker: UIPickerView!
+    //@IBOutlet weak var locationPicker: UIPickerView!
     
     var items = App.searchFormats
     let scopes = ["Keyword","Title","Author","Subject","Series"]
+    let formats = App.searchFormats
     
     //MARK: - UIViewController
     
@@ -43,10 +45,10 @@ class SearchViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
-        // setup searchBar
+        // searchBar
         searchBar.tintColor = AppSettings.themeBackgroundColor
 
-        // setup scopeControl
+        // scopeControl
         scopeControl.removeAllSegments()
         scopeControl.tintColor = AppSettings.themeBackgroundColor
         for i in 0..<scopes.count {
@@ -54,22 +56,23 @@ class SearchViewController: UIViewController {
         }
         scopeControl.selectedSegmentIndex = 0
         
-        // setup formatPicker
+        // formatText
+        formatText.delegate = self
+        
+        // formatPicker
         formatPicker.tintColor = AppSettings.themeBackgroundColor
         formatPicker.dataSource = self
         formatPicker.delegate = self
-        print("setup - reload")
         formatPicker.reloadAllComponents()
-        print("setup - 1")
-        let a = formatPicker.numberOfComponents
-        print("setup - 2 \(a)")
-        let b = formatPicker.numberOfRows(inComponent: 0)
-        print("setup - 3 \(b)")
-        let c = formatPicker.rowSize(forComponent: 0)
-        print("setup - 4 \(c)")
-        let d = formatPicker.view(forRow: 0, forComponent: 0)
-        print("setup - 5 \(d)")
-        print("done")
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textView: UITextField) {
+        print("xxx didBeginEditing")
+        if textView == formatText {
+            formatPicker.isHidden = false
+        }
     }
 }
 
