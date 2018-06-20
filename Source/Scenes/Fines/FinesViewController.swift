@@ -41,6 +41,7 @@ class FinesViewController: UIViewController {
         fetchFines()
         finesTable.delegate = self
         finesTable.dataSource = self
+        self.finesTable.estimatedRowHeight = 100.0
     }
     
     //MARK: - Functions
