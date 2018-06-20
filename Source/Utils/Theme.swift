@@ -26,6 +26,13 @@ class Theme {
         button.layer.cornerRadius = 8
     }
     
+    static func styleOutlineButton(button: UIButton, color: UIColor) {
+        button.tintColor = color
+        button.layer.borderColor = color.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 8
+    }
+    
     static func styleButton(button: UIButton, color: UIColor) {
         button.tintColor = color
         button.layer.cornerRadius = 8
