@@ -110,6 +110,12 @@ class CheckoutsViewController: UIViewController {
         tableView.reloadData()
     }
 
+    @IBAction func buttonPressed(sender: UIButton) {
+        let item = items[sender.tag]
+        let title = item.title
+        print("xxx renew button pressed - \(title)")
+        self.showAlert(title: "Not implemented yet", message: "Renew \(title)!")
+    }
 }
 
 extension CheckoutsViewController: UITableViewDataSource {
@@ -166,12 +172,5 @@ extension CheckoutsViewController: UITableViewDelegate {
             showAlert(title: "Internal Error", message: "Can't find Item Details View")
         }
  */
-    }
-    
-    @IBAction func buttonPressed(sender: UIButton) {
-        let item = items[sender.tag]
-        let title = item.title
-        print("xxx renew button pressed - \(title)")
-        self.showAlert(title: "Not implemented yet", message: "Renew \(title)!")
     }
 }
