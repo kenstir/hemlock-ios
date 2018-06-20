@@ -119,7 +119,7 @@ extension FinesViewController: UITableViewDataSource {
 //        cell.textLabel?.text = fine.title
         cell.finesTitle?.text = fine.title
         cell.finesSubtitle?.text = fine.subtitle
-        cell.finesValue?.text = String(format: "$ %.2f", fine.balance!)
+        cell.finesValue?.text = String(format: "$ %.2f ", fine.balance!)
         cell.finesStatus?.text = fine.status
         return cell
     }
