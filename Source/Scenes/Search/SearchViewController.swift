@@ -27,9 +27,9 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var scopeControl: UISegmentedControl!
-    @IBOutlet weak var formatText: UITextField!
+    @IBOutlet weak var formatButton: UIButton!
     @IBOutlet weak var formatPicker: UIPickerView!
-    //@IBOutlet weak var locationPicker: UIPickerView!
+    @IBOutlet weak var libraryButton: UIButton!
     
     var items = App.searchFormats
     let scopes = ["Keyword","Title","Author","Subject","Series"]
@@ -56,23 +56,24 @@ class SearchViewController: UIViewController {
         }
         scopeControl.selectedSegmentIndex = 0
         
-        // formatText
-        formatText.delegate = self
-        
+        // formatButton
+        Theme.styleOutlineButton(button: formatButton, color: AppSettings.themeBackgroundDark2)
+        formatButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+
         // formatPicker
         formatPicker.tintColor = AppSettings.themeBackgroundColor
         formatPicker.dataSource = self
         formatPicker.delegate = self
         formatPicker.reloadAllComponents()
-    }
-}
 
-extension SearchViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textView: UITextField) {
-        print("xxx didBeginEditing")
-        if textView == formatText {
-            formatPicker.isHidden = false
-        }
+        // libraryButton
+        Theme.styleOutlineButton(button: libraryButton, color: AppSettings.themeBackgroundDark2)
+        libraryButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+    }
+    
+    @IBAction func buttonPressed(sender: UIButton) {
+        print("xxx button pressed - \(sender)")
+        formatPicker.isHidden = false
     }
 }
 
@@ -121,7 +122,13 @@ extension SearchViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("xxx selected row \(row)")
+        if pickerView == formatPicker {
+            let str = formats[row]
+            print("xxx selected row \(str)")
+        } else {
+            print("xxx selected row \(row)")
+        }
+        pickerView.isHidden = true
     }
 }
 

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search words" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efL-Ge-GEs">
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search words" translatesAutoresizingMaskIntoConstraints="NO" id="efL-Ge-GEs">
                                 <rect key="frame" x="0.0" y="20" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits" smartDashesType="no" smartQuotesType="no"/>
                                 <scopeButtonTitles>
@@ -30,7 +30,7 @@
                                 </connections>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GTx-vt-OB6" userLabel="Scope Control">
-                                <rect key="frame" x="8" y="88" width="398" height="29"/>
+                                <rect key="frame" x="8" y="92" width="398" height="29"/>
                                 <segments>
                                     <segment title="Keyword"/>
                                     <segment title="Second"/>
@@ -40,55 +40,71 @@
                                 </segments>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lhw-oR-VXx" userLabel="Format Stack">
-                                <rect key="frame" x="8" y="128" width="398" height="80"/>
+                                <rect key="frame" x="8" y="136" width="398" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" verticalHuggingPriority="254" horizontalCompressionResistancePriority="751" ambiguous="YES" text="Format" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="98" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-3n-3CI">
-                                        <rect key="frame" x="0.0" y="0.0" width="88" height="80"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Format" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="120" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-3n-3CI">
+                                        <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="83s-FZ-3Nz">
-                                        <rect key="frame" x="88" y="0.0" width="310" height="80"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All Formats" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcG-0h-BeF" userLabel="Format Text">
-                                                <rect key="frame" x="0.0" y="0.0" width="310" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="245" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bVK-Cn-RRh" userLabel="Format Picker View">
-                                                <rect key="frame" x="0.0" y="30" width="310" height="50"/>
-                                                <subviews>
-                                                    <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3Z-jM-cTT" userLabel="Format Picker">
-                                                        <rect key="frame" x="124" y="0.0" width="61" height="216"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    </pickerView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tAC-aX-v1g">
+                                        <rect key="frame" x="54.666666666666657" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-Ll-rXx" userLabel="Format Button">
+                                        <rect key="frame" x="104.66666666666666" y="0.0" width="293.33333333333337" height="50"/>
+                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                        <state key="normal" title="All Formats"/>
+                                    </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9Z-ms-dD4" userLabel="Library Stack">
+                                <rect key="frame" x="8" y="202" width="398" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8T-iC-WgM" userLabel="Library Text">
+                                        <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rMI-tq-H3h">
+                                        <rect key="frame" x="53.333333333333343" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coS-0e-sYc" userLabel="Library Button">
+                                        <rect key="frame" x="103.33333333333334" y="0.0" width="294.66666666666663" height="50"/>
+                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                        <state key="normal" title="All PINES Libraries"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3Z-jM-cTT" userLabel="Format Picker">
+                                <rect key="frame" x="65" y="314" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GTx-vt-OB6" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" constant="-8" id="BTv-cV-53b"/>
+                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="l9Z-ms-dD4" secondAttribute="trailing" constant="8" id="FUD-2M-muA"/>
                             <constraint firstItem="Lhw-oR-VXx" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="OLM-fb-Pmi"/>
+                            <constraint firstItem="l9Z-ms-dD4" firstAttribute="top" secondItem="Lhw-oR-VXx" secondAttribute="bottom" constant="16" id="Pbe-iO-T8j"/>
                             <constraint firstItem="GTx-vt-OB6" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="Pca-yT-yGY"/>
-                            <constraint firstItem="GTx-vt-OB6" firstAttribute="top" secondItem="efL-Ge-GEs" secondAttribute="bottom" constant="12" id="So8-0I-NRC"/>
+                            <constraint firstItem="GTx-vt-OB6" firstAttribute="top" secondItem="efL-Ge-GEs" secondAttribute="bottom" constant="16" id="So8-0I-NRC"/>
                             <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="Lhw-oR-VXx" secondAttribute="trailing" constant="8" id="VKI-Ap-Lpb"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="top" secondItem="Ljx-32-4Q7" secondAttribute="top" id="YzO-7x-hpA"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="ewr-nS-Wjt"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" id="icc-kP-RhZ"/>
-                            <constraint firstItem="Lhw-oR-VXx" firstAttribute="top" secondItem="GTx-vt-OB6" secondAttribute="bottom" constant="12" id="wUa-Xo-hhE"/>
+                            <constraint firstItem="Lhw-oR-VXx" firstAttribute="top" secondItem="GTx-vt-OB6" secondAttribute="bottom" constant="16" id="wUa-Xo-hhE"/>
+                            <constraint firstItem="l9Z-ms-dD4" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="zz5-6H-nla"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ljx-32-4Q7"/>
                     </view>
                     <connections>
+                        <outlet property="formatButton" destination="ydZ-Ll-rXx" id="Mkv-5i-j9W"/>
                         <outlet property="formatPicker" destination="W3Z-jM-cTT" id="C1A-ot-R2A"/>
-                        <outlet property="formatText" destination="vcG-0h-BeF" id="aYb-pq-8tW"/>
+                        <outlet property="libraryButton" destination="coS-0e-sYc" id="Vfh-91-A9l"/>
                         <outlet property="scopeControl" destination="GTx-vt-OB6" id="RuR-PJ-GrR"/>
                         <outlet property="searchBar" destination="efL-Ge-GEs" id="FT2-MP-jW2"/>
                     </connections>
