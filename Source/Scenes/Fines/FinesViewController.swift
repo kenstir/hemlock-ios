@@ -39,6 +39,9 @@ class FinesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFines()
+        finesTable.delegate = self
+        finesTable.dataSource = self
+        self.finesTable.estimatedRowHeight = 100.0
     }
     
     //MARK: - Functions
@@ -70,15 +73,9 @@ class FinesViewController: UIViewController {
     
     func loadFinesSummary(fromObj obj: OSRFObject) {
         debugPrint(obj)
-        let totalOwed = String(format: "$ %.2f", obj.getDouble("total_owed")!)
-        let totalPaid = String(format: "$ %.2f", obj.getDouble("total_paid")!)
-        let balanceOwed = String(format: "$ %.2f", obj.getDouble("balance_owed")!)
-        totalOwedVal.text = "\(totalOwed)"
-        totalPaidVal.text = "\(totalPaid)"
-        balanceOwedVal.text = "\(balanceOwed)"
-//        print("totalOwed: \(totalOwed)")
-//        print("totalPaid: \(totalPaid)")
-//        print("balanceOwed: \(balanceOwed)")
+        totalOwedVal.text = String(format: "$ %.2f", obj.getDouble("total_owed")!)
+        totalPaidVal.text = String(format: "$ %.2f", obj.getDouble("total_owed")!)
+        balanceOwedVal.text = String(format: "$ %.2f", obj.getDouble("balance_owed")!)
         print("stop here")
     }
     
@@ -93,5 +90,37 @@ class FinesViewController: UIViewController {
                 print("balance:  \(balance)")
             }
         }
+        finesTable.reloadData()
     }
 }
+
+extension FinesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //need stuff here
+    }
+}
+
+extension FinesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fines.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "finesCell") else {
+//            fatalError("Could not dequeue a cell")
+//        }
+        guard let cell: FinesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "finesCell") as? FinesTableViewCell else {
+            fatalError("Could not dequeue a cell")
+        }
+        let fine = fines[indexPath.row]
+//        cell.textLabel?.text = fine.title
+        cell.finesTitle?.text = fine.title
+        cell.finesSubtitle?.text = fine.subtitle
+        cell.finesValue?.text = String(format: "$ %.2f ", fine.balance!)
+        cell.finesStatus?.text = fine.status
+        return cell
+    }
+    
+}
+
+
