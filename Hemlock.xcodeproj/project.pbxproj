@@ -136,7 +136,7 @@
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
-		D287D4F8207AEF2B001AF644 /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D287D500207AEF2B001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 		D287D4F9207AEF2B001AF644 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D287D4F8207AEF2B001AF644 /* Hemlock.app */,
+				D287D4F8207AEF2B001AF644 /* PINES.app */,
 				D287D50C207AEF2D001AF644 /* HemlockTests.xctest */,
 			);
 			name = Products;
@@ -433,9 +433,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D287D4F7207AEF2B001AF644 /* Hemlock */ = {
+		D287D4F7207AEF2B001AF644 /* PINES */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D287D515207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "Hemlock" */;
+			buildConfigurationList = D287D515207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "PINES" */;
 			buildPhases = (
 				D287D4F4207AEF2B001AF644 /* Sources */,
 				D287D4F5207AEF2B001AF644 /* Frameworks */,
@@ -446,9 +446,9 @@
 			);
 			dependencies = (
 			);
-			name = Hemlock;
+			name = PINES;
 			productName = Hemlock;
-			productReference = D287D4F8207AEF2B001AF644 /* Hemlock.app */;
+			productReference = D287D4F8207AEF2B001AF644 /* PINES.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D287D50B207AEF2D001AF644 /* HemlockTests */ = {
@@ -502,7 +502,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D287D4F7207AEF2B001AF644 /* Hemlock */,
+				D287D4F7207AEF2B001AF644 /* PINES */,
 				D287D50B207AEF2D001AF644 /* HemlockTests */,
 			);
 		};
@@ -637,7 +637,7 @@
 /* Begin PBXTargetDependency section */
 		D287D50E207AEF2D001AF644 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D287D4F7207AEF2B001AF644 /* Hemlock */;
+			target = D287D4F7207AEF2B001AF644 /* PINES */;
 			targetProxy = D287D50D207AEF2D001AF644 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -887,7 +887,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D287D515207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "Hemlock" */ = {
+		D287D515207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "PINES" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D287D516207AEF2D001AF644 /* Debug */,
