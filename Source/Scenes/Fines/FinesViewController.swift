@@ -34,19 +34,22 @@ class FinesViewController: UIViewController {
     @IBOutlet weak var balanceOwedVal: UILabel!
     var fines: [FineRecord] = []
     
-    //MARK: - Lifecycle
+    //MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchFines()
-        finesTable.delegate = self
-        finesTable.dataSource = self
-        self.finesTable.estimatedRowHeight = 100.0
+        setupViews()
+        fetchData()
     }
     
     //MARK: - Functions
     
-    func fetchFines() {
+    func setupViews() {
+        finesTable.delegate = self
+        finesTable.dataSource = self
+    }
+
+    func fetchData() {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
