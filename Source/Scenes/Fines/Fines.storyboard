@@ -77,7 +77,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BRM-0x-QkN">
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BRM-0x-QkN">
                                 <rect key="frame" x="12" y="141" width="351" height="486"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -134,7 +134,7 @@
                             <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="5dz-EK-Mrd" secondAttribute="trailing" constant="12" id="EVA-lJ-hIe"/>
                             <constraint firstItem="5dz-EK-Mrd" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" constant="12" id="Mty-58-9XV"/>
                             <constraint firstItem="BRM-0x-QkN" firstAttribute="top" secondItem="5dz-EK-Mrd" secondAttribute="bottom" constant="40" id="PlS-AI-NXD"/>
-                            <constraint firstItem="78J-wo-VWu" firstAttribute="bottom" secondItem="BRM-0x-QkN" secondAttribute="bottom" constant="40" id="Rbd-C1-IUh"/>
+                            <constraint firstItem="78J-wo-VWu" firstAttribute="bottom" secondItem="BRM-0x-QkN" secondAttribute="bottom" constant="40" id="Rbd-C1-IUh" userLabel="Safe Area.bottom = Fines Table.bottom"/>
                             <constraint firstItem="BRM-0x-QkN" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" constant="12" id="e6c-1e-yXt"/>
                             <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="BRM-0x-QkN" secondAttribute="trailing" constant="12" id="mVd-j5-uP1"/>
                         </constraints>
@@ -153,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3O-tC-9wZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130.4000000000001" y="1631.3343328335834"/>
+            <point key="canvasLocation" x="-1156" y="1585"/>
         </scene>
     </scenes>
 </document>
