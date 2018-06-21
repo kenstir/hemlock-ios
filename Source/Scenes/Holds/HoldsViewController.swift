@@ -31,11 +31,15 @@ class HoldsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         fetchData()
     }
     
     //MARK: - Functions
     
+    func setupViews() {
+    }
+
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
