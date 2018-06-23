@@ -42,7 +42,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lhw-oR-VXx" userLabel="Format Stack">
                                 <rect key="frame" x="8" y="136" width="398" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Format" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="120" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-3n-3CI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Format" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="120" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-3n-3CI">
                                         <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -52,11 +52,12 @@
                                         <rect key="frame" x="54.666666666666657" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-Ll-rXx" userLabel="Format Button">
-                                        <rect key="frame" x="104.66666666666666" y="0.0" width="293.33333333333337" height="50"/>
-                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                        <state key="normal" title="All Formats"/>
-                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kre-6k-BwW" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
+                                        <rect key="frame" x="104.66666666666663" y="0.0" width="293.33333333333337" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9Z-ms-dD4" userLabel="Library Stack">
@@ -72,15 +73,16 @@
                                         <rect key="frame" x="53.333333333333343" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coS-0e-sYc" userLabel="Library Button">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1V-am-QSD">
                                         <rect key="frame" x="103.33333333333334" y="0.0" width="294.66666666666663" height="50"/>
-                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                        <state key="normal" title="All PINES Libraries"/>
-                                    </button>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                             </stackView>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3Z-jM-cTT" userLabel="Format Picker">
-                                <rect key="frame" x="65" y="314" width="320" height="216"/>
+                                <rect key="frame" x="63" y="314" width="322" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -102,9 +104,8 @@
                         <viewLayoutGuide key="safeArea" id="Ljx-32-4Q7"/>
                     </view>
                     <connections>
-                        <outlet property="formatButton" destination="ydZ-Ll-rXx" id="Mkv-5i-j9W"/>
                         <outlet property="formatPicker" destination="W3Z-jM-cTT" id="C1A-ot-R2A"/>
-                        <outlet property="libraryButton" destination="coS-0e-sYc" id="Vfh-91-A9l"/>
+                        <outlet property="formatTextField" destination="Kre-6k-BwW" id="sVD-79-Pdk"/>
                         <outlet property="scopeControl" destination="GTx-vt-OB6" id="RuR-PJ-GrR"/>
                         <outlet property="searchBar" destination="efL-Ge-GEs" id="FT2-MP-jW2"/>
                     </connections>

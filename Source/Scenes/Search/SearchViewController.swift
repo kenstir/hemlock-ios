@@ -27,8 +27,9 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var scopeControl: UISegmentedControl!
-    weak var mcTextField: McTextField!
-    @IBOutlet weak var formatButton: UIButton!
+
+    @IBOutlet weak var formatTextField: McTextField!
+    
     @IBOutlet weak var formatPicker: UIPickerView!
     @IBOutlet weak var libraryButton: UIButton!
     
@@ -56,10 +57,32 @@ class SearchViewController: UIViewController {
             scopeControl.insertSegment(withTitle: scopes[i], at: i, animated: false)
         }
         scopeControl.selectedSegmentIndex = 0
-        
+
+        // picker
+        let data = [formats]
+        let mcInputView = McPicker(data: data)
+        mcInputView.backgroundColor = .gray
+        mcInputView.backgroundColorAlpha = 0.25
+        formatTextField.inputViewMcPicker = mcInputView
+        formatTextField.doneHandler = { [weak formatTextField] (selections) in
+            formatTextField?.text = selections[0]!
+        }
+        formatTextField.selectionChangedHandler = { [weak formatTextField] (selections, componentThatChanged) in
+            formatTextField?.text = selections[componentThatChanged]!
+        }
+        formatTextField.cancelHandler = { [weak formatTextField] in
+            formatTextField?.text = "Cancelled."
+        }
+        formatTextField.textFieldWillBeginEditingHandler = { [weak formatTextField] (selections) in
+            if formatTextField?.text == "" {
+                // Selections always default to the first value per component
+                formatTextField?.text = selections[0]
+            }
+        }
+
         // formatButton
-        Theme.styleOutlineButton(button: formatButton, color: AppSettings.themeBackgroundDark2)
-        formatButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+        //Theme.styleOutlineButton(button: formatButton, color: AppSettings.themeBackgroundDark2)
+        //formatButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
 
         // formatPicker
         formatPicker.tintColor = AppSettings.themeBackgroundColor
@@ -68,8 +91,8 @@ class SearchViewController: UIViewController {
         formatPicker.reloadAllComponents()
 
         // libraryButton
-        Theme.styleOutlineButton(button: libraryButton, color: AppSettings.themeBackgroundDark2)
-        libraryButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+//        Theme.styleOutlineButton(button: libraryButton, color: AppSettings.themeBackgroundDark2)
+//        libraryButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
     }
     
     @IBAction func buttonPressed(sender: UIButton) {

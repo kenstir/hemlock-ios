@@ -20,7 +20,9 @@
  THE SOFTWARE.
  */
 
-open class McTextField: UITextField {
+import UIKit
+
+@IBDesignable open class McTextField: UITextField {
 
     public var doneHandler: McPicker.DoneHandler = { _ in }
     public var cancelHandler: McPicker.CancelHandler?

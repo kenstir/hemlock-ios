@@ -109,6 +109,18 @@
 		D279911120DDD77F003B451E /* PINES.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* PINES.xcassets */; };
 		D279911820DDE11E003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppSettings.swift */; };
 		D279911A20DDE160003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppSettings.swift */; };
+		D279920920DEEA27003B451E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = D279920320DEEA27003B451E /* .gitkeep */; };
+		D279920A20DEEA27003B451E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = D279920320DEEA27003B451E /* .gitkeep */; };
+		D279920B20DEEA27003B451E /* McPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920420DEEA27003B451E /* McPicker.swift */; };
+		D279920C20DEEA27003B451E /* McPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920420DEEA27003B451E /* McPicker.swift */; };
+		D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */; };
+		D279920E20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */; };
+		D279920F20DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */; };
+		D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */; };
+		D279921120DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
+		D279921220DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
+		D279921320DEEA27003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D279920820DEEA27003B451E /* LICENSE */; };
+		D279921420DEEA27003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D279920820DEEA27003B451E /* LICENSE */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
@@ -205,6 +217,12 @@
 		D279911720DDE11E003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279919220DEC7C0003B451E /* McPicker_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = McPicker_iOS.framework; path = Carthage/Build/iOS/McPicker_iOS.framework; sourceTree = "<group>"; };
+		D279920320DEEA27003B451E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		D279920420DEEA27003B451E /* McPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPicker.swift; sourceTree = "<group>"; };
+		D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerBarButtonItem.swift; sourceTree = "<group>"; };
+		D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerPopoverViewController.swift; sourceTree = "<group>"; };
+		D279920720DEEA27003B451E /* McTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McTextField.swift; sourceTree = "<group>"; };
+		D279920820DEEA27003B451E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -430,6 +448,35 @@
 			path = hemlock_app;
 			sourceTree = "<group>";
 		};
+		D279920020DEEA27003B451E /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				D279920120DEEA27003B451E /* McPicker */,
+			);
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		D279920120DEEA27003B451E /* McPicker */ = {
+			isa = PBXGroup;
+			children = (
+				D279920220DEEA27003B451E /* Classes */,
+				D279920820DEEA27003B451E /* LICENSE */,
+			);
+			path = McPicker;
+			sourceTree = "<group>";
+		};
+		D279920220DEEA27003B451E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D279920320DEEA27003B451E /* .gitkeep */,
+				D279920420DEEA27003B451E /* McPicker.swift */,
+				D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */,
+				D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */,
+				D279920720DEEA27003B451E /* McTextField.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +504,7 @@
 		D287D4FA207AEF2B001AF644 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D279920020DEEA27003B451E /* thirdparty */,
 				D22D027620857DFE00DC1F5B /* Evergreen */,
 				D212DB1020C3717200267503 /* Models */,
 				D279911220DDDC8C003B451E /* hemlock_app */,
@@ -637,7 +685,9 @@
 			files = (
 				D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
+				D279921320DEEA27003B451E /* LICENSE in Resources */,
 				D27990FE20DDD473003B451E /* LICENSE in Resources */,
+				D279920920DEEA27003B451E /* .gitkeep in Resources */,
 				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
@@ -655,7 +705,9 @@
 			files = (
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
+				D279921420DEEA27003B451E /* LICENSE in Resources */,
 				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
+				D279920A20DEEA27003B451E /* .gitkeep in Resources */,
 				D21F683720D8042800D953C1 /* Details.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,
@@ -750,13 +802,17 @@
 				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
+				D279920F20DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
+				D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				D27990D520DDD473003B451E /* DetailsViewController.swift in Sources */,
+				D279920B20DEEA27003B451E /* McPicker.swift in Sources */,
 				D27990D620DDD473003B451E /* Corsortium.swift in Sources */,
 				D27990D720DDD473003B451E /* App.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
+				D279921120DEEA27003B451E /* McTextField.swift in Sources */,
 				D27990DA20DDD473003B451E /* HemlockError.swift in Sources */,
 				D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
@@ -794,13 +850,17 @@
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
+				D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
+				D279920E20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
 				D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */,
+				D279920C20DEEA27003B451E /* McPicker.swift in Sources */,
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
+				D279921220DEEA27003B451E /* McTextField.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
 				D279911A20DDE160003B451E /* AppSettings.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
