@@ -28,7 +28,6 @@
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
-		D22D026B2083EBB100DC1F5B /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026A2083EBB100DC1F5B /* AppSettings.swift */; };
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
 		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
@@ -52,11 +51,68 @@
 		D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
+		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
+		D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
+		D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */; };
+		D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
+		D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
+		D27990D120DDD473003B451E /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
+		D27990D220DDD473003B451E /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
+		D27990D320DDD473003B451E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51F207AF88E001AF644 /* API.swift */; };
+		D27990D520DDD473003B451E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21F683820D804DD00D953C1 /* DetailsViewController.swift */; };
+		D27990D620DDD473003B451E /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
+		D27990D720DDD473003B451E /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
+		D27990D820DDD473003B451E /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
+		D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
+		D27990DA20DDD473003B451E /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
+		D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
+		D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
+		D27990DD20DDD473003B451E /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
+		D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */; };
+		D27990DF20DDD473003B451E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
+		D27990E020DDD473003B451E /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
+		D27990E120DDD473003B451E /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
+		D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
+		D27990E320DDD473003B451E /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
+		D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
+		D27990E520DDD473003B451E /* Error+description.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2216B7820CCA724005D06B1 /* Error+description.swift */; };
+		D27990E620DDD473003B451E /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */; };
+		D27990E720DDD473003B451E /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
+		D27990E820DDD473003B451E /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
+		D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
+		D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
+		D27990EB20DDD473003B451E /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
+		D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
+		D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
+		D27990EE20DDD473003B451E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
+		D27990EF20DDD473003B451E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
+		D27990F020DDD473003B451E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
+		D27990F220DDD473003B451E /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
+		D27990F320DDD473003B451E /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
+		D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
+		D27990F520DDD473003B451E /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
+		D27990F620DDD473003B451E /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
+		D27990F720DDD473003B451E /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
+		D27990F820DDD473003B451E /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
+		D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
+		D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
+		D27990FE20DDD473003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
+		D27990FF20DDD473003B451E /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21F683620D8042800D953C1 /* Details.storyboard */; };
+		D279910020DDD473003B451E /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
+		D279910120DDD473003B451E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
+		D279910220DDD473003B451E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
+		D279910320DDD473003B451E /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
+		D279910420DDD473003B451E /* MyLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* MyLists.storyboard */; };
+		D279910520DDD473003B451E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
+		D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279910E20DDD760003B451E /* Hemlock.xcassets */; };
+		D279911120DDD77F003B451E /* PINES.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* PINES.xcassets */; };
+		D279911820DDE11E003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppSettings.swift */; };
+		D279911A20DDE160003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppSettings.swift */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
-		D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D287D502207AEF2C001AF644 /* Assets.xcassets */; };
 		D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D287D51C207AEF3D001AF644 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51D207AEF54001AF644 /* AccountTests.swift */; };
@@ -80,6 +136,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D279911520DDE0AF003B451E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D287D4F0207AEF2B001AF644 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D27990CA20DDD473003B451E;
+			remoteInfo = Hemlock;
+		};
 		D287D50D207AEF2D001AF644 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D287D4F0207AEF2B001AF644 /* Project object */;
@@ -112,7 +175,6 @@
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D22D02662083E45700DC1F5B /* Corsortium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corsortium.swift; sourceTree = "<group>"; };
 		D22D02682083EA7600DC1F5B /* GatewayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayTests.swift; sourceTree = "<group>"; };
-		D22D026A2083EBB100DC1F5B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D22D026F2084F53E00DC1F5B /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		D22D0272208506C500DC1F5B /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
 		D22D0274208516D600DC1F5B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -136,13 +198,18 @@
 		D2562FB220CDE9CE0072F750 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
+		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D279910B20DDD473003B451E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D279910E20DDD760003B451E /* Hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Hemlock.xcassets; sourceTree = "<group>"; };
+		D279911020DDD77F003B451E /* PINES.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PINES.xcassets; sourceTree = "<group>"; };
+		D279911720DDE11E003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		D279911920DDE160003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D287D500207AEF2B001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D287D502207AEF2C001AF644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D287D505207AEF2C001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D287D507207AEF2C001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D287D50C207AEF2D001AF644 /* HemlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +236,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D27990F120DDD473003B451E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27990F220DDD473003B451E /* Valet.framework in Frameworks */,
+				D27990F320DDD473003B451E /* PINOperation.framework in Frameworks */,
+				D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */,
+				D27990F520DDD473003B451E /* AsyncDisplayKit.framework in Frameworks */,
+				D27990F620DDD473003B451E /* PINRemoteImage.framework in Frameworks */,
+				D27990F720DDD473003B451E /* PINCache.framework in Frameworks */,
+				D27990F820DDD473003B451E /* PromiseKit.framework in Frameworks */,
+				D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D287D4F5207AEF2B001AF644 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,6 +418,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D279911220DDDC8C003B451E /* hemlock_app */ = {
+			isa = PBXGroup;
+			children = (
+				D279911720DDE11E003B451E /* AppSettings.swift */,
+				D279910E20DDD760003B451E /* Hemlock.xcassets */,
+				D279910B20DDD473003B451E /* Info.plist */,
+			);
+			path = hemlock_app;
+			sourceTree = "<group>";
+		};
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +447,7 @@
 			children = (
 				D287D4F8207AEF2B001AF644 /* PINES.app */,
 				D287D50C207AEF2D001AF644 /* HemlockTests.xctest */,
+				D279910A20DDD473003B451E /* Hemlock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -364,14 +457,13 @@
 			children = (
 				D22D027620857DFE00DC1F5B /* Evergreen */,
 				D212DB1020C3717200267503 /* Models */,
-				D2D49BFB20A90CA9000B3A27 /* PINES */,
+				D279911220DDDC8C003B451E /* hemlock_app */,
+				D2D49BFB20A90CA9000B3A27 /* pines_app */,
 				D212DB1120C3726F00267503 /* Scenes */,
 				D20D14D220B784E3008F66B0 /* Storyboards */,
 				D22D026E2084F52300DC1F5B /* Utils */,
 				D228FB6420D33402001A7E31 /* App.swift */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
-				D287D502207AEF2C001AF644 /* Assets.xcassets */,
-				D287D507207AEF2C001AF644 /* Info.plist */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -391,12 +483,14 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		D2D49BFB20A90CA9000B3A27 /* PINES */ = {
+		D2D49BFB20A90CA9000B3A27 /* pines_app */ = {
 			isa = PBXGroup;
 			children = (
-				D22D026A2083EBB100DC1F5B /* AppSettings.swift */,
+				D279911920DDE160003B451E /* AppSettings.swift */,
+				D279911020DDD77F003B451E /* PINES.xcassets */,
+				D287D507207AEF2C001AF644 /* Info.plist */,
 			);
-			path = PINES;
+			path = pines_app;
 			sourceTree = "<group>";
 		};
 		FACD141920CDA97E008F02D3 /* Fines */ = {
@@ -439,6 +533,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D27990CA20DDD473003B451E /* Hemlock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D279910720DDD473003B451E /* Build configuration list for PBXNativeTarget "Hemlock" */;
+			buildPhases = (
+				D27990CB20DDD473003B451E /* Sources */,
+				D27990F120DDD473003B451E /* Frameworks */,
+				D27990FA20DDD473003B451E /* Resources */,
+				D279910620DDD473003B451E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hemlock;
+			productName = Hemlock;
+			productReference = D279910A20DDD473003B451E /* Hemlock.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D287D4F7207AEF2B001AF644 /* PINES */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D287D515207AEF2D001AF644 /* Build configuration list for PBXNativeTarget "PINES" */;
@@ -469,6 +581,7 @@
 			);
 			dependencies = (
 				D287D50E207AEF2D001AF644 /* PBXTargetDependency */,
+				D279911620DDE0AF003B451E /* PBXTargetDependency */,
 			);
 			name = HemlockTests;
 			productName = HemlockTests;
@@ -491,7 +604,7 @@
 					};
 					D287D50B207AEF2D001AF644 = {
 						CreatedOnToolsVersion = 9.3;
-						TestTargetID = D287D4F7207AEF2B001AF644;
+						TestTargetID = D27990CA20DDD473003B451E;
 					};
 				};
 			};
@@ -508,6 +621,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				D27990CA20DDD473003B451E /* Hemlock */,
 				D287D4F7207AEF2B001AF644 /* PINES */,
 				D287D50B207AEF2D001AF644 /* HemlockTests */,
 			);
@@ -515,16 +629,34 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D27990FA20DDD473003B451E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */,
+				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
+				D27990FE20DDD473003B451E /* LICENSE in Resources */,
+				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
+				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
+				D279910120DDD473003B451E /* Search.storyboard in Resources */,
+				D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */,
+				D279910220DDD473003B451E /* Documentation in Resources */,
+				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
+				D279910420DDD473003B451E /* MyLists.storyboard in Resources */,
+				D279910520DDD473003B451E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D287D4F6207AEF2B001AF644 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
-				D287D503207AEF2C001AF644 /* Assets.xcassets in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
 				D21F683720D8042800D953C1 /* Details.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
+				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
@@ -574,9 +706,82 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		D279910620DDD473003B451E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D27990CB20DDD473003B451E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
+				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
+				D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */,
+				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
+				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
+				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
+				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
+				D27990D320DDD473003B451E /* API.swift in Sources */,
+				D27990D520DDD473003B451E /* DetailsViewController.swift in Sources */,
+				D27990D620DDD473003B451E /* Corsortium.swift in Sources */,
+				D27990D720DDD473003B451E /* App.swift in Sources */,
+				D27990D820DDD473003B451E /* Library.swift in Sources */,
+				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
+				D27990DA20DDD473003B451E /* HemlockError.swift in Sources */,
+				D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */,
+				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
+				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
+				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
+				D27990DF20DDD473003B451E /* Theme.swift in Sources */,
+				D279911820DDE11E003B451E /* AppSettings.swift in Sources */,
+				D27990E020DDD473003B451E /* Analytics.swift in Sources */,
+				D27990E120DDD473003B451E /* MD5.swift in Sources */,
+				D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */,
+				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
+				D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */,
+				D27990E520DDD473003B451E /* Error+description.swift in Sources */,
+				D27990E620DDD473003B451E /* SearchResultsViewController.swift in Sources */,
+				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
+				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
+				D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */,
+				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
+				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
+				D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */,
+				D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */,
+				D27990EE20DDD473003B451E /* MainViewController.swift in Sources */,
+				D27990EF20DDD473003B451E /* Account.swift in Sources */,
+				D27990F020DDD473003B451E /* LoginController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D287D4F4207AEF2B001AF644 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -589,13 +794,13 @@
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
 				D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
-				D22D026B2083EBB100DC1F5B /* AppSettings.swift in Sources */,
 				D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */,
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
+				D279911A20DDE160003B451E /* AppSettings.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
@@ -643,6 +848,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D279911620DDE0AF003B451E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D27990CA20DDD473003B451E /* Hemlock */;
+			targetProxy = D279911520DDE0AF003B451E /* PBXContainerItemProxy */;
+		};
 		D287D50E207AEF2D001AF644 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D287D4F7207AEF2B001AF644 /* PINES */;
@@ -670,6 +880,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D279910820DDD473003B451E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FCHUE4234N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.hemlock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D279910920DDD473003B451E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FCHUE4234N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.hemlock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D287D513207AEF2D001AF644 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -795,7 +1054,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -820,7 +1079,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -886,6 +1145,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D279910720DDD473003B451E /* Build configuration list for PBXNativeTarget "Hemlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D279910820DDD473003B451E /* Debug */,
+				D279910920DDD473003B451E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D287D4F3207AEF2B001AF644 /* Build configuration list for PBXProject "Hemlock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
