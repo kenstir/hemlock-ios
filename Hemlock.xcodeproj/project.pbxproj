@@ -109,7 +109,6 @@
 		D279911120DDD77F003B451E /* PINES.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* PINES.xcassets */; };
 		D279911820DDE11E003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppSettings.swift */; };
 		D279911A20DDE160003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppSettings.swift */; };
-		D279919320DEC7C0003B451E /* McPicker_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D279919220DEC7C0003B451E /* McPicker_iOS.framework */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
@@ -242,7 +241,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D279919320DEC7C0003B451E /* McPicker_iOS.framework in Frameworks */,
 				D27990F220DDD473003B451E /* Valet.framework in Frameworks */,
 				D27990F320DDD473003B451E /* PINOperation.framework in Frameworks */,
 				D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */,
@@ -724,7 +722,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/McPicker_iOS.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -735,7 +732,6 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/McPicker_iOS.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
