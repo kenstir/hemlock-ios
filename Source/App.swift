@@ -43,4 +43,13 @@ class App {
 
     /// the valet saves things in the iOS keychain
     static let valet = Valet.valet(with: Identifier(nonEmpty: "Hemlock")!, accessibility: .whenUnlockedThisDeviceOnly)
+    
+    //MARK: - Functions
+    
+    static func loadIDL() -> Bool {
+        let parser = IDLParser(contentsOf: Gateway.idlURL()!)
+        App.idlParserStatus = parser.parse()
+        return App.idlParserStatus!
+    }
+
 }

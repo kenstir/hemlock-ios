@@ -13,7 +13,7 @@
         <!--Item Details-->
         <scene sceneID="FkI-4v-kXh">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" title="Item Details" id="JSy-me-Lg7" customClass="DetailsViewController" customModule="Hemlock" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" title="Item Details" id="JSy-me-Lg7" customClass="DetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FNA-pM-U1B">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

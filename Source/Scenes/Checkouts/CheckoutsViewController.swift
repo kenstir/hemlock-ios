@@ -153,11 +153,19 @@ extension CheckoutsViewController: UITableViewDelegate {
         let title = item.title
         print("xxx row \(indexPath) selected - \(title)")
 
+        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
+/*
         // Manually instantiate the storyboard-based VC by first loading
         // the storyboard then finding the VC by its Storyboard ID
-        let vc = UIStoryboard(name: "Details", bundle: nil).instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-
+        let storyboard = UIStoryboard(name: "Details", bundle: nil)
+        //let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
+        let vc = storyboard.instantiateInitialViewController()
+        if let detailsVC = vc as? DetailsViewController {
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        } else {
+            showAlert(title: "Internal Error", message: "Can't find Item Details View")
+        }
+ */
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
