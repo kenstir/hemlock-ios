@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
+import McPicker_iOS
 import PromiseKit
 import PMKAlamofire
 
@@ -27,6 +28,7 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var scopeControl: UISegmentedControl!
+    weak var mcTextField: McTextField!
     @IBOutlet weak var formatButton: UIButton!
     @IBOutlet weak var formatPicker: UIPickerView!
     @IBOutlet weak var libraryButton: UIButton!

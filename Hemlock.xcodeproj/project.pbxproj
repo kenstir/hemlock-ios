@@ -109,6 +109,7 @@
 		D279911120DDD77F003B451E /* PINES.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* PINES.xcassets */; };
 		D279911820DDE11E003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppSettings.swift */; };
 		D279911A20DDE160003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppSettings.swift */; };
+		D279919320DEC7C0003B451E /* McPicker_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D279919220DEC7C0003B451E /* McPicker_iOS.framework */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
@@ -204,6 +205,7 @@
 		D279911020DDD77F003B451E /* PINES.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PINES.xcassets; sourceTree = "<group>"; };
 		D279911720DDE11E003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		D279919220DEC7C0003B451E /* McPicker_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = McPicker_iOS.framework; path = Carthage/Build/iOS/McPicker_iOS.framework; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D279919320DEC7C0003B451E /* McPicker_iOS.framework in Frameworks */,
 				D27990F220DDD473003B451E /* Valet.framework in Frameworks */,
 				D27990F320DDD473003B451E /* PINOperation.framework in Frameworks */,
 				D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */,
@@ -406,6 +409,7 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D279919220DEC7C0003B451E /* McPicker_iOS.framework */,
 				D2211B0520D0BA840043947B /* Valet.framework */,
 				D253344320C30A60008176B9 /* PINOperation.framework */,
 				D253344120C3078F008176B9 /* PINCache.framework */,
@@ -720,6 +724,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/McPicker_iOS.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -730,6 +735,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/McPicker_iOS.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
