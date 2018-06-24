@@ -26,7 +26,7 @@ class DetailsViewController: UIViewController {
     
     //MARK: - Properties
 
-    var item: OSRFObject!
+    var item: MBRecord?
     
     //MARK: - UIViewController
     

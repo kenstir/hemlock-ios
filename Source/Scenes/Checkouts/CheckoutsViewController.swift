@@ -28,6 +28,7 @@ class CheckoutsViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     var items: [CircRecord] = []
+    var selectedItem: CircRecord?
     
     //MARK: - UIViewController
     
@@ -148,6 +149,18 @@ extension CheckoutsViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination
+        if let detailsVC = vc as? DetailsViewController,
+            let mvrObj = selectedItem?.mvrObj {
+            let record = MBRecord(mvrObj: mvrObj)
+            detailsVC.item = record
+        } else {
+            print("Uh oh!")
+        }
+
+    }
 }
 
 extension CheckoutsViewController: UITableViewDelegate {
@@ -156,8 +169,12 @@ extension CheckoutsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
-        let title = item.title
-        print("xxx row \(indexPath) selected - \(title)")
+        selectedItem = item
+//        let title = item.title
+//        print("xxx row \(indexPath) selected - \(title)")
+
+//        let vc = DetailsViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
 
         self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
 /*
@@ -165,12 +182,15 @@ extension CheckoutsViewController: UITableViewDelegate {
         // the storyboard then finding the VC by its Storyboard ID
         let storyboard = UIStoryboard(name: "Details", bundle: nil)
         //let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
-        let vc = storyboard.instantiateInitialViewController()
-        if let detailsVC = vc as? DetailsViewController {
-            self.navigationController?.pushViewController(detailsVC, animated: true)
-        } else {
-            showAlert(title: "Internal Error", message: "Can't find Item Details View")
-        }
- */
+//        let vc = storyboard.instantiateInitialViewController()
+        let vctype = type(of:vc)
+        print(vctype)
+*/
+//        if let detailsVC = vc as? DetailsViewController {
+//            self.navigationController?.pushViewController(detailsVC, animated: true)
+//        } else {
+//            showAlert(title: "Internal Error", message: "Can't find Item Details View")
+//        }
+
     }
 }
