@@ -30,7 +30,6 @@
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
-		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
 		D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
@@ -97,7 +96,6 @@
 		D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
-		D27990FE20DDD473003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
 		D27990FF20DDD473003B451E /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21F683620D8042800D953C1 /* Details.storyboard */; };
 		D279910020DDD473003B451E /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D279910120DDD473003B451E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
@@ -109,8 +107,6 @@
 		D279911120DDD77F003B451E /* PINES.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* PINES.xcassets */; };
 		D279911820DDE11E003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppSettings.swift */; };
 		D279911A20DDE160003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppSettings.swift */; };
-		D279920920DEEA27003B451E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = D279920320DEEA27003B451E /* .gitkeep */; };
-		D279920A20DEEA27003B451E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = D279920320DEEA27003B451E /* .gitkeep */; };
 		D279920B20DEEA27003B451E /* McPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920420DEEA27003B451E /* McPicker.swift */; };
 		D279920C20DEEA27003B451E /* McPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920420DEEA27003B451E /* McPicker.swift */; };
 		D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */; };
@@ -119,8 +115,6 @@
 		D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */; };
 		D279921120DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
 		D279921220DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
-		D279921320DEEA27003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D279920820DEEA27003B451E /* LICENSE */; };
-		D279921420DEEA27003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D279920820DEEA27003B451E /* LICENSE */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
@@ -217,7 +211,6 @@
 		D279911720DDE11E003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279919220DEC7C0003B451E /* McPicker_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = McPicker_iOS.framework; path = Carthage/Build/iOS/McPicker_iOS.framework; sourceTree = "<group>"; };
-		D279920320DEEA27003B451E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		D279920420DEEA27003B451E /* McPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPicker.swift; sourceTree = "<group>"; };
 		D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerBarButtonItem.swift; sourceTree = "<group>"; };
 		D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerPopoverViewController.swift; sourceTree = "<group>"; };
@@ -468,7 +461,6 @@
 		D279920220DEEA27003B451E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D279920320DEEA27003B451E /* .gitkeep */,
 				D279920420DEEA27003B451E /* McPicker.swift */,
 				D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */,
 				D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */,
@@ -685,9 +677,6 @@
 			files = (
 				D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
-				D279921320DEEA27003B451E /* LICENSE in Resources */,
-				D27990FE20DDD473003B451E /* LICENSE in Resources */,
-				D279920920DEEA27003B451E /* .gitkeep in Resources */,
 				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
@@ -705,9 +694,6 @@
 			files = (
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
-				D279921420DEEA27003B451E /* LICENSE in Resources */,
-				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
-				D279920A20DEEA27003B451E /* .gitkeep in Resources */,
 				D21F683720D8042800D953C1 /* Details.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,

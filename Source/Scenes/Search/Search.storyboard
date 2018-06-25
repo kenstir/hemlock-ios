@@ -30,7 +30,7 @@
                                 </connections>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GTx-vt-OB6" userLabel="Scope Control">
-                                <rect key="frame" x="8" y="92" width="398" height="29"/>
+                                <rect key="frame" x="8" y="84" width="398" height="29"/>
                                 <segments>
                                     <segment title="Keyword"/>
                                     <segment title="Second"/>
@@ -39,73 +39,39 @@
                                     <segment title="Blah"/>
                                 </segments>
                             </segmentedControl>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lhw-oR-VXx" userLabel="Format Stack">
-                                <rect key="frame" x="8" y="136" width="398" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Format" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="120" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-3n-3CI">
-                                        <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tAC-aX-v1g">
-                                        <rect key="frame" x="54.666666666666657" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kre-6k-BwW" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
-                                        <rect key="frame" x="104.66666666666663" y="0.0" width="293.33333333333337" height="50"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9Z-ms-dD4" userLabel="Library Stack">
-                                <rect key="frame" x="8" y="202" width="398" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8T-iC-WgM" userLabel="Library Text">
-                                        <rect key="frame" x="0.0" y="0.0" width="53.333333333333336" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rMI-tq-H3h">
-                                        <rect key="frame" x="53.333333333333343" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1V-am-QSD">
-                                        <rect key="frame" x="103.33333333333334" y="0.0" width="294.66666666666663" height="50"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3Z-jM-cTT" userLabel="Format Picker">
-                                <rect key="frame" x="63" y="314" width="322" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All PINES Libraries" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pOq-kU-c4i" userLabel="Library Picker" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
+                                <rect key="frame" x="8" y="158" width="398" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="All Formats" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kre-6k-BwW" userLabel="Format Picker" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
+                                <rect key="frame" x="8" y="120" width="398" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GTx-vt-OB6" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" constant="-8" id="BTv-cV-53b"/>
-                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="l9Z-ms-dD4" secondAttribute="trailing" constant="8" id="FUD-2M-muA"/>
-                            <constraint firstItem="Lhw-oR-VXx" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="OLM-fb-Pmi"/>
-                            <constraint firstItem="l9Z-ms-dD4" firstAttribute="top" secondItem="Lhw-oR-VXx" secondAttribute="bottom" constant="16" id="Pbe-iO-T8j"/>
-                            <constraint firstItem="GTx-vt-OB6" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="Pca-yT-yGY"/>
-                            <constraint firstItem="GTx-vt-OB6" firstAttribute="top" secondItem="efL-Ge-GEs" secondAttribute="bottom" constant="16" id="So8-0I-NRC"/>
-                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="Lhw-oR-VXx" secondAttribute="trailing" constant="8" id="VKI-Ap-Lpb"/>
-                            <constraint firstItem="efL-Ge-GEs" firstAttribute="top" secondItem="Ljx-32-4Q7" secondAttribute="top" id="YzO-7x-hpA"/>
-                            <constraint firstItem="efL-Ge-GEs" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="ewr-nS-Wjt"/>
-                            <constraint firstItem="efL-Ge-GEs" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" id="icc-kP-RhZ"/>
-                            <constraint firstItem="Lhw-oR-VXx" firstAttribute="top" secondItem="GTx-vt-OB6" secondAttribute="bottom" constant="16" id="wUa-Xo-hhE"/>
-                            <constraint firstItem="l9Z-ms-dD4" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="zz5-6H-nla"/>
+                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="Kre-6k-BwW" secondAttribute="trailing" constant="8" id="2eO-JX-sHu"/>
+                            <constraint firstItem="efL-Ge-GEs" firstAttribute="top" secondItem="Ljx-32-4Q7" secondAttribute="top" id="50X-QU-eJ4"/>
+                            <constraint firstItem="pOq-kU-c4i" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="ARQ-eF-OK6"/>
+                            <constraint firstItem="efL-Ge-GEs" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" id="HpY-iF-0ZL"/>
+                            <constraint firstItem="GTx-vt-OB6" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="IVq-AL-BT0"/>
+                            <constraint firstItem="GTx-vt-OB6" firstAttribute="top" secondItem="efL-Ge-GEs" secondAttribute="bottom" constant="8" id="RRs-C3-6iq"/>
+                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="GTx-vt-OB6" secondAttribute="trailing" constant="8" id="ZlK-j9-Z4u"/>
+                            <constraint firstItem="Kre-6k-BwW" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="evU-Zo-pqH"/>
+                            <constraint firstItem="efL-Ge-GEs" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="lek-5H-u3c"/>
+                            <constraint firstItem="Kre-6k-BwW" firstAttribute="top" secondItem="GTx-vt-OB6" secondAttribute="bottom" constant="8" id="oEZ-Py-Lg3"/>
+                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="pOq-kU-c4i" secondAttribute="trailing" constant="8" id="tpm-Sh-dEc"/>
+                            <constraint firstItem="pOq-kU-c4i" firstAttribute="top" secondItem="Kre-6k-BwW" secondAttribute="bottom" constant="8" id="xJK-qt-qJC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ljx-32-4Q7"/>
                     </view>
                     <connections>
-                        <outlet property="formatPicker" destination="W3Z-jM-cTT" id="C1A-ot-R2A"/>
-                        <outlet property="formatTextField" destination="Kre-6k-BwW" id="sVD-79-Pdk"/>
+                        <outlet property="formatPicker" destination="Kre-6k-BwW" id="sVD-79-Pdk"/>
+                        <outlet property="locationPicker" destination="pOq-kU-c4i" id="NfZ-h1-R2h"/>
                         <outlet property="scopeControl" destination="GTx-vt-OB6" id="RuR-PJ-GrR"/>
                         <outlet property="searchBar" destination="efL-Ge-GEs" id="FT2-MP-jW2"/>
                     </connections>

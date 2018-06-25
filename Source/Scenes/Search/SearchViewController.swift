@@ -27,15 +27,12 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var scopeControl: UISegmentedControl!
+    @IBOutlet weak var formatPicker: McTextField!
+    @IBOutlet weak var locationPicker: McTextField!
 
-    @IBOutlet weak var formatTextField: McTextField!
-    
-    @IBOutlet weak var formatPicker: UIPickerView!
-    @IBOutlet weak var libraryButton: UIButton!
-    
-    var items = App.searchFormats
-    let scopes = ["Keyword","Title","Author","Subject","Series"]
+    let scopes = App.searchScopes
     let formats = App.searchFormats
+    let libraries = ["All PINES Libraries","Athens Regional Library System","Athens-Clarke County Library","Bogart Library"]
     
     //MARK: - UIViewController
     
@@ -50,109 +47,44 @@ class SearchViewController: UIViewController {
         // searchBar
         searchBar.tintColor = AppSettings.themeBackgroundColor
 
-        // scopeControl
+        setupScopeControl()
+        setupFormatPicker()
+        setupLocationPicker()
+    }
+    
+    func setupScopeControl() {
         scopeControl.removeAllSegments()
         scopeControl.tintColor = AppSettings.themeBackgroundColor
         for i in 0..<scopes.count {
             scopeControl.insertSegment(withTitle: scopes[i], at: i, animated: false)
         }
-        scopeControl.selectedSegmentIndex = 0
-
-        // picker
-        let data = [formats]
-        let mcInputView = McPicker(data: data)
+        scopeControl.selectedSegmentIndex = 0 //TODO: better initial value
+    }
+    
+    func setupFormatPicker() {
+        let mcInputView = McPicker(data: [formats])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
-        formatTextField.inputViewMcPicker = mcInputView
-        formatTextField.doneHandler = { [weak formatTextField] (selections) in
-            formatTextField?.text = selections[0]!
+        formatPicker.text = formats[0] //TODO: better initial value
+        formatPicker.inputViewMcPicker = mcInputView
+        formatPicker.doneHandler = { [weak formatPicker] (selections) in
+            formatPicker?.text = selections[0]!
         }
-        formatTextField.selectionChangedHandler = { [weak formatTextField] (selections, componentThatChanged) in
-            formatTextField?.text = selections[componentThatChanged]!
+    }
+        
+    func setupLocationPicker() {
+        let mcInputView = McPicker(data: [libraries])
+        mcInputView.backgroundColor = .gray
+        mcInputView.backgroundColorAlpha = 0.25
+        locationPicker.text = libraries[0] //TODO: better initial value
+        locationPicker.inputViewMcPicker = mcInputView
+        locationPicker.doneHandler = { [weak locationPicker] (selections) in
+            locationPicker?.text = selections[0]!
         }
-        formatTextField.cancelHandler = { [weak formatTextField] in
-            formatTextField?.text = "Cancelled."
-        }
-        formatTextField.textFieldWillBeginEditingHandler = { [weak formatTextField] (selections) in
-            if formatTextField?.text == "" {
-                // Selections always default to the first value per component
-                formatTextField?.text = selections[0]
-            }
-        }
-
-        // formatButton
-        //Theme.styleOutlineButton(button: formatButton, color: AppSettings.themeBackgroundDark2)
-        //formatButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-
-        // formatPicker
-        formatPicker.tintColor = AppSettings.themeBackgroundColor
-        formatPicker.dataSource = self
-        formatPicker.delegate = self
-        formatPicker.reloadAllComponents()
-
-        // libraryButton
-//        Theme.styleOutlineButton(button: libraryButton, color: AppSettings.themeBackgroundDark2)
-//        libraryButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
         print("xxx button pressed - \(sender)")
-        formatPicker.isHidden = false
-    }
-}
-
-extension SearchViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        print("xxx numberOfComponents")
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        print("xxx numberOfRowsInComponent")
-        return items.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        print("xxx titleForRow")
-        return items[row]
-    }
-    
-//    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-//        print("xxx rowHeight")
-//        return 37
-//    }
-
-    /*
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        print("xxx viewForRow")
-        if let tmpView = view as? UILabel {
-            print("  - label")
-            tmpView.text = items[row]
-            return tmpView
-        } else if let tmpView = view as? UITextField {
-            print("  - textfield")
-            return tmpView
-        } else if let tmpView = view as? UITextView {
-            print("  - textview")
-            return tmpView
-        } else if let tmpView = view {
-            print("  - unknown view")
-            return tmpView
-        }
-        let newView = UILabel()
-        newView.text = items[row]
-        return newView
-    }
-    */
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == formatPicker {
-            let str = formats[row]
-            print("xxx selected row \(str)")
-        } else {
-            print("xxx selected row \(row)")
-        }
-        pickerView.isHidden = true
     }
 }
 
