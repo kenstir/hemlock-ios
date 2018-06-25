@@ -48,6 +48,9 @@
 		D253344420C30A60008176B9 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
+		D260755620E0788300795124 /* SearchResults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D260755520E0788300795124 /* SearchResults.storyboard */; };
+		D260755820E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
+		D260755920E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -202,6 +205,8 @@
 		D253344320C30A60008176B9 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
 		D2562FB020CDD3080072F750 /* FinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesViewController.swift; sourceTree = "<group>"; };
 		D2562FB220CDE9CE0072F750 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		D260755520E0788300795124 /* SearchResults.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResults.storyboard; sourceTree = "<group>"; };
+		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -396,6 +401,7 @@
 				D29C72132092691A00E90952 /* OSRFClass.swift */,
 				D29C720F209248F500E90952 /* OSRFCoder.swift */,
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
+				D260755720E0860300795124 /* Organization.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -566,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				FACD142620CDC0DF008F02D3 /* Search.storyboard */,
+				D260755520E0788300795124 /* SearchResults.storyboard */,
 				D29E87FC20D831540003EB27 /* SearchViewController.swift */,
 				D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */,
 			);
@@ -679,6 +686,7 @@
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
+				D260755620E0788300795124 /* SearchResults.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
 				D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */,
 				D279910220DDD473003B451E /* Documentation in Resources */,
@@ -786,6 +794,7 @@
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
 				D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */,
 				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
+				D260755820E0860300795124 /* Organization.swift in Sources */,
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D279920F20DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
@@ -834,6 +843,7 @@
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
 				D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
+				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
 				D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,

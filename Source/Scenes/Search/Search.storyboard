@@ -74,11 +74,20 @@
                         <outlet property="locationPicker" destination="pOq-kU-c4i" id="NfZ-h1-R2h"/>
                         <outlet property="scopeControl" destination="GTx-vt-OB6" id="RuR-PJ-GrR"/>
                         <outlet property="searchBar" destination="efL-Ge-GEs" id="FT2-MP-jW2"/>
+                        <segue destination="5pA-QR-H94" kind="show" identifier="ShowResultsSegue" id="hvA-NM-Mbk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8U-68-kFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1133.3333333333335" y="-547.01086956521749"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="lHO-YU-iEW">
+            <objects>
+                <viewControllerPlaceholder id="5pA-QR-H94" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0H-Xv-Hn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797" y="-543"/>
         </scene>
     </scenes>
 </document>

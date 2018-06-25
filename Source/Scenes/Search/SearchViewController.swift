@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
 
     let scopes = App.searchScopes
     let formats = App.searchFormats
-    let libraries = ["All PINES Libraries","Athens Regional Library System","Athens-Clarke County Library","Bogart Library"]
+    let organizations = App.organizations
     
     //MARK: - UIViewController
     
@@ -73,10 +73,10 @@ class SearchViewController: UIViewController {
     }
         
     func setupLocationPicker() {
-        let mcInputView = McPicker(data: [libraries])
+        let mcInputView = McPicker(data: [organizations])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
-        locationPicker.text = libraries[0] //TODO: better initial value
+        locationPicker.text = organizations[0] //TODO: better initial value
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak locationPicker] (selections) in
             locationPicker?.text = selections[0]!
