@@ -31,7 +31,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var locationPicker: McTextField!
 
     let scopes = App.searchScopes
-    let formats = App.searchFormats
+    let formats = SearchFormat.getSpinnerLabels()
     let organizations = App.organizations
     
     //MARK: - UIViewController

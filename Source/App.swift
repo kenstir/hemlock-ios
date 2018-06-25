@@ -47,10 +47,6 @@ class App {
     /// search scopes
     static let searchScopes = ["Keyword","Title","Author","Subject","Series"]
 
-    /// search formats
-    //TODO: get from server
-    static let searchFormats = ["All Formats", "All Books", "All Music", "Blu-ray", "DVD"]
-
     //TODO: get from server
     static var organizations: [String] = [
 "All PINES Libraries",

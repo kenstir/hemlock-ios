@@ -51,6 +51,9 @@
 		D260755620E0788300795124 /* SearchResults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D260755520E0788300795124 /* SearchResults.storyboard */; };
 		D260755820E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
 		D260755920E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
+		D260755B20E144E000795124 /* SearchFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* SearchFormat.swift */; };
+		D260755C20E144E000795124 /* SearchFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* SearchFormat.swift */; };
+		D260755E20E165D200795124 /* FormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755D20E165D200795124 /* FormatTests.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -207,6 +210,8 @@
 		D2562FB220CDE9CE0072F750 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		D260755520E0788300795124 /* SearchResults.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResults.storyboard; sourceTree = "<group>"; };
 		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		D260755A20E144E000795124 /* SearchFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFormat.swift; sourceTree = "<group>"; };
+		D260755D20E165D200795124 /* FormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTests.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -402,6 +407,7 @@
 				D29C720F209248F500E90952 /* OSRFCoder.swift */,
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
 				D260755720E0860300795124 /* Organization.swift */,
+				D260755A20E144E000795124 /* SearchFormat.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */,
 				D29C721120924CF000E90952 /* OSRFCoderTests.swift */,
 				D29C72172094002100E90952 /* OSRFObjectTests.swift */,
+				D260755D20E165D200795124 /* FormatTests.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -826,6 +833,7 @@
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
 				D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
+				D260755B20E144E000795124 /* SearchFormat.swift in Sources */,
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
 				D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */,
 				D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */,
@@ -875,6 +883,7 @@
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
+				D260755C20E144E000795124 /* SearchFormat.swift in Sources */,
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,
 				D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */,
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,
@@ -900,6 +909,7 @@
 				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,
 				D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */,
+				D260755E20E165D200795124 /* FormatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
