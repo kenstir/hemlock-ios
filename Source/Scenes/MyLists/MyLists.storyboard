@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The engravings translate to 'This space intentionally left blank'." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-GS-nmN">
-                                <rect key="frame" x="0.0" y="159" width="768" height="163"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The engravings translate to 'This space intentionally left blank'." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-GS-nmN">
+                                <rect key="frame" x="0.0" y="52" width="768" height="940"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -29,6 +29,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Pp9-GS-nmN" secondAttribute="trailing" id="8SA-mj-vlr"/>
                             <constraint firstItem="Pp9-GS-nmN" firstAttribute="leading" secondItem="KDx-Ji-lZJ" secondAttribute="leading" id="EzX-w8-0FE"/>
+                            <constraint firstItem="KDx-Ji-lZJ" firstAttribute="bottom" secondItem="Pp9-GS-nmN" secondAttribute="bottom" constant="32" id="Qlr-ta-uDt"/>
+                            <constraint firstItem="Pp9-GS-nmN" firstAttribute="top" secondItem="KDx-Ji-lZJ" secondAttribute="top" constant="32" id="qbS-OF-Kpa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KDx-Ji-lZJ"/>
                     </view>

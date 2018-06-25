@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         App.library = Library(AppSettings.url)
-        App.loadIDL()
+        _ = App.loadIDL()
 
         return true
     }

@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dZm-CU-CvH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Results-->
         <scene sceneID="YyK-Nl-rVM">
             <objects>
-                <viewController id="dZm-CU-CvH" sceneMemberID="viewController">
+                <viewController title="Results" id="dZm-CU-CvH" customClass="ResultsViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mrp-uJ-Z2y">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="blah de blah blah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYh-2p-sC8">
-                                <rect key="frame" x="95" y="128" width="131" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blah de blah blah" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYh-2p-sC8">
+                                <rect key="frame" x="16" y="36" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U55-oA-KBp" firstAttribute="trailing" secondItem="jYh-2p-sC8" secondAttribute="trailing" constant="16" id="Lbl-DJ-Hjy"/>
+                            <constraint firstItem="jYh-2p-sC8" firstAttribute="top" secondItem="U55-oA-KBp" secondAttribute="top" constant="16" id="Lor-jx-eWt"/>
+                            <constraint firstItem="jYh-2p-sC8" firstAttribute="leading" secondItem="U55-oA-KBp" secondAttribute="leading" constant="16" id="iSH-T9-Da1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="U55-oA-KBp"/>
                     </view>
+                    <connections>
+                        <outlet property="searchParametersLabel" destination="jYh-2p-sC8" id="E0o-yC-bVi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsD-gI-UQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
