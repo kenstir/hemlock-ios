@@ -25,7 +25,8 @@ import PMKAlamofire
 class SearchResultsViewController: UIViewController {
     //MARK: - Properties
     
-    var items: [CircRecord] = []
+    var resultIDs: [Int] = []
+    var records: [String] = []
     
     //MARK: - UIViewController
     

@@ -21,6 +21,13 @@ import UIKit
 import PromiseKit
 import PMKAlamofire
 
+struct SearchParameters {
+    let text: String
+    let scope: String
+    let format: String?
+    let location: String?
+}
+
 class SearchViewController: UIViewController {
     
     //MARK: - Properties
@@ -44,17 +51,19 @@ class SearchViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
-        // searchBar
-        searchBar.tintColor = AppSettings.themeBackgroundColor
-
+        setupSearchBar()
         setupScopeControl()
         setupFormatPicker()
         setupLocationPicker()
     }
     
+    func setupSearchBar() {
+        searchBar.tintColor = AppSettings.themeBackgroundDark2
+    }
+    
     func setupScopeControl() {
         scopeControl.removeAllSegments()
-        scopeControl.tintColor = AppSettings.themeBackgroundColor
+        scopeControl.tintColor = AppSettings.themeBackgroundDark2
         for i in 0..<scopes.count {
             scopeControl.insertSegment(withTitle: scopes[i], at: i, animated: false)
         }
@@ -95,11 +104,13 @@ extension SearchViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, searchText.count > 0 else {
+            self.showAlert(title: "", message: "Search words cannot be empty")
+            return
+        }
+        let params = SearchParameters(text: searchText, scope: scopes[scopeControl.selectedSegmentIndex], format: formatPicker.text, location: locationPicker.text)
+        debugPrint(params)
         print("xxx searchBarSearchButtonClicked")
-    }
-    
-    func searchBar(_ searchBar: UISearchBar,
-                   selectedScopeButtonIndexDidChange selectedScope: Int) {
-        print("xxx scope: \(scopes[selectedScope])")
+        self.performSegue(withIdentifier: "ShowBogusSegue", sender: nil)
     }
 }

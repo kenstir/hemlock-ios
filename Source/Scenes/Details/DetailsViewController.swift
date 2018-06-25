@@ -42,8 +42,8 @@ class DetailsViewController: UIViewController {
     }
     
     func fetchData() {
-        guard let authtoken = App.account?.authtoken,
-            let userid = App.account?.userID else
+        guard let _ = App.account?.authtoken,
+            let _ = App.account?.userID else
         {
             showAlert(error: HemlockError.sessionExpired())
             return //TODO: add analytics

@@ -92,7 +92,7 @@ class HoldsViewController: UIViewController {
         }
         let req = Gateway.makeRequest(service: API.search, method: method, args: [target])
         let promise = req.gatewayObjectResponse().done { obj in
-            print("xxx \(hold.target) fetchTargetInfo done")
+            print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
             hold.mvrObj = obj
         }
         return promise
@@ -104,7 +104,7 @@ class HoldsViewController: UIViewController {
         }
         let req = Gateway.makeRequest(service: API.circ, method: API.holdQueueStats, args: [authtoken, id])
         let promise = req.gatewayObjectResponse().done { obj in
-            print("xxx \(hold.target) queueStats done")
+            print("xxx \(String(describing: hold.target)) queueStats done")
             hold.qstatsObj = obj
         }
         return promise
@@ -117,7 +117,7 @@ class HoldsViewController: UIViewController {
             print("-----------------------")
             print("title:     \(hold.title)")
             print("author:    \(hold.author)")
-            print("hold_type: \(hold.holdType)")
+            print("hold_type: \(String(describing: hold.holdType))")
             print("status:    \(hold.status)")
             print("position:  \(hold.queuePosition)")
             print("of:        \(hold.totalHolds)")

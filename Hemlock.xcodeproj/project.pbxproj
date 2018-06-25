@@ -48,7 +48,8 @@
 		D253344420C30A60008176B9 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
-		D260755620E0788300795124 /* SearchResults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D260755520E0788300795124 /* SearchResults.storyboard */; };
+		D256656320E1B4DD0001F40F /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D256656220E1B4DD0001F40F /* Results.storyboard */; };
+		D256656420E1B4DD0001F40F /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D256656220E1B4DD0001F40F /* Results.storyboard */; };
 		D260755820E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
 		D260755920E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
 		D260755B20E144E000795124 /* SearchFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* SearchFormat.swift */; };
@@ -208,7 +209,7 @@
 		D253344320C30A60008176B9 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
 		D2562FB020CDD3080072F750 /* FinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesViewController.swift; sourceTree = "<group>"; };
 		D2562FB220CDE9CE0072F750 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		D260755520E0788300795124 /* SearchResults.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResults.storyboard; sourceTree = "<group>"; };
+		D256656220E1B4DD0001F40F /* Results.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		D260755A20E144E000795124 /* SearchFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFormat.swift; sourceTree = "<group>"; };
 		D260755D20E165D200795124 /* FormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTests.swift; sourceTree = "<group>"; };
@@ -579,7 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				FACD142620CDC0DF008F02D3 /* Search.storyboard */,
-				D260755520E0788300795124 /* SearchResults.storyboard */,
+				D256656220E1B4DD0001F40F /* Results.storyboard */,
 				D29E87FC20D831540003EB27 /* SearchViewController.swift */,
 				D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */,
 			);
@@ -693,13 +694,13 @@
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
-				D260755620E0788300795124 /* SearchResults.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
 				D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */,
 				D279910220DDD473003B451E /* Documentation in Resources */,
 				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
 				D279910420DDD473003B451E /* MyLists.storyboard in Resources */,
 				D279910520DDD473003B451E /* Main.storyboard in Resources */,
+				D256656320E1B4DD0001F40F /* Results.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +718,7 @@
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
 				FACD142420CDBED6008F02D3 /* MyLists.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
+				D256656420E1B4DD0001F40F /* Results.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
