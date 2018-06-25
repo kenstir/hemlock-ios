@@ -28,6 +28,15 @@ class DetailsViewController: UIViewController {
 
     var item: MBRecord?
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var pubYearLabel: UILabel!
+    @IBOutlet weak var publisherLabel: UILabel!
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var isbnLabel: UILabel!
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -49,6 +58,17 @@ class DetailsViewController: UIViewController {
             return //TODO: add analytics
         }
         
+        titleLabel.text = item?.title
+        authorLabel.text = item?.author
+        pubYearLabel.text = (item?.mvrObj?.getString("pubdate") ?? "")! + " " + (item?.mvrObj?.getString("publisher") ?? "")!
+        let url = URL(string: "https://gapines.org/opac/extras/ac/jacket/medium/r/4461833")
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        itemImage.image = UIImage(data: data!)
+        debugPrint(item?.mvrObj?.dict)
+        synopsisLabel.text = item?.mvrObj?.getString("synopsis")
+        subjectLabel.text = item?.mvrObj?.getString("subject")
+        debugPrint(subjectLabel.text)
+        isbnLabel.text = "ISBN:  " + (item?.mvrObj?.getString("isbn") ?? "")
         /*
         // fetch the list of items
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])

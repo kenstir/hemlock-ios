@@ -121,4 +121,10 @@ class MiscTests: XCTestCase {
         debugPrint(str2)
         XCTAssertEqual(str2, "April 26, 2018")
     }
+    
+    func testJoin() {
+        let testArray = ["One","Two","Three","Four"]
+        let joinedString = testArray.joined(separator: "\n")
+        debugPrint(joinedString)
+    }
 }

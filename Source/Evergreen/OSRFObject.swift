@@ -45,6 +45,8 @@ struct OSRFObject: Equatable {
     func getString(_ key: String) -> String? {
         if let val = dict[key] as? String {
             return val
+        } else if let val = dict[key] as? [String: Int] {
+            return val.keys.joined(separator: "\n")
         }
         return nil
     }
