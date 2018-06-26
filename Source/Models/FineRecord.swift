@@ -49,10 +49,10 @@ class FineRecord {
         return transaction.getDouble("balance_owed")
     }
     var status: String {
-        guard let record = self.record else {
+        guard let _ = self.record else {
             return ""
         }
-        if let x = self.circ?.getDate("checkin_time") {
+        if let _ = self.circ?.getDate("checkin_time") {
             return "returned"
         }
         if let balance = self.balance,

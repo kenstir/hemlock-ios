@@ -30,7 +30,6 @@
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
-		D22D0275208516D700DC1F5B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
 		D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
@@ -49,6 +48,15 @@
 		D253344420C30A60008176B9 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
+		D256656320E1B4DD0001F40F /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D256656220E1B4DD0001F40F /* Results.storyboard */; };
+		D256656420E1B4DD0001F40F /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D256656220E1B4DD0001F40F /* Results.storyboard */; };
+		D256656620E1B56F0001F40F /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256656520E1B56F0001F40F /* ResultsViewController.swift */; };
+		D256656720E1B56F0001F40F /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D256656520E1B56F0001F40F /* ResultsViewController.swift */; };
+		D260755820E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
+		D260755920E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
+		D260755B20E144E000795124 /* SearchFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* SearchFormat.swift */; };
+		D260755C20E144E000795124 /* SearchFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* SearchFormat.swift */; };
+		D260755E20E165D200795124 /* FormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755D20E165D200795124 /* FormatTests.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -76,7 +84,6 @@
 		D27990E320DDD473003B451E /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D27990E520DDD473003B451E /* Error+description.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2216B7820CCA724005D06B1 /* Error+description.swift */; };
-		D27990E620DDD473003B451E /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */; };
 		D27990E720DDD473003B451E /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D27990E820DDD473003B451E /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
@@ -97,7 +104,6 @@
 		D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
-		D27990FE20DDD473003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D22D0274208516D600DC1F5B /* LICENSE */; };
 		D27990FF20DDD473003B451E /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21F683620D8042800D953C1 /* Details.storyboard */; };
 		D279910020DDD473003B451E /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D279910120DDD473003B451E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
@@ -109,8 +115,6 @@
 		D279911120DDD77F003B451E /* PINES.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* PINES.xcassets */; };
 		D279911820DDE11E003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppSettings.swift */; };
 		D279911A20DDE160003B451E /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppSettings.swift */; };
-		D279920920DEEA27003B451E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = D279920320DEEA27003B451E /* .gitkeep */; };
-		D279920A20DEEA27003B451E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = D279920320DEEA27003B451E /* .gitkeep */; };
 		D279920B20DEEA27003B451E /* McPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920420DEEA27003B451E /* McPicker.swift */; };
 		D279920C20DEEA27003B451E /* McPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920420DEEA27003B451E /* McPicker.swift */; };
 		D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */; };
@@ -119,8 +123,6 @@
 		D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */; };
 		D279921120DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
 		D279921220DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
-		D279921320DEEA27003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D279920820DEEA27003B451E /* LICENSE */; };
-		D279921420DEEA27003B451E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D279920820DEEA27003B451E /* LICENSE */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
@@ -136,7 +138,6 @@
 		D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
 		D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72172094002100E90952 /* OSRFObjectTests.swift */; };
 		D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
-		D29E87FF20D83A840003EB27 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
 		D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D2DF196820CEF68700085255 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -210,6 +211,11 @@
 		D253344320C30A60008176B9 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
 		D2562FB020CDD3080072F750 /* FinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesViewController.swift; sourceTree = "<group>"; };
 		D2562FB220CDE9CE0072F750 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		D256656220E1B4DD0001F40F /* Results.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
+		D256656520E1B56F0001F40F /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		D260755A20E144E000795124 /* SearchFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFormat.swift; sourceTree = "<group>"; };
+		D260755D20E165D200795124 /* FormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTests.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,7 +225,6 @@
 		D279911720DDE11E003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279919220DEC7C0003B451E /* McPicker_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = McPicker_iOS.framework; path = Carthage/Build/iOS/McPicker_iOS.framework; sourceTree = "<group>"; };
-		D279920320DEEA27003B451E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		D279920420DEEA27003B451E /* McPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPicker.swift; sourceTree = "<group>"; };
 		D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerBarButtonItem.swift; sourceTree = "<group>"; };
 		D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerPopoverViewController.swift; sourceTree = "<group>"; };
@@ -245,7 +250,6 @@
 		D29C72152093A2C000E90952 /* OSRFObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObject.swift; sourceTree = "<group>"; };
 		D29C72172094002100E90952 /* OSRFObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObjectTests.swift; sourceTree = "<group>"; };
 		D29E87FC20D831540003EB27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
 		D2DF196520CEEE1200085255 /* FineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineRecord.swift; sourceTree = "<group>"; };
 		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -407,6 +411,8 @@
 				D29C72132092691A00E90952 /* OSRFClass.swift */,
 				D29C720F209248F500E90952 /* OSRFCoder.swift */,
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
+				D260755720E0860300795124 /* Organization.swift */,
+				D260755A20E144E000795124 /* SearchFormat.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 				D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */,
 				D29C721120924CF000E90952 /* OSRFCoderTests.swift */,
 				D29C72172094002100E90952 /* OSRFObjectTests.swift */,
+				D260755D20E165D200795124 /* FormatTests.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -472,7 +479,6 @@
 		D279920220DEEA27003B451E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D279920320DEEA27003B451E /* .gitkeep */,
 				D279920420DEEA27003B451E /* McPicker.swift */,
 				D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */,
 				D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */,
@@ -578,8 +584,9 @@
 			isa = PBXGroup;
 			children = (
 				FACD142620CDC0DF008F02D3 /* Search.storyboard */,
+				D256656220E1B4DD0001F40F /* Results.storyboard */,
 				D29E87FC20D831540003EB27 /* SearchViewController.swift */,
-				D29E87FE20D83A840003EB27 /* SearchResultsViewController.swift */,
+				D256656520E1B56F0001F40F /* ResultsViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -689,9 +696,6 @@
 			files = (
 				D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
-				D279921320DEEA27003B451E /* LICENSE in Resources */,
-				D27990FE20DDD473003B451E /* LICENSE in Resources */,
-				D279920920DEEA27003B451E /* .gitkeep in Resources */,
 				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
@@ -700,6 +704,7 @@
 				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
 				D279910420DDD473003B451E /* MyLists.storyboard in Resources */,
 				D279910520DDD473003B451E /* Main.storyboard in Resources */,
+				D256656320E1B4DD0001F40F /* Results.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,9 +714,6 @@
 			files = (
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
-				D279921420DEEA27003B451E /* LICENSE in Resources */,
-				D22D0275208516D700DC1F5B /* LICENSE in Resources */,
-				D279920A20DEEA27003B451E /* .gitkeep in Resources */,
 				D21F683720D8042800D953C1 /* Details.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,
@@ -720,6 +722,7 @@
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
 				FACD142420CDBED6008F02D3 /* MyLists.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
+				D256656420E1B4DD0001F40F /* Results.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,10 +807,12 @@
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
 				D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */,
 				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
+				D260755820E0860300795124 /* Organization.swift in Sources */,
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D279920F20DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
 				D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
+				D256656620E1B56F0001F40F /* ResultsViewController.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				D27990D520DDD473003B451E /* DetailsViewController.swift in Sources */,
@@ -831,11 +836,11 @@
 				D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E520DDD473003B451E /* Error+description.swift in Sources */,
-				D27990E620DDD473003B451E /* SearchResultsViewController.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
 				D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
+				D260755B20E144E000795124 /* SearchFormat.swift in Sources */,
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
 				D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */,
 				D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */,
@@ -853,10 +858,12 @@
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
 				D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
+				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
 				D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
 				D279920E20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
+				D256656720E1B56F0001F40F /* ResultsViewController.swift in Sources */,
 				D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */,
@@ -880,11 +887,11 @@
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
 				D2216B7920CCA724005D06B1 /* Error+description.swift in Sources */,
-				D29E87FF20D83A840003EB27 /* SearchResultsViewController.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
+				D260755C20E144E000795124 /* SearchFormat.swift in Sources */,
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,
 				D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */,
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,
@@ -910,6 +917,7 @@
 				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,
 				D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */,
+				D260755E20E165D200795124 /* FormatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

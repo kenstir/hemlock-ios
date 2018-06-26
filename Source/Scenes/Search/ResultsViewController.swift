@@ -1,5 +1,5 @@
 //
-//  SearchResultsViewController.swift
+//  ResultsViewController.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -22,10 +22,14 @@ import UIKit
 import PromiseKit
 import PMKAlamofire
 
-class SearchResultsViewController: UIViewController {
+class ResultsViewController: UIViewController {
+
     //MARK: - Properties
+
+    @IBOutlet weak var searchParametersLabel: UILabel!
     
-    var items: [CircRecord] = []
+    var resultIDs: [Int] = []
+    var records: [String] = []
     
     //MARK: - UIViewController
     
@@ -37,5 +41,10 @@ class SearchResultsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        searchParametersLabel.text = """
+The engravings translate to
+'This space intentionally left blank'.
+"""
     }
 }
+
