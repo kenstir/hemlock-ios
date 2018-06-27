@@ -48,6 +48,20 @@ class DetailsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        titleLabel.text = item?.title
+        authorLabel.text = item?.author
+        let pubdate = item?.mvrObj?.getString("pubdate") ?? ""
+        let publisher = item?.mvrObj?.getString("publisher") ?? ""
+        pubYearLabel.text = pubdate + " " + publisher
+        if let doc_id = item?.mvrObj?.getInt("doc_id"),
+            let url = URL(string: AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(doc_id)),
+            let data = try? Data(contentsOf: url)
+        {
+            itemImage.image = UIImage(data: data)
+        }
+        synopsisLabel.text = item?.mvrObj?.getString("synopsis")
+        subjectLabel.text = item?.mvrObj?.getString("subject")
+        isbnLabel.text = "ISBN:  " + (item?.mvrObj?.getString("isbn") ?? "")
     }
     
     func fetchData() {
@@ -57,27 +71,7 @@ class DetailsViewController: UIViewController {
             showAlert(error: HemlockError.sessionExpired())
             return //TODO: add analytics
         }
-        
-        titleLabel.text = item?.title
-        authorLabel.text = item?.author
-        pubYearLabel.text = (item?.mvrObj?.getString("pubdate") ?? "")! + " " + (item?.mvrObj?.getString("publisher") ?? "")!
-        let url = URL(string: "https://gapines.org/opac/extras/ac/jacket/medium/r/4461833")
-        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        itemImage.image = UIImage(data: data!)
-        debugPrint(item?.mvrObj?.dict)
-        synopsisLabel.text = item?.mvrObj?.getString("synopsis")
-        subjectLabel.text = item?.mvrObj?.getString("subject")
-        debugPrint(subjectLabel.text)
-        isbnLabel.text = "ISBN:  " + (item?.mvrObj?.getString("isbn") ?? "")
-        /*
-        // fetch the list of items
-        let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
-        req.gatewayObjectResponse().done { obj in
-            try self.fetchCircRecords(fromObject: obj)
-            }.catch { error in
-                self.showAlert(error: error)
-        }
- */
+        //TODO: fetch copy info
     }
 }
 
