@@ -28,6 +28,7 @@ class ResultsViewController: UIViewController {
 
     @IBOutlet weak var searchParametersLabel: UILabel!
     
+    var searchParameters: SearchParameters?
     var resultIDs: [Int] = []
     var records: [String] = []
     
@@ -41,10 +42,20 @@ class ResultsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
-        searchParametersLabel.text = """
+        var label: String
+        if let sp = searchParameters {
+            label = "You searched for:\n"
+            label += "\n"
+            label += "\(sp.scope):\(sp.text)\n"
+            label += "search_format(\(sp.format!))\n"
+            label += "site(\(sp.location!))\n"
+        } else {
+            label = """
 The engravings translate to
 'This space intentionally left blank'.
 """
+        }
+        searchParametersLabel.text = label
     }
 }
 

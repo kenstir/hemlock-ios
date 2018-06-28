@@ -91,9 +91,18 @@ class SearchViewController: UIViewController {
             locationPicker?.text = selections[0]!
         }
     }
-    
-    @IBAction func buttonPressed(sender: UIButton) {
-        print("xxx button pressed - \(sender)")
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination
+        if let resultsVC = vc as? ResultsViewController,
+            let searchText = searchBar.text
+        {
+            let params = SearchParameters(text: searchText, scope: scopes[scopeControl.selectedSegmentIndex], format: formatPicker.text, location: locationPicker.text)
+            resultsVC.searchParameters = params
+        } else {
+            print("Uh oh!")
+        }
+        
     }
 }
 
@@ -108,8 +117,6 @@ extension SearchViewController: UISearchBarDelegate {
             self.showAlert(title: "", message: "Search words cannot be empty")
             return
         }
-        let params = SearchParameters(text: searchText, scope: scopes[scopeControl.selectedSegmentIndex], format: formatPicker.text, location: locationPicker.text)
-        debugPrint(params)
         print("xxx searchBarSearchButtonClicked")
         self.performSegue(withIdentifier: "ShowBogusSegue", sender: nil)
     }

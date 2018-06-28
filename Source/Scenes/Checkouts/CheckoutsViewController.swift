@@ -153,7 +153,8 @@ extension CheckoutsViewController: UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
         if let detailsVC = vc as? DetailsViewController,
-            let mvrObj = selectedItem?.mvrObj {
+            let mvrObj = selectedItem?.mvrObj
+        {
             let record = MBRecord(mvrObj: mvrObj)
             detailsVC.item = record
         } else {
