@@ -45,6 +45,20 @@ class CheckoutsViewController: UIViewController {
         tableView.delegate = self
     }
     
+    func debugPrintHeaderView() {
+        print("-------------------")
+        let v = tableView.headerView(forSection: 0)
+        debugPrint(v)
+        let v_bg = v?.backgroundColor
+        debugPrint(v_bg)
+        let v_t = v?.textLabel
+        debugPrint(v_t)
+        let v_t_bg = v_t?.backgroundColor
+        debugPrint(v_t_bg)
+        let v_t_fg = v_t?.textColor
+        debugPrint(v_t_fg)
+    }
+    
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
@@ -145,7 +159,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
         cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        Theme.styleButton(button: cell.renewButton, color: AppSettings.themeBackgroundDark4)
+        Theme.styleButton(button: cell.renewButton, color: Style.backgroundDark4)
         
         return cell
     }
@@ -169,29 +183,10 @@ extension CheckoutsViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        debugPrintHeaderView()
+
         let item = items[indexPath.row]
         selectedItem = item
-//        let title = item.title
-//        print("xxx row \(indexPath) selected - \(title)")
-
-//        let vc = DetailsViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
-
         self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
-/*
-        // Manually instantiate the storyboard-based VC by first loading
-        // the storyboard then finding the VC by its Storyboard ID
-        let storyboard = UIStoryboard(name: "Details", bundle: nil)
-        //let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
-//        let vc = storyboard.instantiateInitialViewController()
-        let vctype = type(of:vc)
-        print(vctype)
-*/
-//        if let detailsVC = vc as? DetailsViewController {
-//            self.navigationController?.pushViewController(detailsVC, animated: true)
-//        } else {
-//            showAlert(title: "Internal Error", message: "Can't find Item Details View")
-//        }
-
     }
 }

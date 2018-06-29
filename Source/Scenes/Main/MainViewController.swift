@@ -77,7 +77,7 @@ class MainViewController: UITableViewController {
         
         let image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
 
-        cell.tintColor = AppSettings.themeBackgroundColor
+        cell.tintColor = Style.backgroundColor
         cell.cellImage.image = image
         cell.cellLabel.text = label
         cell.title = label

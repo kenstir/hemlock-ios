@@ -28,16 +28,4 @@ struct AppSettings {
     static let url = "https://gapines.org"
 //    static let url = "https://kenstir.ddns.net"
 
-    //MARK: - Theme Properties
-
-    static let themeForegroundColor = UIColor.white
-    static let themeBackgroundColor = UIColor(red: 0x37/0xff, green: 0x96/0xff, blue: 0x76/0xff, alpha: 1.0)
-    static let themeBackgroundDark1 = UIColor(red: 0x32/0xff, green: 0x89/0xff, blue: 0x6c/0xff, alpha: 1.0)
-    static let themeBackgroundDark2 = UIColor(red: 0x2e/0xff, green: 0x7b/0xff, blue: 0x61/0xff, alpha: 1.0)
-    static let themeBackgroundDark3 = UIColor(red: 0x29/0xff, green: 0x6e/0xff, blue: 0x56/0xff, alpha: 1.0)
-    static let themeBackgroundDark4 = UIColor(red: 0x23/0xff, green: 0x60/0xff, blue: 0x4c/0xff, alpha: 1.0)
-    static let themeBackgroundDark5 = UIColor(red: 0x1e/0xff, green: 0x52/0xff, blue: 0x41/0xff, alpha: 1.0)
-    static let themeBackgroundDark6 = UIColor(red: 0x19/0xff, green: 0x45/0xff, blue: 0x36/0xff, alpha: 1.0)
-    static let themeBackgroundDark7 = UIColor(red: 0x14/0xff, green: 0x37/0xff, blue: 0x2b/0xff, alpha: 1.0)
-    static let themeBackgroundDark8 = UIColor(red: 0x0f/0xff, green: 0x29/0xff, blue: 0x21/0xff, alpha: 1.0)
 }

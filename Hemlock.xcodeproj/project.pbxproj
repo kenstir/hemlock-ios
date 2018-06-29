@@ -39,6 +39,8 @@
 		D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52D2083C1E500478D25 /* LibraryTests.swift */; };
 		D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */; };
 		D2385E2E20914E6C00FE0C89 /* TestData in Resources */ = {isa = PBXBuildFile; fileRef = D2385E2D20914E6B00FE0C89 /* TestData */; };
+		D23C304E20E5C6C800666A2B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23C304D20E5C6C800666A2B /* Style.swift */; };
+		D23C305020E5C6EA00666A2B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23C304F20E5C6EA00666A2B /* Style.swift */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
@@ -124,6 +126,8 @@
 		D279921120DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
 		D279921220DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
+		D28290F520E5CF48008EBE4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+.swift */; };
+		D28290F620E5CFAE008EBE4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+.swift */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
@@ -202,6 +206,8 @@
 		D231B52D2083C1E500478D25 /* LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTests.swift; sourceTree = "<group>"; };
 		D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParserTests.swift; sourceTree = "<group>"; };
 		D2385E2D20914E6B00FE0C89 /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = SOURCE_ROOT; };
+		D23C304D20E5C6C800666A2B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		D23C304F20E5C6EA00666A2B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -232,6 +238,7 @@
 		D279920820DEEA27003B451E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
+		D28290F420E5CF48008EBE4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -384,6 +391,7 @@
 				D2216B7820CCA724005D06B1 /* Error+description.swift */,
 				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
+				D28290F420E5CF48008EBE4B /* UIView+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -455,6 +463,7 @@
 				D279911720DDE11E003B451E /* AppSettings.swift */,
 				D279910E20DDD760003B451E /* Hemlock.xcassets */,
 				D279910B20DDD473003B451E /* Info.plist */,
+				D23C304F20E5C6EA00666A2B /* Style.swift */,
 			);
 			path = hemlock_app;
 			sourceTree = "<group>";
@@ -549,6 +558,7 @@
 				D279911920DDE160003B451E /* AppSettings.swift */,
 				D279911020DDD77F003B451E /* PINES.xcassets */,
 				D287D507207AEF2C001AF644 /* Info.plist */,
+				D23C304D20E5C6C800666A2B /* Style.swift */,
 			);
 			path = pines_app;
 			sourceTree = "<group>";
@@ -825,11 +835,13 @@
 				D27990DA20DDD473003B451E /* HemlockError.swift in Sources */,
 				D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
+				D28290F520E5CF48008EBE4B /* UIView+.swift in Sources */,
 				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
 				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
 				D27990DF20DDD473003B451E /* Theme.swift in Sources */,
 				D279911820DDE11E003B451E /* AppSettings.swift in Sources */,
 				D27990E020DDD473003B451E /* Analytics.swift in Sources */,
+				D23C305020E5C6EA00666A2B /* Style.swift in Sources */,
 				D27990E120DDD473003B451E /* MD5.swift in Sources */,
 				D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */,
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
@@ -876,11 +888,13 @@
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
 				D279911A20DDE160003B451E /* AppSettings.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
+				D28290F620E5CFAE008EBE4B /* UIView+.swift in Sources */,
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D2DF196820CEF68700085255 /* Analytics.swift in Sources */,
+				D23C304E20E5C6C800666A2B /* Style.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
 				FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,

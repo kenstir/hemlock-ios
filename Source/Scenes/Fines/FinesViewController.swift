@@ -23,7 +23,9 @@ import PromiseKit
 import PMKAlamofire
 
 class FinesViewController: UIViewController {
+
     //MARK: - Properties
+
     @IBOutlet weak var finesTable: UITableView!
     @IBOutlet weak var finesSummary: UIStackView!
     @IBOutlet weak var totalOwedLabel: UILabel!
@@ -32,7 +34,9 @@ class FinesViewController: UIViewController {
     @IBOutlet weak var totalOwedVal: UILabel!
     @IBOutlet weak var totalPaidVal: UILabel!
     @IBOutlet weak var balanceOwedVal: UILabel!
+
     var fines: [FineRecord] = []
+    var bgView: UIView?
     
     //MARK: - UIViewController
 
@@ -47,6 +51,22 @@ class FinesViewController: UIViewController {
     func setupViews() {
         finesTable.delegate = self
         finesTable.dataSource = self
+        
+        // set the background of the summary stack to grey
+        bgView = UIView()
+        if let v = bgView {
+            v.backgroundColor = Style.tableHeaderBackground
+            v.translatesAutoresizingMaskIntoConstraints = false
+            finesSummary.insertSubview(v, at: 0)
+            v.pin(to: finesSummary)
+        }
+        
+        totalOwedLabel.textColor = UIColor.darkGray
+        totalOwedVal.textColor = UIColor.darkGray
+        totalPaidLabel.textColor = UIColor.darkGray
+        totalPaidVal.textColor = UIColor.darkGray
+        balanceOwedLabel.textColor = UIColor.darkGray
+        balanceOwedVal.textColor = UIColor.darkGray
     }
 
     func fetchData() {
