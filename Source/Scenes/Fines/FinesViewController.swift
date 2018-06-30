@@ -35,8 +35,9 @@ class FinesViewController: UIViewController {
     @IBOutlet weak var totalPaidVal: UILabel!
     @IBOutlet weak var balanceOwedVal: UILabel!
 
+    weak var activityIndicator: UIActivityIndicatorView!
+
     var fines: [FineRecord] = []
-//    var bgView: UIView?
     
     //MARK: - UIViewController
 
@@ -52,6 +53,9 @@ class FinesViewController: UIViewController {
         finesTable.delegate = self
         finesTable.dataSource = self
         finesTable.tableFooterView = UIView() // prevent display of ghost rows at end of table
+
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
         
         Style.styleStackView(asTableHeader: finesSummary)
         Style.styleLabel(asTableHeader: totalOwedLabel)
@@ -69,19 +73,29 @@ class FinesViewController: UIViewController {
             showAlert(title: "No account", message: "Not logged in")
             return //TODO: add analytics
         }
-        
+
+        activityIndicator.startAnimating()
+
         // fetch the summary
         let req = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid])
-        req.gatewayOptionalObjectResponse().done { obj in
+        let promise1 = req.gatewayOptionalObjectResponse().done { obj in
             self.loadFinesSummary(fromObj: obj)
-        }.catch { error in
+        }/*.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)
-        }
+        }*/
         
         // fetch the transactions
         let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid])
-        req2.gatewayArrayResponse().done { objects in
+        let promise2 = req2.gatewayArrayResponse().done { objects in
             self.loadTransactions(fines: FineRecord.makeArray(objects))
+        }/*.catch { error in
+            self.showAlert(title: "Request failed", message: error.localizedDescription)
+        }*/
+        
+        firstly {
+            when(fulfilled: [promise1, promise2])
+        }.done {
+            self.activityIndicator.stopAnimating()
         }.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)
         }
