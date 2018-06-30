@@ -36,7 +36,7 @@ class FinesViewController: UIViewController {
     @IBOutlet weak var balanceOwedVal: UILabel!
 
     var fines: [FineRecord] = []
-    var bgView: UIView?
+//    var bgView: UIView?
     
     //MARK: - UIViewController
 
@@ -52,6 +52,8 @@ class FinesViewController: UIViewController {
         finesTable.delegate = self
         finesTable.dataSource = self
         
+        Style.styleStackView(asTableHeader: finesSummary)
+        /*
         // set the background of the summary stack to grey
         bgView = UIView()
         if let v = bgView {
@@ -60,6 +62,7 @@ class FinesViewController: UIViewController {
             finesSummary.insertSubview(v, at: 0)
             v.pin(to: finesSummary)
         }
+        */
         
         totalOwedLabel.textColor = UIColor.darkGray
         totalOwedVal.textColor = UIColor.darkGray

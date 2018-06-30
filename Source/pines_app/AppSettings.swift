@@ -28,4 +28,7 @@ struct AppSettings {
     static let url = "https://gapines.org"
 //    static let url = "https://kenstir.ddns.net"
 
+    static func makeTheme() -> Theme {
+        return PinesTheme()
+    }
 }

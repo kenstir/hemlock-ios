@@ -39,8 +39,8 @@
 		D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52D2083C1E500478D25 /* LibraryTests.swift */; };
 		D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */; };
 		D2385E2E20914E6C00FE0C89 /* TestData in Resources */ = {isa = PBXBuildFile; fileRef = D2385E2D20914E6B00FE0C89 /* TestData */; };
-		D23C304E20E5C6C800666A2B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23C304D20E5C6C800666A2B /* Style.swift */; };
-		D23C305020E5C6EA00666A2B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23C304F20E5C6EA00666A2B /* Style.swift */; };
+		D23C304E20E5C6C800666A2B /* PinesTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23C304D20E5C6C800666A2B /* PinesTheme.swift */; };
+		D23C305020E5C6EA00666A2B /* HemlockTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
@@ -128,6 +128,8 @@
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D28290F520E5CF48008EBE4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+.swift */; };
 		D28290F620E5CFAE008EBE4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+.swift */; };
+		D28290F820E6F770008EBE4B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
+		D28290F920E6F7DF008EBE4B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
@@ -206,8 +208,8 @@
 		D231B52D2083C1E500478D25 /* LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTests.swift; sourceTree = "<group>"; };
 		D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParserTests.swift; sourceTree = "<group>"; };
 		D2385E2D20914E6B00FE0C89 /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = SOURCE_ROOT; };
-		D23C304D20E5C6C800666A2B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		D23C304F20E5C6EA00666A2B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		D23C304D20E5C6C800666A2B /* PinesTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesTheme.swift; sourceTree = "<group>"; };
+		D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockTheme.swift; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D28290F420E5CF48008EBE4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		D28290F720E6F770008EBE4B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -385,13 +388,14 @@
 		D22D026E2084F52300DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D22D026F2084F53E00DC1F5B /* MD5.swift */,
-				D253343B20C23305008176B9 /* Theme.swift */,
-				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
-				D2216B7820CCA724005D06B1 /* Error+description.swift */,
-				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
+				D2216B7820CCA724005D06B1 /* Error+description.swift */,
+				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
+				D22D026F2084F53E00DC1F5B /* MD5.swift */,
+				D28290F720E6F770008EBE4B /* Style.swift */,
+				D253343B20C23305008176B9 /* Theme.swift */,
 				D28290F420E5CF48008EBE4B /* UIView+.swift */,
+				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -463,7 +467,7 @@
 				D279911720DDE11E003B451E /* AppSettings.swift */,
 				D279910E20DDD760003B451E /* Hemlock.xcassets */,
 				D279910B20DDD473003B451E /* Info.plist */,
-				D23C304F20E5C6EA00666A2B /* Style.swift */,
+				D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */,
 			);
 			path = hemlock_app;
 			sourceTree = "<group>";
@@ -558,7 +562,7 @@
 				D279911920DDE160003B451E /* AppSettings.swift */,
 				D279911020DDD77F003B451E /* PINES.xcassets */,
 				D287D507207AEF2C001AF644 /* Info.plist */,
-				D23C304D20E5C6C800666A2B /* Style.swift */,
+				D23C304D20E5C6C800666A2B /* PinesTheme.swift */,
 			);
 			path = pines_app;
 			sourceTree = "<group>";
@@ -841,7 +845,7 @@
 				D27990DF20DDD473003B451E /* Theme.swift in Sources */,
 				D279911820DDE11E003B451E /* AppSettings.swift in Sources */,
 				D27990E020DDD473003B451E /* Analytics.swift in Sources */,
-				D23C305020E5C6EA00666A2B /* Style.swift in Sources */,
+				D23C305020E5C6EA00666A2B /* HemlockTheme.swift in Sources */,
 				D27990E120DDD473003B451E /* MD5.swift in Sources */,
 				D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */,
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
@@ -856,6 +860,7 @@
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
 				D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */,
 				D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */,
+				D28290F820E6F770008EBE4B /* Style.swift in Sources */,
 				D27990EE20DDD473003B451E /* MainViewController.swift in Sources */,
 				D27990EF20DDD473003B451E /* Account.swift in Sources */,
 				D27990F020DDD473003B451E /* LoginController.swift in Sources */,
@@ -894,7 +899,7 @@
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D2DF196820CEF68700085255 /* Analytics.swift in Sources */,
-				D23C304E20E5C6C800666A2B /* Style.swift in Sources */,
+				D23C304E20E5C6C800666A2B /* PinesTheme.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
 				FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
@@ -909,6 +914,7 @@
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,
 				D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */,
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,
+				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 				D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */,

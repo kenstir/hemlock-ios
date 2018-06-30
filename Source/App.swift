@@ -33,6 +33,8 @@ class App {
     }
     var state: State = .start
     */
+    
+    static var theme: Theme!
 
     static var library: Library?
     static var idlParserStatus: Bool?

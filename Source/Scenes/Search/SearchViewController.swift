@@ -58,12 +58,12 @@ class SearchViewController: UIViewController {
     }
     
     func setupSearchBar() {
-        searchBar.tintColor = Style.backgroundDark2
+        Style.styleSearchBar(searchBar)
     }
     
     func setupScopeControl() {
         scopeControl.removeAllSegments()
-        scopeControl.tintColor = Style.backgroundDark2
+        Style.styleSegmentedControl(scopeControl)
         for i in 0..<scopes.count {
             scopeControl.insertSegment(withTitle: scopes[i], at: i, animated: false)
         }

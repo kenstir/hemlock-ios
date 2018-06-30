@@ -159,8 +159,8 @@ extension CheckoutsViewController: UITableViewDataSource {
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
         cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        Theme.styleButton(button: cell.renewButton, color: Style.backgroundDark4)
-        
+        Style.styleButton(asPlain: cell.renewButton)
+
         return cell
     }
     

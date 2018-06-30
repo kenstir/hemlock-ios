@@ -32,6 +32,7 @@ struct MainViewButtonData {
 class MainViewController: UITableViewController {
     
     //MARK: - fields
+
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet var table: UITableView!
     
@@ -46,7 +47,11 @@ class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupViews()
+    }
+    
+    func setupViews() {
+        navigationItem.title = AppSettings.appTitle
         logoutButton.target = self
         logoutButton.action = #selector(logoutPressed(sender:))
     }
@@ -77,7 +82,7 @@ class MainViewController: UITableViewController {
         
         let image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
 
-        cell.tintColor = Style.backgroundColor
+        cell.tintColor = App.theme.backgroundColor
         cell.cellImage.image = image
         cell.cellLabel.text = label
         cell.title = label

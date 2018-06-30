@@ -1,5 +1,5 @@
 //
-//  Theme.swift
+//  Style.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -19,22 +19,19 @@
 
 import UIKit
 
-class Theme {
-    static func styleInverseButton(button: UIButton, color: UIColor) {
-        button.backgroundColor = color
-        button.tintColor = .white
-        button.layer.cornerRadius = 8
-    }
+protocol Theme {
+    var foregroundColor: UIColor { get }
+    var backgroundColor: UIColor { get }
+    var backgroundDark1: UIColor { get }
+    var backgroundDark2: UIColor { get }
+    var backgroundDark3: UIColor { get }
+    var backgroundDark4: UIColor { get }
+    var backgroundDark5: UIColor { get }
+    var backgroundDark6: UIColor { get }
+    var backgroundDark7: UIColor { get }
+    var backgroundDark8: UIColor { get }
     
-    static func styleOutlineButton(button: UIButton, color: UIColor) {
-        button.tintColor = color
-        button.layer.borderColor = color.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 8
-    }
-    
-    static func styleButton(button: UIButton, color: UIColor) {
-        button.tintColor = color
-        button.layer.cornerRadius = 8
-    }
+    var tableHeaderForeground: UIColor { get }
+    var tableHeaderBackground: UIColor { get }
 }
+
