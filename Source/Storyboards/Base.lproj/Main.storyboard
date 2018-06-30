@@ -121,19 +121,13 @@
                                 <rect key="frame" x="-18" y="469" width="38" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pgE-qg-OwC">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <rect key="contentStretch" x="0.40000000000000002" y="0.40000000000000002" width="1" height="1"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2fV-yF-Bl6" firstAttribute="top" secondItem="2Ky-33-NgZ" secondAttribute="bottom" constant="14" id="2A7-Zo-ct5"/>
-                            <constraint firstItem="pgE-qg-OwC" firstAttribute="centerX" secondItem="qLI-KE-Wte" secondAttribute="centerX" id="7bh-gH-gps"/>
                             <constraint firstItem="2fV-yF-Bl6" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="28" id="CLY-9a-TV7"/>
                             <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="UqT-VS-ogx" secondAttribute="bottom" constant="66" id="GGL-G8-qyb"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="UqT-VS-ogx" secondAttribute="trailing" constant="28" id="GLd-oV-gVz"/>
-                            <constraint firstItem="pgE-qg-OwC" firstAttribute="centerY" secondItem="qLI-KE-Wte" secondAttribute="centerY" id="K9H-4Q-lZt"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="2fV-yF-Bl6" secondAttribute="trailing" constant="28" id="MIs-Ke-hBH"/>
                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="16" id="hdg-lL-6Zn"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="2Ky-33-NgZ" secondAttribute="trailing" constant="28" id="oAP-Y1-U1s"/>
@@ -151,7 +145,6 @@
                     <navigationItem key="navigationItem" id="M88-BU-ROK"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="pgE-qg-OwC" id="ciJ-el-cHd"/>
                         <outlet property="forgotPasswordButton" destination="L0t-oX-Cjw" id="N8N-28-8Ee"/>
                         <outlet property="loginButton" destination="ofn-Nj-gGI" id="Uqg-lY-AtJ"/>
                         <outlet property="passwordField" destination="2fV-yF-Bl6" id="z1k-CK-gCv"/>

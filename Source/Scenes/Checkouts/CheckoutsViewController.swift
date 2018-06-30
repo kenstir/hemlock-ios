@@ -27,6 +27,8 @@ class CheckoutsViewController: UIViewController {
     //MARK: - Properties
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     var items: [CircRecord] = []
     var selectedItem: CircRecord?
     
@@ -43,20 +45,9 @@ class CheckoutsViewController: UIViewController {
     func setupViews() {
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-    func debugPrintHeaderView() {
-        print("-------------------")
-        let v = tableView.headerView(forSection: 0)
-        debugPrint(v)
-        let v_bg = v?.backgroundColor
-        debugPrint(v_bg)
-        let v_t = v?.textLabel
-        debugPrint(v_t)
-        let v_t_bg = v_t?.backgroundColor
-        debugPrint(v_t_bg)
-        let v_t_fg = v_t?.textColor
-        debugPrint(v_t_fg)
+        
+        // style the activity indicator
+        Style.styleActivityIndicator(activityIndicator)
     }
     
     func fetchData() {
@@ -67,11 +58,14 @@ class CheckoutsViewController: UIViewController {
             return //TODO: add analytics
         }
         
+        activityIndicator.startAnimating()
+        
         // fetch the list of items
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
         req.gatewayObjectResponse().done { obj in
             try self.fetchCircRecords(fromObject: obj)
         }.catch { error in
+            self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
@@ -92,6 +86,7 @@ class CheckoutsViewController: UIViewController {
             when(fulfilled: promises)
         }.done {
             print("xxx \(promises.count) promises fulfilled")
+            self.activityIndicator.stopAnimating()
             self.updateItems(withRecords: records)
         }.catch { error in
             self.showAlert(error: error)
@@ -183,8 +178,6 @@ extension CheckoutsViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        debugPrintHeaderView()
-
         let item = items[indexPath.row]
         selectedItem = item
         self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)

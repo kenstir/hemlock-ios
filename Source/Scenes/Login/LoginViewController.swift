@@ -26,7 +26,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         Style.styleButton(asInverse: loginButton)
         Style.styleButton(asPlain: forgotPasswordButton)
         
-        // style the activity indicator
+        // create and style the activity indicator
+        activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
     }
     
