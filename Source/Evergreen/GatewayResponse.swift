@@ -20,9 +20,17 @@
 import Foundation
 import os.log
 
+//TODO: fold GatewayError into HemlockError
 public enum GatewayError: Error {
-    case malformedPayload(String)
     case failure(String)
+}
+extension GatewayError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .failure(let reason):
+            return reason
+        }
+    }
 }
 
 enum GatewayResponseType {
@@ -53,11 +61,7 @@ struct GatewayResponse {
         guard let error = self.error else {
             return "no error"
         }
-        switch error {
-        case .malformedPayload(let reason): return reason
-        case .failure(let reason):          return reason
-        }
-        //NOTREACHED: switch statements must be exhaustive
+        return error.localizedDescription
     }
     
     //MARK: - Lifecycle

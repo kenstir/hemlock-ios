@@ -71,7 +71,7 @@ class FinesViewController: UIViewController {
         
         // fetch the summary
         let req = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid])
-        req.gatewayObjectResponse().done { obj in
+        req.gatewayOptionalObjectResponse().done { obj in
             self.loadFinesSummary(fromObj: obj)
         }.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)
@@ -86,12 +86,13 @@ class FinesViewController: UIViewController {
         }
     }
     
-    func loadFinesSummary(fromObj obj: OSRFObject) {
-        debugPrint(obj)
-        totalOwedVal.text = String(format: "$ %.2f", obj.getDouble("total_owed")!)
-        totalPaidVal.text = String(format: "$ %.2f", obj.getDouble("total_owed")!)
-        balanceOwedVal.text = String(format: "$ %.2f", obj.getDouble("balance_owed")!)
-        print("stop here")
+    func loadFinesSummary(fromObj obj: OSRFObject?) {
+        let totalOwed = obj?.getDouble("total_owed") ?? 0.0
+        let totalPaid = obj?.getDouble("total_paid") ?? 0.0
+        let balanceOwed = obj?.getDouble("balance_owed") ?? 0.0
+        totalOwedVal.text = String(format: "$ %.2f", totalOwed)
+        totalPaidVal.text = String(format: "$ %.2f", totalPaid)
+        balanceOwedVal.text = String(format: "$ %.2f", balanceOwed)
     }
     
     func loadTransactions(fines: [FineRecord]) {

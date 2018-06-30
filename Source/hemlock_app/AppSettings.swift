@@ -25,7 +25,8 @@ struct AppSettings {
     //MARK: - Consortium Properties
 
     static let appTitle = "Hemlock"
-    static let url = "https://catalog.cwmars.org"
+//    static let url = "https://catalog.cwmars.org"
+    static let url = "https://kenstir.ddns.net"
 
     static func makeTheme() -> Theme {
         return HemlockTheme()

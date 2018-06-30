@@ -92,4 +92,30 @@ extension Alamofire.DataRequest {
             }
         }
     }
+
+    func gatewayOptionalObjectResponse(queue: DispatchQueue? = nil) -> Promise<(OSRFObject?)>
+    {
+        return Promise { seal in
+            responseData(queue: queue) { response in
+                if response.result.isSuccess,
+                    let data = response.result.value
+                {
+                    let resp = GatewayResponse(data)
+                    if let error = resp.error {
+                        seal.reject(error)
+                    }
+                    if let obj = resp.obj {
+                        seal.fulfill(obj)
+                    } else {
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected object"))
+                    }
+                } else if response.result.isFailure,
+                    let error = response.error {
+                    seal.reject(error)
+                } else {
+                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
+                }
+            }
+        }
+    }
 }

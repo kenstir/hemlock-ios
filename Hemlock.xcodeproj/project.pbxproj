@@ -21,7 +21,6 @@
 		D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21F683820D804DD00D953C1 /* DetailsViewController.swift */; };
 		D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2211B0620D0BA840043947B /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D2216B7920CCA724005D06B1 /* Error+description.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2216B7820CCA724005D06B1 /* Error+description.swift */; };
 		D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
 		D228FB6520D33402001A7E31 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
@@ -85,7 +84,6 @@
 		D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
 		D27990E320DDD473003B451E /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
-		D27990E520DDD473003B451E /* Error+description.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2216B7820CCA724005D06B1 /* Error+description.swift */; };
 		D27990E720DDD473003B451E /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D27990E820DDD473003B451E /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
@@ -188,7 +186,6 @@
 		D21F683820D804DD00D953C1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2211B0320CF68590043947B /* Checkouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkouts.storyboard; sourceTree = "<group>"; };
 		D2211B0520D0BA840043947B /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
-		D2216B7820CCA724005D06B1 /* Error+description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+description.swift"; sourceTree = "<group>"; };
 		D22438AB20D357E900D098D0 /* HoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsViewController.swift; sourceTree = "<group>"; };
 		D22438AD20D35CC000D098D0 /* HoldRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecord.swift; sourceTree = "<group>"; };
 		D228FB6420D33402001A7E31 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -389,7 +386,6 @@
 			isa = PBXGroup;
 			children = (
 				D2DF196720CEF68700085255 /* Analytics.swift */,
-				D2216B7820CCA724005D06B1 /* Error+description.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
 				D28290F720E6F770008EBE4B /* Style.swift */,
@@ -851,7 +847,6 @@
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
 				D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
-				D27990E520DDD473003B451E /* Error+description.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
 				D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */,
@@ -905,7 +900,6 @@
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
-				D2216B7920CCA724005D06B1 /* Error+description.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
