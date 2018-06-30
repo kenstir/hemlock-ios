@@ -37,6 +37,7 @@ enum GatewayResponseType {
     case string
     case object
     case array
+    case empty
     case error
 }
 
@@ -108,7 +109,9 @@ struct GatewayResponse {
             error = .failure("Response missing payload")
             return
         }
-        if let val = payload.first as? [String: Any?] {
+        if payload.count == 0 {
+            type = .empty
+        } else if let val = payload.first as? [String: Any?] {
             do {
                 try objectResult = decodeObject(val)
             } catch {

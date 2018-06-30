@@ -51,6 +51,7 @@ class FinesViewController: UIViewController {
     func setupViews() {
         finesTable.delegate = self
         finesTable.dataSource = self
+        finesTable.tableFooterView = UIView() // prevent display of ghost rows at end of table
         
         Style.styleStackView(asTableHeader: finesSummary)
         Style.styleLabel(asTableHeader: totalOwedLabel)

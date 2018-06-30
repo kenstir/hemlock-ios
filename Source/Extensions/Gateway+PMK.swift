@@ -104,11 +104,7 @@ extension Alamofire.DataRequest {
                     if let error = resp.error {
                         seal.reject(error)
                     }
-                    if let obj = resp.obj {
-                        seal.fulfill(obj)
-                    } else {
-                        seal.reject(HemlockError.unexpectedNetworkResponse("expected object"))
-                    }
+                    seal.fulfill(resp.obj)
                 } else if response.result.isFailure,
                     let error = response.error {
                     seal.reject(error)
