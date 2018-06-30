@@ -59,7 +59,14 @@ class Style {
         v.tintColor = App.theme.backgroundDark2
     }
     
-    //MARK: - StackView
+    //MARK: - Table Header
+
+    static func styleLabel(asTableHeader v: UILabel) {
+        v.textColor = UIColor.darkGray
+        //TODO: make small caps
+        // see also https://liamnichols.github.io/2016/09/11/using-small-caps-in-uikit.html
+        // see also https://developer.apple.com/documentation/uikit/uifontdescriptor/attributename/1616701-featuresettings
+    }
 
     static func styleStackView(asTableHeader v: UIView) {
         let bgView = UIView()

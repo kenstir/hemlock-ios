@@ -53,23 +53,12 @@ class FinesViewController: UIViewController {
         finesTable.dataSource = self
         
         Style.styleStackView(asTableHeader: finesSummary)
-        /*
-        // set the background of the summary stack to grey
-        bgView = UIView()
-        if let v = bgView {
-            v.backgroundColor = Style.tableHeaderBackground
-            v.translatesAutoresizingMaskIntoConstraints = false
-            finesSummary.insertSubview(v, at: 0)
-            v.pin(to: finesSummary)
-        }
-        */
-        
-        totalOwedLabel.textColor = UIColor.darkGray
-        totalOwedVal.textColor = UIColor.darkGray
-        totalPaidLabel.textColor = UIColor.darkGray
-        totalPaidVal.textColor = UIColor.darkGray
-        balanceOwedLabel.textColor = UIColor.darkGray
-        balanceOwedVal.textColor = UIColor.darkGray
+        Style.styleLabel(asTableHeader: totalOwedLabel)
+        Style.styleLabel(asTableHeader: totalOwedVal)
+        Style.styleLabel(asTableHeader: totalPaidLabel)
+        Style.styleLabel(asTableHeader: totalPaidVal)
+        Style.styleLabel(asTableHeader: balanceOwedLabel)
+        Style.styleLabel(asTableHeader: balanceOwedVal)
     }
 
     func fetchData() {
