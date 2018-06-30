@@ -180,10 +180,10 @@
             </objects>
             <point key="canvasLocation" x="-471" y="91"/>
         </scene>
-        <!--PINES-->
+        <!--Main-->
         <scene sceneID="pOa-oD-aH5">
             <objects>
-                <tableViewController storyboardIdentifier="MainStoryboard" id="Xqe-Fu-Ne1" customClass="MainViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainStoryboard" id="Xqe-Fu-Ne1" userLabel="Main" customClass="MainViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Bny-iN-u9U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,7 +221,7 @@
                             <outlet property="delegate" destination="Xqe-Fu-Ne1" id="deS-Ck-kBY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="PINES" id="xUo-oL-WrT">
+                    <navigationItem key="navigationItem" title="Hemlock" id="xUo-oL-WrT">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="GJD-cg-1UD"/>
                     </navigationItem>
                     <connections>
