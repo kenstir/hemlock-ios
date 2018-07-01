@@ -130,18 +130,22 @@ class CheckoutsViewController: UIViewController {
             return
         }
 
-        let title = item.title
-        print("xxx renew button pressed - \(title)")
-        self.showAlert(title: "renew", message: title)
-        /*
+        // confirm renew action
+        let alertController = UIAlertController(title: "Renew item?", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Renew", style: .default) { action in
+            self.renewItem(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
+        })
+        self.present(alertController, animated: true)
+    }
+    
+    func renewItem(authtoken: String, userID: Int, targetCopy: Int) {
         let promise = CircService.renew(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
         promise.done { obj in
-            debugPrint(obj)
-            print("xxx renew succeeded")
+            self.fetchData()
         }.catch { error in
             self.showAlert(error: error)
         }
-        */
     }
 }
 
