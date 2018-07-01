@@ -92,7 +92,7 @@ class FinesViewController: UIViewController {
         // wait for them to finish
         firstly {
             when(fulfilled: [promise1, promise2])
-        }.done {
+        }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
             self.showAlert(title: "Request failed", message: error.localizedDescription)
