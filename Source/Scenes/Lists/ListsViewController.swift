@@ -20,6 +20,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
+import ToastSwiftFramework
 
 class ListsViewController: UIViewController {
 
@@ -45,6 +46,10 @@ class ListsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        button1.tag = 1
+        button2.tag = 2
+        button3.tag = 3
+        button4.tag = 4
         Style.styleButton(asPlain: button2)
         Style.styleButton(asOutline: button3)
         Style.styleButton(asInverse: button4)
@@ -54,6 +59,7 @@ class ListsViewController: UIViewController {
     }
     
     @IBAction func doStuff(sender: UIButton) {
-        self.showAlert(error: HemlockError.unexpectedNetworkResponse(String(describing: sender)))
+        self.view.makeToast("button pressed: \(sender.tag)")
+//        self.showAlert(error: HemlockError.unexpectedNetworkResponse(String(describing: sender)))
     }
 }

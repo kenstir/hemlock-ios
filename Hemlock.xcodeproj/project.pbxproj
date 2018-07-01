@@ -132,6 +132,8 @@
 		D28725AF20E88063002A4C42 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
 		D28725B120E932DF002A4C42 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725B020E932DF002A4C42 /* ListsViewController.swift */; };
 		D28725B220E93352002A4C42 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725B020E932DF002A4C42 /* ListsViewController.swift */; };
+		D28725B420E95AB0002A4C42 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
+		D28725B520E95B01002A4C42 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
@@ -246,6 +248,7 @@
 		D28725AC20E86E71002A4C42 /* sample.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = sample.java; sourceTree = "<group>"; };
 		D28725AD20E86F30002A4C42 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
 		D28725B020E932DF002A4C42 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 				D27990F720DDD473003B451E /* PINCache.framework in Frameworks */,
 				D27990F820DDD473003B451E /* PromiseKit.framework in Frameworks */,
 				D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */,
+				D28725B420E95AB0002A4C42 /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +307,7 @@
 				D253344220C3078F008176B9 /* PINCache.framework in Frameworks */,
 				D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */,
 				D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */,
+				D28725B520E95B01002A4C42 /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +457,7 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */,
 				D279919220DEC7C0003B451E /* McPicker_iOS.framework */,
 				D2211B0520D0BA840043947B /* Valet.framework */,
 				D253344320C30A60008176B9 /* PINOperation.framework */,
@@ -771,6 +777,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
 			);
 			outputPaths = (
@@ -781,6 +788,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -800,6 +808,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
 			);
 			outputPaths = (
@@ -810,6 +819,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

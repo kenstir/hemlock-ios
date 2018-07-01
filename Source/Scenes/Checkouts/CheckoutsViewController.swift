@@ -20,7 +20,7 @@
 import UIKit
 import PromiseKit
 import PMKAlamofire
-
+import ToastSwiftFramework
 
 class CheckoutsViewController: UIViewController {
     
@@ -142,6 +142,9 @@ class CheckoutsViewController: UIViewController {
     func renewItem(authtoken: String, userID: Int, targetCopy: Int) {
         let promise = CircService.renew(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
         promise.done { obj in
+            debugPrint(obj)
+            self.view.makeToast("Item renewed")
+            // refresh data
             self.fetchData()
         }.catch { error in
             self.showAlert(error: error)
