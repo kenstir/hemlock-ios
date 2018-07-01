@@ -87,52 +87,59 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            showAlert(title: "No account", message: "Not logged in")
+            showAlert(error: HemlockError.sessionExpired())
             return //TODO: add analytics
         }
         
+        //activityIndicator.startAnimating()
+
         // fetch the list of items
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
         req.gatewayObjectResponse().done { obj in
-            self.fetchCircRecords(fromObject: obj)
+            self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
         }.catch { error in
+            //self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
     
-    func fetchCircRecords(fromObject obj: OSRFObject) {
-        let ids = obj.getIDList("out") + obj.getIDList("overdue")
+    func fetchCircRecords(authtoken: String, fromObject obj: OSRFObject) throws {
+        let ids = obj.getIDList("overdue") + obj.getIDList("out")
         var records: [CircRecord] = []
         var promises: [Promise<Void>] = []
         for id in ids {
             let record = CircRecord(id: id)
             records.append(record)
-            let promise = fetchCirc(forRecord: record)
+            let promise = try fetchCircDetails(authtoken: authtoken, forRecord: record)
             promises.append(promise)
         }
-        
+        print("xxx \(promises.count) promises made")
+
         firstly {
             when(fulfilled: promises)
         }.done {
+            print("xxx \(promises.count) promises fulfilled")
+            //self.activityIndicator.stopAnimating()
             self.updateItems(withRecords: records)
         }.catch { error in
+            //self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
     
-    func fetchCirc(forRecord record: CircRecord) -> Promise<Void> {
-        guard let authtoken = App.account?.authtoken else {
-            return Promise<Void>()
-        }
+    func fetchCircDetails(authtoken: String, forRecord record: CircRecord) throws -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
+            print("xxx \(record.id) circRetrieve done")
             record.circObj = obj
             guard let target = obj.getInt("target_copy") else {
+                // TODO: add anayltics or, just let it throw?
                 throw PMKError.cancelled
             }
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
             return req.gatewayObjectResponse()
         }.done { obj in
+            print("xxx \(record.id) modsFromCopy done")
             record.mvrObj = obj
         }
         return promise
@@ -141,6 +148,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     func updateItems(withRecords records: [CircRecord]) {
         // TODO: sort by due date
         self.items = records
+        print("xxx \(records.count) records now, time to reloadData")
         updateHeaderText()
         tableNode.reloadData()
     }
@@ -155,7 +163,6 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
 }
 
 //MARK: - ASTableDataSource
-
 extension XCheckoutsViewController: ASTableDataSource {
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -169,8 +176,8 @@ extension XCheckoutsViewController: ASTableDataSource {
 }
 
 //MARK: - ASTableDelegate
-
 extension XCheckoutsViewController: ASTableDelegate {
+
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         let tn = (tableNode.nodeForRow(at: indexPath) as! XCheckoutsTableNode)
         debugPrint(tn)

@@ -63,21 +63,21 @@ class CheckoutsViewController: UIViewController {
         // fetch the list of items
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
         req.gatewayObjectResponse().done { obj in
-            try self.fetchCircRecords(fromObject: obj)
+            try self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
     
-    func fetchCircRecords(fromObject obj: OSRFObject) throws {
-        let ids = obj.getIDList("out") + obj.getIDList("overdue")
+    func fetchCircRecords(authtoken: String, fromObject obj: OSRFObject) throws {
+        let ids = obj.getIDList("overdue") + obj.getIDList("out")
         var records: [CircRecord] = []
         var promises: [Promise<Void>] = []
         for id in ids {
             let record = CircRecord(id: id)
             records.append(record)
-            let promise = try fetchCircDetails(forRecord: record)
+            let promise = try fetchCircDetails(authtoken: authtoken, forRecord: record)
             promises.append(promise)
         }
         print("xxx \(promises.count) promises made")
@@ -89,17 +89,15 @@ class CheckoutsViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             self.updateItems(withRecords: records)
         }.catch { error in
+            self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
     
-    func fetchCircDetails(forRecord record: CircRecord) throws -> Promise<Void> {
-        guard let authtoken = App.account?.authtoken else {
-            throw HemlockError.sessionExpired()
-        }
+    func fetchCircDetails(authtoken: String, forRecord record: CircRecord) throws -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            print("xxx \(record.id) circ done")
+            print("xxx \(record.id) circRetrieve done")
             record.circObj = obj
             guard let target = obj.getInt("target_copy") else {
                 // TODO: add anayltics or, just let it throw?
@@ -107,9 +105,9 @@ class CheckoutsViewController: UIViewController {
             }
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
             return req.gatewayObjectResponse()
-        }.done { obj in
-            print("xxx \(record.id) mvr done")
-            record.mvrObj = obj
+            }.done { obj in
+                print("xxx \(record.id) modsFromCopy done")
+                record.mvrObj = obj
         }
         return promise
     }
@@ -123,10 +121,13 @@ class CheckoutsViewController: UIViewController {
     @IBAction func buttonPressed(sender: UIButton) {
         let item = items[sender.tag]
         guard let authtoken = App.account?.authtoken,
-            let userID = App.account?.userID,
-            let targetCopy = item.circObj?.getID("target_copy") else
+            let userID = App.account?.userID else
         {
             self.showAlert(error: HemlockError.sessionExpired())
+            return
+        }
+        guard let targetCopy = item.circObj?.getID("target_copy") else {
+            self.showAlert(title: "Error", message: "Circulation item has no target_copy")
             return
         }
 
@@ -152,9 +153,8 @@ class CheckoutsViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDataSource
 extension CheckoutsViewController: UITableViewDataSource {
-
-    //MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
