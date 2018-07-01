@@ -25,7 +25,14 @@ class ListsViewController: UIViewController {
 
     //MARK: - Properties
     
-
+    @IBOutlet weak var button1: UIButton!
+    
+    @IBOutlet weak var button2: UIButton!
+    
+    @IBOutlet weak var button3: UIButton!
+    
+    @IBOutlet weak var button4: UIButton!
+    
     
     //MARK: - UIViewController
     
@@ -38,8 +45,15 @@ class ListsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        Style.styleButton(asPlain: button2)
+        Style.styleButton(asOutline: button3)
+        Style.styleButton(asInverse: button4)
     }
     
     func fetchData() {
+    }
+    
+    @IBAction func doStuff(sender: UIButton) {
+        self.showAlert(error: HemlockError.unexpectedNetworkResponse(String(describing: sender)))
     }
 }

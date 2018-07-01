@@ -64,6 +64,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     //MARK: Actions
+
     @IBAction func loginPressed(_ sender: Any) {
         guard
             usernameField.hasText,
