@@ -32,7 +32,7 @@ class Style {
     static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.backgroundColor) {
         button.backgroundColor = color
         button.tintColor = .white
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 6
     }
     
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.backgroundDark2) {
@@ -41,12 +41,12 @@ class Style {
         // where the button is disabled.
         button.layer.borderColor = button.currentTitleColor.cgColor
         button.layer.borderWidth = 1
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 6
     }
     
     static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.backgroundDark2) {
         button.tintColor = color
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 6
     }
     
     //MARK: - SearchBar
