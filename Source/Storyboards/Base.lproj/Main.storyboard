@@ -223,7 +223,7 @@
                         <segue destination="Rgl-GN-9cy" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>
                         <segue destination="aSn-Ob-ZbE" kind="show" identifier="ShowHoldsSegue" id="QLz-GT-rH2"/>
                         <segue destination="RCs-ov-Y8N" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
-                        <segue destination="gyY-7F-Ras" kind="show" identifier="ShowMyListsSegue" id="cd4-OG-ah5"/>
+                        <segue destination="gyY-7F-Ras" kind="show" identifier="ShowListsSegue" id="cd4-OG-ah5"/>
                         <segue destination="L5E-wb-4wF" kind="show" identifier="ShowLoginSegue" id="zgh-oQ-owQ"/>
                         <segue destination="WoH-Us-ADe" kind="show" identifier="ShowCheckoutsSegue" id="lgg-cF-pgT"/>
                     </connections>
@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="1022" y="91"/>
         </scene>
-        <!--MyLists-->
+        <!--Lists-->
         <scene sceneID="DqL-hX-c4e">
             <objects>
-                <viewControllerPlaceholder storyboardName="MyLists" id="gyY-7F-Ras" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Lists" id="gyY-7F-Ras" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEn-vH-L7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1032" y="365"/>
