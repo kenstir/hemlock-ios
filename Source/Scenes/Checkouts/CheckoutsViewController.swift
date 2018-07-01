@@ -132,6 +132,8 @@ class CheckoutsViewController: UIViewController {
 
         let title = item.title
         print("xxx renew button pressed - \(title)")
+        self.showAlert(title: "renew", message: title)
+        /*
         let promise = CircService.renew(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
         promise.done { obj in
             debugPrint(obj)
@@ -139,6 +141,7 @@ class CheckoutsViewController: UIViewController {
         }.catch { error in
             self.showAlert(error: error)
         }
+        */
     }
 }
 
