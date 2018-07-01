@@ -168,6 +168,13 @@ extension CheckoutsViewController: UITableViewDataSource {
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
         cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+        if let renewals = item.circObj?.getInt("renewal_remaining"),
+            renewals > 0
+        {
+            cell.renewButton.isEnabled = true
+        } else {
+            cell.renewButton.isEnabled = false
+        }
         Style.styleButton(asOutline: cell.renewButton)//Style.styleButton(asPlain: cell.renewButton)
 
         return cell

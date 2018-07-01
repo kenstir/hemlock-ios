@@ -37,7 +37,9 @@ class Style {
     
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.backgroundDark2) {
         button.tintColor = color
-        button.layer.borderColor = color.cgColor
+        // Setting the borderColor to the currentTitleColor handles the case
+        // where the button is disabled.
+        button.layer.borderColor = button.currentTitleColor.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 8
     }
