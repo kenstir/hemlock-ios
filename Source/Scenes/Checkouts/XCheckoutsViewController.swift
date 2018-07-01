@@ -103,14 +103,14 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         }
     }
     
-    func fetchCircRecords(authtoken: String, fromObject obj: OSRFObject) throws {
+    func fetchCircRecords(authtoken: String, fromObject obj: OSRFObject) {
         let ids = obj.getIDList("overdue") + obj.getIDList("out")
         var records: [CircRecord] = []
         var promises: [Promise<Void>] = []
         for id in ids {
             let record = CircRecord(id: id)
             records.append(record)
-            let promise = try fetchCircDetails(authtoken: authtoken, forRecord: record)
+            let promise = fetchCircDetails(authtoken: authtoken, forRecord: record)
             promises.append(promise)
         }
         print("xxx \(promises.count) promises made")
@@ -127,7 +127,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         }
     }
     
-    func fetchCircDetails(authtoken: String, forRecord record: CircRecord) throws -> Promise<Void> {
+    func fetchCircDetails(authtoken: String, forRecord record: CircRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(record.id) circRetrieve done")

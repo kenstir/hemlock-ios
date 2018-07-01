@@ -22,11 +22,14 @@ import os.log
 
 //TODO: fold GatewayError into HemlockError
 public enum GatewayError: Error {
+    case event(String)
     case failure(String)
 }
 extension GatewayError: LocalizedError {
     public var errorDescription: String? {
         switch self {
+        case .event(let reason):
+            return reason
         case .failure(let reason):
             return reason
         }
@@ -84,7 +87,7 @@ struct GatewayResponse {
 
     init(_ data: Data) {
         self.init()
-        //os_log("resp.wire: %@", log: Gateway.log, type: .info, String(data: data, encoding: .utf8)!)
+        os_log("resp.wire: %@", log: Gateway.log, type: .info, String(data: data, encoding: .utf8)!)
         guard var json = decodeJSON(data) else {
             os_log("resp.json: decode_error", log: Gateway.log, type: .info)
             error = .failure("Response not JSON")
@@ -111,13 +114,21 @@ struct GatewayResponse {
         if payload.count == 0 {
             type = .empty
         } else if let val = payload.first as? [String: Any?] {
+            var obj: OSRFObject?
             do {
-                try objectResult = decodeObject(val)
+                try obj = decodeObject(val)
             } catch {
                 self.error = .failure("Error decoding OSRF object")
                 return
             }
+            if let ilsevent = obj?.getDouble("ilsevent"),
+                ilsevent != 0,
+                let desc = obj?.dict["desc"] as? String {
+                self.error = .event(desc)
+                return
+            }
             type = .object
+            objectResult = obj
         } else if let val = payload.first as? [[String: Any?]] {
             do {
                 try arrayResult = decodeArray(val)

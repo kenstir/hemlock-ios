@@ -55,6 +55,9 @@ struct OSRFObject: Equatable {
         if let val = dict[key] as? Int {
             return val
         }
+        if let val = dict[key] as? String {
+            return Int(val)
+        }
         return nil
     }
     

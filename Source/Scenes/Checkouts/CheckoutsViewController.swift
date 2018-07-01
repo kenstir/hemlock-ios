@@ -63,21 +63,21 @@ class CheckoutsViewController: UIViewController {
         // fetch the list of items
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
         req.gatewayObjectResponse().done { obj in
-            try self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
+            self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
     
-    func fetchCircRecords(authtoken: String, fromObject obj: OSRFObject) throws {
+    func fetchCircRecords(authtoken: String, fromObject obj: OSRFObject) {
         let ids = obj.getIDList("overdue") + obj.getIDList("out")
         var records: [CircRecord] = []
         var promises: [Promise<Void>] = []
         for id in ids {
             let record = CircRecord(id: id)
             records.append(record)
-            let promise = try fetchCircDetails(authtoken: authtoken, forRecord: record)
+            let promise = fetchCircDetails(authtoken: authtoken, forRecord: record)
             promises.append(promise)
         }
         print("xxx \(promises.count) promises made")
@@ -94,7 +94,7 @@ class CheckoutsViewController: UIViewController {
         }
     }
     
-    func fetchCircDetails(authtoken: String, forRecord record: CircRecord) throws -> Promise<Void> {
+    func fetchCircDetails(authtoken: String, forRecord record: CircRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(record.id) circRetrieve done")
@@ -105,9 +105,9 @@ class CheckoutsViewController: UIViewController {
             }
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
             return req.gatewayObjectResponse()
-            }.done { obj in
-                print("xxx \(record.id) modsFromCopy done")
-                record.mvrObj = obj
+        }.done { obj in
+            print("xxx \(record.id) modsFromCopy done")
+            record.mvrObj = obj
         }
         return promise
     }
@@ -143,8 +143,10 @@ class CheckoutsViewController: UIViewController {
     func renewItem(authtoken: String, userID: Int, targetCopy: Int) {
         let promise = CircService.renew(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
         promise.done { obj in
+            print("xxx obj = ")
             debugPrint(obj)
-            self.view.makeToast("Item renewed")
+            print("xxx MAKE TOAST NOW")
+            self.navigationController?.view.makeToast("Item renewed")
             // refresh data
             self.fetchData()
         }.catch { error in
@@ -178,9 +180,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
         cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        if let renewals = item.circObj?.getInt("renewal_remaining"),
-            renewals > 0
-        {
+        if let renewals = item.circObj?.getInt("renewal_remaining"), renewals > 0 {
             cell.renewButton.isEnabled = true
         } else {
             cell.renewButton.isEnabled = false

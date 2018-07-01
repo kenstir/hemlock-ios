@@ -86,8 +86,17 @@ class GatewayResponseTests: XCTestCase {
             {"payload":[{"ilsevent":1000,"textcode":"LOGIN_FAILED","desc":"User login failed"}],"status":200}
             """
         let resp = GatewayResponse(json)
-        XCTAssertFalse(resp.failed, String(describing: resp.error))
-        XCTAssertEqual(resp.obj?.getString("textcode"), "LOGIN_FAILED")
+        XCTAssertTrue(resp.failed)
+        XCTAssertEqual(resp.errorMessage, "User login failed")
+    }
+    
+    func test_renewFailed() {
+        let json = """
+            {"payload":[{"ilsevent":"7008","servertime":"Sun Jul  1 23:15:38 2018","pid":22531,"desc":" Circulation has no more renewals remaining ","textcode":"MAX_RENEWALS_REACHED","stacktrace":"/usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:3701 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:274 /usr/local/share/perl/5.22.1/OpenSRF/Application.pm:628"}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertEqual(resp.errorMessage, " Circulation has no more renewals remaining ")
     }
     
     func test_actorCheckedOut() {

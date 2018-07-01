@@ -73,6 +73,10 @@ class LoginController {
             }
             debugPrint(data)
             let resp = GatewayResponse(data)
+            if resp.failed {
+                completion(resp)
+                return
+            }
             guard
                 let textcode = resp.obj?.getString("textcode"),
                 let desc = resp.obj?.getString("desc") else
