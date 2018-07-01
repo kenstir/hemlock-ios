@@ -84,7 +84,6 @@ struct GatewayResponse {
 
     init(_ data: Data) {
         self.init()
-
         //os_log("resp.wire: %@", log: Gateway.log, type: .info, String(data: data, encoding: .utf8)!)
         guard var json = decodeJSON(data) else {
             os_log("resp.json: decode_error", log: Gateway.log, type: .info)
@@ -151,7 +150,9 @@ struct GatewayResponse {
     }
     
     func decodeObject(_ jsonObject: [String: Any?]) throws -> OSRFObject {
-        return try OSRFCoder.decode(fromDictionary: jsonObject)
+        let obj = try OSRFCoder.decode(fromDictionary: jsonObject)
+        os_log("resp.obj: %@", log: Gateway.log, type: .info, obj.dict)
+        return obj
     }
     
     func decodeArray(_ jsonArray: [[String: Any?]]) throws -> [OSRFObject] {

@@ -57,8 +57,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-TT-zbd">
-                                            <rect key="frame" x="160" y="61" width="79" height="18"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-TT-zbd">
+                                            <rect key="frame" x="172" y="59" width="78" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="1fF-qt-viN"/>
+                                            </constraints>
                                             <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                             <state key="normal" title="Renew"/>
                                         </button>
@@ -66,13 +69,13 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="btq-bN-2S2" secondAttribute="trailing" constant="8" id="70X-ji-HJ9"/>
                                         <constraint firstItem="btq-bN-2S2" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="BNB-Rv-epS"/>
-                                        <constraint firstItem="aA9-TT-zbd" firstAttribute="trailing" secondItem="6qM-sC-2d7" secondAttribute="trailingMargin" id="Fq4-Da-48K"/>
+                                        <constraint firstItem="aA9-TT-zbd" firstAttribute="trailing" secondItem="6qM-sC-2d7" secondAttribute="trailingMargin" constant="-28" id="Fq4-Da-48K"/>
                                         <constraint firstItem="4b7-Tg-Pfn" firstAttribute="top" secondItem="wdh-dA-blv" secondAttribute="bottom" constant="2" id="J6n-Tu-glU"/>
                                         <constraint firstAttribute="bottom" secondItem="4b7-Tg-Pfn" secondAttribute="bottom" constant="4" id="Vf1-PR-FnL"/>
                                         <constraint firstItem="btq-bN-2S2" firstAttribute="top" secondItem="6qM-sC-2d7" secondAttribute="top" constant="8" id="dCQ-E7-YPJ"/>
                                         <constraint firstItem="4b7-Tg-Pfn" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="j6Y-P6-t3n"/>
                                         <constraint firstItem="wdh-dA-blv" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="oGP-Ld-4H6"/>
-                                        <constraint firstItem="aA9-TT-zbd" firstAttribute="bottom" secondItem="6qM-sC-2d7" secondAttribute="bottomMargin" id="xPN-jD-AtI"/>
+                                        <constraint firstItem="aA9-TT-zbd" firstAttribute="bottom" secondItem="6qM-sC-2d7" secondAttribute="bottomMargin" constant="-4" id="xPN-jD-AtI"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

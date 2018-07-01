@@ -122,9 +122,23 @@ class CheckoutsViewController: UIViewController {
 
     @IBAction func buttonPressed(sender: UIButton) {
         let item = items[sender.tag]
+        guard let authtoken = App.account?.authtoken,
+            let userID = App.account?.userID,
+            let targetCopy = item.circObj?.getID("target_copy") else
+        {
+            self.showAlert(error: HemlockError.sessionExpired())
+            return
+        }
+
         let title = item.title
         print("xxx renew button pressed - \(title)")
-        self.showAlert(title: "Not implemented yet", message: "Renew \(title)!")
+        let promise = CircService.renew(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
+        promise.done { obj in
+            debugPrint(obj)
+            print("xxx renew succeeded")
+        }.catch { error in
+            self.showAlert(error: error)
+        }
     }
 }
 
@@ -154,22 +168,21 @@ extension CheckoutsViewController: UITableViewDataSource {
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
         cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        Style.styleButton(asPlain: cell.renewButton)
+        Style.styleButton(asOutline: cell.renewButton)//Style.styleButton(asPlain: cell.renewButton)
 
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
-        if let detailsVC = vc as? DetailsViewController,
-            let mvrObj = selectedItem?.mvrObj
+        guard let detailsVC = vc as? DetailsViewController,
+            let mvrObj = selectedItem?.mvrObj else
         {
-            let record = MBRecord(mvrObj: mvrObj)
-            detailsVC.item = record
-        } else {
             print("Uh oh!")
+            return
         }
-
+        let record = MBRecord(mvrObj: mvrObj)
+        detailsVC.item = record
     }
 }
 
