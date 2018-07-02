@@ -59,7 +59,7 @@ class DetailsViewController: UIViewController {
         {
             itemImage.image = UIImage(data: data)
         }
-        synopsisLabel.text = item?.mvrObj?.getString("synopsis")
+        synopsisLabel.text = "Synopsis: " + (item?.mvrObj?.getString("synopsis") ?? "")
         subjectLabel.text = item?.mvrObj?.getString("subject")
         isbnLabel.text = "ISBN:  " + (item?.mvrObj?.getString("isbn") ?? "")
     }
