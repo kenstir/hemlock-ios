@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,15 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This page intentionally left blank" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0a-tU-P4L">
-                                <rect key="frame" x="64" y="323" width="247" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holds do not work yet. I'm working on it." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk0-iS-cva" userLabel="Disclosure Label">
+                                <rect key="frame" x="24" y="80" width="327" height="57.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SSX-Jh-0F3" firstAttribute="trailing" secondItem="wk0-iS-cva" secondAttribute="trailing" constant="24" id="EmE-Rd-ATj"/>
+                            <constraint firstItem="wk0-iS-cva" firstAttribute="leading" secondItem="SSX-Jh-0F3" secondAttribute="leading" constant="24" id="YSp-5S-4X6"/>
+                            <constraint firstItem="wk0-iS-cva" firstAttribute="top" secondItem="SSX-Jh-0F3" secondAttribute="top" constant="60" id="bmG-Me-GHS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SSX-Jh-0F3"/>
                     </view>
                 </viewController>
