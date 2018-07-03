@@ -109,4 +109,20 @@ class MainViewController: UITableViewController {
         LoginController.clearLoginCredentials(account: App.account)
         self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
     }
+    
+    @IBAction func fullCatalogButton(_ sender: UIBarButtonItem) {
+        //open catalog url
+        if let urlbase = App.library?.url,
+            let url = URL(string: urlbase) {
+             UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    @IBAction func libraryLocatorButton(_ sender: UIBarButtonItem) {
+        //open library location url
+        if let urlbase: String = "http://pines.georgialibraries.org/pinesLocator/locator.html",
+            let url = URL(string: urlbase) {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
 }
