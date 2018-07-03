@@ -66,7 +66,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Actions
 
     @IBAction func forgotPasswordPressed(_ sender: UIButton) {
-        if let url = URL(string: (App.library?.url)! + ("/eg/opac/password_reset") ) {
+//        if let url = URL(string: (App.library?.url)! + ("/eg/opac/password_reset") ) {
+//            UIApplication.shared.open(url, options: [:])
+//        }
+        if let baseurl = URL(string: (App.library?.url)!), let url: URL = baseurl.appendingPathComponent("/eg/opac/password_reset") {
             UIApplication.shared.open(url, options: [:])
         }
         //App.library?.url + "/eg/opac/password_reset"
