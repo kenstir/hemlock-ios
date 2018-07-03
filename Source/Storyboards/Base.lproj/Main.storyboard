@@ -68,6 +68,9 @@
                                 <rect key="frame" x="26" y="389" width="323" height="33"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <state key="normal" title="Forgot Password"/>
+                                <connections>
+                                    <action selector="forgotPasswordPressed:" destination="pCn-5I-KnN" eventType="primaryActionTriggered" id="qfa-f7-Mx6"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Jason" translatesAutoresizingMaskIntoConstraints="NO" id="ZHk-Zc-H6p">
                                 <rect key="frame" x="6" y="489" width="54" height="90"/>

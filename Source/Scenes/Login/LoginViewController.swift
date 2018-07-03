@@ -65,6 +65,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: Actions
 
+    @IBAction func forgotPasswordPressed(_ sender: UIButton) {
+        if let url = URL(string: (App.library?.url)! + ("/eg/opac/password_reset") ) {
+            UIApplication.shared.open(url, options: [:])
+        }
+        //App.library?.url + "/eg/opac/password_reset"
+    }
     @IBAction func loginPressed(_ sender: Any) {
         guard
             usernameField.hasText,
