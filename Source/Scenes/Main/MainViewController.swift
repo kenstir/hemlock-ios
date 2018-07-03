@@ -41,7 +41,7 @@ class MainViewController: UITableViewController {
         ("Items Checked Out", "ShowCheckoutsSegue", nil/*XCheckoutsViewController.self*/),
         ("Holds", "ShowHoldsSegue", nil),
         ("Fines", "ShowFinesSegue", nil),
-        //("My Lists", "ShowListsSegue", nil),
+        ("My Lists", "ShowListsSegue", nil),
         ]
     
     //MARK: - UIViewController

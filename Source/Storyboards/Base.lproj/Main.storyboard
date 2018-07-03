@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Cgd-dF-q7D">
             <objects>
-                <navigationController id="L5E-wb-4wF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavigation" id="L5E-wb-4wF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SUJ-mx-Mca">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -29,7 +29,7 @@
         <!--Login-->
         <scene sceneID="IXp-Sq-364">
             <objects>
-                <viewController storyboardIdentifier="LoginStoryboard" title="Login" id="pCn-5I-KnN" customClass="LoginViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="Login" id="pCn-5I-KnN" customClass="LoginViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qLI-KE-Wte">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,7 +163,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2SI-wU-38L">
             <objects>
-                <navigationController id="lJi-dZ-su3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigation" id="lJi-dZ-su3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ocF-Hd-bJC">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -179,7 +179,7 @@
         <!--Main-->
         <scene sceneID="pOa-oD-aH5">
             <objects>
-                <tableViewController storyboardIdentifier="MainStoryboard" id="Xqe-Fu-Ne1" userLabel="Main" customClass="MainViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Main" id="Xqe-Fu-Ne1" userLabel="Main" customClass="MainViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Bny-iN-u9U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
