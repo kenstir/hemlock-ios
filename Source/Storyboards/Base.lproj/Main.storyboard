@@ -184,6 +184,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="gHn-Zz-AGL">
+                            <rect key="frame" x="0.0" y="117.5" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Full Catalog" width="186.5" id="eDU-q6-48v">
+                                    <connections>
+                                        <action selector="fullCatalogButton:" destination="Xqe-Fu-Ne1" id="IAJ-kV-1yq"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem title="Library Locator" width="258" id="ISv-5n-0qV">
+                                    <connections>
+                                        <action selector="libraryLocatorButton:" destination="Xqe-Fu-Ne1" id="Yb5-si-edJ"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MainTableViewCell" id="Add-9O-a2q" customClass="MainTableViewCell" customModule="Hemlock" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
