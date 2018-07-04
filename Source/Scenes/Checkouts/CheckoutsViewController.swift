@@ -153,6 +153,18 @@ class CheckoutsViewController: UIViewController {
             self.showAlert(error: error)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination
+        guard let detailsVC = vc as? DetailsViewController,
+            let mvrObj = selectedItem?.mvrObj else
+        {
+            print("Uh oh!")
+            return
+        }
+        let record = MBRecord(mvrObj: mvrObj)
+        detailsVC.item = record
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -188,18 +200,6 @@ extension CheckoutsViewController: UITableViewDataSource {
         Style.styleButton(asOutline: cell.renewButton)//Style.styleButton(asPlain: cell.renewButton)
 
         return cell
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination
-        guard let detailsVC = vc as? DetailsViewController,
-            let mvrObj = selectedItem?.mvrObj else
-        {
-            print("Uh oh!")
-            return
-        }
-        let record = MBRecord(mvrObj: mvrObj)
-        detailsVC.item = record
     }
 }
 

@@ -28,6 +28,8 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     
     private let headerNode: ASTextNode = ASTextNode()
     var items: [CircRecord] = []
+    var selectedItem: CircRecord?
+
     private var tableNode: ASTableNode {
         return node
     }
@@ -160,6 +162,18 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     private var headerTextAttributes = {
         return [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination
+        guard let detailsVC = vc as? DetailsViewController,
+            let mvrObj = selectedItem?.mvrObj else
+        {
+            print("Uh oh!")
+            return
+        }
+        let record = MBRecord(mvrObj: mvrObj)
+        detailsVC.item = record
+    }
 }
 
 //MARK: - ASTableDataSource
@@ -181,7 +195,16 @@ extension XCheckoutsViewController: ASTableDelegate {
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         let tn = (tableNode.nodeForRow(at: indexPath) as! XCheckoutsTableNode)
         debugPrint(tn)
-        //let vc = XViewController(layoutExampleType: layoutExampleType)
-        //self.navigationController?.pushViewController(vc, animated: true)
+        let item = items[indexPath.row]
+        selectedItem = item
+        
+        if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController(),
+            let detailsVC = vc as? DetailsViewController,
+            let mvrObj = selectedItem?.mvrObj
+        {
+            let record = MBRecord(mvrObj: mvrObj)
+            detailsVC.item = record
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
