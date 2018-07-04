@@ -23,9 +23,9 @@ import PMKAlamofire
 
 struct SearchParameters {
     let text: String
-    let scope: String
-    let format: String?
-    let location: String?
+    let searchClass: String
+    let searchFormat: String?
+    let organizationShortName: String?
 }
 
 class SearchViewController: UIViewController {
@@ -94,15 +94,15 @@ class SearchViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
-        if let resultsVC = vc as? ResultsViewController,
-            let searchText = searchBar.text
+        guard let resultsVC = vc as? ResultsViewController,
+            let searchText = searchBar.text,
+            let formatText = formatPicker.text else
         {
-            let params = SearchParameters(text: searchText, scope: scopes[scopeControl.selectedSegmentIndex], format: formatPicker.text, location: locationPicker.text)
-            resultsVC.searchParameters = params
-        } else {
-            print("Uh oh!")
+            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
+            return
         }
-        
+        let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.findShortName(forName: locationPicker?.text))
+        resultsVC.searchParameters = params
     }
 }
 

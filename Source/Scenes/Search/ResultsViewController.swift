@@ -43,12 +43,14 @@ class ResultsViewController: UIViewController {
     
     func setupViews() {
         var label: String
-        if let sp = searchParameters {
+        if let sp = searchParameters, let q = getQueryString() {
             label = "You searched for:\n"
             label += "\n"
-            label += "\(sp.scope):\(sp.text)\n"
-            label += "search_format(\(sp.format!))\n"
-            label += "site(\(sp.location!))\n"
+            label += "\(sp.searchClass):\(sp.text)\n"
+            label += "search_format(\(sp.searchFormat ?? ""))\n"
+            label += "site(\(sp.organizationShortName ?? ""))\n"
+            label += "\n\n"
+            label += q
         } else {
             label = """
 The engravings translate to
@@ -56,6 +58,24 @@ The engravings translate to
 """
         }
         searchParametersLabel.text = label
+    }
+    
+    // Build query string, taken with a grain of salt from
+    // https://wiki.evergreen-ils.org/doku.php?id=documentation:technical:search_grammar
+    // e.g. "title:Harry Potter chamber of secrets search_format(book) site(MARLBORO)"
+    func getQueryString() -> String? {
+        guard let sp = searchParameters else {
+            self.showAlert(title: "Internal Error", message: "No search parameters")
+            return nil
+        }
+        var query = "\(sp.searchClass):\(sp.text)"
+        if let sf = sp.searchFormat, !sf.isEmpty {
+            query += " search_format(\(sf))"
+        }
+        if let org = sp.organizationShortName, !org.isEmpty {
+            query += " site(\(org))"
+        }
+        return query
     }
 }
 

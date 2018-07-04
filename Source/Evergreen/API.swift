@@ -57,4 +57,5 @@ struct API {
     static let metarecordModsRetrieve = "open-ils.search.biblio.metarecord.mods_slim.retrieve"
     static let modsFromCopy = "open-ils.search.biblio.mods_from_copy"
     static let recordModsRetrieve = "open-ils.search.biblio.record.mods_slim.retrieve"
+    static let query = "open-ils.search.biblio.multiclass.query"
 }

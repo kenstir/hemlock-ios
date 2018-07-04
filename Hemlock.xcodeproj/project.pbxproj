@@ -438,10 +438,10 @@
 				D270C4082091FCAA00D27159 /* IDLParser.swift */,
 				D231B52B2083C08000478D25 /* Library.swift */,
 				D22D02642083DE9100DC1F5B /* LoginController.swift */,
+				D260755720E0860300795124 /* Organization.swift */,
 				D29C72132092691A00E90952 /* OSRFClass.swift */,
 				D29C720F209248F500E90952 /* OSRFCoder.swift */,
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
-				D260755720E0860300795124 /* Organization.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -617,10 +617,10 @@
 		FACD142520CDC0C9008F02D3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				FACD142620CDC0DF008F02D3 /* Search.storyboard */,
 				D256656220E1B4DD0001F40F /* Results.storyboard */,
-				D29E87FC20D831540003EB27 /* SearchViewController.swift */,
 				D256656520E1B56F0001F40F /* ResultsViewController.swift */,
+				FACD142620CDC0DF008F02D3 /* Search.storyboard */,
+				D29E87FC20D831540003EB27 /* SearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";

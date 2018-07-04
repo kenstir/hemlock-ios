@@ -20,8 +20,15 @@
 import Foundation
 
 class Organization {
+    static private var registry: [String: Organization] = [:]
+
     var id: Int?
     var level: Int?
     var name: String?
     var shortname: String?
+    
+    static func findShortName(forName name: String?) -> String? {
+        //TODO
+        return nil
+    }
 }

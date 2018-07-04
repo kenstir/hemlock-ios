@@ -98,7 +98,6 @@ class Format {
         if let item = items.first(where: { $0.spinnerLabel == label }) {
             return item.searchFormat
         }
-        //TODO: analytics
         return ""
     }
     
