@@ -1,5 +1,5 @@
 //
-//  SearchFormat.swift
+//  Format.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -19,7 +19,11 @@
 
 import Foundation
 
-class SearchFormat {
+/// `Format` converts between:
+/// - searchFormat as used by the OSRF search API,
+/// - spinnerLabel as used in the UIPicker
+/// - displayLabel as used in UI labels
+class Format {
     struct FormatItem {
         var searchFormat: String
         var spinnerLabel: String
@@ -98,6 +102,11 @@ class SearchFormat {
         return ""
     }
     
+    // The 
+    static func getSearchFormat(fromMRAResponse mra: String) -> String {
+        return ""
+    }
+    
     static func getDisplayLabel(forSearchFormat searchFormat: String) -> String {
         if let item = items.first(where: { $0.searchFormat == searchFormat }) {
             return item.displayLabel ?? item.spinnerLabel
@@ -110,7 +119,7 @@ class SearchFormat {
         if searchFormat == "picture" {
             return true
         }
-        let label = SearchFormat.getDisplayLabel(forSearchFormat: searchFormat)
+        let label = Format.getDisplayLabel(forSearchFormat: searchFormat)
         return label.hasPrefix("E-")
     }
     

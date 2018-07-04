@@ -44,6 +44,12 @@ struct API {
     static let holdsRetrieve = "open-ils.circ.holds.retrieve"
     static let holdQueueStats = "open-ils.circ.hold.queue_stats.retrieve"
     static let renew = "open-ils.circ.renew"
+    
+    //MARK: - pcrud service
+    
+    static let pcrud = "open-ils.pcrud"
+    static let searchMRA = "open-ils.pcrud.search.mra.atomic"
+    static let retrieveMRA = "open-ils.pcrud.retrieve.mra"
 
     //MARK: - search service
     
