@@ -197,7 +197,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         } else {
             cell.renewButton.isEnabled = false
         }
-        Style.styleButton(asOutline: cell.renewButton)//Style.styleButton(asPlain: cell.renewButton)
+        Style.styleButton(asOutline: cell.renewButton)
 
         return cell
     }

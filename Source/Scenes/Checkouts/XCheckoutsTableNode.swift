@@ -54,8 +54,8 @@ class XCheckoutsTableNode: ASCellNode {
     
     private func setupTitleNode() {
         self.titleNode.attributedText = NSAttributedString(string: self.circRecord.title, attributes: self.titleTextAttributes())
-        self.titleNode.maximumNumberOfLines = 1
-        self.titleNode.truncationMode = .byTruncatingTail
+        self.titleNode.maximumNumberOfLines = 2
+        self.titleNode.truncationMode = .byWordWrapping
     }
     
     private var titleTextAttributes = {
