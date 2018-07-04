@@ -48,6 +48,17 @@ class FormatTests: XCTestCase {
             """
         let searchFormat = Format.getSearchFormat(fromMRAResponse: mraResponse)
         XCTAssertEqual(searchFormat, "book")
+        
+        // https://gapines.org/osrf-gateway-v1?service=open-ils.pcrud&method=open-ils.pcrud.retrieve.mra&param=%22ANONYMOUS%22&param=4132282
+        let response2 = "\"conf\"=>\"0\", \"cont\"=>\" \", \"ctry\"=>\"meu\", \"fest\"=>\"0\", \"ills\"=>\" \", \"indx\"=>\"0\", \"cont1\"=>\" \", \"date1\"=>\"2000\", \"ills1\"=>\" \", \"audience\"=>\"c\", \"cat_form\"=>\"a\", \"language\"=>\"eng\", \"lit_form\"=>\"1\", \"bib_level\"=>\"m\", \"item_form\"=>\"d\", \"item_lang\"=>\"eng\", \"item_type\"=>\"a\", \"pub_status\"=>\"s\", \"icon_format\"=>\"lpbook\", \"search_format\"=>\"book\", \"mr_hold_format\"=>\"lpbook\""
+        let format2 = Format.getSearchFormat(fromMRAResponse: response2)
+        XCTAssertEqual(format2, "lpbook")
+        
+        // https://gapines.org/osrf-gateway-v1?service=open-ils.pcrud&method=open-ils.pcrud.retrieve.mra&param=%22ANONYMOUS%22&param=4221885
+        let response3 = "\"ctry\"=>\"cau\", \"tech\"=>\"l\", \"date1\"=>\"2004\", \"audience\"=>\" \", \"cat_form\"=>\"a\", \"language\"=>\"eng\", \"type_mat\"=>\"v\", \"bib_level\"=>\"m\", \"enc_level\"=>\"I\", \"item_lang\"=>\"eng\", \"item_type\"=>\"g\", \"vr_format\"=>\"g\", \"pub_status\"=>\"s\""
+        let format3 = Format.getSearchFormat(fromMRAResponse: response3)
+        XCTAssertEqual(format3, "")
+
     }
 
     func test_Format_getDisplayLabel() {

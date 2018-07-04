@@ -23,6 +23,10 @@
 		D2211B0620D0BA840043947B /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
+		D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */; };
+		D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */; };
+		D226B60A20ED519E00CA5B79 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
+		D226B60B20ED519E00CA5B79 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D228FB6520D33402001A7E31 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
@@ -194,6 +198,8 @@
 		D2211B0520D0BA840043947B /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
 		D22438AB20D357E900D098D0 /* HoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsViewController.swift; sourceTree = "<group>"; };
 		D22438AD20D35CC000D098D0 /* HoldRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecord.swift; sourceTree = "<group>"; };
+		D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+splitOnRegex.swift"; sourceTree = "<group>"; };
+		D226B60920ED519E00CA5B79 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D228FB6420D33402001A7E31 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -400,6 +406,8 @@
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
+				D226B60920ED519E00CA5B79 /* String+.swift */,
+				D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */,
 				D28290F720E6F770008EBE4B /* Style.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
 				D28290F420E5CF48008EBE4B /* UIView+.swift */,
@@ -838,12 +846,14 @@
 				D28725B120E932DF002A4C42 /* ListsViewController.swift in Sources */,
 				D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */,
 				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
+				D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755820E0860300795124 /* Organization.swift in Sources */,
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D279920F20DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
 				D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
 				D256656620E1B56F0001F40F /* ResultsViewController.swift in Sources */,
+				D226B60A20ED519E00CA5B79 /* String+.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				D27990D520DDD473003B451E /* DetailsViewController.swift in Sources */,
@@ -893,12 +903,14 @@
 				D28725B220E93352002A4C42 /* ListsViewController.swift in Sources */,
 				D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
+				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
 				D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
 				D279920E20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
 				D256656720E1B56F0001F40F /* ResultsViewController.swift in Sources */,
+				D226B60B20ED519E00CA5B79 /* String+.swift in Sources */,
 				D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */,

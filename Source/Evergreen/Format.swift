@@ -102,8 +102,22 @@ class Format {
         return ""
     }
     
-    // The 
+    // The API call open-ils.pcrud.retrieve.mra returns an abomination
+    // of perl Data::Dumper hash output that we need to decode to get the
+    // search format.  The string contains at least icon_format and
+    // search_format entries, e.g.
+    //
+    //     "icon_format"=>"lpbook", "search_format"=>"book"
+    //
+    // We use "icon_format" because it is more specific, here it is
+    // "lpbook" (Large Print Book) vs. "book" (Book).
     static func getSearchFormat(fromMRAResponse mra: String) -> String {
+        for entry in mra.split(onString: ", ") {
+            let kv = entry.split(onString: "=>")
+            if kv.count == 2, kv[0] == "\"icon_format\"" {
+                return kv[1].trimQuotes()
+            }
+        }
         return ""
     }
     
