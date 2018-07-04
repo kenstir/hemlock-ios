@@ -112,16 +112,16 @@ class MainViewController: UITableViewController {
     
     @IBAction func fullCatalogButton(_ sender: UIBarButtonItem) {
         //open catalog url
-        if let urlbase = App.library?.url,
-            let url = URL(string: urlbase) {
+        if let baseurl = App.library?.url,
+            let url = URL(string: baseurl) {
              UIApplication.shared.open(url, options: [:])
         }
     }
     
     @IBAction func libraryLocatorButton(_ sender: UIBarButtonItem) {
         //open library location url
-        if let urlbase: String = "http://pines.georgialibraries.org/pinesLocator/locator.html",
-            let url = URL(string: urlbase) {
+        let urlbase = "http://pines.georgialibraries.org/pinesLocator/locator.html"
+        if let url = URL(string: urlbase) {
             UIApplication.shared.open(url, options: [:])
         }
     }
