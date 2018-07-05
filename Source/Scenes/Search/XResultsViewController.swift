@@ -114,36 +114,10 @@ class XResultsViewController: ASViewController<ASTableNode> {
         // search
         let options: [String: Int] = ["limit": 200/*TODO*/, "offset": 0]
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1])
-        print("--- req \(String(describing: req))")
         req.gatewayObjectResponse().done { obj in
-            print("--- resp")
-            var records: [ResultRecord] = []
-            let count = obj.getInt("count")
-            if count == 0 {
+            var records = ResultRecord.makeArray(fromQueryResponse: obj)
+            if records.count == 0 {
                 self.updateItems(withRecords: records)
-                return
-            }
-            
-            // ids is a list of lists and looks like one of:
-            //   [[32673,null,"0.0"],[886843,null,"0.0"]]      // integer id,?,?
-            //   [["503610",null,"0.0"],["502717",null,"0.0"]] // string id,?,?
-            //   [["1805532"],["2385399"]]                     // string id only
-            if let ids = obj.getAny("ids"),
-                let ids_array = ids as? [[Any]] {
-                print("\(ids_array.count) results")
-                for elem in ids_array {
-                    debugPrint(elem)
-                    if let id = elem.first as? Int {
-                        records.append(ResultRecord(id: id))
-                    } else if let str = elem.first as? String, let id = Int(str) {
-                        records.append(ResultRecord(id: id))
-                    } else {
-                        self.showAlert(title: "Internal error", message: "Unexpected id in search results: \(String(describing: elem.first))")
-                        return
-                    }
-                }
-            } else {
-                self.showAlert(title: "Internal error", message: "Unexpected format of ids in search results")
                 return
             }
             self.activityIndicator.stopAnimating()
