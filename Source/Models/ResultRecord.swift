@@ -1,5 +1,5 @@
 //
-//  MetaBibRecord.swift
+//  ResultRecord.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -19,14 +19,16 @@
 //
 
 import Foundation
-class MBRecord {
+
+class ResultRecord {
     
+    let id: Int
     var mvrObj: OSRFObject?
     
     var title: String { return mvrObj?.getString("title") ?? "Unknown" }
     var author: String { return mvrObj?.getString("author") ?? "Unknown" }
     
-    init(mvrObj: OSRFObject) {
-        self.mvrObj = mvrObj        
+    init(id: Int) {
+        self.id = id
     }
 }

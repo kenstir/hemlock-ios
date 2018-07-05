@@ -92,9 +92,11 @@ class SearchViewController: UIViewController {
         }
     }
 
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
-        guard let resultsVC = vc as? ResultsViewController,
+        guard
+            let resultsVC = vc as? ResultsViewController,
             let searchText = searchBar.text,
             let formatText = formatPicker.text else
         {
@@ -103,7 +105,7 @@ class SearchViewController: UIViewController {
         }
         let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.findShortName(forName: locationPicker?.text))
         resultsVC.searchParameters = params
-    }
+    }*/
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -113,11 +115,19 @@ extension SearchViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("xxx searchBarSearchButtonClicked")
         guard let searchText = searchBar.text, searchText.count > 0 else {
-            self.showAlert(title: "", message: "Search words cannot be empty")
+            self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
             return
         }
-        print("xxx searchBarSearchButtonClicked")
-        self.performSegue(withIdentifier: "ShowBogusSegue", sender: nil)
+        guard let formatText = formatPicker.text else {
+            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
+            return
+        }
+        let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.findShortName(forName: locationPicker?.text))
+        let vc = XResultsViewController()
+        vc.searchParameters = params
+        print("--- searchParams \(String(describing: vc.searchParameters))")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

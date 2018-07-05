@@ -1,5 +1,5 @@
 //
-//  XCheckoutsViewController.swift
+//  XResultsViewController.swift
 //  X is for teXture
 //
 //  Copyright (C) 2018 Kenneth H. Cox
@@ -22,13 +22,15 @@ import AsyncDisplayKit
 import PromiseKit
 import PMKAlamofire
 
-class XCheckoutsViewController: ASViewController<ASTableNode> {
+class XResultsViewController: ASViewController<ASTableNode> {
     
     //MARK: - Properties
     
-    private let headerNode: ASTextNode = ASTextNode()
-    var items: [CircRecord] = []
-    var selectedItem: CircRecord?
+    var activityIndicator: UIActivityIndicatorView!
+    let headerNode: ASTextNode = ASTextNode()
+    var searchParameters: SearchParameters?
+    var items: [ResultRecord] = []
+    var selectedItem: ResultRecord?
 
     private var tableNode: ASTableNode {
         return node
@@ -38,7 +40,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
 
     init() {
         super.init(node: ASTableNode(style: .plain))
-        self.title = "Items Checked Out"
+        self.title = "XSearch Results"
         self.setupNodes()
     }
     
@@ -49,18 +51,21 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     //MARK: - ViewController
     
     override func viewWillAppear(_ animated: Bool) {
-        print("XXX viewWillAppear")
+        print("--- viewWillAppear")
+        print("--- searchParams \(String(describing: searchParameters))")
         super.viewWillAppear(animated)
         
         if let indexPath = tableNode.indexPathForSelectedRow {
             tableNode.deselectRow(at: indexPath, animated: true)
         }
+        self.fetchData()
     }
     
     override func viewDidLoad() {
-        print("XXX viewDidLoad")
+        print("--- viewDidLoad")
+        print("--- searchParams \(String(describing: searchParameters))")
         super.viewDidLoad()
-        self.fetchData()
+        self.setupNodesOnLoad()
     }
 
     //MARK: - Setup
@@ -71,48 +76,92 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         tableNode.backgroundColor = UIColor.white
         tableNode.view.separatorStyle = .singleLine
         
-        // tableHeaderView is not accessible; see Texture #143
-        /*
-        tableNode.view.tableHeaderView = headerNode.view
-        tableNode.view.tableHeaderView?.frame = CGRect(x: 0, y: 0, width: 320, height: 48) // todo ???
-        headerNode.maximumNumberOfLines = 1
-        headerNode.truncationMode = .byTruncatingTail
-        */
         self.updateHeaderText()
 
         // setting an empty UIView as the footer prevents the display of ghost rows at the end of the table
-        // TODO: factor out as UITableView extension
         tableNode.view.tableFooterView = UIView()
+    }
+    
+    func setupNodesOnLoad() {
+        setupActivityIndicator()
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let bounds = self.node.frame
+        var refreshRect = activityIndicator.frame
+        refreshRect.origin = CGPoint(x: (bounds.size.width - activityIndicator.frame.width) / 2.0, y: (bounds.size.height - activityIndicator.frame.height) / 2.0)
+        activityIndicator.frame = refreshRect
+        self.node.view.addSubview(activityIndicator)
+        Style.styleActivityIndicator(activityIndicator)
     }
     
     //MARK: - Functions
     
     func fetchData() {
-        guard let authtoken = App.account?.authtoken,
-            let userid = App.account?.userID else
-        {
+        guard let authtoken = App.account?.authtoken else {
             showAlert(error: HemlockError.sessionExpired())
-            return //TODO: add analytics
+            return
+        }
+        guard let query = getQueryString() else {
+            showAlert(title: "Internal Error", message: "No search parameters")
+            return
         }
         
-        //activityIndicator.startAnimating()
+        print("--- fetchData query:\(query)")
+        activityIndicator.startAnimating()
 
-        // fetch the list of items
-        let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
+        // search
+        let options: [String: Int] = ["limit": 200/*TODO*/, "offset": 0]
+        let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1])
+        print("--- req \(String(describing: req))")
         req.gatewayObjectResponse().done { obj in
-            self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
+            print("--- resp")
+            var records: [ResultRecord] = []
+            let count = obj.getInt("count")
+            if count == 0 {
+                self.updateItems(withRecords: records)
+                return
+            }
+            
+            // ids is a list of lists and looks like one of:
+            //   [[32673,null,"0.0"],[886843,null,"0.0"]]      // integer id,?,?
+            //   [["503610",null,"0.0"],["502717",null,"0.0"]] // string id,?,?
+            //   [["1805532"],["2385399"]]                     // string id only
+            if let ids = obj.getAny("ids"),
+                let ids_array = ids as? [[Any]] {
+                print("\(ids_array.count) results")
+                for elem in ids_array {
+                    debugPrint(elem)
+                    if let id = elem.first as? Int {
+                        records.append(ResultRecord(id: id))
+                    } else if let str = elem.first as? String, let id = Int(str) {
+                        records.append(ResultRecord(id: id))
+                    } else {
+                        self.showAlert(title: "Internal error", message: "Unexpected id in search results: \(String(describing: elem.first))")
+                        return
+                    }
+                }
+            } else {
+                self.showAlert(title: "Internal error", message: "Unexpected format of ids in search results")
+                return
+            }
+            self.activityIndicator.stopAnimating()
+            self.updateItems(withRecords: records)
+//            self.fetchResultRecords(authtoken: authtoken, fromObject: obj)
         }.catch { error in
-            //self.activityIndicator.stopAnimating()
+            self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
     
-    func fetchCircRecords(authtoken: String, fromObject obj: OSRFObject) {
+    /*
+    func fetchResultRecords(authtoken: String, fromObject obj: OSRFObject) {
         let ids = obj.getIDList("overdue") + obj.getIDList("out")
-        var records: [CircRecord] = []
+        var records: [ResultRecord] = []
         var promises: [Promise<Void>] = []
         for id in ids {
-            let record = CircRecord(id: id)
+            let record = ResultRecord(id: id)
             records.append(record)
             let promise = fetchCircDetails(authtoken: authtoken, forRecord: record)
             promises.append(promise)
@@ -130,8 +179,10 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
             self.showAlert(error: error)
         }
     }
+ */
     
-    func fetchCircDetails(authtoken: String, forRecord record: CircRecord) -> Promise<Void> {
+    /*
+    func fetchCircDetails(authtoken: String, forRecord record: ResultRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(record.id) circRetrieve done")
@@ -148,9 +199,9 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         }
         return promise
     }
+ */
 
-    func updateItems(withRecords records: [CircRecord]) {
-        // TODO: sort by due date
+    func updateItems(withRecords records: [ResultRecord]) {
         self.items = records
         print("xxx \(records.count) records now, time to reloadData")
         updateHeaderText()
@@ -158,35 +209,47 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     }
     
     func updateHeaderText() {
-        headerNode.attributedText = NSAttributedString(string: "Items checked out: \(items.count)", attributes: self.headerTextAttributes())
+        var str: String
+        if items.count == 0 {
+            str = "No results"
+        } else {
+            str = "\(items.count) most relevant results"
+        }
+        headerNode.attributedText = NSAttributedString(string: str, attributes: self.headerTextAttributes())
     }
     
     private var headerTextAttributes = {
         return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination
-        guard let detailsVC = vc as? DetailsViewController,
-            let mvrObj = selectedItem?.mvrObj else
-        {
-            print("Uh oh!")
-            return
+    // Build query string, taken with a grain of salt from
+    // https://wiki.evergreen-ils.org/doku.php?id=documentation:technical:search_grammar
+    // e.g. "title:Harry Potter chamber of secrets search_format(book) site(MARLBORO)"
+    func getQueryString() -> String? {
+        guard let sp = searchParameters else {
+            self.showAlert(title: "Internal Error", message: "No search parameters")
+            return nil
         }
-        let record = MBRecord(mvrObj: mvrObj)
-        detailsVC.item = record
+        var query = "\(sp.searchClass):\(sp.text)"
+        if let sf = sp.searchFormat, !sf.isEmpty {
+            query += " search_format(\(sf))"
+        }
+        if let org = sp.organizationShortName, !org.isEmpty {
+            query += " site(\(org))"
+        }
+        return query
     }
 }
 
 //MARK: - ASTableDataSource
-extension XCheckoutsViewController: ASTableDataSource {
+extension XResultsViewController: ASTableDataSource {
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
     func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
-        let circRecord = items[indexPath.row]
-        let node = XCheckoutsTableNode(circRecord: circRecord)
+        let record = items[indexPath.row]
+        let node = XResultsTableNode(record: record)
         return node
     }
     
@@ -196,10 +259,10 @@ extension XCheckoutsViewController: ASTableDataSource {
 }
 
 //MARK: - ASTableDelegate
-extension XCheckoutsViewController: ASTableDelegate {
+extension XResultsViewController: ASTableDelegate {
 
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        let tn = (tableNode.nodeForRow(at: indexPath) as! XCheckoutsTableNode)
+        let tn = (tableNode.nodeForRow(at: indexPath) as! XResultsTableNode)
         debugPrint(tn)
         let item = items[indexPath.row]
         selectedItem = item

@@ -44,6 +44,12 @@
 		D2385E2E20914E6C00FE0C89 /* TestData in Resources */ = {isa = PBXBuildFile; fileRef = D2385E2D20914E6B00FE0C89 /* TestData */; };
 		D23C304E20E5C6C800666A2B /* PinesTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23C304D20E5C6C800666A2B /* PinesTheme.swift */; };
 		D23C305020E5C6EA00666A2B /* HemlockTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */; };
+		D23E5A0120ED96E9005EB391 /* XResultsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */; };
+		D23E5A0220ED96E9005EB391 /* XResultsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */; };
+		D23E5A0320ED96E9005EB391 /* XResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */; };
+		D23E5A0420ED96E9005EB391 /* XResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */; };
+		D23E5A0620ED98B9005EB391 /* ResultRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E5A0520ED98B9005EB391 /* ResultRecord.swift */; };
+		D23E5A0720ED98B9005EB391 /* ResultRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E5A0520ED98B9005EB391 /* ResultRecord.swift */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
@@ -219,6 +225,9 @@
 		D2385E2D20914E6B00FE0C89 /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = SOURCE_ROOT; };
 		D23C304D20E5C6C800666A2B /* PinesTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesTheme.swift; sourceTree = "<group>"; };
 		D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockTheme.swift; sourceTree = "<group>"; };
+		D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XResultsTableNode.swift; sourceTree = "<group>"; };
+		D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XResultsViewController.swift; sourceTree = "<group>"; };
+		D23E5A0520ED98B9005EB391 /* ResultRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRecord.swift; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -340,9 +349,10 @@
 			isa = PBXGroup;
 			children = (
 				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
-				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
+				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
+				D23E5A0520ED98B9005EB391 /* ResultRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -621,6 +631,8 @@
 				D256656520E1B56F0001F40F /* ResultsViewController.swift */,
 				FACD142620CDC0DF008F02D3 /* Search.storyboard */,
 				D29E87FC20D831540003EB27 /* SearchViewController.swift */,
+				D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */,
+				D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -844,6 +856,7 @@
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
 				D28725B120E932DF002A4C42 /* ListsViewController.swift in Sources */,
+				D23E5A0120ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
 				D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */,
 				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
 				D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
@@ -864,6 +877,7 @@
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
 				D279921120DEEA27003B451E /* McTextField.swift in Sources */,
 				D27990DA20DDD473003B451E /* HemlockError.swift in Sources */,
+				D23E5A0320ED96E9005EB391 /* XResultsViewController.swift in Sources */,
 				D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */,
 				D28725AE20E86F30002A4C42 /* CircService.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
@@ -884,6 +898,7 @@
 				D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
 				D260755B20E144E000795124 /* Format.swift in Sources */,
+				D23E5A0620ED98B9005EB391 /* ResultRecord.swift in Sources */,
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
 				D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */,
 				D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */,
@@ -901,6 +916,7 @@
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
 				D28725B220E93352002A4C42 /* ListsViewController.swift in Sources */,
+				D23E5A0220ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
 				D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
@@ -921,6 +937,7 @@
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D279921220DEEA27003B451E /* McTextField.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
+				D23E5A0420ED96E9005EB391 /* XResultsViewController.swift in Sources */,
 				D279911A20DDE160003B451E /* AppSettings.swift in Sources */,
 				D28725AF20E88063002A4C42 /* CircService.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
@@ -941,6 +958,7 @@
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D260755C20E144E000795124 /* Format.swift in Sources */,
+				D23E5A0720ED98B9005EB391 /* ResultRecord.swift in Sources */,
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,
 				D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */,
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,
