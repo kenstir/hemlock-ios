@@ -40,7 +40,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
 
     init() {
         super.init(node: ASTableNode(style: .plain))
-        self.title = "XSearch Results"
+        self.title = "Results"
         self.setupNodes()
     }
     
@@ -115,29 +115,19 @@ class XResultsViewController: ASViewController<ASTableNode> {
         let options: [String: Int] = ["limit": 200/*TODO*/, "offset": 0]
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1])
         req.gatewayObjectResponse().done { obj in
-            var records = ResultRecord.makeArray(fromQueryResponse: obj)
-            if records.count == 0 {
-                self.updateItems(withRecords: records)
-                return
-            }
-            self.activityIndicator.stopAnimating()
-            self.updateItems(withRecords: records)
-//            self.fetchResultRecords(authtoken: authtoken, fromObject: obj)
+            let records = ResultRecord.makeArray(fromQueryResponse: obj)
+            self.fetchRecordMVRs(authtoken: authtoken, records: records)
+            return
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
     
-    /*
-    func fetchResultRecords(authtoken: String, fromObject obj: OSRFObject) {
-        let ids = obj.getIDList("overdue") + obj.getIDList("out")
-        var records: [ResultRecord] = []
+    func fetchRecordMVRs(authtoken: String, records: [ResultRecord]) {
         var promises: [Promise<Void>] = []
-        for id in ids {
-            let record = ResultRecord(id: id)
-            records.append(record)
-            let promise = fetchCircDetails(authtoken: authtoken, forRecord: record)
+        for record in records {
+            let promise = fetchRecordMVR(authtoken: authtoken, forRecord: record)
             promises.append(promise)
         }
         print("xxx \(promises.count) promises made")
@@ -146,34 +136,22 @@ class XResultsViewController: ASViewController<ASTableNode> {
             when(fulfilled: promises)
         }.done {
             print("xxx \(promises.count) promises fulfilled")
-            //self.activityIndicator.stopAnimating()
+            self.activityIndicator.stopAnimating()
             self.updateItems(withRecords: records)
         }.catch { error in
-            //self.activityIndicator.stopAnimating()
+            self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
     }
- */
     
-    /*
-    func fetchCircDetails(authtoken: String, forRecord record: ResultRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
-        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            print("xxx \(record.id) circRetrieve done")
-            record.circObj = obj
-            guard let target = obj.getInt("target_copy") else {
-                // TODO: add anayltics or, just let it throw?
-                throw PMKError.cancelled
-            }
-            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
-            return req.gatewayObjectResponse()
-        }.done { obj in
-            print("xxx \(record.id) modsFromCopy done")
+    func fetchRecordMVR(authtoken: String, forRecord record: ResultRecord) -> Promise<Void> {
+        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id])
+        let promise = req.gatewayObjectResponse().done { obj in
+            print("xxx \(record.id) recordModsRetrieve done")
             record.mvrObj = obj
         }
         return promise
     }
- */
 
     func updateItems(withRecords records: [ResultRecord]) {
         self.items = records
@@ -228,7 +206,7 @@ extension XResultsViewController: ASTableDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Items checked out: \(items.count)"
+        return "\(items.count) most relevant results"
     }
 }
 
