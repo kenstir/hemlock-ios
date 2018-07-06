@@ -79,6 +79,9 @@ class SearchViewController: UIViewController {
         formatPicker.doneHandler = { [weak formatPicker] (selections) in
             formatPicker?.text = selections[0]!
         }
+        formatPicker.textFieldWillBeginEditingHandler = { (selections) in
+            self.searchBar.resignFirstResponder()
+        }
     }
         
     func setupLocationPicker() {
@@ -89,6 +92,9 @@ class SearchViewController: UIViewController {
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak locationPicker] (selections) in
             locationPicker?.text = selections[0]!
+        }
+        locationPicker.textFieldWillBeginEditingHandler = { (selections) in
+            self.searchBar.resignFirstResponder()
         }
     }
 
