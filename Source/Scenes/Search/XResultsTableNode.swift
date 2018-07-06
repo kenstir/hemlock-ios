@@ -29,6 +29,7 @@ class XResultsTableNode: ASCellNode {
     private let titleNode: ASTextNode
     private let authorNode: ASTextNode
     private let formatNode: ASTextNode
+    private let imageNode: ASNetworkImageNode
     private let separatorNode: ASDisplayNode
     
     //MARK: - Lifecycle
@@ -39,6 +40,7 @@ class XResultsTableNode: ASCellNode {
         titleNode = ASTextNode()
         authorNode = ASTextNode()
         formatNode = ASTextNode()
+        imageNode = ASNetworkImageNode()
         separatorNode = ASDisplayNode()
 
         super.init()
@@ -52,6 +54,7 @@ class XResultsTableNode: ASCellNode {
         self.setupTitleNode()
         self.setupAuthorNode()
         self.setupFormatNode()
+        self.setupImageNode()
         self.setupSeparatorNode()
     }
     
@@ -84,6 +87,11 @@ class XResultsTableNode: ASCellNode {
     private var formatTextAttributes = {
         return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]
     }
+    
+    private func setupImageNode() {
+        let url = AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
+        self.imageNode.url = URL(string: url)
+    }
 
     private func setupSeparatorNode() {
         self.separatorNode.backgroundColor = UIColor.lightGray
@@ -94,6 +102,8 @@ class XResultsTableNode: ASCellNode {
     private func buildNodeHierarchy() {
         self.addSubnode(titleNode)
         self.addSubnode(authorNode)
+        self.addSubnode(formatNode)
+        self.addSubnode(imageNode)
         self.addSubnode(separatorNode)
     }
     
@@ -106,12 +116,14 @@ class XResultsTableNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        imageNode.style.preferredSize = CGSize(width: 100, height: 160)
+        
         let detailsSpec = ASStackLayoutSpec.vertical()
         detailsSpec.style.flexShrink = 1.0
         detailsSpec.style.flexGrow = 1.0
         detailsSpec.children = [titleNode, authorNode]
         
-        let contentsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [detailsSpec])
+        let contentsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [detailsSpec, imageNode])
 
         return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0), child: contentsSpec)
     }
