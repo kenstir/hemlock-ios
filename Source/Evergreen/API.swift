@@ -44,6 +44,11 @@ struct API {
     static let holdsRetrieve = "open-ils.circ.holds.retrieve"
     static let holdQueueStats = "open-ils.circ.hold.queue_stats.retrieve"
     static let renew = "open-ils.circ.renew"
+    
+    //MARK: - fielder service
+    
+    static let fielder = "open-ils.fielder"
+    static let fielderBMPAtomic = "open-ils.fielder.bmp.atomic"
 
     //MARK: - search service
     

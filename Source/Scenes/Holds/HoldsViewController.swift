@@ -87,20 +87,45 @@ class HoldsViewController: UIViewController {
         guard let target = hold.target else {
             return Promise<Void>() //TODO: add analytics
         }
-        var method: String
+        var req: Alamofire.DataRequest
         if hold.holdType == "T" {
-            method = API.recordModsRetrieve
+            req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target])
+            let promise = req.gatewayObjectResponse().done { obj in
+                print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
+                hold.mvrObj = obj
+            }
+            return promise
         } else if hold.holdType == "M" {
-            method = API.metarecordModsRetrieve
+            req = Gateway.makeRequest(service: API.search, method: API.metarecordModsRetrieve, args: [target])
+            let promise = req.gatewayObjectResponse().done { obj in
+                print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
+                hold.mvrObj = obj
+            }
+            return promise
+        } else if hold.holdType == "P" {
+            var param: [String: Any] = [:]
+            param["cache"] = 1
+            param["fields"] = ["label", "record"]
+            param["query"] = ["id": target]
+            // returns [{record:id, label=part label}]
+            req = Gateway.makeRequest(service: API.fielder, method: API.fielderBMPAtomic, args: [param])
+            let promise = req.gatewayArrayResponse().then { (array: [OSRFObject]) -> Promise<(OSRFObject)> in
+                //(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> in
+                //debugPrint(resp)
+                debugPrint(array)
+                var target = 0
+                if let obj = array.first {
+                    target = obj.getInt("record") ?? 0
+                }
+                return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target]).gatewayObjectResponse()
+            }.done { (obj: OSRFObject) -> Void in
+                print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
+                hold.mvrObj = obj
+            }
+            return promise
         } else {
             return Promise<Void>() //TODO: add analytics
         }
-        let req = Gateway.makeRequest(service: API.search, method: method, args: [target])
-        let promise = req.gatewayObjectResponse().done { obj in
-            print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
-            hold.mvrObj = obj
-        }
-        return promise
     }
     
     func fetchQueueStats(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
