@@ -135,14 +135,10 @@ extension FinesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "finesCell") else {
-//            fatalError("Could not dequeue a cell")
-//        }
         guard let cell: FinesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "finesCell") as? FinesTableViewCell else {
             fatalError("Could not dequeue a cell")
         }
         let fine = fines[indexPath.row]
-//        cell.textLabel?.text = fine.title
         cell.finesTitle?.text = fine.title
         cell.finesSubtitle?.text = fine.subtitle
         cell.finesValue?.text = String(format: "$ %.2f ", fine.balance!)

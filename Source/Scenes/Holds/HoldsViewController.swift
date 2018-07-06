@@ -28,7 +28,8 @@ class HoldsViewController: UIViewController {
     var items: [HoldRecord] = []
 
     //MARK: - UIViewController
-
+    @IBOutlet weak var holdsTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -38,6 +39,10 @@ class HoldsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        holdsTable.delegate = self
+        holdsTable.dataSource = self
+        holdsTable.tableFooterView = UIView() // prevent display of ghost rows at end of table
+
     }
 
     func fetchData() {
@@ -123,5 +128,47 @@ class HoldsViewController: UIViewController {
             print("of:        \(hold.totalHolds)")
             print("copies:    \(hold.potentialCopies)")
         }
+        holdsTable.reloadData()
     }
 }
+
+extension HoldsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Items on hold: \(items.count)"
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HoldsTableViewCell else {
+            fatalError("dequeued cell of wrong class!")
+        }
+        
+        let item = items[indexPath.row]
+        cell.holdsTitleLabel.text = item.title
+        cell.holdsAuthorLabel.text = item.author
+        cell.holdsStatusLabel.text = item.status
+        let holdstotaltext = "\(item.totalHolds) holds on \(item.potentialCopies) copies"
+        cell.holdsQueueLabel.text = holdstotaltext
+        cell.holdsQueuePosition.text = "Queue position: \(item.queuePosition)"
+        
+        //pull more record details
+        
+        return cell
+    }
+}
+
+extension HoldsViewController: UITableViewDelegate {
+    
+    //MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let item = items[indexPath.row]
+//        selectedItem = item
+//        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
+    }
+}
+
