@@ -51,8 +51,6 @@ class XResultsViewController: ASViewController<ASTableNode> {
     //MARK: - ViewController
     
     override func viewWillAppear(_ animated: Bool) {
-        print("--- viewWillAppear")
-        print("--- searchParams \(String(describing: searchParameters))")
         super.viewWillAppear(animated)
         
         if let indexPath = tableNode.indexPathForSelectedRow {
@@ -62,8 +60,6 @@ class XResultsViewController: ASViewController<ASTableNode> {
     }
     
     override func viewDidLoad() {
-        print("--- viewDidLoad")
-        print("--- searchParams \(String(describing: searchParameters))")
         super.viewDidLoad()
         self.setupNodesOnLoad()
     }

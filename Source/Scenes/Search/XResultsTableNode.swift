@@ -90,6 +90,7 @@ class XResultsTableNode: ASCellNode {
     
     private func setupImageNode() {
         let url = AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
+        self.imageNode.contentMode = .scaleAspectFit 
         self.imageNode.url = URL(string: url)
     }
 
@@ -116,7 +117,7 @@ class XResultsTableNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        imageNode.style.preferredSize = CGSize(width: 100, height: 160)
+        imageNode.style.preferredSize = CGSize(width: 75.0, height: 75.0*1.6)
         
         let detailsSpec = ASStackLayoutSpec.vertical()
         detailsSpec.style.flexShrink = 1.0
