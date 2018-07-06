@@ -36,7 +36,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var scopeControl: UISegmentedControl!
     @IBOutlet weak var formatPicker: McTextField!
     @IBOutlet weak var locationPicker: McTextField!
-
+    @IBOutlet weak var searchButton: UIButton!
+    
     let scopes = App.searchScopes
     let formats = Format.getSpinnerLabels()
     let organizations = App.organizations
@@ -55,6 +56,7 @@ class SearchViewController: UIViewController {
         setupScopeControl()
         setupFormatPicker()
         setupLocationPicker()
+        setupSearchButton()
     }
     
     func setupSearchBar() {
@@ -97,6 +99,31 @@ class SearchViewController: UIViewController {
             self.searchBar.resignFirstResponder()
         }
     }
+    
+    func setupSearchButton() {
+        searchButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+        Style.styleButton(asInverse: searchButton)
+    }
+    
+    @objc func buttonPressed(sender: UIButton) {
+        doSearch()
+    }
+
+    func doSearch() {
+        guard let searchText = searchBar.text, searchText.count > 0 else {
+            self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
+            return
+        }
+        guard let formatText = formatPicker.text else {
+            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
+            return
+        }
+        let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.findShortName(forName: locationPicker?.text))
+        let vc = XResultsViewController()
+        vc.searchParameters = params
+        print("--- searchParams \(String(describing: vc.searchParameters))")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -121,19 +148,6 @@ extension SearchViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("xxx searchBarSearchButtonClicked")
-        guard let searchText = searchBar.text, searchText.count > 0 else {
-            self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
-            return
-        }
-        guard let formatText = formatPicker.text else {
-            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
-            return
-        }
-        let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.findShortName(forName: locationPicker?.text))
-        let vc = XResultsViewController()
-        vc.searchParameters = params
-        print("--- searchParams \(String(describing: vc.searchParameters))")
-        self.navigationController?.pushViewController(vc, animated: true)
+        doSearch()
     }
 }
