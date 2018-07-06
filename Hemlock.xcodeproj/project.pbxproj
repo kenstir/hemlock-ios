@@ -260,7 +260,6 @@
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D28290F420E5CF48008EBE4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D28290F720E6F770008EBE4B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		D28725AC20E86E71002A4C42 /* sample.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = sample.java; sourceTree = "<group>"; };
 		D28725AD20E86F30002A4C42 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
 		D28725B020E932DF002A4C42 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
@@ -531,7 +530,6 @@
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
-				D28725AC20E86E71002A4C42 /* sample.java */,
 				D22D0274208516D600DC1F5B /* LICENSE */,
 				D27EFD5A2094E1EB00D7E22E /* README.md */,
 				D27EFD5B2094E46400D7E22E /* Documentation */,
