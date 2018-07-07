@@ -28,7 +28,8 @@ class HoldsViewController: UIViewController {
     var items: [HoldRecord] = []
 
     //MARK: - UIViewController
-
+    @IBOutlet weak var holdsTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -38,6 +39,10 @@ class HoldsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        holdsTable.delegate = self
+        holdsTable.dataSource = self
+        holdsTable.tableFooterView = UIView() // prevent display of ghost rows at end of table
+
     }
 
     func fetchData() {
@@ -82,20 +87,42 @@ class HoldsViewController: UIViewController {
         guard let target = hold.target else {
             return Promise<Void>() //TODO: add analytics
         }
-        var method: String
+        var req: Alamofire.DataRequest
         if hold.holdType == "T" {
-            method = API.recordModsRetrieve
+            req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target])
+            let promise = req.gatewayObjectResponse().done { obj in
+                print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
+                hold.mvrObj = obj
+            }
+            return promise
         } else if hold.holdType == "M" {
-            method = API.metarecordModsRetrieve
+            req = Gateway.makeRequest(service: API.search, method: API.metarecordModsRetrieve, args: [target])
+            let promise = req.gatewayObjectResponse().done { obj in
+                print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
+                hold.mvrObj = obj
+            }
+            return promise
+        } else if hold.holdType == "P" {
+            var param: [String: Any] = [:]
+            param["cache"] = 1
+            param["fields"] = ["label", "record"]
+            param["query"] = ["id": target]
+            req = Gateway.makeRequest(service: API.fielder, method: API.fielderBMPAtomic, args: [param])
+            let promise = req.gatewayArrayResponse().then { (array: [OSRFObject]) -> Promise<(OSRFObject)> in
+                var target = 0
+                if let obj = array.first {
+                    target = obj.getInt("record") ?? 0
+                    hold.label = obj.getString("label")
+                }
+                return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target]).gatewayObjectResponse()
+            }.done { (obj: OSRFObject) -> Void in
+                print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
+                hold.mvrObj = obj
+            }
+            return promise
         } else {
             return Promise<Void>() //TODO: add analytics
         }
-        let req = Gateway.makeRequest(service: API.search, method: method, args: [target])
-        let promise = req.gatewayObjectResponse().done { obj in
-            print("xxx \(String(describing: hold.target)) fetchTargetInfo done")
-            hold.mvrObj = obj
-        }
-        return promise
     }
     
     func fetchQueueStats(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
@@ -123,5 +150,47 @@ class HoldsViewController: UIViewController {
             print("of:        \(hold.totalHolds)")
             print("copies:    \(hold.potentialCopies)")
         }
+        holdsTable.reloadData()
     }
 }
+
+extension HoldsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Items on hold: \(items.count)"
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HoldsTableViewCell else {
+            fatalError("dequeued cell of wrong class!")
+        }
+        
+        let item = items[indexPath.row]
+        cell.holdsTitleLabel.text = item.title
+        cell.holdsAuthorLabel.text = item.author
+        cell.holdsStatusLabel.text = item.status
+        let holdstotaltext = "\(item.totalHolds) holds on \(item.potentialCopies) copies"
+        cell.holdsQueueLabel.text = holdstotaltext
+        cell.holdsQueuePosition.text = "Queue position: \(item.queuePosition)"
+        
+        //pull more record details
+        
+        return cell
+    }
+}
+
+extension HoldsViewController: UITableViewDelegate {
+    
+    //MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let item = items[indexPath.row]
+//        selectedItem = item
+//        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
+    }
+}
+
