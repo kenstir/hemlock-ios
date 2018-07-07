@@ -19,6 +19,7 @@
 
 import Foundation
 import Valet
+import os.log
 
 class App {
     //MARK: - Properties
@@ -412,8 +413,11 @@ class App {
     //MARK: - Functions
     
     static func loadIDL() -> Bool {
+        let start = Date()
         let parser = IDLParser(contentsOf: Gateway.idlURL()!)
         App.idlParserStatus = parser.parse()
+        let elapsed = -start.timeIntervalSinceNow
+        os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
         return App.idlParserStatus!
     }
 }

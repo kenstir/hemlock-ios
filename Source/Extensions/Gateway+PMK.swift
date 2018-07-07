@@ -21,12 +21,14 @@
 import Foundation
 import PromiseKit
 import PMKAlamofire
+import os.log
 
 extension Alamofire.DataRequest {
     func gatewayResponse(queue: DispatchQueue? = nil) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
+                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -45,6 +47,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
+                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -71,6 +74,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
+                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -97,6 +101,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
+                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {

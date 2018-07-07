@@ -77,7 +77,7 @@ struct GatewayResponse {
     
     init(_ jsonString: String) {
         self.init()
-        os_log("resp.str: %@", log: Gateway.log, type: .info, jsonString)
+        //os_log("resp.str: %@", log: Gateway.log, type: .info, jsonString)
         guard let data = jsonString.data(using: .utf8) else {
             error = .failure("Unable to encode as utf8: \(jsonString)")
             return
