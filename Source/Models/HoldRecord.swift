@@ -27,8 +27,20 @@ class HoldRecord {
     var mvrObj: OSRFObject?
     var qstatsObj: OSRFObject?
     
-    var title: String { return mvrObj?.getString("title") ?? "Unknown" }
-    var author: String { return mvrObj?.getString("author") ?? "Unknown" }
+    var label: String? // if the hold is a "P" type, this is the part label
+    
+    var author: String { return mvrObj?.getString("author") ?? "Unknown Author" }
+    var title: String {
+        if let title = mvrObj?.getString("title") {
+            if let l = label {
+                return "\(title) (\(l))"
+            } else {
+                return title
+            }
+        } else {
+            return "Unknown Title"
+        }
+    }
 
     var target: Int? { return ahrObj.getID("target") }
     var holdType: String? { return ahrObj.getString("hold_type") }

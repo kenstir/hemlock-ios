@@ -107,15 +107,12 @@ class HoldsViewController: UIViewController {
             param["cache"] = 1
             param["fields"] = ["label", "record"]
             param["query"] = ["id": target]
-            // returns [{record:id, label=part label}]
             req = Gateway.makeRequest(service: API.fielder, method: API.fielderBMPAtomic, args: [param])
             let promise = req.gatewayArrayResponse().then { (array: [OSRFObject]) -> Promise<(OSRFObject)> in
-                //(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> in
-                //debugPrint(resp)
-                debugPrint(array)
                 var target = 0
                 if let obj = array.first {
                     target = obj.getInt("record") ?? 0
+                    hold.label = obj.getString("label")
                 }
                 return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target]).gatewayObjectResponse()
             }.done { (obj: OSRFObject) -> Void in
