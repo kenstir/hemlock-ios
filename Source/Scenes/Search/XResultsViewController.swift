@@ -31,6 +31,8 @@ class XResultsViewController: ASViewController<ASTableNode> {
     var searchParameters: SearchParameters?
     var items: [ResultRecord] = []
     var selectedItem: ResultRecord?
+    var startOfSearch = Date()
+    var didCompleteSearch = false
 
     private var tableNode: ASTableNode {
         return node
@@ -50,20 +52,23 @@ class XResultsViewController: ASViewController<ASTableNode> {
     
     //MARK: - ViewController
     
+    // NB: viewDidLoad on an ASViewController gets called during construction,
+    // before there is any UI.  Do not fetchData here; fetch it in viewDidAppear.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupNodesOnLoad()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if let indexPath = tableNode.indexPathForSelectedRow {
             tableNode.deselectRow(at: indexPath, animated: true)
         }
-        self.fetchData()
     }
     
-    // NB: viewDidLoad on an ASViewController gets called during construction,
-    // before there is any UI.  Do not fetchData here; fetch it in viewWillAppear.
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupNodesOnLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchData()
     }
 
     //MARK: - Setup
@@ -97,6 +102,9 @@ class XResultsViewController: ASViewController<ASTableNode> {
     //MARK: - Functions
     
     func fetchData() {
+        if didCompleteSearch {
+            return
+        }
         guard let authtoken = App.account?.authtoken else {
             showAlert(error: HemlockError.sessionExpired())
             return
@@ -108,6 +116,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         
         print("--- fetchData query:\(query)")
         activityIndicator.startAnimating()
+        startOfSearch = Date()
 
         // search
         let options: [String: Int] = ["limit": 200/*TODO*/, "offset": 0]
@@ -135,6 +144,9 @@ class XResultsViewController: ASViewController<ASTableNode> {
         }.done {
             print("xxx \(promises.count) promises fulfilled")
             self.activityIndicator.stopAnimating()
+            self.didCompleteSearch = true
+            let elapsed = -self.startOfSearch.timeIntervalSinceNow
+            os_log("search.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             self.updateItems(withRecords: records)
         }.catch { error in
             self.activityIndicator.stopAnimating()
