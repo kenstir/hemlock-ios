@@ -79,8 +79,6 @@ class XResultsViewController: ASViewController<ASTableNode> {
         tableNode.backgroundColor = UIColor.white
         tableNode.view.separatorStyle = .singleLine
         
-        self.updateHeaderText()
-
         // setting an empty UIView as the footer prevents the display of ghost rows at the end of the table
         tableNode.view.tableFooterView = UIView()
     }
@@ -166,22 +164,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     func updateItems(withRecords records: [ResultRecord]) {
         self.items = records
         print("xxx \(records.count) records now, time to reloadData")
-        updateHeaderText()
         tableNode.reloadData()
-    }
-    
-    func updateHeaderText() {
-        var str: String
-        if items.count == 0 {
-            str = "No results"
-        } else {
-            str = "\(items.count) most relevant results"
-        }
-        headerNode.attributedText = NSAttributedString(string: str, attributes: self.headerTextAttributes())
-    }
-    
-    private var headerTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
     }
     
     // Build query string, taken with a grain of salt from
@@ -216,7 +199,13 @@ extension XResultsViewController: ASTableDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "\(items.count) most relevant results"
+        if !didCompleteSearch {
+            return ""
+        } else if items.count == 0 {
+            return "No results"
+        } else {
+            return "\(items.count) most relevant results"
+        }
     }
 }
 
