@@ -59,6 +59,8 @@ class XResultsViewController: ASViewController<ASTableNode> {
         self.fetchData()
     }
     
+    // NB: viewDidLoad on an ASViewController gets called during construction,
+    // before there is any UI.  Do not fetchData here; fetch it in viewWillAppear.
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNodesOnLoad()

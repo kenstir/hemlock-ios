@@ -48,7 +48,6 @@ struct API {
     //MARK: - pcrud service
     
     static let pcrud = "open-ils.pcrud"
-    static let searchMRA = "open-ils.pcrud.search.mra.atomic"
     static let retrieveMRA = "open-ils.pcrud.retrieve.mra"
 
     //MARK: - search service
