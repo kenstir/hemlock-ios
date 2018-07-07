@@ -52,7 +52,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-Yq-Mnv">
-                                <rect key="frame" x="48" y="236" width="224" height="33"/>
+                                <rect key="frame" x="48" y="220" width="224" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Search"/>
                             </button>
@@ -65,7 +65,7 @@
                             <constraint firstItem="pOq-kU-c4i" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="ARQ-eF-OK6"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" id="HpY-iF-0ZL"/>
                             <constraint firstItem="GTx-vt-OB6" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="IVq-AL-BT0"/>
-                            <constraint firstItem="JUf-Yq-Mnv" firstAttribute="top" secondItem="pOq-kU-c4i" secondAttribute="bottom" constant="48" id="O0A-ZQ-eXy"/>
+                            <constraint firstItem="JUf-Yq-Mnv" firstAttribute="top" secondItem="pOq-kU-c4i" secondAttribute="bottom" constant="32" id="O0A-ZQ-eXy"/>
                             <constraint firstItem="GTx-vt-OB6" firstAttribute="top" secondItem="efL-Ge-GEs" secondAttribute="bottom" constant="8" id="RRs-C3-6iq"/>
                             <constraint firstItem="JUf-Yq-Mnv" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="48" id="RWf-7t-BZA"/>
                             <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="GTx-vt-OB6" secondAttribute="trailing" constant="8" id="ZlK-j9-Z4u"/>
