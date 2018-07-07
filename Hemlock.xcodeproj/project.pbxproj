@@ -466,7 +466,6 @@
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
 				D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */,
 				D231B52D2083C1E500478D25 /* LibraryTests.swift */,
-				D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */,
 				D29C721120924CF000E90952 /* OSRFCoderTests.swift */,
 				D29C72172094002100E90952 /* OSRFObjectTests.swift */,
 				D260755D20E165D200795124 /* FormatTests.swift */,
@@ -579,9 +578,10 @@
 				D22D027B208588A100DC1F5B /* Evergreen */,
 				D22D0271208506A700DC1F5B /* Utils */,
 				D231B52120804DF900478D25 /* AlamoTests.swift */,
+				D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */,
+				D20EE9D72094BC9100AF261D /* MiscTests.swift */,
 				D212DB2720C5B90A00267503 /* PromiseKitTests.swift */,
 				D287D512207AEF2D001AF644 /* Info.plist */,
-				D20EE9D72094BC9100AF261D /* MiscTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

@@ -19,8 +19,39 @@
 
 import Foundation
 
+class OrgType {
+    let id: Int
+    let name: String
+    let label: String
+    let canHaveUsers: Bool
+    let canHaveVols: Bool
+    init(id: Int, name: String, label: String, canHaveUsers: Bool, canHaveVols: Bool) {
+        self.id = id
+        self.name = name
+        self.label = label
+        self.canHaveUsers = canHaveUsers
+        self.canHaveVols = canHaveVols
+    }
+    
+    static func makeArray(_ objects: [OSRFObject]) -> [OrgType] {
+        var orgTypes: [OrgType] = []
+        for obj in objects {
+            if let id = obj.getInt("id"),
+                let name = obj.getString("name"),
+                let label = obj.getString("opac_label"),
+                let canHaveUsers = obj.getBool("can_have_users"),
+                let canHaveVols = obj.getBool("can_have_vols")
+            {
+                orgTypes.append(OrgType(id: id, name: name, label: label, canHaveUsers: canHaveUsers, canHaveVols: canHaveVols))
+            }
+        }
+        return orgTypes
+    }
+}
+
 class Organization {
-    static private var registry: [String: Organization] = [:]
+    static private var orgTypes: [OrgType] = []
+    static private var orgs: [String: Organization] = [:]
 
     var id: Int?
     var level: Int?

@@ -24,11 +24,11 @@ class FineRecord {
     //MARK: - Properties
 
     var transaction: OSRFObject //mbts obj
-    var circ: OSRFObject? //circ obj //TODO: make this a CircRecord?
-    var record: OSRFObject? //mvr obj
+    var circObj: OSRFObject?
+    var mvrObj: OSRFObject?
     
     var title: String {
-        if let title = record?.getString("title") {
+        if let title = mvrObj?.getString("title") {
             return title
         }
         if let type = transaction.getString("last_billing_type") {
@@ -37,7 +37,7 @@ class FineRecord {
         return "Miscellaneous"
     }
     var subtitle: String {
-        if let author = record?.getString("author") {
+        if let author = mvrObj?.getString("author") {
             return author
         }
         if let note = transaction.getString("last_billing_note") {
@@ -49,14 +49,14 @@ class FineRecord {
         return transaction.getDouble("balance_owed")
     }
     var status: String {
-        guard let _ = self.record else {
+        guard let _ = self.mvrObj else {
             return ""
         }
-        if let _ = self.circ?.getDate("checkin_time") {
+        if let _ = self.circObj?.getDate("checkin_time") {
             return "returned"
         }
         if let balance = self.balance,
-            let maxFine = self.circ?.getDouble("max_fine"),
+            let maxFine = self.circObj?.getDouble("max_fine"),
             balance > maxFine {
             return "maximum fine"
         }
@@ -74,8 +74,8 @@ class FineRecord {
         for obj in objects {
             if let transaction = obj.getObject("transaction") {
                 let fine = FineRecord(transaction: transaction)
-                fine.circ = obj.getObject("circ")
-                fine.record = obj.getObject("record")
+                fine.circObj = obj.getObject("circ")
+                fine.mvrObj = obj.getObject("record")
                 ret.append(fine)
             } else {
                 Analytics.logError(code: .shouldNotHappen, msg: "fine record has no txn", file: #file, line: #line)

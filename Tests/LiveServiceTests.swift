@@ -166,7 +166,6 @@ class LiveServiceTests: XCTestCase {
     //MARK: - IDL
     
     func test_parseIDL_subset() {
-        //let expectation = XCTestExpectation(description: "async response")
         self.measure {
             let url = Gateway.idlURL()
             let parser = IDLParser(contentsOf: url!)
@@ -176,11 +175,36 @@ class LiveServiceTests: XCTestCase {
         }
     }
     
+    //MARK: - orgTypes
+    
+    func test_orgTypesRetrieve() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let args: [Any] = []
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: args)
+        req.gatewayArrayResponse().done { array in
+            debugPrint(array)
+            XCTAssert(array.count > 0, "found some org types")
+            let orgTypes = OrgType.makeArray(array)
+            XCTAssertEqual(orgTypes.count, array.count, "all org types parsed ok")
+            for item in orgTypes {
+                debugPrint(item)
+            }
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 20.0)
+        print("stop here")
+    }
+    
     //MARK: - actorCheckedOut
     
     /* Can't enable this test until we have IDL for the au class
     func test_actorCheckedOut_basic() {
-        let expectation = XCTestExpectation(description: "async response")
+     static let orgTreeRetrieve = "open-ils.actor"
         LoginController(for: account!).login { resp in
             guard let authtoken = self.account?.authtoken,
                 let userID = self.account?.userID else
