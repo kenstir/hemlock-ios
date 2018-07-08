@@ -180,8 +180,8 @@ class LiveServiceTests: XCTestCase {
     func test_orgTypesRetrieve() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: [])
-        req.gatewayArrayResponse().done { array in
+        let promise = ActorService.fetchOrgTypesArray()
+        promise.done { array in
             XCTAssert(array.count > 0, "found some org types")
             let orgTypes = OrgType.makeArray(array)
             XCTAssertEqual(orgTypes.count, array.count, "all org types parsed ok")
@@ -189,9 +189,9 @@ class LiveServiceTests: XCTestCase {
                 debugPrint(item)
             }
             expectation.fulfill()
-            }.catch { error in
-                XCTFail(error.localizedDescription)
-                expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 20.0)
@@ -201,9 +201,9 @@ class LiveServiceTests: XCTestCase {
     
     func test_orgTreeRetrieve() {
         let expectation = XCTestExpectation(description: "async response")
-        
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
-        req.gatewayObjectResponse().done { obj in
+
+        let promise = ActorService.fetchOrgTree()
+        promise.done { obj in
             try Organization.loadOrganizations(fromObj: obj)
             let org = Organization.find(byId: 1)
             XCTAssertNotNil(org)
