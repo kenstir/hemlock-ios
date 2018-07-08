@@ -70,15 +70,19 @@ class Organization {
     var name: String
     var shortname: String
     var parent: Int?
-    var orgType: OrgType?
+    var ouType: Int
     
-    init(id: Int, level: Int, name: String, shortname: String, parent: Int?, orgType: OrgType?) {
+    var orgType: OrgType? {
+        return OrgType.find(byId: ouType)
+    }
+
+    init(id: Int, level: Int, name: String, shortname: String, parent: Int?, ouType: Int) {
         self.id = id
         self.level = level
         self.name = name
         self.shortname = shortname
         self.parent = parent
-        self.orgType = orgType
+        self.ouType = ouType
     }
     
     static func find(byId id: Int) -> Organization? {
@@ -95,34 +99,33 @@ class Organization {
         return nil
     }
     
-    static func loadOrganizations(fromObj obj: OSRFObject) {
+    static func loadOrganizations(fromObj obj: OSRFObject) throws -> Void {
         orgs = []
-        addOrganization(obj, level: 0)
+        try addOrganization(obj, level: 0)
         
         //TODO: sort
     }
     
-    static func addOrganization(_ obj: OSRFObject, level: Int) {
+    static func addOrganization(_ obj: OSRFObject, level: Int) throws -> Void {
         let parent = obj.getInt("parent_ou")
-        //TODO: replace `if` with `guard else throw` pattern, this really is important
-        if let id = obj.getInt("id"),
+        guard let id = obj.getInt("id"),
             let name = obj.getString("name"),
             let shortname = obj.getString("shortname"),
-            let orgTypeID = obj.getInt("ou_type"),
-            let opacVisible = obj.getBool("opac_visible")
+            let ouType = obj.getInt("ou_type"),
+            let opacVisible = obj.getBool("opac_visible") else
         {
-            print("xxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
-            let orgType = OrgType.find(byId: orgTypeID)
-            if opacVisible {
-                let org = Organization(id: id, level: level, name: name, shortname: shortname, parent: parent, orgType: orgType)
-                self.orgs.append(org)
-            }
-            if let children = obj.getAny("children") {
-                debugPrint(children)
-                if let childObjArray = children as? [OSRFObject] {
-                    for child in childObjArray {
-                        addOrganization(child, level: level + 1)
-                    }
+            throw HemlockError.unexpectedNetworkResponse("decoding orginization tree")
+        }
+        print("xxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        if opacVisible {
+            let org = Organization(id: id, level: level, name: name, shortname: shortname, parent: parent, ouType: ouType)
+            self.orgs.append(org)
+        }
+        if let children = obj.getAny("children") {
+            debugPrint(children)
+            if let childObjArray = children as? [OSRFObject] {
+                for child in childObjArray {
+                    try addOrganization(child, level: level + 1)
                 }
             }
         }

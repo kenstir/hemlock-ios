@@ -58,14 +58,19 @@ struct OSRFCoder {
     
     /// decode an OSRFObject from wire protocol
     static func decode(fromDictionary dict: JSONDictionary) throws -> OSRFObject {
+        var dictToDecode: JSONDictionary
+
         if let netClass = dict["__c"] as? String,
             let payload = dict["__p"] as? [Any?]
         {
-            return try decode(netClass, wirePayload: payload)
+            let obj = try decode(netClass, wirePayload: payload)
+            dictToDecode = obj.dict
+        } else {
+            dictToDecode = dict
         }
 
         var ret: JSONDictionary = [:]
-        for (k,v) in dict {
+        for (k,v) in dictToDecode {
             if let vDictionary = v as? JSONDictionary {
                 ret[k] = try decode(fromDictionary: vDictionary)
             } else if let vArray = v as? [JSONDictionary] {

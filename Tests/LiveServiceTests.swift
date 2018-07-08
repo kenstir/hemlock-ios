@@ -204,11 +204,10 @@ class LiveServiceTests: XCTestCase {
         
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
         req.gatewayObjectResponse().done { obj in
-            //debugPrint(obj)
-            Organization.loadOrganizations(fromObj: obj)
+            try Organization.loadOrganizations(fromObj: obj)
             let org = Organization.find(byId: 1)
-            debugPrint(org)
-            print("stop here")
+            XCTAssertNotNil(org)
+            XCTAssertNotNil(org?.name)
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)
@@ -216,7 +215,6 @@ class LiveServiceTests: XCTestCase {
         }
         
         wait(for: [expectation], timeout: 20.0)
-        print("stop here")
     }
 
     //MARK: - actorCheckedOut

@@ -22,7 +22,7 @@ import XCTest
 
 class OrganizationTests: XCTestCase {
     func test_OrgType_makeArray() {
-        let dict: [String: Any] = [
+    	let dict: JSONDictionary = [
             "children": NSNull(),
             "can_have_users": "f",
             "can_have_vols": "f",
@@ -38,6 +38,58 @@ class OrganizationTests: XCTestCase {
         XCTAssertEqual(orgType?.canHaveUsers, false)
         XCTAssertEqual(orgType?.canHaveVols, false)
         XCTAssertEqual(orgType?.label, "All PINES Libraries")
+    }
+    
+    func test_Organization_load() {
+        var cons = OSRFObject([
+            "name": "Example Consortium",
+            "ou_type": 1,
+            "opac_visible": "t",
+            "parent_ou": nil,
+            "id": 1,
+            "shortname": "CONS"])
+        var sys1 = OSRFObject([
+            "name": "Example System 1",
+            "ou_type": 2,
+            "opac_visible": "t",
+            "parent_ou": 1,
+            "id": 2,
+            "shortname": "SYS1"])
+        let br1 = OSRFObject([
+            "name": "Example Branch 1",
+            "ou_type": 3,
+            "opac_visible": "t",
+            "parent_ou": 2,
+            "id": 4,
+            "shortname": "BR1"])
+        let br2 = OSRFObject([
+            "name": "Example Branch 2",
+            "ou_type": 3,
+            "opac_visible": "t",
+            "parent_ou": 2,
+            "id": 5,
+            "shortname": "BR2"])
+        sys1.dict["children"] = [br1,br2]
+        cons.dict["children"] = [sys1]
+
+        do {
+            try Organization.loadOrganizations(fromObj: cons)
+        } catch {
+            XCTFail(error.localizedDescription)
+            return
+        }
+
+        let org = Organization.find(byId: 1)
+        XCTAssertEqual(org?.name, "Example Consortium")
+        XCTAssertEqual(org?.shortname, "CONS")
+
+        let system1 = Organization.find(byId: 2)
+        XCTAssertEqual(system1?.name, "Example System 1")
+        XCTAssertEqual(system1?.shortname, "SYS1")
+
+        let branch2 = Organization.find(byId: 5)
+        XCTAssertEqual(branch2?.name, "Example Branch 2")
+        XCTAssertEqual(branch2?.shortname, "BR2")
     }
 }
 
