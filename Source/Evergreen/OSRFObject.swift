@@ -26,7 +26,10 @@ typealias JSONDictionary = [String: Any?]
 /// In practice this is just a [String:Any?] dictionary that is equatable.
 struct OSRFObject: Equatable {
     
+    //MARK: - Properties
+    
     var dict: [String: Any?]
+
     static var apiDateFormatter = ISO8601DateFormatter()
     static var outputDateFormatter: DateFormatter = {
         let df = DateFormatter()

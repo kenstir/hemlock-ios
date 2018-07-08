@@ -183,7 +183,6 @@ class LiveServiceTests: XCTestCase {
         let args: [Any] = []
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: args)
         req.gatewayArrayResponse().done { array in
-            debugPrint(array)
             XCTAssert(array.count > 0, "found some org types")
             let orgTypes = OrgType.makeArray(array)
             XCTAssertEqual(orgTypes.count, array.count, "all org types parsed ok")
