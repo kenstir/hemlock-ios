@@ -179,4 +179,28 @@ class OSRFCoderTests: XCTestCase {
             XCTFail(String(describing: error))
         }
     }
+    
+    // Case: decoding a recursive object from wire protocol
+    // orgTreeRetrieve
+    func test_decoding_recursiveObject() {
+        let fields = ["children", "billing_address", "holds_address", "id", "ill_address", "mailing_address", "name", "ou_type", "parent_ou", "shortname", "email", "phone", "opac_visible", "fiscal_calendar", "users", "closed_dates", "circulations", "settings", "addresses", "checkins", "workstations", "fund_alloc_pcts", "copy_location_orders", "atc_prev_dests", "resv_requests", "resv_pickups", "rsrc_types", "resources", "rsrc_attrs", "attr_vals", "hours_of_operation"]
+        OSRFCoder.registerClass("aou", fields: fields)
+        let wireProtocol = """
+{"__c":"aou","__p":[[{"__c":"aou","__p":[[{"__c":"aou","__p":[[{"__c":"aou","__p":[[],null,null,8,null,null,"Example Sub-library 1",4,4,"SL1",null,null,"t",1]}],4,5,4,5,4,"Example Branch 1",3,2,"BR1","br1@example.com","(555) 555-0271","t",1]},{"__c":"aou","__p":[[],7,8,5,8,6,"Example Branch 2",3,2,"BR2","br2@example.com","(555) 555-0272","t",1]}],2,2,2,2,2,"Example System 1",2,1,"SYS1",null,null,"t",1]},{"__c":"aou","__p":[[{"__c":"aou","__p":[[{"__c":"aou","__p":[[],null,null,9,null,null,"Example Bookmobile 1",5,6,"BM1",null,null,"t",1]}],9,9,6,9,9,"Example Branch 3",3,3,"BR3","br3@example.com","(555) 555-0273","t",1]},{"__c":"aou","__p":[[],11,12,7,12,10,"Example Branch 4",3,3,"BR4","br4@example.com","(555) 555-0274","t",1]}],3,3,3,3,3,"Example System 2",2,1,"SYS2",null,null,"t",1]}],1,1,1,1,1,"Example Consortium",1,null,"CONS",null,null,"t",1]}
+"""
+        guard let dict = deserializeJSONObject(wireProtocol) else {
+            XCTFail("ERROR decoding JSON")
+            return
+        }
+        
+        do {
+            let decodedObj = try OSRFCoder.decode(fromDictionary: dict)
+
+            debugPrint(decodedObj)
+            XCTAssertTrue(false, "not ready")
+        } catch {
+            debugPrint(error)
+            XCTFail(String(describing: error))
+        }
+    }
 }
