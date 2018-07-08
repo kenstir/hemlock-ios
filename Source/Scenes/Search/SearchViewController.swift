@@ -76,6 +76,7 @@ class SearchViewController: UIViewController {
         let mcInputView = McPicker(data: [formats])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
+        mcInputView.fontSize = 20
         formatPicker.text = formats[0] //TODO: better initial value
         formatPicker.inputViewMcPicker = mcInputView
         formatPicker.doneHandler = { [weak formatPicker] (selections) in
@@ -90,6 +91,7 @@ class SearchViewController: UIViewController {
         let mcInputView = McPicker(data: [organizations])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
+        mcInputView.fontSize = 16
         locationPicker.text = organizations[0] //TODO: better initial value
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak locationPicker] (selections) in
@@ -118,7 +120,7 @@ class SearchViewController: UIViewController {
             Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
             return
         }
-        let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.findShortName(forName: locationPicker?.text))
+        let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.getShortName(forName: locationPicker?.text))
         let vc = XResultsViewController()
         vc.searchParameters = params
         print("--- searchParams \(String(describing: vc.searchParameters))")

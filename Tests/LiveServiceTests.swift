@@ -175,13 +175,12 @@ class LiveServiceTests: XCTestCase {
         }
     }
     
-    //MARK: - orgTypes
+    //MARK: - orgTypesRetrieve
     
     func test_orgTypesRetrieve() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let args: [Any] = []
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: args)
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: [])
         req.gatewayArrayResponse().done { array in
             XCTAssert(array.count > 0, "found some org types")
             let orgTypes = OrgType.makeArray(array)
@@ -190,15 +189,36 @@ class LiveServiceTests: XCTestCase {
                 debugPrint(item)
             }
             expectation.fulfill()
+            }.catch { error in
+                XCTFail(error.localizedDescription)
+                expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    //MARK: - orgTreeRetrieve
+    
+    func test_orgTreeRetrieve() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
+        req.gatewayObjectResponse().done { obj in
+            //debugPrint(obj)
+            Organization.loadOrganizations(fromObj: obj)
+            let org = Organization.find(byId: 1)
+            debugPrint(org)
+            print("stop here")
+            expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)
             expectation.fulfill()
         }
-
+        
         wait(for: [expectation], timeout: 20.0)
         print("stop here")
     }
-    
+
     //MARK: - actorCheckedOut
     
     /* Can't enable this test until we have IDL for the au class

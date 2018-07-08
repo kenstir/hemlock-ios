@@ -20,6 +20,8 @@
 import Foundation
 
 class OrgType {
+    static private var orgTypes: [OrgType] = []
+
     let id: Int
     let name: String
     let label: String
@@ -47,19 +49,82 @@ class OrgType {
         }
         return orgTypes
     }
+    
+    static func loadOrgTypes(fromArray objects: [OSRFObject]) {
+        orgTypes = OrgType.makeArray(objects)
+    }
+    
+    static func find(byId id: Int) -> OrgType? {
+        if let orgType = orgTypes.first(where: { $0.id == id }) {
+            return orgType
+        }
+        return nil
+    }
 }
 
 class Organization {
-    static private var orgTypes: [OrgType] = []
-    static private var orgs: [String: Organization] = [:]
+    static private var orgs: [Organization] = []
 
-    var id: Int?
-    var level: Int?
-    var name: String?
-    var shortname: String?
+    var id: Int
+    var level: Int
+    var name: String
+    var shortname: String
+    var parent: Int?
+    var orgType: OrgType?
     
-    static func findShortName(forName name: String?) -> String? {
-        //TODO
+    init(id: Int, level: Int, name: String, shortname: String, parent: Int?, orgType: OrgType?) {
+        self.id = id
+        self.level = level
+        self.name = name
+        self.shortname = shortname
+        self.parent = parent
+        self.orgType = orgType
+    }
+    
+    static func find(byId id: Int) -> Organization? {
+        if let org = orgs.first(where: { $0.id == id }) {
+            return org
+        }
         return nil
+    }
+
+    static func getShortName(forName name: String?) -> String? {
+        if let org = orgs.first(where: { $0.name == name }) {
+            return org.shortname
+        }
+        return nil
+    }
+    
+    static func loadOrganizations(fromObj obj: OSRFObject) {
+        orgs = []
+        addOrganization(obj, level: 0)
+        
+        //TODO: sort
+    }
+    
+    static func addOrganization(_ obj: OSRFObject, level: Int) {
+        let parent = obj.getInt("parent_ou")
+        //TODO: replace `if` with `guard else throw` pattern, this really is important
+        if let id = obj.getInt("id"),
+            let name = obj.getString("name"),
+            let shortname = obj.getString("shortname"),
+            let orgTypeID = obj.getInt("ou_type"),
+            let opacVisible = obj.getBool("opac_visible")
+        {
+            print("xxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+            let orgType = OrgType.find(byId: orgTypeID)
+            if opacVisible {
+                let org = Organization(id: id, level: level, name: name, shortname: shortname, parent: parent, orgType: orgType)
+                self.orgs.append(org)
+            }
+            if let children = obj.getAny("children") {
+                debugPrint(children)
+                if let childObjArray = children as? [OSRFObject] {
+                    for child in childObjArray {
+                        addOrganization(child, level: level + 1)
+                    }
+                }
+            }
+        }
     }
 }
