@@ -35,22 +35,20 @@ class LoginController {
         request.responseData { response in
             // TODO this needs to be simpler
             print("response: \(response.description)")
-            guard response.result.isSuccess,
-                let data = response.result.value else
-            {
-                let errorMessage = response.description 
-                completion(GatewayResponse.makeError(errorMessage))
+            switch response.result {
+            case .failure(let error):
+                completion(GatewayResponse.makeError(error.localizedDescription))
                 return
+            case .success(let data):
+                let resp = GatewayResponse(data)
+                guard let nonce = resp.stringResult else {
+                    completion(GatewayResponse.makeError("unexpected response to login"))
+                    return
+                }
+                self.nonce = nonce
+                
+                self.loginComplete(completion: completion)
             }
-            debugPrint(data)
-            let resp = GatewayResponse(data)
-            guard let nonce = resp.stringResult else {
-                completion(GatewayResponse.makeError("unexpected response to login"))
-                return
-            }
-            self.nonce = nonce
-            
-            self.loginComplete(completion: completion)
         }
     }
     

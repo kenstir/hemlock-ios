@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
+import PromiseKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -34,6 +35,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setupViews()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.fetchData()
+    }
+    
     func setupViews() {
         // restore saved username/password
         let (savedUsername, savedPassword) = LoginController.getSavedLoginCredentials();
@@ -45,12 +50,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordField.delegate = self
         
         // style the buttons
+        loginButton.isEnabled = false
         Style.styleButton(asInverse: loginButton)
         Style.styleButton(asPlain: forgotPasswordButton)
         
         // create and style the activity indicator
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
+    }
+    
+    func fetchData() {
+        fetchIDL() {
+            self.loginButton.isEnabled = true
+        }
+    }
+    
+    func fetchIDL(completion: @escaping () -> Void) {
+        activityIndicator.startAnimating()
+        App.fetchIDL().catch { error in
+            self.activityIndicator.stopAnimating()
+            self.showAlert(error: error)
+        }.finally {
+            self.activityIndicator.stopAnimating()
+            completion()
+        }
     }
     
     //MARK: UITextFieldDelegate

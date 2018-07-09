@@ -160,6 +160,7 @@
 		D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99720F19CA400B25146 /* OrganizationTests.swift */; };
 		D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
+		D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
 		D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D2DF196820CEF68700085255 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -968,6 +969,7 @@
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
+				D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */,
 				D260755C20E144E000795124 /* Format.swift in Sources */,
 				D23E5A0720ED98B9005EB391 /* ResultRecord.swift in Sources */,
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,

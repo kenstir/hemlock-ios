@@ -74,7 +74,7 @@ class Gateway {
         return url
     }
     
-    static func idlURL() -> URL? {
+    static func idlURL() -> String {
         var url = App.library?.url ?? ""
         url += "/reports/fm_IDL.xml?"
         var params: [String] = []
@@ -82,6 +82,6 @@ class Gateway {
             params.append("class=" + netClass)
         }
         url += params.joined(separator: "&")
-        return URL(string: url)
+        return url
     }
 }

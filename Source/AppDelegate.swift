@@ -27,9 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //TODO: replace with
+        //AppSettings.initApp()
         App.theme = AppSettings.makeTheme()
         App.library = Library(AppSettings.url)
-        _ = App.loadIDL()
+        //_ = App.loadIDL()
 
         return true
     }
