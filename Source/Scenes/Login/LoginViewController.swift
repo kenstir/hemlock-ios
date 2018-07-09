@@ -97,6 +97,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func loginPressed(_ sender: Any) {
+        if App.idlLoaded ?? false {
+            doLogin()
+        } else {
+            fetchIDL() {
+                if App.idlLoaded ?? false {
+                    self.doLogin()
+                }
+            }
+        }
+    }
+    
+    func doLogin() {
         guard
             usernameField.hasText,
             passwordField.hasText,

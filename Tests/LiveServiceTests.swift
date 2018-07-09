@@ -140,7 +140,7 @@ class LiveServiceTests: XCTestCase {
     }
     
     func test_LoginController_getSession() {
-        let parser = IDLParser(contentsOf: Gateway.idlURL()!)
+        let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
         let ok = parser.parse()
         XCTAssertTrue(ok)
 
@@ -168,7 +168,7 @@ class LiveServiceTests: XCTestCase {
     func test_parseIDL_subset() {
         self.measure {
             let url = Gateway.idlURL()
-            let parser = IDLParser(contentsOf: url!)
+            let parser = IDLParser(contentsOf: URL(string: url)!)
             let ok = parser.parse()
             XCTAssertTrue(ok)
             XCTAssertGreaterThan(OSRFCoder.registryCount(), 1)
