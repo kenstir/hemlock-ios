@@ -185,7 +185,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="gHn-Zz-AGL">
-                            <rect key="frame" x="0.0" y="117.5" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="118" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
                                 <barButtonItem title="Full Catalog" width="186.5" id="eDU-q6-48v">
@@ -237,6 +237,8 @@
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="GJD-cg-1UD"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="fullCatalogButton" destination="eDU-q6-48v" id="Mbb-Ol-Hkx"/>
+                        <outlet property="libraryLocatorButton" destination="ISv-5n-0qV" id="imE-lc-DSh"/>
                         <outlet property="logoutButton" destination="GJD-cg-1UD" id="Fq3-pw-ltt"/>
                         <outlet property="table" destination="Bny-iN-u9U" id="uPy-9U-wwm"/>
                         <segue destination="Rgl-GN-9cy" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>

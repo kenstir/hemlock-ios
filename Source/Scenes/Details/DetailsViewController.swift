@@ -37,8 +37,13 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
-    //MARK: - UIViewController
     
+    @IBOutlet weak var renewButton: UIButton!
+    @IBOutlet weak var viewCopyButton: UIButton!
+    @IBOutlet weak var addToListButton: UIButton!
+    
+    //MARK: - UIViewController
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -62,6 +67,11 @@ class DetailsViewController: UIViewController {
         synopsisLabel.text = "Synopsis: " + (item?.mvrObj?.getString("synopsis") ?? "")
         subjectLabel.text = item?.mvrObj?.getString("subject")
         isbnLabel.text = "ISBN:  " + (item?.mvrObj?.getString("isbn") ?? "")
+
+        Style.styleButton(asPlain: viewCopyButton)
+        viewCopyButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
+        renewButton.isHidden = true
+        addToListButton.isHidden = true
     }
     
     func fetchData() {
@@ -72,6 +82,10 @@ class DetailsViewController: UIViewController {
             return //TODO: add analytics
         }
         //TODO: fetch copy info
+    }
+
+    @objc func viewCopyPressed(sender: Any) {
+        self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
     }
 }
 

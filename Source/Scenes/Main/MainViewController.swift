@@ -35,6 +35,8 @@ class MainViewController: UITableViewController {
 
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet var table: UITableView!
+    @IBOutlet weak var fullCatalogButton: UIBarButtonItem!
+    @IBOutlet weak var libraryLocatorButton: UIBarButtonItem!
     
     var buttons: [(String, String, UIViewController.Type?)] = [
         ("Search", "ShowSearchSegue", nil),
@@ -54,8 +56,12 @@ class MainViewController: UITableViewController {
     
     func setupViews() {
         navigationItem.title = AppSettings.appTitle
+        //Style.styleNavigation(self.navigationController.)
         logoutButton.target = self
         logoutButton.action = #selector(logoutPressed(sender:))
+        Style.styleBarButton(logoutButton)
+        Style.styleBarButton(asPlain: fullCatalogButton)
+        Style.styleBarButton(asPlain: libraryLocatorButton)
     }
 
     //MARK: - UITableViewController

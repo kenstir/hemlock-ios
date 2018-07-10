@@ -27,6 +27,16 @@ class Style {
         activityIndicator.color = color
     }
     
+    //MARK: - BarButtonItem
+    
+    static func styleBarButton(_ button: UIBarButtonItem) {
+        button.tintColor = App.theme.foregroundColor
+    }
+
+    static func styleBarButton(asPlain button: UIBarButtonItem) {
+        button.tintColor = App.theme.backgroundDark5
+    }
+
     //MARK: - Button
 
     static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.backgroundColor) {
