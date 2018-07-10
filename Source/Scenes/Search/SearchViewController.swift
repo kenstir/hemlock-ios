@@ -38,6 +38,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var locationPicker: McTextField!
     @IBOutlet weak var searchButton: UIButton!
     
+    weak var activityIndicator: UIActivityIndicatorView!
+    
     let scopes = App.searchScopes
     let formats = Format.getSpinnerLabels()
     let organizations = App.organizations
@@ -62,21 +64,31 @@ class SearchViewController: UIViewController {
         promises.append(ActorService.fetchOrgTypesArray())
         promises.append(ActorService.fetchOrgTree())
 
+        self.activityIndicator.startAnimating()
+
         firstly {
             when(fulfilled: promises)
         }.done {
             self.searchButton.isEnabled = true
         }.catch { error in
             self.showAlert(error: error)
+        }.finally {
+            self.activityIndicator.stopAnimating()
         }
     }
     
     func setupViews() {
+        setupActivityIndicator()
         setupSearchBar()
         setupScopeControl()
         setupFormatPicker()
         setupLocationPicker()
         setupSearchButton()
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
     }
     
     func setupSearchBar() {
