@@ -40,8 +40,8 @@ class MainViewController: UITableViewController {
     
     var buttons: [(String, String, UIViewController.Type?)] = [
         ("Search", "ShowSearchSegue", nil),
-//        ("Items Checked Out", "ShowCheckoutsSegue", nil),
-        ("Items Checked Out", "", XCheckoutsViewController.self),
+        ("Items Checked Out", "ShowCheckoutsSegue", nil),
+//        ("Items Checked Out", "", XCheckoutsViewController.self),
         ("Holds", "ShowHoldsSegue", nil),
         ("Fines", "ShowFinesSegue", nil),
         //("My Lists", "ShowListsSegue", nil),
