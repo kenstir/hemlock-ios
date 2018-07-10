@@ -423,6 +423,9 @@ class App {
         return App.idlLoaded!
     }
     static func fetchIDL() -> Promise<Void> {
+        if App.idlLoaded ?? false {
+            return Promise<Void>()
+        }
         let start = Date()
         let req = Alamofire.request(Gateway.idlURL())
         let promise = req.responseData().done { data, pmkresponse in
@@ -432,27 +435,5 @@ class App {
             os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
         }
         return promise
-    }
-    
-    static func loadOrganizations() throws -> Void {
-        var promises: [Promise<Void>] = []
-
-        let promise = ActorService.fetchOrgTypesArray().done { array in
-            OrgType.loadOrgTypes(fromArray: array)
-        }
-        promises.append(promise)
-        
-        let promise2 = ActorService.fetchOrgTree().done { obj in
-            try Organization.loadOrganizations(fromObj: obj)
-        }
-        promises.append(promise2)
-        
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            print("xxx \(promises.count) promises fulfilled")
-        }.catch { error in
-            print("xxx \(error.localizedDescription)")
-        }
     }
 }

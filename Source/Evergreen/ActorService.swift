@@ -21,13 +21,30 @@ import Foundation
 import PromiseKit
 
 class ActorService {
-    static func fetchOrgTypesArray() -> Promise<([OSRFObject])> {
+    static var orgTypesLoaded = false
+    static var orgTreeLoaded = false
+
+    static func fetchOrgTypesArray() -> Promise<Void> {
+        if orgTypesLoaded {
+            return Promise<Void>()
+        }
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: [])
-        return req.gatewayArrayResponse()
+        let promise = req.gatewayArrayResponse().done { array in
+            OrgType.loadOrgTypes(fromArray: array)
+            orgTypesLoaded = true
+        }
+        return promise
     }
     
-    static func fetchOrgTree() -> Promise<OSRFObject> {
+    static func fetchOrgTree() -> Promise<Void> {
+        if orgTreeLoaded {
+            return Promise<Void>()
+        }
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
-        return req.gatewayObjectResponse()
+        let promise = req.gatewayObjectResponse().done { obj in
+            try Organization.loadOrganizations(fromObj: obj)
+            orgTreeLoaded = true
+        }
+        return promise
     }
 }

@@ -47,9 +47,29 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        searchButton.isEnabled = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchData()
     }
     
     //MARK: - Functions
+    
+    func fetchData() {
+        var promises: [Promise<Void>] = []
+        
+        promises.append(ActorService.fetchOrgTypesArray())
+        promises.append(ActorService.fetchOrgTree())
+
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            self.searchButton.isEnabled = true
+        }.catch { error in
+            self.showAlert(error: error)
+        }
+    }
     
     func setupViews() {
         setupSearchBar()
