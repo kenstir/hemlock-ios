@@ -87,11 +87,8 @@ class Format {
     //MARK: - Functions
     
     static func getSpinnerLabels() -> [String] {
-        var labels: [String] = []
-        for item in items {
-            labels.append(item.spinnerLabel)
-        }
-        return labels
+        let shownItems = items.filter { !$0.hidden }
+        return shownItems.map { $0.spinnerLabel }
     }
     
     static func getSearchFormat(forSpinnerLabel label: String) -> String {
