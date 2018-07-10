@@ -91,6 +91,10 @@ class Organization {
         }
         return nil
     }
+    
+    static func getSpinnerLabels() -> [String] {
+        return orgs.map { $0.name }
+    }
 
     static func getShortName(forName name: String?) -> String? {
         if let org = orgs.first(where: { $0.name == name }) {

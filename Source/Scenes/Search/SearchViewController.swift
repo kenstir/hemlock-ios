@@ -42,7 +42,7 @@ class SearchViewController: UIViewController {
     
     let scopes = App.searchScopes
     let formats = Format.getSpinnerLabels()
-    let organizations = App.organizations
+    var orgLabels: [String] = []
     
     //MARK: - UIViewController
     
@@ -69,6 +69,7 @@ class SearchViewController: UIViewController {
         firstly {
             when(fulfilled: promises)
         }.done {
+            self.setupLocationPicker()
             self.searchButton.isEnabled = true
         }.catch { error in
             self.showAlert(error: error)
@@ -82,7 +83,7 @@ class SearchViewController: UIViewController {
         setupSearchBar()
         setupScopeControl()
         setupFormatPicker()
-        setupLocationPicker()
+        //setupLocationPicker() // has to wait until fetchData
         setupSearchButton()
     }
     
@@ -120,11 +121,12 @@ class SearchViewController: UIViewController {
     }
         
     func setupLocationPicker() {
-        let mcInputView = McPicker(data: [organizations])
+        self.orgLabels = Organization.getSpinnerLabels()
+        let mcInputView = McPicker(data: [orgLabels])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
         mcInputView.fontSize = 16
-        locationPicker.text = organizations[0] //TODO: better initial value
+        locationPicker.text = orgLabels[0] //TODO: better initial value
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak locationPicker] (selections) in
             locationPicker?.text = selections[0]!
