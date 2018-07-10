@@ -20,7 +20,7 @@
 import Foundation
 
 class OrgType {
-    static private var orgTypes: [OrgType] = []
+    static var orgTypes: [OrgType] = []
 
     let id: Int
     let name: String
@@ -63,7 +63,7 @@ class OrgType {
 }
 
 class Organization {
-    static private var orgs: [Organization] = []
+    static var orgs: [Organization] = []
 
     var id: Int
     var level: Int

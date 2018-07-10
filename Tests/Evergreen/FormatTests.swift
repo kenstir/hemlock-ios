@@ -32,7 +32,7 @@ class FormatTests: XCTestCase {
     
     func test_Format_getSpinnerLabels() {
         let labels = Format.getSpinnerLabels()
-        XCTAssertEqual(labels.count, 25)
+        XCTAssertEqual(labels.count, 14)
         XCTAssertEqual(labels[0], "All Formats")
     }
     

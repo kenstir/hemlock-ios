@@ -181,13 +181,9 @@ class LiveServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
         
         let promise = ActorService.fetchOrgTypesArray()
-        promise.done { array in
-            XCTAssert(array.count > 0, "found some org types")
-            let orgTypes = OrgType.makeArray(array)
-            XCTAssertEqual(orgTypes.count, array.count, "all org types parsed ok")
-            for item in orgTypes {
-                debugPrint(item)
-            }
+        promise.ensure {
+            let orgTypes = OrgType.orgTypes
+            XCTAssert(orgTypes.count > 0, "found some org types")
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)
@@ -203,8 +199,7 @@ class LiveServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
 
         let promise = ActorService.fetchOrgTree()
-        promise.done { obj in
-            try Organization.loadOrganizations(fromObj: obj)
+        promise.ensure {
             let org = Organization.find(byId: 1)
             XCTAssertNotNil(org)
             XCTAssertNotNil(org?.name)
