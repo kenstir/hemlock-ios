@@ -62,6 +62,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // deselect row when navigating back
         if let indexPath = tableNode.indexPathForSelectedRow {
             tableNode.deselectRow(at: indexPath, animated: true)
         }
