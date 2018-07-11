@@ -24,7 +24,7 @@ class XResultsTableNode: ASCellNode {
     
     //MARK: - Properties
     
-    private let record: ResultRecord
+    private let record: MBRecord
     
     private let titleNode: ASTextNode
     private let authorNode: ASTextNode
@@ -34,7 +34,7 @@ class XResultsTableNode: ASCellNode {
     
     //MARK: - Lifecycle
     
-    init(record: ResultRecord) {
+    init(record: MBRecord) {
         self.record = record
 
         titleNode = ASTextNode()

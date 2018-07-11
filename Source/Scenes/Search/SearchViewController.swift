@@ -161,20 +161,6 @@ class SearchViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination
-        guard
-            let resultsVC = vc as? ResultsViewController,
-            let searchText = searchBar.text,
-            let formatText = formatPicker.text else
-        {
-            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
-            return
-        }
-        let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.findShortName(forName: locationPicker?.text))
-        resultsVC.searchParameters = params
-    }*/
 }
 
 extension SearchViewController: UISearchBarDelegate {

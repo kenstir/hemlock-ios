@@ -29,8 +29,8 @@ class XResultsViewController: ASViewController<ASTableNode> {
     var activityIndicator: UIActivityIndicatorView!
     let headerNode: ASTextNode = ASTextNode()
     var searchParameters: SearchParameters?
-    var items: [ResultRecord] = []
-    var selectedItem: ResultRecord?
+    var items: [MBRecord] = []
+    var selectedItem: MBRecord?
     var startOfSearch = Date()
     var didCompleteSearch = false
 
@@ -120,7 +120,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         let options: [String: Int] = ["limit": 200/*TODO*/, "offset": 0]
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1])
         req.gatewayObjectResponse().done { obj in
-            let records = ResultRecord.makeArray(fromQueryResponse: obj)
+            let records = MBRecord.makeArray(fromQueryResponse: obj)
             self.fetchRecordMVRs(authtoken: authtoken, records: records)
             return
         }.catch { error in
@@ -129,11 +129,11 @@ class XResultsViewController: ASViewController<ASTableNode> {
         }
     }
     
-    func fetchRecordMVRs(authtoken: String, records: [ResultRecord]) {
+    func fetchRecordMVRs(authtoken: String, records: [MBRecord]) {
         var promises: [Promise<Void>] = []
         for record in records {
-            let promise = fetchRecordMVR(authtoken: authtoken, forRecord: record)
-            promises.append(promise)
+            promises.append(fetchRecordMVR(authtoken: authtoken, forRecord: record))
+            promises.append(fetchSearchFormat(authtoken: authtoken, forRecord: record))
         }
         print("xxx \(promises.count) promises made")
 
@@ -152,7 +152,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         }
     }
     
-    func fetchRecordMVR(authtoken: String, forRecord record: ResultRecord) -> Promise<Void> {
+    func fetchRecordMVR(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id])
         let promise = req.gatewayObjectResponse().done { obj in
             print("xxx \(record.id) recordModsRetrieve done")
@@ -160,8 +160,17 @@ class XResultsViewController: ASViewController<ASTableNode> {
         }
         return promise
     }
-
-    func updateItems(withRecords records: [ResultRecord]) {
+    
+    func fetchSearchFormat(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymous, record.id])
+        let promise = req.gatewayObjectResponse().done { obj in
+            print("xxx \(record.id) format done")
+            record.searchFormat = Format.getSearchFormat(fromMRAObject: obj)
+        }
+        return promise
+    }
+    
+    func updateItems(withRecords records: [MBRecord]) {
         self.items = records
         print("xxx \(records.count) records now, time to reloadData")
         tableNode.reloadData()
@@ -218,12 +227,11 @@ extension XResultsViewController: ASTableDelegate {
         let item = items[indexPath.row]
         selectedItem = item
         
-//        if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController(),
-//            let detailsVC = vc as? DetailsViewController,
-//            let mvrObj = selectedItem?.mvrObj
-//        {
-//            detailsVC.item = record
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
+        if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController(),
+            let detailsVC = vc as? DetailsViewController
+        {
+            detailsVC.item = selectedItem
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
