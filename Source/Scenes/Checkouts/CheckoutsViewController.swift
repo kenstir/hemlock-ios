@@ -31,6 +31,7 @@ class CheckoutsViewController: UIViewController {
 
     var items: [CircRecord] = []
     var selectedItem: CircRecord?
+    var didCompleteFetch = false
     
     //MARK: - UIViewController
     
@@ -130,6 +131,7 @@ class CheckoutsViewController: UIViewController {
     }
 
     func updateItems(withRecords records: [CircRecord]) {
+        self.didCompleteFetch = true
         self.items = records
         print("xxx \(records.count) records now, time to reloadData")
         tableView.reloadData()
@@ -191,7 +193,13 @@ extension CheckoutsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Items checked out: \(items.count)"
+        if !didCompleteFetch {
+            return ""
+        } else if items.count == 0 {
+            return "No items checked out"
+        } else {
+            return "Items checked out: \(items.count)"
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
