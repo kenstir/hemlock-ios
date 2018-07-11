@@ -53,6 +53,12 @@ class ListsViewController: UIViewController {
         Style.styleButton(asPlain: button2)
         Style.styleButton(asOutline: button3)
         Style.styleButton(asInverse: button4)
+        
+        let disclosure = UITableViewCell()
+        disclosure.frame = button1.bounds
+        disclosure.accessoryType = .disclosureIndicator
+        disclosure.isUserInteractionEnabled = false
+        button1.addSubview(disclosure)
     }
     
     func fetchData() {

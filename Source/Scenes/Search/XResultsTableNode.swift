@@ -30,6 +30,7 @@ class XResultsTableNode: ASCellNode {
     private let authorNode: ASTextNode
     private let formatNode: ASTextNode
     private let imageNode: ASNetworkImageNode
+    private var disclosureNode: ASDisplayNode
     private let separatorNode: ASDisplayNode
     
     //MARK: - Lifecycle
@@ -41,6 +42,7 @@ class XResultsTableNode: ASCellNode {
         authorNode = ASTextNode()
         formatNode = ASTextNode()
         imageNode = ASNetworkImageNode()
+        disclosureNode = ASDK.makeDisclosureNode()
         separatorNode = ASDisplayNode()
 
         super.init()
@@ -55,6 +57,7 @@ class XResultsTableNode: ASCellNode {
         self.setupAuthorNode()
         self.setupFormatNode()
         self.setupImageNode()
+        self.setupDisclosureNode()
         self.setupSeparatorNode()
     }
     
@@ -93,6 +96,9 @@ class XResultsTableNode: ASCellNode {
         self.imageNode.contentMode = .scaleAspectFit 
         self.imageNode.url = URL(string: url)
     }
+    
+    private func setupDisclosureNode() {
+    }
 
     private func setupSeparatorNode() {
         self.separatorNode.backgroundColor = UIColor.lightGray
@@ -105,6 +111,7 @@ class XResultsTableNode: ASCellNode {
         self.addSubnode(authorNode)
         self.addSubnode(formatNode)
         self.addSubnode(imageNode)
+        self.addSubnode(disclosureNode)
         self.addSubnode(separatorNode)
     }
     
@@ -124,7 +131,7 @@ class XResultsTableNode: ASCellNode {
         detailsSpec.style.flexGrow = 1.0
         detailsSpec.children = [titleNode, authorNode]
         
-        let contentsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [detailsSpec, imageNode])
+        let contentsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [detailsSpec, imageNode, disclosureNode])
 
         return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0), child: contentsSpec)
     }
