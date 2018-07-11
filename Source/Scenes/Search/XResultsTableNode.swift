@@ -82,9 +82,9 @@ class XResultsTableNode: ASCellNode {
     }
     
     private func setupFormatNode() {
-        self.formatNode.attributedText = NSAttributedString(string: record.author, attributes: self.authorTextAttributes())
-        self.authorNode.maximumNumberOfLines = 1
-        self.authorNode.truncationMode = .byTruncatingTail
+        self.formatNode.attributedText = NSAttributedString(string: record.format, attributes: self.formatTextAttributes())
+        self.formatNode.maximumNumberOfLines = 1
+        self.formatNode.truncationMode = .byTruncatingTail
     }
     
     private var formatTextAttributes = {
@@ -129,7 +129,7 @@ class XResultsTableNode: ASCellNode {
         let detailsSpec = ASStackLayoutSpec.vertical()
         detailsSpec.style.flexShrink = 1.0
         detailsSpec.style.flexGrow = 1.0
-        detailsSpec.children = [titleNode, authorNode]
+        detailsSpec.children = [titleNode, authorNode, formatNode]
         
         let contentsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [detailsSpec, imageNode, disclosureNode])
 
