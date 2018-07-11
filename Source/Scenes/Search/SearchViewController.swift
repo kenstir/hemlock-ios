@@ -43,7 +43,8 @@ class SearchViewController: UIViewController {
     let scopes = App.searchScopes
     let formats = Format.getSpinnerLabels()
     var orgLabels: [String] = []
-    
+    var didCompleteFetch = false
+
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -53,7 +54,9 @@ class SearchViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        fetchData()
+        if !didCompleteFetch {
+            fetchData()
+        }
     }
     
     //MARK: - Functions
@@ -71,6 +74,7 @@ class SearchViewController: UIViewController {
         }.done {
             self.setupLocationPicker()
             self.searchButton.isEnabled = true
+            self.didCompleteFetch = true
         }.catch { error in
             self.showAlert(error: error)
         }.finally {
