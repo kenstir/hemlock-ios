@@ -218,13 +218,12 @@ extension XResultsViewController: ASTableDelegate {
         let item = items[indexPath.row]
         selectedItem = item
         
-        if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController(),
-            let detailsVC = vc as? DetailsViewController,
-            let mvrObj = selectedItem?.mvrObj
-        {
-            let record = MBRecord(mvrObj: mvrObj)
-            detailsVC.item = record
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+//        if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController(),
+//            let detailsVC = vc as? DetailsViewController,
+//            let mvrObj = selectedItem?.mvrObj
+//        {
+//            detailsVC.item = record
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
 }

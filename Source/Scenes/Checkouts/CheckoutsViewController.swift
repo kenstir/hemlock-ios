@@ -77,8 +77,7 @@ class CheckoutsViewController: UIViewController {
         for id in ids {
             let record = CircRecord(id: id)
             records.append(record)
-            let promise = fetchCircDetails(authtoken: authtoken, forRecord: record)
-            promises.append(promise)
+            promises.append(fetchCircDetails(authtoken: authtoken, forCircRecord: record))
         }
         print("xxx \(promises.count) promises made")
         
@@ -94,20 +93,31 @@ class CheckoutsViewController: UIViewController {
         }
     }
     
-    func fetchCircDetails(authtoken: String, forRecord record: CircRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
+    func fetchCircDetails(authtoken: String, forCircRecord circRecord: CircRecord) -> Promise<Void> {
+        let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circRecord.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            print("xxx \(record.id) circRetrieve done")
-            record.circObj = obj
+            print("xxx \(circRecord.id) circRetrieve done")
+            circRecord.circObj = obj
             guard let target = obj.getInt("target_copy") else {
                 // TODO: add anayltics or, just let it throw?
                 throw PMKError.cancelled
             }
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
             return req.gatewayObjectResponse()
+        }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
+            print("xxx \(circRecord.id) modsFromCopy done")
+            debugPrint(obj.dict)
+            guard let id = obj.getInt("doc_id") else {
+                throw HemlockError.unexpectedNetworkResponse("no doc_id for circ record \(circRecord.id)")
+            }
+            circRecord.metabibRecord = MBRecord(id: id, mvrObj: obj)
+            let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymous, id])
+            return req.gatewayObjectResponse()
         }.done { obj in
-            print("xxx \(record.id) modsFromCopy done")
-            record.mvrObj = obj
+            debugPrint(obj.dict)
+            print("xxx \(circRecord.id) format done")
+            let searchFormat = Format.getSearchFormat(fromMRAObject: obj)
+            circRecord.metabibRecord?.searchFormat = searchFormat
         }
         return promise
     }
@@ -157,13 +167,12 @@ class CheckoutsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
         guard let detailsVC = vc as? DetailsViewController,
-            let mvrObj = selectedItem?.mvrObj else
+            let metabibRecord = selectedItem?.metabibRecord else
         {
             print("Uh oh!")
             return
         }
-        let record = MBRecord(mvrObj: mvrObj)
-        detailsVC.item = record
+        detailsVC.item = metabibRecord
     }
 }
 
@@ -187,6 +196,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         let item = items[indexPath.row]
         cell.title.text = item.title
         cell.author.text = item.author
+        cell.format.text = item.format
         cell.dueDate.text = "Due " + item.dueDate
         
         // add an action to the renewButton

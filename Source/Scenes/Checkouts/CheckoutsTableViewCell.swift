@@ -24,6 +24,7 @@ class CheckoutsTableViewCell: UITableViewCell {
     //MARK: - Properties
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var format: UILabel!
     @IBOutlet weak var dueDate: UILabel!
     @IBOutlet weak var renewButton: UIButton!
     

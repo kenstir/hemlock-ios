@@ -24,10 +24,11 @@ class CircRecord {
     
     let id: Int
     var circObj: OSRFObject?
-    var mvrObj: OSRFObject?
+    var metabibRecord: MBRecord?
     
-    var title: String { return mvrObj?.getString("title") ?? "Unknown" }
-    var author: String { return mvrObj?.getString("author") ?? "Unknown" }
+    var title: String { return metabibRecord?.title ?? "Unknown" }
+    var author: String { return metabibRecord?.author ?? "Unknown" }
+    var format: String { return Format.getDisplayLabel(forSearchFormat: metabibRecord?.searchFormat) }
     var dueDate: String { return circObj?.getDateString("due_date") ?? "Unknown" }
 
     init(id: Int) {

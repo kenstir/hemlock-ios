@@ -108,6 +108,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     }
     
     func fetchCircRecords(authtoken: String, fromObject obj: OSRFObject) {
+        /*
         let ids = obj.getIDList("overdue") + obj.getIDList("out")
         var records: [CircRecord] = []
         var promises: [Promise<Void>] = []
@@ -129,8 +130,10 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
             //self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }
+        */
     }
     
+    /*
     func fetchCircDetails(authtoken: String, forRecord record: CircRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, record.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
@@ -148,6 +151,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
         }
         return promise
     }
+    */
 
     func updateItems(withRecords records: [CircRecord]) {
         // TODO: sort by due date
@@ -163,18 +167,6 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     
     private var headerTextAttributes = {
         return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination
-        guard let detailsVC = vc as? DetailsViewController,
-            let mvrObj = selectedItem?.mvrObj else
-        {
-            print("Uh oh!")
-            return
-        }
-        let record = MBRecord(mvrObj: mvrObj)
-        detailsVC.item = record
     }
 }
 
@@ -206,10 +198,9 @@ extension XCheckoutsViewController: ASTableDelegate {
         
         if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController(),
             let detailsVC = vc as? DetailsViewController,
-            let mvrObj = selectedItem?.mvrObj
+            let metabibRecord = selectedItem?.metabibRecord
         {
-            let record = MBRecord(mvrObj: mvrObj)
-            detailsVC.item = record
+            detailsVC.item = metabibRecord
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

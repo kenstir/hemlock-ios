@@ -19,14 +19,19 @@
 //
 
 import Foundation
+
+/// Metabib Vitual Record
 class MBRecord {
     
+    var id: Int
     var mvrObj: OSRFObject?
-    
+    var searchFormat: String?
+
     var title: String { return mvrObj?.getString("title") ?? "Unknown" }
     var author: String { return mvrObj?.getString("author") ?? "Unknown" }
     
-    init(mvrObj: OSRFObject) {
+    init(id: Int, mvrObj: OSRFObject) {
+        self.id = id
         self.mvrObj = mvrObj        
     }
 }

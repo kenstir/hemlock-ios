@@ -107,6 +107,12 @@ class Format {
     //
     // We use "icon_format" because it is more specific, here it is
     // "lpbook" (Large Print Book) vs. "book" (Book).
+    static func getSearchFormat(fromMRAObject obj: OSRFObject) -> String {
+        if let attrs = obj.getString("attrs") {
+            return getSearchFormat(fromMRAResponse: attrs)
+        }
+        return ""
+    }
     static func getSearchFormat(fromMRAResponse mra: String) -> String {
         for entry in mra.split(onString: ", ") {
             let kv = entry.split(onString: "=>")
@@ -117,7 +123,7 @@ class Format {
         return ""
     }
     
-    static func getDisplayLabel(forSearchFormat searchFormat: String) -> String {
+    static func getDisplayLabel(forSearchFormat searchFormat: String?) -> String {
         if let item = items.first(where: { $0.searchFormat == searchFormat }) {
             return item.displayLabel ?? item.spinnerLabel
         }

@@ -88,6 +88,7 @@
                                 <connections>
                                     <outlet property="author" destination="wdh-dA-blv" id="Qwc-6r-bIB"/>
                                     <outlet property="dueDate" destination="4b7-Tg-Pfn" id="cjJ-Jk-Xui"/>
+                                    <outlet property="format" destination="kNY-Ss-L0h" id="O2n-bU-U0c"/>
                                     <outlet property="renewButton" destination="aA9-TT-zbd" id="tTL-9I-qzO"/>
                                     <outlet property="title" destination="btq-bN-2S2" id="1H9-BG-dcp"/>
                                 </connections>
