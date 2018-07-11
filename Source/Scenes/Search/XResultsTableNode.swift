@@ -88,7 +88,7 @@ class XResultsTableNode: ASCellNode {
     }
     
     private var formatTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)]
+        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
     }
     
     private func setupImageNode() {
@@ -124,8 +124,8 @@ class XResultsTableNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        imageNode.style.preferredSize = CGSize(width: 75.0, height: 75.0*1.6)
-        
+        imageNode.style.preferredSize = CGSize(width: 50.0, height: 50.0*1.6)
+
         let detailsSpec = ASStackLayoutSpec.vertical()
         detailsSpec.style.flexShrink = 1.0
         detailsSpec.style.flexGrow = 1.0
@@ -133,7 +133,7 @@ class XResultsTableNode: ASCellNode {
         
         let contentsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [detailsSpec, imageNode, disclosureNode])
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0), child: contentsSpec)
+        return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(6.0, 10.0, 6.0, 10.0), child: contentsSpec)
     }
     
 }
