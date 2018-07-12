@@ -23,16 +23,22 @@ import PromiseKit
 import PMKAlamofire
 
 class HoldsViewController: UIViewController {
+    
     //MARK: - Properties
     
-    var items: [HoldRecord] = []
-
-    //MARK: - UIViewController
     @IBOutlet weak var holdsTable: UITableView!
+
+    var items: [HoldRecord] = []
+    var didCompleteFetch = false
     
+    //MARK: - UIViewController
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         fetchData()
     }
     
@@ -42,7 +48,6 @@ class HoldsViewController: UIViewController {
         holdsTable.delegate = self
         holdsTable.dataSource = self
         holdsTable.tableFooterView = UIView() // prevent display of ghost rows at end of table
-
     }
 
     func fetchData() {
@@ -139,17 +144,8 @@ class HoldsViewController: UIViewController {
 
     func updateItems(holds: [HoldRecord]) {
         self.items = holds
+        self.didCompleteFetch = true
         print("xxx \(items.count) records now, time to reloadData")
-        for hold in holds {
-            print("-----------------------")
-            print("title:     \(hold.title)")
-            print("author:    \(hold.author)")
-            print("hold_type: \(String(describing: hold.holdType))")
-            print("status:    \(hold.status)")
-            print("position:  \(hold.queuePosition)")
-            print("of:        \(hold.totalHolds)")
-            print("copies:    \(hold.potentialCopies)")
-        }
         holdsTable.reloadData()
     }
 }
@@ -161,7 +157,13 @@ extension HoldsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Items on hold: \(items.count)"
+        if !didCompleteFetch {
+            return ""
+        } else if items.count == 0 {
+            return "No items on hold"
+        } else {
+            return "Items on hold: \(items.count)"
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -176,9 +178,7 @@ extension HoldsViewController: UITableViewDataSource {
         let holdstotaltext = "\(item.totalHolds) holds on \(item.potentialCopies) copies"
         cell.holdsQueueLabel.text = holdstotaltext
         cell.holdsQueuePosition.text = "Queue position: \(item.queuePosition)"
-        
-        //pull more record details
-        
+
         return cell
     }
 }

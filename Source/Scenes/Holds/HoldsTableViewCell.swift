@@ -21,14 +21,11 @@ import Foundation
 import UIKit
 
 class HoldsTableViewCell: UITableViewCell {
-    // stuff
-    
+
     @IBOutlet weak var holdsAuthorLabel: UILabel!
-    
     @IBOutlet weak var holdsTitleLabel: UILabel!
     @IBOutlet weak var holdsStatusLabel: UILabel!
     @IBOutlet weak var holdsQueueLabel: UILabel!
-    @IBOutlet weak var holdsQueuePosition: UILabel!
-    
-}
+    @IBOutlet weak var holdsQueuePosition: UILabel!    
 
+}
