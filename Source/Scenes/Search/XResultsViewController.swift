@@ -27,6 +27,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     //MARK: - Properties
     
     var activityIndicator: UIActivityIndicatorView!
+
     let headerNode: ASTextNode = ASTextNode()
     var searchParameters: SearchParameters?
     var items: [MBRecord] = []
@@ -43,7 +44,6 @@ class XResultsViewController: ASViewController<ASTableNode> {
     init() {
         super.init(node: ASTableNode(style: .plain))
         self.title = "Results"
-        self.setupNodes()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,11 +56,13 @@ class XResultsViewController: ASViewController<ASTableNode> {
     // before there is any UI.  Do not fetchData here; fetch it in viewDidAppear.
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNodesOnLoad()
+        self.setupNodes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        positionActivityIndicator()
         
         // deselect row when navigating back
         if let indexPath = tableNode.indexPathForSelectedRow {
@@ -82,20 +84,22 @@ class XResultsViewController: ASViewController<ASTableNode> {
         
         // setting an empty UIView as the footer prevents the display of ghost rows at the end of the table
         tableNode.view.tableFooterView = UIView()
-    }
-    
-    func setupNodesOnLoad() {
-        setupActivityIndicator()
-    }
-    
-    func setupActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        let bounds = self.node.frame
-        var refreshRect = activityIndicator.frame
-        refreshRect.origin = CGPoint(x: (bounds.size.width - activityIndicator.frame.width) / 2.0, y: (bounds.size.height - activityIndicator.frame.height) / 2.0)
-        activityIndicator.frame = refreshRect
-        self.node.view.addSubview(activityIndicator)
+        
+        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         Style.styleActivityIndicator(activityIndicator)
+        self.node.view.addSubview(activityIndicator)
+    }
+    
+    // NB: we position the activityIndicator y to 1/3 the height of the node's frame,
+    // when you think it should be 1/2.  But setting it to 1/2 made it appear 2/3
+    // of the way down.  I don't like it but it's good enough for now.
+    func positionActivityIndicator() {
+        let bounds = self.node.frame
+        var frame = activityIndicator.frame
+        print("yyy frame was  \(frame)")
+        frame.origin = CGPoint(x: (bounds.width - frame.width) / 2.0, y: (bounds.height - frame.height) / 3.0)
+        print("yyy set origin to \(frame.origin)")
+        activityIndicator.frame = frame
     }
     
     //MARK: - Functions
