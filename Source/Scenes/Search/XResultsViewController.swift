@@ -62,7 +62,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        positionActivityIndicator()
+        centerActivityIndicator(inFrame: self.node.frame)
         
         // deselect row when navigating back
         if let indexPath = tableNode.indexPathForSelectedRow {
@@ -93,8 +93,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     // NB: we position the activityIndicator y to 1/3 the height of the node's frame,
     // when you think it should be 1/2.  But setting it to 1/2 made it appear 2/3
     // of the way down.  I don't like it but it's good enough for now.
-    func positionActivityIndicator() {
-        let bounds = self.node.frame
+    func centerActivityIndicator(inFrame bounds: CGRect) {
         var frame = activityIndicator.frame
         print("yyy frame was  \(frame)")
         frame.origin = CGPoint(x: (bounds.width - frame.width) / 2.0, y: (bounds.height - frame.height) / 3.0)
