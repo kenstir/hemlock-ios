@@ -27,6 +27,7 @@ class XResultsTableNode: ASCellNode {
     private let record: MBRecord
     
     private let titleNode: ASTextNode
+    private let spacerNode: ASDisplayNode
     private let authorNode: ASTextNode
     private let formatNode: ASTextNode
     private let imageNode: ASNetworkImageNode
@@ -39,6 +40,7 @@ class XResultsTableNode: ASCellNode {
         self.record = record
 
         titleNode = ASTextNode()
+        spacerNode = ASDisplayNode()
         authorNode = ASTextNode()
         formatNode = ASTextNode()
         imageNode = ASNetworkImageNode()
@@ -59,6 +61,7 @@ class XResultsTableNode: ASCellNode {
         self.setupImageNode()
         self.setupDisclosureNode()
         self.setupSeparatorNode()
+        self.setupSpacerNode()
     }
     
     private func setupTitleNode() {
@@ -95,6 +98,7 @@ class XResultsTableNode: ASCellNode {
         let url = AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
         self.imageNode.contentMode = .scaleAspectFit 
         self.imageNode.url = URL(string: url)
+//        self.imageNode.backgroundColor = UIColor(red: 0xf8/0xff, green: 0xf8/0xff, blue: 0xf8/0xff, alpha: 1.0)
     }
     
     private func setupDisclosureNode() {
@@ -104,10 +108,15 @@ class XResultsTableNode: ASCellNode {
         self.separatorNode.backgroundColor = UIColor.lightGray
     }
     
+    private func setupSpacerNode() {
+//        self.spacerNode.backgroundColor = UIColor.red
+    }
+    
     //MARK: - Build node hierarchy
     
     private func buildNodeHierarchy() {
         self.addSubnode(titleNode)
+        self.addSubnode(spacerNode)
         self.addSubnode(authorNode)
         self.addSubnode(formatNode)
         self.addSubnode(imageNode)
@@ -126,14 +135,19 @@ class XResultsTableNode: ASCellNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         imageNode.style.preferredSize = CGSize(width: 50.0, height: 50.0*1.6)
 
+        spacerNode.style.flexGrow = 1.0
+
         let detailsSpec = ASStackLayoutSpec.vertical()
+        detailsSpec.style.preferredSize = CGSize(width: 12.0, height: 50.0*1.6)
         detailsSpec.style.flexShrink = 1.0
         detailsSpec.style.flexGrow = 1.0
-        detailsSpec.children = [titleNode, authorNode, formatNode]
-        
+        detailsSpec.children = [titleNode, spacerNode, authorNode, formatNode]
+ 
         let contentsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [detailsSpec, imageNode, disclosureNode])
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(6.0, 10.0, 6.0, 10.0), child: contentsSpec)
+        let spec = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(4.0, 8.0, 4.0, 8.0), child: contentsSpec)
+        //print(spec.asciiArtString())
+        return spec
     }
     
 }
