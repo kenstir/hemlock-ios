@@ -135,24 +135,24 @@ class XResultsTableNode: ASCellNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         
-        let width = 50.0
-        let height = 50.0 * 1.6
+        let imageWidth = 50.0
+        let imageHeight = imageWidth * 1.6
         
         let lhsSpec = ASStackLayoutSpec.vertical()
         lhsSpec.style.flexShrink = 1.0
         lhsSpec.style.flexGrow = 1.0
-        lhsSpec.style.preferredSize = CGSize(width: 0, height: height)
+        lhsSpec.style.preferredSize = CGSize(width: 0, height: imageHeight)
         spacerNode.style.flexShrink = 1.0
         spacerNode.style.flexGrow = 1.0
         lhsSpec.children = [titleNode, spacerNode, authorNode, formatNode]
         
-        imageNode.style.preferredSize = CGSize(width: width, height: height)
+        imageNode.style.preferredSize = CGSize(width: imageWidth, height: imageHeight)
         disclosureNode.style.preferredSize = CGSize(width: 27, height: 27)
 
         let rhsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .start, alignItems: .center, children: [imageNode, disclosureNode])
         
         let rowSpec = ASStackLayoutSpec(direction: .horizontal,
-                                        spacing: 22,
+                                        spacing: 8,
                                         justifyContent: .start,
                                         alignItems: .center,
                                         children: [lhsSpec, rhsSpec])
