@@ -70,6 +70,30 @@ class ListsViewController: UIViewController {
     
     @IBAction func doStuff(sender: UIButton) {
         self.view.makeToast("button pressed: \(sender.tag)")
-//        self.showAlert(error: HemlockError.unexpectedNetworkResponse(String(describing: sender)))
+        switch sender.tag {
+        case 1:
+            self.navigationController?.popToRootViewController(animated: true)
+        case 2:
+            self.navigationController?.setViewControllers([LoginViewController()], animated: true)
+        case 3:
+            // this results in a LoginVC that has double-width app bar!
+            /*
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "Login")
+            self.navigationController?.setViewControllers([vc], animated: true)
+            */
+            
+            // this works but has no animation
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = sb.instantiateViewController(withIdentifier: "Login")
+            let vc = sb.instantiateInitialViewController()
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.window?.rootViewController = vc
+            }
+        default:
+            // this works also and also has no animation
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            UIApplication.shared.keyWindow?.rootViewController = vc
+        }
     }
 }

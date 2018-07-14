@@ -78,12 +78,18 @@ class CheckoutsViewController: UIViewController {
         if isSessionExpired(error: error) {
             self.showSessionExpiredAlert(error, relogHandler: {
                 print("******************************* relog")
+                self.popToLogin()
             }, cancelHandler: {
                 print("******************************* cancel")
             })
         } else {
             self.showAlert(error: error)
         }
+    }
+    
+    func popToLogin() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        UIApplication.shared.keyWindow?.rootViewController = vc
     }
     
     func fetchData() {
