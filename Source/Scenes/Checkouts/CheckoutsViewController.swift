@@ -61,6 +61,31 @@ class CheckoutsViewController: UIViewController {
         Style.styleActivityIndicator(activityIndicator)
     }
     
+    func showSessionExpiredAlert(_ error: Error, relogHandler: (() -> Void)?, cancelHandler: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: "Session timed out", message: "Do you want to login again?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            if let h = cancelHandler { h() }
+        }
+        let loginAction = UIAlertAction(title: "Login", style: .default) { action in
+            if let h = relogHandler { h() }
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(loginAction)
+        self.present(alertController, animated: true)
+    }
+
+    func handleGatewayError(_ error: Error) {
+        if isSessionExpired(error: error) {
+            self.showSessionExpiredAlert(error, relogHandler: {
+                print("******************************* relog")
+            }, cancelHandler: {
+                print("******************************* cancel")
+            })
+        } else {
+            self.showAlert(error: error)
+        }
+    }
+    
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
@@ -77,7 +102,7 @@ class CheckoutsViewController: UIViewController {
             self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
         }.catch { error in
             self.activityIndicator.stopAnimating()
-            self.showAlert(error: error)
+            self.handleGatewayError(error)
         }
     }
     

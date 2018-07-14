@@ -76,7 +76,7 @@
                                 <state key="normal" title="View Copy Info"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmZ-13-ryC">
-                                <rect key="frame" x="220" y="195" width="88" height="30"/>
+                                <rect key="frame" x="219" y="196" width="88" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="IKP-LZ-ayC"/>
                                     <constraint firstAttribute="height" constant="30" id="KhD-l3-EdJ"/>

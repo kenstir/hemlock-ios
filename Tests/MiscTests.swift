@@ -90,6 +90,17 @@ class MiscTests: XCTestCase {
         XCTAssertEqual("Unexpected network response: because", baseDesc)
     }
     
+    func test_isSessionExpiredError() {
+        let unexpectedError = HemlockError.unexpectedNetworkResponse("because")
+        XCTAssertFalse(isSessionExpired(error: unexpectedError))
+        
+        let hemlockSessionExpiredError = HemlockError.sessionExpired()
+        XCTAssertTrue(isSessionExpired(error: hemlockSessionExpiredError))
+        
+        let gwerr = GatewayError.event(ilsevent: 1001, textcode: "NO_SESSION", desc: "Login session has timed out or does not exist")
+        XCTAssertTrue(isSessionExpired(error: gwerr))
+    }
+    
     // Test ways to parse a date string
     func testDateParsing() {
         let apiDate = "2017-05-01T14:03:24-0400"

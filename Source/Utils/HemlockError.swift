@@ -32,3 +32,22 @@ extension HemlockError: LocalizedError {
         }
     }
 }
+
+func isSessionExpired(error: Error) -> Bool {
+    if let gatewayError = error as? GatewayError {
+        switch gatewayError {
+        case .event(let ilsevent, _, _):
+            return ilsevent == 1001 // && textcode == "NO_SESSION"
+        default:
+            return false
+        }
+    } else if let err = error as? HemlockError {
+        switch err {
+        case .sessionExpired:
+            return true
+        default:
+            return false
+        }
+    }
+    return false
+}
