@@ -30,6 +30,12 @@ class MBRecord {
     var title: String { return mvrObj?.getString("title") ?? "Unknown" }
     var author: String { return mvrObj?.getString("author") ?? "Unknown" }
     var format: String { return Format.getDisplayLabel(forSearchFormat: searchFormat) }
+    var subject: String {
+        if let obj = mvrObj?.getObject("subject") {
+            return obj.dict.keys.joined(separator: "\n")
+        }
+        return ""
+    }
 
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id

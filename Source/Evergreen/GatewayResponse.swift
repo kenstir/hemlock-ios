@@ -22,14 +22,14 @@ import os.log
 
 //TODO: fold GatewayError into HemlockError
 public enum GatewayError: Error {
-    case event(String)
+    case event(ilsevent: Int, textcode: String, desc: String)
     case failure(String)
 }
 extension GatewayError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .event(let reason):
-            return reason
+        case .event(_, _, let desc):
+            return desc
         case .failure(let reason):
             return reason
         }
@@ -123,8 +123,9 @@ struct GatewayResponse {
             }
             if let ilsevent = obj?.getDouble("ilsevent"),
                 ilsevent != 0,
-                let desc = obj?.dict["desc"] as? String {
-                self.error = .event(desc)
+                let textcode = obj?.getString("textcode"),
+                let desc = obj?.getString("desc") {
+                self.error = .event(ilsevent: Int(ilsevent), textcode: textcode, desc: desc)
                 return
             }
             type = .object

@@ -83,20 +83,11 @@
                         <outlet property="scopeControl" destination="GTx-vt-OB6" id="RuR-PJ-GrR"/>
                         <outlet property="searchBar" destination="efL-Ge-GEs" id="FT2-MP-jW2"/>
                         <outlet property="searchButton" destination="JUf-Yq-Mnv" id="kKq-mN-qxo"/>
-                        <segue destination="shf-t3-jf5" kind="show" identifier="ShowBogusSegue" id="0ag-Kz-oRs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8U-68-kFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1132.5" y="-547.5"/>
-        </scene>
-        <!--Results-->
-        <scene sceneID="utj-xc-rj5">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Results" id="shf-t3-jf5" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rml-QO-Al1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2047" y="-548"/>
         </scene>
     </scenes>
 </document>

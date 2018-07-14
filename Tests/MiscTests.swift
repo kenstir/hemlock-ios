@@ -79,15 +79,15 @@ class MiscTests: XCTestCase {
 
     // Test that HemlockError can override the localizedDescription by conforming to LocalizedError
     func testHemlockError() {
-        let err = HemlockError.loginFailed("because")
+        let err = HemlockError.unexpectedNetworkResponse("because")
         let desc = err.errorDescription
         print("desc: \(desc ?? "")")
-        XCTAssertEqual("Login failed: because", desc)
+        XCTAssertEqual("Unexpected network response: because", desc)
         
         let baseError = err as Error
         let baseDesc = baseError.localizedDescription
         print("base: \(baseDesc)")
-        XCTAssertEqual("Login failed: because", baseDesc)
+        XCTAssertEqual("Unexpected network response: because", baseDesc)
     }
     
     // Test ways to parse a date string

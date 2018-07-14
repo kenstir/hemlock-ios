@@ -69,7 +69,7 @@ class DetailsViewController: UIViewController {
             itemImage.image = UIImage(data: data)
         }
         synopsisLabel.text = "Synopsis: " + (item?.mvrObj?.getString("synopsis") ?? "")
-        subjectLabel.text = item?.mvrObj?.getString("subject")
+        subjectLabel.text = item?.subject
         isbnLabel.text = "ISBN:  " + (item?.mvrObj?.getString("isbn") ?? "")
 
         Style.styleButton(asPlain: viewCopyButton)

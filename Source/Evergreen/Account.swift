@@ -31,22 +31,15 @@ class Account {
     }
     
     func loadFromAuthResponse(_ fromObj: OSRFObject?) throws -> Void {
-        guard let obj = fromObj else {
-            //todo: add analytics
-            throw HemlockError.unexpectedNetworkResponse("Unexpected response to login")
-        }
-        
-        guard let payload = obj.getObject("payload"),
+        guard
+            let obj = fromObj,
+            let payload = obj.getObject("payload"),
             let authtoken = payload.getString("authtoken"),
             let authtime = payload.getInt("authtime") else
         {
-            var msg = "Login failed"
-            if let desc = obj.getString("desc") {
-                msg = desc
-            }
-            throw HemlockError.loginFailed(msg)
+           throw HemlockError.unexpectedNetworkResponse("Unexpected response to login")
         }
-
+        
         self.authtoken = authtoken
         self.authtokenExpiryDate = Date(timeIntervalSinceNow: TimeInterval(authtime))
     }

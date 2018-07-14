@@ -46,10 +46,13 @@ struct OSRFObject: Equatable {
     //MARK: - accessors
     
     func getString(_ key: String) -> String? {
+            /*********************
+ TODO: I am really not sure putting the [String] case here is wise
+            **********************/
         if let val = dict[key] as? String {
             return val
-        } else if let val = dict[key] as? [String: Int] {
-            return val.keys.joined(separator: "\n")
+        } else if let val = dict[key] as? [String] {
+            return val.joined(separator: "\n")
         }
         return nil
     }
