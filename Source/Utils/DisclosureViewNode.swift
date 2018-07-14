@@ -24,10 +24,9 @@ struct ASDK {
     static func makeDisclosureNode() -> ASDisplayNode {
         let node = ASDisplayNode { () -> UIView in
             let disclosure = UITableViewCell()
-            //disclosure.frame = button1.bounds
             disclosure.accessoryType = .disclosureIndicator
             disclosure.isUserInteractionEnabled = false
-            //button1.addSubview(disclosure)
+            disclosure.selectionStyle = .gray
             return disclosure
         }
         return node
