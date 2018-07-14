@@ -38,7 +38,6 @@ class CheckoutsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,8 +47,10 @@ class CheckoutsViewController: UIViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+
+        self.fetchData()
     }
-    
+
     //MARK: - Functions
     
     func setupViews() {

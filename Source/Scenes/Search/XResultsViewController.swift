@@ -68,9 +68,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         if let indexPath = tableNode.indexPathForSelectedRow {
             tableNode.deselectRow(at: indexPath, animated: true)
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        
         self.fetchData()
     }
 

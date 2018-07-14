@@ -49,17 +49,12 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     //MARK: - ViewController
     
     override func viewWillAppear(_ animated: Bool) {
-        print("XXX viewWillAppear")
         super.viewWillAppear(animated)
         
         if let indexPath = tableNode.indexPathForSelectedRow {
             tableNode.deselectRow(at: indexPath, animated: true)
         }
-    }
-    
-    override func viewDidLoad() {
-        print("XXX viewDidLoad")
-        super.viewDidLoad()
+
         self.fetchData()
     }
 

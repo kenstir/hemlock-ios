@@ -35,10 +35,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setupViews()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.fetchData()
     }
-    
+
     func setupViews() {
         // restore saved username/password
         let (savedUsername, savedPassword) = LoginController.getSavedLoginCredentials();

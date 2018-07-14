@@ -53,7 +53,8 @@ class SearchViewController: UIViewController {
         searchButton.isEnabled = false
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if !didCompleteFetch {
             fetchData()
         }

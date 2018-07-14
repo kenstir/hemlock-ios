@@ -37,11 +37,12 @@ class HoldsViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        fetchData()
-    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetchData()
+    }
+
     //MARK: - Functions
     
     func setupViews() {
