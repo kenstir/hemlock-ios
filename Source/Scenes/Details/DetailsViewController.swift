@@ -82,7 +82,7 @@ class DetailsViewController: UIViewController {
         guard let _ = App.account?.authtoken,
             let _ = App.account?.userID else
         {
-            showAlert(error: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
             return //TODO: add analytics
         }
         //TODO: fetch copy info

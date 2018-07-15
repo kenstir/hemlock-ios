@@ -77,7 +77,7 @@ class SearchViewController: UIViewController {
             self.searchButton.isEnabled = true
             self.didCompleteFetch = true
         }.catch { error in
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }.finally {
             self.activityIndicator.stopAnimating()
         }

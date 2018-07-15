@@ -20,7 +20,7 @@
 import Foundation
 import AsyncDisplayKit
 
-struct ASDK {
+class XUtils {
     static func makeDisclosureNode() -> ASDisplayNode {
         let node = ASDisplayNode { () -> UIView in
             let disclosure = UITableViewCell()

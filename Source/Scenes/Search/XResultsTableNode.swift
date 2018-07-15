@@ -44,7 +44,7 @@ class XResultsTableNode: ASCellNode {
         authorNode = ASTextNode()
         formatNode = ASTextNode()
         imageNode = ASNetworkImageNode()
-        disclosureNode = ASDK.makeDisclosureNode()
+        disclosureNode = XUtils.makeDisclosureNode()
         separatorNode = ASDisplayNode()
 
         super.init()

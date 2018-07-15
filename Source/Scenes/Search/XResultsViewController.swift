@@ -106,7 +106,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
             return
         }
         guard let authtoken = App.account?.authtoken else {
-            showAlert(error: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
             return
         }
         guard let query = getQueryString() else {
@@ -127,7 +127,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
             return
         }.catch { error in
             self.activityIndicator.stopAnimating()
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     
@@ -150,7 +150,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
             self.updateItems(withRecords: records)
         }.catch { error in
             self.activityIndicator.stopAnimating()
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     

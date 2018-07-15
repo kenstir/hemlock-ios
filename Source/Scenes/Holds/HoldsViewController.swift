@@ -55,7 +55,7 @@ class HoldsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            showAlert(error: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
             return //TODO: add analytics
         }
         
@@ -64,7 +64,7 @@ class HoldsViewController: UIViewController {
         req.gatewayArrayResponse().done { objects in
             try self.fetchHoldDetails(holds: HoldRecord.makeArray(objects))
         }.catch { error in
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     
@@ -85,7 +85,7 @@ class HoldsViewController: UIViewController {
             print("xxx \(promises.count) promises fulfilled")
             self.updateItems(holds: holds)
         }.catch { error in
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     

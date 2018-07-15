@@ -75,7 +75,7 @@ class FinesViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            showAlert(title: "No account", message: "Not logged in")
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
             return //TODO: add analytics
         }
 
@@ -99,7 +99,7 @@ class FinesViewController: UIViewController {
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
-            self.showAlert(title: "Request failed", message: error.localizedDescription)
+            self.presentGatewayAlert(forError: error)
         }
     }
     

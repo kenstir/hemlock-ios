@@ -27,6 +27,12 @@ class Style {
         activityIndicator.color = color
     }
     
+    //MARK: - AlertController
+    
+    static func styleAlertController(_ alertController: UIAlertController) {
+        alertController.view.tintColor = App.theme.backgroundDark5
+    }
+    
     //MARK: - BarButtonItem
     
     static func styleBarButton(_ button: UIBarButtonItem) {

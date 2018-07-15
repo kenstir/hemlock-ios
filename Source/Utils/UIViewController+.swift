@@ -27,13 +27,49 @@ extension UIViewController {
         return activityIndicator
     }
     
+    //MARK: - showAlert
+    
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        Style.styleAlertController(alertController)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
     
     func showAlert(error: Error) {
         showAlert(title: "Error", message: error.localizedDescription)
+    }
+    
+    //MARK: - Handling session expired errors
+    
+    /// handle error in a promise chain by presenting the appropriate alert
+    func presentGatewayAlert(forError error: Error) {
+        if isSessionExpired(error: error) {
+            self.showSessionExpiredAlert(error, relogHandler: {
+                self.popToLogin()
+            })
+        } else {
+            self.showAlert(error: error)
+        }
+    }
+
+    func showSessionExpiredAlert(_ error: Error, relogHandler: (() -> Void)?, cancelHandler: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: "Session timed out", message: "Do you want to login again?", preferredStyle: .alert)
+        Style.styleAlertController(alertController)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            if let h = cancelHandler { h() }
+        }
+        let loginAction = UIAlertAction(title: "Login Again", style: .default) { action in
+            if let h = relogHandler { h() }
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(loginAction)
+        self.present(alertController, animated: true)
+    }
+    
+    /// reset the VC stack to the Login VC (the initial VC on the Main storyboard)
+    func popToLogin() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        UIApplication.shared.keyWindow?.rootViewController = vc
     }
 }

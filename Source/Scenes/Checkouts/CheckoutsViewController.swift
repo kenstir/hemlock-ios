@@ -61,42 +61,11 @@ class CheckoutsViewController: UIViewController {
         Style.styleActivityIndicator(activityIndicator)
     }
     
-    func showSessionExpiredAlert(_ error: Error, relogHandler: (() -> Void)?, cancelHandler: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: "Session timed out", message: "Do you want to login again?", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-            if let h = cancelHandler { h() }
-        }
-        let loginAction = UIAlertAction(title: "Login", style: .default) { action in
-            if let h = relogHandler { h() }
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(loginAction)
-        self.present(alertController, animated: true)
-    }
-
-    func handleGatewayError(_ error: Error) {
-        if isSessionExpired(error: error) {
-            self.showSessionExpiredAlert(error, relogHandler: {
-                print("******************************* relog")
-                self.popToLogin()
-            }, cancelHandler: {
-                print("******************************* cancel")
-            })
-        } else {
-            self.showAlert(error: error)
-        }
-    }
-    
-    func popToLogin() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-        UIApplication.shared.keyWindow?.rootViewController = vc
-    }
-    
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            showAlert(error: HemlockError.sessionExpired())
+            presentGatewayAlert(forError: HemlockError.sessionExpired())
             return //TODO: add analytics
         }
         
@@ -108,7 +77,7 @@ class CheckoutsViewController: UIViewController {
             self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
         }.catch { error in
             self.activityIndicator.stopAnimating()
-            self.handleGatewayError(error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     
@@ -131,7 +100,7 @@ class CheckoutsViewController: UIViewController {
             self.updateItems(withRecords: records)
         }.catch { error in
             self.activityIndicator.stopAnimating()
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     
@@ -176,7 +145,7 @@ class CheckoutsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
         {
-            self.showAlert(error: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
             return
         }
         guard let targetCopy = item.circObj?.getID("target_copy") else {
@@ -203,7 +172,7 @@ class CheckoutsViewController: UIViewController {
             // refresh data
             self.fetchData()
         }.catch { error in
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     
