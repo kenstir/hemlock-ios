@@ -163,6 +163,9 @@
 		D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D2DF196820CEF68700085255 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
 		FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
+		FA37C3F920FC2A09003C2003 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
+		FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
+		FA37C3FB20FC2A09003C2003 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		FA57B93920EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
@@ -295,6 +298,7 @@
 		D2DF196520CEEE1200085255 /* FineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineRecord.swift; sourceTree = "<group>"; };
 		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		FA273D0420D884D8009B152F /* FinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesTableViewCell.swift; sourceTree = "<group>"; };
+		FA37C3F820FC2A09003C2003 /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
 		FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsTableViewCell.swift; sourceTree = "<group>"; };
 		FA64C95F20E04D34009973E5 /* MBRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRecord.swift; sourceTree = "<group>"; };
 		FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldsViewController.swift; sourceTree = "<group>"; };
@@ -434,6 +438,7 @@
 				D253343B20C23305008176B9 /* Theme.swift */,
 				D28290F420E5CF48008EBE4B /* UIView+.swift */,
 				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
+				FA37C3F820FC2A09003C2003 /* LocationPicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -918,6 +923,7 @@
 				D23C305020E5C6EA00666A2B /* HemlockTheme.swift in Sources */,
 				D27990E120DDD473003B451E /* MD5.swift in Sources */,
 				D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */,
+				FA37C3F920FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
 				D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
@@ -980,6 +986,7 @@
 				D23C304E20E5C6C800666A2B /* PinesTheme.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
 				FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */,
+				FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
@@ -1010,6 +1017,7 @@
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
+				FA37C3FB20FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
 				D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */,
