@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JSy-me-Lg7">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,7 +16,7 @@
             <objects>
                 <viewController storyboardIdentifier="DetailsViewController" title="Item Details" id="JSy-me-Lg7" customClass="DetailsViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FNA-pM-U1B">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yNf-VM-twP">
@@ -141,6 +141,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11Y-Xh-MN0">
+                                <rect key="frame" x="123.5" y="518" width="74" height="30"/>
+                                <state key="normal" title="Place Hold"/>
+                                <connections>
+                                    <segue destination="l60-iz-E0m" kind="show" id="HIE-N6-rzv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -163,6 +170,7 @@
                             <constraint firstItem="rHE-6g-Tfc" firstAttribute="leading" secondItem="yT5-tg-oro" secondAttribute="trailing" constant="8" id="XdI-rg-OIj"/>
                             <constraint firstItem="xW1-03-WC5" firstAttribute="trailing" secondItem="rHE-6g-Tfc" secondAttribute="trailing" constant="12" id="a1a-ff-uXf"/>
                             <constraint firstItem="yT5-tg-oro" firstAttribute="top" secondItem="gSC-xq-0uR" secondAttribute="bottom" constant="8" id="aY5-Vr-gtr"/>
+                            <constraint firstItem="xW1-03-WC5" firstAttribute="bottom" secondItem="11Y-Xh-MN0" secondAttribute="bottom" constant="20" id="bdh-q7-x8P"/>
                             <constraint firstItem="yNf-VM-twP" firstAttribute="top" secondItem="xW1-03-WC5" secondAttribute="top" constant="8" id="dC0-9s-fP3"/>
                             <constraint firstItem="rHE-6g-Tfc" firstAttribute="leading" secondItem="yNf-VM-twP" secondAttribute="trailing" constant="8" id="dTl-Ed-bgd"/>
                             <constraint firstItem="zSG-Ee-p06" firstAttribute="top" secondItem="lKB-T6-ZXN" secondAttribute="bottom" constant="8" id="e7m-lS-eDG"/>
@@ -173,6 +181,7 @@
                             <constraint firstItem="zSG-Ee-p06" firstAttribute="leading" secondItem="jx1-oZ-2Qo" secondAttribute="trailing" constant="8" id="j0V-02-PPE"/>
                             <constraint firstItem="yT5-tg-oro" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="kgu-5q-Jb7"/>
                             <constraint firstAttribute="trailing" secondItem="FmZ-13-ryC" secondAttribute="trailing" constant="16" id="mhh-W8-efz"/>
+                            <constraint firstItem="11Y-Xh-MN0" firstAttribute="centerX" secondItem="FNA-pM-U1B" secondAttribute="centerX" id="nfn-yE-ed1"/>
                             <constraint firstItem="xW1-03-WC5" firstAttribute="trailing" secondItem="lKB-T6-ZXN" secondAttribute="trailing" constant="16" id="pwB-Ph-aVL"/>
                             <constraint firstItem="jx1-oZ-2Qo" firstAttribute="top" secondItem="lKB-T6-ZXN" secondAttribute="bottom" constant="8" id="s5p-sI-FOM"/>
                             <constraint firstItem="Fug-sN-BeL" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="uNN-Tt-b5y"/>
@@ -197,7 +206,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6I7-8D-Dfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78.260869565217391" y="66.032608695652172"/>
+            <point key="canvasLocation" x="76.875" y="65.492957746478879"/>
+        </scene>
+        <!--Place Hold-->
+        <scene sceneID="IJR-5X-0uP">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Place Hold" storyboardName="PlaceHolds" referencedIdentifier="Place Hold" id="l60-iz-E0m" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NwC-yf-5Xa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838.125" y="64.436619718309856"/>
         </scene>
     </scenes>
 </document>

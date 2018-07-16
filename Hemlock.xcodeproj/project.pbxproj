@@ -167,6 +167,12 @@
 		FA57B93920EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
+		FA88B4A220F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */; };
+		FA88B4A320F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */; };
+		FA88B4A420F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */; };
+		FA88B4C620FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
+		FA88B4C720FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
+		FA88B4C820FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
 		FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		FACD142420CDBED6008F02D3 /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* Lists.storyboard */; };
@@ -291,6 +297,8 @@
 		FA273D0420D884D8009B152F /* FinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesTableViewCell.swift; sourceTree = "<group>"; };
 		FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsTableViewCell.swift; sourceTree = "<group>"; };
 		FA64C95F20E04D34009973E5 /* MBRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRecord.swift; sourceTree = "<group>"; };
+		FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldsViewController.swift; sourceTree = "<group>"; };
+		FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaceHolds.storyboard; sourceTree = "<group>"; };
 		FACD141C20CDACFF008F02D3 /* Fines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Fines.storyboard; path = Source/Scenes/Fines/Fines.storyboard; sourceTree = SOURCE_ROOT; };
 		FACD142020CDB01C008F02D3 /* Holds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Holds.storyboard; sourceTree = "<group>"; };
 		FACD142320CDBED6008F02D3 /* Lists.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Lists.storyboard; sourceTree = "<group>"; };
@@ -363,6 +371,7 @@
 		D212DB1120C3726F00267503 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FA88B4C420FC1AF9000F211F /* PlaceHolds */,
 				D212DB1220C3731C00267503 /* Checkouts */,
 				D21F683520D803F900D953C1 /* Details */,
 				FACD141920CDA97E008F02D3 /* Fines */,
@@ -600,6 +609,15 @@
 			path = pines_app;
 			sourceTree = "<group>";
 		};
+		FA88B4C420FC1AF9000F211F /* PlaceHolds */ = {
+			isa = PBXGroup;
+			children = (
+				FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */,
+				FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */,
+			);
+			path = PlaceHolds;
+			sourceTree = "<group>";
+		};
 		FACD141920CDA97E008F02D3 /* Fines */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,6 +766,7 @@
 				D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
+				FA88B4C620FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
 				D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */,
@@ -766,6 +785,7 @@
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D21F683720D8042800D953C1 /* Details.storyboard in Resources */,
+				FA88B4C720FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
@@ -781,6 +801,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA88B4C820FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
 				D2385E2E20914E6C00FE0C89 /* TestData in Resources */,
 				D29C720E209245E200E90952 /* TestUserData in Resources */,
 			);
@@ -881,6 +902,7 @@
 				D27990D620DDD473003B451E /* Corsortium.swift in Sources */,
 				D27990D720DDD473003B451E /* App.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
+				FA88B4A220F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
 				D27990DA20DDD473003B451E /* HemlockError.swift in Sources */,
 				D23E5A0320ED96E9005EB391 /* XResultsViewController.swift in Sources */,
@@ -942,6 +964,7 @@
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
+				FA88B4A320F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
 				D23E5A0420ED96E9005EB391 /* XResultsViewController.swift in Sources */,
@@ -983,6 +1006,7 @@
 				D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */,
 				D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */,
 				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
+				FA88B4A420F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */,
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,

@@ -54,6 +54,7 @@ class DetailsViewController: UIViewController {
     
     func setupViews() {
         titleLabel.text = item?.title
+//        holdTitleLabel.text = item?.title
         authorLabel.text = item?.author
         let pubdate = item?.mvrObj?.getString("pubdate") ?? ""
         let publisher = item?.mvrObj?.getString("publisher") ?? ""
