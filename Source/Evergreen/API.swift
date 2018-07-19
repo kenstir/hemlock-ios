@@ -33,6 +33,9 @@ struct API {
     static let finesSummary = "open-ils.actor.user.fines.summary"
     static let orgTreeRetrieve = "open-ils.actor.org_tree.retrieve"
     static let orgTypesRetrieve = "open-ils.actor.org_types.retrieve"
+    static let orgUnitSetting = "open-ils.actor.ou_setting.ancestor_default"
+    static let settingSMSEnable = "sms.enable"
+    static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"
 
     //MARK: - auth service

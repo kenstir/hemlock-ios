@@ -197,7 +197,7 @@ class LiveServiceTests: XCTestCase {
     
     func test_orgTreeRetrieve() {
         let expectation = XCTestExpectation(description: "async response")
-
+        
         let promise = ActorService.fetchOrgTree()
         promise.ensure {
             let org = Organization.find(byId: 1)
@@ -209,6 +209,30 @@ class LiveServiceTests: XCTestCase {
             expectation.fulfill()
         }
         
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    //MARK: - orgUnitSetting
+    
+    func test_orgUnitSetting() {
+        let expectation = XCTestExpectation(description: "async response")
+
+        let orgID = 1
+        let setting = API.settingSMSEnable
+//        let setting = API.settingNotPickupLib
+        var val = false
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSetting, args: [orgID, setting, "ANONYMOUS"])
+        req.gatewayOptionalObjectResponse().done { obj in
+            if let retval = obj?.getBool("value") {
+                val = retval
+            }
+            expectation.fulfill()
+            print("org \(orgID) setting \(setting) value \(val)")
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+
         wait(for: [expectation], timeout: 20.0)
     }
 
