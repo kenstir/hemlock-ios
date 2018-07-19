@@ -164,7 +164,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     }
     
     func fetchSearchFormat(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymous, record.id])
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id])
         let promise = req.gatewayObjectResponse().done { obj in
             print("xxx \(record.id) format done")
             record.searchFormat = Format.getSearchFormat(fromMRAObject: obj)

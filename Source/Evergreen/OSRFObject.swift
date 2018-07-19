@@ -91,6 +91,20 @@ struct OSRFObject: Equatable {
         return nil
     }
     
+    static func getBool(fromAny anyval: Any) -> Bool? {
+        if let val = anyval as? Bool {
+            return val
+        }
+        if let val = anyval as? String {
+            if val == "t" {
+                return true
+            } else {
+                return false
+            }
+        }
+        return nil
+    }
+
     func getDate(_ key: String) -> Date? {
         if let val = dict[key] as? String {
             return OSRFObject.apiDateFormatter.date(from: val)

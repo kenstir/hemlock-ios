@@ -59,9 +59,14 @@ class Gateway {
                 let jsonData = try? JSONSerialization.data(withJSONObject: dict),
                 let str = String(data: jsonData, encoding: .utf8)
             {
+                params.append(str) 
+            } else if let jsonData = try? JSONSerialization.data(withJSONObject: arg),
+                let str = String(data: jsonData, encoding: .utf8)
+            {
                 params.append(str)
             } else {
-                params.append("???")
+                debugPrint(arg)
+                fatalError("unhandled arg type, arg = \(arg)")
             }
         }
         return params

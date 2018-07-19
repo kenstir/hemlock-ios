@@ -122,7 +122,7 @@ class CheckoutsViewController: UIViewController {
                 throw HemlockError.unexpectedNetworkResponse("no doc_id for circ record \(circRecord.id)")
             }
             circRecord.metabibRecord = MBRecord(id: id, mvrObj: obj)
-            let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymous, id])
+            let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id])
             return req.gatewayObjectResponse()
         }.done { obj in
             debugPrint(obj.dict)

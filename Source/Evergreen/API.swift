@@ -23,7 +23,7 @@ struct API {
 
     //MARK: - misc
 
-    static let anonymous = "ANONYMOUS" // can be passed as authtoken in some cases to new EG servers
+    static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some cases to new EG servers
     static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,cbreb,cbrebi,cbrebin,cbrebn,ccs,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
@@ -34,6 +34,7 @@ struct API {
     static let orgTreeRetrieve = "open-ils.actor.org_tree.retrieve"
     static let orgTypesRetrieve = "open-ils.actor.org_types.retrieve"
     static let orgUnitSetting = "open-ils.actor.ou_setting.ancestor_default"
+    static let orgUnitSettingBatch = "open-ils.actor.ou_setting.ancestor_default.batch"
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"

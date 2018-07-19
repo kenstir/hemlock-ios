@@ -21,6 +21,7 @@ class LiveServiceTests: XCTestCase {
     var account: Account?
     var username = "" //read from testAccount.json
     var password = "" //read from testAccount.json
+    var homeLibraryID = 1 //read from testAccount.json
     var authtoken: String?
     
     //MARK: - functions
@@ -34,13 +35,16 @@ class LiveServiceTests: XCTestCase {
             let path = testBundle.path(forResource: configFile, ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonObject = json as? [String: String],
-            let url = jsonObject["url"],
-            let username = jsonObject["username"],
-            let password = jsonObject["password"] else
+            let jsonObject = json as? [String: Any],
+            let url = jsonObject["url"] as? String,
+            let username = jsonObject["username"] as? String,
+            let password = jsonObject["password"] as? String else
         {
             XCTFail("unable to read JSON data from \(configFile).json, see TestUserData/README.md")
             return
+        }
+        if let homeLibraryID = jsonObject["homeLibraryID"] as? Int {
+            self.homeLibraryID = homeLibraryID
         }
         App.library = Library(url)
         account = Account(username, password: password)
@@ -217,22 +221,57 @@ class LiveServiceTests: XCTestCase {
     func test_orgUnitSetting() {
         let expectation = XCTestExpectation(description: "async response")
 
-        let orgID = 1
+        let orgID = self.homeLibraryID
         let setting = API.settingSMSEnable
 //        let setting = API.settingNotPickupLib
         var val = false
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSetting, args: [orgID, setting, "ANONYMOUS"])
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSetting, args: [orgID, setting, API.anonymousAuthToken])
         req.gatewayOptionalObjectResponse().done { obj in
-            if let retval = obj?.getBool("value") {
-                val = retval
+            if let settingValue = obj?.getBool("value") {
+                val = settingValue
             }
             expectation.fulfill()
             print("org \(orgID) setting \(setting) value \(val)")
+            XCTAssertTrue(val, "this assertion is not 100% but it is true of my settings")
         }.catch { error in
             XCTFail(error.localizedDescription)
             expectation.fulfill()
         }
 
+        wait(for: [expectation], timeout: 20.0)
+        print("stop here")
+    }
+    
+    func test_orgUnitSettingBatch() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let orgID = self.homeLibraryID
+        let settings = [API.settingNotPickupLib, API.settingSMSEnable]
+        var notPickupLib = false
+        var smsEnable = false
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [orgID, settings, API.anonymousAuthToken])
+        req.gatewayOptionalObjectResponse().done { obj in
+            debugPrint(obj?.dict)
+            if let settingObj = obj?.getObject(API.settingNotPickupLib),
+                let settingValue = settingObj.getBool("value")
+            {
+                notPickupLib = settingValue
+            }
+            if let settingObj = obj?.getObject(API.settingSMSEnable),
+                let settingValue = settingObj.getBool("value")
+            {
+                smsEnable = settingValue
+            }
+            print("org \(orgID) setting \(API.settingNotPickupLib) value \(notPickupLib)")
+            print("org \(orgID) setting \(API.settingSMSEnable) value \(smsEnable)")
+            XCTAssertFalse(notPickupLib, "this assertion is not 100% but it is true of my settings")
+            XCTAssertTrue(smsEnable, "this assertion is not 100% but it is true of my settings")
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+        
         wait(for: [expectation], timeout: 20.0)
     }
 

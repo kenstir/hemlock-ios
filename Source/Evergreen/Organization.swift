@@ -27,6 +27,9 @@ class OrgType {
     let label: String
     let canHaveUsers: Bool
     let canHaveVols: Bool
+
+    var areSettingsLoaded = false
+
     init(id: Int, name: String, label: String, canHaveUsers: Bool, canHaveVols: Bool) {
         self.id = id
         self.name = name
