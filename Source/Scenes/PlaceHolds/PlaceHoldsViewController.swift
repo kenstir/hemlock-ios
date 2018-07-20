@@ -21,6 +21,7 @@ class PlaceHoldsViewController: UIViewController {
 
     @IBOutlet weak var holdsTitleLabel: UILabel!
     @IBOutlet weak var locationPicker: McTextField!
+    @IBOutlet weak var holdsAuthorLabel: UILabel!
 
     //MARK: - Functions
     override func viewDidLoad() {
@@ -70,5 +71,6 @@ class PlaceHoldsViewController: UIViewController {
     
     func setupViews() {
         holdsTitleLabel.text = item?.title
+        holdsAuthorLabel.text = item?.author
     }
 }
