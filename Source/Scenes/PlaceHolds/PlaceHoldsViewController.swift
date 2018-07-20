@@ -22,7 +22,9 @@ class PlaceHoldsViewController: UIViewController {
     @IBOutlet weak var holdsTitleLabel: UILabel!
     @IBOutlet weak var locationPicker: McTextField!
     @IBOutlet weak var holdsAuthorLabel: UILabel!
-
+    @IBOutlet weak var holdsSMSNumber: UITextField!
+    @IBOutlet weak var holdsCarrier: McTextField!
+    
     //MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
