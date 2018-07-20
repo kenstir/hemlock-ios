@@ -13,40 +13,31 @@ class PlaceHoldsViewController: UIViewController {
 
     //MARK: - Properties
     var item: MBRecord?
-    var libraryList = ["Attleboro Public Library", "Boston Public Library", "Marlboro Public Library"]
+    let formats = Format.getSpinnerLabels()
+    var orgLabels = ["Attleboro Public Library", "Boston Public Library", "Marlboro Public Library"]
+
     @IBOutlet weak var holdsTitleLabel: UILabel!
     
-    @IBOutlet weak var pickupLibraryTextField: UITextField!
+    @IBOutlet weak var locationPicker: McTextField!
     //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
-        createLibraryPicker()
+        setupLocationPicker()
 //        setupViews()
 //        fetchData()
     }
     
-    func createLibraryPicker() {
-        let libraryPicker = UIPickerView()
-        libraryPicker.delegate = self
-        
-        pickupLibraryTextField.inputView = libraryPicker
+    func setupLocationPicker() {
+//        self.orgLabels = Organization.getSpinnerLabels()
+        let mcInputView = McPicker(data: [orgLabels])
+        mcInputView.backgroundColor = .gray
+        mcInputView.backgroundColorAlpha = 0.25
+        mcInputView.fontSize = 16
+        locationPicker.text = orgLabels[0] //TODO: better initial value
+        locationPicker.inputViewMcPicker = mcInputView
+        locationPicker.doneHandler = { [weak locationPicker] (selections) in
+            locationPicker?.text = selections[0]!
+        }
     }
-    
-    
-}
 
-extension PlaceHoldsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return libraryList.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return libraryList[row]
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //stuff
-    }
-    
 }

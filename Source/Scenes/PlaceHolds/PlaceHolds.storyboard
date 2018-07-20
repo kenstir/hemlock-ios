@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="tp5-hx-PhR">
-                                <rect key="frame" x="8" y="44" width="85.5" height="22"/>
+                                <rect key="frame" x="8" y="44" width="253" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="6Wz-Ln-TF7"/>
                                     <constraint firstAttribute="height" constant="22" id="d2e-Pu-tYt"/>
@@ -55,9 +55,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dS-1Q-TTd">
-                                <rect key="frame" x="0.0" y="352" width="320" height="216"/>
-                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-Md-tui">
                                 <rect key="frame" x="8" y="181" width="113" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -76,8 +73,8 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53F-NA-Ywk">
                                 <rect key="frame" x="127" y="215" width="51" height="31"/>
                             </switch>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuq-OC-2ry">
-                                <rect key="frame" x="127" y="133" width="25.5" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuq-OC-2ry" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
+                                <rect key="frame" x="127" y="133" width="193" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -101,9 +98,7 @@
                             <constraint firstItem="v1r-fj-5ld" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="enc-bX-0lq"/>
                             <constraint firstItem="53F-NA-Ywk" firstAttribute="leading" secondItem="xnC-bn-xve" secondAttribute="leading" id="jj6-sM-3yj"/>
                             <constraint firstItem="0vj-HV-0xR" firstAttribute="top" secondItem="mgX-Md-tui" secondAttribute="bottom" constant="24" id="lRI-hs-JY3"/>
-                            <constraint firstItem="WTg-HN-8zE" firstAttribute="bottom" secondItem="0dS-1Q-TTd" secondAttribute="bottom" id="mW0-Ph-pZq"/>
                             <constraint firstItem="tp5-hx-PhR" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="nrA-wX-JCD"/>
-                            <constraint firstItem="0dS-1Q-TTd" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" id="tTY-Qu-Pzt"/>
                             <constraint firstItem="oie-s3-36i" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="wZR-Be-Vdp"/>
                             <constraint firstItem="z7W-f3-FX4" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="yLN-hc-M2x"/>
                             <constraint firstItem="0vj-HV-0xR" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="yoS-uM-bMt"/>
@@ -112,7 +107,7 @@
                     </view>
                     <connections>
                         <outlet property="holdsTitleLabel" destination="tp5-hx-PhR" id="RDQ-8C-ED4"/>
-                        <outlet property="pickupLibraryTextField" destination="wuq-OC-2ry" id="QBO-vv-e0w"/>
+                        <outlet property="locationPicker" destination="wuq-OC-2ry" id="QBO-vv-e0w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iae-6s-DzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
