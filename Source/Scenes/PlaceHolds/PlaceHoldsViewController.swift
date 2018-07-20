@@ -8,13 +8,15 @@
 
 import Foundation
 import UIKit
+import PromiseKit
+import PMKAlamofire
 
 class PlaceHoldsViewController: UIViewController {
 
     //MARK: - Properties
     var item: MBRecord?
     let formats = Format.getSpinnerLabels()
-    var orgLabels = ["Attleboro Public Library", "Boston Public Library", "Marlboro Public Library"]
+    var orgLabels : [String] = []
 
     @IBOutlet weak var holdsTitleLabel: UILabel!
     
@@ -22,13 +24,13 @@ class PlaceHoldsViewController: UIViewController {
     //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLocationPicker()
+//        setupLocationPicker() //do this within fetchData()
 //        setupViews()
-//        fetchData()
+        fetchData()
     }
     
     func setupLocationPicker() {
-//        self.orgLabels = Organization.getSpinnerLabels()
+        self.orgLabels = Organization.getSpinnerLabels()
         let mcInputView = McPicker(data: [orgLabels])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
@@ -37,6 +39,24 @@ class PlaceHoldsViewController: UIViewController {
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak locationPicker] (selections) in
             locationPicker?.text = selections[0]!
+        }
+    }
+    func fetchData() {
+        var promises: [Promise<Void>] = []
+        
+        promises.append(ActorService.fetchOrgTypesArray())
+        promises.append(ActorService.fetchOrgTree())
+        
+//        self.activityIndicator.startAnimating()
+        
+        firstly {
+            when(fulfilled: promises)
+            }.done {
+                self.setupLocationPicker()
+            }.catch { error in
+                self.showAlert(error: error)
+            }.finally {
+  //              self.activityIndicator.stopAnimating()
         }
     }
 
