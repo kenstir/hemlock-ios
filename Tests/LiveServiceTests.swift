@@ -21,6 +21,7 @@ class LiveServiceTests: XCTestCase {
     var account: Account?
     var username = "" //read from testAccount.json
     var password = "" //read from testAccount.json
+    var homeLibraryID = 1 //read from testAccount.json
     var authtoken: String?
     
     //MARK: - functions
@@ -34,13 +35,16 @@ class LiveServiceTests: XCTestCase {
             let path = testBundle.path(forResource: configFile, ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonObject = json as? [String: String],
-            let url = jsonObject["url"],
-            let username = jsonObject["username"],
-            let password = jsonObject["password"] else
+            let jsonObject = json as? [String: Any],
+            let url = jsonObject["url"] as? String,
+            let username = jsonObject["username"] as? String,
+            let password = jsonObject["password"] as? String else
         {
             XCTFail("unable to read JSON data from \(configFile).json, see TestUserData/README.md")
             return
+        }
+        if let homeLibraryID = jsonObject["homeLibraryID"] as? Int {
+            self.homeLibraryID = homeLibraryID
         }
         App.library = Library(url)
         account = Account(username, password: password)
@@ -203,6 +207,27 @@ class LiveServiceTests: XCTestCase {
             let org = Organization.find(byId: 1)
             XCTAssertNotNil(org)
             XCTAssertNotNil(org?.name)
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    //MARK: - sms carriers
+
+    func test_fetchSMSCarriers() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let promise = PCRUDService.fetchSMSCarriers()
+        promise.ensure {
+            let carriers = SMSCarrier.getSpinnerLabels()
+            for l in carriers {
+                print ("carrier: \(l)")
+            }
+            XCTAssertGreaterThan(carriers.count, 0)
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)
