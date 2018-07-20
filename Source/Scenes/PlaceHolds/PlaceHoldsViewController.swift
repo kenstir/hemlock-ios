@@ -17,18 +17,25 @@ class PlaceHoldsViewController: UIViewController {
     var item: MBRecord?
     let formats = Format.getSpinnerLabels()
     var orgLabels : [String] = []
+    weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var holdsTitleLabel: UILabel!
-    
     @IBOutlet weak var locationPicker: McTextField!
-    //MARK: -
+
+    //MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setupLocationPicker() //do this within fetchData()
+        setupActivityIndicator()
         setupViews()
         fetchData()
     }
     
+    func setupActivityIndicator() {
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
+    }
+
     func setupLocationPicker() {
         self.orgLabels = Organization.getSpinnerLabels()
         let mcInputView = McPicker(data: [orgLabels])
@@ -41,13 +48,14 @@ class PlaceHoldsViewController: UIViewController {
             locationPicker?.text = selections[0]!
         }
     }
+
     func fetchData() {
         var promises: [Promise<Void>] = []
         
         promises.append(ActorService.fetchOrgTypesArray())
         promises.append(ActorService.fetchOrgTree())
         
-//        self.activityIndicator.startAnimating()
+        self.activityIndicator.startAnimating()
         
         firstly {
             when(fulfilled: promises)
@@ -56,7 +64,7 @@ class PlaceHoldsViewController: UIViewController {
             }.catch { error in
                 self.showAlert(error: error)
             }.finally {
-  //              self.activityIndicator.stopAnimating()
+                self.activityIndicator.stopAnimating()
         }
     }
     
