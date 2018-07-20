@@ -25,7 +25,7 @@ class PlaceHoldsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setupLocationPicker() //do this within fetchData()
-//        setupViews()
+        setupViews()
         fetchData()
     }
     
@@ -59,5 +59,8 @@ class PlaceHoldsViewController: UIViewController {
   //              self.activityIndicator.stopAnimating()
         }
     }
-
+    
+    func setupViews() {
+        holdsTitleLabel.text = item?.title
+    }
 }

@@ -88,5 +88,16 @@ class DetailsViewController: UIViewController {
     @objc func viewCopyPressed(sender: Any) {
         self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination
+        guard let detailsVC = vc as? PlaceHoldsViewController else
+        {
+            print("Uh oh!")
+            return
+        }
+        detailsVC.item = item
+    }
+
 }
 

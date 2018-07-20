@@ -21,7 +21,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="tp5-hx-PhR">
                                 <rect key="frame" x="8" y="44" width="253" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="6Wz-Ln-TF7"/>
                                     <constraint firstAttribute="height" constant="22" id="d2e-Pu-tYt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
