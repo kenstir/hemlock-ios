@@ -131,8 +131,8 @@
                         <viewLayoutGuide key="safeArea" id="WTg-HN-8zE"/>
                     </view>
                     <connections>
+                        <outlet property="carrierPicker" destination="Ejr-Dt-NiG" id="ddi-ly-BM8"/>
                         <outlet property="holdsAuthorLabel" destination="z7W-f3-FX4" id="Xp6-Mf-ITo"/>
-                        <outlet property="holdsCarrier" destination="Ejr-Dt-NiG" id="ddi-ly-BM8"/>
                         <outlet property="holdsSMSNumber" destination="bf9-nQ-1VA" id="5VV-sq-sJ7"/>
                         <outlet property="holdsTitleLabel" destination="tp5-hx-PhR" id="RDQ-8C-ED4"/>
                         <outlet property="locationPicker" destination="wuq-OC-2ry" id="QBO-vv-e0w"/>
