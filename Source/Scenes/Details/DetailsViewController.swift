@@ -37,9 +37,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
     
-    @IBOutlet weak var renewButton: UIButton!
-    @IBOutlet weak var viewCopyButton: UIButton!
-    @IBOutlet weak var addToListButton: UIButton!
+    @IBOutlet weak var placeHoldButton: UIButton!
+    @IBOutlet weak var copyInfoButton: UIButton!
     
     //MARK: - UIViewController
 
@@ -59,23 +58,32 @@ class DetailsViewController: UIViewController {
         titleLabel.text = item?.title
         authorLabel.text = item?.author
         formatLabel.text = item?.format
+
         let pubdate = item?.mvrObj?.getString("pubdate") ?? ""
         let publisher = item?.mvrObj?.getString("publisher") ?? ""
         pubYearLabel.text = pubdate + " " + publisher
+
         if let doc_id = item?.mvrObj?.getInt("doc_id"),
             let url = URL(string: AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(doc_id)),
             let data = try? Data(contentsOf: url)
         {
             itemImage.image = UIImage(data: data)
         }
-        synopsisLabel.text = "Synopsis: " + (item?.mvrObj?.getString("synopsis") ?? "")
+
+        synopsisLabel.text = (item?.mvrObj?.getString("synopsis") ?? "")
+        print("synopsis: \(synopsisLabel.text)")
+
         subjectLabel.text = item?.subject
+        print("subject: \(subjectLabel.text)")
+
         isbnLabel.text = "ISBN:  " + (item?.mvrObj?.getString("isbn") ?? "")
 
-        Style.styleButton(asPlain: viewCopyButton)
-        viewCopyButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
-        renewButton.isHidden = true
-        addToListButton.isHidden = true
+        Style.styleButton(asInverse: copyInfoButton)
+        copyInfoButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
+        
+        Style.styleButton(asInverse: placeHoldButton)
+        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
+
     }
     
     func fetchData() {
@@ -89,6 +97,10 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func viewCopyPressed(sender: Any) {
+        self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
+    }
+
+    @objc func placeHoldPressed(sender: Any) {
         self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
     }
 }
