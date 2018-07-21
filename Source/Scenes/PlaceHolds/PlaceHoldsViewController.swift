@@ -79,31 +79,13 @@ class PlaceHoldsViewController: UIViewController {
             when(fulfilled: promises)
             }.done {
                 self.setupLocationPicker()
+                self.setupCarrierPicker()
             }.catch { error in
                 self.showAlert(error: error)
             }.finally {
                 self.activityIndicator.stopAnimating()
         }
     }
-
-//    func fetchSMSCarriers() {
-//        let expectation = Expectation(description: "async response")
-//
-//        let promise = PCRUDService.fetchSMSCarriers()
-//        promise.ensure {
-//            let carriers = SMSCarrier.getSpinnerLabels()
-//            for l in carriers {
-//                print ("carrier: \(l)")
-//            }
-//            XCTAssertGreaterThan(carriers.count, 0)
-//            expectation.fulfill()
-//        }.catch { error in
-//            XCTFail(error.localizedDescription)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 20.0)
-//    }
 
     func setupViews() {
         holdsTitleLabel.text = item?.title

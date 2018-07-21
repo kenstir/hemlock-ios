@@ -96,6 +96,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzh-z8-gbN">
+                                <rect key="frame" x="123" y="316" width="74" height="30"/>
+                                <state key="normal" title="Place Hold"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -106,6 +110,7 @@
                             <constraint firstItem="wuq-OC-2ry" firstAttribute="centerY" secondItem="oie-s3-36i" secondAttribute="centerY" id="Au5-i0-4wI"/>
                             <constraint firstItem="bf9-nQ-1VA" firstAttribute="leading" secondItem="53F-NA-Ywk" secondAttribute="trailing" constant="8" id="Bb0-dJ-a60"/>
                             <constraint firstItem="z7W-f3-FX4" firstAttribute="top" secondItem="v1r-fj-5ld" secondAttribute="bottom" constant="8" id="L1j-9U-tMD"/>
+                            <constraint firstItem="fzh-z8-gbN" firstAttribute="top" secondItem="Ejr-Dt-NiG" secondAttribute="bottom" constant="8" id="MhZ-nh-3bg"/>
                             <constraint firstItem="wuq-OC-2ry" firstAttribute="trailing" secondItem="Vod-ZX-pnz" secondAttribute="trailingMargin" constant="16" id="RFC-jW-UGX"/>
                             <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="tp5-hx-PhR" secondAttribute="trailing" constant="59" id="RRE-47-lhB"/>
                             <constraint firstItem="HY5-t5-ZXD" firstAttribute="top" secondItem="0vj-HV-0xR" secondAttribute="bottom" constant="24" id="TUg-e5-yir"/>
@@ -114,6 +119,7 @@
                             <constraint firstItem="oie-s3-36i" firstAttribute="top" secondItem="z7W-f3-FX4" secondAttribute="bottom" constant="24" id="WAA-Go-4Qm" userLabel="Pickup Location.top = AuthorLabel.bottom + 24"/>
                             <constraint firstItem="xnC-bn-xve" firstAttribute="leading" secondItem="wuq-OC-2ry" secondAttribute="leading" id="Xgl-NK-TTN"/>
                             <constraint firstItem="tp5-hx-PhR" firstAttribute="top" secondItem="WTg-HN-8zE" secondAttribute="top" constant="24" id="Xrh-Hg-4kW"/>
+                            <constraint firstItem="fzh-z8-gbN" firstAttribute="centerX" secondItem="Vod-ZX-pnz" secondAttribute="centerX" id="ZwT-zm-DgI"/>
                             <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="Ejr-Dt-NiG" secondAttribute="trailing" id="bK2-eF-wJs"/>
                             <constraint firstItem="HY5-t5-ZXD" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="bz2-oh-ZDP"/>
                             <constraint firstItem="Ejr-Dt-NiG" firstAttribute="leading" secondItem="53F-NA-Ywk" secondAttribute="leading" id="cAc-AB-Mwz"/>
@@ -132,9 +138,9 @@
                     </view>
                     <connections>
                         <outlet property="carrierPicker" destination="Ejr-Dt-NiG" id="ddi-ly-BM8"/>
+                        <outlet property="formatLabel" destination="v1r-fj-5ld" id="TXr-gb-IjH"/>
                         <outlet property="holdsAuthorLabel" destination="z7W-f3-FX4" id="Xp6-Mf-ITo"/>
                         <outlet property="holdsSMSNumber" destination="bf9-nQ-1VA" id="5VV-sq-sJ7"/>
-                        <outlet property="formatLabel" destination="v1r-fj-5ld" id="TXr-gb-IjH"/>
                         <outlet property="holdsTitleLabel" destination="tp5-hx-PhR" id="RDQ-8C-ED4"/>
                         <outlet property="locationPicker" destination="wuq-OC-2ry" id="QBO-vv-e0w"/>
                     </connections>
