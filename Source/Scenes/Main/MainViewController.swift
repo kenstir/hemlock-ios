@@ -29,14 +29,15 @@ struct MainViewButtonData {
     }
 }
 
-class MainViewController: UITableViewController {
+class MainViewController: UIViewController {
     
     //MARK: - fields
 
     @IBOutlet weak var logoutButton: UIBarButtonItem!
-    @IBOutlet var table: UITableView!
-    @IBOutlet weak var fullCatalogButton: UIBarButtonItem!
-    @IBOutlet weak var libraryLocatorButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var fullCatalogButton: UIButton!
+    @IBOutlet weak var libraryLocatorButton: UIButton!
     
     var buttons: [(String, String, UIViewController.Type?)] = [
         ("Search", "ShowSearchSegue", nil),
@@ -54,31 +55,60 @@ class MainViewController: UITableViewController {
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // deselect row when navigating back
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+
     func setupViews() {
         navigationItem.title = AppSettings.appTitle
-        //Style.styleNavigation(self.navigationController.)
+        tableView.dataSource = self
+        tableView.delegate = self
         logoutButton.target = self
         logoutButton.action = #selector(logoutPressed(sender:))
         Style.styleBarButton(logoutButton)
-        Style.styleBarButton(asPlain: fullCatalogButton)
-        Style.styleBarButton(asPlain: libraryLocatorButton)
+        Style.styleButton(asPlain: fullCatalogButton)
+        Style.styleButton(asPlain: libraryLocatorButton)
     }
+    
+    @IBAction func logoutPressed(sender: UIButton) {
+        LoginController.clearLoginCredentials(account: App.account)
+        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
+    }
+    
+    @IBAction func fullCatalogButtonPressed(_ sender: Any) {
+        //open catalog url
+        if let baseurl = App.library?.url,
+            let url = URL(string: baseurl) {
+             UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func libraryLocatorButtonPressed(_ sender: Any) {
+        //open library location url
+        let urlbase = "http://pines.georgialibraries.org/pinesLocator/locator.html"
+        if let url = URL(string: urlbase) {
+            UIApplication.shared.open(url)
+        }
+    }
+}
 
-    //MARK: - UITableViewController
+//MARK: - UITableViewDataSource
+extension MainViewController: UITableViewDataSource {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return buttons.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return App.account?.username
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MainTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MainTableViewCell else {
             fatalError("dequeued cell of wrong class!")
@@ -89,19 +119,21 @@ class MainViewController: UITableViewController {
         let segue = tuple.1
         
         let image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
-
+        
         cell.tintColor = App.theme.backgroundColor
-        cell.cellImage.image = image
-        cell.cellLabel.text = label
+        cell.imageView?.image = image
+        cell.textLabel?.text = label
         cell.title = label
         cell.segue = segue
-
+        
         return cell
     }
+}
+
+//MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
     
-    //MARK: UITableViewDelegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuple = buttons[indexPath.row]
         let segue = tuple.1
         if let vctype = tuple.2 {
@@ -109,27 +141,6 @@ class MainViewController: UITableViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             self.performSegue(withIdentifier: segue, sender: nil)
-        }
-    }
-    
-    @IBAction func logoutPressed(sender: UIButton) {
-        LoginController.clearLoginCredentials(account: App.account)
-        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
-    }
-    
-    @IBAction func fullCatalogButton(_ sender: UIBarButtonItem) {
-        //open catalog url
-        if let baseurl = App.library?.url,
-            let url = URL(string: baseurl) {
-             UIApplication.shared.open(url)
-        }
-    }
-    
-    @IBAction func libraryLocatorButton(_ sender: UIBarButtonItem) {
-        //open library location url
-        let urlbase = "http://pines.georgialibraries.org/pinesLocator/locator.html"
-        if let url = URL(string: urlbase) {
-            UIApplication.shared.open(url)
         }
     }
 }

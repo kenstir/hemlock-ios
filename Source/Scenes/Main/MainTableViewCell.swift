@@ -20,11 +20,6 @@
 import UIKit
 
 class MainTableViewCell: UITableViewCell {
-    
-    //MARK: Properties
-    @IBOutlet weak var cellLabel: UILabel!
-    @IBOutlet weak var cellImage: UIImageView!
-
     var title: String?
     var segue: String?
 }

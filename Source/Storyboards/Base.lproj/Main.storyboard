@@ -179,68 +179,65 @@
         <!--Main-->
         <scene sceneID="pOa-oD-aH5">
             <objects>
-                <tableViewController storyboardIdentifier="Main" id="Xqe-Fu-Ne1" userLabel="Main" customClass="MainViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Bny-iN-u9U">
+                <viewController storyboardIdentifier="Main" id="Xqe-Fu-Ne1" userLabel="Main" customClass="MainViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IXu-ol-nV9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" id="gHn-Zz-AGL">
-                            <rect key="frame" x="0.0" y="129.5" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem title="Full Catalog" width="186.5" id="eDU-q6-48v">
-                                    <connections>
-                                        <action selector="fullCatalogButton:" destination="Xqe-Fu-Ne1" id="IAJ-kV-1yq"/>
-                                    </connections>
-                                </barButtonItem>
-                                <barButtonItem title="Library Locator" width="258" id="ISv-5n-0qV">
-                                    <connections>
-                                        <action selector="libraryLocatorButton:" destination="Xqe-Fu-Ne1" id="Yb5-si-edJ"/>
-                                    </connections>
-                                </barButtonItem>
-                            </items>
-                        </toolbar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="56" id="Add-9O-a2q" customClass="MainTableViewCell" customModule="Hemlock" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Add-9O-a2q" id="300-CD-jhI">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="55.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fines" translatesAutoresizingMaskIntoConstraints="NO" id="pVs-2Q-EnR">
-                                            <rect key="frame" x="16" y="13.392376681614451" width="40.999999999999964" height="31.999999999999982"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Items Checked Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyD-Hb-VDb">
-                                            <rect key="frame" x="65" y="17.549327354260186" width="147.00000000000003" height="21.000000000000011"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="cellImage" destination="pVs-2Q-EnR" id="PMH-MG-KpV"/>
-                                    <outlet property="cellLabel" destination="eyD-Hb-VDb" id="Ba3-Pc-W0f"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="Xqe-Fu-Ne1" id="0Nj-Ww-35L"/>
-                            <outlet property="delegate" destination="Xqe-Fu-Ne1" id="deS-Ck-kBY"/>
-                        </connections>
-                    </tableView>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7BW-g6-5vc">
+                                <rect key="frame" x="0.0" y="116" width="375" height="456"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainTableViewCell" rowHeight="56" id="ZN6-Of-RMp" customClass="MainTableViewCell" customModule="Hemlock" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZN6-Of-RMp" id="1Fe-qD-bN9">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="55.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-FV-8vg" userLabel="Button Stack">
+                                <rect key="frame" x="0.0" y="580" width="375" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToU-UP-BUF">
+                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="30"/>
+                                        <state key="normal" title="Full Catalog"/>
+                                        <connections>
+                                            <action selector="fullCatalogButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="kEN-uG-bCd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-m5-77E">
+                                        <rect key="frame" x="195.5" y="0.0" width="179.5" height="30"/>
+                                        <state key="normal" title="Library Locator"/>
+                                        <connections>
+                                            <action selector="libraryLocatorButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="L3A-4G-Hxz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pXz-FV-8vg" firstAttribute="top" secondItem="7BW-g6-5vc" secondAttribute="bottom" constant="8" id="LVF-FL-z5a"/>
+                            <constraint firstItem="pXz-FV-8vg" firstAttribute="bottom" secondItem="02a-ah-iys" secondAttribute="bottom" constant="-8" id="N91-ee-5UW"/>
+                            <constraint firstItem="pXz-FV-8vg" firstAttribute="leading" secondItem="02a-ah-iys" secondAttribute="leading" id="V3j-nq-IDW"/>
+                            <constraint firstItem="7BW-g6-5vc" firstAttribute="top" secondItem="02a-ah-iys" secondAttribute="top" id="Wce-5b-mV1"/>
+                            <constraint firstItem="7BW-g6-5vc" firstAttribute="leading" secondItem="02a-ah-iys" secondAttribute="leading" id="YxP-dR-njQ"/>
+                            <constraint firstItem="02a-ah-iys" firstAttribute="trailing" secondItem="pXz-FV-8vg" secondAttribute="trailing" id="mcP-I8-abT"/>
+                            <constraint firstItem="7BW-g6-5vc" firstAttribute="trailing" secondItem="02a-ah-iys" secondAttribute="trailing" id="oO2-1g-zoO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="02a-ah-iys"/>
+                    </view>
                     <navigationItem key="navigationItem" title="Hemlock" id="xUo-oL-WrT">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="GJD-cg-1UD"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="fullCatalogButton" destination="eDU-q6-48v" id="Mbb-Ol-Hkx"/>
-                        <outlet property="libraryLocatorButton" destination="ISv-5n-0qV" id="imE-lc-DSh"/>
+                        <outlet property="fullCatalogButton" destination="ToU-UP-BUF" id="KF1-nP-nnz"/>
+                        <outlet property="libraryLocatorButton" destination="aQX-m5-77E" id="Yv4-qh-Btu"/>
                         <outlet property="logoutButton" destination="GJD-cg-1UD" id="Fq3-pw-ltt"/>
-                        <outlet property="table" destination="Bny-iN-u9U" id="uPy-9U-wwm"/>
+                        <outlet property="tableView" destination="7BW-g6-5vc" id="EI1-5W-5Jm"/>
                         <segue destination="Rgl-GN-9cy" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>
                         <segue destination="aSn-Ob-ZbE" kind="show" identifier="ShowHoldsSegue" id="QLz-GT-rH2"/>
                         <segue destination="RCs-ov-Y8N" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
@@ -248,7 +245,7 @@
                         <segue destination="L5E-wb-4wF" kind="show" identifier="ShowLoginSegue" id="zgh-oQ-owQ"/>
                         <segue destination="WoH-Us-ADe" kind="show" identifier="ShowCheckoutsSegue" id="lgg-cF-pgT"/>
                     </connections>
-                </tableViewController>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="296.80000000000001" y="89.505247376311857"/>
@@ -295,7 +292,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Fines" width="24" height="24"/>
         <image name="Jason" width="698" height="1200"/>
         <image name="splash" width="269" height="54"/>
     </resources>
