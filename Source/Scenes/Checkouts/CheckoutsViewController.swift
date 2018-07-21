@@ -185,6 +185,7 @@ class CheckoutsViewController: UIViewController {
             return
         }
         detailsVC.item = metabibRecord
+        detailsVC.canPlaceHold = false
     }
 }
 

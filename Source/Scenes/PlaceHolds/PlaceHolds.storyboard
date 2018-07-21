@@ -10,15 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Place Holds View Controller-->
+        <!--Place Hold-->
         <scene sceneID="PJF-wI-dnd">
             <objects>
-                <viewController storyboardIdentifier="Place Hold" id="UBG-v3-ceh" customClass="PlaceHoldsViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Place Hold" title="Place Hold" id="UBG-v3-ceh" customClass="PlaceHoldsViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vod-ZX-pnz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="tp5-hx-PhR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Treatise on the Snapping Turtle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="tp5-hx-PhR">
                                 <rect key="frame" x="8" y="44" width="312" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="d2e-Pu-tYt"/>
@@ -27,26 +27,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="v1r-fj-5ld" userLabel="Format">
-                                <rect key="frame" x="8" y="96" width="99" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="v1r-fj-5ld" userLabel="Format">
+                                <rect key="frame" x="8" y="96" width="99" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="bZC-pV-28H"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AuthorLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7W-f3-FX4">
-                                <rect key="frame" x="8" y="121" width="267" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rowlings, J. K." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7W-f3-FX4">
+                                <rect key="frame" x="8" y="123.5" width="267" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="267" id="3EM-tN-GsN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oie-s3-36i">
-                                <rect key="frame" x="8" y="162" width="103" height="17"/>
+                                <rect key="frame" x="8" y="167" width="103" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="103" id="HyE-C2-Guz"/>
                                 </constraints>
@@ -55,60 +55,58 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-Md-tui">
-                                <rect key="frame" x="8" y="203" width="113" height="17"/>
+                                <rect key="frame" x="8" y="208" width="113" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xnC-bn-xve">
-                                <rect key="frame" x="127" y="196" width="51" height="31"/>
+                                <rect key="frame" x="127" y="201" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vj-HV-0xR">
-                                <rect key="frame" x="8" y="244" width="108" height="17"/>
+                                <rect key="frame" x="8" y="249" width="108" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="53F-NA-Ywk">
-                                <rect key="frame" x="127" y="237" width="51" height="31"/>
+                                <rect key="frame" x="127" y="242" width="51" height="31"/>
                                 <connections>
                                     <action selector="smsSwitchAction:" destination="UBG-v3-ceh" eventType="valueChanged" id="n7U-br-bCU"/>
                                 </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuq-OC-2ry" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
-                                <rect key="frame" x="127" y="155" width="193" height="30"/>
+                                <rect key="frame" x="127" y="160" width="193" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter number" textAlignment="center" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bf9-nQ-1VA">
-                                <rect key="frame" x="184" y="238" width="136" height="30"/>
+                                <rect key="frame" x="184" y="243" width="136" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" smartDashesType="yes" smartInsertDeleteType="yes" textContentType="tel"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Carrier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY5-t5-ZXD">
-                                <rect key="frame" x="8" y="285" width="78" height="17"/>
+                                <rect key="frame" x="8" y="290" width="78" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Carrier" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ejr-Dt-NiG" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
-                                <rect key="frame" x="127" y="278" width="193" height="30"/>
+                                <rect key="frame" x="127" y="283" width="193" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzh-z8-gbN">
-                                <rect key="frame" x="123" y="316" width="74" height="30"/>
+                                <rect key="frame" x="87" y="345" width="146" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="32" minY="4" maxX="32" maxY="4"/>
                                 <state key="normal" title="Place Hold"/>
                                 <connections>
-                                    <action selector="placeHoldButton:" destination="UBG-v3-ceh" eventType="touchUpInside" id="zyW-Yn-tMQ"/>
+                                    <action selector="placeHoldButtonPressed:" destination="UBG-v3-ceh" eventType="touchUpInside" id="zyW-Yn-tMQ"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M55-ci-BPx">
-                                <rect key="frame" x="146" y="377" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,7 +118,7 @@
                             <constraint firstItem="wuq-OC-2ry" firstAttribute="centerY" secondItem="oie-s3-36i" secondAttribute="centerY" id="Au5-i0-4wI"/>
                             <constraint firstItem="bf9-nQ-1VA" firstAttribute="leading" secondItem="53F-NA-Ywk" secondAttribute="trailing" constant="8" id="Bb0-dJ-a60"/>
                             <constraint firstItem="z7W-f3-FX4" firstAttribute="top" secondItem="v1r-fj-5ld" secondAttribute="bottom" constant="8" id="L1j-9U-tMD"/>
-                            <constraint firstItem="fzh-z8-gbN" firstAttribute="top" secondItem="Ejr-Dt-NiG" secondAttribute="bottom" constant="8" id="MhZ-nh-3bg"/>
+                            <constraint firstItem="fzh-z8-gbN" firstAttribute="top" secondItem="Ejr-Dt-NiG" secondAttribute="bottom" constant="32" id="MhZ-nh-3bg"/>
                             <constraint firstItem="wuq-OC-2ry" firstAttribute="trailing" secondItem="Vod-ZX-pnz" secondAttribute="trailingMargin" constant="16" id="RFC-jW-UGX"/>
                             <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="tp5-hx-PhR" secondAttribute="trailing" id="RRE-47-lhB"/>
                             <constraint firstItem="HY5-t5-ZXD" firstAttribute="top" secondItem="0vj-HV-0xR" secondAttribute="bottom" constant="24" id="TUg-e5-yir"/>
@@ -154,6 +152,7 @@
                         <outlet property="holdsSMSNumber" destination="bf9-nQ-1VA" id="5VV-sq-sJ7"/>
                         <outlet property="holdsTitleLabel" destination="tp5-hx-PhR" id="RDQ-8C-ED4"/>
                         <outlet property="locationPicker" destination="wuq-OC-2ry" id="QBO-vv-e0w"/>
+                        <outlet property="placeHoldButton" destination="fzh-z8-gbN" id="B5V-HY-ZXq"/>
                         <outlet property="smsSwitch" destination="53F-NA-Ywk" id="NWy-dU-zee"/>
                     </connections>
                 </viewController>

@@ -36,8 +36,9 @@ class PlaceHoldsViewController: UIViewController {
             holdsSMSNumber.isUserInteractionEnabled = false
         }
     }
-    @IBAction func placeHoldButton(_ sender: UIButton) {
-            self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
+    @IBOutlet weak var placeHoldButton: UIButton!
+    @IBAction func placeHoldButtonPressed(_ sender: UIButton) {
+        self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
     }
     
     //MARK: - Functions
@@ -106,6 +107,7 @@ class PlaceHoldsViewController: UIViewController {
         formatLabel.text = item?.format
         holdsAuthorLabel.text = item?.author
         holdsSMSNumber.isUserInteractionEnabled = false
+        Style.styleButton(asInverse: placeHoldButton)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

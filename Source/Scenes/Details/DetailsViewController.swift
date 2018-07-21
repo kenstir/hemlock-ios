@@ -27,6 +27,7 @@ class DetailsViewController: UIViewController {
     //MARK: - Properties
 
     var item: MBRecord?
+    var canPlaceHold: Bool = true
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -56,7 +57,6 @@ class DetailsViewController: UIViewController {
     
     func setupViews() {
         titleLabel.text = item?.title
-//        holdTitleLabel.text = item?.title
         formatLabel.text = item?.format
         authorLabel.text = item?.author
         formatLabel.text = item?.format
@@ -82,18 +82,21 @@ class DetailsViewController: UIViewController {
         copyInfoButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
         
         Style.styleButton(asInverse: placeHoldButton)
-        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
-
+        if canPlaceHold {
+            placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
+        } else {
+            placeHoldButton.isEnabled = false
+        }
     }
     
     func fetchData() {
-        guard let _ = App.account?.authtoken,
-            let _ = App.account?.userID else
-        {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
-            return //TODO: add analytics
-        }
-        //TODO: fetch copy info
+//        guard let _ = App.account?.authtoken,
+//            let _ = App.account?.userID else
+//        {
+//            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+//            return //TODO: add analytics
+//        }
+//        //TODO: fetch copy info
     }
 
     @objc func viewCopyPressed(sender: Any) {
