@@ -25,19 +25,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fug-sN-BeL">
-                                <rect key="frame" x="16" y="116.5" width="176" height="19.5"/>
+                                <rect key="frame" x="16" y="108.5" width="176" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AuthorLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSC-xq-0uR">
-                                <rect key="frame" x="16" y="139.5" width="176" height="19.5"/>
+                                <rect key="frame" x="16" y="131.5" width="176" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018 State Historical Society" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yT5-tg-oro" userLabel="Publication Label">
-                                <rect key="frame" x="16" y="167" width="176" height="17"/>
+                                <rect key="frame" x="16" y="155" width="176" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -142,7 +142,7 @@
                             <constraint firstItem="xW1-03-WC5" firstAttribute="trailing" secondItem="2AA-Dj-GPp" secondAttribute="trailing" constant="16" id="Lmc-r6-H6T"/>
                             <constraint firstItem="xW1-03-WC5" firstAttribute="trailing" secondItem="B9P-4f-8Nf" secondAttribute="trailing" constant="8" id="Pnj-cF-oTD"/>
                             <constraint firstItem="rHE-6g-Tfc" firstAttribute="leading" secondItem="yT5-tg-oro" secondAttribute="trailing" constant="8" id="Qn7-YJ-c5B"/>
-                            <constraint firstItem="yT5-tg-oro" firstAttribute="top" secondItem="gSC-xq-0uR" secondAttribute="bottom" constant="8" id="Rfm-64-xXU"/>
+                            <constraint firstItem="yT5-tg-oro" firstAttribute="top" secondItem="gSC-xq-0uR" secondAttribute="bottom" constant="4" id="Rfm-64-xXU"/>
                             <constraint firstItem="q6M-bg-BhX" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="W1f-1t-oYe"/>
                             <constraint firstItem="xW1-03-WC5" firstAttribute="trailing" secondItem="q6M-bg-BhX" secondAttribute="trailing" constant="16" id="Wdg-LA-ZsZ"/>
                             <constraint firstItem="B9P-4f-8Nf" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="Z7I-K6-I9h"/>
@@ -156,7 +156,7 @@
                             <constraint firstItem="Fug-sN-BeL" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="mVU-Xe-kbn"/>
                             <constraint firstItem="xW1-03-WC5" firstAttribute="trailing" secondItem="sfJ-kS-dbg" secondAttribute="trailing" constant="16" id="miL-Ab-1Gk"/>
                             <constraint firstItem="B9P-4f-8Nf" firstAttribute="top" secondItem="q6M-bg-BhX" secondAttribute="bottom" constant="8" id="oso-i4-xIy"/>
-                            <constraint firstItem="Fug-sN-BeL" firstAttribute="top" secondItem="yNf-VM-twP" secondAttribute="bottom" constant="24" id="qbO-ve-JL6"/>
+                            <constraint firstItem="Fug-sN-BeL" firstAttribute="top" secondItem="yNf-VM-twP" secondAttribute="bottom" constant="16" id="qbO-ve-JL6"/>
                             <constraint firstItem="rHE-6g-Tfc" firstAttribute="top" secondItem="xW1-03-WC5" secondAttribute="top" constant="8" id="wQl-Yl-ESn"/>
                             <constraint firstItem="gSC-xq-0uR" firstAttribute="top" secondItem="Fug-sN-BeL" secondAttribute="bottom" constant="4" id="zeB-w5-cvg"/>
                             <constraint firstItem="yNf-VM-twP" firstAttribute="top" secondItem="xW1-03-WC5" secondAttribute="top" constant="8" id="zky-St-4M1"/>
