@@ -239,7 +239,6 @@ class LiveServiceTests: XCTestCase {
         }
 
         wait(for: [expectation], timeout: 20.0)
-        print("stop here")
     }
     
     func test_orgUnitSettingBatch() {
@@ -251,7 +250,6 @@ class LiveServiceTests: XCTestCase {
         var smsEnable = false
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [orgID, settings, API.anonymousAuthToken])
         req.gatewayOptionalObjectResponse().done { obj in
-            debugPrint(obj?.dict)
             if let settingObj = obj?.getObject(API.settingNotPickupLib),
                 let settingValue = settingObj.getBool("value")
             {
@@ -266,6 +264,27 @@ class LiveServiceTests: XCTestCase {
             print("org \(orgID) setting \(API.settingSMSEnable) value \(smsEnable)")
             XCTAssertFalse(notPickupLib, "this assertion is not 100% but it is true of my settings")
             XCTAssertTrue(smsEnable, "this assertion is not 100% but it is true of my settings")
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 20.0)
+    }
+
+    //MARK: - sms carriers
+
+    func test_fetchSMSCarriers() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let promise = PCRUDService.fetchSMSCarriers()
+        promise.ensure {
+            let carriers = SMSCarrier.getSpinnerLabels()
+            for l in carriers {
+                print ("carrier: \(l)")
+            }
+            XCTAssertGreaterThan(carriers.count, 0)
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)

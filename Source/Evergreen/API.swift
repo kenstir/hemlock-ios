@@ -63,6 +63,7 @@ struct API {
     
     static let pcrud = "open-ils.pcrud"
     static let retrieveMRA = "open-ils.pcrud.retrieve.mra"
+    static let searchSMSCarriers = "open-ils.pcrud.search.csc.atomic"
 
     //MARK: - search service
     

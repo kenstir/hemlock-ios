@@ -56,6 +56,8 @@ class DetailsViewController: UIViewController {
     
     func setupViews() {
         titleLabel.text = item?.title
+//        holdTitleLabel.text = item?.title
+        formatLabel.text = item?.format
         authorLabel.text = item?.author
         formatLabel.text = item?.format
 
@@ -101,5 +103,14 @@ class DetailsViewController: UIViewController {
     @objc func placeHoldPressed(sender: Any) {
         self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
     }
-}
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination
+        guard let detailsVC = vc as? PlaceHoldsViewController else
+        {
+            print("Uh oh!")
+            return
+        }
+        detailsVC.item = item
+    }
+}
