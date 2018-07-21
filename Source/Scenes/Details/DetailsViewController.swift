@@ -30,9 +30,8 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var formatLabel: UILabel!
     @IBOutlet weak var pubYearLabel: UILabel!
-    @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
@@ -59,6 +58,7 @@ class DetailsViewController: UIViewController {
     func setupViews() {
         titleLabel.text = item?.title
         authorLabel.text = item?.author
+        formatLabel.text = item?.format
         let pubdate = item?.mvrObj?.getString("pubdate") ?? ""
         let publisher = item?.mvrObj?.getString("publisher") ?? ""
         pubYearLabel.text = pubdate + " " + publisher
