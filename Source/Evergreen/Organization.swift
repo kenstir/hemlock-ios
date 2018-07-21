@@ -88,13 +88,20 @@ class Organization {
         self.ouType = ouType
     }
     
+    static func find(byName name: String) -> Organization? {
+        if let org = orgs.first(where: { $0.name == name }) {
+            return org
+        }
+        return nil
+    }
+    
     static func find(byId id: Int) -> Organization? {
         if let org = orgs.first(where: { $0.id == id }) {
             return org
         }
         return nil
     }
-    
+
     static func getSpinnerLabels() -> [String] {
         return orgs.map { $0.name }
     }

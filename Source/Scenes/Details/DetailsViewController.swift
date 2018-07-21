@@ -114,6 +114,6 @@ class DetailsViewController: UIViewController {
             print("Uh oh!")
             return
         }
-        detailsVC.item = item
+        detailsVC.record = item
     }
 }

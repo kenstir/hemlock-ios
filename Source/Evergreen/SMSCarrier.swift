@@ -40,6 +40,13 @@ class SMSCarrier {
             }
         }
     }
+    
+    static func find(byName name: String) -> SMSCarrier? {
+        if let carrier = carriers.first(where: { $0.name == name }) {
+            return carrier
+        }
+        return nil
+    }
 
     static func getSpinnerLabels() -> [String] {
         return carriers.map { $0.name }

@@ -30,4 +30,23 @@ class CircService {
         let req = Gateway.makeRequest(service: API.circ, method: API.renew, args: [authtoken, complexParam])
         return req.gatewayObjectResponse()
     }
+    
+    static func placeHold(authtoken: String, userID: Int, recordID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifySMSNumber: String?, smsCarrierID: Int?) -> Promise<OSRFObject> {
+        var complexParam: JSONDictionary = [
+            "email_notify": notifyByEmail,
+            "hold_type": "T", //Title
+            "patronid": userID,
+            "pickup_lib": pickupOrgID,
+            //"titleid": recordID,
+        ]
+        if let phoneNumber = notifySMSNumber,
+            phoneNumber.count > 0,
+            let carrierID = smsCarrierID
+        {
+            complexParam["sms_notify"] = phoneNumber
+            complexParam["sms_carrier"] = carrierID
+        }
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdTestAndCreate, args: [authtoken, complexParam, [recordID]])
+        return req.gatewayObjectResponse()
+    }
 }
