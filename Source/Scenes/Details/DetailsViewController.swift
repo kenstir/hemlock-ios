@@ -101,7 +101,7 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func placeHoldPressed(sender: Any) {
-        self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
+        self.performSegue(withIdentifier: "ShowPlaceHoldSegue", sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
