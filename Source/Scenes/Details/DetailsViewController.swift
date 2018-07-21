@@ -70,13 +70,11 @@ class DetailsViewController: UIViewController {
             itemImage.image = UIImage(data: data)
         }
 
-        synopsisLabel.text = (item?.mvrObj?.getString("synopsis") ?? "")
-        print("synopsis: \(synopsisLabel.text)")
+        synopsisLabel.text = item?.mvrObj?.getString("synopsis") ?? ""
 
         subjectLabel.text = item?.subject
-        print("subject: \(subjectLabel.text)")
 
-        isbnLabel.text = "ISBN:  " + (item?.mvrObj?.getString("isbn") ?? "")
+        isbnLabel.text = item?.mvrObj?.getString("isbn") ?? ""
 
         Style.styleButton(asInverse: copyInfoButton)
         copyInfoButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
