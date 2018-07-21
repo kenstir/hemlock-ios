@@ -47,6 +47,7 @@ class PlaceHoldsViewController: UIViewController {
         setupActivityIndicator()
         setupViews()
         fetchData()
+        holdsSMSNumber.delegate = self
     }
     
     func setupActivityIndicator() {
@@ -105,5 +106,16 @@ class PlaceHoldsViewController: UIViewController {
         formatLabel.text = item?.format
         holdsAuthorLabel.text = item?.author
         holdsSMSNumber.isUserInteractionEnabled = false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        holdsSMSNumber.resignFirstResponder()
+    }
+}
+
+extension PlaceHoldsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
