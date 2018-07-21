@@ -27,7 +27,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="v1r-fj-5ld">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="v1r-fj-5ld" userLabel="Format">
                                 <rect key="frame" x="8" y="96" width="99" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="bZC-pV-28H"/>
@@ -134,6 +134,7 @@
                         <outlet property="carrierPicker" destination="Ejr-Dt-NiG" id="ddi-ly-BM8"/>
                         <outlet property="holdsAuthorLabel" destination="z7W-f3-FX4" id="Xp6-Mf-ITo"/>
                         <outlet property="holdsSMSNumber" destination="bf9-nQ-1VA" id="5VV-sq-sJ7"/>
+                        <outlet property="formatLabel" destination="v1r-fj-5ld" id="TXr-gb-IjH"/>
                         <outlet property="holdsTitleLabel" destination="tp5-hx-PhR" id="RDQ-8C-ED4"/>
                         <outlet property="locationPicker" destination="wuq-OC-2ry" id="QBO-vv-e0w"/>
                     </connections>

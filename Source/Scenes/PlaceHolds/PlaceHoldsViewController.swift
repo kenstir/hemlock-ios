@@ -21,6 +21,7 @@ class PlaceHoldsViewController: UIViewController {
     weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var holdsTitleLabel: UILabel!
+    @IBOutlet weak var formatLabel: UILabel!
     @IBOutlet weak var locationPicker: McTextField!
     @IBOutlet weak var holdsAuthorLabel: UILabel!
     @IBOutlet weak var holdsSMSNumber: UITextField!
@@ -71,7 +72,7 @@ class PlaceHoldsViewController: UIViewController {
         
         promises.append(ActorService.fetchOrgTypesArray())
         promises.append(ActorService.fetchOrgTree())
-        PCRUDService.fetchSMSCarriers()
+        promises.append(PCRUDService.fetchSMSCarriers())
         self.activityIndicator.startAnimating()
         
         firstly {
@@ -106,6 +107,7 @@ class PlaceHoldsViewController: UIViewController {
 
     func setupViews() {
         holdsTitleLabel.text = item?.title
+        formatLabel.text = item?.format
         holdsAuthorLabel.text = item?.author
     }
 }

@@ -193,6 +193,7 @@
                     <connections>
                         <outlet property="addToListButton" destination="FmZ-13-ryC" id="m9Q-m9-5QE"/>
                         <outlet property="authorLabel" destination="gSC-xq-0uR" id="mWQ-zj-jVg"/>
+                        <outlet property="formatLabel" destination="Fug-sN-BeL" id="O9x-yR-Bpm"/>
                         <outlet property="isbnLabel" destination="wrT-VC-SUV" id="Ghy-X8-3Dq"/>
                         <outlet property="itemImage" destination="rHE-6g-Tfc" id="dSy-pu-B3U"/>
                         <outlet property="pubYearLabel" destination="yT5-tg-oro" id="pL3-Or-hTj"/>
@@ -200,7 +201,6 @@
                         <outlet property="subjectLabel" destination="zSG-Ee-p06" id="ViA-bX-VGA"/>
                         <outlet property="synopsisLabel" destination="lKB-T6-ZXN" id="L3P-4j-fue"/>
                         <outlet property="titleLabel" destination="yNf-VM-twP" id="6hm-RR-0n7"/>
-                        <outlet property="typeLabel" destination="Fug-sN-BeL" id="O9x-yR-Bpm"/>
                         <outlet property="viewCopyButton" destination="fou-vJ-hO7" id="VXK-Hg-X7N"/>
                     </connections>
                 </viewController>
