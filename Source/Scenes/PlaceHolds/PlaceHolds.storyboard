@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="tp5-hx-PhR">
-                                <rect key="frame" x="8" y="44" width="253" height="44"/>
+                                <rect key="frame" x="8" y="44" width="312" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="d2e-Pu-tYt"/>
                                 </constraints>
@@ -60,7 +60,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnC-bn-xve">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xnC-bn-xve">
                                 <rect key="frame" x="127" y="196" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vj-HV-0xR">
@@ -69,8 +69,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53F-NA-Ywk">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="53F-NA-Ywk">
                                 <rect key="frame" x="127" y="237" width="51" height="31"/>
+                                <connections>
+                                    <action selector="smsSwitchAction:" destination="UBG-v3-ceh" eventType="valueChanged" id="n7U-br-bCU"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuq-OC-2ry" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
                                 <rect key="frame" x="127" y="155" width="193" height="30"/>
@@ -78,11 +81,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phone number" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bf9-nQ-1VA">
-                                <rect key="frame" x="184" y="238" width="120" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bf9-nQ-1VA">
+                                <rect key="frame" x="184" y="238" width="136" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" smartDashesType="yes" textContentType="tel"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Carrier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY5-t5-ZXD">
                                 <rect key="frame" x="8" y="285" width="78" height="17"/>
@@ -99,6 +102,13 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzh-z8-gbN">
                                 <rect key="frame" x="123" y="316" width="74" height="30"/>
                                 <state key="normal" title="Place Hold"/>
+                                <connections>
+                                    <action selector="placeHoldButton:" destination="UBG-v3-ceh" eventType="touchUpInside" id="zyW-Yn-tMQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M55-ci-BPx">
+                                <rect key="frame" x="146" y="377" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,7 +122,7 @@
                             <constraint firstItem="z7W-f3-FX4" firstAttribute="top" secondItem="v1r-fj-5ld" secondAttribute="bottom" constant="8" id="L1j-9U-tMD"/>
                             <constraint firstItem="fzh-z8-gbN" firstAttribute="top" secondItem="Ejr-Dt-NiG" secondAttribute="bottom" constant="8" id="MhZ-nh-3bg"/>
                             <constraint firstItem="wuq-OC-2ry" firstAttribute="trailing" secondItem="Vod-ZX-pnz" secondAttribute="trailingMargin" constant="16" id="RFC-jW-UGX"/>
-                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="tp5-hx-PhR" secondAttribute="trailing" constant="59" id="RRE-47-lhB"/>
+                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="tp5-hx-PhR" secondAttribute="trailing" id="RRE-47-lhB"/>
                             <constraint firstItem="HY5-t5-ZXD" firstAttribute="top" secondItem="0vj-HV-0xR" secondAttribute="bottom" constant="24" id="TUg-e5-yir"/>
                             <constraint firstItem="mgX-Md-tui" firstAttribute="top" secondItem="oie-s3-36i" secondAttribute="bottom" constant="24" id="Ua8-Kv-y9O"/>
                             <constraint firstItem="v1r-fj-5ld" firstAttribute="top" secondItem="tp5-hx-PhR" secondAttribute="bottom" constant="8" id="VG2-oR-Aks"/>
@@ -125,7 +135,7 @@
                             <constraint firstItem="Ejr-Dt-NiG" firstAttribute="leading" secondItem="53F-NA-Ywk" secondAttribute="leading" id="cAc-AB-Mwz"/>
                             <constraint firstItem="v1r-fj-5ld" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="enc-bX-0lq"/>
                             <constraint firstItem="bf9-nQ-1VA" firstAttribute="centerY" secondItem="53F-NA-Ywk" secondAttribute="centerY" id="h3Q-JO-vBI"/>
-                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="bf9-nQ-1VA" secondAttribute="trailing" constant="16" id="hYy-cr-WT9"/>
+                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="bf9-nQ-1VA" secondAttribute="trailing" id="hYy-cr-WT9"/>
                             <constraint firstItem="53F-NA-Ywk" firstAttribute="leading" secondItem="xnC-bn-xve" secondAttribute="leading" id="jj6-sM-3yj"/>
                             <constraint firstItem="0vj-HV-0xR" firstAttribute="top" secondItem="mgX-Md-tui" secondAttribute="bottom" constant="24" id="lRI-hs-JY3"/>
                             <constraint firstItem="tp5-hx-PhR" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="nrA-wX-JCD"/>
@@ -138,11 +148,13 @@
                     </view>
                     <connections>
                         <outlet property="carrierPicker" destination="Ejr-Dt-NiG" id="ddi-ly-BM8"/>
+                        <outlet property="emailSwitch" destination="xnC-bn-xve" id="fme-KB-Ks8"/>
                         <outlet property="formatLabel" destination="v1r-fj-5ld" id="TXr-gb-IjH"/>
                         <outlet property="holdsAuthorLabel" destination="z7W-f3-FX4" id="Xp6-Mf-ITo"/>
                         <outlet property="holdsSMSNumber" destination="bf9-nQ-1VA" id="5VV-sq-sJ7"/>
                         <outlet property="holdsTitleLabel" destination="tp5-hx-PhR" id="RDQ-8C-ED4"/>
                         <outlet property="locationPicker" destination="wuq-OC-2ry" id="QBO-vv-e0w"/>
+                        <outlet property="smsSwitch" destination="53F-NA-Ywk" id="NWy-dU-zee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iae-6s-DzX" userLabel="First Responder" sceneMemberID="firstResponder"/>

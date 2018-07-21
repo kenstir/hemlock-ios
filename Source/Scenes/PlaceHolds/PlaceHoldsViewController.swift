@@ -26,6 +26,19 @@ class PlaceHoldsViewController: UIViewController {
     @IBOutlet weak var holdsAuthorLabel: UILabel!
     @IBOutlet weak var holdsSMSNumber: UITextField!
     @IBOutlet weak var carrierPicker: McTextField!
+    @IBOutlet weak var emailSwitch: UISwitch!
+    @IBOutlet weak var smsSwitch: UISwitch!
+    @IBAction func smsSwitchAction(_ sender: UISwitch) {
+        if (sender.isOn) {
+            holdsSMSNumber.isUserInteractionEnabled = true
+            holdsSMSNumber.becomeFirstResponder()
+        } else {
+            holdsSMSNumber.isUserInteractionEnabled = false
+        }
+    }
+    @IBAction func placeHoldButton(_ sender: UIButton) {
+            self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
+    }
     
     //MARK: - Functions
     override func viewDidLoad() {
@@ -91,5 +104,6 @@ class PlaceHoldsViewController: UIViewController {
         holdsTitleLabel.text = item?.title
         formatLabel.text = item?.format
         holdsAuthorLabel.text = item?.author
+        holdsSMSNumber.isUserInteractionEnabled = false
     }
 }
