@@ -104,11 +104,35 @@ class PlaceHoldsViewController: UIViewController {
         promises.append(ActorService.fetchOrgTypesArray())
         promises.append(ActorService.fetchOrgTree())
         promises.append(PCRUDService.fetchSMSCarriers())
+        print("xxx \(promises.count) promises made")
+
         self.activityIndicator.startAnimating()
         
         firstly {
             when(fulfilled: promises)
         }.done {
+            print("xxx \(promises.count) promises fulfilled")
+            self.fetchOrgDetails()
+        }.catch { error in
+            self.activityIndicator.stopAnimating()
+            self.showAlert(error: error)
+//        }.finally {
+//            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    func fetchOrgDetails() {
+        var promises: [Promise<Void>] = []
+
+        promises.append(contentsOf: ActorService.fetchOrgSettings())
+        print("xxx2 \(promises.count) promises made")
+
+//        self.activityIndicator.startAnimating()
+      
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            print("xxx2 \(promises.count) promises fulfilled")
             self.setupLocationPicker()
             self.setupCarrierPicker()
         }.catch { error in

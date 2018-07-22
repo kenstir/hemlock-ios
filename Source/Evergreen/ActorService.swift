@@ -24,6 +24,7 @@ class ActorService {
     static var orgTypesLoaded = false
     static var orgTreeLoaded = false
 
+    /// Fetch list of org types.
     static func fetchOrgTypesArray() -> Promise<Void> {
         if orgTypesLoaded {
             return Promise<Void>()
@@ -36,6 +37,7 @@ class ActorService {
         return promise
     }
     
+    /// Fetch org tree.
     static func fetchOrgTree() -> Promise<Void> {
         if orgTreeLoaded {
             return Promise<Void>()
@@ -46,5 +48,29 @@ class ActorService {
             orgTreeLoaded = true
         }
         return promise
+    }
+    
+    /// fetch settings for all organizations.
+    /// Must be called only after `orgTreeLoaded`.
+    static func fetchOrgSettings() -> [Promise<Void>] {
+        if !orgTreeLoaded {
+            return [Promise<Void>()]
+        }
+        var promises: [Promise<Void>] = []
+        for org in Organization.orgs {
+            if org.areSettingsLoaded {
+                continue
+            }
+            var settings = [API.settingNotPickupLib, API.settingCreditPaymentsAllow]
+            if org.parent == nil {
+                settings.append(API.settingSMSEnable)
+            }
+            let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [org.id, settings, API.anonymousAuthToken])
+            let promise = req.gatewayObjectResponse().done { obj in
+                org.loadSettings(fromObj: obj)
+            }
+            promises.append(promise)
+        }
+        return promises
     }
 }

@@ -37,6 +37,7 @@ struct API {
     static let orgUnitSettingBatch = "open-ils.actor.ou_setting.ancestor_default.batch"
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
+    static let settingCreditPaymentsAllow = "credit.payments.allow"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"
 
     //MARK: - auth service

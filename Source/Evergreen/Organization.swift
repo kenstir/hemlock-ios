@@ -67,6 +67,7 @@ class OrgType {
 
 class Organization {
     static var orgs: [Organization] = []
+    static var isSMSEnabledSetting = false
 
     var id: Int
     var level: Int
@@ -74,6 +75,19 @@ class Organization {
     var shortname: String
     var parent: Int?
     var ouType: Int
+    
+    var areSettingsLoaded = false
+    var isPickupLocationSetting: Bool?
+    var isPaymentAllowedSetting: Bool?
+    var isPickupLocation: Bool {
+        if let val = isPickupLocationSetting {
+            return val
+        }
+        if let canHaveVols = orgType?.canHaveVols {
+            return canHaveVols
+        }
+        return true // should not happen
+    }
     
     var orgType: OrgType? {
         return OrgType.find(byId: ouType)
@@ -86,6 +100,29 @@ class Organization {
         self.shortname = shortname
         self.parent = parent
         self.ouType = ouType
+    }
+    
+    static func parseBoolSetting(_ obj: OSRFObject, _ setting: String) -> Bool? {
+        if let valueObj = obj.getObject(setting),
+            let value = valueObj.getBool("value")
+        {
+            return value
+        }
+        return nil
+    }
+    
+    func loadSettings(fromObj obj: OSRFObject)  {
+        if let val = Organization.parseBoolSetting(obj, API.settingCreditPaymentsAllow) {
+            self.isPaymentAllowedSetting = val
+        }
+        if let val = Organization.parseBoolSetting(obj, API.settingNotPickupLib) {
+            self.isPickupLocationSetting = !val
+        }
+        if let val = Organization.parseBoolSetting(obj, API.settingSMSEnable) {
+            // this setting is only queried on the top-level org
+            Organization.isSMSEnabledSetting = val
+        }
+        self.areSettingsLoaded = true
     }
     
     static func find(byName name: String) -> Organization? {
@@ -117,7 +154,7 @@ class Organization {
         orgs = []
         try addOrganization(obj, level: 0)
         
-        //TODO: sort
+        //TODO: sort?
     }
     
     static func addOrganization(_ obj: OSRFObject, level: Int) throws -> Void {
