@@ -136,6 +136,7 @@ class CheckoutsViewController: UIViewController {
     func updateItems(withRecords records: [CircRecord]) {
         self.didCompleteFetch = true
         self.items = records
+        sortList()
         print("xxx \(records.count) records now, time to reloadData")
         tableView.reloadData()
     }
@@ -187,6 +188,12 @@ class CheckoutsViewController: UIViewController {
         detailsVC.item = metabibRecord
         detailsVC.canPlaceHold = false
     }
+
+    func sortList() {
+        items.sort() { $0.dueDate < $1.dueDate }
+        tableView.reloadData()
+    }
+
 }
 
 //MARK: - UITableViewDataSource
@@ -230,6 +237,7 @@ extension CheckoutsViewController: UITableViewDataSource {
 
         return cell
     }
+    
 }
 
 extension CheckoutsViewController: UITableViewDelegate {
