@@ -220,11 +220,24 @@ extension CheckoutsViewController: UITableViewDataSource {
         }
         
         let item = items[indexPath.row]
+
+        // change string date to date format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        let formattedDate = dateFormatter.date(from: item.dueDate)
+
         cell.title.text = item.title
         cell.author.text = item.author
         cell.format.text = item.format
         cell.dueDate.text = "Due " + item.dueDate
-        
+        //color title and due date in red if item is overdue
+        if formattedDate! < Date() {
+            cell.dueDate.text = "(Overdue) Due " + item.dueDate
+            cell.title.textColor = UIColor.red
+            cell.dueDate.textColor = UIColor.red
+        } else {
+            cell.dueDate.text = "Due " + item.dueDate
+        }
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
         cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
