@@ -21,16 +21,19 @@ import Foundation
 import UIKit
 import PromiseKit
 import PMKAlamofire
+import os.log
 
 class PlaceHoldsViewController: UIViewController {
 
     //MARK: - Properties
     var record: MBRecord?
     let formats = Format.getSpinnerLabels()
-    var orgLabels : [String] = []
-    var carrierLabels : [String] = []
-    var selectedOrgIndex = 0
-    var selectedCarrierIndex = 0
+    var orgLabels: [String] = []
+    var homeOrgIndex: Int?
+    var carrierLabels: [String] = []
+    var selectedOrgName = ""
+    var selectedCarrierName = ""
+    var startOfFetch = Date()
 
     weak var activityIndicator: UIActivityIndicatorView!
 
@@ -71,36 +74,50 @@ class PlaceHoldsViewController: UIViewController {
     }
 
     func setupLocationPicker() {
-        self.orgLabels = Organization.getSpinnerLabels()
+        self.orgLabels = []
+        var selectOrgIndex = 0
+        for index in 0..<Organization.orgs.count {
+            let org = Organization.orgs[index]
+            self.orgLabels.append(org.name)
+            os_log("%d org %@ pickup %d name %@", log: Gateway.log, type: .info, org.id, org.shortname, org.isPickupLocation, org.name)
+            if org.id == App.account?.homeOrgID {
+                selectOrgIndex = index
+            }
+        }
         let mcInputView = McPicker(data: [orgLabels])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
         mcInputView.fontSize = 16
-        self.selectedOrgIndex = 0 //TODO: better initial value
-        locationPicker.text = orgLabels[self.selectedOrgIndex]
+        mcInputView.pickerSelectRowsForComponents = [0: [selectOrgIndex: true]]
+        self.selectedOrgName = orgLabels[selectOrgIndex]
+        locationPicker.text = orgLabels[selectOrgIndex]
         locationPicker.inputViewMcPicker = mcInputView
-        locationPicker.doneHandler = { [weak locationPicker] (selections) in
+        locationPicker.doneHandler = { [weak self, locationPicker] (selections) in
+            self?.selectedOrgName = selections[0]!
             locationPicker?.text = selections[0]!
         }
     }
     
     func setupCarrierPicker() {
         self.carrierLabels = SMSCarrier.getSpinnerLabels()
+        let selectCarrierIndex = 0 //TODO: get initial value from user prefs
         let mcInputView = McPicker(data: [carrierLabels])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
         mcInputView.fontSize = 16
-        self.selectedCarrierIndex = 0 //TODO: better initial value
-        carrierPicker.text = carrierLabels[self.selectedCarrierIndex]
+        mcInputView.pickerSelectRowsForComponents = [0: [selectCarrierIndex: true]]
+        carrierPicker.text = carrierLabels[selectCarrierIndex]
         carrierPicker.inputViewMcPicker = mcInputView
-        carrierPicker.doneHandler = { [weak carrierPicker] (selections) in
+        carrierPicker.doneHandler = { [weak self, carrierPicker] (selections) in
+            self?.selectedCarrierName = selections[0]!
             carrierPicker?.text = selections[0]!
         }
     }
 
     func fetchData() {
+        self.startOfFetch = Date()
+
         var promises: [Promise<Void>] = []
-        
         promises.append(ActorService.fetchOrgTypesArray())
         promises.append(ActorService.fetchOrgTree())
         promises.append(PCRUDService.fetchSMSCarriers())
@@ -133,6 +150,8 @@ class PlaceHoldsViewController: UIViewController {
             when(fulfilled: promises)
         }.done {
             print("xxx2 \(promises.count) promises fulfilled")
+            let elapsed = -self.startOfFetch.timeIntervalSinceNow
+            os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             self.setupLocationPicker()
             self.setupCarrierPicker()
         }.catch { error in
@@ -162,16 +181,21 @@ class PlaceHoldsViewController: UIViewController {
             return
         }
         guard let recordID = record?.id,
-            let pickupOrgID = Organization.find(byName: orgLabels[self.selectedOrgIndex])?.id else
+            let pickupOrg = Organization.find(byName: self.selectedOrgName) else
         {
             //TODO: analytics
             return
         }
-        
+        print("pickupOrg \(pickupOrg.id) \(pickupOrg.name) \(pickupOrg.isPickupLocation)")
+        if !pickupOrg.isPickupLocation {
+            self.showAlert(title: "Not a pickup location", message: "You cannot pick up items at \(pickupOrg.name)")
+            return
+        }
+
         var notifyPhoneNumber: String? = nil
         var notifyCarrierID: Int? = nil
         if smsSwitch.isOn,
-            let carrierID = SMSCarrier.find(byName: carrierLabels[self.selectedCarrierIndex])?.id
+            let carrier = SMSCarrier.find(byName: self.selectedCarrierName)
         {
             guard let phoneNumber = holdsSMSNumber.text,
                 phoneNumber.count > 0 else
@@ -180,10 +204,10 @@ class PlaceHoldsViewController: UIViewController {
                 return
             }
             notifyPhoneNumber = phoneNumber
-            notifyCarrierID = carrierID
+            notifyCarrierID = carrier.id
         }
 
-        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: recordID, pickupOrgID: pickupOrgID, notifyByEmail: emailSwitch.isOn, notifySMSNumber: notifyPhoneNumber, smsCarrierID: notifyCarrierID)
+        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: recordID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifySMSNumber: notifyPhoneNumber, smsCarrierID: notifyCarrierID)
         promise.done { obj in
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful

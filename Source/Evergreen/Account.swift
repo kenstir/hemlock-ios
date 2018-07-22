@@ -24,6 +24,7 @@ class Account {
     var authtoken: String?
     var authtokenExpiryDate: Date?
     var userID: Int?
+    var homeOrgID: Int?
     
     init(_ username: String, password: String) {
         self.username = username

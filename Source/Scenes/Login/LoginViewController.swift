@@ -148,6 +148,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.activityIndicator.stopAnimating()
 
             account.userID = resp.obj?.getInt("id")
+            account.homeOrgID = resp.obj?.getInt("home_ou")
             App.account = account
             LoginController.saveLoginCredentials(account: account)
 

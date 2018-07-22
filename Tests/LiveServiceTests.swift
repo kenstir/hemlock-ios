@@ -21,7 +21,7 @@ class LiveServiceTests: XCTestCase {
     var account: Account?
     var username = "" //read from testAccount.json
     var password = "" //read from testAccount.json
-    var homeLibraryID = 1 //read from testAccount.json
+    var homeOrgID = 1 //read from testAccount.json
     var authtoken: String?
     
     //MARK: - functions
@@ -43,8 +43,8 @@ class LiveServiceTests: XCTestCase {
             XCTFail("unable to read JSON data from \(configFile).json, see TestUserData/README.md")
             return
         }
-        if let homeLibraryID = jsonObject["homeLibraryID"] as? Int {
-            self.homeLibraryID = homeLibraryID
+        if let homeOrgID = jsonObject["homeOrgID"] as? Int {
+            self.homeOrgID = homeOrgID
         }
         App.library = Library(url)
         account = Account(username, password: password)
@@ -221,7 +221,7 @@ class LiveServiceTests: XCTestCase {
     func test_orgUnitSetting() {
         let expectation = XCTestExpectation(description: "async response")
 
-        let orgID = self.homeLibraryID
+        let orgID = self.homeOrgID
         let setting = API.settingSMSEnable
 //        let setting = API.settingNotPickupLib
         var val = false
@@ -244,7 +244,7 @@ class LiveServiceTests: XCTestCase {
     func test_orgUnitSettingBatch() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let orgID = self.homeLibraryID
+        let orgID = self.homeOrgID
         let settings = [API.settingNotPickupLib, API.settingSMSEnable]
         var notPickupLib = false
         var smsEnable = false
