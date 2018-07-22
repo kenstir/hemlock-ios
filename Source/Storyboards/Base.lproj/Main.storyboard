@@ -44,7 +44,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-Nj-gGI">
-                                <rect key="frame" x="28" y="340" width="319" height="33"/>
+                                <rect key="frame" x="56" y="348" width="263" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
@@ -65,7 +65,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-oX-Cjw">
-                                <rect key="frame" x="26" y="389" width="323" height="33"/>
+                                <rect key="frame" x="56" y="397" width="263" height="33"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <state key="normal" title="Forgot Password"/>
                                 <connections>
@@ -132,16 +132,16 @@
                             <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="UqT-VS-ogx" secondAttribute="bottom" constant="66" id="GGL-G8-qyb"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="UqT-VS-ogx" secondAttribute="trailing" constant="28" id="GLd-oV-gVz"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="2fV-yF-Bl6" secondAttribute="trailing" constant="28" id="MIs-Ke-hBH"/>
-                            <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="16" id="hdg-lL-6Zn"/>
+                            <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="24" id="hdg-lL-6Zn"/>
                             <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="2Ky-33-NgZ" secondAttribute="trailing" constant="28" id="oAP-Y1-U1s"/>
                             <constraint firstItem="2Ky-33-NgZ" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="28" id="pYZ-a9-5VY"/>
-                            <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="ofn-Nj-gGI" secondAttribute="trailing" constant="28" id="psL-Qz-ena"/>
+                            <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="ofn-Nj-gGI" secondAttribute="trailing" constant="56" id="psL-Qz-ena"/>
                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="top" secondItem="ofn-Nj-gGI" secondAttribute="bottom" constant="16" id="qlK-U6-QO9"/>
-                            <constraint firstItem="ofn-Nj-gGI" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="28" id="raL-L2-tT6"/>
+                            <constraint firstItem="ofn-Nj-gGI" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="56" id="raL-L2-tT6"/>
                             <constraint firstItem="UqT-VS-ogx" firstAttribute="top" secondItem="Qfi-3X-Rfr" secondAttribute="top" constant="66" id="sUB-5i-KbS"/>
-                            <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="L0t-oX-Cjw" secondAttribute="trailing" constant="26" id="the-jy-PTy"/>
+                            <constraint firstItem="Qfi-3X-Rfr" firstAttribute="trailing" secondItem="L0t-oX-Cjw" secondAttribute="trailing" constant="56" id="the-jy-PTy"/>
                             <constraint firstItem="UqT-VS-ogx" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="28" id="xOX-kl-oX3"/>
-                            <constraint firstItem="L0t-oX-Cjw" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="26" id="ywc-T7-dKb"/>
+                            <constraint firstItem="L0t-oX-Cjw" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" constant="56" id="ywc-T7-dKb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qfi-3X-Rfr"/>
                     </view>
