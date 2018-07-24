@@ -18,32 +18,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Bibliography of the Writings on Georgia History" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNf-VM-twP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Bibliography of the Writings on Georgia History" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNf-VM-twP">
                                 <rect key="frame" x="16" y="28" width="176" height="64.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fug-sN-BeL">
-                                <rect key="frame" x="16" y="108.5" width="176" height="19.5"/>
+                                <rect key="frame" x="16" y="100.5" width="176" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AuthorLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSC-xq-0uR">
-                                <rect key="frame" x="16" y="131.5" width="176" height="19.5"/>
+                                <rect key="frame" x="16" y="123.5" width="176" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018 State Historical Society" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yT5-tg-oro" userLabel="Publication Label">
-                                <rect key="frame" x="16" y="155" width="176" height="17"/>
+                                <rect key="frame" x="16" y="147" width="176" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 of 20 copies available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Liq-oi-ouu" userLabel="Copies Summary">
-                                <rect key="frame" x="16" y="200" width="288" height="20.5"/>
+                                <rect key="frame" x="16" y="208" width="288" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-kS-dbg" userLabel="Button Stack">
-                                <rect key="frame" x="16" y="236" width="288" height="30"/>
+                                <rect key="frame" x="16" y="244" width="288" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mw8-Dn-7Hk" userLabel="Place Hold">
                                         <rect key="frame" x="0.0" y="0.0" width="136" height="30"/>
@@ -69,7 +69,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-bg-BhX" userLabel="Subject Stack">
-                                <rect key="frame" x="16" y="357" width="288" height="67"/>
+                                <rect key="frame" x="16" y="365" width="288" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jx1-oZ-2Qo" userLabel="Subject Label">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
@@ -89,7 +89,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B9P-4f-8Nf" userLabel="ISBN Stack">
-                                <rect key="frame" x="16" y="432" width="296" height="17"/>
+                                <rect key="frame" x="16" y="440" width="296" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISBN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECQ-RQ-WhF" userLabel="ISBN Label">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
@@ -109,7 +109,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2AA-Dj-GPp" userLabel="Synopsis Stack">
-                                <rect key="frame" x="16" y="282" width="288" height="67"/>
+                                <rect key="frame" x="16" y="290" width="288" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKB-T6-ZXN" userLabel="Synopsis Label">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
@@ -149,14 +149,14 @@
                             <constraint firstItem="q6M-bg-BhX" firstAttribute="top" secondItem="2AA-Dj-GPp" secondAttribute="bottom" constant="8" id="bEw-Xl-LTR"/>
                             <constraint firstItem="xW1-03-WC5" firstAttribute="trailing" secondItem="rHE-6g-Tfc" secondAttribute="trailing" constant="20" id="bPY-MT-bNE"/>
                             <constraint firstItem="sfJ-kS-dbg" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="c5f-mb-Y1j"/>
-                            <constraint firstItem="Liq-oi-ouu" firstAttribute="top" secondItem="rHE-6g-Tfc" secondAttribute="bottom" constant="12" id="dRC-o9-X5p"/>
+                            <constraint firstItem="Liq-oi-ouu" firstAttribute="top" secondItem="rHE-6g-Tfc" secondAttribute="bottom" constant="20" id="dRC-o9-X5p"/>
                             <constraint firstItem="gSC-xq-0uR" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="dsP-cS-rFx"/>
                             <constraint firstItem="sfJ-kS-dbg" firstAttribute="top" secondItem="Liq-oi-ouu" secondAttribute="bottom" constant="16" id="eGa-Zp-ORn"/>
                             <constraint firstItem="yT5-tg-oro" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="kkA-lv-mBu"/>
                             <constraint firstItem="Fug-sN-BeL" firstAttribute="leading" secondItem="xW1-03-WC5" secondAttribute="leading" constant="16" id="mVU-Xe-kbn"/>
                             <constraint firstItem="xW1-03-WC5" firstAttribute="trailing" secondItem="sfJ-kS-dbg" secondAttribute="trailing" constant="16" id="miL-Ab-1Gk"/>
                             <constraint firstItem="B9P-4f-8Nf" firstAttribute="top" secondItem="q6M-bg-BhX" secondAttribute="bottom" constant="8" id="oso-i4-xIy"/>
-                            <constraint firstItem="Fug-sN-BeL" firstAttribute="top" secondItem="yNf-VM-twP" secondAttribute="bottom" constant="16" id="qbO-ve-JL6"/>
+                            <constraint firstItem="Fug-sN-BeL" firstAttribute="top" secondItem="yNf-VM-twP" secondAttribute="bottom" constant="8" id="qbO-ve-JL6"/>
                             <constraint firstItem="rHE-6g-Tfc" firstAttribute="top" secondItem="xW1-03-WC5" secondAttribute="top" constant="8" id="wQl-Yl-ESn"/>
                             <constraint firstItem="gSC-xq-0uR" firstAttribute="top" secondItem="Fug-sN-BeL" secondAttribute="bottom" constant="4" id="zeB-w5-cvg"/>
                             <constraint firstItem="yNf-VM-twP" firstAttribute="top" secondItem="xW1-03-WC5" secondAttribute="top" constant="8" id="zky-St-4M1"/>

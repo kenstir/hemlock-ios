@@ -136,6 +136,7 @@ class CheckoutsViewController: UIViewController {
     func updateItems(withRecords records: [CircRecord]) {
         self.didCompleteFetch = true
         self.items = records
+        sortList()
         print("xxx \(records.count) records now, time to reloadData")
         tableView.reloadData()
     }
@@ -187,6 +188,12 @@ class CheckoutsViewController: UIViewController {
         detailsVC.item = metabibRecord
         detailsVC.canPlaceHold = false
     }
+
+    func sortList() {
+        items.sort() { $0.dueDate < $1.dueDate }
+        tableView.reloadData()
+    }
+
 }
 
 //MARK: - UITableViewDataSource
@@ -213,11 +220,24 @@ extension CheckoutsViewController: UITableViewDataSource {
         }
         
         let item = items[indexPath.row]
+
+        // change string date to date format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        let formattedDate = dateFormatter.date(from: item.dueDate)
+
         cell.title.text = item.title
         cell.author.text = item.author
         cell.format.text = item.format
         cell.dueDate.text = "Due " + item.dueDate
-        
+        //color title and due date in red if item is overdue
+        if formattedDate! < Date() {
+            cell.dueDate.text = "(Overdue) Due " + item.dueDate
+            cell.title.textColor = UIColor.red
+            cell.dueDate.textColor = UIColor.red
+        } else {
+            cell.dueDate.text = "Due " + item.dueDate
+        }
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
         cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
@@ -230,6 +250,7 @@ extension CheckoutsViewController: UITableViewDataSource {
 
         return cell
     }
+    
 }
 
 extension CheckoutsViewController: UITableViewDelegate {
