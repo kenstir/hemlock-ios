@@ -140,7 +140,8 @@ class Organization {
     }
 
     static func getSpinnerLabels() -> [String] {
-        return orgs.map { $0.name }
+        //return orgs.map { $0.name }
+        return orgs.map { String(repeating: "   ", count: $0.level) + $0.name }
     }
 
     static func getShortName(forName name: String?) -> String? {

@@ -27,4 +27,8 @@ extension String {
     func trimQuotes() -> String {
         return self.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
     }
+    
+    func trim() -> String {
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
 }

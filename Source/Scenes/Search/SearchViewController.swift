@@ -127,14 +127,22 @@ class SearchViewController: UIViewController {
         
     func setupLocationPicker() {
         self.orgLabels = Organization.getSpinnerLabels()
+
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.light)
+        label.textColor = UIColor.black
+        label.numberOfLines = 1
+
         let mcInputView = McPicker(data: [orgLabels])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
         mcInputView.fontSize = 16
-        locationPicker.text = orgLabels[0] //TODO: better initial value
+        mcInputView.label = label
+        locationPicker.text = orgLabels[0].trim() //TODO: better initial value
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak locationPicker] (selections) in
-            locationPicker?.text = selections[0]!
+            locationPicker?.text = selections[0]!.trim()
         }
         locationPicker.textFieldWillBeginEditingHandler = { (selections) in
             self.searchBar.resignFirstResponder()
@@ -151,15 +159,20 @@ class SearchViewController: UIViewController {
     }
 
     func doSearch() {
-        guard let searchText = searchBar.text, searchText.count > 0 else {
+        guard let searchText = searchBar.text?.trim(), searchText.count > 0 else {
             self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
             return
         }
-        guard let formatText = formatPicker.text else {
+        guard let formatText = formatPicker.text,
+            let searchOrg = Organization.getShortName(forName: locationPicker.text?.trim()) else
+        {
             Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
+            self.showAlert(title: "Internal error", message: "Internal error preparing for search")
             return
         }
-        let params = SearchParameters(text: searchText, searchClass: scopes[scopeControl.selectedSegmentIndex].lowercased(), searchFormat: Format.getSearchFormat(forSpinnerLabel: formatText), organizationShortName: Organization.getShortName(forName: locationPicker?.text))
+        let searchClass = scopes[scopeControl.selectedSegmentIndex].lowercased()
+        let searchFormat = Format.getSearchFormat(forSpinnerLabel: formatText)
+        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg)
         let vc = XResultsViewController()
         vc.searchParameters = params
         print("--- searchParams \(String(describing: vc.searchParameters))")
