@@ -290,6 +290,34 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 20.0)
     }
+    
+    //MARK: - wip
+    
+    func fetchCopyStatusAll() -> Promise<Void> {
+        let req = Gateway.makeRequest(service: API.search, method: API.copyStatusAll, args: [])
+        let promise = req.gatewayArrayResponse().done { array in
+            CopyStatus.loadCopyStatus(fromArray: array)
+        }
+        return promise
+    }
+
+    func test_copyStatusAll() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let promise = fetchCopyStatusAll()
+        print("xxx promise made")
+        promise.ensure {
+            XCTAssertGreaterThan(CopyStatus.status.count, 0)
+            expectation.fulfill()
+        }.catch { error in
+            print("xxx promise caught")
+            let str = error.localizedDescription
+            print("xxx \(str)")
+            XCTFail(error.localizedDescription)
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
 
     //MARK: - actorCheckedOut
     

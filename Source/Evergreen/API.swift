@@ -74,4 +74,5 @@ struct API {
     static let modsFromCopy = "open-ils.search.biblio.mods_from_copy"
     static let recordModsRetrieve = "open-ils.search.biblio.record.mods_slim.retrieve"
     static let multiclassQuery = "open-ils.search.biblio.multiclass.query"
+    static let copyStatusAll = "open-ils.search.config.copy_status.retrieve.all"
 }

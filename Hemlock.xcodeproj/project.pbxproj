@@ -160,6 +160,8 @@
 		D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
+		D2D93CF5210AB6F1004306D8 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
+		D2D93CF6210AB6F1004306D8 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
 		D2DE83EC20F5AC280027FAA1 /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
@@ -295,6 +297,7 @@
 		D2C24A2F210171290028180B /* PCRUDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCRUDService.swift; sourceTree = "<group>"; };
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
+		D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyStatus.swift; sourceTree = "<group>"; };
 		D2DE83EB20F5AC280027FAA1 /* XUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUtils.swift; sourceTree = "<group>"; };
 		D2DF196520CEEE1200085255 /* FineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineRecord.swift; sourceTree = "<group>"; };
 		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -460,6 +463,7 @@
 				D2BBA99920F29F0E00B25146 /* ActorService.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D28725AD20E86F30002A4C42 /* CircService.swift */,
+				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
 				D22D02662083E45700DC1F5B /* Corsortium.swift */,
 				D260755A20E144E000795124 /* Format.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
@@ -903,6 +907,7 @@
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
+				D2D93CF5210AB6F1004306D8 /* CopyStatus.swift in Sources */,
 				D27990D520DDD473003B451E /* DetailsViewController.swift in Sources */,
 				D27990D620DDD473003B451E /* Corsortium.swift in Sources */,
 				D27990D720DDD473003B451E /* App.swift in Sources */,
@@ -968,6 +973,7 @@
 				D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				FA57B93920EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
+				D2D93CF6210AB6F1004306D8 /* CopyStatus.swift in Sources */,
 				D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */,
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
