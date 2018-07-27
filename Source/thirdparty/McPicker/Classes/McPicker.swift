@@ -402,6 +402,14 @@ open class McPicker: UIView {
             }
         }
     }
+    
+    func copyTextAttributes(fromLabel from: UILabel, toLabel to: UILabel) {
+        to.textAlignment = from.textAlignment
+        to.font = from.font
+        to.textColor = from.textColor
+        to.backgroundColor = from.backgroundColor
+        to.numberOfLines = from.numberOfLines
+    }
 }
 
 extension McPicker : UIPickerViewDataSource {
@@ -421,12 +429,11 @@ extension McPicker : UIPickerViewDelegate {
         if pickerLabel == nil {
             pickerLabel = UILabel()
 
-            if let goodLabel = label {
-                pickerLabel?.textAlignment = goodLabel.textAlignment
-                pickerLabel?.font = goodLabel.font
-                pickerLabel?.textColor = goodLabel.textColor
-                pickerLabel?.backgroundColor = goodLabel.backgroundColor
-                pickerLabel?.numberOfLines = goodLabel.numberOfLines
+            //TODO: different text attributes for different rows
+            if let goodLabel = label,
+                let newLabel = pickerLabel
+            {
+                self.copyTextAttributes(fromLabel: goodLabel, toLabel: newLabel)
             } else {
                 pickerLabel?.textAlignment = .center
                 pickerLabel?.font = UIFont.systemFont(ofSize: self.fontSize)
@@ -436,6 +443,15 @@ extension McPicker : UIPickerViewDelegate {
         pickerLabel?.text = pickerData[component][row]
 
         return pickerLabel!
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        if let goodLabel = self.label {
+            let height = goodLabel.font.pointSize
+            let rowHeight = ceil(height * 1.2)
+            return rowHeight
+        }
+        return ceil(self.fontSize * 1.2)
     }
 
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
