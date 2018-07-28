@@ -124,21 +124,12 @@ class SearchViewController: UIViewController {
             self.searchBar.resignFirstResponder()
         }
     }
-        
+    
     func setupLocationPicker() {
         self.orgLabels = Organization.getSpinnerLabels()
 
-        let label = UILabel()
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.light)
-        label.textColor = UIColor.black
-        label.numberOfLines = 1
-
         let mcInputView = McPicker(data: [orgLabels])
-        mcInputView.backgroundColor = .gray
-        mcInputView.backgroundColorAlpha = 0.25
-        mcInputView.fontSize = 16
-        mcInputView.label = label
+        Style.stylePicker(asOrgPicker: mcInputView)
         locationPicker.text = orgLabels[0].trim() //TODO: better initial value
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak locationPicker] (selections) in

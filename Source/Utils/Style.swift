@@ -65,6 +65,21 @@ class Style {
         button.layer.cornerRadius = 6
     }
     
+    //MARK: - McPicker
+    
+    static func stylePicker(asOrgPicker picker: McPicker) {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.light)
+        label.textColor = UIColor.black
+        label.numberOfLines = 1
+
+        picker.backgroundColor = .gray
+        picker.backgroundColorAlpha = 0.25
+        picker.fontSize = 16
+        picker.label = label
+    }
+    
     //MARK: - SearchBar
 
     static func styleSearchBar(_ searchBar: UISearchBar) {

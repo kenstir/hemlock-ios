@@ -28,7 +28,6 @@ class PlaceHoldsViewController: UIViewController {
     //MARK: - Properties
     var record: MBRecord?
     let formats = Format.getSpinnerLabels()
-    var orgLabels: [String] = []
     var homeOrgIndex: Int?
     var carrierLabels: [String] = []
     var selectedOrgName = ""
@@ -74,27 +73,25 @@ class PlaceHoldsViewController: UIViewController {
     }
 
     func setupLocationPicker() {
-        self.orgLabels = []
+        let orgLabels = Organization.getSpinnerLabels()
         var selectOrgIndex = 0
+        let defaultPickupLocation = App.account?.homeOrgID // TODO: get from user prefs
         for index in 0..<Organization.orgs.count {
             let org = Organization.orgs[index]
-            self.orgLabels.append(org.name)
-            os_log("%d org %@ pickup %d name %@", log: Gateway.log, type: .info, org.id, org.shortname, org.isPickupLocation, org.name)
-            if org.id == App.account?.homeOrgID {
+            if org.id == defaultPickupLocation {
                 selectOrgIndex = index
             }
         }
+ 
         let mcInputView = McPicker(data: [orgLabels])
-        mcInputView.backgroundColor = .gray
-        mcInputView.backgroundColorAlpha = 0.25
-        mcInputView.fontSize = 16
+        Style.stylePicker(asOrgPicker: mcInputView)
         mcInputView.pickerSelectRowsForComponents = [0: [selectOrgIndex: true]]
-        self.selectedOrgName = orgLabels[selectOrgIndex]
-        locationPicker.text = orgLabels[selectOrgIndex]
+        self.selectedOrgName = orgLabels[selectOrgIndex].trim()
+        locationPicker.text = orgLabels[selectOrgIndex].trim()
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak self, locationPicker] (selections) in
-            self?.selectedOrgName = selections[0]!
-            locationPicker?.text = selections[0]!
+            self?.selectedOrgName = selections[0]!.trim()
+            locationPicker?.text = selections[0]!.trim()
         }
     }
     
@@ -214,21 +211,28 @@ class PlaceHoldsViewController: UIViewController {
                 self.navigationController?.view.makeToast("Hold successfully placed")
                 self.navigationController?.popViewController(animated: true)
                 return
+            } else if let resultObj = obj.getAny("result") as? OSRFObject {
+                // case 2: result is an ilsevent objects - hold failed
+                throw self.holdError(resultObj: resultObj)
             } else if let resultArray = obj.getAny("result") as? [OSRFObject] {
-                // case 2: result is an array of ilsevent objects - hold failed
-                if let resultObj = resultArray.first,
-                    let ilsevent = resultObj.getInt("ilsevent"),
-                    let textcode = resultObj.getString("textcode"),
-                    let desc = resultObj.getString("desc") {
-                    throw GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc)
-                }
-                throw HemlockError.unexpectedNetworkResponse(String(describing: resultArray))
+                // case 3: result is an array of ilsevent objects - hold failed
+                throw self.holdError(resultObj: resultArray.first)
             } else {
                 throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
             }
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
+    }
+    
+    func holdError(resultObj: OSRFObject?) -> Error {
+        if let eventObj = resultObj?.getAny("last_event") as? OSRFObject,
+            let ilsevent = eventObj.getInt("ilsevent"),
+            let textcode = eventObj.getString("textcode"),
+            let desc = eventObj.getString("desc") {
+            return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc)
+        }
+        return HemlockError.unexpectedNetworkResponse(String(describing: resultObj))
     }
 }
 
