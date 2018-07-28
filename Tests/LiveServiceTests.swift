@@ -319,16 +319,15 @@ class LiveServiceTests: XCTestCase {
         
         let promise = SearchService.fetchCopySummary(orgID: self.consortiumOrgID, recordID: self.sampleRecordID!)
         promise.done { array in
-            for obj in array {
-                debugPrint(obj.dict)
-            }
+            let copyCounts = CopySummary.makeArray(fromArray: array)
+            XCTAssertGreaterThan(copyCounts.count, 0)
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 20)
+        wait(for: [expectation], timeout: 10)
     }
 
     //MARK: - actorCheckedOut

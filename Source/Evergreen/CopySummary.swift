@@ -1,5 +1,5 @@
 //
-//  SearchService.swift
+//  CopySummary.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -18,26 +18,32 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
-import PromiseKit
 
-class SearchService {
-    static var copyStatusLoaded = false
+class CopySummary {
+
+    let orgID: Int
+    let available: Int
+    let count: Int
+    //let depth: Int
+    //let unshadow: Int
+    //let transcendant: ???
     
-    static func fetchCopyStatusAll() -> Promise<Void> {
-        if copyStatusLoaded {
-            return Promise<Void>()
-        }
-        let req = Gateway.makeRequest(service: API.search, method: API.copyStatusRetrieveAll, args: [])
-        let promise = req.gatewayArrayResponse().done { array in
-            CopyStatus.loadCopyStatus(fromArray: array)
-            copyStatusLoaded = true
-        }
-        return promise
+    init(orgID: Int, count: Int, available: Int) {
+        self.orgID = orgID
+        self.count = count
+        self.available = available
     }
     
-    static func fetchCopySummary(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {
-        let req = Gateway.makeRequest(service: API.search, method: API.copyCount, args: [orgID, recordID])
-        let promise = req.gatewayArrayResponse()
-        return promise
+    static func makeArray(fromArray objects: [OSRFObject]) -> [CopySummary] {
+        var copyCounts: [CopySummary] = []
+        for obj in objects {
+            if let orgID = obj.getInt("org_unit"),
+                let available = obj.getInt("available"),
+                let count = obj.getInt("count")
+            {
+                copyCounts.append(CopySummary(orgID: orgID, count: count, available: available))
+            }
+        }
+        return copyCounts
     }
 }
