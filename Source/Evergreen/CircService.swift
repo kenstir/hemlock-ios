@@ -37,7 +37,6 @@ class CircService {
             "hold_type": "T", //Title
             "patronid": userID,
             "pickup_lib": pickupOrgID,
-            //"titleid": recordID,
         ]
         if let phoneNumber = notifySMSNumber,
             phoneNumber.count > 0,
