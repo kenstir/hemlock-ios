@@ -22,7 +22,9 @@ class LiveServiceTests: XCTestCase {
     var username = "" //read from testAccount.json
     var password = "" //read from testAccount.json
     var homeOrgID = 1 //read from testAccount.json
+    var sampleRecordID: Int? //read from testAccount.json
     var authtoken: String?
+    let consortiumOrgID = 1 // assumption
     
     //MARK: - functions
     
@@ -46,6 +48,7 @@ class LiveServiceTests: XCTestCase {
         if let homeOrgID = jsonObject["homeOrgID"] as? Int {
             self.homeOrgID = homeOrgID
         }
+        self.sampleRecordID = jsonObject["sampleRecordID"] as? Int
         App.library = Library(url)
         account = Account(username, password: password)
     }
@@ -291,20 +294,12 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
-    //MARK: - wip
-    
-    func fetchCopyStatusAll() -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.search, method: API.copyStatusAll, args: [])
-        let promise = req.gatewayArrayResponse().done { array in
-            CopyStatus.loadCopyStatus(fromArray: array)
-        }
-        return promise
-    }
+    //MARK: - Copy Status
 
     func test_copyStatusAll() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let promise = fetchCopyStatusAll()
+        let promise = SearchService.fetchCopyStatusAll()
         print("xxx promise made")
         promise.ensure {
             XCTAssertGreaterThan(CopyStatus.status.count, 0)
@@ -316,7 +311,24 @@ class LiveServiceTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
         
-        wait(for: [expectation], timeout: 20.0)
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func test_copySummary() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let promise = SearchService.fetchCopySummary(orgID: self.consortiumOrgID, recordID: self.sampleRecordID!)
+        promise.done { array in
+            for obj in array {
+                debugPrint(obj.dict)
+            }
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 20)
     }
 
     //MARK: - actorCheckedOut

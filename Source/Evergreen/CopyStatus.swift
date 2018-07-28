@@ -31,6 +31,13 @@ class CopyStatus {
         self.name = name
     }
     
+    static func getLabel(forID id: Int) -> String {
+        if let name = status[id] {
+            return name
+        }
+        return ""
+    }
+    
     static func loadCopyStatus(fromArray objects: [OSRFObject]) -> Void {
         status = [:]
         for obj in objects {
