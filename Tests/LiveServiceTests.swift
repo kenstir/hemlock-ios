@@ -224,15 +224,12 @@ class LiveServiceTests: XCTestCase {
         let orgID = self.homeOrgID
         let setting = API.settingSMSEnable
 //        let setting = API.settingNotPickupLib
-        var val = false
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSetting, args: [orgID, setting, API.anonymousAuthToken])
         req.gatewayOptionalObjectResponse().done { obj in
-            if let settingValue = obj?.getBool("value") {
-                val = settingValue
-            }
+            let value = obj?.getBool("value")
+            print("org \(orgID) setting \(setting) value \(String(describing: value))")
+            XCTAssertNotNil(value, "this assertion is not 100% but it is true of my settings")
             expectation.fulfill()
-            print("org \(orgID) setting \(setting) value \(val)")
-            XCTAssertTrue(val, "this assertion is not 100% but it is true of my settings")
         }.catch { error in
             XCTFail(error.localizedDescription)
             expectation.fulfill()
