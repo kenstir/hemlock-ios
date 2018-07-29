@@ -26,7 +26,7 @@ class Gateway {
 
     //MARK: - fields
 
-    static let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Gateway")
+    static let log = OSLog(subsystem: AppSettings.logSubsystem, category: "Gateway")
 
     /// an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
