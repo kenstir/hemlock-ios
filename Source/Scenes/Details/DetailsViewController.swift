@@ -93,7 +93,7 @@ class DetailsViewController: UIViewController {
     
     func updateCopySummary() {
         if let copyCounts = item?.copyCounts,
-            let copyCount = copyCounts.first,
+            let copyCount = copyCounts.last,
             let orgName = Organization.find(byId: copyCount.orgID)?.name
         {
             copySummaryLabel.text = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
