@@ -200,6 +200,7 @@ extension HoldsViewController: UITableViewDataSource {
         let item = items[indexPath.row]
         cell.holdsTitleLabel.text = item.title
         cell.holdsAuthorLabel.text = item.author
+        cell.holdsFormatLabel.text = item.format
         cell.holdsStatusLabel.text = item.status
         let holdstotaltext = "\(item.totalHolds) holds on \(item.potentialCopies) copies"
         cell.holdsQueueLabel.text = holdstotaltext
