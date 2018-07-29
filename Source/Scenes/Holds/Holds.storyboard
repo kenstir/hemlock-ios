@@ -87,6 +87,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="holdsAuthorLabel" destination="sAI-o0-cNm" id="x1C-K5-TIm"/>
+                                            <outlet property="holdsFormatLabel" destination="016-Cl-jie" id="CLR-Dl-eSB"/>
                                             <outlet property="holdsQueueLabel" destination="F69-Lz-bkQ" id="EvB-SR-bRv"/>
                                             <outlet property="holdsQueuePosition" destination="DMw-ou-M8B" id="aw2-Oz-4hO"/>
                                             <outlet property="holdsStatusLabel" destination="8IJ-pw-bRJ" id="mq0-Nt-2Xs"/>
