@@ -28,6 +28,7 @@ class HoldsViewController: UIViewController {
     //MARK: - Properties
     
     @IBOutlet weak var holdsTable: UITableView!
+    weak var activityIndicator: UIActivityIndicatorView!
 
     var items: [HoldRecord] = []
     var didCompleteFetch = false
@@ -51,6 +52,12 @@ class HoldsViewController: UIViewController {
         holdsTable.delegate = self
         holdsTable.dataSource = self
         holdsTable.tableFooterView = UIView() // prevent display of ghost rows at end of table
+        setupActivityIndicator()
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
     }
 
     func fetchData() {
@@ -61,12 +68,15 @@ class HoldsViewController: UIViewController {
             return //TODO: add analytics
         }
         
+        self.activityIndicator.startAnimating()
+        
         // fetch holds
         let req = Gateway.makeRequest(service: API.circ, method: API.holdsRetrieve, args: [authtoken, userid])
         req.gatewayArrayResponse().done { objects in
             self.items = HoldRecord.makeArray(objects)
             try self.fetchHoldDetails()
         }.catch { error in
+            self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -86,8 +96,10 @@ class HoldsViewController: UIViewController {
             when(fulfilled: promises)
         }.done {
             os_log("%d promises done", log: self.log, type: .info, promises.count)
+            self.activityIndicator.stopAnimating()
             self.updateItems()
         }.catch { error in
+            self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error)
         }
     }
