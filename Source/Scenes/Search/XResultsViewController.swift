@@ -135,7 +135,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         var promises: [Promise<Void>] = []
         for record in records {
             promises.append(fetchRecordMVR(authtoken: authtoken, forRecord: record))
-            promises.append(fetchSearchFormat(authtoken: authtoken, forRecord: record))
+            promises.append(PCRUDService.fetchSearchFormat(authtoken: authtoken, forRecord: record))
         }
         print("xxx \(promises.count) promises made")
 
@@ -162,16 +162,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         }
         return promise
     }
-    
-    func fetchSearchFormat(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id])
-        let promise = req.gatewayObjectResponse().done { obj in
-            print("xxx \(record.id) format done")
-            record.searchFormat = Format.getSearchFormat(fromMRAObject: obj)
-        }
-        return promise
-    }
-    
+
     func updateItems(withRecords records: [MBRecord]) {
         self.items = records
         print("xxx \(records.count) records now, time to reloadData")

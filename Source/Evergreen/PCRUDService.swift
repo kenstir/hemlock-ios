@@ -19,10 +19,12 @@
 
 import Foundation
 import PromiseKit
+import os.log
 
 class PCRUDService {
     static var carriersLoaded = false
-    
+    static let log = OSLog(subsystem: AppSettings.logSubsystem, category: "pcrud")
+
     static func fetchSMSCarriers() -> Promise<Void> {
         if carriersLoaded {
             return Promise<Void>()
@@ -32,6 +34,16 @@ class PCRUDService {
         let promise = req.gatewayArrayResponse().done { array in
             try SMSCarrier.loadSMSCarriers(fromArray: array)
             carriersLoaded = true
+        }
+        return promise
+    }
+
+    static func fetchSearchFormat(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
+        os_log("fetchSearchFormat id=%d start", log: PCRUDService.log, type: .info, record.id)
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id])
+        let promise = req.gatewayObjectResponse().done { obj in
+            record.searchFormat = Format.getSearchFormat(fromMRAObject: obj)
+            os_log("fetchSearchFormat id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.searchFormat ?? "?", record.title)
         }
         return promise
     }

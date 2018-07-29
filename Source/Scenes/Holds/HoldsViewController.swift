@@ -116,7 +116,7 @@ class HoldsViewController: UIViewController {
             os_log("fetchTargetInfo target=%d holdType=T mods done", log: self.log, type: .info, holdTarget)
             let record = MBRecord(id: holdTarget, mvrObj: obj)
             hold.metabibRecord = record
-            return self.fetchSearchFormat(authtoken: authtoken, forRecord: record)
+            return PCRUDService.fetchSearchFormat(authtoken: authtoken, forRecord: record)
         }
         return promise
     }
@@ -165,17 +165,6 @@ class HoldsViewController: UIViewController {
         let promise = req.gatewayObjectResponse().done { obj in
             os_log("fetchQueueStats target=%d done", log: self.log, type: .info, holdTarget)
             hold.qstatsObj = obj
-        }
-        return promise
-    }
-
-    // this is duplicated in XResultsViewController
-    func fetchSearchFormat(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
-        os_log("fetchSearchFormat id=%d start", log: self.log, type: .info, record.id)
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id])
-        let promise = req.gatewayObjectResponse().done { obj in
-            record.searchFormat = Format.getSearchFormat(fromMRAObject: obj)
-            os_log("fetchSearchFormat id=%d done format=%@ title=%@", log: self.log, type: .info, record.id, record.searchFormat ?? "?", record.title)
         }
         return promise
     }
