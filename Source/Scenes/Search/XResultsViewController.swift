@@ -224,8 +224,6 @@ extension XResultsViewController: ASTableDataSource {
 extension XResultsViewController: ASTableDelegate {
 
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        let tn = (tableNode.nodeForRow(at: indexPath) as! XResultsTableNode)
-        debugPrint(tn)
         let item = items[indexPath.row]
         selectedItem = item
         
@@ -233,6 +231,7 @@ extension XResultsViewController: ASTableDelegate {
             let detailsVC = vc as? DetailsViewController
         {
             detailsVC.item = selectedItem
+            detailsVC.searchParameters = searchParameters
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -132,6 +132,13 @@ class Organization {
         return nil
     }
     
+    static func find(byShortName shortname: String?) -> Organization? {
+        if let org = orgs.first(where: { $0.shortname == shortname }) {
+            return org
+        }
+        return nil
+    }
+
     static func find(byId id: Int) -> Organization? {
         if let org = orgs.first(where: { $0.id == id }) {
             return org

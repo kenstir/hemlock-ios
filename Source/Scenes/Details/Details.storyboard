@@ -42,9 +42,9 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 of 20 copies available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Liq-oi-ouu" userLabel="Copies Summary">
-                                <rect key="frame" x="16" y="208" width="288" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16 of 20 copies available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Liq-oi-ouu" userLabel="Copy Summary">
+                                <rect key="frame" x="16" y="208" width="288" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -56,7 +56,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-kS-dbg" userLabel="Button Stack">
-                                <rect key="frame" x="16" y="244" width="288" height="30"/>
+                                <rect key="frame" x="16" y="243" width="288" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mw8-Dn-7Hk" userLabel="Place Hold">
                                         <rect key="frame" x="0.0" y="0.0" width="136" height="30"/>
@@ -69,7 +69,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-bg-BhX" userLabel="Subject Stack">
-                                <rect key="frame" x="16" y="365" width="288" height="67"/>
+                                <rect key="frame" x="16" y="364" width="288" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jx1-oZ-2Qo" userLabel="Subject Label">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
@@ -89,7 +89,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B9P-4f-8Nf" userLabel="ISBN Stack">
-                                <rect key="frame" x="16" y="440" width="296" height="17"/>
+                                <rect key="frame" x="16" y="439" width="296" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISBN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECQ-RQ-WhF" userLabel="ISBN Label">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
@@ -109,7 +109,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2AA-Dj-GPp" userLabel="Synopsis Stack">
-                                <rect key="frame" x="16" y="290" width="288" height="67"/>
+                                <rect key="frame" x="16" y="289" width="288" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKB-T6-ZXN" userLabel="Synopsis Label">
                                         <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
@@ -166,6 +166,7 @@
                     <connections>
                         <outlet property="authorLabel" destination="gSC-xq-0uR" id="mWQ-zj-jVg"/>
                         <outlet property="copyInfoButton" destination="7jN-lv-5hi" id="whH-is-bCp"/>
+                        <outlet property="copySummaryLabel" destination="Liq-oi-ouu" id="wfU-0B-Ret"/>
                         <outlet property="formatLabel" destination="Fug-sN-BeL" id="O9x-yR-Bpm"/>
                         <outlet property="isbnLabel" destination="wrT-VC-SUV" id="Ghy-X8-3Dq"/>
                         <outlet property="itemImage" destination="rHE-6g-Tfc" id="dSy-pu-B3U"/>

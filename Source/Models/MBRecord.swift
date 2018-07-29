@@ -26,6 +26,7 @@ class MBRecord {
     var id: Int
     var mvrObj: OSRFObject?
     var searchFormat: String?
+    var copyCounts: [CopySummary]?
 
     var title: String { return mvrObj?.getString("title") ?? "Unknown" }
     var author: String { return mvrObj?.getString("author") ?? "Unknown" }

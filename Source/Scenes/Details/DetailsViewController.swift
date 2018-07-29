@@ -27,6 +27,7 @@ class DetailsViewController: UIViewController {
     //MARK: - Properties
 
     var item: MBRecord?
+    var searchParameters: SearchParameters?
     var canPlaceHold: Bool = true
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -38,6 +39,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
     
+    @IBOutlet weak var copySummaryLabel: UILabel!
     @IBOutlet weak var placeHoldButton: UIButton!
     @IBOutlet weak var copyInfoButton: UIButton!
     
@@ -73,9 +75,7 @@ class DetailsViewController: UIViewController {
         }
 
         synopsisLabel.text = item?.mvrObj?.getString("synopsis") ?? ""
-
         subjectLabel.text = item?.subject
-
         isbnLabel.text = item?.mvrObj?.getString("isbn") ?? ""
 
         Style.styleButton(asInverse: copyInfoButton)
@@ -87,16 +87,40 @@ class DetailsViewController: UIViewController {
         } else {
             placeHoldButton.isEnabled = false
         }
+        
+        updateCopySummary()
+    }
+    
+    func updateCopySummary() {
+        if let copyCounts = item?.copyCounts,
+            let copyCount = copyCounts.first,
+            let orgName = Organization.find(byId: copyCount.orgID)?.name
+        {
+            copySummaryLabel.text = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
+        } else {
+            copySummaryLabel.text = "? of ? copies available"
+        }
     }
     
     func fetchData() {
-//        guard let _ = App.account?.authtoken,
-//            let _ = App.account?.userID else
-//        {
-//            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
-//            return //TODO: add analytics
-//        }
-//        //TODO: fetch copy info
+        guard let _ = App.account?.authtoken,
+            let _ = App.account?.userID else
+        {
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            return //TODO: add analytics
+        }
+
+        if let orgID = Organization.find(byShortName: searchParameters?.organizationShortName)?.id,
+            let recordID = self.item?.id
+        {
+            let promise = SearchService.fetchCopySummary(orgID: orgID, recordID: recordID)
+            promise.done { array in
+                self.item?.copyCounts = CopySummary.makeArray(fromArray: array)
+                self.updateCopySummary()
+            }.catch { error in
+                self.presentGatewayAlert(forError: error)
+            }
+        }
     }
 
     @objc func viewCopyPressed(sender: Any) {
