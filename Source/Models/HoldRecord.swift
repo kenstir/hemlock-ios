@@ -43,6 +43,7 @@ class HoldRecord {
         }
     }
 
+    var id: Int? { return ahrObj.getInt("id") }
     var target: Int? { return ahrObj.getID("target") }
     var holdType: String? { return ahrObj.getString("hold_type") }
 

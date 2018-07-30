@@ -19,6 +19,7 @@
 
 import Foundation
 import PromiseKit
+import PMKAlamofire
 
 class CircService {
     static func renew(authtoken: String, userID: Int, targetCopy: Int) -> Promise<OSRFObject> {
@@ -47,5 +48,10 @@ class CircService {
         }
         let req = Gateway.makeRequest(service: API.circ, method: API.holdTestAndCreate, args: [authtoken, complexParam, [recordID]])
         return req.gatewayObjectResponse()
+    }
+    
+    static func cancelHold(authtoken: String, holdID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [authtoken, holdID])
+        return req.gatewayResponse()
     }
 }
