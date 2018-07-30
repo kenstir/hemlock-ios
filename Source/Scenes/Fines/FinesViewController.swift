@@ -61,7 +61,9 @@ class FinesViewController: UIViewController {
         // create and style the activity indicator
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
-        
+
+        self.setupHomeButton()
+
         Style.styleStackView(asTableHeader: finesSummary)
         Style.styleLabel(asTableHeader: totalOwedLabel)
         Style.styleLabel(asTableHeader: totalOwedVal)

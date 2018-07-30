@@ -87,7 +87,9 @@ class DetailsViewController: UIViewController {
         } else {
             placeHoldButton.isEnabled = false
         }
-        
+
+        self.setupHomeButton()
+
         updateCopySummary()
     }
     

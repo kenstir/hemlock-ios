@@ -53,6 +53,7 @@ class HoldsViewController: UIViewController {
         holdsTable.dataSource = self
         holdsTable.tableFooterView = UIView() // prevent display of ghost rows at end of table
         setupActivityIndicator()
+        self.setupHomeButton()
     }
     
     func setupActivityIndicator() {

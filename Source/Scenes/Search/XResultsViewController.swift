@@ -83,6 +83,8 @@ class XResultsViewController: ASViewController<ASTableNode> {
         // setting an empty UIView as the footer prevents the display of ghost rows at the end of the table
         tableNode.view.tableFooterView = UIView()
         
+        self.setupHomeButton()
+        
         self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         Style.styleActivityIndicator(activityIndicator)
         self.node.view.addSubview(activityIndicator)

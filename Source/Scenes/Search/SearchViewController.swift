@@ -84,7 +84,8 @@ class SearchViewController: UIViewController {
     }
     
     func setupViews() {
-        setupActivityIndicator()
+        setupActivityIndicator()        
+        self.setupHomeButton()
         setupSearchBar()
         setupScopeControl()
         setupFormatPicker()

@@ -20,13 +20,25 @@
 import UIKit
 
 extension UIViewController {
+    //MARK: - common view setup
+
     func addActivityIndicator() -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
         return activityIndicator
     }
-    
+
+    func setupHomeButton() {
+//        let homeButton = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(popToRootVC(sender:)))
+        let homeButton = UIBarButtonItem(image: UIImage(named: "Home"), style: .plain, target: self, action: #selector(popToRootVC(sender:)))
+        self.navigationItem.rightBarButtonItem = homeButton
+    }
+
+    @objc func popToRootVC(sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+
     //MARK: - showAlert
     
     func showAlert(title: String, message: String) {

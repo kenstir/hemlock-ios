@@ -59,6 +59,8 @@ class CheckoutsViewController: UIViewController {
         
         // style the activity indicator
         Style.styleActivityIndicator(activityIndicator)
+
+        self.setupHomeButton()
     }
     
     func fetchData() {

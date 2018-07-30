@@ -164,6 +164,8 @@ class PlaceHoldsViewController: UIViewController {
         holdsAuthorLabel.text = record?.author
         holdsSMSNumber.isUserInteractionEnabled = false
         Style.styleButton(asInverse: placeHoldButton)
+
+        self.setupHomeButton()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
