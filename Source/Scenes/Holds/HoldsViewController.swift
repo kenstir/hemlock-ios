@@ -187,6 +187,46 @@ class HoldsViewController: UIViewController {
         os_log("updateItems %d items", log: self.log, type: .info, items.count)
         holdsTable.reloadData()
     }
+
+    @objc func buttonPressed(sender: UIButton) {
+        let hold = items[sender.tag]
+        guard let authtoken = App.account?.authtoken,
+            let userID = App.account?.userID else
+        {
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            return
+        }
+        guard let target = hold.target else {
+            self.showAlert(title: "Internal Error", message: "Hold record has no target")
+            //TODO: analytics
+            return
+        }
+        
+        // confirm action
+        let alertController = UIAlertController(title: "Cancel hold?", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Keep Hold", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancel Hold", style: .default) { action in
+            self.cancelHold(authtoken: authtoken, userID: userID, target: target)
+        })
+        self.present(alertController, animated: true)
+    }
+    
+    func cancelHold(authtoken: String, userID: Int, target: Int) {
+        print("stop here")
+        /*
+        let promise = CircService.renew(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
+        promise.done { obj in
+            print("xxx obj = ")
+            debugPrint(obj)
+            print("xxx MAKE TOAST NOW")
+            self.navigationController?.view.makeToast("Item renewed")
+            // refresh data
+            self.fetchData()
+            }.catch { error in
+                self.presentGatewayAlert(forError: error)
+        }
+        */
+    }
 }
 
 extension HoldsViewController: UITableViewDataSource {
@@ -218,6 +258,11 @@ extension HoldsViewController: UITableViewDataSource {
         let holdstotaltext = "\(item.totalHolds) holds on \(item.potentialCopies) copies"
         cell.holdsQueueLabel.text = holdstotaltext
         cell.holdsQueuePosition.text = "Queue position: \(item.queuePosition)"
+
+        // add an action to the button
+        cell.holdsCancelButton.tag = indexPath.row
+        cell.holdsCancelButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+        Style.styleButton(asOutline: cell.holdsCancelButton)
 
         return cell
     }

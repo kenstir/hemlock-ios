@@ -28,5 +28,6 @@ class HoldsTableViewCell: UITableViewCell {
     @IBOutlet weak var holdsStatusLabel: UILabel!
     @IBOutlet weak var holdsQueueLabel: UILabel!
     @IBOutlet weak var holdsQueuePosition: UILabel!    
-
+    @IBOutlet weak var holdsCancelButton: UIButton!
+    
 }
