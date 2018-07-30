@@ -143,7 +143,7 @@ class CheckoutsViewController: UIViewController {
         tableView.reloadData()
     }
 
-    @IBAction func buttonPressed(sender: UIButton) {
+    @objc func buttonPressed(sender: UIButton) {
         let item = items[sender.tag]
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
@@ -168,11 +168,7 @@ class CheckoutsViewController: UIViewController {
     func renewItem(authtoken: String, userID: Int, targetCopy: Int) {
         let promise = CircService.renew(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
         promise.done { obj in
-            print("xxx obj = ")
-            debugPrint(obj)
-            print("xxx MAKE TOAST NOW")
             self.navigationController?.view.makeToast("Item renewed")
-            // refresh data
             self.fetchData()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
