@@ -23,6 +23,7 @@ import PromiseKit
 class ActorService {
     static var orgTypesLoaded = false
     static var orgTreeLoaded = false
+    static var userSettingsLoaded = false
 
     /// Fetch list of org types.
     static func fetchOrgTypesArray() -> Promise<Void> {
@@ -72,5 +73,24 @@ class ActorService {
             promises.append(promise)
         }
         return promises
+    }
+    
+    static func fetchUserSettings(account: Account) -> Promise<Void> {
+        if userSettingsLoaded {
+            return Promise<Void>()
+        }
+        guard let authtoken = account.authtoken,
+            let userID = account.userID else {
+            //TODO: analytics
+            return Promise<Void>()
+        }
+        let fields = ["card", "settings"]
+        let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [authtoken, userID, fields])
+        let promise = req.gatewayResponse().done { resp, pmkresp in
+            if let obj = resp.obj {
+                account.loadUserSettings(fromObject: obj)
+            }
+        }
+        return promise
     }
 }

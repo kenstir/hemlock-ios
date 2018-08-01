@@ -25,6 +25,31 @@ class Account {
     var authtokenExpiryDate: Date?
     var userID: Int?
     var homeOrgID: Int?
+    var defaultNotifyEmail: Bool?
+    var defaultNotifyPhone: Bool?
+    var defaultNotifySMS: Bool?
+
+    fileprivate var userSettingDefaultPickupLocation: Int?
+    fileprivate var userSettingDefaultPhone: String?
+    fileprivate var userSettingDefaultSearchLocation: Int?
+    fileprivate var userSettingDefaultSMSCarrier: Int?
+    fileprivate var userSettingDefaultSMSNotify: String?
+
+    var phone: String? { return userSettingDefaultPhone }
+    var pickupOrgID: Int? {
+        if let id = userSettingDefaultPickupLocation {
+            return id
+        }
+        return homeOrgID
+    }
+    var searchOrgID: Int? {
+        if let id = userSettingDefaultSearchLocation {
+            return id
+        }
+        return homeOrgID
+    }
+    var smsCarrier: Int? { return userSettingDefaultSMSCarrier }
+    var smsNotify: String? { return userSettingDefaultSMSNotify }
     
     init(_ username: String, password: String) {
         self.username = username
@@ -43,6 +68,51 @@ class Account {
         
         self.authtoken = authtoken
         self.authtokenExpiryDate = Date(timeIntervalSinceNow: TimeInterval(authtime))
+    }
+    
+    // Fix stupid setting that is returned with extra quotes, e.g. Int 52 in
+    // {"__c":"aus","__p":[1854914,"opac.default_sms_carrier",4212142,"\"52\""]}
+    private func removeStupidExtraQuotes(_ value: String?) -> String? {
+        if let s = value {
+            return s.trimQuotes()
+        } else {
+            return nil
+        }
+    }
+    
+    private func parseHoldNotifyValue(_ value: String) {
+        // value is something like "email|sms" or "email|phone"
+        for notify in value.split(onString: "|") {
+            if notify == "email"      { defaultNotifyEmail = true }
+            else if notify == "phone" { defaultNotifyPhone = true }
+            else if notify == "sms"   { defaultNotifySMS = true }
+        }
+    }
+    
+    func loadUserSettings(fromObject obj: OSRFObject) {
+        if let settings = obj.getAny("settings") as? [OSRFObject] {
+            debugPrint("here")
+            for setting in settings {
+                if let name = setting.getString("name"),
+                    let strvalue = removeStupidExtraQuotes(setting.getString("value"))
+                {
+                    print("setting=\(setting) name=\(name) value=\(strvalue)")
+                    if name == API.userSettingDefaultPickupLocation, let value = Int(strvalue) {
+                        userSettingDefaultPickupLocation = value
+                    } else if name == API.userSettingDefaultPhone {
+                        userSettingDefaultPhone = strvalue
+                    } else if name == API.userSettingDefaultSearchLocation, let value = Int(strvalue) {
+                        userSettingDefaultSearchLocation = value
+                    } else if name == API.userSettingDefaultSMSCarrier, let value = Int(strvalue) {
+                        userSettingDefaultSMSCarrier = value
+                    } else if name == API.userSettingDefaultSMSNotify {
+                        userSettingDefaultSMSNotify = strvalue
+                    } else if name == API.userSettingHoldNotify {
+                        parseHoldNotifyValue(strvalue)
+                    }
+                }
+            }
+        }
     }
     
     func clearCredentials() -> Void {

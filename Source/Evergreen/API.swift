@@ -39,6 +39,13 @@ struct API {
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let settingCreditPaymentsAllow = "credit.payments.allow"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"
+    static let userFleshedRetrieve = "open-ils.actor.user.fleshed.retrieve"
+    static let userSettingHoldNotify = "opac.hold_notify" // e.g. "email|sms"
+    static let userSettingDefaultPhone = "opac.default_phone"
+    static let userSettingDefaultPickupLocation = "opac.default_pickup_location"
+    static let userSettingDefaultSearchLocation =  "opac.default_search_location"
+    static let userSettingDefaultSMSCarrier = "opac.default_sms_carrier"
+    static let userSettingDefaultSMSNotify = "opac.default_sms_notify"
 
     //MARK: - auth service
 

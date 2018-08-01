@@ -63,10 +63,16 @@ class SearchViewController: UIViewController {
     //MARK: - Functions
     
     func fetchData() {
-        var promises: [Promise<Void>] = []
-        
+        guard let account = App.account else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired())
+            return //TODO: add analytics
+        }
+
+        var promises: [Promise<Void>] = []        
         promises.append(ActorService.fetchOrgTypesArray())
         promises.append(ActorService.fetchOrgTree())
+        promises.append(ActorService.fetchUserSettings(account: account))
 
         self.activityIndicator.startAnimating()
 
