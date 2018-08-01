@@ -134,10 +134,19 @@ class SearchViewController: UIViewController {
     
     func setupLocationPicker() {
         self.orgLabels = Organization.getSpinnerLabels()
+        var selectOrgIndex = 0
+        let defaultSearchLocation = App.account?.searchOrgID
+        for index in 0..<Organization.orgs.count {
+            let org = Organization.orgs[index]
+            if org.id == defaultSearchLocation {
+                selectOrgIndex = index
+            }
+        }
 
         let mcInputView = McPicker(data: [orgLabels])
         Style.stylePicker(asOrgPicker: mcInputView)
-        locationPicker.text = orgLabels[0].trim() //TODO: better initial value
+        mcInputView.pickerSelectRowsForComponents = [0: [selectOrgIndex: true]]
+        locationPicker.text = orgLabels[selectOrgIndex].trim()
         locationPicker.inputViewMcPicker = mcInputView
         locationPicker.doneHandler = { [weak locationPicker] (selections) in
             locationPicker?.text = selections[0]!.trim()

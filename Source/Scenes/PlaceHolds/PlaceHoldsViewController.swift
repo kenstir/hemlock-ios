@@ -75,7 +75,7 @@ class PlaceHoldsViewController: UIViewController {
     func setupLocationPicker() {
         let orgLabels = Organization.getSpinnerLabels()
         var selectOrgIndex = 0
-        let defaultPickupLocation = App.account?.homeOrgID // TODO: get from user prefs
+        let defaultPickupLocation = App.account?.pickupOrgID
         for index in 0..<Organization.orgs.count {
             let org = Organization.orgs[index]
             if org.id == defaultPickupLocation {
