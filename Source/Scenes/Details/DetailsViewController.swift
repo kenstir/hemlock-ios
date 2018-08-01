@@ -100,7 +100,7 @@ class DetailsViewController: UIViewController {
             let copyCount = copyCounts.last,
             let orgName = Organization.find(byId: copyCount.orgID)?.name
         {
-            copySummaryLabel.text = "\(copyCount.available) of \(copyCount.count) copies available\nat \(orgName)"
+            copySummaryLabel.text = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
         } else {
             copySummaryLabel.text = "? of ? copies available"
         }
