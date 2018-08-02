@@ -213,12 +213,16 @@ class PlaceHoldsViewController: UIViewController {
                 self.navigationController?.view.makeToast("Hold successfully placed")
                 self.navigationController?.popViewController(animated: true)
                 return
-            } else if let resultObj = obj.getAny("result") as? OSRFObject {
-                // case 2: result is an ilsevent objects - hold failed
-                throw self.holdError(resultObj: resultObj)
-            } else if let resultArray = obj.getAny("result") as? [OSRFObject] {
+            } else if let resultObj = obj.getAny("result") as? OSRFObject,
+                let eventObj = resultObj.getAny("last_event") as? OSRFObject
+            {
+                // case 2: result is an object with last_event - hold failed
+                throw self.holdError(obj: eventObj)
+            } else if let resultArray = obj.getAny("result") as? [OSRFObject],
+                let eventObj = resultArray.first
+            {
                 // case 3: result is an array of ilsevent objects - hold failed
-                throw self.holdError(resultObj: resultArray.first)
+                throw self.holdError(obj: eventObj)
             } else {
                 throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
             }
@@ -227,14 +231,13 @@ class PlaceHoldsViewController: UIViewController {
         }
     }
     
-    func holdError(resultObj: OSRFObject?) -> Error {
-        if let eventObj = resultObj?.getAny("last_event") as? OSRFObject,
-            let ilsevent = eventObj.getInt("ilsevent"),
-            let textcode = eventObj.getString("textcode"),
-            let desc = eventObj.getString("desc") {
+    func holdError(obj: OSRFObject) -> Error {
+        if let ilsevent = obj.getInt("ilsevent"),
+            let textcode = obj.getString("textcode"),
+            let desc = obj.getString("desc") {
             return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc)
         }
-        return HemlockError.unexpectedNetworkResponse(String(describing: resultObj))
+        return HemlockError.unexpectedNetworkResponse(String(describing: obj))
     }
 }
 
