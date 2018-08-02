@@ -81,7 +81,7 @@ class Account {
     }
     
     private func parseHoldNotifyValue(_ value: String) {
-        // value is something like "email|sms" or "email|phone"
+        // value is "|" separated, e.g. "email|sms" or "email|phone"
         for notify in value.split(onString: "|") {
             if notify == "email"      { defaultNotifyEmail = true }
             else if notify == "phone" { defaultNotifyPhone = true }

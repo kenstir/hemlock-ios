@@ -34,6 +34,7 @@ class PlaceHoldsViewController: UIViewController {
     var selectedCarrierName = ""
     var startOfFetch = Date()
 
+
     weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var holdsTitleLabel: UILabel!
@@ -47,9 +48,11 @@ class PlaceHoldsViewController: UIViewController {
     @IBAction func smsSwitchAction(_ sender: UISwitch) {
         if (sender.isOn) {
             holdsSMSNumber.isUserInteractionEnabled = true
-            holdsSMSNumber.becomeFirstResponder()
+//            holdsSMSNumber.becomeFirstResponder()
+            carrierPicker.isUserInteractionEnabled = true
         } else {
             holdsSMSNumber.isUserInteractionEnabled = false
+            carrierPicker.isUserInteractionEnabled = false
         }
     }
     @IBOutlet weak var placeHoldButton: UIButton!
@@ -60,7 +63,6 @@ class PlaceHoldsViewController: UIViewController {
     //MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupLocationPicker() //do this within fetchData()
         setupActivityIndicator()
         setupViews()
         fetchData()
@@ -97,18 +99,30 @@ class PlaceHoldsViewController: UIViewController {
     
     func setupCarrierPicker() {
         self.carrierLabels = SMSCarrier.getSpinnerLabels()
-        let selectCarrierIndex = 0 //TODO: get initial value from user prefs
+        var selectCarrierIndex = 0
+        carrierLabels.sort()
+        carrierLabels.insert("---", at: 0)
+        let savedCarrier = App.valet.string(forKey: "carrier") ?? "---"
+        for index in 0..<carrierLabels.count {
+            let carrier = carrierLabels[index]
+            if carrier == savedCarrier {
+                selectCarrierIndex = index
+            }
+        }
+
         let mcInputView = McPicker(data: [carrierLabels])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
         mcInputView.fontSize = 16
         mcInputView.pickerSelectRowsForComponents = [0: [selectCarrierIndex: true]]
+        self.selectedCarrierName = carrierLabels[selectCarrierIndex]
         carrierPicker.text = carrierLabels[selectCarrierIndex]
         carrierPicker.inputViewMcPicker = mcInputView
         carrierPicker.doneHandler = { [weak self, carrierPicker] (selections) in
             self?.selectedCarrierName = selections[0]!
             carrierPicker?.text = selections[0]!
         }
+        carrierPicker?.isUserInteractionEnabled = false
     }
 
     func fetchData() {
@@ -130,8 +144,6 @@ class PlaceHoldsViewController: UIViewController {
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
-//        }.finally {
-//            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -140,8 +152,6 @@ class PlaceHoldsViewController: UIViewController {
 
         promises.append(contentsOf: ActorService.fetchOrgSettings())
         print("xxx2 \(promises.count) promises made")
-
-//        self.activityIndicator.startAnimating()
       
         firstly {
             when(fulfilled: promises)
@@ -163,6 +173,7 @@ class PlaceHoldsViewController: UIViewController {
         formatLabel.text = record?.format
         holdsAuthorLabel.text = record?.author
         holdsSMSNumber.isUserInteractionEnabled = false
+        holdsSMSNumber.text = App.valet.string(forKey: "SMSNumber") ?? ""
         Style.styleButton(asInverse: placeHoldButton)
 
         self.setupHomeButton()
@@ -193,16 +204,21 @@ class PlaceHoldsViewController: UIViewController {
 
         var notifyPhoneNumber: String? = nil
         var notifyCarrierID: Int? = nil
-        if smsSwitch.isOn,
-            let carrier = SMSCarrier.find(byName: self.selectedCarrierName)
+        if smsSwitch.isOn
         {
-            guard let phoneNumber = holdsSMSNumber.text,
+            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else {
+                self.showAlert(title: "Error", message: "Please select a valid carrier")
+                return
+            }
+            App.valet.set(string: self.selectedCarrierName, forKey: "carrier")
+            guard let phoneNumber = holdsSMSNumber.text?.trim(),
                 phoneNumber.count > 0 else
             {
                 self.showAlert(title: "Error", message: "Phone number field cannot be empty")
                 return
             }
             notifyPhoneNumber = phoneNumber
+            App.valet.set(string: phoneNumber, forKey: "SMSNumber")
             notifyCarrierID = carrier.id
         }
 
