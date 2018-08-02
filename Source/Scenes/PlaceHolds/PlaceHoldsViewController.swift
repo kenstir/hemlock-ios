@@ -99,13 +99,20 @@ class PlaceHoldsViewController: UIViewController {
     
     func setupCarrierPicker() {
         self.carrierLabels = SMSCarrier.getSpinnerLabels()
-        var selectCarrierIndex = 0
         carrierLabels.sort()
         carrierLabels.insert("---", at: 0)
-        let savedCarrier = App.valet.string(forKey: "carrier") ?? "---"
+
+        var selectCarrierName: String?
+        var selectCarrierIndex = 0
+        if let defaultCarrierID = App.account?.smsCarrier,
+            let defaultCarrier = SMSCarrier.find(byID: defaultCarrierID) {
+            selectCarrierName = defaultCarrier.name
+        } else {
+            selectCarrierName = App.valet.string(forKey: "carrier")
+        }
         for index in 0..<carrierLabels.count {
             let carrier = carrierLabels[index]
-            if carrier == savedCarrier {
+            if carrier == selectCarrierName {
                 selectCarrierIndex = index
             }
         }
