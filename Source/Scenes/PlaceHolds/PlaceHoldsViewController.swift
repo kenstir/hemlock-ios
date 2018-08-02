@@ -180,7 +180,15 @@ class PlaceHoldsViewController: UIViewController {
         formatLabel.text = record?.format
         holdsAuthorLabel.text = record?.author
         holdsSMSNumber.isUserInteractionEnabled = false
-        holdsSMSNumber.text = App.valet.string(forKey: "SMSNumber") ?? ""
+        if let number = App.account?.smsNotify {
+            holdsSMSNumber.text = number
+        } else {
+            holdsSMSNumber.text = App.valet.string(forKey: "SMSNumber") ?? ""
+        }
+        if let val = App.account?.defaultNotifyEmail {
+            emailSwitch.isOn = val
+        }
+        
         Style.styleButton(asInverse: placeHoldButton)
 
         self.setupHomeButton()
