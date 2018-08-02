@@ -78,8 +78,9 @@ class DetailsViewController: UIViewController {
         subjectLabel.text = item?.subject
         isbnLabel.text = item?.mvrObj?.getString("isbn") ?? ""
 
-        Style.styleButton(asInverse: copyInfoButton)
-        copyInfoButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
+//        Style.styleButton(asInverse: copyInfoButton)
+//        copyInfoButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
+        copyInfoButton.isHidden = true // hide until it does something useful
         
         Style.styleButton(asInverse: placeHoldButton)
         if canPlaceHold {

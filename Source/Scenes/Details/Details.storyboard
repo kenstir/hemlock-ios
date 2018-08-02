@@ -55,15 +55,15 @@
                                     <constraint firstAttribute="width" constant="100" id="8GV-sl-dM5"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-kS-dbg" userLabel="Button Stack">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-kS-dbg" userLabel="Button Stack">
                                 <rect key="frame" x="16" y="250.5" width="288" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mw8-Dn-7Hk" userLabel="Place Hold">
-                                        <rect key="frame" x="0.0" y="0.0" width="136" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                         <state key="normal" title="Place Hold"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jN-lv-5hi" userLabel="Copy Info">
-                                        <rect key="frame" x="152" y="0.0" width="136" height="30"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jN-lv-5hi" userLabel="Copy Info">
+                                        <rect key="frame" x="-16" y="0.0" width="0.0" height="30"/>
                                         <state key="normal" title="Copy Info"/>
                                     </button>
                                 </subviews>
