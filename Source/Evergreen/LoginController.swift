@@ -54,9 +54,9 @@ class LoginController {
     
     func loginComplete(completion: @escaping (_: GatewayResponse) -> Void) {
         let md5password = md5(self.nonce! + md5(self.account.password))
-        let objectParam = ["type": "opac",
-                          "username": self.account.username,
-                          "password": md5password]
+        let objectParam = ["type": "persist",
+                           "username": self.account.username,
+                           "password": md5password]
         let request = Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam])
         print("request:  \(request.description)")
         request.responseData { response in
