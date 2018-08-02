@@ -46,14 +46,7 @@ class PlaceHoldsViewController: UIViewController {
     @IBOutlet weak var emailSwitch: UISwitch!
     @IBOutlet weak var smsSwitch: UISwitch!
     @IBAction func smsSwitchAction(_ sender: UISwitch) {
-        if (sender.isOn) {
-            holdsSMSNumber.isUserInteractionEnabled = true
-//            holdsSMSNumber.becomeFirstResponder()
-            carrierPicker.isUserInteractionEnabled = true
-        } else {
-            holdsSMSNumber.isUserInteractionEnabled = false
-            carrierPicker.isUserInteractionEnabled = false
-        }
+        setupSMSSwitch()
     }
     @IBOutlet weak var placeHoldButton: UIButton!
     @IBAction func placeHoldButtonPressed(_ sender: UIButton) {
@@ -131,6 +124,17 @@ class PlaceHoldsViewController: UIViewController {
         }
         carrierPicker?.isUserInteractionEnabled = false
     }
+    
+    func setupSMSSwitch() {
+        if (smsSwitch.isOn) {
+            holdsSMSNumber.isUserInteractionEnabled = true
+//            holdsSMSNumber.becomeFirstResponder()
+            carrierPicker.isUserInteractionEnabled = true
+        } else {
+            holdsSMSNumber.isUserInteractionEnabled = false
+            carrierPicker.isUserInteractionEnabled = false
+        }
+    }
 
     func fetchData() {
         self.startOfFetch = Date()
@@ -188,6 +192,10 @@ class PlaceHoldsViewController: UIViewController {
         if let val = App.account?.defaultNotifyEmail {
             emailSwitch.isOn = val
         }
+        if let val = App.account?.defaultNotifySMS {
+            smsSwitch.isOn = val
+        }
+        setupSMSSwitch()
         
         Style.styleButton(asInverse: placeHoldButton)
 
