@@ -62,10 +62,11 @@
 		D260755B20E144E000795124 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
 		D260755C20E144E000795124 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
 		D260755E20E165D200795124 /* FormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755D20E165D200795124 /* FormatTests.swift */; };
+		D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
-		D267E4E7210D17F900C56047 /* CopySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopySummary.swift */; };
-		D267E4E8210D17F900C56047 /* CopySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopySummary.swift */; };
+		D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -257,8 +258,9 @@
 		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		D260755A20E144E000795124 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		D260755D20E165D200795124 /* FormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTests.swift; sourceTree = "<group>"; };
+		D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCounts.swift; sourceTree = "<group>"; };
 		D267E4E3210CDE4700C56047 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
-		D267E4E6210D17F900C56047 /* CopySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopySummary.swift; sourceTree = "<group>"; };
+		D267E4E6210D17F900C56047 /* CopyCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCounts.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -469,8 +471,9 @@
 				D2BBA99920F29F0E00B25146 /* ActorService.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D28725AD20E86F30002A4C42 /* CircService.swift */,
+				D267E4E6210D17F900C56047 /* CopyCounts.swift */,
+				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
-				D267E4E6210D17F900C56047 /* CopySummary.swift */,
 				D22D02662083E45700DC1F5B /* Corsortium.swift */,
 				D260755A20E144E000795124 /* Format.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
@@ -941,6 +944,7 @@
 				FA37C3F920FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
 				D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */,
+				D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
@@ -953,7 +957,7 @@
 				D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */,
 				D28290F820E6F770008EBE4B /* Style.swift in Sources */,
 				D27990EE20DDD473003B451E /* MainViewController.swift in Sources */,
-				D267E4E7210D17F900C56047 /* CopySummary.swift in Sources */,
+				D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */,
 				D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */,
 				D27990EF20DDD473003B451E /* Account.swift in Sources */,
 				D27990F020DDD473003B451E /* LoginController.swift in Sources */,
@@ -1021,7 +1025,7 @@
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
-				D267E4E8210D17F900C56047 /* CopySummary.swift in Sources */,
+				D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 				D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */,

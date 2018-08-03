@@ -47,6 +47,7 @@ class CopyStatus {
                 opac_visible
             {
                 CopyStatus.status[id] = name
+                print("xxxcopy \(id) \(name) \(opac_visible)")
             }
         }
     }

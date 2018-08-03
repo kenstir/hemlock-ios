@@ -325,12 +325,12 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func test_copySummary() {
+    func test_copyCounts() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let promise = SearchService.fetchCopySummary(orgID: self.consortiumOrgID, recordID: self.sampleRecordID!)
+        let promise = SearchService.fetchCopyCounts(orgID: self.consortiumOrgID, recordID: self.sampleRecordID!)
         promise.done { array in
-            let copyCounts = CopySummary.makeArray(fromArray: array)
+            let copyCounts = CopyCounts.makeArray(fromArray: array)
             XCTAssertGreaterThan(copyCounts.count, 0)
             expectation.fulfill()
         }.catch { error in
@@ -339,6 +339,28 @@ class LiveServiceTests: XCTestCase {
         }
         
         wait(for: [expectation], timeout: 10)
+    }
+    
+    func test_copyLocationCounts() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", parent: nil, ouType: 0)
+        let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: self.sampleRecordID!)
+        promise.done { resp, pmkresp in
+            let s = resp.str
+            print("s: \(s)")
+            let obj = resp.obj
+            print("obj: \(obj)")
+            let arr = resp.array
+            print("arr: \(arr)")
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 10)
+        print("done")
     }
 
     //MARK: - actorCheckedOut

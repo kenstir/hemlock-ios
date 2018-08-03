@@ -118,9 +118,9 @@ class DetailsViewController: UIViewController {
         if let orgID = Organization.find(byShortName: searchParameters?.organizationShortName)?.id,
             let recordID = self.item?.id
         {
-            let promise = SearchService.fetchCopySummary(orgID: orgID, recordID: recordID)
+            let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: recordID)
             promise.done { array in
-                self.item?.copyCounts = CopySummary.makeArray(fromArray: array)
+                self.item?.copyCounts = CopyCounts.makeArray(fromArray: array)
                 self.updateCopySummary()
             }.catch { error in
                 self.presentGatewayAlert(forError: error)

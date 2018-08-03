@@ -161,8 +161,6 @@ class Organization {
     static func loadOrganizations(fromObj obj: OSRFObject) throws -> Void {
         orgs = []
         try addOrganization(obj, level: 0)
-        
-        //TODO: sort?
     }
     
     static func addOrganization(_ obj: OSRFObject, level: Int) throws -> Void {
@@ -181,7 +179,6 @@ class Organization {
             self.orgs.append(org)
         }
         if let children = obj.getAny("children") {
-            debugPrint(children)
             if let childObjArray = children as? [OSRFObject] {
                 for child in childObjArray {
                     try addOrganization(child, level: level + 1)
