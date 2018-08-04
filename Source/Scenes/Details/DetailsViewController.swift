@@ -21,7 +21,6 @@ import UIKit
 import PromiseKit
 import PMKAlamofire
 
-
 class DetailsViewController: UIViewController {
     
     //MARK: - Properties
@@ -78,9 +77,8 @@ class DetailsViewController: UIViewController {
         subjectLabel.text = item?.subject
         isbnLabel.text = item?.mvrObj?.getString("isbn") ?? ""
 
-//        Style.styleButton(asInverse: copyInfoButton)
-//        copyInfoButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
-        copyInfoButton.isHidden = true // hide until it does something useful
+        Style.styleButton(asInverse: copyInfoButton)
+        copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), for: .touchUpInside)
         
         Style.styleButton(asInverse: placeHoldButton)
         if canPlaceHold {
@@ -128,8 +126,19 @@ class DetailsViewController: UIViewController {
         }
     }
 
-    @objc func viewCopyPressed(sender: Any) {
-        self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
+    @objc func copyInfoPressed(sender: Any) {
+        if let recordID = self.item?.id,
+            let org = Organization.find(byShortName: self.searchParameters?.organizationShortName)
+        {
+            let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
+            promise.done { resp, pmkresp in
+                let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload)
+                for elem in copyLocationCounts {
+                    debugPrint(elem)
+                }
+                print("stop here")
+            }
+        }
     }
 
     @objc func placeHoldPressed(sender: Any) {

@@ -73,6 +73,7 @@ class SearchViewController: UIViewController {
         promises.append(ActorService.fetchOrgTypesArray())
         promises.append(ActorService.fetchOrgTree())
         promises.append(ActorService.fetchUserSettings(account: account))
+        promises.append(SearchService.fetchCopyStatusAll())
 
         self.activityIndicator.startAnimating()
 

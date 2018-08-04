@@ -63,6 +63,7 @@
 		D260755C20E144E000795124 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
 		D260755E20E165D200795124 /* FormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755D20E165D200795124 /* FormatTests.swift */; };
 		D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
@@ -1013,6 +1014,7 @@
 				FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
+				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
