@@ -135,4 +135,22 @@ class GatewayResponseTests: XCTestCase {
             XCTFail()
         }
     }
+    
+    func test_copyLocationCounts() {
+        let json = """
+            {"payload":[[["280","","782.2530973 AMERICAN","","Adult",{"1":1}]]],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        XCTAssertEqual(resp.type, .unknown)
+        guard let payload = resp.payload else {
+            XCTFail()
+            return
+        }
+        let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: payload)
+        XCTAssertEqual(copyLocationCounts.count, 1)
+        let copyLocationCount = copyLocationCounts.first
+        XCTAssertEqual(copyLocationCount?.countsByStatus.count, 1)
+        XCTAssertEqual(copyLocationCount?.location, "Adult")
+    }
 }

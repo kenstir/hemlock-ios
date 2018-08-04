@@ -20,31 +20,53 @@
 import Foundation
 
 class CopyLocationCounts {
-    let org_id: Int
-    let call_number_prefix: String?
-    let call_number_label: String?
-    let call_number_suffix: String?
-    let copy_location: String
-    var countsByCopyStatus: [(Int, Int)] = [] // array of (copyStatusID,count)
+    let orgID: Int
+    let callNumberPrefix: String?
+    let callNumberLabel: String?
+    let callNumberSuffix: String?
+    let location: String
+    var countsByStatus: [(Int, Int)] = [] // (copyStatusID, count)
     
-    init(org_id: Int, call_number_prefix: String?, call_number_label: String?, call_number_suffix: String?, copy_location: String) {
-        self.org_id = org_id
-        self.call_number_prefix = call_number_prefix
-        self.call_number_label = call_number_label
-        self.call_number_suffix = call_number_suffix
-        self.copy_location = copy_location
+    init(orgID: Int, callNumberPrefix: String?, callNumberLabel: String?, callNumberSuffix: String?, location: String) {
+        self.orgID = orgID
+        self.callNumberPrefix = callNumberPrefix
+        self.callNumberLabel = callNumberLabel
+        self.callNumberSuffix = callNumberSuffix
+        self.location = location
     }
 
-    static func makeArray(fromArray objects: [OSRFObject]) -> [CopyCounts] {
-        var copyCounts: [CopyCounts] = []
-        for obj in objects {
-            if let orgID = obj.getInt("org_unit"),
-                let available = obj.getInt("available"),
-                let count = obj.getInt("count")
+    // The response to copyLocationCounts is a black sheep; it is not an OSRFObject
+    // in wire protocol, it is a raw payload.
+    static func makeArray(fromPayload payload: Any) -> [CopyLocationCounts] {
+        var copyLocationCounts: [CopyLocationCounts] = []
+        guard let payloadItems = payload as? [Any],
+            let array = payloadItems.first as? [Any] else
+        {
+            return copyLocationCounts
+        }
+        for elem in array {
+            debugPrint(elem)
+            if let a = elem as? [Any],
+                a.count == 6,
+                let orgIDString = a[0] as? String,
+                let orgID = Int(orgIDString),
+                let callNumberPrefix = a[1] as? String,
+                let callNumberLabel = a[2] as? String,
+                let callNumberSuffix = a[3] as? String,
+                let copyLocation = a[4] as? String,
+                let countsByStatus = a[5] as? [String: Int]
             {
-                copyCounts.append(CopyCounts(orgID: orgID, count: count, available: available))
+                debugPrint(countsByStatus)
+                let copyLocationCount = CopyLocationCounts(orgID: orgID, callNumberPrefix: callNumberPrefix, callNumberLabel: callNumberLabel, callNumberSuffix: callNumberSuffix, location: copyLocation)
+                copyLocationCounts.append(copyLocationCount)
+                for (copyStatusIDString, copyCount) in countsByStatus {
+                    if let copyStatusID = Int(copyStatusIDString) {
+                        copyLocationCount.countsByStatus.append((copyStatusID, copyCount))
+                        print("\(copyStatusID) -> \(copyCount)")
+                    }
+                }
             }
         }
-        return copyCounts
+        return copyLocationCounts
     }
 }

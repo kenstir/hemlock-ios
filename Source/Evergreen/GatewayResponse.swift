@@ -37,10 +37,11 @@ extension GatewayError: LocalizedError {
 }
 
 enum GatewayResponseType {
-    case string
     case object
     case array
+    case string
     case empty
+    case unknown
     case error
 }
 
@@ -57,6 +58,8 @@ struct GatewayResponse {
     var str: String? { return stringResult }
     var obj: OSRFObject? { return objectResult }
     var array: [OSRFObject]? { return arrayResult }
+    
+    var payload: Any? // raw payload
 
     var failed: Bool {
         return type == .error
@@ -111,6 +114,7 @@ struct GatewayResponse {
             error = .failure("Response missing payload")
             return
         }
+        self.payload = payload
         if payload.count == 0 {
             type = .empty
         } else if let val = payload.first as? [String: Any?] {
@@ -142,7 +146,7 @@ struct GatewayResponse {
             type = .string
             stringResult = val
         } else {
-            error = .failure("Response has unexpected payload: \(String(describing: payload))")
+            type = .unknown
             return
         }
         error = nil
