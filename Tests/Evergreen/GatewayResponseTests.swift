@@ -143,14 +143,16 @@ class GatewayResponseTests: XCTestCase {
         let resp = GatewayResponse(json)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertEqual(resp.type, .unknown)
-        guard let payload = resp.payload else {
+        guard let payload = resp.payload,
+            let payloadArray = payload as? [Any],
+            let first = payloadArray.first as? [Any],
+            let counts = first.first as? [Any] else
+        {
             XCTFail()
             return
         }
-        let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: payload)
-        XCTAssertEqual(copyLocationCounts.count, 1)
-        let copyLocationCount = copyLocationCounts.first
-        XCTAssertEqual(copyLocationCount?.countsByStatus.count, 1)
-        XCTAssertEqual(copyLocationCount?.location, "Adult")
+        XCTAssertEqual(payloadArray.count, 1)
+        XCTAssertEqual(first.count, 1)
+        XCTAssertEqual(counts.count, 6)
     }
 }

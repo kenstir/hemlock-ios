@@ -347,12 +347,12 @@ class LiveServiceTests: XCTestCase {
         let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", parent: nil, ouType: 0)
         let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: self.sampleRecordID!)
         promise.done { resp, pmkresp in
-            let s = resp.str
-            print("s: \(s)")
-            let obj = resp.obj
-            print("obj: \(obj)")
-            let arr = resp.array
-            print("arr: \(arr)")
+            XCTAssertNotNil(resp.payload)
+            let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload!)
+            XCTAssertEqual(copyLocationCounts.count, 1)
+            let copyLocationCount = copyLocationCounts.first
+            XCTAssertEqual(copyLocationCount?.countsByStatus.count, 1)
+            XCTAssertEqual(copyLocationCount?.location, "Adult")
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)
