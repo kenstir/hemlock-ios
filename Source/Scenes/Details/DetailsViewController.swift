@@ -126,6 +126,7 @@ class DetailsViewController: UIViewController {
         }
     }
 
+    // This code is just for show.  We should instead push a new VC to display the copy info.
     @objc func copyInfoPressed(sender: Any) {
         if let recordID = self.item?.id,
             let org = Organization.find(byShortName: self.searchParameters?.organizationShortName)
@@ -134,9 +135,20 @@ class DetailsViewController: UIViewController {
             promise.done { resp, pmkresp in
                 let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload)
                 for elem in copyLocationCounts {
-                    debugPrint(elem)
+                    if let org = Organization.find(byId: elem.orgID) {
+                        print("---------------------------")
+                        print(org.name)
+                        print(elem.location)
+                        print(elem.callNumber)
+                        for (copyStatusID, copyCount) in elem.countsByStatus {
+                            let copyStatus = CopyStatus.label(forID: copyStatusID)
+                            print("\(copyCount) \(copyStatus)")
+                        }
+                    }
                 }
                 print("stop here")
+            }.catch { error in
+                self.showAlert(error: error)
             }
         }
     }

@@ -27,6 +27,20 @@ class CopyLocationCounts {
     let location: String
     var countsByStatus: [(Int, Int)] = [] // (copyStatusID, count)
     
+    var callNumber: String {
+        var ret = ""
+        if let prefix = callNumberPrefix, prefix.count > 0 {
+            ret = ret + prefix + " "
+        }
+        if let label = callNumberLabel {
+            ret = ret + label
+        }
+        if let suffix = callNumberSuffix, suffix.count > 0 {
+            ret = ret + " " + suffix
+        }
+        return ret
+    }
+    
     init(orgID: Int, callNumberPrefix: String?, callNumberLabel: String?, callNumberSuffix: String?, location: String) {
         self.orgID = orgID
         self.callNumberPrefix = callNumberPrefix
@@ -35,17 +49,16 @@ class CopyLocationCounts {
         self.location = location
     }
 
-    // The response to copyLocationCounts is a black sheep; it is not an OSRFObject
+    // The response to copyLocationCounts is unusual; it is not an OSRFObject
     // in wire protocol, it is a raw payload.
-    static func makeArray(fromPayload payload: Any) -> [CopyLocationCounts] {
+    static func makeArray(fromPayload payload: Any?) -> [CopyLocationCounts] {
         var copyLocationCounts: [CopyLocationCounts] = []
         guard let payloadItems = payload as? [Any],
-            let array = payloadItems.first as? [Any] else
+            let items = payloadItems.first as? [Any] else
         {
             return copyLocationCounts
         }
-        for elem in array {
-            debugPrint(elem)
+        for elem in items {
             if let a = elem as? [Any],
                 a.count == 6,
                 let orgIDString = a[0] as? String,
@@ -56,15 +69,17 @@ class CopyLocationCounts {
                 let copyLocation = a[4] as? String,
                 let countsByStatus = a[5] as? [String: Int]
             {
-                debugPrint(countsByStatus)
                 let copyLocationCount = CopyLocationCounts(orgID: orgID, callNumberPrefix: callNumberPrefix, callNumberLabel: callNumberLabel, callNumberSuffix: callNumberSuffix, location: copyLocation)
                 copyLocationCounts.append(copyLocationCount)
                 for (copyStatusIDString, copyCount) in countsByStatus {
                     if let copyStatusID = Int(copyStatusIDString) {
                         copyLocationCount.countsByStatus.append((copyStatusID, copyCount))
-                        print("\(copyStatusID) -> \(copyCount)")
+                        //print("\(copyStatusID) -> \(copyCount)")
                     }
                 }
+            } else {
+                //TODO: analytics
+                print("failed to parse copyLocationCount \(elem)")
             }
         }
         return copyLocationCounts
