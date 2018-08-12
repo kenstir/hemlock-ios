@@ -136,8 +136,19 @@ class DetailsViewController: UIViewController {
                 let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload)
                 for elem in copyLocationCounts {
                     if let org = Organization.find(byId: elem.orgID) {
+                        var majorLocationText = org.name
+                        var minorLocationText = ""
+                        if AppSettings.groupCopyInfoBySystem,
+                            let parentID = org.parent,
+                            let parent = Organization.find(byId: parentID)
+                        {
+                            majorLocationText = parent.name
+                            minorLocationText = org.name
+                        }
+
                         print("---------------------------")
-                        print(org.name)
+                        print(majorLocationText)
+                        print(minorLocationText)
                         print(elem.location)
                         print(elem.callNumber)
                         for (copyStatusID, copyCount) in elem.countsByStatus {

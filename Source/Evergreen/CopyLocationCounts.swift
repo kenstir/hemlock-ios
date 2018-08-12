@@ -82,6 +82,40 @@ class CopyLocationCounts {
                 print("failed to parse copyLocationCount \(elem)")
             }
         }
-        return copyLocationCounts
+        
+        return CopyLocationCounts.sortArray(copyLocationCounts)
+    }
+    
+    private static func sortArray(_ array: [CopyLocationCounts]) -> [CopyLocationCounts] {
+        var ret: [CopyLocationCounts] = []
+
+        // if a branch is not opac visible, its copies should not be visible
+        for elem in array {
+            if Organization.find(byId: elem.orgID) != nil {
+                ret.append(elem)
+            }
+        }
+
+        if AppSettings.groupCopyInfoBySystem {
+            // sort by system, then by branch, like http://gapines.org/eg/opac/record/5700567?locg=1
+            ret.sort {
+                guard let a = Organization.find(byId: $0.orgID),
+                    let b = Organization.find(byId: $1.orgID) else { return true }
+
+                if let aParent = a.parent, let bParent = b.parent, aParent != bParent {
+                    return aParent < bParent
+                }
+                return a.name < b.name
+            }
+        } else {
+            ret.sort {
+                guard let a = Organization.find(byId: $0.orgID),
+                    let b = Organization.find(byId: $1.orgID) else { return true }
+                
+                return a.name < b.name
+            }
+        }
+
+        return ret
     }
 }

@@ -28,6 +28,7 @@ struct AppSettings {
     static let url = "https://catalog.cwmars.org"
 //    static let url = "https://kenstir.ddns.net"
     static let logSubsystem = "net.kenstir.apps.hemlock"
+    static let groupCopyInfoBySystem = false
 
     static func makeTheme() -> Theme {
         return HemlockTheme()
