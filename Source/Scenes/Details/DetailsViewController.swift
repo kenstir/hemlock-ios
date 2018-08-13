@@ -131,6 +131,14 @@ class DetailsViewController: UIViewController {
         if let recordID = self.item?.id,
             let org = Organization.find(byShortName: self.searchParameters?.organizationShortName)
         {
+            if let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController(),
+                let copyInfoVC = vc as? CopyInfoViewController
+            {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+
+
+            /*
             let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
             promise.done { resp, pmkresp in
                 let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload)
@@ -161,6 +169,7 @@ class DetailsViewController: UIViewController {
             }.catch { error in
                 self.showAlert(error: error)
             }
+            */
         }
     }
 

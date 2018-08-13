@@ -1,5 +1,5 @@
 //
-//  HoldsTableViewCell.swift
+//  CopyInfoTableViewCell.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -20,14 +20,6 @@
 import Foundation
 import UIKit
 
-class HoldsTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var holdsAuthorLabel: UILabel!
-    @IBOutlet weak var holdsTitleLabel: UILabel!
-    @IBOutlet weak var holdsFormatLabel: UILabel!
-    @IBOutlet weak var holdsStatusLabel: UILabel!
-    @IBOutlet weak var holdsQueueLabel: UILabel!
-    @IBOutlet weak var holdsQueuePosition: UILabel!    
-    @IBOutlet weak var holdsCancelButton: UIButton!
+class CopyInfoTableViewCell: UITableViewCell {
     
 }
