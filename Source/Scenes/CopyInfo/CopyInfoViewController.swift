@@ -25,6 +25,8 @@ class CopyInfoViewController: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     
+    var org: Organization?
+    var record: MBRecord?
     var items: [String] = []
     var didCompleteFetch = false
     
@@ -50,6 +52,42 @@ class CopyInfoViewController: UIViewController {
     }
     
     func fetchData() {
+        guard let recordID = record?.id,
+            let org = self.org else
+        {
+            //TODO: analytics
+            return
+        }
+        let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
+        promise.done { resp, pmkresp in
+            let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload)
+            for elem in copyLocationCounts {
+                if let org = Organization.find(byId: elem.orgID) {
+                    var majorLocationText = org.name
+                    var minorLocationText = ""
+                    if AppSettings.groupCopyInfoBySystem,
+                        let parentID = org.parent,
+                        let parent = Organization.find(byId: parentID)
+                    {
+                        majorLocationText = parent.name
+                        minorLocationText = org.name
+                    }
+                    
+                    print("---------------------------")
+                    print(majorLocationText)
+                    print(minorLocationText)
+                    print(elem.location)
+                    print(elem.callNumber)
+                    for (copyStatusID, copyCount) in elem.countsByStatus {
+                        let copyStatus = CopyStatus.label(forID: copyStatusID)
+                        print("\(copyCount) \(copyStatus)")
+                    }
+                }
+            }
+            print("stop here")
+        }.catch { error in
+            self.showAlert(error: error)
+        }
     }
 }
 
