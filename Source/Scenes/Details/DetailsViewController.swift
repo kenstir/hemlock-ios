@@ -128,48 +128,16 @@ class DetailsViewController: UIViewController {
 
     // This code is just for show.  We should instead push a new VC to display the copy info.
     @objc func copyInfoPressed(sender: Any) {
-        if let recordID = self.item?.id,
+        if let record = self.item,
             let org = Organization.find(byShortName: self.searchParameters?.organizationShortName)
         {
             if let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController(),
                 let copyInfoVC = vc as? CopyInfoViewController
             {
+                copyInfoVC.org = org
+                copyInfoVC.record = record
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-
-
-            /*
-            let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
-            promise.done { resp, pmkresp in
-                let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload)
-                for elem in copyLocationCounts {
-                    if let org = Organization.find(byId: elem.orgID) {
-                        var majorLocationText = org.name
-                        var minorLocationText = ""
-                        if AppSettings.groupCopyInfoBySystem,
-                            let parentID = org.parent,
-                            let parent = Organization.find(byId: parentID)
-                        {
-                            majorLocationText = parent.name
-                            minorLocationText = org.name
-                        }
-
-                        print("---------------------------")
-                        print(majorLocationText)
-                        print(minorLocationText)
-                        print(elem.location)
-                        print(elem.callNumber)
-                        for (copyStatusID, copyCount) in elem.countsByStatus {
-                            let copyStatus = CopyStatus.label(forID: copyStatusID)
-                            print("\(copyCount) \(copyStatus)")
-                        }
-                    }
-                }
-                print("stop here")
-            }.catch { error in
-                self.showAlert(error: error)
-            }
-            */
         }
     }
 
