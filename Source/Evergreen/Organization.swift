@@ -161,8 +161,6 @@ class Organization {
     static func loadOrganizations(fromObj obj: OSRFObject) throws -> Void {
         orgs = []
         try addOrganization(obj, level: 0)
-        
-        //TODO: sort?
     }
     
     static func addOrganization(_ obj: OSRFObject, level: Int) throws -> Void {
@@ -177,7 +175,7 @@ class Organization {
         }
         print("xxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
         if opacVisible {
-            let org = Organization(id: id, level: level, name: name, shortname: shortname, parent: parent, ouType: ouType)
+            let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), parent: parent, ouType: ouType)
             self.orgs.append(org)
         }
         if let children = obj.getAny("children") {
