@@ -118,6 +118,12 @@ class CopyLocationCounts {
                 ret.append(elem)
             }
         }
+        
+        print("--------------before sorting")
+        for elem in ret {
+            print("\(elem.copyInfoHeading)")
+            print("    \(elem.copyInfoSubheading)")
+        }
 
         if AppSettings.groupCopyInfoBySystem {
             // sort by system, then by branch, like http://gapines.org/eg/opac/record/5700567?locg=1
@@ -125,8 +131,13 @@ class CopyLocationCounts {
                 guard let a = Organization.find(byId: $0.orgID),
                     let b = Organization.find(byId: $1.orgID) else { return true }
 
-                if let aParent = a.parent, let bParent = b.parent, aParent != bParent {
-                    return aParent < bParent
+                if let aParent = a.parent,
+                    let aParentOrg = Organization.find(byId: aParent),
+                    let bParent = b.parent,
+                    let bParentOrg = Organization.find(byId: bParent),
+                    aParent != bParent
+                {
+                    return aParentOrg.name < bParentOrg.name
                 }
                 return a.name < b.name
             }
@@ -137,6 +148,12 @@ class CopyLocationCounts {
                 
                 return a.name < b.name
             }
+        }
+        
+        print("--------------after sorting")
+        for elem in ret {
+            print("\(elem.copyInfoHeading)")
+            print("    \(elem.copyInfoSubheading)")
         }
 
         return ret
