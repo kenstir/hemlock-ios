@@ -31,13 +31,20 @@ class CopyStatus {
         self.name = name
     }
     
-    static func getLabel(forID id: Int) -> String {
+    static func label(forID id: Int) -> String {
         if let name = status[id] {
             return name
         }
         return ""
     }
     
+    static func find(byID id: Int) -> String? {
+        if let statusLabel = status[id] {
+            return statusLabel
+        }
+        return nil
+    }
+
     static func loadCopyStatus(fromArray objects: [OSRFObject]) -> Void {
         status = [:]
         for obj in objects {
@@ -47,14 +54,8 @@ class CopyStatus {
                 opac_visible
             {
                 CopyStatus.status[id] = name
+                print("xxxcopy \(id) \(name) \(opac_visible)")
             }
         }
-    }
-    
-    static func find(byID id: Int) -> String? {
-        if let statusLabel = status[id] {
-            return statusLabel
-        }
-        return nil
     }
 }

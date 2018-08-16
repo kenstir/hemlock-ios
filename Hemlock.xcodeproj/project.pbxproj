@@ -50,6 +50,12 @@
 		D23E5A0420ED96E9005EB391 /* XResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
+		D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
+		D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
+		D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
+		D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
+		D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
+		D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D253343E20C3076D008176B9 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
 		D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
@@ -62,10 +68,12 @@
 		D260755B20E144E000795124 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
 		D260755C20E144E000795124 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
 		D260755E20E165D200795124 /* FormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755D20E165D200795124 /* FormatTests.swift */; };
+		D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
-		D267E4E7210D17F900C56047 /* CopySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopySummary.swift */; };
-		D267E4E8210D17F900C56047 /* CopySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopySummary.swift */; };
+		D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -247,6 +255,9 @@
 		D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XResultsViewController.swift; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoViewController.swift; sourceTree = "<group>"; };
+		D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CopyInfo.storyboard; sourceTree = "<group>"; };
+		D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
 		D253343F20C30789008176B9 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
@@ -257,8 +268,9 @@
 		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		D260755A20E144E000795124 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		D260755D20E165D200795124 /* FormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTests.swift; sourceTree = "<group>"; };
+		D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCounts.swift; sourceTree = "<group>"; };
 		D267E4E3210CDE4700C56047 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
-		D267E4E6210D17F900C56047 /* CopySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopySummary.swift; sourceTree = "<group>"; };
+		D267E4E6210D17F900C56047 /* CopyCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCounts.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -385,14 +397,15 @@
 		D212DB1120C3726F00267503 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FA88B4C420FC1AF9000F211F /* PlaceHolds */,
 				D212DB1220C3731C00267503 /* Checkouts */,
+				D248CBDA2120E9D70091D2E6 /* CopyInfo */,
 				D21F683520D803F900D953C1 /* Details */,
 				FACD141920CDA97E008F02D3 /* Fines */,
 				FACD141F20CDAFFD008F02D3 /* Holds */,
 				FACD142220CDBEBA008F02D3 /* Lists */,
 				D212DB1620C37B2600267503 /* Login */,
 				D212DB1520C37B0600267503 /* Main */,
+				FA88B4C420FC1AF9000F211F /* PlaceHolds */,
 				FACD142520CDC0C9008F02D3 /* Search */,
 			);
 			path = Scenes;
@@ -469,8 +482,9 @@
 				D2BBA99920F29F0E00B25146 /* ActorService.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D28725AD20E86F30002A4C42 /* CircService.swift */,
+				D267E4E6210D17F900C56047 /* CopyCounts.swift */,
+				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
-				D267E4E6210D17F900C56047 /* CopySummary.swift */,
 				D22D02662083E45700DC1F5B /* Corsortium.swift */,
 				D260755A20E144E000795124 /* Format.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
@@ -521,6 +535,16 @@
 				D231B5282081628900478D25 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D248CBDA2120E9D70091D2E6 /* CopyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */,
+				D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */,
+				D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */,
+			);
+			path = CopyInfo;
 			sourceTree = "<group>";
 		};
 		D279911220DDDC8C003B451E /* hemlock_app */ = {
@@ -787,6 +811,7 @@
 				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
 				FA88B4C620FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
+				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
 				D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */,
 				D279910220DDD473003B451E /* Documentation in Resources */,
@@ -805,6 +830,7 @@
 				D21F683720D8042800D953C1 /* Details.storyboard in Resources */,
 				FA88B4C720FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
+				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
@@ -928,6 +954,8 @@
 				D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */,
 				D28725AE20E86F30002A4C42 /* CircService.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
+				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
+				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D28290F520E5CF48008EBE4B /* UIView+.swift in Sources */,
 				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
 				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
@@ -941,6 +969,7 @@
 				FA37C3F920FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
 				D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */,
+				D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
@@ -953,7 +982,7 @@
 				D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */,
 				D28290F820E6F770008EBE4B /* Style.swift in Sources */,
 				D27990EE20DDD473003B451E /* MainViewController.swift in Sources */,
-				D267E4E7210D17F900C56047 /* CopySummary.swift in Sources */,
+				D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */,
 				D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */,
 				D27990EF20DDD473003B451E /* Account.swift in Sources */,
 				D27990F020DDD473003B451E /* LoginController.swift in Sources */,
@@ -996,6 +1025,8 @@
 				D279911A20DDE160003B451E /* AppSettings.swift in Sources */,
 				D28725AF20E88063002A4C42 /* CircService.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
+				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
+				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+.swift in Sources */,
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
@@ -1009,6 +1040,7 @@
 				FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
+				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
@@ -1021,7 +1053,7 @@
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
-				D267E4E8210D17F900C56047 /* CopySummary.swift in Sources */,
+				D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 				D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */,

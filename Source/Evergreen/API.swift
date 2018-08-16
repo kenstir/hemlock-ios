@@ -84,4 +84,5 @@ struct API {
     static let multiclassQuery = "open-ils.search.biblio.multiclass.query"
     static let copyStatusRetrieveAll = "open-ils.search.config.copy_status.retrieve.all"
     static let copyCount = "open-ils.search.biblio.record.copy_count"
+    static let copyLocationCounts = "open-ils.search.biblio.copy_location_counts.summary.retrieve"
 }

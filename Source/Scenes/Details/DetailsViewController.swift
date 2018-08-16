@@ -21,7 +21,6 @@ import UIKit
 import PromiseKit
 import PMKAlamofire
 
-
 class DetailsViewController: UIViewController {
     
     //MARK: - Properties
@@ -78,9 +77,8 @@ class DetailsViewController: UIViewController {
         subjectLabel.text = item?.subject
         isbnLabel.text = item?.mvrObj?.getString("isbn") ?? ""
 
-//        Style.styleButton(asInverse: copyInfoButton)
-//        copyInfoButton.addTarget(self, action: #selector(viewCopyPressed(sender:)), for: .touchUpInside)
-        copyInfoButton.isHidden = true // hide until it does something useful
+        Style.styleButton(asInverse: copyInfoButton)
+        copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), for: .touchUpInside)
         
         Style.styleButton(asInverse: placeHoldButton)
         if canPlaceHold {
@@ -118,9 +116,9 @@ class DetailsViewController: UIViewController {
         if let orgID = Organization.find(byShortName: searchParameters?.organizationShortName)?.id,
             let recordID = self.item?.id
         {
-            let promise = SearchService.fetchCopySummary(orgID: orgID, recordID: recordID)
+            let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: recordID)
             promise.done { array in
-                self.item?.copyCounts = CopySummary.makeArray(fromArray: array)
+                self.item?.copyCounts = CopyCounts.makeArray(fromArray: array)
                 self.updateCopySummary()
             }.catch { error in
                 self.presentGatewayAlert(forError: error)
@@ -128,8 +126,19 @@ class DetailsViewController: UIViewController {
         }
     }
 
-    @objc func viewCopyPressed(sender: Any) {
-        self.showAlert(title: "Not implemented", message: "This feature is not yet available.")
+    // This code is just for show.  We should instead push a new VC to display the copy info.
+    @objc func copyInfoPressed(sender: Any) {
+        if let record = self.item,
+            let org = Organization.find(byShortName: self.searchParameters?.organizationShortName)
+        {
+            if let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController(),
+                let copyInfoVC = vc as? CopyInfoViewController
+            {
+                copyInfoVC.org = org
+                copyInfoVC.record = record
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
 
     @objc func placeHoldPressed(sender: Any) {

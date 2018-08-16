@@ -19,6 +19,7 @@
 
 import Foundation
 import PromiseKit
+import PMKAlamofire
 
 class SearchService {
     static var copyStatusLoaded = false
@@ -35,9 +36,15 @@ class SearchService {
         return promise
     }
     
-    static func fetchCopySummary(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {
+    static func fetchCopyCounts(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {
         let req = Gateway.makeRequest(service: API.search, method: API.copyCount, args: [orgID, recordID])
         let promise = req.gatewayArrayResponse()
+        return promise
+    }
+    
+    static func fetchCopyLocationCounts(org: Organization, recordID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
+        let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: [recordID, org.id, org.level])
+        let promise = req.gatewayResponse()
         return promise
     }
 }

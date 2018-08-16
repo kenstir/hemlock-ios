@@ -1,6 +1,6 @@
 //
 //  HoldsTableViewCell.swift
-//  Hemlock
+//
 //  Copyright (C) 2018 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or

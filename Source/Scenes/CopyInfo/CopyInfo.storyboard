@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="APr-QO-Gc7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Copy Information-->
+        <scene sceneID="C8T-H4-MKY">
+            <objects>
+                <viewController title="Copy Information" id="APr-QO-Gc7" customClass="CopyInfoViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TPJ-pf-tyk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="j5M-zQ-ez2" userLabel="Copy Info Table">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CopyInfoTableViewCell" id="f83-m4-dJV" userLabel="Copy Info View Cell" customClass="CopyInfoTableViewCell" customModule="Hemlock" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="110"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f83-m4-dJV" id="HZK-vV-WNb">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="109.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Athens Regional Library System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTW-4c-rZC" userLabel="Heading">
+                                                    <rect key="frame" x="8" y="8" width="326" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Athens-Clarke County Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxh-tJ-ZDq" userLabel="Subheading">
+                                                    <rect key="frame" x="8" y="33" width="326" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUNG ADULT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5k-hz-wAh" userLabel="Location">
+                                                    <rect key="frame" x="48" y="62" width="99" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROWLING, J K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-4S-FFi" userLabel="Call Number">
+                                                    <rect key="frame" x="48" y="79" width="93" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Available 1 Reshelving" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-P9-NhG" userLabel="Copy Status Info">
+                                                    <rect key="frame" x="208" y="62" width="81" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aN9-P9-NhG" firstAttribute="leading" secondItem="z5k-hz-wAh" secondAttribute="leading" constant="160" id="3Ys-Z9-Tq4"/>
+                                                <constraint firstItem="z5k-hz-wAh" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="leading" constant="48" id="9fM-RU-odk"/>
+                                                <constraint firstItem="lxh-tJ-ZDq" firstAttribute="top" secondItem="lTW-4c-rZC" secondAttribute="bottom" constant="4" id="JF4-1w-heh"/>
+                                                <constraint firstItem="aN9-P9-NhG" firstAttribute="top" secondItem="lxh-tJ-ZDq" secondAttribute="bottom" constant="8" id="M5c-xv-weW"/>
+                                                <constraint firstItem="lTW-4c-rZC" firstAttribute="top" secondItem="HZK-vV-WNb" secondAttribute="top" constant="8" id="U4x-IA-MfN"/>
+                                                <constraint firstItem="z5k-hz-wAh" firstAttribute="top" secondItem="lxh-tJ-ZDq" secondAttribute="bottom" constant="8" id="Y36-x1-4QI"/>
+                                                <constraint firstItem="lTW-4c-rZC" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="leading" constant="8" id="aWV-dX-0Z6"/>
+                                                <constraint firstItem="VhY-4S-FFi" firstAttribute="top" secondItem="z5k-hz-wAh" secondAttribute="bottom" id="hFY-Na-bDU"/>
+                                                <constraint firstAttribute="trailing" secondItem="lTW-4c-rZC" secondAttribute="trailing" constant="8" id="oMM-KW-ggy"/>
+                                                <constraint firstAttribute="trailing" secondItem="lxh-tJ-ZDq" secondAttribute="trailing" constant="8" id="p8X-2J-7hg"/>
+                                                <constraint firstItem="lxh-tJ-ZDq" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="leading" constant="8" id="qOt-cZ-umq"/>
+                                                <constraint firstItem="VhY-4S-FFi" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="leading" constant="48" id="uii-5E-tAw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="callNumberLabel" destination="VhY-4S-FFi" id="Q5y-uV-DIE"/>
+                                            <outlet property="copyInfoLabel" destination="aN9-P9-NhG" id="tKr-k8-Vz6"/>
+                                            <outlet property="headingLabel" destination="lTW-4c-rZC" id="iNf-AZ-fhP"/>
+                                            <outlet property="locationLabel" destination="z5k-hz-wAh" id="fL5-Hs-Zno"/>
+                                            <outlet property="subheadingLabel" destination="lxh-tJ-ZDq" id="heI-5Y-d2n"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gz2-tD-rMa" firstAttribute="bottom" secondItem="j5M-zQ-ez2" secondAttribute="bottom" id="2hO-Ws-9aQ"/>
+                            <constraint firstItem="j5M-zQ-ez2" firstAttribute="top" secondItem="gz2-tD-rMa" secondAttribute="top" id="8Nw-qo-REQ"/>
+                            <constraint firstItem="j5M-zQ-ez2" firstAttribute="leading" secondItem="gz2-tD-rMa" secondAttribute="leading" id="fIp-hA-gOe"/>
+                            <constraint firstItem="gz2-tD-rMa" firstAttribute="trailing" secondItem="j5M-zQ-ez2" secondAttribute="trailing" id="kDj-IH-bTJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gz2-tD-rMa"/>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="j5M-zQ-ez2" id="mrB-3T-Ed3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S1w-jj-zhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-122.40000000000001" y="212.74362818590706"/>
+        </scene>
+    </scenes>
+</document>

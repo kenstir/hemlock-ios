@@ -1,5 +1,5 @@
 //
-//  AppSettings.swift
+//  CopyInfoTableViewCell.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -17,20 +17,15 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+import Foundation
 import UIKit
 
-//todo make this a protocol
-struct AppSettings {
-
-    //MARK: - Consortium Properties
-
-    static let appTitle = "Hemlock"
-    static let url = "https://catalog.cwmars.org"
-//    static let url = "https://kenstir.ddns.net"
-    static let logSubsystem = "net.kenstir.apps.hemlock"
-    static let groupCopyInfoBySystem = false
-
-    static func makeTheme() -> Theme {
-        return HemlockTheme()
-    }
+class CopyInfoTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var subheadingLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var callNumberLabel: UILabel!
+    @IBOutlet weak var copyInfoLabel: UILabel!
+    
 }

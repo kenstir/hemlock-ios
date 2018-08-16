@@ -27,6 +27,7 @@ struct AppSettings {
     static let appTitle = "PINES"
     static let url = "https://gapines.org"
     static let logSubsystem = "net.kenstir.apps.pines"
+    static let groupCopyInfoBySystem = true
 
     static func makeTheme() -> Theme {
         return PinesTheme()
