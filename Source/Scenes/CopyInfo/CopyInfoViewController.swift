@@ -106,6 +106,13 @@ extension CopyInfoViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        if let org = Organization.find(byId: item.orgID),
+            let baseurl_string = App.library?.url,
+            let url = URL(string: baseurl_string + "/eg/opac/library/" + org.shortname + "#main-content")
+        {
+            UIApplication.shared.open(url, options: [:])
+        }
     }
 }
 

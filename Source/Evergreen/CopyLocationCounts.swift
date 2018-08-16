@@ -119,11 +119,11 @@ class CopyLocationCounts {
             }
         }
         
-        print("--------------before sorting")
-        for elem in ret {
-            print("\(elem.copyInfoHeading)")
-            print("    \(elem.copyInfoSubheading)")
-        }
+//        print("--------------before sorting")
+//        for elem in ret {
+//            print("\(elem.copyInfoHeading)")
+//            print("    \(elem.copyInfoSubheading)")
+//        }
 
         if AppSettings.groupCopyInfoBySystem {
             // sort by system, then by branch, like http://gapines.org/eg/opac/record/5700567?locg=1
@@ -150,11 +150,11 @@ class CopyLocationCounts {
             }
         }
         
-        print("--------------after sorting")
-        for elem in ret {
-            print("\(elem.copyInfoHeading)")
-            print("    \(elem.copyInfoSubheading)")
-        }
+//        print("--------------after sorting")
+//        for elem in ret {
+//            print("\(elem.copyInfoHeading)")
+//            print("    \(elem.copyInfoSubheading)")
+//        }
 
         return ret
     }
