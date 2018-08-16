@@ -19,6 +19,7 @@
 
 import Foundation
 
+// Summary of the available/total copies in an org unit
 class CopyCounts {
 
     let orgID: Int

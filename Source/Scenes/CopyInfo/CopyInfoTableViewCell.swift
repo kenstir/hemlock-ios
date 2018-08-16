@@ -22,4 +22,10 @@ import UIKit
 
 class CopyInfoTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var headingLabel: UILabel!
+    @IBOutlet weak var subheadingLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var callNumberLabel: UILabel!
+    @IBOutlet weak var copyInfoLabel: UILabel!
+    
 }

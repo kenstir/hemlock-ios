@@ -19,14 +19,17 @@
 
 import Foundation
 
+// Details of the copies in an org unit; location, call number, and status
 class CopyLocationCounts {
     let orgID: Int
     let callNumberPrefix: String?
     let callNumberLabel: String?
     let callNumberSuffix: String?
-    let location: String
+    let shelvingLocation: String
     var countsByStatus: [(Int, Int)] = [] // (copyStatusID, count)
-    
+    var copyInfoHeading: String = "Unknown Location"
+    var copyInfoSubheading: String = ""
+
     var callNumber: String {
         var ret = ""
         if let prefix = callNumberPrefix, prefix.count > 0 {
@@ -41,12 +44,21 @@ class CopyLocationCounts {
         return ret
     }
     
+    var countsByStatusLabel: String {
+        var arr: [String] = []
+        for (copyStatusID, copyCount) in self.countsByStatus {
+            let copyStatus = CopyStatus.label(forID: copyStatusID)
+            arr.append("\(copyCount) \(copyStatus)")
+        }
+        return arr.joined(separator: "\n")
+    }
+    
     init(orgID: Int, callNumberPrefix: String?, callNumberLabel: String?, callNumberSuffix: String?, location: String) {
         self.orgID = orgID
         self.callNumberPrefix = callNumberPrefix
         self.callNumberLabel = callNumberLabel
         self.callNumberSuffix = callNumberSuffix
-        self.location = location
+        self.shelvingLocation = location
     }
 
     // The response to copyLocationCounts is unusual; it is not an OSRFObject
@@ -75,6 +87,17 @@ class CopyLocationCounts {
                     if let copyStatusID = Int(copyStatusIDString) {
                         copyLocationCount.countsByStatus.append((copyStatusID, copyCount))
                         //print("\(copyStatusID) -> \(copyCount)")
+                    }
+                }
+                if let org = Organization.find(byId: orgID) {
+                    copyLocationCount.copyInfoHeading = org.name
+                    copyLocationCount.copyInfoSubheading = ""
+                    if AppSettings.groupCopyInfoBySystem,
+                        let parentID = org.parent,
+                        let parent = Organization.find(byId: parentID)
+                    {
+                        copyLocationCount.copyInfoHeading = parent.name
+                        copyLocationCount.copyInfoSubheading = org.name
                     }
                 }
             } else {

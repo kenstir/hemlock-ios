@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
+import os.log
 
 class CopyInfoViewController: UIViewController {
     
@@ -27,7 +28,7 @@ class CopyInfoViewController: UIViewController {
     
     var org: Organization?
     var record: MBRecord?
-    var items: [String] = []
+    var items: [CopyLocationCounts] = []
     var didCompleteFetch = false
     
     //MARK: - UIViewController
@@ -45,7 +46,7 @@ class CopyInfoViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
-        //table.delegate = self
+        table.delegate = self
         table.dataSource = self
         table.tableFooterView = UIView() // prevent display of ghost rows at end of table
         self.setupHomeButton()
@@ -60,35 +61,18 @@ class CopyInfoViewController: UIViewController {
         }
         let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
         promise.done { resp, pmkresp in
-            let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload)
-            for elem in copyLocationCounts {
-                if let org = Organization.find(byId: elem.orgID) {
-                    var majorLocationText = org.name
-                    var minorLocationText = ""
-                    if AppSettings.groupCopyInfoBySystem,
-                        let parentID = org.parent,
-                        let parent = Organization.find(byId: parentID)
-                    {
-                        majorLocationText = parent.name
-                        minorLocationText = org.name
-                    }
-                    
-                    print("---------------------------")
-                    print(majorLocationText)
-                    print(minorLocationText)
-                    print(elem.location)
-                    print(elem.callNumber)
-                    for (copyStatusID, copyCount) in elem.countsByStatus {
-                        let copyStatus = CopyStatus.label(forID: copyStatusID)
-                        print("\(copyCount) \(copyStatus)")
-                    }
-                }
-            }
-            print("stop here")
+            self.items = CopyLocationCounts.makeArray(fromPayload: resp.payload)
+            self.updateItems()
         }.catch { error in
             self.showAlert(error: error)
         }
     }
+    
+    func updateItems() {
+        self.didCompleteFetch = true
+        table.reloadData()
+    }
+
 }
 
 extension CopyInfoViewController: UITableViewDataSource {
@@ -98,7 +82,7 @@ extension CopyInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ""
+        return record?.title
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,6 +91,11 @@ extension CopyInfoViewController: UITableViewDataSource {
         }
         
         let item = items[indexPath.row]
+        cell.headingLabel.text = item.copyInfoHeading
+        cell.subheadingLabel.text = item.copyInfoSubheading
+        cell.locationLabel.text = item.shelvingLocation
+        cell.callNumberLabel.text = item.callNumber
+        cell.copyInfoLabel.text = item.countsByStatusLabel
         
         return cell
     }

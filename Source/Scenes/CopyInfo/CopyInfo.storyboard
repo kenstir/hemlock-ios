@@ -75,6 +75,13 @@
                                                 <constraint firstItem="VhY-4S-FFi" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="leading" constant="48" id="uii-5E-tAw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="callNumberLabel" destination="VhY-4S-FFi" id="Q5y-uV-DIE"/>
+                                            <outlet property="copyInfoLabel" destination="aN9-P9-NhG" id="tKr-k8-Vz6"/>
+                                            <outlet property="headingLabel" destination="lTW-4c-rZC" id="iNf-AZ-fhP"/>
+                                            <outlet property="locationLabel" destination="z5k-hz-wAh" id="fL5-Hs-Zno"/>
+                                            <outlet property="subheadingLabel" destination="lxh-tJ-ZDq" id="heI-5Y-d2n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
