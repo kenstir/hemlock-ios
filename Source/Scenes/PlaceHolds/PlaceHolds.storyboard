@@ -18,17 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Treatise on the Snapping Turtle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="tp5-hx-PhR">
-                                <rect key="frame" x="8" y="44" width="312" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Treatise on the Snapping Turtle" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="tp5-hx-PhR">
+                                <rect key="frame" x="8" y="28" width="312" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="d2e-Pu-tYt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="v1r-fj-5ld" userLabel="Format">
-                                <rect key="frame" x="8" y="96" width="99" height="19.5"/>
+                                <rect key="frame" x="8" y="80" width="99" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="bZC-pV-28H"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rowlings, J. K." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7W-f3-FX4">
-                                <rect key="frame" x="8" y="123.5" width="267" height="19.5"/>
+                                <rect key="frame" x="8" y="107.5" width="267" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="267" id="3EM-tN-GsN"/>
                                 </constraints>
@@ -46,59 +46,106 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oie-s3-36i">
-                                <rect key="frame" x="8" y="183" width="103" height="17"/>
+                                <rect key="frame" x="8" y="167" width="120" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="103" id="HyE-C2-Guz"/>
+                                    <constraint firstAttribute="width" constant="120" id="HyE-C2-Guz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-Md-tui">
-                                <rect key="frame" x="8" y="224" width="113" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xnC-bn-xve">
-                                <rect key="frame" x="127" y="217" width="51" height="31"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vj-HV-0xR">
-                                <rect key="frame" x="8" y="265" width="108" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="53F-NA-Ywk">
-                                <rect key="frame" x="127" y="258" width="51" height="31"/>
-                                <connections>
-                                    <action selector="smsSwitchAction:" destination="UBG-v3-ceh" eventType="valueChanged" id="n7U-br-bCU"/>
-                                </connections>
-                            </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuq-OC-2ry" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
-                                <rect key="frame" x="127" y="176" width="193" height="30"/>
+                                <rect key="frame" x="134" y="160" width="178" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bf9-nQ-1VA">
-                                <rect key="frame" x="184" y="259" width="136" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" smartDashesType="yes" textContentType="tel"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Carrier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY5-t5-ZXD">
-                                <rect key="frame" x="8" y="306" width="78" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ejr-Dt-NiG" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
-                                <rect key="frame" x="127" y="299" width="193" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="c7y-Jf-fZg" userLabel="Email Notification Stack">
+                                <rect key="frame" x="8" y="194" width="304" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-Md-tui">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="a5q-5J-a2k"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xnC-bn-xve">
+                                        <rect key="frame" x="126" y="0.0" width="180" height="31"/>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Mtn-zG-s3c" userLabel="Phone Notification Stack">
+                                <rect key="frame" x="8" y="229" width="304" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giE-2I-C1e">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="0ZI-sV-9ou"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfI-qu-bt5" userLabel="Phone Switch">
+                                        <rect key="frame" x="125.5" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nik-nC-Gr8">
+                                        <rect key="frame" x="180.5" y="0.0" width="123.5" height="31"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fwy-hM-74Z" userLabel="SMS Notification Stack">
+                                <rect key="frame" x="8" y="264" width="304" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vj-HV-0xR">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="1XC-5m-qoS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="53F-NA-Ywk" userLabel="SMS Switch">
+                                        <rect key="frame" x="126" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="smsSwitchAction:" destination="UBG-v3-ceh" eventType="valueChanged" id="n7U-br-bCU"/>
+                                        </connections>
+                                    </switch>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bf9-nQ-1VA" userLabel="SMS Number">
+                                        <rect key="frame" x="181" y="0.0" width="123" height="31"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" smartDashesType="yes" textContentType="tel"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Pyo-os-L9K" userLabel="SMS Carrier Stack">
+                                <rect key="frame" x="8" y="299" width="304" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS Carrier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HY5-t5-ZXD">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="Uc0-mq-iCQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ejr-Dt-NiG" customClass="McTextField" customModule="Hemlock" customModuleProvider="target">
+                                        <rect key="frame" x="126" y="0.0" width="178" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzh-z8-gbN">
                                 <rect key="frame" x="56" y="369" width="208" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -110,38 +157,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="53F-NA-Ywk" firstAttribute="centerY" secondItem="0vj-HV-0xR" secondAttribute="centerY" id="09i-41-MNI"/>
-                            <constraint firstItem="xnC-bn-xve" firstAttribute="centerY" secondItem="mgX-Md-tui" secondAttribute="centerY" id="24m-LQ-eoK"/>
-                            <constraint firstItem="mgX-Md-tui" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="6f1-PV-zoA"/>
-                            <constraint firstItem="wuq-OC-2ry" firstAttribute="leading" secondItem="oie-s3-36i" secondAttribute="trailing" constant="16" id="8Bb-f6-ZBQ"/>
+                            <constraint firstItem="fwy-hM-74Z" firstAttribute="top" secondItem="Mtn-zG-s3c" secondAttribute="bottom" constant="4" id="0ek-Y7-6TZ"/>
+                            <constraint firstItem="fwy-hM-74Z" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="7LE-SL-2Su"/>
+                            <constraint firstItem="wuq-OC-2ry" firstAttribute="leading" secondItem="oie-s3-36i" secondAttribute="trailing" constant="6" id="8Bb-f6-ZBQ"/>
                             <constraint firstItem="wuq-OC-2ry" firstAttribute="centerY" secondItem="oie-s3-36i" secondAttribute="centerY" id="Au5-i0-4wI"/>
-                            <constraint firstItem="bf9-nQ-1VA" firstAttribute="leading" secondItem="53F-NA-Ywk" secondAttribute="trailing" constant="8" id="Bb0-dJ-a60"/>
+                            <constraint firstItem="Pyo-os-L9K" firstAttribute="top" secondItem="fwy-hM-74Z" secondAttribute="bottom" constant="4" id="C4M-cN-3dv"/>
                             <constraint firstItem="fzh-z8-gbN" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="56" id="ChP-bN-fNk"/>
                             <constraint firstItem="z7W-f3-FX4" firstAttribute="top" secondItem="v1r-fj-5ld" secondAttribute="bottom" constant="8" id="L1j-9U-tMD"/>
-                            <constraint firstItem="fzh-z8-gbN" firstAttribute="top" secondItem="Ejr-Dt-NiG" secondAttribute="bottom" constant="40" id="MhZ-nh-3bg"/>
-                            <constraint firstItem="wuq-OC-2ry" firstAttribute="trailing" secondItem="Vod-ZX-pnz" secondAttribute="trailingMargin" constant="16" id="RFC-jW-UGX"/>
+                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="fwy-hM-74Z" secondAttribute="trailing" constant="8" id="Msu-3q-hCz"/>
+                            <constraint firstItem="c7y-Jf-fZg" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="OMH-fK-Bkh"/>
+                            <constraint firstItem="wuq-OC-2ry" firstAttribute="trailing" secondItem="Vod-ZX-pnz" secondAttribute="trailingMargin" constant="8" id="RFC-jW-UGX"/>
                             <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="tp5-hx-PhR" secondAttribute="trailing" id="RRE-47-lhB"/>
-                            <constraint firstItem="HY5-t5-ZXD" firstAttribute="top" secondItem="0vj-HV-0xR" secondAttribute="bottom" constant="24" id="TUg-e5-yir"/>
-                            <constraint firstItem="mgX-Md-tui" firstAttribute="top" secondItem="oie-s3-36i" secondAttribute="bottom" constant="24" id="Ua8-Kv-y9O"/>
+                            <constraint firstItem="c7y-Jf-fZg" firstAttribute="top" secondItem="wuq-OC-2ry" secondAttribute="bottom" constant="4" id="Rx1-Na-Y4E"/>
+                            <constraint firstItem="fzh-z8-gbN" firstAttribute="top" secondItem="Pyo-os-L9K" secondAttribute="bottom" constant="40" id="S50-Wp-7cB"/>
                             <constraint firstItem="v1r-fj-5ld" firstAttribute="top" secondItem="tp5-hx-PhR" secondAttribute="bottom" constant="8" id="VG2-oR-Aks"/>
+                            <constraint firstItem="Mtn-zG-s3c" firstAttribute="top" secondItem="c7y-Jf-fZg" secondAttribute="bottom" constant="4" id="Viu-gC-kWH"/>
                             <constraint firstItem="oie-s3-36i" firstAttribute="top" secondItem="z7W-f3-FX4" secondAttribute="bottom" constant="40" id="WAA-Go-4Qm" userLabel="Pickup Location.top = AuthorLabel.bottom + 24"/>
-                            <constraint firstItem="xnC-bn-xve" firstAttribute="leading" secondItem="wuq-OC-2ry" secondAttribute="leading" id="Xgl-NK-TTN"/>
-                            <constraint firstItem="tp5-hx-PhR" firstAttribute="top" secondItem="WTg-HN-8zE" secondAttribute="top" constant="24" id="Xrh-Hg-4kW"/>
-                            <constraint firstItem="fzh-z8-gbN" firstAttribute="centerX" secondItem="Vod-ZX-pnz" secondAttribute="centerX" id="ZwT-zm-DgI"/>
-                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="Ejr-Dt-NiG" secondAttribute="trailing" id="bK2-eF-wJs"/>
-                            <constraint firstItem="HY5-t5-ZXD" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="bz2-oh-ZDP"/>
-                            <constraint firstItem="Ejr-Dt-NiG" firstAttribute="leading" secondItem="53F-NA-Ywk" secondAttribute="leading" id="cAc-AB-Mwz"/>
+                            <constraint firstItem="tp5-hx-PhR" firstAttribute="top" secondItem="WTg-HN-8zE" secondAttribute="top" constant="8" id="Xrh-Hg-4kW"/>
+                            <constraint firstItem="Pyo-os-L9K" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="aOE-Cb-lc3"/>
+                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="Pyo-os-L9K" secondAttribute="trailing" constant="8" id="aR8-4Y-9R4"/>
                             <constraint firstItem="v1r-fj-5ld" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="enc-bX-0lq"/>
-                            <constraint firstItem="bf9-nQ-1VA" firstAttribute="centerY" secondItem="53F-NA-Ywk" secondAttribute="centerY" id="h3Q-JO-vBI"/>
-                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="bf9-nQ-1VA" secondAttribute="trailing" id="hYy-cr-WT9"/>
-                            <constraint firstItem="53F-NA-Ywk" firstAttribute="leading" secondItem="xnC-bn-xve" secondAttribute="leading" id="jj6-sM-3yj"/>
-                            <constraint firstItem="0vj-HV-0xR" firstAttribute="top" secondItem="mgX-Md-tui" secondAttribute="bottom" constant="24" id="lRI-hs-JY3"/>
+                            <constraint firstItem="Mtn-zG-s3c" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="fUr-IF-r7B"/>
+                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="c7y-Jf-fZg" secondAttribute="trailing" constant="8" id="iwh-Uo-IIq"/>
                             <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="fzh-z8-gbN" secondAttribute="trailing" constant="56" id="lxK-iO-0lC"/>
                             <constraint firstItem="tp5-hx-PhR" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="nrA-wX-JCD"/>
                             <constraint firstItem="oie-s3-36i" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="wZR-Be-Vdp"/>
                             <constraint firstItem="z7W-f3-FX4" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="yLN-hc-M2x"/>
-                            <constraint firstItem="0vj-HV-0xR" firstAttribute="leading" secondItem="WTg-HN-8zE" secondAttribute="leading" constant="8" id="yoS-uM-bMt"/>
-                            <constraint firstItem="Ejr-Dt-NiG" firstAttribute="centerY" secondItem="HY5-t5-ZXD" secondAttribute="centerY" id="yuN-wu-0fz"/>
+                            <constraint firstItem="WTg-HN-8zE" firstAttribute="trailing" secondItem="Mtn-zG-s3c" secondAttribute="trailing" constant="8" id="zrW-fN-mQy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WTg-HN-8zE"/>
                     </view>
@@ -150,10 +192,14 @@
                         <outlet property="emailSwitch" destination="xnC-bn-xve" id="fme-KB-Ks8"/>
                         <outlet property="formatLabel" destination="v1r-fj-5ld" id="TXr-gb-IjH"/>
                         <outlet property="holdsAuthorLabel" destination="z7W-f3-FX4" id="Xp6-Mf-ITo"/>
-                        <outlet property="holdsSMSNumber" destination="bf9-nQ-1VA" id="5VV-sq-sJ7"/>
                         <outlet property="holdsTitleLabel" destination="tp5-hx-PhR" id="RDQ-8C-ED4"/>
                         <outlet property="locationPicker" destination="wuq-OC-2ry" id="QBO-vv-e0w"/>
+                        <outlet property="phoneLabel" destination="giE-2I-C1e" id="oxY-et-eos"/>
+                        <outlet property="phoneNumber" destination="nik-nC-Gr8" id="wVG-Fx-CNw"/>
+                        <outlet property="phoneStack" destination="Mtn-zG-s3c" id="akY-uf-sME"/>
+                        <outlet property="phoneSwitch" destination="bfI-qu-bt5" id="3Q1-U2-Zrg"/>
                         <outlet property="placeHoldButton" destination="fzh-z8-gbN" id="B5V-HY-ZXq"/>
+                        <outlet property="smsNumber" destination="bf9-nQ-1VA" id="5VV-sq-sJ7"/>
                         <outlet property="smsSwitch" destination="53F-NA-Ywk" id="NWy-dU-zee"/>
                     </connections>
                 </viewController>

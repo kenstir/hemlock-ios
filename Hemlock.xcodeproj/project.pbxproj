@@ -560,9 +560,9 @@
 			children = (
 				D279911720DDE11E003B451E /* AppSettings.swift */,
 				D279910E20DDD760003B451E /* Hemlock.xcassets */,
-				D279910B20DDD473003B451E /* Info.plist */,
-				D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */,
 				D2A74B1821289F2E001D4B0F /* HemlockAppConfiguration.swift */,
+				D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */,
+				D279910B20DDD473003B451E /* Info.plist */,
 			);
 			path = hemlock_app;
 			sourceTree = "<group>";
@@ -656,10 +656,10 @@
 			isa = PBXGroup;
 			children = (
 				D279911920DDE160003B451E /* AppSettings.swift */,
-				D279911020DDD77F003B451E /* PINES.xcassets */,
 				D287D507207AEF2C001AF644 /* Info.plist */,
-				D23C304D20E5C6C800666A2B /* PinesTheme.swift */,
+				D279911020DDD77F003B451E /* PINES.xcassets */,
 				D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */,
+				D23C304D20E5C6C800666A2B /* PinesTheme.swift */,
 			);
 			path = pines_app;
 			sourceTree = "<group>";

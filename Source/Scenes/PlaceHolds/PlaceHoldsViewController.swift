@@ -37,11 +37,15 @@ class PlaceHoldsViewController: UIViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
+    @IBOutlet weak var phoneStack: UIStackView!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var phoneSwitch: UISwitch!
+    @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var holdsTitleLabel: UILabel!
     @IBOutlet weak var formatLabel: UILabel!
     @IBOutlet weak var locationPicker: McTextField!
     @IBOutlet weak var holdsAuthorLabel: UILabel!
-    @IBOutlet weak var holdsSMSNumber: UITextField!
+    @IBOutlet weak var smsNumber: UITextField!
     @IBOutlet weak var carrierPicker: McTextField!
     @IBOutlet weak var emailSwitch: UISwitch!
     @IBOutlet weak var smsSwitch: UISwitch!
@@ -56,12 +60,42 @@ class PlaceHoldsViewController: UIViewController {
     //MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupActivityIndicator()
         setupViews()
         fetchData()
-        holdsSMSNumber.delegate = self
     }
-    
+
+    func setupViews() {
+        holdsTitleLabel.text = record?.title
+        formatLabel.text = record?.format
+        holdsAuthorLabel.text = record?.author
+        smsNumber.delegate = self
+        smsNumber.isUserInteractionEnabled = false
+        if let number = App.account?.smsNotify {
+            smsNumber.text = number
+        } else {
+            smsNumber.text = App.valet.string(forKey: "SMSNumber") ?? ""
+        }
+        if let val = App.account?.defaultNotifyEmail {
+            emailSwitch.isOn = val
+        }
+        if let val = App.account?.defaultNotifySMS {
+            smsSwitch.isOn = val
+        }
+        setupSMSSwitch()
+        if !App.config.enablePhoneNotification  {
+            phoneStack.isHidden = true
+            phoneLabel.isHidden = true
+            phoneSwitch.isHidden = true
+            phoneNumber.isHidden = true
+            //            phoneStack.removeFromSuperview()    // screwed up layout
+        }
+        
+        Style.styleButton(asInverse: placeHoldButton)
+        
+        setupActivityIndicator()
+        self.setupHomeButton()
+    }
+
     func setupActivityIndicator() {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
@@ -127,11 +161,11 @@ class PlaceHoldsViewController: UIViewController {
     
     func setupSMSSwitch() {
         if (smsSwitch.isOn) {
-            holdsSMSNumber.isUserInteractionEnabled = true
+            smsNumber.isUserInteractionEnabled = true
 //            holdsSMSNumber.becomeFirstResponder()
             carrierPicker.isUserInteractionEnabled = true
         } else {
-            holdsSMSNumber.isUserInteractionEnabled = false
+            smsNumber.isUserInteractionEnabled = false
             carrierPicker.isUserInteractionEnabled = false
         }
     }
@@ -178,32 +212,9 @@ class PlaceHoldsViewController: UIViewController {
             self.activityIndicator.stopAnimating()
         }
     }
-
-    func setupViews() {
-        holdsTitleLabel.text = record?.title
-        formatLabel.text = record?.format
-        holdsAuthorLabel.text = record?.author
-        holdsSMSNumber.isUserInteractionEnabled = false
-        if let number = App.account?.smsNotify {
-            holdsSMSNumber.text = number
-        } else {
-            holdsSMSNumber.text = App.valet.string(forKey: "SMSNumber") ?? ""
-        }
-        if let val = App.account?.defaultNotifyEmail {
-            emailSwitch.isOn = val
-        }
-        if let val = App.account?.defaultNotifySMS {
-            smsSwitch.isOn = val
-        }
-        setupSMSSwitch()
-        
-        Style.styleButton(asInverse: placeHoldButton)
-
-        self.setupHomeButton()
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        holdsSMSNumber.resignFirstResponder()
+        smsNumber.resignFirstResponder()
     }
     
     func placeHold() {
@@ -235,7 +246,7 @@ class PlaceHoldsViewController: UIViewController {
                 return
             }
             App.valet.set(string: self.selectedCarrierName, forKey: "carrier")
-            guard let phoneNumber = holdsSMSNumber.text?.trim(),
+            guard let phoneNumber = smsNumber.text?.trim(),
                 phoneNumber.count > 0 else
             {
                 self.showAlert(title: "Error", message: "Phone number field cannot be empty")
