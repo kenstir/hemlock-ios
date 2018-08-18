@@ -42,8 +42,13 @@ class SearchService {
         return promise
     }
     
-    static func fetchCopyLocationCounts(org: Organization, recordID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
-        let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: [recordID, org.id, org.level])
+    static func fetchCopyLocationCounts(org: Organization?, recordID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
+        var args: [Any] = [recordID]
+        if let searchOrg = org {
+            args.append(searchOrg.id)
+            args.append(searchOrg.level)
+        }
+        let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: args)
         let promise = req.gatewayResponse()
         return promise
     }

@@ -68,6 +68,7 @@ class OrgType {
 class Organization {
     static var orgs: [Organization] = []
     static var isSMSEnabledSetting = false
+    static var consortiumOrgID = 1 // as defaulted in Open-ILS code
 
     var id: Int
     var level: Int
@@ -145,6 +146,10 @@ class Organization {
         }
         return nil
     }
+    
+//    static func consortium() -> Organization? {
+//        return orgs.first(where: { $0.parent == nil })
+//    }
 
     static func getSpinnerLabels() -> [String] {
         //return orgs.map { $0.name }

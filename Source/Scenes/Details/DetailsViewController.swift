@@ -93,15 +93,13 @@ class DetailsViewController: UIViewController {
     }
     
     func updateCopySummary() {
-        if !canPlaceHold {
-            copySummaryLabel.text = ""
-        } else if let copyCounts = item?.copyCounts,
+        if let copyCounts = item?.copyCounts,
             let copyCount = copyCounts.last,
             let orgName = Organization.find(byId: copyCount.orgID)?.name
         {
             copySummaryLabel.text = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
         } else {
-            copySummaryLabel.text = "? of ? copies available"
+            copySummaryLabel.text = ""
         }
     }
     
@@ -113,23 +111,32 @@ class DetailsViewController: UIViewController {
             return //TODO: add analytics
         }
 
-        if let orgID = Organization.find(byShortName: searchParameters?.organizationShortName)?.id,
-            let recordID = self.item?.id
+        var promises: [Promise<Void>] = []
+        promises.append(ActorService.fetchOrgTree())
+        promises.append(SearchService.fetchCopyStatusAll())
+
+        let orgID = Organization.find(byShortName: searchParameters?.organizationShortName)?.id ?? Organization.consortiumOrgID
+        if let recordID = self.item?.id
         {
             let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: recordID)
-            promise.done { array in
+            let done_promise = promise.done { array in
                 self.item?.copyCounts = CopyCounts.makeArray(fromArray: array)
-                self.updateCopySummary()
-            }.catch { error in
-                self.presentGatewayAlert(forError: error)
             }
+            promises.append(done_promise)
+        }
+        
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            self.updateCopySummary()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
         }
     }
 
     @objc func copyInfoPressed(sender: Any) {
-        if let record = self.item,
+        if let record = self.item {
             let org = Organization.find(byShortName: self.searchParameters?.organizationShortName)
-        {
             if let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController(),
                 let copyInfoVC = vc as? CopyInfoViewController
             {

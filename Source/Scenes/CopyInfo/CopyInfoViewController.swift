@@ -53,10 +53,12 @@ class CopyInfoViewController: UIViewController {
     }
     
     func fetchData() {
+        let searchOrg = self.org ?? Organization.find(byId: Organization.consortiumOrgID)
         guard let recordID = record?.id,
-            let org = self.org else
+            let org = searchOrg else
         {
             //TODO: analytics
+            self.showAlert(title: "Internal Error", message: "No record or org to search")
             return
         }
         let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
