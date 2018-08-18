@@ -87,7 +87,11 @@ class PlaceHoldsViewController: UIViewController {
             phoneLabel.isHidden = true
             phoneSwitch.isHidden = true
             phoneNumber.isHidden = true
-            //            phoneStack.removeFromSuperview()    // screwed up layout
+        } else if let val = App.account?.defaultNotifyPhone {
+            phoneSwitch.isOn = val
+            if let number = App.account?.phone {
+                phoneNumber.text = number
+            }
         }
         
         Style.styleButton(asInverse: placeHoldButton)
