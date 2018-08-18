@@ -126,7 +126,6 @@ class DetailsViewController: UIViewController {
         }
     }
 
-    // This code is just for show.  We should instead push a new VC to display the copy info.
     @objc func copyInfoPressed(sender: Any) {
         if let record = self.item,
             let org = Organization.find(byShortName: self.searchParameters?.organizationShortName)
