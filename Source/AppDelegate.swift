@@ -27,9 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //TODO: replace with
-        //AppSettings.initApp()
         App.theme = AppSettings.makeTheme()
+        App.config = AppSettings.makeAppConfiguration()
         App.library = Library(AppSettings.url)
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = UIColor.white

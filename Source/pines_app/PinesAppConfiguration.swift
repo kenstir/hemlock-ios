@@ -1,5 +1,5 @@
 //
-//  AppSettings.swift
+//  PinesAppConfiguration.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -17,23 +17,6 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import UIKit
-
-//todo make this a protocol
-struct AppSettings {
-
-    //MARK: - Consortium Properties
-
-    static let appTitle = "PINES"
-    static let url = "https://gapines.org"
-    static let logSubsystem = "net.kenstir.apps.pines"
-    static let groupCopyInfoBySystem = true
-
-    static func makeTheme() -> Theme {
-        return PinesTheme()
-    }
-    
-    static func makeAppConfiguration() -> AppConfiguration {
-        return PinesAppConfiguration()
-    }
+class PinesAppConfiguration: AppConfiguration {
+    let groupCopyInfoBySystem = true
 }

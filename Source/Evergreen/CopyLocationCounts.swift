@@ -92,7 +92,7 @@ class CopyLocationCounts {
                 if let org = Organization.find(byId: orgID) {
                     copyLocationCount.copyInfoHeading = org.name
                     copyLocationCount.copyInfoSubheading = ""
-                    if AppSettings.groupCopyInfoBySystem,
+                    if App.config.groupCopyInfoBySystem,
                         let parentID = org.parent,
                         let parent = Organization.find(byId: parentID)
                     {
@@ -125,7 +125,7 @@ class CopyLocationCounts {
 //            print("    \(elem.copyInfoSubheading)")
 //        }
 
-        if AppSettings.groupCopyInfoBySystem {
+        if App.config.groupCopyInfoBySystem {
             // sort by system, then by branch, like http://gapines.org/eg/opac/record/5700567?locg=1
             ret.sort {
                 guard let a = Organization.find(byId: $0.orgID),
