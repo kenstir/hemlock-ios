@@ -303,6 +303,8 @@ class PlaceHoldsViewController: UIViewController {
             notifyCarrierID = carrier.id
         }
 
+        self.activityIndicator.startAnimating()
+
         let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: recordID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID)
         promise.done { obj in
             if let _ = obj.getInt("result") {
@@ -323,6 +325,8 @@ class PlaceHoldsViewController: UIViewController {
             } else {
                 throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
             }
+        }.ensure {
+            self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
