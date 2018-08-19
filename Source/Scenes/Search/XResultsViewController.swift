@@ -202,7 +202,11 @@ extension XResultsViewController: ASTableDataSource {
         return node
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //        return titleForHeaderInSection()
+    //    }
+
+    func titleForHeaderInSection() -> String {
         if !didCompleteSearch {
             return ""
         } else if items.count == 0 {
@@ -210,6 +214,31 @@ extension XResultsViewController: ASTableDataSource {
         } else {
             return "\(items.count) most relevant results"
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 55
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        /*
+        let view = UIView()
+        view.backgroundColor = UIColor.groupTableViewBackground
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.darkGray
+        label.text = titleForHeaderInSection()
+        view.addSubview(label)
+        return view
+        */
+        
+        // hack alert: I could not get the above code to work so I did this
+        let view = UILabel()
+        view.backgroundColor = UIColor.groupTableViewBackground
+        view.textColor = UIColor.darkGray
+        view.numberOfLines = 2
+        view.text = "\n  " + titleForHeaderInSection()
+        return view
     }
 }
 
