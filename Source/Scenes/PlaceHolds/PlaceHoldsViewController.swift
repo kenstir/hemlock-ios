@@ -34,7 +34,6 @@ class PlaceHoldsViewController: UIViewController {
     var selectedCarrierName = ""
     var startOfFetch = Date()
 
-
     weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -103,6 +102,7 @@ class PlaceHoldsViewController: UIViewController {
         }
         setupSMSSwitch()
         
+        placeHoldButton.isEnabled = false
         Style.styleButton(asInverse: placeHoldButton)
         
         setupActivityIndicator()
@@ -232,10 +232,11 @@ class PlaceHoldsViewController: UIViewController {
             os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             self.setupLocationPicker()
             self.setupCarrierPicker()
+            self.placeHoldButton.isEnabled = true
+        }.ensure {
+            self.activityIndicator.stopAnimating()
         }.catch { error in
             self.showAlert(error: error)
-        }.finally {
-            self.activityIndicator.stopAnimating()
         }
     }
     

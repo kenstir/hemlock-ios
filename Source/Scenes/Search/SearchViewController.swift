@@ -83,10 +83,10 @@ class SearchViewController: UIViewController {
             self.setupLocationPicker()
             self.searchButton.isEnabled = true
             self.didCompleteFetch = true
+        }.ensure {
+            self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
-        }.finally {
-            self.activityIndicator.stopAnimating()
         }
     }
     
