@@ -272,7 +272,19 @@ class PlaceHoldsViewController: UIViewController {
         }
 
         var notifyPhoneNumber: String? = nil
+        var notifySMSNumber: String? = nil
         var notifyCarrierID: Int? = nil
+        if phoneSwitch.isOn
+        {
+            guard let phoneNotify = phoneNumber.text?.trim(),
+                phoneNotify.count > 0 else
+            {
+                self.showAlert(title: "Error", message: "Phone number field cannot be empty")
+                return
+            }
+            notifyPhoneNumber = phoneNotify
+            App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
+        }
         if smsSwitch.isOn
         {
             guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else {
@@ -280,18 +292,18 @@ class PlaceHoldsViewController: UIViewController {
                 return
             }
             App.valet.set(string: self.selectedCarrierName, forKey: "carrier")
-            guard let phoneNumber = smsNumber.text?.trim(),
-                phoneNumber.count > 0 else
+            guard let smsNotify = smsNumber.text?.trim(),
+                smsNotify.count > 0 else
             {
-                self.showAlert(title: "Error", message: "Phone number field cannot be empty")
+                self.showAlert(title: "Error", message: "SMS phone number field cannot be empty")
                 return
             }
-            notifyPhoneNumber = phoneNumber
-            App.valet.set(string: phoneNumber, forKey: "SMSNumber")
+            notifySMSNumber = smsNotify
+            App.valet.set(string: smsNotify, forKey: "SMSNumber")
             notifyCarrierID = carrier.id
         }
 
-        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: recordID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifySMSNumber: notifyPhoneNumber, smsCarrierID: notifyCarrierID)
+        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: recordID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID)
         promise.done { obj in
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful
