@@ -88,6 +88,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bfI-qu-bt5" userLabel="Phone Switch">
                                                         <rect key="frame" x="126" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="phoneSwitchAction:" destination="UBG-v3-ceh" eventType="valueChanged" id="ue9-sI-AXp"/>
+                                                        </connections>
                                                     </switch>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nik-nC-Gr8">
                                                         <rect key="frame" x="181" y="0.0" width="123" height="31"/>
@@ -213,6 +216,7 @@
                         <outlet property="phoneStack" destination="Mtn-zG-s3c" id="akY-uf-sME"/>
                         <outlet property="phoneSwitch" destination="bfI-qu-bt5" id="3Q1-U2-Zrg"/>
                         <outlet property="placeHoldButton" destination="fzh-z8-gbN" id="B5V-HY-ZXq"/>
+                        <outlet property="scrollView" destination="vhJ-1V-a2c" id="QOM-Bn-Tzl"/>
                         <outlet property="smsNumber" destination="bf9-nQ-1VA" id="5VV-sq-sJ7"/>
                         <outlet property="smsSwitch" destination="53F-NA-Ywk" id="NWy-dU-zee"/>
                     </connections>

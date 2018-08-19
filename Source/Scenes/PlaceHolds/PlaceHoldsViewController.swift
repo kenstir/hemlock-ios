@@ -37,6 +37,7 @@ class PlaceHoldsViewController: UIViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var phoneStack: UIStackView!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var phoneSwitch: UISwitch!
@@ -48,8 +49,11 @@ class PlaceHoldsViewController: UIViewController {
     @IBOutlet weak var smsNumber: UITextField!
     @IBOutlet weak var carrierPicker: McTextField!
     @IBOutlet weak var emailSwitch: UISwitch!
+    @IBAction func phoneSwitchAction(_ sender: Any) {
+        setupPhoneSwitch()
+    }
     @IBOutlet weak var smsSwitch: UISwitch!
-    @IBAction func smsSwitchAction(_ sender: UISwitch) {
+    @IBAction func smsSwitchAction(_ sender: Any) {
         setupSMSSwitch()
     }
     @IBOutlet weak var placeHoldButton: UIButton!
@@ -68,20 +72,13 @@ class PlaceHoldsViewController: UIViewController {
         holdsTitleLabel.text = record?.title
         formatLabel.text = record?.format
         holdsAuthorLabel.text = record?.author
-        smsNumber.delegate = self
-        smsNumber.isUserInteractionEnabled = false
-        if let number = App.account?.smsNotify {
-            smsNumber.text = number
-        } else {
-            smsNumber.text = App.valet.string(forKey: "SMSNumber") ?? ""
-        }
+        locationPicker.isUserInteractionEnabled = false
+        carrierPicker.isUserInteractionEnabled = false
+
         if let val = App.account?.defaultNotifyEmail {
             emailSwitch.isOn = val
         }
-        if let val = App.account?.defaultNotifySMS {
-            smsSwitch.isOn = val
-        }
-        setupSMSSwitch()
+
         if !App.config.enablePhoneNotification  {
             phoneStack.isHidden = true
             phoneLabel.isHidden = true
@@ -93,11 +90,32 @@ class PlaceHoldsViewController: UIViewController {
                 phoneNumber.text = number
             }
         }
+        setupPhoneSwitch()
+
+        smsNumber.delegate = self
+        if let number = App.account?.smsNotify {
+            smsNumber.text = number
+        } else {
+            smsNumber.text = App.valet.string(forKey: "SMSNumber") ?? ""
+        }
+        if let val = App.account?.defaultNotifySMS {
+            smsSwitch.isOn = val
+        }
+        setupSMSSwitch()
         
         Style.styleButton(asInverse: placeHoldButton)
         
         setupActivityIndicator()
         self.setupHomeButton()
+        setupTapHandler()
+    }
+    
+    func setupTapHandler() {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        recognizer.numberOfTapsRequired = 1
+        recognizer.isEnabled = true
+        recognizer.cancelsTouchesInView = false
+        scrollView.addGestureRecognizer(recognizer)
     }
 
     func setupActivityIndicator() {
@@ -122,6 +140,7 @@ class PlaceHoldsViewController: UIViewController {
         self.selectedOrgName = orgLabels[selectOrgIndex].trim()
         locationPicker.text = orgLabels[selectOrgIndex].trim()
         locationPicker.inputViewMcPicker = mcInputView
+        locationPicker.isUserInteractionEnabled = true
         locationPicker.doneHandler = { [weak self, locationPicker] (selections) in
             self?.selectedOrgName = selections[0]!.trim()
             locationPicker?.text = selections[0]!.trim()
@@ -156,17 +175,20 @@ class PlaceHoldsViewController: UIViewController {
         self.selectedCarrierName = carrierLabels[selectCarrierIndex]
         carrierPicker.text = carrierLabels[selectCarrierIndex]
         carrierPicker.inputViewMcPicker = mcInputView
+        carrierPicker.isUserInteractionEnabled = true
         carrierPicker.doneHandler = { [weak self, carrierPicker] (selections) in
             self?.selectedCarrierName = selections[0]!
             carrierPicker?.text = selections[0]!
         }
-        carrierPicker?.isUserInteractionEnabled = false
+    }
+    
+    func setupPhoneSwitch() {
+        phoneNumber.isUserInteractionEnabled = phoneSwitch.isOn
     }
     
     func setupSMSSwitch() {
-        if (smsSwitch.isOn) {
+        if smsSwitch.isOn {
             smsNumber.isUserInteractionEnabled = true
-//            holdsSMSNumber.becomeFirstResponder()
             carrierPicker.isUserInteractionEnabled = true
         } else {
             smsNumber.isUserInteractionEnabled = false
@@ -218,7 +240,15 @@ class PlaceHoldsViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        smsNumber.resignFirstResponder()
+        dismissKeyboard()
+    }
+    
+    @objc func handleTap() {
+        dismissKeyboard()
+    }
+    
+    func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
     func placeHold() {
