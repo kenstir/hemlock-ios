@@ -223,12 +223,27 @@ extension XResultsViewController: ASTableDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = UIColor.groupTableViewBackground
+        
+        let size: CGFloat = 16.0
+        let systemFont = UIFont.systemFont(ofSize: size, weight: .light)
+        let upperCaseFeature = [
+            UIFontDescriptor.FeatureKey.featureIdentifier: kUpperCaseType,
+            UIFontDescriptor.FeatureKey.typeIdentifier: kUpperCaseSmallCapsSelector
+        ]
+        let lowerCaseFeature = [
+            UIFontDescriptor.FeatureKey.featureIdentifier: kLowerCaseType,
+            UIFontDescriptor.FeatureKey.typeIdentifier: kLowerCaseSmallCapsSelector
+        ]
+        let features = [upperCaseFeature, lowerCaseFeature]
+        let smallCapsDesc = systemFont.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.featureSettings : features])
+        let font = UIFont(descriptor: smallCapsDesc, size: size)
 
         let rect = CGRect(x: 8, y: 29, width: 320, height: 21)
         let label = UILabel(frame: rect)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.darkGray
         label.text = titleForHeaderInSection()
+        label.font = font
         view.addSubview(label)
         return view
     }
