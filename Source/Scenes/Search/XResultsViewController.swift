@@ -221,23 +221,15 @@ extension XResultsViewController: ASTableDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        /*
         let view = UIView()
         view.backgroundColor = UIColor.groupTableViewBackground
-        let label = UILabel()
+
+        let rect = CGRect(x: 8, y: 29, width: 320, height: 21)
+        let label = UILabel(frame: rect)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.darkGray
         label.text = titleForHeaderInSection()
         view.addSubview(label)
-        return view
-        */
-        
-        // hack alert: I could not get the above code to work so I did this
-        let view = UILabel()
-        view.backgroundColor = UIColor.groupTableViewBackground
-        view.textColor = UIColor.darkGray
-        view.numberOfLines = 2
-        view.text = "\n  " + titleForHeaderInSection()
         return view
     }
 }
