@@ -24,15 +24,15 @@ struct AppSettings {
 
     //MARK: - Consortium Properties
 
-    static let appTitle = "PINES"
-    static let url = "https://gapines.org"
-    static let logSubsystem = "net.kenstir.apps.pines"
+    static let appTitle = "C/W MARS"
+    static let url = "https://catalog.cwmars.org"
+    static let logSubsystem = "net.kenstir.apps.hemlock"
 
     static func makeTheme() -> Theme {
-        return PinesTheme()
+        return CWMarsTheme()
     }
     
     static func makeAppConfiguration() -> AppConfiguration {
-        return PinesAppConfiguration()
+        return CWMarsAppConfiguration()
     }
 }

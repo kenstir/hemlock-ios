@@ -78,7 +78,7 @@ class PlaceHoldsViewController: UIViewController {
             emailSwitch.isOn = val
         }
 
-        if !App.config.enablePhoneNotification  {
+        if !App.config.enableHoldPhoneNotification  {
             phoneStack.isHidden = true
             phoneLabel.isHidden = true
             phoneSwitch.isHidden = true

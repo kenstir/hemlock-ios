@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var bottomButtonBar: UIStackView!
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
     
@@ -71,8 +72,14 @@ class MainViewController: UIViewController {
         logoutButton.target = self
         logoutButton.action = #selector(logoutPressed(sender:))
         Style.styleBarButton(logoutButton)
-        Style.styleButton(asPlain: fullCatalogButton)
-        Style.styleButton(asPlain: libraryLocatorButton)
+        if App.config.enableMainBottomToolbar {
+            Style.styleButton(asPlain: fullCatalogButton)
+            Style.styleButton(asPlain: libraryLocatorButton)
+        } else {
+            bottomButtonBar.isHidden = true
+            fullCatalogButton.isHidden = true
+            libraryLocatorButton.isHidden = true
+        }
     }
     
     @IBAction func logoutPressed(sender: UIButton) {

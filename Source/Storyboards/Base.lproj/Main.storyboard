@@ -198,7 +198,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-FV-8vg" userLabel="Button Stack">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-FV-8vg" userLabel="Bottom Button Stack">
                                 <rect key="frame" x="0.0" y="580" width="375" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToU-UP-BUF">
@@ -234,6 +234,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="GJD-cg-1UD"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomButtonBar" destination="pXz-FV-8vg" id="X59-GT-uyB"/>
                         <outlet property="fullCatalogButton" destination="ToU-UP-BUF" id="KF1-nP-nnz"/>
                         <outlet property="libraryLocatorButton" destination="aQX-m5-77E" id="Yv4-qh-Btu"/>
                         <outlet property="logoutButton" destination="GJD-cg-1UD" id="Fq3-pw-ltt"/>

@@ -18,7 +18,8 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class PinesAppConfiguration: AppConfiguration {
-    let enableHoldQueuePosition = false
-    let enablePhoneNotification = true
+    let enableMainBottomToolbar = true
+    let enableHoldShowQueuePosition = false
+    let enableHoldPhoneNotification = true
     let groupCopyInfoBySystem = true
 }

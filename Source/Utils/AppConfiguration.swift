@@ -20,6 +20,8 @@
 import Foundation
 
 protocol AppConfiguration {
-    var enablePhoneNotification: Bool { get }
+    var enableMainBottomToolbar: Bool { get }
+    var enableHoldShowQueuePosition: Bool { get }
+    var enableHoldPhoneNotification: Bool { get }
     var groupCopyInfoBySystem: Bool { get }
 }
