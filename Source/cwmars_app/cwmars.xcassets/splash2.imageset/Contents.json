@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "splash_341_114.png",
+      "filename" : "splash_title_1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "splash.png",
+      "filename" : "splash_title.png",
       "scale" : "2x"
     },
     {
