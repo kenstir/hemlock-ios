@@ -18,8 +18,9 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class CWMarsAppConfiguration: AppConfiguration {
-    let enableMainBottomToolbar = false
+    let enableHierarchicalOrgTree = false
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = false
+    let enableMainSceneBottomToolbar = false
     let groupCopyInfoBySystem = false
 }

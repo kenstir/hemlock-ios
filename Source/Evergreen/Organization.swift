@@ -152,8 +152,11 @@ class Organization {
 //    }
 
     static func getSpinnerLabels() -> [String] {
-        //return orgs.map { $0.name }
-        return orgs.map { String(repeating: "   ", count: $0.level) + $0.name }
+        if App.config.enableHierarchicalOrgTree {
+            return orgs.map { String(repeating: "   ", count: $0.level) + $0.name }
+        } else {
+            return orgs.map { $0.name }
+        }
     }
 
     static func getShortName(forName name: String?) -> String? {
@@ -166,6 +169,19 @@ class Organization {
     static func loadOrganizations(fromObj obj: OSRFObject) throws -> Void {
         orgs = []
         try addOrganization(obj, level: 0)
+        
+        if App.config.enableHierarchicalOrgTree {
+            // orgs are already sorted by hierarchy
+        } else {
+            self.orgs.sort {
+                if $0.id == 1 {
+                    return true
+                } else if $1.id == 1 {
+                    return false
+                }
+                return $0.name < $1.name
+            }
+        }
     }
     
     static func addOrganization(_ obj: OSRFObject, level: Int) throws -> Void {
@@ -178,7 +194,7 @@ class Organization {
         {
             throw HemlockError.unexpectedNetworkResponse("decoding orginization tree")
         }
-        print("xxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        //print("xxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
         if opacVisible {
             let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), parent: parent, ouType: ouType)
             self.orgs.append(org)

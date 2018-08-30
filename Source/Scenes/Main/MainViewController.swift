@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
         logoutButton.target = self
         logoutButton.action = #selector(logoutPressed(sender:))
         Style.styleBarButton(logoutButton)
-        if App.config.enableMainBottomToolbar {
+        if App.config.enableMainSceneBottomToolbar {
             Style.styleButton(asPlain: fullCatalogButton)
             Style.styleButton(asPlain: libraryLocatorButton)
         } else {
