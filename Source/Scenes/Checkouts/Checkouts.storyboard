@@ -44,8 +44,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Jun 19, 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-Tg-Pfn">
-                                            <rect key="frame" x="8" y="90.5" width="98" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Jun 19, 2018 (overdue)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-Tg-Pfn">
+                                            <rect key="frame" x="8" y="90.5" width="156" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="X0g-bA-AaY"/>
                                             </constraints>
@@ -54,7 +54,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-TT-zbd">
-                                            <rect key="frame" x="172" y="73.5" width="78" height="30"/>
+                                            <rect key="frame" x="200" y="73.5" width="78" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="1fF-qt-viN"/>
                                             </constraints>
@@ -76,7 +76,7 @@
                                         <constraint firstItem="btq-bN-2S2" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="BNB-Rv-epS"/>
                                         <constraint firstItem="kNY-Ss-L0h" firstAttribute="top" secondItem="wdh-dA-blv" secondAttribute="bottom" constant="2" id="Da6-A0-8Hy"/>
                                         <constraint firstItem="4b7-Tg-Pfn" firstAttribute="top" secondItem="kNY-Ss-L0h" secondAttribute="bottom" constant="2" id="FWC-Yr-wV9"/>
-                                        <constraint firstItem="aA9-TT-zbd" firstAttribute="trailing" secondItem="6qM-sC-2d7" secondAttribute="trailing" constant="-36" id="Fq4-Da-48K"/>
+                                        <constraint firstItem="aA9-TT-zbd" firstAttribute="trailing" secondItem="6qM-sC-2d7" secondAttribute="trailing" constant="-8" id="Fq4-Da-48K"/>
                                         <constraint firstAttribute="bottom" secondItem="4b7-Tg-Pfn" secondAttribute="bottom" constant="4" id="Vf1-PR-FnL"/>
                                         <constraint firstItem="btq-bN-2S2" firstAttribute="top" secondItem="6qM-sC-2d7" secondAttribute="top" constant="8" id="dCQ-E7-YPJ"/>
                                         <constraint firstItem="4b7-Tg-Pfn" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="j6Y-P6-t3n"/>

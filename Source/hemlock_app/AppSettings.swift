@@ -26,7 +26,6 @@ struct AppSettings {
 
     static let appTitle = "Hemlock"
     static let url = "https://catalog.cwmars.org"
-//    static let url = "https://kenstir.ddns.net"
     static let logSubsystem = "net.kenstir.apps.hemlock"
 
     static func makeTheme() -> Theme {

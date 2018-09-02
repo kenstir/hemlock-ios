@@ -231,8 +231,8 @@ extension CheckoutsViewController: UITableViewDataSource {
         cell.author.text = item.author
         cell.format.text = item.format
         var dueText = "Due " + item.dueDate
+        dueText = dueText + " (overdue)"
         if isOverdue {
-            dueText = dueText + " (overdue)"
             cell.title.textColor = UIColor.red
             cell.dueDate.textColor = UIColor.red
         }
