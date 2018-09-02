@@ -36,25 +36,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Athens-Clarke County Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxh-tJ-ZDq" userLabel="Subheading">
-                                                    <rect key="frame" x="8" y="33" width="326" height="21"/>
+                                                    <rect key="frame" x="8" y="31" width="326" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUNG ADULT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5k-hz-wAh" userLabel="Location">
-                                                    <rect key="frame" x="16" y="62" width="99" height="17"/>
+                                                    <rect key="frame" x="16" y="54" width="99" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROWLING, J K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-4S-FFi" userLabel="Call Number">
-                                                    <rect key="frame" x="16" y="79" width="93" height="17"/>
+                                                    <rect key="frame" x="16" y="71" width="93" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Available 1 Checked out" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-P9-NhG" userLabel="Copy Status Info">
-                                                    <rect key="frame" x="218" y="62" width="92.5" height="33.5"/>
+                                                    <rect key="frame" x="218" y="54" width="92.5" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -63,10 +63,10 @@
                                             <constraints>
                                                 <constraint firstItem="aN9-P9-NhG" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="trailing" constant="-124" id="3Ys-Z9-Tq4"/>
                                                 <constraint firstItem="z5k-hz-wAh" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="leading" constant="16" id="9fM-RU-odk"/>
-                                                <constraint firstItem="lxh-tJ-ZDq" firstAttribute="top" secondItem="lTW-4c-rZC" secondAttribute="bottom" constant="4" id="JF4-1w-heh"/>
-                                                <constraint firstItem="aN9-P9-NhG" firstAttribute="top" secondItem="lxh-tJ-ZDq" secondAttribute="bottom" constant="8" id="M5c-xv-weW"/>
+                                                <constraint firstItem="lxh-tJ-ZDq" firstAttribute="top" secondItem="lTW-4c-rZC" secondAttribute="bottom" constant="2" id="JF4-1w-heh"/>
+                                                <constraint firstItem="aN9-P9-NhG" firstAttribute="top" secondItem="lxh-tJ-ZDq" secondAttribute="bottom" constant="2" id="M5c-xv-weW"/>
                                                 <constraint firstItem="lTW-4c-rZC" firstAttribute="top" secondItem="HZK-vV-WNb" secondAttribute="top" constant="8" id="U4x-IA-MfN"/>
-                                                <constraint firstItem="z5k-hz-wAh" firstAttribute="top" secondItem="lxh-tJ-ZDq" secondAttribute="bottom" constant="8" id="Y36-x1-4QI"/>
+                                                <constraint firstItem="z5k-hz-wAh" firstAttribute="top" secondItem="lxh-tJ-ZDq" secondAttribute="bottom" constant="2" id="Y36-x1-4QI"/>
                                                 <constraint firstItem="lTW-4c-rZC" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="leading" constant="8" id="aWV-dX-0Z6"/>
                                                 <constraint firstItem="VhY-4S-FFi" firstAttribute="top" secondItem="z5k-hz-wAh" secondAttribute="bottom" id="hFY-Na-bDU"/>
                                                 <constraint firstAttribute="trailing" secondItem="lTW-4c-rZC" secondAttribute="trailing" constant="8" id="oMM-KW-ggy"/>
