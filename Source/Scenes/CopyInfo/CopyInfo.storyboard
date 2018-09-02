@@ -53,15 +53,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Available 1 Reshelving" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-P9-NhG" userLabel="Copy Status Info">
-                                                    <rect key="frame" x="176" y="62" width="81" height="33.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Available 1 Checked out" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-P9-NhG" userLabel="Copy Status Info">
+                                                    <rect key="frame" x="218" y="62" width="92.5" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="aN9-P9-NhG" firstAttribute="leading" secondItem="z5k-hz-wAh" secondAttribute="leading" constant="160" id="3Ys-Z9-Tq4"/>
+                                                <constraint firstItem="aN9-P9-NhG" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="trailing" constant="-124" id="3Ys-Z9-Tq4"/>
                                                 <constraint firstItem="z5k-hz-wAh" firstAttribute="leading" secondItem="HZK-vV-WNb" secondAttribute="leading" constant="16" id="9fM-RU-odk"/>
                                                 <constraint firstItem="lxh-tJ-ZDq" firstAttribute="top" secondItem="lTW-4c-rZC" secondAttribute="bottom" constant="4" id="JF4-1w-heh"/>
                                                 <constraint firstItem="aN9-P9-NhG" firstAttribute="top" secondItem="lxh-tJ-ZDq" secondAttribute="bottom" constant="8" id="M5c-xv-weW"/>
