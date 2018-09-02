@@ -34,10 +34,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APz-Q5-Aod">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APz-Q5-Aod">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="408"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ky-33-NgZ">
@@ -80,9 +80,6 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="L0t-oX-Cjw" secondAttribute="bottom" priority="999" constant="16" id="v9R-9o-NWQ"/>
-                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -284,6 +281,7 @@
                         <outlet property="forgotPasswordButton" destination="L0t-oX-Cjw" id="N8N-28-8Ee"/>
                         <outlet property="loginButton" destination="ofn-Nj-gGI" id="Uqg-lY-AtJ"/>
                         <outlet property="passwordField" destination="2fV-yF-Bl6" id="z1k-CK-gCv"/>
+                        <outlet property="scrollView" destination="APz-Q5-Aod" id="R2V-4b-HXF"/>
                         <outlet property="usernameField" destination="2Ky-33-NgZ" id="eQo-jX-g9D"/>
                         <segue destination="lJi-dZ-su3" kind="show" identifier="ShowMainSegue" id="wNI-Je-fQ4"/>
                     </connections>
