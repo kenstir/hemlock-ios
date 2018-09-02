@@ -33,13 +33,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "pines_120.png",
+      "filename" : "tsuga_120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "pines_180.png",
+      "filename" : "tsuga_180.png",
       "scale" : "3x"
     },
     {
@@ -80,19 +80,19 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "pines_152.png",
+      "filename" : "tsuga_152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "pines_167.png",
+      "filename" : "tsuga_167.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "hemlock_1024_app.png",
+      "filename" : "tsuga_1024.png",
       "scale" : "1x"
     }
   ],
