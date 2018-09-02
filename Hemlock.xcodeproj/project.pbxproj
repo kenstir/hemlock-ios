@@ -224,6 +224,9 @@
 		D279921120DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
 		D279921220DEEA27003B451E /* McTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279920720DEEA27003B451E /* McTextField.swift */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
+		D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
+		D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
+		D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D28290F520E5CF48008EBE4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+.swift */; };
 		D28290F620E5CFAE008EBE4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+.swift */; };
 		D28290F820E6F770008EBE4B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
@@ -382,6 +385,7 @@
 		D279920820DEEA27003B451E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
+		D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+smallCaps.swift"; sourceTree = "<group>"; };
 		D28290F420E5CF48008EBE4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D28290F720E6F770008EBE4B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D28725AD20E86F30002A4C42 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
@@ -570,6 +574,7 @@
 		D22D026E2084F52300DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D2A74B1321289D63001D4B0F /* AppConfiguration.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
@@ -1180,6 +1185,7 @@
 				D276DAB621336B20007FAA31 /* CopyLocationCounts.swift in Sources */,
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
+				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
 				D276DABA21336B20007FAA31 /* XCheckoutsViewController.swift in Sources */,
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
@@ -1253,6 +1259,7 @@
 				D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
+				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
 				D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
@@ -1326,6 +1333,7 @@
 				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
+				D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,

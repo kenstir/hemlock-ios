@@ -219,22 +219,6 @@ extension XResultsViewController: ASTableDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 55
     }
-    
-    static func smallCapsFont(ofSize size: CGFloat) -> UIFont {
-        let systemFont = UIFont.systemFont(ofSize: size, weight: .light)
-        let upperCaseFeature = [
-            UIFontDescriptor.FeatureKey.featureIdentifier: kUpperCaseType,
-            UIFontDescriptor.FeatureKey.typeIdentifier: kUpperCaseSmallCapsSelector
-        ]
-        let lowerCaseFeature = [
-            UIFontDescriptor.FeatureKey.featureIdentifier: kLowerCaseType,
-            UIFontDescriptor.FeatureKey.typeIdentifier: kLowerCaseSmallCapsSelector
-        ]
-        let features = [upperCaseFeature, lowerCaseFeature]
-        let smallCapsDesc = systemFont.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.featureSettings : features])
-        let font = UIFont(descriptor: smallCapsDesc, size: size)
-        return font
-    }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
@@ -245,7 +229,7 @@ extension XResultsViewController: ASTableDataSource {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.darkGray
         label.text = titleForHeaderInSection()
-        label.font = XResultsViewController.smallCapsFont(ofSize: 16.0)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps
 
         view.addSubview(label)
         return view
