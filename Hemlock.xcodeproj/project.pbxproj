@@ -227,6 +227,9 @@
 		D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
+		D28164B4213C7D99000B64B4 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
+		D28164B5213C7D99000B64B4 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
+		D28164B6213C7D99000B64B4 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D28290F520E5CF48008EBE4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+.swift */; };
 		D28290F620E5CFAE008EBE4B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+.swift */; };
 		D28290F820E6F770008EBE4B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
@@ -386,6 +389,7 @@
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+smallCaps.swift"; sourceTree = "<group>"; };
+		D28164B3213C7D99000B64B4 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		D28290F420E5CF48008EBE4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D28290F720E6F770008EBE4B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D28725AD20E86F30002A4C42 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
@@ -574,7 +578,6 @@
 		D22D026E2084F52300DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D2A74B1321289D63001D4B0F /* AppConfiguration.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
@@ -584,6 +587,8 @@
 				D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */,
 				D28290F720E6F770008EBE4B /* Style.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
+				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
+				D28164B3213C7D99000B64B4 /* UIScrollView+.swift */,
 				D28290F420E5CF48008EBE4B /* UIView+.swift */,
 				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
@@ -1194,6 +1199,7 @@
 				D276DABE21336B20007FAA31 /* Gateway.swift in Sources */,
 				D276DABF21336B20007FAA31 /* UIViewController+.swift in Sources */,
 				D276DAC021336B20007FAA31 /* CheckoutsTableViewCell.swift in Sources */,
+				D28164B6213C7D99000B64B4 /* UIScrollView+.swift in Sources */,
 				D276DAC121336B20007FAA31 /* Style.swift in Sources */,
 				D276DAC221336B20007FAA31 /* MainViewController.swift in Sources */,
 				D276DAC321336B20007FAA31 /* CopyCounts.swift in Sources */,
@@ -1268,6 +1274,7 @@
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
 				D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */,
 				D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */,
+				D28164B4213C7D99000B64B4 /* UIScrollView+.swift in Sources */,
 				D28290F820E6F770008EBE4B /* Style.swift in Sources */,
 				D27990EE20DDD473003B451E /* MainViewController.swift in Sources */,
 				D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */,
@@ -1342,6 +1349,7 @@
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,
 				D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */,
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,
+				D28164B5213C7D99000B64B4 /* UIScrollView+.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */,

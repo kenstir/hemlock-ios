@@ -107,15 +107,8 @@ class PlaceHoldsViewController: UIViewController {
         
         setupActivityIndicator()
         self.setupHomeButton()
-        setupTapHandler()
-    }
-    
-    func setupTapHandler() {
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        recognizer.numberOfTapsRequired = 1
-        recognizer.isEnabled = true
-        recognizer.cancelsTouchesInView = false
-        scrollView.addGestureRecognizer(recognizer)
+        self.setupTapToDismissKeyboard(onScrollView: scrollView)
+        self.scrollView.setupKeyboardAutoResizer()
     }
 
     func setupActivityIndicator() {
@@ -238,18 +231,6 @@ class PlaceHoldsViewController: UIViewController {
         }.catch { error in
             self.showAlert(error: error)
         }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        dismissKeyboard()
-    }
-    
-    @objc func handleTap() {
-        dismissKeyboard()
-    }
-    
-    func dismissKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
     func placeHold() {

@@ -30,13 +30,29 @@ extension UIViewController {
     }
 
     func setupHomeButton() {
-//        let homeButton = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(popToRootVC(sender:)))
         let homeButton = UIBarButtonItem(image: UIImage(named: "Home"), style: .plain, target: self, action: #selector(popToRootVC(sender:)))
         self.navigationItem.rightBarButtonItem = homeButton
     }
 
     @objc func popToRootVC(sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    /// Set up a tap recognizer on a scrollView that dismisses the keyboard
+    func setupTapToDismissKeyboard(onScrollView scrollView: UIScrollView) {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        recognizer.numberOfTapsRequired = 1
+        recognizer.isEnabled = true
+        recognizer.cancelsTouchesInView = false
+        scrollView.addGestureRecognizer(recognizer)
+    }
+    
+    @objc func handleTap() {
+        dismissKeyboard()
+    }
+    
+    func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 
     //MARK: - showAlert
