@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="466"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="438"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="splash2" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-VS-ogx">
                                                 <rect key="frame" x="28" y="66" width="264" height="80"/>
@@ -68,10 +68,10 @@
                                                 <rect key="frame" x="28" y="270" width="264" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-oX-Cjw">
-                                                <rect key="frame" x="64" y="369" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="377" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <state key="normal" title="Forgot Password"/>
                                                 <connections>
@@ -81,13 +81,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="L0t-oX-Cjw" firstAttribute="top" secondItem="ofn-Nj-gGI" secondAttribute="bottom" constant="8" id="382-Zk-CVf"/>
+                                            <constraint firstItem="L0t-oX-Cjw" firstAttribute="top" secondItem="ofn-Nj-gGI" secondAttribute="bottom" constant="16" id="382-Zk-CVf"/>
                                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="28" id="7fN-3F-gyy"/>
                                             <constraint firstAttribute="trailing" secondItem="L0t-oX-Cjw" secondAttribute="trailing" constant="64" id="HEm-hc-iIq"/>
                                             <constraint firstItem="UqT-VS-ogx" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="HyG-iv-1KL"/>
-                                            <constraint firstItem="UqT-VS-ogx" firstAttribute="top" secondItem="AZX-Ef-wAD" secondAttribute="top" constant="66" id="UVl-Mg-9Pi"/>
-                                            <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="UqT-VS-ogx" secondAttribute="bottom" constant="66" id="VJA-nk-qYR"/>
-                                            <constraint firstAttribute="bottom" secondItem="L0t-oX-Cjw" secondAttribute="bottom" constant="64" id="WVG-bo-mUu"/>
+                                            <constraint firstItem="UqT-VS-ogx" firstAttribute="top" secondItem="AZX-Ef-wAD" secondAttribute="top" priority="250" constant="66" id="UVl-Mg-9Pi"/>
+                                            <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="UqT-VS-ogx" secondAttribute="bottom" priority="250" constant="66" id="VJA-nk-qYR"/>
+                                            <constraint firstAttribute="bottom" secondItem="L0t-oX-Cjw" secondAttribute="bottom" constant="28" id="WVG-bo-mUu"/>
                                             <constraint firstAttribute="trailing" secondItem="UqT-VS-ogx" secondAttribute="trailing" constant="28" id="eUI-oa-pMH"/>
                                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="64" id="etz-91-HeA"/>
                                             <constraint firstItem="2fV-yF-Bl6" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="faW-ta-waO"/>

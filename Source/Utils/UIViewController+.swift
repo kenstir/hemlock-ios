@@ -40,15 +40,16 @@ extension UIViewController {
     
     /// Set up a tap recognizer on a scrollView that dismisses the keyboard
     func setupTapToDismissKeyboard(onScrollView scrollView: UIScrollView) {
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
         recognizer.numberOfTapsRequired = 1
-        recognizer.isEnabled = true
         recognizer.cancelsTouchesInView = false
         scrollView.addGestureRecognizer(recognizer)
     }
     
-    @objc func handleTap() {
-        dismissKeyboard()
+    @objc func handleTap(recognizer: UITapGestureRecognizer) {
+        if recognizer.state == .ended {
+            dismissKeyboard()
+        }
     }
     
     func dismissKeyboard() {

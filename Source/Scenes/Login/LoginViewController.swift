@@ -82,14 +82,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: UITextFieldDelegate
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // hide the keyboard
-        textField.resignFirstResponder()
+        if textField == self.usernameField {
+            print("username ShouldReturn?")
+        } else {
+            print("password ShouldReturn?")
+        }
+        if textField == self.usernameField {
+            self.passwordField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            if App.idlLoaded ?? false {
+                doLogin()
+            }
+        }
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("???")
     }
 
     //MARK: Actions
