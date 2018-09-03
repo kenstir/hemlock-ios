@@ -10,7 +10,7 @@ I had a lot of trouble handling the virtual keyboard, e.g. it would appear and o
 ## Add Constraints
 * Add inset=0 on all sides of ScrollView
 * Add inset=0 on all sides of Content View
-* Add equal width constraint between Content View and ScrollView
+* Add equal width constraint between Content View and top View
 * Add insets between the children and the top and bottom of the Content View
 
 ## Setup Behavior
