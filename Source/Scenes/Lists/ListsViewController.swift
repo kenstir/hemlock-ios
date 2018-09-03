@@ -1,8 +1,6 @@
 //
 //  ListsViewController.swift
 //
-//  CircService.swift
-//
 //  Copyright (C) 2018 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -26,14 +24,8 @@ class ListsViewController: UIViewController {
 
     //MARK: - Properties
     
-    @IBOutlet weak var button1: UIButton!
-    
-    @IBOutlet weak var button2: UIButton!
-    
-    @IBOutlet weak var button3: UIButton!
-    
-    @IBOutlet weak var button4: UIButton!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     
     //MARK: - UIViewController
     
@@ -41,7 +33,18 @@ class ListsViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
-    
+
+    /*
+    override func viewDidLayoutSubviews() {
+        // per https://stackoverflow.com/questions/2824435/uiscrollview-not-scrolling
+        // you must sent content size or else the UIScrollView does not scroll
+        // But it does not look like that is correct, scrolling works when contentView > scrollView
+//        self.scrollView.contentSize = self.contentView.frame.size
+        // If you want it to always scroll (even when scrollView > contentView) then add some slop:
+        //self.scrollView.contentSize = CGSize(width: self.contentView.frame.size.width, height: self.contentView.frame.size.height + 300)
+    }
+    */
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.fetchData()
@@ -50,50 +53,11 @@ class ListsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
-        button1.tag = 1
-        button2.tag = 2
-        button3.tag = 3
-        button4.tag = 4
-        Style.styleButton(asPlain: button2)
-        Style.styleButton(asOutline: button3)
-        Style.styleButton(asInverse: button4)
-        
-        let disclosure = UITableViewCell()
-        disclosure.frame = button1.bounds
-        disclosure.accessoryType = .disclosureIndicator
-        disclosure.isUserInteractionEnabled = false
-        button1.addSubview(disclosure)
+        self.setupHomeButton()
+        self.setupTapToDismissKeyboard(onScrollView: scrollView)
+        self.scrollView.setupKeyboardAutoResizer()
     }
     
     func fetchData() {
-    }
-    
-    @IBAction func doStuff(sender: UIButton) {
-        self.view.makeToast("button pressed: \(sender.tag)")
-        switch sender.tag {
-        case 1:
-            self.navigationController?.popToRootViewController(animated: true)
-        case 2:
-            self.navigationController?.setViewControllers([LoginViewController()], animated: true)
-        case 3:
-            // this results in a LoginVC that has double-width app bar!
-            /*
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "Login")
-            self.navigationController?.setViewControllers([vc], animated: true)
-            */
-            
-            // this works but has no animation
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = sb.instantiateViewController(withIdentifier: "Login")
-            let vc = sb.instantiateInitialViewController()
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                appDelegate.window?.rootViewController = vc
-            }
-        default:
-            // this works also and also has no animation
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-            UIApplication.shared.keyWindow?.rootViewController = vc
-        }
     }
 }

@@ -23,6 +23,7 @@ import PromiseKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -58,6 +59,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // create and style the activity indicator
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
+        
+        self.setupTapToDismissKeyboard(onScrollView: scrollView)
+        self.scrollView.setupKeyboardAutoResizer()
     }
     
     func fetchData() {
@@ -78,9 +82,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     //MARK: UITextFieldDelegate
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // hide the keyboard
-        textField.resignFirstResponder()
+        if textField == self.usernameField {
+            print("username ShouldReturn?")
+        } else {
+            print("password ShouldReturn?")
+        }
+        if textField == self.usernameField {
+            self.passwordField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            if App.idlLoaded ?? false {
+                doLogin()
+            }
+        }
         return true
     }
     
