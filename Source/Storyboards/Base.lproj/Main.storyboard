@@ -38,17 +38,22 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="438"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="390"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="splash2" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-VS-ogx">
-                                                <rect key="frame" x="28" y="66" width="264" height="80"/>
-                                                <accessibility key="accessibilityConfiguration" label="Georgia PINES logo">
-                                                    <bool key="isElement" value="YES"/>
-                                                </accessibility>
-                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="LrV-yq-gMl">
+                                                <rect key="frame" x="28" y="48" width="264" height="80"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="200" verticalCompressionResistancePriority="749" image="splash2" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-VS-ogx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="264" height="80"/>
+                                                        <accessibility key="accessibilityConfiguration" label="Georgia PINES logo">
+                                                            <bool key="isElement" value="YES"/>
+                                                        </accessibility>
+                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ky-33-NgZ">
-                                                <rect key="frame" x="28" y="212" width="264" height="30"/>
+                                                <rect key="frame" x="28" y="176" width="264" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
@@ -57,7 +62,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-Nj-gGI">
-                                                <rect key="frame" x="64" y="328" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="280" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
@@ -65,13 +70,13 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fV-yF-Bl6">
-                                                <rect key="frame" x="28" y="270" width="264" height="30"/>
+                                                <rect key="frame" x="28" y="222" width="264" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-oX-Cjw">
-                                                <rect key="frame" x="64" y="377" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="329" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <state key="normal" title="Forgot Password"/>
                                                 <connections>
@@ -82,19 +87,19 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="top" secondItem="ofn-Nj-gGI" secondAttribute="bottom" constant="16" id="382-Zk-CVf"/>
+                                            <constraint firstItem="LrV-yq-gMl" firstAttribute="top" secondItem="AZX-Ef-wAD" secondAttribute="top" constant="48" id="4V9-cR-4ba"/>
                                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="28" id="7fN-3F-gyy"/>
+                                            <constraint firstItem="LrV-yq-gMl" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="A3g-AQ-4DM"/>
                                             <constraint firstAttribute="trailing" secondItem="L0t-oX-Cjw" secondAttribute="trailing" constant="64" id="HEm-hc-iIq"/>
-                                            <constraint firstItem="UqT-VS-ogx" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="HyG-iv-1KL"/>
-                                            <constraint firstItem="UqT-VS-ogx" firstAttribute="top" secondItem="AZX-Ef-wAD" secondAttribute="top" priority="250" constant="66" id="UVl-Mg-9Pi"/>
-                                            <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="UqT-VS-ogx" secondAttribute="bottom" priority="250" constant="66" id="VJA-nk-qYR"/>
                                             <constraint firstAttribute="bottom" secondItem="L0t-oX-Cjw" secondAttribute="bottom" constant="28" id="WVG-bo-mUu"/>
-                                            <constraint firstAttribute="trailing" secondItem="UqT-VS-ogx" secondAttribute="trailing" constant="28" id="eUI-oa-pMH"/>
+                                            <constraint firstAttribute="trailing" secondItem="LrV-yq-gMl" secondAttribute="trailing" constant="28" id="c4Z-RV-ffr"/>
                                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="64" id="etz-91-HeA"/>
                                             <constraint firstItem="2fV-yF-Bl6" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="faW-ta-waO"/>
                                             <constraint firstAttribute="trailing" secondItem="2Ky-33-NgZ" secondAttribute="trailing" constant="28" id="gnc-gl-0e4"/>
-                                            <constraint firstItem="2fV-yF-Bl6" firstAttribute="top" secondItem="2Ky-33-NgZ" secondAttribute="bottom" constant="28" id="hSl-Fi-oRL"/>
+                                            <constraint firstItem="2fV-yF-Bl6" firstAttribute="top" secondItem="2Ky-33-NgZ" secondAttribute="bottom" constant="16" id="hSl-Fi-oRL"/>
                                             <constraint firstItem="2Ky-33-NgZ" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="jey-yM-8Rt"/>
                                             <constraint firstAttribute="trailing" secondItem="ofn-Nj-gGI" secondAttribute="trailing" constant="64" id="mYA-Ip-IMv"/>
+                                            <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="LrV-yq-gMl" secondAttribute="bottom" constant="48" id="nCy-Ef-IW3"/>
                                             <constraint firstAttribute="trailing" secondItem="2fV-yF-Bl6" secondAttribute="trailing" constant="28" id="sJI-jH-Szv"/>
                                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="64" id="x7o-36-UfC"/>
                                         </constraints>

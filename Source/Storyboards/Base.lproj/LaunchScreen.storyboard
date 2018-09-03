@@ -25,7 +25,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash2" translatesAutoresizingMaskIntoConstraints="NO" id="1Di-v9-XSW">
-                                <rect key="frame" x="28" y="130" width="319" height="80"/>
+                                <rect key="frame" x="28" y="112" width="319" height="80"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -35,7 +35,7 @@
                             <constraint firstItem="ZIx-Co-lwT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h0W-Kl-3Gv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Di-v9-XSW" secondAttribute="trailing" constant="28" id="hYY-VQ-8qi"/>
                             <constraint firstItem="ZIx-Co-lwT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vPq-Jk-i64"/>
-                            <constraint firstItem="1Di-v9-XSW" firstAttribute="top" secondItem="ZIx-Co-lwT" secondAttribute="bottom" constant="66" id="vSd-tf-rsG"/>
+                            <constraint firstItem="1Di-v9-XSW" firstAttribute="top" secondItem="ZIx-Co-lwT" secondAttribute="bottom" constant="48" id="vSd-tf-rsG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
