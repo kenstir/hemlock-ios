@@ -23,12 +23,12 @@ import PromiseKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
-    
     weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -39,6 +39,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.fetchData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // auto login
+        let (savedUsername, savedPassword) = LoginController.getSavedLoginCredentials()
+        if let username = savedUsername, let password = savedPassword {
+            doLogin()
+        }
     }
 
     func setupViews() {
@@ -73,7 +83,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func fetchIDL(completion: @escaping () -> Void) {
         activityIndicator.startAnimating()
         App.fetchIDL().catch { error in
-            self.activityIndicator.stopAnimating()
             self.showAlert(error: error)
         }.finally {
             self.activityIndicator.stopAnimating()
@@ -84,11 +93,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.usernameField {
-            print("username ShouldReturn?")
-        } else {
-            print("password ShouldReturn?")
-        }
         if textField == self.usernameField {
             self.passwordField.becomeFirstResponder()
         } else {
