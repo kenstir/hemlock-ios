@@ -32,5 +32,5 @@ class PinesTheme: Theme {
     let backgroundDark8 = UIColor(red: 0x0f/0xff, green: 0x29/0xff, blue: 0x21/0xff, alpha: 1.0)
     
     let tableHeaderForeground = UIColor.darkGray
-    let tableHeaderBackground = UIColor(white: 0.97, alpha: 1)
+    let tableHeaderBackground = UIColor.groupTableViewBackground
 }

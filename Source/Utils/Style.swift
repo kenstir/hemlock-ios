@@ -96,14 +96,12 @@ class Style {
 
     static func styleLabel(asTableHeader v: UILabel) {
         v.textColor = UIColor.darkGray
-        //TODO: make small caps
-        // see also https://liamnichols.github.io/2016/09/11/using-small-caps-in-uikit.html
-        // see also https://developer.apple.com/documentation/uikit/uifontdescriptor/attributename/1616701-featuresettings
+        v.font = UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps
     }
 
     static func styleStackView(asTableHeader v: UIView) {
         let bgView = UIView()
-        bgView.backgroundColor = App.theme.tableHeaderBackground
+        bgView.backgroundColor = UIColor.groupTableViewBackground
         bgView.translatesAutoresizingMaskIntoConstraints = false
         v.insertSubview(bgView, at: 0)
         bgView.pin(to: v)
