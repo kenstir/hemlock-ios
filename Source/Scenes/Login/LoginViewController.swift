@@ -46,7 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // auto login
         let (savedUsername, savedPassword) = LoginController.getSavedLoginCredentials()
-        if let username = savedUsername, let password = savedPassword {
+        if let _ = savedUsername, let _ = savedPassword {
             doLogin()
         }
     }
