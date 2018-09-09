@@ -222,12 +222,12 @@ extension XResultsViewController: ASTableDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.groupTableViewBackground
+        view.backgroundColor = App.theme.tableHeaderBackground
  
         let rect = CGRect(x: 8, y: 29, width: 320, height: 21)
         let label = UILabel(frame: rect)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = UIColor.darkGray
+        label.textColor = App.theme.tableHeaderForeground
         label.text = titleForHeaderInSection()
         label.font = UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps
 
