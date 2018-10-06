@@ -1,0 +1,10 @@
+site_name: Hemlock for iOS
+docs_dir: Documentation
+theme: readthedocs
+#site_favicon: favicon.ico
+extra_templates: []
+extra_css: []
+extra_javascript: []
+
+pages:
+  - Home: 'privacy.md'
