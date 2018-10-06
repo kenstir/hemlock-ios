@@ -1,7 +1,8 @@
 ---
 title: Hemlock App for iOS - Privacy Policy
 layout: default
-redirect_from: /
+redirect_from:
+  - /
 ---
 # Privacy Policy
 
