@@ -1,6 +1,7 @@
 ---
 title: Hemlock App for iOS - Privacy Policy
 layout: default
+redirect_from: /
 ---
 # Privacy Policy
 
@@ -11,5 +12,5 @@ This page outlines the privacy policy of Hemlock and related apps for iOS ("the 
 This app does not collect any personal information.  It does not read your
 contacts.  It does not transmit any of your activity anywhere except:
 
-* your library's Evergreen catalog
+* your library's online catalog
 * the App Store, in the unlikely event of a crash
