@@ -1,23 +1,15 @@
-# Hemlock App for iOS Privacy Policy
+---
+title: Hemlock App for iOS - Privacy Policy
+layout: default
+---
+# Privacy Policy
 
 This page outlines the privacy policy of Hemlock and related apps for iOS ("the app"):
-* [C/W MARS](https://play.google.com/store/apps/details?id=org.cwmars)
-* [PINES (Georgia)](https://play.google.com/store/apps/details?id=net.kenstir.apps.pines)
+* C/W MARS (unpublished)
+* [PINES (Georgia)](https://itunes.apple.com/us/app/pines-georgia/id1400443994)
 
+This app does not collect any personal information.  It does not read your
+contacts.  It does not transmit any of your activity anywhere except:
 
-## Reason for Collection
-
-The app collects general data on which features are used and how
-often.  For example, if you place a hold, an event is collected noting
-whether you chose email and/or SMS notification.  In the event of a
-crash, a stack trace is collected, along with some details about the
-hardware and software on the phone, and some logs about the network
-requests made leading up to the crash.
-
-This information allows us to fix bugs, and improve and prioritize features.
-
-
-## Personal Data Collected
-
-* Installation UUID
-* IP addresses - once received it is geo-coded to a city and displayed on a map for 10 seconds. Retained temporarily.
+* your library's Evergreen catalog
+* the App Store, in the unlikely event of a crash
