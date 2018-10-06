@@ -1,8 +1,8 @@
 # Hemlock App for iOS Privacy Policy
 
 This page outlines the privacy policy of Hemlock and related apps for iOS ("the app"):
-* [C/W MARS|https://play.google.com/store/apps/details?id=org.cwmars]
-* [PINES (Georgia)|https://play.google.com/store/apps/details?id=net.kenstir.apps.pines]
+* [C/W MARS](https://play.google.com/store/apps/details?id=org.cwmars)
+* [PINES (Georgia)](https://play.google.com/store/apps/details?id=net.kenstir.apps.pines)
 
 
 ## Reason for Collection
@@ -14,7 +14,7 @@ crash, a stack trace is collected, along with some details about the
 hardware and software on the phone, and some logs about the network
 requests made leading up to the crash.
 
-This information allows us to improve and prioritize features, and to fix bugs.
+This information allows us to fix bugs, and improve and prioritize features.
 
 
 ## Personal Data Collected
