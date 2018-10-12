@@ -81,12 +81,10 @@ class Account {
     }
     
     private func parseHoldNotifyValue(_ value: String) {
-        // value is "|" separated, e.g. "email|sms" or "email|phone"
-        for notify in value.split(onString: "|") {
-            if notify == "email"      { defaultNotifyEmail = true }
-            else if notify == "phone" { defaultNotifyPhone = true }
-            else if notify == "sms"   { defaultNotifySMS = true }
-        }
+        // value is "|" or ":" separated, e.g. "email|sms" or "phone:email"
+        defaultNotifyEmail = value.contains("email")
+        defaultNotifyPhone = value.contains("phone")
+        defaultNotifySMS = value.contains("sms")
     }
     
     func loadUserSettings(fromObject obj: OSRFObject) {
