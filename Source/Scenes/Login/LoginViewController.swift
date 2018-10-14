@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
-    weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,13 +61,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         usernameField.delegate = self
         passwordField.delegate = self
         
-        // style the buttons
+        // add style
         loginButton.isEnabled = false
         Style.styleButton(asInverse: loginButton)
         Style.styleButton(asPlain: forgotPasswordButton)
-        
-        // create and style the activity indicator
-        activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
         
         self.setupTapToDismissKeyboard(onScrollView: scrollView)
@@ -140,7 +137,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         let account = Account(username, password: password)
 
+        //activityIndicator.isHidden = false
         activityIndicator.startAnimating()
+        //sleep(1)
 
         LoginController(for: account).login { resp in
 
