@@ -137,9 +137,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         let account = Account(username, password: password)
 
-        //activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        //sleep(1)
 
         LoginController(for: account).login { resp in
 
