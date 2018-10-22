@@ -124,10 +124,12 @@ class Format {
     }
     
     static func getDisplayLabel(forSearchFormat searchFormat: String?) -> String {
+        if (searchFormat ?? "").isEmpty {
+            return ""
+        }
         if let item = items.first(where: { $0.searchFormat == searchFormat }) {
             return item.displayLabel ?? item.spinnerLabel
         }
-        //TODO: analytics
         return ""
     }
     

@@ -65,6 +65,7 @@ class FormatTests: XCTestCase {
         // case where spinnerLabel != displayLabel
         XCTAssertEqual(Format.getDisplayLabel(forSearchFormat: "book"), "Book")
         XCTAssertEqual(Format.getDisplayLabel(forSearchFormat: "dvd"), "DVD")
+        XCTAssertEqual(Format.getDisplayLabel(forSearchFormat: ""), "")
     }
     
     func test_Format_isOnlineResource() {
