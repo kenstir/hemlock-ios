@@ -53,7 +53,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     //MARK: - ViewController
     
     // NB: viewDidLoad on an ASViewController gets called during construction,
-    // before there is any UI.  Do not fetchData here; fetch it in viewDidAppear.
+    // before there is any UI.  Do not fetchData here.
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNodes()
