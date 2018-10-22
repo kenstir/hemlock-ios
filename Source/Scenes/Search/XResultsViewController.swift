@@ -240,6 +240,10 @@ extension XResultsViewController: ASTableDataSource {
 extension XResultsViewController: ASTableDelegate {
 
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        let vc = XDetailsPagerViewController(items: items, selectedItem: indexPath.row)
+        self.navigationController?.pushViewController(vc, animated: true)
+
+        /*
         let item = items[indexPath.row]
         selectedItem = item
         
@@ -250,5 +254,6 @@ extension XResultsViewController: ASTableDelegate {
             detailsVC.searchParameters = searchParameters
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        */
     }
 }

@@ -68,6 +68,12 @@
 		D260755B20E144E000795124 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
 		D260755C20E144E000795124 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
 		D260755E20E165D200795124 /* FormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755D20E165D200795124 /* FormatTests.swift */; };
+		D26210EB217E130E004E7ABE /* XDetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */; };
+		D26210ED217E2369004E7ABE /* XDetailsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EC217E2369004E7ABE /* XDetailsNode.swift */; };
+		D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */; };
+		D26210F1217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */; };
+		D26210F2217E3502004E7ABE /* XDetailsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EC217E2369004E7ABE /* XDetailsNode.swift */; };
+		D26210F3217E3502004E7ABE /* XDetailsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EC217E2369004E7ABE /* XDetailsNode.swift */; };
 		D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
@@ -366,6 +372,8 @@
 		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		D260755A20E144E000795124 /* Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		D260755D20E165D200795124 /* FormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatTests.swift; sourceTree = "<group>"; };
+		D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDetailsPagerViewController.swift; sourceTree = "<group>"; };
+		D26210EC217E2369004E7ABE /* XDetailsNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XDetailsNode.swift; sourceTree = "<group>"; };
 		D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCounts.swift; sourceTree = "<group>"; };
 		D267E4E3210CDE4700C56047 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		D267E4E6210D17F900C56047 /* CopyCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCounts.swift; sourceTree = "<group>"; };
@@ -571,6 +579,8 @@
 			children = (
 				D21F683620D8042800D953C1 /* Details.storyboard */,
 				D21F683820D804DD00D953C1 /* DetailsViewController.swift */,
+				D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */,
+				D26210EC217E2369004E7ABE /* XDetailsNode.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1145,6 +1155,7 @@
 				D276DA8921336B20007FAA31 /* OSRFCoder.swift in Sources */,
 				D276DA8A21336B20007FAA31 /* LoginViewController.swift in Sources */,
 				D276DA8B21336B20007FAA31 /* ListsViewController.swift in Sources */,
+				D26210F3217E3502004E7ABE /* XDetailsNode.swift in Sources */,
 				D276DA8C21336B20007FAA31 /* XResultsTableNode.swift in Sources */,
 				D276DA8D21336B20007FAA31 /* XCheckoutsTableNode.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
@@ -1174,6 +1185,7 @@
 				D276DAA521336B20007FAA31 /* CircService.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
+				D26210F1217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D276DAA821336B20007FAA31 /* CopyInfoViewController.swift in Sources */,
 				D276DAA921336B20007FAA31 /* UIView+.swift in Sources */,
 				D276DAAA21336B20007FAA31 /* CircRecord.swift in Sources */,
@@ -1217,8 +1229,10 @@
 				D279920F20DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
 				D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
 				D279921120DEEA27003B451E /* McTextField.swift in Sources */,
+				D26210EB217E130E004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
+				D26210ED217E2369004E7ABE /* XDetailsNode.swift in Sources */,
 				D28725B120E932DF002A4C42 /* ListsViewController.swift in Sources */,
 				D23E5A0120ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
 				D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */,
@@ -1295,6 +1309,7 @@
 				D279921220DEEA27003B451E /* McTextField.swift in Sources */,
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
+				D26210F2217E3502004E7ABE /* XDetailsNode.swift in Sources */,
 				D28725B220E93352002A4C42 /* ListsViewController.swift in Sources */,
 				D23E5A0220ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
 				D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */,
@@ -1324,6 +1339,7 @@
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
+				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+.swift in Sources */,
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
