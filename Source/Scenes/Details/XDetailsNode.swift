@@ -28,30 +28,28 @@ class XDetailsNode: ASCellNode {
     
     private let record: MBRecord
     
+    private let pageHeaderNode: ASTextNode
     private let titleNode: ASTextNode
     private let spacerNode: ASDisplayNode
     private let authorNode: ASTextNode
     private let formatNode: ASTextNode
     private let imageNode: ASNetworkImageNode
-//    private var disclosureNode: ASDisplayNode
-//    private let separatorNode: ASDisplayNode
-    private let pageNumberNode: ASTextNode
-    private let itemNumber: Int
+    private let itemIndex: Int
     private let totalItems: Int
     
     //MARK: - Lifecycle
     
-    init(record: MBRecord, itemNumber: Int, of totalItems: Int) {
+    init(record: MBRecord, index: Int, of totalItems: Int) {
         self.record = record
-        self.itemNumber = itemNumber
+        self.itemIndex = index
         self.totalItems = totalItems
 
+        pageHeaderNode = ASTextNode()
         titleNode = ASTextNode()
         spacerNode = ASDisplayNode()
         authorNode = ASTextNode()
         formatNode = ASTextNode()
         imageNode = ASNetworkImageNode()
-        pageNumberNode = ASTextNode()
 
         super.init()
         self.setupNodes()
@@ -61,6 +59,8 @@ class XDetailsNode: ASCellNode {
     //MARK: - Setup
     
     private func setupNodes() {
+        self.backgroundColor = UIColor.cyan
+        self.setupPageHeaderNode()
         self.setupTitleNode()
         self.setupAuthorNode()
         self.setupFormatNode()
@@ -68,36 +68,29 @@ class XDetailsNode: ASCellNode {
         self.setupSpacerNode()
     }
     
+    private func setupPageHeaderNode() {
+        let naturalNumber = itemIndex + 1
+        let str = "Item \(naturalNumber) of \(totalItems)"
+        self.pageHeaderNode.attributedText = Style.makeTableHeaderString(str)
+        self.pageHeaderNode.backgroundColor = App.theme.tableHeaderBackground
+    }
+
     private func setupTitleNode() {
-        self.titleNode.attributedText = NSAttributedString(string: record.title, attributes: self.titleTextAttributes())
+        self.titleNode.attributedText = Style.makeTitleString(record.title, ofSize: 18)
         self.titleNode.maximumNumberOfLines = 2
         self.titleNode.truncationMode = .byWordWrapping
     }
     
-    private var titleTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
-    }
-    
     private func setupAuthorNode() {
-        let str = "Item \(itemNumber) of \(totalItems)"
-        //self.authorNode.attributedText = NSAttributedString(string: record.author, attributes: self.authorTextAttributes())
-        self.authorNode.attributedText = NSAttributedString(string: str, attributes: self.authorTextAttributes())
+        self.authorNode.attributedText = Style.makeSubtitleString(record.author, ofSize: 16)
         self.authorNode.maximumNumberOfLines = 1
         self.authorNode.truncationMode = .byTruncatingTail
     }
     
-    private var authorTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
-    }
-    
     private func setupFormatNode() {
-        self.formatNode.attributedText = NSAttributedString(string: record.format, attributes: self.formatTextAttributes())
+        self.formatNode.attributedText = Style.makeSubtitleString(record.format, ofSize: 16)
         self.formatNode.maximumNumberOfLines = 1
         self.formatNode.truncationMode = .byTruncatingTail
-    }
-    
-    private var formatTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
     }
     
     private func setupImageNode() {
@@ -113,6 +106,7 @@ class XDetailsNode: ASCellNode {
     //MARK: - Build node hierarchy
     
     private func buildNodeHierarchy() {
+        self.addSubnode(pageHeaderNode)
         self.addSubnode(titleNode)
         self.addSubnode(spacerNode)
         self.addSubnode(authorNode)
@@ -127,8 +121,11 @@ class XDetailsNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        
-        let imageWidth = 50.0
+        // header
+        let headerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0), child: pageHeaderNode)
+
+        // summary + image
+        let imageWidth = 100.0
         let imageHeight = imageWidth * 1.6
         
         let lhsSpec = ASStackLayoutSpec.vertical()
@@ -143,15 +140,20 @@ class XDetailsNode: ASCellNode {
 
         let rhsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .start, alignItems: .center, children: [imageNode])
         
-        let rowSpec = ASStackLayoutSpec(direction: .horizontal,
+        let summaryRowSpec = ASStackLayoutSpec(direction: .horizontal,
                                         spacing: 8,
                                         justifyContent: .start,
                                         alignItems: .center,
                                         children: [lhsSpec, rhsSpec])
-        
-        let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 4.0), child: rowSpec)
-        print(spec.asciiArtString())
-        return spec
+        //return summaryRowSpec
+        let pageSpec = ASStackLayoutSpec.vertical()
+        pageSpec.style.flexShrink = 1.0
+        pageSpec.style.flexGrow = 1.0
+        //pageSpec.children = [headerSpec, summaryRowSpec]
+        pageSpec.children = [summaryRowSpec]
+
+        print(pageSpec.asciiArtString())
+        return pageSpec
     }
 
 }

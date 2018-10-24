@@ -101,9 +101,32 @@ class Style {
 
     static func styleStackView(asTableHeader v: UIView) {
         let bgView = UIView()
-        bgView.backgroundColor = UIColor.groupTableViewBackground
+        bgView.backgroundColor = App.theme.tableHeaderBackground
         bgView.translatesAutoresizingMaskIntoConstraints = false
         v.insertSubview(bgView, at: 0)
         bgView.pin(to: v)
+    }
+    
+    //MARK: - Attributed Strings
+    
+    static func makeTableHeaderString(_ str: String) -> NSAttributedString {
+        let attrs = [
+            NSAttributedStringKey.foregroundColor: App.theme.tableHeaderForeground,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    static func makeTitleString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
+        let attrs = [
+            NSAttributedStringKey.foregroundColor: UIColor.black,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: size, weight: .semibold)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+
+    static func makeSubtitleString(_ str: String, ofSize size: CGFloat = 14) -> NSAttributedString {
+        let attrs = [
+            NSAttributedStringKey.foregroundColor: UIColor.darkGray,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: size)]
+        return NSAttributedString(string: str, attributes: attrs)
     }
 }

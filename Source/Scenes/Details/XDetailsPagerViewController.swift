@@ -27,7 +27,6 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     
     var items: [MBRecord] = []
     var selectedItem = 0
-    let pageNumberNode = ASTextNode()
 
     private var pagerNode: ASPagerNode {
         return node
@@ -37,7 +36,7 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     
     init(items: [MBRecord], selectedItem: Int) {
         super.init(node: ASPagerNode())
-        self.title = "XDetails"
+        self.title = "Item Details"
         self.items = items
         self.selectedItem = selectedItem
     }
@@ -65,11 +64,16 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     //MARK: - Setup
     
     func setupNodes() {
+        self.automaticallyAdjustsScrollViewInsets = false
+        debugPrint(self.navigationController?.navigationBar.isTranslucent)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.node.backgroundColor = UIColor.cyan
+
         pagerNode.setDataSource(self)
         pagerNode.setDelegate(self)
         pagerNode.backgroundColor = UIColor.white
         pagerNode.showsHorizontalScrollIndicator = true
-        
+
         self.setupHomeButton()
     }
 }
@@ -81,10 +85,11 @@ extension XDetailsPagerViewController: ASPagerDataSource {
     }
 
     func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
-        let node = XDetailsNode(record: items[index], itemNumber: index, of: items.count)
+        let node = XDetailsNode(record: items[index], index: index, of: items.count)
 
         // not sure about this
-        node.style.preferredSize = pagerNode.bounds.size
+//        debugPrint(pagerNode.bounds)
+//        node.style.preferredSize = pagerNode.bounds.size
         
         return node
     }
