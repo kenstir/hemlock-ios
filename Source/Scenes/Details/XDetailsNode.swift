@@ -27,17 +27,22 @@ class XDetailsNode: ASCellNode {
     //MARK: - Properties
     
     private let record: MBRecord
-    
+    private let itemIndex: Int
+    private let totalItems: Int
+
     private let pageHeader: ASDisplayNode
     private let pageHeaderText: ASTextNode
+
     private let titleNode: ASTextNode
     private let spacerNode: ASDisplayNode
     private let authorNode: ASTextNode
     private let formatNode: ASTextNode
     private let publicationNode: ASTextNode
     private let imageNode: ASNetworkImageNode
-    private let itemIndex: Int
-    private let totalItems: Int
+    
+    private let copySummaryNode: ASTextNode
+    private let placeHoldButton: ASButtonNode
+    private let copyInfoButton: ASButtonNode
     
     //MARK: - Lifecycle
     
@@ -54,42 +59,77 @@ class XDetailsNode: ASCellNode {
         formatNode = ASTextNode()
         publicationNode = ASTextNode()
         imageNode = ASNetworkImageNode()
+        
+        copySummaryNode = ASTextNode()
+        placeHoldButton = ASButtonNode()
+        copyInfoButton = ASButtonNode()
 
         super.init()
         self.setupNodes()
         self.buildNodeHierarchy()
     }
     
+    override func didEnterPreloadState() {
+        super.didEnterPreloadState()
+        print("xxx XDetailsNode.didEnterPreloadState \(itemIndex) \(record.title)")
+        guard let authtoken = App.account?.authtoken,
+            let userid = App.account?.userID else
+        {
+            return
+        }
+        
+    }
+
     //MARK: - Setup
     
     private func setupNodes() {
         self.setupPageHeader()
-        self.setupTitle()
-        self.setupTextNode(authorNode, str: record.author, ofSize: 16)
-        self.setupTextNode(formatNode, str: record.format, ofSize: 16)
-        self.setupTextNode(publicationNode, str: record.pubinfo, ofSize: 14)
+        self.setupTitle(titleNode, str: record.title, ofSize: 18)
+        self.setupSubtitle(authorNode, str: record.author, ofSize: 16)
+        self.setupSubtitle(formatNode, str: record.format, ofSize: 16)
+        self.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
         self.setupImageNode()
         self.setupSpacerNode()
+        
+        setupCopySummary()
+        setupButtons()
     }
     
     private func setupPageHeader() {
         let naturalNumber = itemIndex + 1
-        let str = "Item \(naturalNumber) of \(totalItems)"
+        let str = "Showing Item \(naturalNumber) of \(totalItems)"
         pageHeaderText.attributedText = Style.makeTableHeaderString(str)
-        //pageHeaderText.backgroundColor = UIColor.cyan
         pageHeader.backgroundColor = App.theme.tableHeaderBackground
     }
 
-    private func setupTitle() {
-        self.titleNode.attributedText = Style.makeTitleString(record.title, ofSize: 18)
-        self.titleNode.maximumNumberOfLines = 2
-        self.titleNode.truncationMode = .byWordWrapping
+    private func setupTitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
+        textNode.attributedText = Style.makeTitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 2
+        textNode.truncationMode = .byWordWrapping
     }
     
-    private func setupTextNode(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
+    private func setupSubtitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
         textNode.attributedText = Style.makeSubtitleString(str, ofSize: size)
         textNode.maximumNumberOfLines = 1
         textNode.truncationMode = .byTruncatingTail
+    }
+    
+    private func setupCopySummary() {
+        var str = "6 of 8 copies available at All C/W MARS Libraries"
+        if let copyCounts = record.copyCounts,
+            let copyCount = copyCounts.last,
+            let orgName = Organization.find(byId: copyCount.orgID)?.name
+        {
+            str = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
+        }
+        copySummaryNode.attributedText = Style.makeString(str, ofSize: 16)
+    }
+    
+    private func setupButtons() {
+        placeHoldButton.setTitle("Place Hold", with: UIFont.systemFont(ofSize: 15), with: .white, for: .normal)
+        Style.styleButton(asInverse: placeHoldButton)
+        copyInfoButton.setTitle("Copy Info", with: UIFont.systemFont(ofSize: 15), with: .white, for: .normal)
+        Style.styleButton(asInverse: copyInfoButton)
     }
         
     private func setupImageNode() {
@@ -113,6 +153,10 @@ class XDetailsNode: ASCellNode {
         self.addSubnode(formatNode)
         self.addSubnode(publicationNode)
         self.addSubnode(imageNode)
+
+        self.addSubnode(copySummaryNode)
+        self.addSubnode(placeHoldButton)
+        self.addSubnode(copyInfoButton)
     }
     
     //MARK: - Layout
@@ -122,21 +166,14 @@ class XDetailsNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        // header
-        //works
-//        pageHeader.style.preferredLayoutSize = ASLayoutSize(width: ASDimensionMake("100%"), height: ASDimensionMake(35))
-//        let headerSpec = ASWrapperLayoutSpec(layoutElement: pageHeader)
+        // header row
 
-//        pageHeader.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 35*3)
-//        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        let insetSpec = ASInsetLayoutSpec(insets: insets, child: pageHeaderText)
-//        let centerSpec = ASCenterLayoutSpec(centeringOptions: .X, sizingOptions: [], child: pageHeaderText)
-//        let headerSpec = ASOverlayLayoutSpec(child: pageHeader, overlay: centerSpec)
-        
-        //pageHeaderText.style.preferredLayoutSize = ASLayoutSize(width: ASDimensionMake("100%"), height: ASDimensionMake(35))
+        //pageHeader.style.preferredLayoutSize = ASLayoutSize(width: ASDimensionMake("100%"), height: ASDimensionMake(35))
         pageHeaderText.style.alignSelf = .center
+        let header = pageHeaderText
 
-        // summary + image
+        // summary row
+
         let imageWidth = 100.0
         let imageHeight = imageWidth * 1.6
         
@@ -151,20 +188,35 @@ class XDetailsNode: ASCellNode {
 
         let rhsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .start, alignItems: .center, children: [imageNode])
         
-        let summaryRowSpec = ASStackLayoutSpec(direction: .horizontal,
-                                               spacing: 8,
-                                               justifyContent: .start,
-                                               alignItems: .start,
-                                               children: [lhsSpec, rhsSpec])
-        let summarySpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: summaryRowSpec)
+        let summary = ASStackLayoutSpec(direction: .horizontal,
+                                        spacing: 8,
+                                        justifyContent: .start,
+                                        alignItems: .start,
+                                        children: [lhsSpec, rhsSpec])
+
+        // copy summary row
+        
+        let copySummary = ASWrapperLayoutSpec(layoutElement: copySummaryNode)
+        
+        // button row
+        
+        let buttonRow = ASStackLayoutSpec.horizontal()
+        buttonRow.spacing = 8
+        placeHoldButton.style.flexGrow = 1.0
+        copyInfoButton.style.flexGrow = 1.0
+        buttonRow.children = [placeHoldButton, copyInfoButton]
+        
+        // page
 
         let pageSpec = ASStackLayoutSpec.vertical()
+        pageSpec.spacing = 8
         pageSpec.style.preferredSize = constrainedSize.max
-        //pageSpec.children = [headerSpec, summarySpec]
-        pageSpec.children = [pageHeaderText, summarySpec]
-
+        pageSpec.children = [header, summary, copySummary, buttonRow]
         print(pageSpec.asciiArtString())
-        return pageSpec
+        
+        let page = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: pageSpec)
+
+        return page
     }
 
 }

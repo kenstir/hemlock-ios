@@ -67,6 +67,9 @@ class ListsViewController: UIViewController {
     
     func setupButtons() {
         Style.styleButton(asInverse: firstButton)
+        Style.styleButton(asInverse: button2)
+        Style.styleButton(asInverse: button3)
+        Style.styleButton(asInverse: button4)
         firstButton.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
         button2.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
         button3.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)

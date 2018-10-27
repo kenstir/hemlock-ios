@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
+import AsyncDisplayKit
 
 class Style {
     
@@ -49,6 +50,13 @@ class Style {
         button.backgroundColor = color
         button.tintColor = .white
         button.layer.cornerRadius = 6
+    }
+    
+    static func styleButton(asInverse button: ASButtonNode, color: UIColor = App.theme.backgroundColor) {
+        button.backgroundColor = color
+        button.tintColor = .white
+        button.cornerRadius = 6
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.backgroundDark2) {
@@ -127,6 +135,13 @@ class Style {
         let attrs = [
             NSAttributedStringKey.foregroundColor: UIColor.darkGray,
             NSAttributedStringKey.font: UIFont.systemFont(ofSize: size)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    static func makeString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
+        let attrs = [
+            NSAttributedStringKey.foregroundColor: UIColor.black,
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: size, weight: .regular)]
         return NSAttributedString(string: str, attributes: attrs)
     }
 }
