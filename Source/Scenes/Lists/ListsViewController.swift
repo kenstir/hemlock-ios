@@ -29,6 +29,9 @@ class ListsViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
     
     //MARK: - UIViewController
     
@@ -65,6 +68,9 @@ class ListsViewController: UIViewController {
     func setupButtons() {
         Style.styleButton(asInverse: firstButton)
         firstButton.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
+        button4.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
     }
     
     func fetchData() {

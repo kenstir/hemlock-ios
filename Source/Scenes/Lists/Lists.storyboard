@@ -96,6 +96,9 @@
                         <viewLayoutGuide key="safeArea" id="KDx-Ji-lZJ"/>
                     </view>
                     <connections>
+                        <outlet property="button2" destination="WXB-Ao-EoX" id="b1Z-ob-Rv2"/>
+                        <outlet property="button3" destination="Wc1-Ap-2h3" id="EiT-V2-rFk"/>
+                        <outlet property="button4" destination="hVZ-5q-wZc" id="OR1-DS-aaQ"/>
                         <outlet property="contentView" destination="Wxf-cV-9n9" id="5BW-vq-8Ll"/>
                         <outlet property="firstButton" destination="4cq-G9-aDt" id="UxU-7b-jlP"/>
                         <outlet property="scrollView" destination="8Nt-H6-K08" id="zKM-Dd-dsf"/>

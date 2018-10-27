@@ -76,7 +76,7 @@ class XDetailsNode: ASCellNode {
         let naturalNumber = itemIndex + 1
         let str = "Item \(naturalNumber) of \(totalItems)"
         pageHeaderText.attributedText = Style.makeTableHeaderString(str)
-        pageHeaderText.backgroundColor = UIColor.cyan
+        //pageHeaderText.backgroundColor = UIColor.cyan
         pageHeader.backgroundColor = App.theme.tableHeaderBackground
     }
 
@@ -127,11 +127,14 @@ class XDetailsNode: ASCellNode {
 //        pageHeader.style.preferredLayoutSize = ASLayoutSize(width: ASDimensionMake("100%"), height: ASDimensionMake(35))
 //        let headerSpec = ASWrapperLayoutSpec(layoutElement: pageHeader)
 
-        pageHeader.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 35*3)
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let insetSpec = ASInsetLayoutSpec(insets: insets, child: pageHeaderText)
-        let centerSpec = ASCenterLayoutSpec(centeringOptions: .X, sizingOptions: [], child: pageHeaderText)
-        let headerSpec = ASOverlayLayoutSpec(child: pageHeader, overlay: centerSpec)
+//        pageHeader.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 35*3)
+//        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        let insetSpec = ASInsetLayoutSpec(insets: insets, child: pageHeaderText)
+//        let centerSpec = ASCenterLayoutSpec(centeringOptions: .X, sizingOptions: [], child: pageHeaderText)
+//        let headerSpec = ASOverlayLayoutSpec(child: pageHeader, overlay: centerSpec)
+        
+        //pageHeaderText.style.preferredLayoutSize = ASLayoutSize(width: ASDimensionMake("100%"), height: ASDimensionMake(35))
+        pageHeaderText.style.alignSelf = .center
 
         // summary + image
         let imageWidth = 100.0
@@ -141,6 +144,7 @@ class XDetailsNode: ASCellNode {
         lhsSpec.spacing = 8.0
         lhsSpec.alignItems = .start
         lhsSpec.style.flexGrow = 1.0
+        lhsSpec.style.flexShrink = 1.0
         lhsSpec.children = [titleNode, authorNode, formatNode, publicationNode]
 
         imageNode.style.preferredSize = CGSize(width: imageWidth, height: imageHeight)
@@ -156,7 +160,8 @@ class XDetailsNode: ASCellNode {
 
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.style.preferredSize = constrainedSize.max
-        pageSpec.children = [headerSpec, summarySpec]
+        //pageSpec.children = [headerSpec, summarySpec]
+        pageSpec.children = [pageHeaderText, summarySpec]
 
         print(pageSpec.asciiArtString())
         return pageSpec

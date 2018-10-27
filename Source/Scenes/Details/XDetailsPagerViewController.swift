@@ -51,13 +51,10 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
         super.viewDidLoad()
         self.setupNodes()
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //self.fetchData()
-    }
     
     override func viewDidAppear(_ animated: Bool) {
+        // scrollToPage has no effect if done in viewWillAppear(),
+        // but doing it here means the scrolling is visible to the user
         pagerNode.scrollToPage(at: selectedItem, animated: false)
     }
     
@@ -69,7 +66,6 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
         // If you don't set isTranslucent=false, ASDK positions the content
         // *under* the navigationBar.
         self.navigationController?.navigationBar.isTranslucent = false
-        self.node.backgroundColor = UIColor.cyan
 
         pagerNode.setDataSource(self)
         pagerNode.setDelegate(self)
@@ -87,17 +83,11 @@ extension XDetailsPagerViewController: ASPagerDataSource {
     }
 
     func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
-        let node = XDetailsNode(record: items[index], index: index, of: items.count)
-
-        // not sure about this
-//        debugPrint(pagerNode.bounds)
-//        node.style.preferredSize = pagerNode.bounds.size
-        
-        return node
+        return XDetailsNode(record: items[index], index: index, of: items.count)
     }
 }
 
 //MARK: - Delegate
 extension XDetailsPagerViewController: ASPagerDelegate {
-    // TODO
+    // TODO?
 }
