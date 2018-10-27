@@ -61,10 +61,7 @@ class DetailsViewController: UIViewController {
         formatLabel.text = item?.format
         authorLabel.text = item?.author
         formatLabel.text = item?.format
-
-        let pubdate = item?.mvrObj?.getString("pubdate") ?? ""
-        let publisher = item?.mvrObj?.getString("publisher") ?? ""
-        pubYearLabel.text = pubdate + " " + publisher
+        pubYearLabel.text = item?.pubinfo
 
         if let doc_id = item?.mvrObj?.getInt("doc_id"),
             let url = URL(string: AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(doc_id)),

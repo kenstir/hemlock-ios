@@ -28,11 +28,13 @@ class XDetailsNode: ASCellNode {
     
     private let record: MBRecord
     
-    private let pageHeaderNode: ASTextNode
+    private let pageHeader: ASDisplayNode
+    private let pageHeaderText: ASTextNode
     private let titleNode: ASTextNode
     private let spacerNode: ASDisplayNode
     private let authorNode: ASTextNode
     private let formatNode: ASTextNode
+    private let publicationNode: ASTextNode
     private let imageNode: ASNetworkImageNode
     private let itemIndex: Int
     private let totalItems: Int
@@ -44,11 +46,13 @@ class XDetailsNode: ASCellNode {
         self.itemIndex = index
         self.totalItems = totalItems
 
-        pageHeaderNode = ASTextNode()
+        pageHeader = ASDisplayNode()
+        pageHeaderText = ASTextNode()
         titleNode = ASTextNode()
         spacerNode = ASDisplayNode()
         authorNode = ASTextNode()
         formatNode = ASTextNode()
+        publicationNode = ASTextNode()
         imageNode = ASNetworkImageNode()
 
         super.init()
@@ -59,40 +63,35 @@ class XDetailsNode: ASCellNode {
     //MARK: - Setup
     
     private func setupNodes() {
-        self.backgroundColor = UIColor.cyan
-        self.setupPageHeaderNode()
-        self.setupTitleNode()
-        self.setupAuthorNode()
-        self.setupFormatNode()
+        self.setupPageHeader()
+        self.setupTitle()
+        self.setupTextNode(authorNode, str: record.author, ofSize: 16)
+        self.setupTextNode(formatNode, str: record.format, ofSize: 16)
+        self.setupTextNode(publicationNode, str: record.pubinfo, ofSize: 14)
         self.setupImageNode()
         self.setupSpacerNode()
     }
     
-    private func setupPageHeaderNode() {
+    private func setupPageHeader() {
         let naturalNumber = itemIndex + 1
         let str = "Item \(naturalNumber) of \(totalItems)"
-        self.pageHeaderNode.attributedText = Style.makeTableHeaderString(str)
-        self.pageHeaderNode.backgroundColor = App.theme.tableHeaderBackground
+        pageHeaderText.attributedText = Style.makeTableHeaderString(str)
+        pageHeaderText.backgroundColor = UIColor.cyan
+        pageHeader.backgroundColor = App.theme.tableHeaderBackground
     }
 
-    private func setupTitleNode() {
+    private func setupTitle() {
         self.titleNode.attributedText = Style.makeTitleString(record.title, ofSize: 18)
         self.titleNode.maximumNumberOfLines = 2
         self.titleNode.truncationMode = .byWordWrapping
     }
     
-    private func setupAuthorNode() {
-        self.authorNode.attributedText = Style.makeSubtitleString(record.author, ofSize: 16)
-        self.authorNode.maximumNumberOfLines = 1
-        self.authorNode.truncationMode = .byTruncatingTail
+    private func setupTextNode(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
+        textNode.attributedText = Style.makeSubtitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 1
+        textNode.truncationMode = .byTruncatingTail
     }
-    
-    private func setupFormatNode() {
-        self.formatNode.attributedText = Style.makeSubtitleString(record.format, ofSize: 16)
-        self.formatNode.maximumNumberOfLines = 1
-        self.formatNode.truncationMode = .byTruncatingTail
-    }
-    
+        
     private func setupImageNode() {
         let url = AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
         self.imageNode.contentMode = .scaleAspectFit 
@@ -106,11 +105,13 @@ class XDetailsNode: ASCellNode {
     //MARK: - Build node hierarchy
     
     private func buildNodeHierarchy() {
-        self.addSubnode(pageHeaderNode)
+        self.addSubnode(pageHeaderText)
+        self.addSubnode(pageHeader)
         self.addSubnode(titleNode)
         self.addSubnode(spacerNode)
         self.addSubnode(authorNode)
         self.addSubnode(formatNode)
+        self.addSubnode(publicationNode)
         self.addSubnode(imageNode)
     }
     
@@ -122,35 +123,40 @@ class XDetailsNode: ASCellNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         // header
-        let headerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0), child: pageHeaderNode)
+        //works
+//        pageHeader.style.preferredLayoutSize = ASLayoutSize(width: ASDimensionMake("100%"), height: ASDimensionMake(35))
+//        let headerSpec = ASWrapperLayoutSpec(layoutElement: pageHeader)
+
+        pageHeader.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 35*3)
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        let insetSpec = ASInsetLayoutSpec(insets: insets, child: pageHeaderText)
+        let centerSpec = ASCenterLayoutSpec(centeringOptions: .X, sizingOptions: [], child: pageHeaderText)
+        let headerSpec = ASOverlayLayoutSpec(child: pageHeader, overlay: centerSpec)
 
         // summary + image
         let imageWidth = 100.0
         let imageHeight = imageWidth * 1.6
         
         let lhsSpec = ASStackLayoutSpec.vertical()
-        lhsSpec.style.flexShrink = 1.0
+        lhsSpec.spacing = 8.0
+        lhsSpec.alignItems = .start
         lhsSpec.style.flexGrow = 1.0
-        lhsSpec.style.preferredSize = CGSize(width: 0, height: imageHeight)
-        spacerNode.style.flexShrink = 1.0
-        spacerNode.style.flexGrow = 1.0
-        lhsSpec.children = [titleNode, spacerNode, authorNode, formatNode]
-        
+        lhsSpec.children = [titleNode, authorNode, formatNode, publicationNode]
+
         imageNode.style.preferredSize = CGSize(width: imageWidth, height: imageHeight)
 
         let rhsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .start, alignItems: .center, children: [imageNode])
         
         let summaryRowSpec = ASStackLayoutSpec(direction: .horizontal,
-                                        spacing: 8,
-                                        justifyContent: .start,
-                                        alignItems: .center,
-                                        children: [lhsSpec, rhsSpec])
-        //return summaryRowSpec
+                                               spacing: 8,
+                                               justifyContent: .start,
+                                               alignItems: .start,
+                                               children: [lhsSpec, rhsSpec])
+        let summarySpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: summaryRowSpec)
+
         let pageSpec = ASStackLayoutSpec.vertical()
-        pageSpec.style.flexShrink = 1.0
-        pageSpec.style.flexGrow = 1.0
-        //pageSpec.children = [headerSpec, summaryRowSpec]
-        pageSpec.children = [summaryRowSpec]
+        pageSpec.style.preferredSize = constrainedSize.max
+        pageSpec.children = [headerSpec, summarySpec]
 
         print(pageSpec.asciiArtString())
         return pageSpec

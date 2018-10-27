@@ -52,4 +52,13 @@ class SearchService {
         let promise = req.gatewayResponse()
         return promise
     }
+    
+    static func fetchRecordMVR(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
+        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id])
+        let promise = req.gatewayObjectResponse().done { obj in
+            print("xxx \(record.id) recordModsRetrieve done")
+            record.mvrObj = obj
+        }
+        return promise
+    }
 }

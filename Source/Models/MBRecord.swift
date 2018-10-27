@@ -37,6 +37,11 @@ class MBRecord {
         }
         return ""
     }
+    var pubinfo: String {
+        let pubdate = mvrObj?.getString("pubdate") ?? ""
+        let publisher = mvrObj?.getString("publisher") ?? ""
+        return pubdate + " " + publisher
+    }
 
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id

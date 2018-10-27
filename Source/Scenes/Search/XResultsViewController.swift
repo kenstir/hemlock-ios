@@ -136,7 +136,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     func fetchRecordMVRs(authtoken: String, records: [MBRecord]) {
         var promises: [Promise<Void>] = []
         for record in records {
-            promises.append(fetchRecordMVR(authtoken: authtoken, forRecord: record))
+            promises.append(SearchService.fetchRecordMVR(authtoken: authtoken, forRecord: record))
             promises.append(PCRUDService.fetchSearchFormat(authtoken: authtoken, forRecord: record))
         }
         print("xxx \(promises.count) promises made")
@@ -154,15 +154,6 @@ class XResultsViewController: ASViewController<ASTableNode> {
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error)
         }
-    }
-    
-    func fetchRecordMVR(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id])
-        let promise = req.gatewayObjectResponse().done { obj in
-            print("xxx \(record.id) recordModsRetrieve done")
-            record.mvrObj = obj
-        }
-        return promise
     }
 
     func updateItems(withRecords records: [MBRecord]) {

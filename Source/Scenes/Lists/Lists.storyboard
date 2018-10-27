@@ -97,6 +97,7 @@
                     </view>
                     <connections>
                         <outlet property="contentView" destination="Wxf-cV-9n9" id="5BW-vq-8Ll"/>
+                        <outlet property="firstButton" destination="4cq-G9-aDt" id="UxU-7b-jlP"/>
                         <outlet property="scrollView" destination="8Nt-H6-K08" id="zKM-Dd-dsf"/>
                     </connections>
                 </viewController>

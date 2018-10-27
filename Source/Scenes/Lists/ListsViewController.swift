@@ -19,6 +19,8 @@
 
 import UIKit
 import ToastSwiftFramework
+import PromiseKit
+import PMKAlamofire
 
 class ListsViewController: UIViewController {
 
@@ -26,6 +28,7 @@ class ListsViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var firstButton: UIButton!
     
     //MARK: - UIViewController
     
@@ -53,11 +56,42 @@ class ListsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        self.setupButtons()
         self.setupHomeButton()
         self.setupTapToDismissKeyboard(onScrollView: scrollView)
         self.scrollView.setupKeyboardAutoResizer()
     }
     
+    func setupButtons() {
+        Style.styleButton(asInverse: firstButton)
+        firstButton.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
+    }
+    
     func fetchData() {
+    }
+    
+    @objc func firstButtonPressed(sender: Any) {
+        // JUNK!  just display one book jacket
+        guard let authtoken = App.account?.authtoken else {
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            return
+        }
+        let records = [MBRecord(id: 71844)]//5859894
+        var promises: [Promise<Void>] = []
+        for record in records {
+            promises.append(SearchService.fetchRecordMVR(authtoken: authtoken, forRecord: record))
+            promises.append(PCRUDService.fetchSearchFormat(authtoken: authtoken, forRecord: record))
+        }
+        print("xxx \(promises.count) promises made")
+        
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            let vc = XDetailsPagerViewController(items: records, selectedItem: 0)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+
     }
 }

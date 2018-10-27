@@ -65,7 +65,9 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     
     func setupNodes() {
         self.automaticallyAdjustsScrollViewInsets = false
-        debugPrint(self.navigationController?.navigationBar.isTranslucent)
+
+        // If you don't set isTranslucent=false, ASDK positions the content
+        // *under* the navigationBar.
         self.navigationController?.navigationBar.isTranslucent = false
         self.node.backgroundColor = UIColor.cyan
 
