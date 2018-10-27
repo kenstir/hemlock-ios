@@ -21,6 +21,7 @@ import UIKit
 import PromiseKit
 import PMKAlamofire
 
+//TODO: remove this once XDetailsNode works
 class DetailsViewController: UIViewController {
     
     //MARK: - Properties

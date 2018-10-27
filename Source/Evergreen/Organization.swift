@@ -147,9 +147,9 @@ class Organization {
         return nil
     }
     
-//    static func consortium() -> Organization? {
-//        return orgs.first(where: { $0.parent == nil })
-//    }
+    static func consortium() -> Organization? {
+        return find(byId: consortiumOrgID)
+    }
 
     static func getSpinnerLabels() -> [String] {
         if App.config.enableHierarchicalOrgTree {

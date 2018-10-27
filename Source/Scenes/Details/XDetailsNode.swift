@@ -19,6 +19,8 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import AsyncDisplayKit
+import PromiseKit
+import PMKAlamofire
 
 // mainly a copy of XResultsTableNode
 // TODO: factor out commonality
@@ -29,6 +31,7 @@ class XDetailsNode: ASCellNode {
     private let record: MBRecord
     private let itemIndex: Int
     private let totalItems: Int
+    private let searchParameters: SearchParameters?
 
     private let pageHeader: ASDisplayNode
     private let pageHeaderText: ASTextNode
@@ -46,10 +49,11 @@ class XDetailsNode: ASCellNode {
     
     //MARK: - Lifecycle
     
-    init(record: MBRecord, index: Int, of totalItems: Int) {
+    init(record: MBRecord, index: Int, of totalItems: Int, searchParameters: SearchParameters?) {
         self.record = record
         self.itemIndex = index
         self.totalItems = totalItems
+        self.searchParameters = searchParameters
 
         pageHeader = ASDisplayNode()
         pageHeaderText = ASTextNode()
@@ -72,16 +76,34 @@ class XDetailsNode: ASCellNode {
     override func didEnterPreloadState() {
         super.didEnterPreloadState()
         print("xxx XDetailsNode.didEnterPreloadState \(itemIndex) \(record.title)")
-        guard let authtoken = App.account?.authtoken,
-            let userid = App.account?.userID else
+        guard let _ = App.account?.authtoken,
+            let _ = App.account?.userID else
         {
             return
         }
         
+        var promises: [Promise<Void>] = []
+        promises.append(ActorService.fetchOrgTree())
+        promises.append(SearchService.fetchCopyStatusAll())
+        
+        let orgID = Organization.find(byShortName: searchParameters?.organizationShortName)?.id ?? Organization.consortiumOrgID
+        let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: record.id)
+        let done_promise = promise.done { array in
+            self.record.copyCounts = CopyCounts.makeArray(fromArray: array)
+        }
+        promises.append(done_promise)
+        
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            self.setupCopySummary()
+        }.catch { error in
+            self.viewController?.presentGatewayAlert(forError: error)
+        }
     }
 
     //MARK: - Setup
-    
+
     private func setupNodes() {
         self.setupPageHeader()
         self.setupTitle(titleNode, str: record.title, ofSize: 18)
@@ -115,7 +137,7 @@ class XDetailsNode: ASCellNode {
     }
     
     private func setupCopySummary() {
-        var str = "6 of 8 copies available at All C/W MARS Libraries"
+        var str = ""
         if let copyCounts = record.copyCounts,
             let copyCount = copyCounts.last,
             let orgName = Organization.find(byId: copyCount.orgID)?.name

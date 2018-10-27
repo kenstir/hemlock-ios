@@ -27,6 +27,8 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     
     var items: [MBRecord] = []
     var selectedItem = 0
+    var searchParameters: SearchParameters?
+    var searchOrg: Organization?
 
     private var pagerNode: ASPagerNode {
         return node
@@ -34,11 +36,12 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
 
     //MARK: - Lifecycle
     
-    init(items: [MBRecord], selectedItem: Int) {
+    init(items: [MBRecord], selectedItem: Int, searchParameters: SearchParameters? = nil) {
         super.init(node: ASPagerNode())
         self.title = "Item Details"
         self.items = items
         self.selectedItem = selectedItem
+        self.searchParameters = searchParameters
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,7 +54,7 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
         super.viewDidLoad()
         self.setupNodes()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         // scrollToPage has no effect if done in viewWillAppear(),
         // but doing it here means the scrolling is visible to the user
@@ -83,7 +86,7 @@ extension XDetailsPagerViewController: ASPagerDataSource {
     }
 
     func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
-        return XDetailsNode(record: items[index], index: index, of: items.count)
+        return XDetailsNode(record: items[index], index: index, of: items.count, searchParameters: searchParameters)
     }
 }
 

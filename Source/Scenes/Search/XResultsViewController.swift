@@ -28,7 +28,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     
     var activityIndicator: UIActivityIndicatorView!
 
-    let headerNode: ASTextNode = ASTextNode()
+    let headerNode = ASTextNode()
     var searchParameters: SearchParameters?
     var items: [MBRecord] = []
     var selectedItem: MBRecord?
@@ -199,7 +199,7 @@ extension XResultsViewController: ASTableDataSource {
 
     func titleForHeaderInSection() -> String {
         if !didCompleteSearch {
-            return ""
+            return "Searching..."
         } else if items.count == 0 {
             return "No results"
         } else {
@@ -231,20 +231,7 @@ extension XResultsViewController: ASTableDataSource {
 extension XResultsViewController: ASTableDelegate {
 
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        let vc = XDetailsPagerViewController(items: items, selectedItem: indexPath.row)
+        let vc = XDetailsPagerViewController(items: items, selectedItem: indexPath.row, searchParameters: searchParameters)
         self.navigationController?.pushViewController(vc, animated: true)
-
-        /*
-        let item = items[indexPath.row]
-        selectedItem = item
-        
-        if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController(),
-            let detailsVC = vc as? DetailsViewController
-        {
-            detailsVC.item = selectedItem
-            detailsVC.searchParameters = searchParameters
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-        */
     }
 }
