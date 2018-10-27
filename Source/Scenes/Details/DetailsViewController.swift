@@ -71,9 +71,9 @@ class DetailsViewController: UIViewController {
             itemImage.image = UIImage(data: data)
         }
 
-        synopsisLabel.text = item?.mvrObj?.getString("synopsis") ?? ""
+        synopsisLabel.text = item?.synopsis
         subjectLabel.text = item?.subject
-        isbnLabel.text = item?.mvrObj?.getString("isbn") ?? ""
+        isbnLabel.text = item?.isbn
 
         Style.styleButton(asInverse: copyInfoButton)
         copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), for: .touchUpInside)
@@ -151,11 +151,11 @@ class DetailsViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination
-        guard let detailsVC = vc as? PlaceHoldsViewController else
+        guard let placeHoldVC = vc as? PlaceHoldsViewController else
         {
             print("Uh oh!")
             return
         }
-        detailsVC.record = item
+        placeHoldVC.record = item
     }
 }

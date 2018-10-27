@@ -31,6 +31,8 @@ class MBRecord {
     var title: String { return mvrObj?.getString("title") ?? "Unknown" }
     var author: String { return mvrObj?.getString("author") ?? "Unknown" }
     var format: String { return Format.getDisplayLabel(forSearchFormat: searchFormat) }
+    var isbn: String { return mvrObj?.getString("isbn") ?? "" }
+    var synopsis: String { return mvrObj?.getString("synopsis") ?? "" }
     var subject: String {
         if let obj = mvrObj?.getObject("subject") {
             return obj.dict.keys.joined(separator: "\n")

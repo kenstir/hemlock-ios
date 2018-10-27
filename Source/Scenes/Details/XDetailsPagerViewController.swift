@@ -21,14 +21,19 @@ import AsyncDisplayKit
 import PromiseKit
 import PMKAlamofire
 
+/// Display options related to an MBRecord
+struct RecordDisplayOptions {
+    let enablePlaceHold: Bool
+    let orgShortName: String?
+}
+
 class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     
     //MARK: - Properties
     
-    var items: [MBRecord] = []
-    var selectedItem = 0
-    var searchParameters: SearchParameters?
-    var searchOrg: Organization?
+    var items: [MBRecord]
+    var selectedItem: Int
+    var displayOptions: RecordDisplayOptions
 
     private var pagerNode: ASPagerNode {
         return node
@@ -36,12 +41,12 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
 
     //MARK: - Lifecycle
     
-    init(items: [MBRecord], selectedItem: Int, searchParameters: SearchParameters? = nil) {
-        super.init(node: ASPagerNode())
-        self.title = "Item Details"
+    init(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) {
         self.items = items
         self.selectedItem = selectedItem
-        self.searchParameters = searchParameters
+        self.displayOptions = displayOptions
+        super.init(node: ASPagerNode())
+        self.title = "Item Details"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,7 +91,7 @@ extension XDetailsPagerViewController: ASPagerDataSource {
     }
 
     func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
-        return XDetailsNode(record: items[index], index: index, of: items.count, searchParameters: searchParameters)
+        return XDetailsNode(record: items[index], index: index, of: items.count, displayOptions: displayOptions)
     }
 }
 

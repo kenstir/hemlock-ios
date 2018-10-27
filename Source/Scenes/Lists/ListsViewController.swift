@@ -96,7 +96,8 @@ class ListsViewController: UIViewController {
         firstly {
             when(fulfilled: promises)
         }.done {
-            let vc = XDetailsPagerViewController(items: records, selectedItem: 0)
+            let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
+            let vc = XDetailsPagerViewController(items: records, selectedItem: 0, displayOptions: displayOptions)
             self.navigationController?.pushViewController(vc, animated: true)
         }.catch { error in
             self.presentGatewayAlert(forError: error)

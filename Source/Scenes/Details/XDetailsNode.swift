@@ -31,7 +31,7 @@ class XDetailsNode: ASCellNode {
     private let record: MBRecord
     private let itemIndex: Int
     private let totalItems: Int
-    private let searchParameters: SearchParameters?
+    private let displayOptions: RecordDisplayOptions
 
     private let pageHeader: ASDisplayNode
     private let pageHeaderText: ASTextNode
@@ -49,11 +49,11 @@ class XDetailsNode: ASCellNode {
     
     //MARK: - Lifecycle
     
-    init(record: MBRecord, index: Int, of totalItems: Int, searchParameters: SearchParameters?) {
+    init(record: MBRecord, index: Int, of totalItems: Int, displayOptions: RecordDisplayOptions) {
         self.record = record
         self.itemIndex = index
         self.totalItems = totalItems
-        self.searchParameters = searchParameters
+        self.displayOptions = displayOptions
 
         pageHeader = ASDisplayNode()
         pageHeaderText = ASTextNode()
@@ -86,7 +86,7 @@ class XDetailsNode: ASCellNode {
         promises.append(ActorService.fetchOrgTree())
         promises.append(SearchService.fetchCopyStatusAll())
         
-        let orgID = Organization.find(byShortName: searchParameters?.organizationShortName)?.id ?? Organization.consortiumOrgID
+        let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
         let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: record.id)
         let done_promise = promise.done { array in
             self.record.copyCounts = CopyCounts.makeArray(fromArray: array)
@@ -100,6 +100,30 @@ class XDetailsNode: ASCellNode {
         }.catch { error in
             self.viewController?.presentGatewayAlert(forError: error)
         }
+    }
+
+    @objc func copyInfoPressed(sender: Any) {
+        let org = Organization.find(byShortName: self.displayOptions.orgShortName) ?? Organization.consortium()
+        guard let myVC = self.closestViewController,
+            let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController(),
+            let copyInfoVC = vc as? CopyInfoViewController else
+        {
+            return
+        }
+        copyInfoVC.org = org
+        copyInfoVC.record = record
+        myVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func placeHoldPressed(sender: Any) {
+        guard let myVC = self.closestViewController,
+            let vc = UIStoryboard(name: "PlaceHolds", bundle: nil).instantiateInitialViewController(),
+            let placeHoldsVC = vc as? PlaceHoldsViewController else
+        {
+            return
+        }
+        placeHoldsVC.record = record
+        myVC.navigationController?.pushViewController(vc, animated: true)
     }
 
     //MARK: - Setup
@@ -150,8 +174,15 @@ class XDetailsNode: ASCellNode {
     private func setupButtons() {
         placeHoldButton.setTitle("Place Hold", with: UIFont.systemFont(ofSize: 15), with: .white, for: .normal)
         Style.styleButton(asInverse: placeHoldButton)
+        if displayOptions.enablePlaceHold {
+            placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
+        } else {
+            placeHoldButton.isEnabled = false
+        }
+
         copyInfoButton.setTitle("Copy Info", with: UIFont.systemFont(ofSize: 15), with: .white, for: .normal)
         Style.styleButton(asInverse: copyInfoButton)
+        copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
     }
         
     private func setupImageNode() {

@@ -231,7 +231,8 @@ extension XResultsViewController: ASTableDataSource {
 extension XResultsViewController: ASTableDelegate {
 
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
-        let vc = XDetailsPagerViewController(items: items, selectedItem: indexPath.row, searchParameters: searchParameters)
+        let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.organizationShortName)
+        let vc = XDetailsPagerViewController(items: items, selectedItem: indexPath.row, displayOptions: displayOptions)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
