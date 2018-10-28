@@ -186,15 +186,19 @@ class XDetailsNode: ASCellNode {
     }
     
     private func setupButtons() {
-        placeHoldButton.setTitle("Place Hold", with: UIFont.systemFont(ofSize: 15), with: .white, for: .normal)
+        let title = "Place Hold"
+        let font = UIFont.systemFont(ofSize: 15)
         Style.styleButton(asInverse: placeHoldButton)
-        if displayOptions.enablePlaceHold {
-            placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
-        } else {
-            placeHoldButton.isEnabled = false
-        }
+        placeHoldButton.setTitle(title, with: font, with: .white, for: .normal)
+        placeHoldButton.setTitle(title, with: font, with: .gray, for: .disabled)
+        placeHoldButton.setTitle(title, with: font, with: .gray, for: .highlighted)
+        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
+        placeHoldButton.isEnabled = displayOptions.enablePlaceHold
 
-        copyInfoButton.setTitle("Copy Info", with: UIFont.systemFont(ofSize: 15), with: .white, for: .normal)
+        let t2 = "Copy Info"
+        copyInfoButton.setTitle(t2, with: font, with: .white, for: .normal)
+        copyInfoButton.setTitle(t2, with: font, with: .gray, for: .disabled)
+        copyInfoButton.setTitle(t2, with: font, with: .gray, for: .highlighted)
         Style.styleButton(asInverse: copyInfoButton)
         copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
     }
