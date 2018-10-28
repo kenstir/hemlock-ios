@@ -174,18 +174,6 @@ class CheckoutsViewController: UIViewController {
             self.presentGatewayAlert(forError: error)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination
-        guard let detailsVC = vc as? DetailsViewController,
-            let metabibRecord = selectedItem?.metabibRecord else
-        {
-            print("Uh oh!")
-            return
-        }
-        detailsVC.item = metabibRecord
-        detailsVC.canPlaceHold = false
-    }
 
     func sortList() {
         items.sort() { $0.dueDate < $1.dueDate }
@@ -258,8 +246,14 @@ extension CheckoutsViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        selectedItem = item
-        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
+        let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
+        var records: [MBRecord] = []
+        for item in items {
+            if let record = item.metabibRecord {
+                records.append(record)
+            }
+        }
+        let vc = XDetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
