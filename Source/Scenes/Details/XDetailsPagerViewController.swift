@@ -34,7 +34,7 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     var items: [MBRecord]
     var selectedItem: Int
     var displayOptions: RecordDisplayOptions
-    var didAppear = false
+    var firstAppearance = true
 
     private var pagerNode: ASPagerNode {
         return node
@@ -62,10 +62,12 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        didAppear = true
-        // scrollToPage has no effect if done in viewWillAppear(),
-        // but doing it here means the scrolling is visible to the user
-        pagerNode.scrollToPage(at: selectedItem, animated: false)
+        if firstAppearance {
+            // scrollToPage has no effect if done in viewWillAppear(),
+            // but doing it here means the scrolling is visible to the user
+            pagerNode.scrollToPage(at: selectedItem, animated: false)
+        }
+        firstAppearance = false
     }
     
     //MARK: - Setup
@@ -99,10 +101,12 @@ extension XDetailsPagerViewController: ASPagerDataSource {
 
 //MARK: - Delegate
 extension XDetailsPagerViewController: ASPagerDelegate {
+/*
     func collectionNode(_ collectionNode: ASCollectionNode, willDisplayItemWith node: ASCellNode) {
         guard let row = node.indexPath?.row else { return }
-        if didAppear {
+        if !firstAppearance {
             selectedItem = row
         }
     }
+*/
 }
