@@ -97,5 +97,8 @@ extension XDetailsPagerViewController: ASPagerDataSource {
 
 //MARK: - Delegate
 extension XDetailsPagerViewController: ASPagerDelegate {
-    // TODO?
+    func collectionNode(_ collectionNode: ASCollectionNode, willDisplayItemWith node: ASCellNode) {
+        guard let row = node.indexPath?.row else { return }
+        selectedItem = row
+    }
 }
