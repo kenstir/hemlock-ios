@@ -47,6 +47,12 @@ class XDetailsNode: ASCellNode {
     private let placeHoldButton: ASButtonNode
     private let copyInfoButton: ASButtonNode
     
+    private let synopsisNode = ASTextNode()
+    private let subjectLabel = ASTextNode()
+    private let subjectNode = ASTextNode()
+    private let isbnLabel = ASTextNode()
+    private let isbnNode = ASTextNode()
+    
     //MARK: - Lifecycle
     
     init(record: MBRecord, index: Int, of totalItems: Int, displayOptions: RecordDisplayOptions) {
@@ -75,7 +81,7 @@ class XDetailsNode: ASCellNode {
     
     override func didEnterPreloadState() {
         super.didEnterPreloadState()
-        print("xxx XDetailsNode.didEnterPreloadState \(itemIndex) \(record.title)")
+
         guard let _ = App.account?.authtoken,
             let _ = App.account?.userID else
         {
@@ -106,10 +112,8 @@ class XDetailsNode: ASCellNode {
         let org = Organization.find(byShortName: self.displayOptions.orgShortName) ?? Organization.consortium()
         guard let myVC = self.closestViewController,
             let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController(),
-            let copyInfoVC = vc as? CopyInfoViewController else
-        {
-            return
-        }
+            let copyInfoVC = vc as? CopyInfoViewController else { return }
+
         copyInfoVC.org = org
         copyInfoVC.record = record
         myVC.navigationController?.pushViewController(vc, animated: true)
@@ -118,10 +122,8 @@ class XDetailsNode: ASCellNode {
     @objc func placeHoldPressed(sender: Any) {
         guard let myVC = self.closestViewController,
             let vc = UIStoryboard(name: "PlaceHolds", bundle: nil).instantiateInitialViewController(),
-            let placeHoldsVC = vc as? PlaceHoldsViewController else
-        {
-            return
-        }
+            let placeHoldsVC = vc as? PlaceHoldsViewController else { return }
+
         placeHoldsVC.record = record
         myVC.navigationController?.pushViewController(vc, animated: true)
     }
@@ -129,16 +131,22 @@ class XDetailsNode: ASCellNode {
     //MARK: - Setup
 
     private func setupNodes() {
-        self.setupPageHeader()
-        self.setupTitle(titleNode, str: record.title, ofSize: 18)
-        self.setupSubtitle(authorNode, str: record.author, ofSize: 16)
-        self.setupSubtitle(formatNode, str: record.format, ofSize: 16)
-        self.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
-        self.setupImageNode()
-        self.setupSpacerNode()
+        setupPageHeader()
+        setupTitle(titleNode, str: record.title, ofSize: 18)
+        setupSubtitle(authorNode, str: record.author, ofSize: 16)
+        setupSubtitle(formatNode, str: record.format, ofSize: 16)
+        setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
+        setupImageNode()
+        setupSpacerNode()
         
         setupCopySummary()
         setupButtons()
+        
+        setupMultilineText(synopsisNode, str: record.synopsis, ofSize: 14)
+        setupSubtitle(subjectLabel, str: "Subject:", ofSize: 14)
+        setupMultilineText(subjectNode, str: record.subject, ofSize: 14)
+        setupSubtitle(isbnLabel, str: "ISBN:", ofSize: 14)
+        setupMultilineText(isbnNode, str: record.isbn, ofSize: 14)
     }
     
     private func setupPageHeader() {
@@ -160,6 +168,12 @@ class XDetailsNode: ASCellNode {
         textNode.truncationMode = .byTruncatingTail
     }
     
+    private func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
+        textNode.attributedText = Style.makeSubtitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 0
+//        textNode.truncationMode = .byTruncatingTail
+    }
+
     private func setupCopySummary() {
         var str = ""
         if let copyCounts = record.copyCounts,
@@ -210,6 +224,12 @@ class XDetailsNode: ASCellNode {
         self.addSubnode(copySummaryNode)
         self.addSubnode(placeHoldButton)
         self.addSubnode(copyInfoButton)
+        
+        self.addSubnode(synopsisNode)
+        self.addSubnode(subjectLabel)
+        self.addSubnode(subjectNode)
+        self.addSubnode(isbnLabel)
+        self.addSubnode(isbnNode)
     }
     
     //MARK: - Layout
@@ -253,18 +273,34 @@ class XDetailsNode: ASCellNode {
         
         // button row
         
-        let buttonRow = ASStackLayoutSpec.horizontal()
-        buttonRow.spacing = 8
+        let buttonsSpec = ASStackLayoutSpec.horizontal()
+        buttonsSpec.spacing = 8
         placeHoldButton.style.flexGrow = 1.0
         copyInfoButton.style.flexGrow = 1.0
-        buttonRow.children = [placeHoldButton, copyInfoButton]
+        buttonsSpec.children = [placeHoldButton, copyInfoButton]
+        let buttonRow = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0), child: buttonsSpec)
         
+        // subject
+        
+        let subject = ASStackLayoutSpec.horizontal()
+//        subject.style.flexGrow = 1.0
+        subjectLabel.style.preferredSize = CGSize(width: 64, height: 16)
+        subject.children = [subjectLabel, subjectNode]
+        
+        // isbn
+        
+        let isbn = ASStackLayoutSpec.horizontal()
+//        isbn.style.flexGrow = 1.0
+        isbnLabel.style.preferredSize = CGSize(width: 64, height: 16)
+        isbn.children = [isbnLabel, isbnNode]
+
         // page
 
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 8
         pageSpec.style.preferredSize = constrainedSize.max
-        pageSpec.children = [header, summary, copySummary, buttonRow]
+        pageSpec.children = [header, summary, copySummary,
+                             buttonRow, synopsisNode, subject, isbn]
         print(pageSpec.asciiArtString())
         
         let page = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: pageSpec)

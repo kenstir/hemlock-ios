@@ -69,19 +69,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="q6M-bg-BhX" userLabel="Subject Stack">
-                                <rect key="frame" x="16" y="371.5" width="288" height="67"/>
+                                <rect key="frame" x="16" y="355" width="288" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jx1-oZ-2Qo" userLabel="Subject Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="17"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="72" id="mFo-Ho-LK0"/>
+                                            <constraint firstAttribute="width" constant="64" id="mFo-Ho-LK0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schools Magic England Trolls Bridges" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msh-1f-Rh4" userLabel="Subject">
-                                        <rect key="frame" x="72" y="0.0" width="216" height="67"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Schools Magic England Trolls Bridges" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msh-1f-Rh4" userLabel="Subject">
+                                        <rect key="frame" x="64" y="0.0" width="224" height="67"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -89,19 +89,19 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="B9P-4f-8Nf" userLabel="ISBN Stack">
-                                <rect key="frame" x="16" y="446.5" width="296" height="17"/>
+                                <rect key="frame" x="16" y="430" width="296" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISBN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECQ-RQ-WhF" userLabel="ISBN Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="17"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="72" id="9zH-X6-5gt"/>
+                                            <constraint firstAttribute="width" constant="64" id="9zH-X6-5gt"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234567898" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrT-VC-SUV" userLabel="ISBN">
-                                        <rect key="frame" x="72" y="0.0" width="224" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1234567898" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrT-VC-SUV" userLabel="ISBN">
+                                        <rect key="frame" x="64" y="0.0" width="232" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -109,10 +109,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="2AA-Dj-GPp" userLabel="Synopsis Stack">
-                                <rect key="frame" x="16" y="296.5" width="288" height="67"/>
+                                <rect key="frame" x="16" y="296.5" width="288" height="50.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKB-T6-ZXN" userLabel="Synopsis Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="17"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKB-T6-ZXN" userLabel="Synopsis Label">
+                                        <rect key="frame" x="-16" y="0.0" width="72" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="72" id="Uk2-7o-tz7"/>
                                         </constraints>
@@ -121,7 +121,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A long time ago in a place far, far away, a troll lived under a bridge.  This is the story of the bridge maker." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFt-Xt-wlN" userLabel="Synopsis">
-                                        <rect key="frame" x="72" y="0.0" width="216" height="67"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
