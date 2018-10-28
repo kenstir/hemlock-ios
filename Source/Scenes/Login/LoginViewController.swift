@@ -30,6 +30,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    private var activitySemaphore = 0 // stop spinning when 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,12 +78,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func fetchIDL(completion: @escaping () -> Void) {
+    func startSpinning() {
+        self.activitySemaphore += 1
         activityIndicator.startAnimating()
+    }
+    
+    func maybeStopSpinning() {
+        self.activitySemaphore -= 1
+        if self.activitySemaphore == 0 {
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    func fetchIDL(completion: @escaping () -> Void) {
+        self.startSpinning()
+        
         App.fetchIDL().catch { error in
             self.showAlert(error: error)
         }.finally {
-            self.activityIndicator.stopAnimating()
+            self.maybeStopSpinning()
             completion()
         }
     }
@@ -137,15 +151,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         let account = Account(username, password: password)
 
-        activityIndicator.startAnimating()
+        self.startSpinning()
 
         LoginController(for: account).login { resp in
 
             if resp.failed {
                 self.showAlert(title: "Login failed", message: resp.errorMessage)
-                self.activityIndicator.stopAnimating()
+                self.maybeStopSpinning()
                 return
             }
+            self.maybeStopSpinning()
 
             if account.authtoken != nil {
                 self.getSession(account)
@@ -154,15 +169,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func getSession(_ account: Account) {
+        self.startSpinning()
+        
         LoginController.getSession(account) { resp in
 
             if resp.failed {
                 self.showAlert(title: "Failed to initialize session", message: resp.errorMessage)
-                self.activityIndicator.stopAnimating()
+                self.maybeStopSpinning()
                 return
             }
 
-            self.activityIndicator.stopAnimating()
+            self.maybeStopSpinning()
 
             account.userID = resp.obj?.getInt("id")
             account.homeOrgID = resp.obj?.getInt("home_ou")
