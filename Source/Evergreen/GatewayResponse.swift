@@ -28,7 +28,10 @@ public enum GatewayError: Error {
 extension GatewayError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .event(_, _, let desc):
+        case .event(_, let textcode, let desc):
+            let messageOverrides = [
+                "HIGH_LEVEL_HOLD_HAS_NO_COPIES": "The selected item is not holdable.  Call your local library with any questions."]
+            if let msg = messageOverrides[textcode] { return msg }
             return desc
         case .failure(let reason):
             return reason
