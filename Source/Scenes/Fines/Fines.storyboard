@@ -149,15 +149,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-yN-eUU" userLabel="Bottom Button Stack">
+                                <rect key="frame" x="0.0" y="635" width="375" height="24"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-Ow-LKT">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
+                                        <state key="normal" title="Pay Fines"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gOa-yN-eUU" firstAttribute="top" secondItem="BRM-0x-QkN" secondAttribute="bottom" constant="8" id="37M-k1-QUv"/>
+                            <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="gOa-yN-eUU" secondAttribute="trailing" id="3wX-hB-c1a"/>
                             <constraint firstItem="5dz-EK-Mrd" firstAttribute="top" secondItem="78J-wo-VWu" secondAttribute="top" id="9cL-aI-nkH"/>
                             <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="5dz-EK-Mrd" secondAttribute="trailing" id="EVA-lJ-hIe"/>
                             <constraint firstItem="5dz-EK-Mrd" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" id="Mty-58-9XV"/>
                             <constraint firstItem="BRM-0x-QkN" firstAttribute="top" secondItem="5dz-EK-Mrd" secondAttribute="bottom" id="PlS-AI-NXD"/>
                             <constraint firstItem="78J-wo-VWu" firstAttribute="bottom" secondItem="BRM-0x-QkN" secondAttribute="bottom" constant="40" id="Rbd-C1-IUh" userLabel="Safe Area.bottom = Fines Table.bottom"/>
                             <constraint firstItem="BRM-0x-QkN" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" id="e6c-1e-yXt"/>
+                            <constraint firstItem="gOa-yN-eUU" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" id="hlg-6j-dTO"/>
+                            <constraint firstItem="78J-wo-VWu" firstAttribute="bottom" secondItem="gOa-yN-eUU" secondAttribute="bottom" constant="8" id="iJI-wD-byB"/>
                             <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="BRM-0x-QkN" secondAttribute="trailing" id="mVd-j5-uP1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="78J-wo-VWu"/>
@@ -167,6 +180,7 @@
                         <outlet property="balanceOwedVal" destination="pm1-6W-MuL" id="pbP-Ej-mF1"/>
                         <outlet property="finesSummary" destination="5dz-EK-Mrd" id="g0F-AO-jz1"/>
                         <outlet property="finesTable" destination="BRM-0x-QkN" id="il1-XL-KQ7"/>
+                        <outlet property="payFinesButton" destination="FWV-Ow-LKT" id="gmq-wH-Ukt"/>
                         <outlet property="totalOwedLabel" destination="UIy-57-Kh0" id="OSs-FU-g5P"/>
                         <outlet property="totalOwedVal" destination="9AY-g5-KdB" id="scL-Fg-csj"/>
                         <outlet property="totalPaidLabel" destination="vK0-Fj-KwK" id="tYc-zj-1OR"/>

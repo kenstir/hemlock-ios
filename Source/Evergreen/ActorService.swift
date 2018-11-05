@@ -19,6 +19,7 @@
 
 import Foundation
 import PromiseKit
+import os.log
 
 class ActorService {
     static var orgTypesLoaded = false
@@ -54,10 +55,10 @@ class ActorService {
     /// fetch settings for all organizations.
     /// Must be called only after `orgTreeLoaded`.
     static func fetchOrgSettings() -> [Promise<Void>] {
-        if !orgTreeLoaded {
-            return [Promise<Void>()]
-        }
         var promises: [Promise<Void>] = []
+        if !orgTreeLoaded {
+            return promises
+        }
         for org in Organization.orgs {
             if org.areSettingsLoaded {
                 continue
@@ -75,6 +76,35 @@ class ActorService {
         return promises
     }
     
+    static func fetchOrgTreeAndSettings() -> Promise<Void> {
+        os_log("x: start")
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
+        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
+            os_log("x: got_orgs")
+            try Organization.loadOrganizations(fromObj: obj)
+            orgTreeLoaded = true
+            var promises: [Promise<Void>] = []
+            for org in Organization.orgs {
+                if org.areSettingsLoaded {
+                    continue
+                }
+                var settings = [API.settingNotPickupLib, API.settingCreditPaymentsAllow]
+                if org.parent == nil {
+                    settings.append(API.settingSMSEnable)
+                }
+                let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [org.id, settings, API.anonymousAuthToken])
+                let promise = req.gatewayObjectResponse().done { obj in
+                    os_log("x: got_org %d", org.id)
+                    org.loadSettings(fromObj: obj)
+                }
+                promises.append(promise)
+            }
+            return when(fulfilled: promises)
+        }
+        os_log("x: returning")
+        return promise
+    }
+
     static func fetchUserSettings(account: Account) -> Promise<Void> {
         if userSettingsLoaded {
             return Promise<Void>()

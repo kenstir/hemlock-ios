@@ -34,7 +34,8 @@ class FinesViewController: UIViewController {
     @IBOutlet weak var totalOwedVal: UILabel!
     @IBOutlet weak var totalPaidVal: UILabel!
     @IBOutlet weak var balanceOwedVal: UILabel!
-
+    @IBOutlet weak var payFinesButton: UIButton!
+    
     weak var activityIndicator: UIActivityIndicatorView!
 
     var fines: [FineRecord] = []
@@ -71,6 +72,8 @@ class FinesViewController: UIViewController {
         Style.styleLabel(asTableHeader: totalPaidVal)
         Style.styleLabel(asTableHeader: balanceOwedLabel)
         Style.styleLabel(asTableHeader: balanceOwedVal)
+        Style.styleButton(asPlain: payFinesButton)
+        payFinesButton.isEnabled = false
     }
 
     func fetchData() {
@@ -80,29 +83,40 @@ class FinesViewController: UIViewController {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired())
             return //TODO: add analytics
         }
+        
+        var promises: [Promise<Void>] = []
+        promises.append(ActorService.fetchOrgTreeAndSettings())
 
         activityIndicator.startAnimating()
 
         // fetch the summary
-        let req = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid])
-        let promise1 = req.gatewayOptionalObjectResponse().done { obj in
+        let req1 = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid])
+        let promise1 = req1.gatewayOptionalObjectResponse().done { obj in
             self.loadFinesSummary(fromObj: obj)
         }
+        promises.append(promise1)
         
         // fetch the transactions
         let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid])
         let promise2 = req2.gatewayArrayResponse().done { objects in
             self.loadTransactions(fines: FineRecord.makeArray(objects))
         }
+        promises.append(promise2)
         
         // wait for them to finish
         firstly {
-            when(fulfilled: [promise1, promise2])
+            when(fulfilled: promises)
+        }.done {
+            self.updatePayFinesButton()
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
+    }
+    
+    func updatePayFinesButton() {
+        payFinesButton.isEnabled = true
     }
     
     func loadFinesSummary(fromObj obj: OSRFObject?) {
