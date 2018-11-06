@@ -89,7 +89,7 @@ class XDetailsNode: ASCellNode {
         }
         
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTree())
+        promises.append(ActorService.fetchOrgs())
         promises.append(SearchService.fetchCopyStatusAll())
         
         let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID

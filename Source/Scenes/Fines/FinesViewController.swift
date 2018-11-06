@@ -21,6 +21,7 @@ import Foundation
 import UIKit
 import PromiseKit
 import PMKAlamofire
+import os.log
 
 class FinesViewController: UIViewController {
 
@@ -39,6 +40,7 @@ class FinesViewController: UIViewController {
     weak var activityIndicator: UIActivityIndicatorView!
 
     var fines: [FineRecord] = []
+    var balanceOwed: Double = 0
     
     //MARK: - UIViewController
 
@@ -85,9 +87,11 @@ class FinesViewController: UIViewController {
         }
         
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTreeAndSettings())
 
         activityIndicator.startAnimating()
+
+        // fetch the orgs
+        promises.append(ActorService.fetchOrgs())
 
         // fetch the summary
         let req1 = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid])
@@ -116,13 +120,27 @@ class FinesViewController: UIViewController {
     }
     
     func updatePayFinesButton() {
-        payFinesButton.isEnabled = true
+        if let homeOrgID = App.account?.homeOrgID,
+            let homeOrg = Organization.find(byId: homeOrgID),
+            let isPaymentAllowed = homeOrg.isPaymentAllowedSetting,
+            isPaymentAllowed && balanceOwed > 0
+        {
+            payFinesButton.isEnabled = true
+            payFinesButton.addTarget(self, action: #selector(payFinesButtonPressed(_:)), for: .touchUpInside)
+        }
     }
-    
+
+    @objc func payFinesButtonPressed(_ sender: Any) {
+        if let baseurl_string = App.library?.url,
+            let url = URL(string: baseurl_string + "/eg/opac/myopac/main_payment_form#pay_fines_now") {
+            UIApplication.shared.open(url)
+        }
+    }
+
     func loadFinesSummary(fromObj obj: OSRFObject?) {
         let totalOwed = obj?.getDouble("total_owed") ?? 0.0
         let totalPaid = obj?.getDouble("total_paid") ?? 0.0
-        let balanceOwed = obj?.getDouble("balance_owed") ?? 0.0
+        self.balanceOwed = obj?.getDouble("balance_owed") ?? 0.0
         totalOwedVal.text = String(format: "$ %.2f", totalOwed)
         totalPaidVal.text = String(format: "$ %.2f", totalPaid)
         balanceOwedVal.text = String(format: "$ %.2f", balanceOwed)

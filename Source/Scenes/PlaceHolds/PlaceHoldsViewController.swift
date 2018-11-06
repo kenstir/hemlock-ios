@@ -28,7 +28,6 @@ class PlaceHoldsViewController: UIViewController {
     //MARK: - Properties
     var record: MBRecord?
     let formats = Format.getSpinnerLabels()
-    var homeOrgIndex: Int?
     var carrierLabels: [String] = []
     var selectedOrgName = ""
     var selectedCarrierName = ""
@@ -194,7 +193,7 @@ class PlaceHoldsViewController: UIViewController {
 
         var promises: [Promise<Void>] = []
         promises.append(ActorService.fetchOrgTypesArray())
-        promises.append(ActorService.fetchOrgTree())
+        promises.append(ActorService.fetchOrgs())
         promises.append(PCRUDService.fetchSMSCarriers())
         print("xxx \(promises.count) promises made")
 
@@ -204,23 +203,6 @@ class PlaceHoldsViewController: UIViewController {
             when(fulfilled: promises)
         }.done {
             print("xxx \(promises.count) promises fulfilled")
-            self.fetchOrgDetails()
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
-            self.showAlert(error: error)
-        }
-    }
-    
-    func fetchOrgDetails() {
-        var promises: [Promise<Void>] = []
-
-        promises.append(contentsOf: ActorService.fetchOrgSettings())
-        print("xxx2 \(promises.count) promises made")
-      
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            print("xxx2 \(promises.count) promises fulfilled")
             let elapsed = -self.startOfFetch.timeIntervalSinceNow
             os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             self.setupLocationPicker()

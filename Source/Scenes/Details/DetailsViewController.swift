@@ -110,7 +110,7 @@ class DetailsViewController: UIViewController {
         }
 
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTree())
+        promises.append(ActorService.fetchOrgs())
         promises.append(SearchService.fetchCopyStatusAll())
 
         let orgID = Organization.find(byShortName: searchParameters?.organizationShortName)?.id ?? Organization.consortiumOrgID
