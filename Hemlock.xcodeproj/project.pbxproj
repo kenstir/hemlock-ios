@@ -294,6 +294,9 @@
 		FA88B4C620FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
 		FA88B4C720FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
 		FA88B4C820FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
+		FAA9E31921962296006BA666 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* BarCodeViewController.swift */; };
+		FAA9E31A21962296006BA666 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* BarCodeViewController.swift */; };
+		FAA9E31B21962296006BA666 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* BarCodeViewController.swift */; };
 		FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		FACD142420CDBED6008F02D3 /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* Lists.storyboard */; };
@@ -443,6 +446,7 @@
 		FA64C95F20E04D34009973E5 /* MBRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRecord.swift; sourceTree = "<group>"; };
 		FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldsViewController.swift; sourceTree = "<group>"; };
 		FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaceHolds.storyboard; sourceTree = "<group>"; };
+		FAA9E31821962296006BA666 /* BarCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		FACD141C20CDACFF008F02D3 /* Fines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Fines.storyboard; path = Source/Scenes/Fines/Fines.storyboard; sourceTree = SOURCE_ROOT; };
 		FACD142020CDB01C008F02D3 /* Holds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Holds.storyboard; sourceTree = "<group>"; };
 		FACD142320CDBED6008F02D3 /* Lists.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Lists.storyboard; sourceTree = "<group>"; };
@@ -560,6 +564,7 @@
 		D212DB1520C37B0600267503 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				FAA9E31821962296006BA666 /* BarCodeViewController.swift */,
 				D246990520AA5C620006DFF9 /* MainTableViewCell.swift */,
 				D246990320A9D80E0006DFF9 /* MainViewController.swift */,
 			);
@@ -1228,6 +1233,7 @@
 				D279920B20DEEA27003B451E /* McPicker.swift in Sources */,
 				D279920F20DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
 				D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
+				FAA9E31921962296006BA666 /* BarCodeViewController.swift in Sources */,
 				D279921120DEEA27003B451E /* McTextField.swift in Sources */,
 				D26210EB217E130E004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
@@ -1305,6 +1311,7 @@
 				D2A74B1721289E8E001D4B0F /* PinesAppConfiguration.swift in Sources */,
 				D279920C20DEEA27003B451E /* McPicker.swift in Sources */,
 				D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
+				FAA9E31A21962296006BA666 /* BarCodeViewController.swift in Sources */,
 				D279920E20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
 				D279921220DEEA27003B451E /* McTextField.swift in Sources */,
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
@@ -1388,6 +1395,7 @@
 				D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
 				D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */,
+				FAA9E31B21962296006BA666 /* BarCodeViewController.swift in Sources */,
 				D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */,
 				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,
 				D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */,
