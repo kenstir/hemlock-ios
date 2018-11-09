@@ -216,11 +216,14 @@ class LiveServiceTests: XCTestCase {
     func test_orgTreeRetrieve() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let promise = ActorService.fetchOrgTree()
+        let promise = ActorService.fetchOrgs()
         promise.ensure {
             let org = Organization.find(byId: 1)
             XCTAssertNotNil(org)
             XCTAssertNotNil(org?.name)
+            let consortium = Organization.consortium()
+            XCTAssertNotNil(consortium)
+            XCTAssertEqual(1, consortium?.id)
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)

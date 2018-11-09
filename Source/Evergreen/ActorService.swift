@@ -80,12 +80,10 @@ class ActorService {
     
     // fetch org tree and settings for all orgs
     static func fetchOrgs() -> Promise<Void> {
-        let start = Date()
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
             try Organization.loadOrganizations(fromObj: obj)
             orgTreeLoaded = true
-            let elapsed = -start.timeIntervalSinceNow
             let promises: [Promise<Void>] = self.fetchOrgSettings()
             return when(fulfilled: promises)
         }
