@@ -33,24 +33,13 @@ class BarCodeViewController: UIViewController {
     }
     
     func setupViews() {
-        barCodeImage.image = Barcode.fromString(string: "whatevs")
-//        NSError *error = nil;
-//        ZXMultiFormatWriter BCwriter = [ZXMultiFormatWriter writer];
-//        ZXBitMatrix* result = [writer encode:@"A string to encode"
-//            format:kBarcodeFormatQRCode
-//            width:500
-//            height:500
-//            error:&error];
-//        if (result) {
-//            CGImageRef image = CGImageRetain([[ZXImage imageWithMatrix:result] cgimage]);
-//
-//            // This CGImageRef image can be placed in a UIImage, NSImage, or written to a file.
-//
-//            CGImageRelease(image);
-//        } else {
-//            NSString *errorMessage = [error localizedDescription];
-//        }
-//
+        let writer = ZXMultiFormatWriter()
+        if let matrix = try? writer.encode("1234567", format: kBarcodeFormatCodabar, width: 500, height: 200) {
+            debugPrint(matrix)
+            if let cgimage = ZXImage(matrix: matrix).cgimage {
+                barCodeImage.image = UIImage(cgImage: cgimage)
+            }
+        }
     }
 }
 
