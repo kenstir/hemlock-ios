@@ -388,7 +388,6 @@
 		D279911020DDD77F003B451E /* PINES.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PINES.xcassets; sourceTree = "<group>"; };
 		D279911720DDE11E003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		D279919220DEC7C0003B451E /* McPicker_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = McPicker_iOS.framework; path = Carthage/Build/iOS/McPicker_iOS.framework; sourceTree = "<group>"; };
 		D279920420DEEA27003B451E /* McPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPicker.swift; sourceTree = "<group>"; };
 		D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerBarButtonItem.swift; sourceTree = "<group>"; };
 		D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerPopoverViewController.swift; sourceTree = "<group>"; };
@@ -663,7 +662,6 @@
 			isa = PBXGroup;
 			children = (
 				D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */,
-				D279919220DEC7C0003B451E /* McPicker_iOS.framework */,
 				D2211B0520D0BA840043947B /* Valet.framework */,
 				D253344320C30A60008176B9 /* PINOperation.framework */,
 				D253344120C3078F008176B9 /* PINCache.framework */,
