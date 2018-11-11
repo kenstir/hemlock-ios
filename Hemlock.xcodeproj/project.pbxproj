@@ -257,6 +257,9 @@
 		D296EE0D21338030009BDB12 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppSettings.swift */; };
 		D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CWMarsTheme.swift */; };
 		D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D296EE0F213381FE009BDB12 /* Default-568h@2x.png */; };
+		D29A3B2A2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
+		D29A3B2B2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
+		D29A3B2C2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
 		D29C720E209245E200E90952 /* TestUserData in Resources */ = {isa = PBXBuildFile; fileRef = D29C720D209245E200E90952 /* TestUserData */; };
 		D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C721120924CF000E90952 /* OSRFCoderTests.swift */; };
@@ -391,7 +394,6 @@
 		D279911020DDD77F003B451E /* PINES.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PINES.xcassets; sourceTree = "<group>"; };
 		D279911720DDE11E003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		D279919220DEC7C0003B451E /* McPicker_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = McPicker_iOS.framework; path = Carthage/Build/iOS/McPicker_iOS.framework; sourceTree = "<group>"; };
 		D279920420DEEA27003B451E /* McPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPicker.swift; sourceTree = "<group>"; };
 		D279920520DEEA27003B451E /* McPickerBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerBarButtonItem.swift; sourceTree = "<group>"; };
 		D279920620DEEA27003B451E /* McPickerPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McPickerPopoverViewController.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 		D296EE0A2133802F009BDB12 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
 		D296EE0F213381FE009BDB12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D29A3B292197C14900BBF192 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
 		D29C720D209245E200E90952 /* TestUserData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUserData; sourceTree = SOURCE_ROOT; };
 		D29C720F209248F500E90952 /* OSRFCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoder.swift; sourceTree = "<group>"; };
 		D29C721120924CF000E90952 /* OSRFCoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoderTests.swift; sourceTree = "<group>"; };
@@ -463,6 +466,7 @@
 				D276DACA21336B20007FAA31 /* Alamofire.framework in Frameworks */,
 				D276DACB21336B20007FAA31 /* AsyncDisplayKit.framework in Frameworks */,
 				D276DACC21336B20007FAA31 /* PINRemoteImage.framework in Frameworks */,
+				D29A3B2C2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
 				D276DACD21336B20007FAA31 /* PINCache.framework in Frameworks */,
 				D276DACE21336B20007FAA31 /* PromiseKit.framework in Frameworks */,
 				D276DACF21336B20007FAA31 /* PMKAlamofire.framework in Frameworks */,
@@ -479,6 +483,7 @@
 				D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */,
 				D27990F520DDD473003B451E /* AsyncDisplayKit.framework in Frameworks */,
 				D27990F620DDD473003B451E /* PINRemoteImage.framework in Frameworks */,
+				D29A3B2A2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
 				D27990F720DDD473003B451E /* PINCache.framework in Frameworks */,
 				D27990F820DDD473003B451E /* PromiseKit.framework in Frameworks */,
 				D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */,
@@ -495,6 +500,7 @@
 				D231B5292081628900478D25 /* Alamofire.framework in Frameworks */,
 				D253343E20C3076D008176B9 /* AsyncDisplayKit.framework in Frameworks */,
 				D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */,
+				D29A3B2B2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
 				D253344220C3078F008176B9 /* PINCache.framework in Frameworks */,
 				D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */,
 				D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */,
@@ -667,8 +673,8 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D29A3B292197C14900BBF192 /* ZXingObjC.framework */,
 				D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */,
-				D279919220DEC7C0003B451E /* McPicker_iOS.framework */,
 				D2211B0520D0BA840043947B /* Valet.framework */,
 				D253344320C30A60008176B9 /* PINOperation.framework */,
 				D253344120C3078F008176B9 /* PINCache.framework */,
@@ -1068,6 +1074,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -1079,6 +1086,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
