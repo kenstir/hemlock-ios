@@ -105,6 +105,7 @@ class ActorService {
         let promise = req.gatewayResponse().done { resp, pmkresp in
             if let obj = resp.obj {
                 account.loadUserSettings(fromObject: obj)
+                userSettingsLoaded = true
             }
         }
         return promise

@@ -25,6 +25,7 @@ class Account {
     var authtokenExpiryDate: Date?
     var userID: Int?
     var homeOrgID: Int?
+    var barcode: String?
     var defaultNotifyEmail: Bool?
     var defaultNotifyPhone: Bool?
     var defaultNotifySMS: Bool?
@@ -88,8 +89,10 @@ class Account {
     }
     
     func loadUserSettings(fromObject obj: OSRFObject) {
+        if let card = obj.getObject("card") {
+            barcode = card.getString("barcode")
+        }
         if let settings = obj.getAny("settings") as? [OSRFObject] {
-            debugPrint("here")
             for setting in settings {
                 if let name = setting.getString("name"),
                     let strvalue = removeStupidExtraQuotes(setting.getString("value"))
