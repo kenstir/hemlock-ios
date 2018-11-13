@@ -74,7 +74,7 @@ class FinesViewController: UIViewController {
         Style.styleLabel(asTableHeader: totalPaidVal)
         Style.styleLabel(asTableHeader: balanceOwedLabel)
         Style.styleLabel(asTableHeader: balanceOwedVal)
-        Style.styleButton(asPlain: payFinesButton)
+        Style.styleButton(asInverse: payFinesButton)
         payFinesButton.isEnabled = false
     }
 

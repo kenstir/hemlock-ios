@@ -81,7 +81,7 @@
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BRM-0x-QkN">
-                                <rect key="frame" x="0.0" y="77" width="375" height="550"/>
+                                <rect key="frame" x="0.0" y="77" width="375" height="521"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="finesCell" rowHeight="100" id="cMu-2l-JoM" customClass="FinesTableViewCell" customModule="Hemlock" customModuleProvider="target">
@@ -149,28 +149,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gOa-yN-eUU" userLabel="Bottom Button Stack">
-                                <rect key="frame" x="0.0" y="635" width="375" height="24"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-Ow-LKT">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
-                                        <state key="normal" title="Pay Fines"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWV-Ow-LKT">
+                                <rect key="frame" x="64" y="606" width="247" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="16" minY="4" maxX="16" maxY="4"/>
+                                <state key="normal" title="Pay Fines"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gOa-yN-eUU" firstAttribute="top" secondItem="BRM-0x-QkN" secondAttribute="bottom" constant="8" id="37M-k1-QUv"/>
-                            <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="gOa-yN-eUU" secondAttribute="trailing" id="3wX-hB-c1a"/>
+                            <constraint firstItem="FWV-Ow-LKT" firstAttribute="trailing" secondItem="78J-wo-VWu" secondAttribute="trailing" constant="-64" id="5IZ-b7-jQd"/>
                             <constraint firstItem="5dz-EK-Mrd" firstAttribute="top" secondItem="78J-wo-VWu" secondAttribute="top" id="9cL-aI-nkH"/>
                             <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="5dz-EK-Mrd" secondAttribute="trailing" id="EVA-lJ-hIe"/>
                             <constraint firstItem="5dz-EK-Mrd" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" id="Mty-58-9XV"/>
+                            <constraint firstItem="FWV-Ow-LKT" firstAttribute="top" secondItem="BRM-0x-QkN" secondAttribute="bottom" constant="8" id="Pe9-lv-iVr"/>
                             <constraint firstItem="BRM-0x-QkN" firstAttribute="top" secondItem="5dz-EK-Mrd" secondAttribute="bottom" id="PlS-AI-NXD"/>
-                            <constraint firstItem="78J-wo-VWu" firstAttribute="bottom" secondItem="BRM-0x-QkN" secondAttribute="bottom" constant="40" id="Rbd-C1-IUh" userLabel="Safe Area.bottom = Fines Table.bottom"/>
+                            <constraint firstItem="78J-wo-VWu" firstAttribute="bottom" secondItem="FWV-Ow-LKT" secondAttribute="bottom" constant="32" id="Vec-zN-gXS"/>
                             <constraint firstItem="BRM-0x-QkN" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" id="e6c-1e-yXt"/>
-                            <constraint firstItem="gOa-yN-eUU" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" id="hlg-6j-dTO"/>
-                            <constraint firstItem="78J-wo-VWu" firstAttribute="bottom" secondItem="gOa-yN-eUU" secondAttribute="bottom" constant="8" id="iJI-wD-byB"/>
+                            <constraint firstItem="FWV-Ow-LKT" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" constant="64" id="fYC-7p-AqY"/>
                             <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="BRM-0x-QkN" secondAttribute="trailing" id="mVd-j5-uP1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="78J-wo-VWu"/>
@@ -189,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3O-tC-9wZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1156" y="1585"/>
+            <point key="canvasLocation" x="-1156" y="1584.5577211394304"/>
         </scene>
     </scenes>
 </document>
