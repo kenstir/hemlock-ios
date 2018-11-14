@@ -74,7 +74,8 @@ class FinesViewController: UIViewController {
         Style.styleLabel(asTableHeader: totalPaidVal)
         Style.styleLabel(asTableHeader: balanceOwedLabel)
         Style.styleLabel(asTableHeader: balanceOwedVal)
-        Style.styleButton(asInverse: payFinesButton)
+
+        Style.styleButton(asOutline: payFinesButton)
         payFinesButton.isEnabled = false
     }
 
@@ -125,6 +126,7 @@ class FinesViewController: UIViewController {
             let isPaymentAllowed = homeOrg.isPaymentAllowedSetting,
             isPaymentAllowed && balanceOwed > 0
         {
+            Style.styleButton(asInverse: payFinesButton)
             payFinesButton.isEnabled = true
             payFinesButton.addTarget(self, action: #selector(payFinesButtonPressed(_:)), for: .touchUpInside)
         }
