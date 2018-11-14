@@ -21,6 +21,10 @@ import Foundation
 import PromiseKit
 import os.log
 
+//enum FetchState {
+//    case notrun, running, done
+//}
+
 class ActorService {
     static var orgTypesLoaded = false
     static var orgTreeLoaded = false
@@ -56,11 +60,8 @@ class ActorService {
     
     /// fetch settings for all organizations.
     /// Must be called only after `orgTreeLoaded`.
-    static func fetchOrgSettings() -> [Promise<Void>] {
+    static private func fetchOrgSettings() -> [Promise<Void>] {
         var promises: [Promise<Void>] = []
-        if !orgTreeLoaded {
-            return promises
-        }
         for org in Organization.orgs {
             if org.areSettingsLoaded {
                 continue
@@ -81,13 +82,15 @@ class ActorService {
     // fetch org tree and settings for all orgs
     static func fetchOrgs() -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
+        let start = Date()
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
             try Organization.loadOrganizations(fromObj: obj)
+            let elapsed = -start.timeIntervalSinceNow
+            os_log("orgTreeRetrieve.elapsed: %.3f", elapsed)
             orgTreeLoaded = true
             let promises: [Promise<Void>] = self.fetchOrgSettings()
             return when(fulfilled: promises)
         }
-        os_log("x: returning")
         return promise
     }
 
