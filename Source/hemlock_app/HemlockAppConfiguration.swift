@@ -23,4 +23,5 @@ class HemlockAppConfiguration: AppConfiguration {
     let enableHoldPhoneNotification = false
     let enableMainSceneBottomToolbar = false
     let groupCopyInfoBySystem = false
+    let barcodeDisplayFormat: BarcodeFormat = .Disabled
 }

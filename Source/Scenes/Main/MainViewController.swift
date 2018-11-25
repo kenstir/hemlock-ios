@@ -40,20 +40,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
 
-    var buttons: [(String, String, UIViewController.Type?)] = [
-        ("Search", "ShowSearchSegue", nil),
-        ("Items Checked Out", "ShowCheckoutsSegue", nil),
-//        ("Items Checked Out", "", XCheckoutsViewController.self),
-        ("Holds", "ShowHoldsSegue", nil),
-        ("Fines", "ShowFinesSegue", nil),
-        ("Show Card", "ShowCardSegue", nil),
-//        ("My Lists", "ShowListsSegue", nil),
-        ]
+    var buttons: [(String, String, UIViewController.Type?)] = []
     
     //MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupButtons()
         setupViews()
     }
     
@@ -64,6 +57,20 @@ class MainViewController: UIViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+    
+    func setupButtons() {
+        buttons = [
+            ("Search", "ShowSearchSegue", nil),
+            ("Items Checked Out", "ShowCheckoutsSegue", nil),
+            //        ("Items Checked Out", "", XCheckoutsViewController.self),
+            ("Holds", "ShowHoldsSegue", nil),
+            ("Fines", "ShowFinesSegue", nil),
+        ]
+        if App.config.barcodeDisplayFormat != .Disabled {
+            buttons.append(("Show Card", "ShowCardSegue", nil))
+        }
+        //        ("My Lists", "ShowListsSegue", nil),
     }
 
     func setupViews() {

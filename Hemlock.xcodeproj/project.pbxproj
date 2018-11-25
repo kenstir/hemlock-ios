@@ -233,6 +233,12 @@
 		D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
 		D27DF20521AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
 		D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
+		D27DF20821AB424A002DCC47 /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* Barcode.swift */; };
+		D27DF20921AB424A002DCC47 /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* Barcode.swift */; };
+		D27DF20A21AB424A002DCC47 /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* Barcode.swift */; };
+		D27DF20C21AB4B84002DCC47 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
+		D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
+		D27DF20E21AB4B84002DCC47 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
@@ -403,6 +409,8 @@
 		D279920720DEEA27003B451E /* McTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = McTextField.swift; sourceTree = "<group>"; };
 		D279920820DEEA27003B451E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D27DF20221AA3D81002DCC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Source/Storyboards/Base.lproj/ShowCard.storyboard; sourceTree = "<group>"; };
+		D27DF20721AB424A002DCC47 /* Barcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barcode.swift; sourceTree = "<group>"; };
+		D27DF20B21AB4B84002DCC47 /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
 		D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+smallCaps.swift"; sourceTree = "<group>"; };
@@ -610,6 +618,7 @@
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
 				D226B60920ED519E00CA5B79 /* String+.swift */,
 				D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */,
+				D27DF20B21AB4B84002DCC47 /* String+subscript.swift */,
 				D28290F720E6F770008EBE4B /* Style.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
 				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
@@ -635,6 +644,7 @@
 				D287D51B207AEF3D001AF644 /* Account.swift */,
 				D2BBA99920F29F0E00B25146 /* ActorService.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
+				D27DF20721AB424A002DCC47 /* Barcode.swift */,
 				D28725AD20E86F30002A4C42 /* CircService.swift */,
 				D267E4E6210D17F900C56047 /* CopyCounts.swift */,
 				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
@@ -1237,6 +1247,7 @@
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
+				D27DF20A21AB424A002DCC47 /* Barcode.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
 				D276DABA21336B20007FAA31 /* XCheckoutsViewController.swift in Sources */,
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
@@ -1249,6 +1260,7 @@
 				D276DAC121336B20007FAA31 /* Style.swift in Sources */,
 				D276DAC221336B20007FAA31 /* MainViewController.swift in Sources */,
 				D276DAC321336B20007FAA31 /* CopyCounts.swift in Sources */,
+				D27DF20E21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D276DAC421336B20007FAA31 /* SearchService.swift in Sources */,
 				D276DAC521336B20007FAA31 /* Account.swift in Sources */,
 				D276DAC621336B20007FAA31 /* LoginController.swift in Sources */,
@@ -1315,6 +1327,7 @@
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
+				D27DF20821AB424A002DCC47 /* Barcode.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
 				D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
@@ -1327,6 +1340,7 @@
 				D28290F820E6F770008EBE4B /* Style.swift in Sources */,
 				D27990EE20DDD473003B451E /* MainViewController.swift in Sources */,
 				D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */,
+				D27DF20C21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */,
 				D27990EF20DDD473003B451E /* Account.swift in Sources */,
 				D27990F020DDD473003B451E /* LoginController.swift in Sources */,
@@ -1393,6 +1407,7 @@
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
+				D27DF20921AB424A002DCC47 /* Barcode.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
@@ -1405,6 +1420,7 @@
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */,
+				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 				D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */,

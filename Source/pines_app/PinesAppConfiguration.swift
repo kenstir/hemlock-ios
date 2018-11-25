@@ -23,4 +23,5 @@ class PinesAppConfiguration: AppConfiguration {
     let enableHoldPhoneNotification = true
     let enableMainSceneBottomToolbar = true
     let groupCopyInfoBySystem = true
+    let barcodeDisplayFormat: BarcodeFormat = .Codabar14
 }

@@ -24,7 +24,8 @@ import ZXingObjC
 class ShowCardViewController: UIViewController {
     
     @IBOutlet weak var barCodeImage: UIImageView!
-
+    @IBOutlet weak var barcodeLabel: UILabel!
+    
     var didCompleteFetch = false
     let imageWidth: Int32 = 400
     let imageHeight: Int32 = 200
@@ -46,10 +47,16 @@ class ShowCardViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        //setupBarcode(Barcode.defaultValue(format: App.config.barcodeDisplayFormat))
         self.setupHomeButton()
     }
     
     func setupBarcode(_ barcode: String) {
+        // setup label
+        barcodeLabel.text = Barcode.displayLabel(barcode, format: App.config.barcodeDisplayFormat)
+        
+
+        // barcodeImage
         let writer = ZXMultiFormatWriter()
         if let matrix = try? writer.encode(barcode, format: kBarcodeFormatCodabar, width: imageWidth, height: imageHeight),
             let cgimage = ZXImage(matrix: matrix).cgimage

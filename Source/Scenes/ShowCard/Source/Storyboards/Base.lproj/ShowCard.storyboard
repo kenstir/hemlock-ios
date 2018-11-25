@@ -25,16 +25,26 @@
                                     <constraint firstAttribute="height" constant="150" id="Oqc-yo-euv"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GK-ox-fZP">
+                                <rect key="frame" x="16" y="323" width="288" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5mh-hs-vXK" firstAttribute="centerX" secondItem="YsH-mP-jHd" secondAttribute="centerX" id="0V9-8J-5Hm"/>
                             <constraint firstItem="YsH-mP-jHd" firstAttribute="bottom" secondItem="5mh-hs-vXK" secondAttribute="bottom" constant="64" id="J3v-Ch-2he"/>
+                            <constraint firstItem="8GK-ox-fZP" firstAttribute="leading" secondItem="YsH-mP-jHd" secondAttribute="leading" constant="16" id="qQC-kh-fyy"/>
+                            <constraint firstItem="YsH-mP-jHd" firstAttribute="trailing" secondItem="8GK-ox-fZP" secondAttribute="trailing" constant="16" id="xLR-hr-Ntt"/>
+                            <constraint firstItem="5mh-hs-vXK" firstAttribute="top" secondItem="8GK-ox-fZP" secondAttribute="bottom" constant="8" id="xeD-Xy-gLF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YsH-mP-jHd"/>
                     </view>
                     <connections>
                         <outlet property="barCodeImage" destination="5mh-hs-vXK" id="xco-2B-JJf"/>
+                        <outlet property="barcodeLabel" destination="8GK-ox-fZP" id="J1K-xE-hg9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dok-uh-xdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
