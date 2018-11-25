@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40S-Re-Xlj">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,17 +15,21 @@
             <objects>
                 <viewController id="40S-Re-Xlj" customClass="ShowCardViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vzk-57-A2c">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5mh-hs-vXK">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5mh-hs-vXK">
+                                <rect key="frame" x="10" y="354" width="300" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="3tm-Z2-TlM"/>
+                                    <constraint firstAttribute="height" constant="150" id="Oqc-yo-euv"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5mh-hs-vXK" firstAttribute="centerY" secondItem="Vzk-57-A2c" secondAttribute="centerY" id="6Uh-ns-4Kr"/>
-                            <constraint firstItem="5mh-hs-vXK" firstAttribute="centerX" secondItem="Vzk-57-A2c" secondAttribute="centerX" id="7pd-Ps-Gfq"/>
+                            <constraint firstItem="5mh-hs-vXK" firstAttribute="centerX" secondItem="YsH-mP-jHd" secondAttribute="centerX" id="0V9-8J-5Hm"/>
+                            <constraint firstItem="YsH-mP-jHd" firstAttribute="bottom" secondItem="5mh-hs-vXK" secondAttribute="bottom" constant="64" id="J3v-Ch-2he"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YsH-mP-jHd"/>
                     </view>

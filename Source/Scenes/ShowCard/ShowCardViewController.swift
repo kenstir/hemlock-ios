@@ -22,22 +22,12 @@ import PromiseKit
 import ZXingObjC
 
 class ShowCardViewController: UIViewController {
-
-    class Barcode {
-        
-        class func fromString(string : String) -> UIImage? {
-            
-            let data = string.data(using: .ascii)
-            let filter = CIFilter(name: "CICode128BarcodeGenerator")
-            filter?.setValue(data, forKey: "inputMessage")
-            
-            return UIImage(ciImage: (filter?.outputImage)!)
-        }
-        
-    }
     
     @IBOutlet weak var barCodeImage: UIImageView!
+
     var didCompleteFetch = false
+    let imageWidth: Int32 = 400
+    let imageHeight: Int32 = 200
 
     //MARK: - UIViewController
 
@@ -56,11 +46,12 @@ class ShowCardViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        self.setupHomeButton()
     }
     
     func setupBarcode(_ barcode: String) {
         let writer = ZXMultiFormatWriter()
-        if let matrix = try? writer.encode(barcode, format: kBarcodeFormatCodabar, width: 400, height: 200),
+        if let matrix = try? writer.encode(barcode, format: kBarcodeFormatCodabar, width: imageWidth, height: imageHeight),
             let cgimage = ZXImage(matrix: matrix).cgimage
         {
             barCodeImage.image = UIImage(cgImage: cgimage)
