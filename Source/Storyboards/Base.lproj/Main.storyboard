@@ -367,15 +367,6 @@
                                             <action selector="fullCatalogButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="kEN-uG-bCd"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmm-p4-WWd">
-                                        <rect key="frame" x="130.5" y="0.0" width="114" height="30"/>
-                                        <state key="normal" title="Surprise!">
-                                            <color key="titleColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="F1d-4Q-gY1" kind="show" identifier="ShowCardSegue" id="TFl-Q7-5No"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-m5-77E">
                                         <rect key="frame" x="260.5" y="0.0" width="114.5" height="30"/>
                                         <state key="normal" title="Library Locator"/>
@@ -413,6 +404,7 @@
                         <segue destination="gyY-7F-Ras" kind="show" identifier="ShowListsSegue" id="cd4-OG-ah5"/>
                         <segue destination="L5E-wb-4wF" kind="show" identifier="ShowLoginSegue" id="zgh-oQ-owQ"/>
                         <segue destination="WoH-Us-ADe" kind="show" identifier="ShowCheckoutsSegue" id="lgg-cF-pgT"/>
+                        <segue destination="F1d-4Q-gY1" kind="show" identifier="ShowCardSegue" id="TFl-Q7-5No"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
