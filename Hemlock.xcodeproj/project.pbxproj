@@ -756,8 +756,8 @@
 		D27DF20021AA3B65002DCC47 /* ShowCard */ = {
 			isa = PBXGroup;
 			children = (
-				FAA9E31821962296006BA666 /* ShowCardViewController.swift */,
 				D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */,
+				FAA9E31821962296006BA666 /* ShowCardViewController.swift */,
 			);
 			path = ShowCard;
 			sourceTree = "<group>";
