@@ -39,7 +39,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var bottomButtonBar: UIStackView!
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
-    
+    @IBOutlet weak var displayBarCodeButton: UIButton!
+    @IBOutlet weak var barCodeImage: UIImageView!
     var buttons: [(String, String, UIViewController.Type?)] = [
         ("Search", "ShowSearchSegue", nil),
         ("Items Checked Out", "ShowCheckoutsSegue", nil),
@@ -86,7 +87,7 @@ class MainViewController: UIViewController {
         LoginController.clearLoginCredentials(account: App.account)
         self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
     }
-    
+
     @IBAction func fullCatalogButtonPressed(_ sender: Any) {
         //open catalog url
         if let baseurl = App.library?.url,

@@ -257,6 +257,9 @@
 		D296EE0D21338030009BDB12 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppSettings.swift */; };
 		D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CWMarsTheme.swift */; };
 		D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D296EE0F213381FE009BDB12 /* Default-568h@2x.png */; };
+		D29A3B2A2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
+		D29A3B2B2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
+		D29A3B2C2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
 		D29C720E209245E200E90952 /* TestUserData in Resources */ = {isa = PBXBuildFile; fileRef = D29C720D209245E200E90952 /* TestUserData */; };
 		D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C721120924CF000E90952 /* OSRFCoderTests.swift */; };
@@ -294,6 +297,9 @@
 		FA88B4C620FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
 		FA88B4C720FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
 		FA88B4C820FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
+		FAA9E31921962296006BA666 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* BarCodeViewController.swift */; };
+		FAA9E31A21962296006BA666 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* BarCodeViewController.swift */; };
+		FAA9E31B21962296006BA666 /* BarCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* BarCodeViewController.swift */; };
 		FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		FACD142420CDBED6008F02D3 /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* Lists.storyboard */; };
@@ -417,6 +423,7 @@
 		D296EE0A2133802F009BDB12 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
 		D296EE0F213381FE009BDB12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D29A3B292197C14900BBF192 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
 		D29C720D209245E200E90952 /* TestUserData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUserData; sourceTree = SOURCE_ROOT; };
 		D29C720F209248F500E90952 /* OSRFCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoder.swift; sourceTree = "<group>"; };
 		D29C721120924CF000E90952 /* OSRFCoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoderTests.swift; sourceTree = "<group>"; };
@@ -442,6 +449,7 @@
 		FA64C95F20E04D34009973E5 /* MBRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRecord.swift; sourceTree = "<group>"; };
 		FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldsViewController.swift; sourceTree = "<group>"; };
 		FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaceHolds.storyboard; sourceTree = "<group>"; };
+		FAA9E31821962296006BA666 /* BarCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeViewController.swift; sourceTree = "<group>"; };
 		FACD141C20CDACFF008F02D3 /* Fines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Fines.storyboard; path = Source/Scenes/Fines/Fines.storyboard; sourceTree = SOURCE_ROOT; };
 		FACD142020CDB01C008F02D3 /* Holds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Holds.storyboard; sourceTree = "<group>"; };
 		FACD142320CDBED6008F02D3 /* Lists.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Lists.storyboard; sourceTree = "<group>"; };
@@ -458,6 +466,7 @@
 				D276DACA21336B20007FAA31 /* Alamofire.framework in Frameworks */,
 				D276DACB21336B20007FAA31 /* AsyncDisplayKit.framework in Frameworks */,
 				D276DACC21336B20007FAA31 /* PINRemoteImage.framework in Frameworks */,
+				D29A3B2C2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
 				D276DACD21336B20007FAA31 /* PINCache.framework in Frameworks */,
 				D276DACE21336B20007FAA31 /* PromiseKit.framework in Frameworks */,
 				D276DACF21336B20007FAA31 /* PMKAlamofire.framework in Frameworks */,
@@ -474,6 +483,7 @@
 				D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */,
 				D27990F520DDD473003B451E /* AsyncDisplayKit.framework in Frameworks */,
 				D27990F620DDD473003B451E /* PINRemoteImage.framework in Frameworks */,
+				D29A3B2A2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
 				D27990F720DDD473003B451E /* PINCache.framework in Frameworks */,
 				D27990F820DDD473003B451E /* PromiseKit.framework in Frameworks */,
 				D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */,
@@ -490,6 +500,7 @@
 				D231B5292081628900478D25 /* Alamofire.framework in Frameworks */,
 				D253343E20C3076D008176B9 /* AsyncDisplayKit.framework in Frameworks */,
 				D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */,
+				D29A3B2B2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
 				D253344220C3078F008176B9 /* PINCache.framework in Frameworks */,
 				D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */,
 				D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */,
@@ -559,6 +570,7 @@
 		D212DB1520C37B0600267503 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				FAA9E31821962296006BA666 /* BarCodeViewController.swift */,
 				D246990520AA5C620006DFF9 /* MainTableViewCell.swift */,
 				D246990320A9D80E0006DFF9 /* MainViewController.swift */,
 			);
@@ -661,6 +673,7 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D29A3B292197C14900BBF192 /* ZXingObjC.framework */,
 				D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */,
 				D2211B0520D0BA840043947B /* Valet.framework */,
 				D253344320C30A60008176B9 /* PINOperation.framework */,
@@ -1061,6 +1074,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -1072,6 +1086,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1092,6 +1107,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -1103,6 +1119,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1123,6 +1140,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
@@ -1134,6 +1152,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1226,6 +1245,7 @@
 				D279920B20DEEA27003B451E /* McPicker.swift in Sources */,
 				D279920F20DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
 				D279920D20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
+				FAA9E31921962296006BA666 /* BarCodeViewController.swift in Sources */,
 				D279921120DEEA27003B451E /* McTextField.swift in Sources */,
 				D26210EB217E130E004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
@@ -1303,6 +1323,7 @@
 				D2A74B1721289E8E001D4B0F /* PinesAppConfiguration.swift in Sources */,
 				D279920C20DEEA27003B451E /* McPicker.swift in Sources */,
 				D279921020DEEA27003B451E /* McPickerPopoverViewController.swift in Sources */,
+				FAA9E31A21962296006BA666 /* BarCodeViewController.swift in Sources */,
 				D279920E20DEEA27003B451E /* McPickerBarButtonItem.swift in Sources */,
 				D279921220DEEA27003B451E /* McTextField.swift in Sources */,
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
@@ -1386,6 +1407,7 @@
 				D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
 				D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */,
+				FAA9E31B21962296006BA666 /* BarCodeViewController.swift in Sources */,
 				D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */,
 				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,
 				D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */,
