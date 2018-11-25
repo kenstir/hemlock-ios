@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40S-Re-Xlj">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Show Card View Controller-->
+        <scene sceneID="R5W-Ux-ToO">
+            <objects>
+                <viewController id="40S-Re-Xlj" customClass="ShowCardViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vzk-57-A2c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5mh-hs-vXK">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5mh-hs-vXK" firstAttribute="centerY" secondItem="Vzk-57-A2c" secondAttribute="centerY" id="6Uh-ns-4Kr"/>
+                            <constraint firstItem="5mh-hs-vXK" firstAttribute="centerX" secondItem="Vzk-57-A2c" secondAttribute="centerX" id="7pd-Ps-Gfq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YsH-mP-jHd"/>
+                    </view>
+                    <connections>
+                        <outlet property="barCodeImage" destination="5mh-hs-vXK" id="xco-2B-JJf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dok-uh-xdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="758"/>
+        </scene>
+    </scenes>
+</document>

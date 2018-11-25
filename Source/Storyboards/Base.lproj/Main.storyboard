@@ -373,7 +373,7 @@
                                             <color key="titleColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="40S-Re-Xlj" kind="show" id="TFl-Q7-5No"/>
+                                            <segue destination="F1d-4Q-gY1" kind="show" identifier="ShowCardSegue" id="TFl-Q7-5No"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-m5-77E">
@@ -451,33 +451,6 @@
             </objects>
             <point key="canvasLocation" x="1032" y="365"/>
         </scene>
-        <!--Bar Code View Controller-->
-        <scene sceneID="R5W-Ux-ToO">
-            <objects>
-                <viewController id="40S-Re-Xlj" customClass="BarCodeViewController" customModule="Hemlock" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Vzk-57-A2c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5mh-hs-vXK">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="5mh-hs-vXK" firstAttribute="centerY" secondItem="Vzk-57-A2c" secondAttribute="centerY" id="6Uh-ns-4Kr"/>
-                            <constraint firstItem="5mh-hs-vXK" firstAttribute="centerX" secondItem="Vzk-57-A2c" secondAttribute="centerX" id="7pd-Ps-Gfq"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="YsH-mP-jHd"/>
-                    </view>
-                    <connections>
-                        <outlet property="barCodeImage" destination="5mh-hs-vXK" id="xco-2B-JJf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dok-uh-xdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1046" y="758"/>
-        </scene>
         <!--Search-->
         <scene sceneID="qrm-lx-Zg1">
             <objects>
@@ -485,6 +458,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ppl-xk-L7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028" y="-197"/>
+        </scene>
+        <!--ShowCard-->
+        <scene sceneID="nOP-Jd-QRP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ShowCard" id="F1d-4Q-gY1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJU-z0-KTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="758"/>
         </scene>
     </scenes>
     <resources>

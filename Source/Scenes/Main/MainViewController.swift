@@ -39,14 +39,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var bottomButtonBar: UIStackView!
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
-    @IBOutlet weak var displayBarCodeButton: UIButton!
-    @IBOutlet weak var barCodeImage: UIImageView!
+
     var buttons: [(String, String, UIViewController.Type?)] = [
         ("Search", "ShowSearchSegue", nil),
         ("Items Checked Out", "ShowCheckoutsSegue", nil),
 //        ("Items Checked Out", "", XCheckoutsViewController.self),
         ("Holds", "ShowHoldsSegue", nil),
         ("Fines", "ShowFinesSegue", nil),
+        ("Show Card", "ShowCardSegue", nil),
 //        ("My Lists", "ShowListsSegue", nil),
         ]
     

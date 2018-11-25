@@ -21,7 +21,7 @@ import UIKit
 import PromiseKit
 import ZXingObjC
 
-class BarCodeViewController: UIViewController {
+class ShowCardViewController: UIViewController {
 
     class Barcode {
         
@@ -56,8 +56,11 @@ class BarCodeViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+    }
+    
+    func setupBarcode(_ barcode: String) {
         let writer = ZXMultiFormatWriter()
-        if let matrix = try? writer.encode("1234567", format: kBarcodeFormatCodabar, width: 400, height: 200),
+        if let matrix = try? writer.encode(barcode, format: kBarcodeFormatCodabar, width: 400, height: 200),
             let cgimage = ZXImage(matrix: matrix).cgimage
         {
             barCodeImage.image = UIImage(cgImage: cgimage)
@@ -74,7 +77,8 @@ class BarCodeViewController: UIViewController {
         let promise = ActorService.fetchUserSettings(account: account)
         promise.done {
             if let barcode = account.barcode {
-                print("barcode: \(barcode)")
+                self.setupBarcode(barcode)
+                self.didCompleteFetch = true
             }
         }.catch { error in
             self.presentGatewayAlert(forError: error)
