@@ -135,7 +135,23 @@ class MiscTests: XCTestCase {
     
     func testJoin() {
         let testArray = ["One","Two","Three","Four"]
-        let joinedString = testArray.joined(separator: "\n")
-        debugPrint(joinedString)
+        let joinedString = testArray.joined(separator: ",")
+        XCTAssertEqual(joinedString, "One,Two,Three,Four")
+    }
+    
+    func testStringRegexMatch() {
+        let pattern = "^\\d{3}-\\d{3}-\\d{4}$"
+
+        var phoneNumber = "123-456-7890"
+        var range = phoneNumber.range(of: pattern, options: .regularExpression)
+        XCTAssertTrue(range != nil)
+
+        phoneNumber = "123"
+        range = phoneNumber.range(of: pattern, options: .regularExpression)
+        XCTAssertFalse(range != nil)
+        
+        phoneNumber = "123-456-78900"
+        range = phoneNumber.range(of: pattern, options: .regularExpression)
+        XCTAssertFalse(range != nil)
     }
 }

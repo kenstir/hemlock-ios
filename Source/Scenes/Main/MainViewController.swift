@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
             ("Holds", "ShowHoldsSegue", nil),
             ("Fines", "ShowFinesSegue", nil),
         ]
-        if App.config.barcodeDisplayFormat != .Disabled {
+        if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
         //        ("My Lists", "ShowListsSegue", nil),

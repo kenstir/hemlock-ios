@@ -137,6 +137,6 @@ class LoginController {
     static func clearLoginCredentials(account: Account?) {
         App.valet.removeObject(forKey: "username")
         App.valet.removeObject(forKey: "password")
-        account?.clearCredentials()
+        account?.clear()
     }
 }

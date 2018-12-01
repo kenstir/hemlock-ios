@@ -28,7 +28,6 @@ import os.log
 class ActorService {
     static var orgTypesLoaded = false
     static var orgTreeLoaded = false
-    static var userSettingsLoaded = false
 
     /// Fetch list of org types.
     static func fetchOrgTypesArray() -> Promise<Void> {
@@ -95,7 +94,7 @@ class ActorService {
     }
 
     static func fetchUserSettings(account: Account) -> Promise<Void> {
-        if userSettingsLoaded {
+        if account.userSettingsLoaded {
             return Promise<Void>()
         }
         guard let authtoken = account.authtoken,
@@ -108,7 +107,6 @@ class ActorService {
         let promise = req.gatewayResponse().done { resp, pmkresp in
             if let obj = resp.obj {
                 account.loadUserSettings(fromObject: obj)
-                userSettingsLoaded = true
             }
         }
         return promise

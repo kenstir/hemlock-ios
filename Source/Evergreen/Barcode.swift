@@ -50,4 +50,18 @@ class Barcode {
             return s
         }
     }
+    
+    /// validate codabar, because it's hard/impossible to catch
+    /// objc NSInvalidArgumentException from Swift
+    static public func isValid(_ str: String, format: BarcodeFormat) -> Bool {
+        switch format {
+        case .Disabled:
+            return true
+        case .Codabar14:
+            guard str.count == 14 else { return false }
+            let pattern = "^[0123456789]+$" // or "^\\d{14}$"
+            let range = str.range(of: pattern, options: .regularExpression)
+            return (range != nil)
+        }
+    }
 }

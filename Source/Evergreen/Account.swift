@@ -30,6 +30,7 @@ class Account {
     var defaultNotifyPhone: Bool?
     var defaultNotifySMS: Bool?
 
+    var userSettingsLoaded = false
     fileprivate var userSettingDefaultPickupLocation: Int?
     fileprivate var userSettingDefaultPhone: String?
     fileprivate var userSettingDefaultSearchLocation: Int?
@@ -57,6 +58,14 @@ class Account {
         self.password = password
     }
     
+    func clear() -> Void {
+        self.password = ""
+        self.authtoken = nil
+        self.authtokenExpiryDate = nil
+        self.userID = nil
+        self.userSettingsLoaded = false
+    }
+
     func loadFromAuthResponse(_ fromObj: OSRFObject?) throws -> Void {
         guard
             let obj = fromObj,
@@ -114,12 +123,6 @@ class Account {
                 }
             }
         }
-    }
-    
-    func clearCredentials() -> Void {
-        self.password = ""
-        self.authtoken = nil
-        self.authtokenExpiryDate = nil
-        self.userID = nil
+        userSettingsLoaded = true
     }
 }

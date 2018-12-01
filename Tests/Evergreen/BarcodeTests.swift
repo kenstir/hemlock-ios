@@ -1,5 +1,5 @@
 //
-//  PinesAppConfiguration.swift
+//  BarcodeTests.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -17,11 +17,17 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class PinesAppConfiguration: AppConfiguration {
-    let enableHierarchicalOrgTree = true
-    let enableHoldShowQueuePosition = false
-    let enableHoldPhoneNotification = true
-    let enableMainSceneBottomToolbar = true
-    let groupCopyInfoBySystem = true
-    let barcodeFormat: BarcodeFormat = .Codabar14
+import XCTest
+@testable import Hemlock
+
+class BarcodeTests: XCTestCase {
+    func test_isValid_Codabar14() {
+        // positive tests
+        XCTAssertTrue(Barcode.isValid("12345678901234", format: .Codabar14))
+        
+        // negative tests
+        XCTAssertFalse(Barcode.isValid("TESTAPP", format: .Codabar14))
+        XCTAssertFalse(Barcode.isValid("1234", format: .Codabar14))
+        XCTAssertFalse(Barcode.isValid("123456789012345", format: .Codabar14))
+    }
 }

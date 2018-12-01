@@ -25,5 +25,5 @@ protocol AppConfiguration {
     var enableHoldPhoneNotification: Bool { get }
     var enableMainSceneBottomToolbar: Bool { get }
     var groupCopyInfoBySystem: Bool { get }
-    var barcodeDisplayFormat: BarcodeFormat { get }
+    var barcodeFormat: BarcodeFormat { get }
 }

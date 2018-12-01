@@ -240,6 +240,7 @@
 		D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D27DF20E21AB4B84002DCC47 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
+		D2806A9121B33F6000F308F4 /* BarcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2806A9021B33F6000F308F4 /* BarcodeTests.swift */; };
 		D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
@@ -413,6 +414,7 @@
 		D27DF20B21AB4B84002DCC47 /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
+		D2806A9021B33F6000F308F4 /* BarcodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTests.swift; sourceTree = "<group>"; };
 		D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+smallCaps.swift"; sourceTree = "<group>"; };
 		D28164B3213C7D99000B64B4 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		D28290F420E5CF48008EBE4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 			isa = PBXGroup;
 			children = (
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
+				D2806A9021B33F6000F308F4 /* BarcodeTests.swift */,
 				D260755D20E165D200795124 /* FormatTests.swift */,
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
 				D22D02682083EA7600DC1F5B /* GatewayTests.swift */,
@@ -1434,6 +1437,7 @@
 				D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */,
 				D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */,
 				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
+				D2806A9121B33F6000F308F4 /* BarcodeTests.swift in Sources */,
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,

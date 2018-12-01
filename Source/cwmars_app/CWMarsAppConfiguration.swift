@@ -23,5 +23,5 @@ class CWMarsAppConfiguration: AppConfiguration {
     let enableHoldPhoneNotification = false
     let enableMainSceneBottomToolbar = false
     let groupCopyInfoBySystem = false
-    let barcodeDisplayFormat: BarcodeFormat = .Codabar14
+    let barcodeFormat: BarcodeFormat = .Codabar14
 }
