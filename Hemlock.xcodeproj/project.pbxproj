@@ -497,10 +497,10 @@
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D276DAE221336B20007FAA31 /* cwmars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cwmars.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D276DAE321336B20007FAA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D276DAE321336B20007FAA31 /* CWMARSInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CWMARSInfo.plist; sourceTree = "<group>"; };
 		D276DAE621336BE3007FAA31 /* cwmars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cwmars.xcassets; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D279910B20DDD473003B451E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D279910B20DDD473003B451E /* HemlockInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HemlockInfo.plist; sourceTree = "<group>"; };
 		D279910E20DDD760003B451E /* Hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Hemlock.xcassets; sourceTree = "<group>"; };
 		D279911020DDD77F003B451E /* PINES.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PINES.xcassets; sourceTree = "<group>"; };
 		D279911720DDE11E003B451E /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
@@ -521,7 +521,7 @@
 		D28290F420E5CF48008EBE4B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D28290F720E6F770008EBE4B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D28424B021D0358200C7171C /* COOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D28424B121D0358300C7171C /* CoolInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = CoolInfo.plist; path = "/Users/kenstir/Documents/xcode/hemlock-ios/CoolInfo.plist"; sourceTree = "<absolute>"; };
+		D28424B121D0358300C7171C /* CoolInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoolInfo.plist; sourceTree = "<group>"; };
 		D28725AD20E86F30002A4C42 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
 		D28725B020E932DF002A4C42 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
@@ -530,7 +530,7 @@
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D287D500207AEF2B001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D287D505207AEF2C001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D287D507207AEF2C001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D287D507207AEF2C001AF644 /* PINESInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PINESInfo.plist; sourceTree = "<group>"; };
 		D287D50C207AEF2D001AF644 /* HemlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D512207AEF2D001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D287D51B207AEF3D001AF644 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -852,7 +852,7 @@
 				D296EE0A2133802F009BDB12 /* AppSettings.swift */,
 				D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */,
 				D296EE0B21338030009BDB12 /* CWMarsTheme.swift */,
-				D276DAE321336B20007FAA31 /* Info.plist */,
+				D276DAE321336B20007FAA31 /* CWMARSInfo.plist */,
 				D276DAE621336BE3007FAA31 /* cwmars.xcassets */,
 			);
 			path = cwmars_app;
@@ -864,7 +864,7 @@
 				D279911720DDE11E003B451E /* AppSettings.swift */,
 				D2A74B1821289F2E001D4B0F /* HemlockAppConfiguration.swift */,
 				D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */,
-				D279910B20DDD473003B451E /* Info.plist */,
+				D279910B20DDD473003B451E /* HemlockInfo.plist */,
 				D279910E20DDD760003B451E /* Hemlock.xcassets */,
 			);
 			path = hemlock_app;
@@ -975,7 +975,7 @@
 				D279911920DDE160003B451E /* AppSettings.swift */,
 				D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */,
 				D23C304D20E5C6C800666A2B /* PinesTheme.swift */,
-				D287D507207AEF2C001AF644 /* Info.plist */,
+				D287D507207AEF2C001AF644 /* PINESInfo.plist */,
 				D279911020DDD77F003B451E /* PINES.xcassets */,
 			);
 			path = pines_app;
@@ -1793,7 +1793,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1819,7 +1819,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1844,7 +1844,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/HemlockInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1870,7 +1870,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/HemlockInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1895,7 +1895,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "cwmars copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/cool_app/CoolInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1921,7 +1921,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "cwmars copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/cool_app/CoolInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2061,7 +2061,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/PINESInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2089,7 +2089,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/PINESInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
