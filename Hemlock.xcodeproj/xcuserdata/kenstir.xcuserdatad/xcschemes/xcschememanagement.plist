@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>COOL.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Hemlock copy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -19,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>cwmars copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>cwmars.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +43,11 @@
 			<true/>
 		</dict>
 		<key>D27990CA20DDD473003B451E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D284244721D0358200C7171C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
