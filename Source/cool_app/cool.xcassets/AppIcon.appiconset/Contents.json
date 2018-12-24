@@ -33,13 +33,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "cwmars_120.png",
+      "filename" : "icon120x120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "cwmars_180.png",
+      "filename" : "icon180x180.png",
       "scale" : "3x"
     },
     {
@@ -80,13 +80,13 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "cwmars_152.png",
+      "filename" : "icon152x152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "cwmars_167.png",
+      "filename" : "icon167x167.png",
       "scale" : "2x"
     },
     {
