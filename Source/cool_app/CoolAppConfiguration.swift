@@ -20,7 +20,7 @@
 class CoolAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = false
     let enableHoldShowQueuePosition = true
-    let enableHoldPhoneNotification = false
+    let enableHoldPhoneNotification = true
     let enableMainSceneBottomToolbar = false
     let groupCopyInfoBySystem = false
     let barcodeFormat: BarcodeFormat = .Codabar14
