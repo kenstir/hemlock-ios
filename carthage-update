@@ -8,7 +8,8 @@ IFS=$'\n\t'
 
 xcconfig=$(mktemp /tmp/static.xcconfig.XXXXXX)
 trap 'rm -f "$xcconfig"' INT TERM HUP EXIT
-echo "ONLY_ACTIVE_ARCH[sdk=iphonesimulator*] = YES" >>$xcconfig
+echo "ONLY_ACTIVE_ARCH = YES" >>$xcconfig
 export XCODE_XCCONFIG_FILE="$xcconfig"
 
+cat $xcconfig
 carthage update --platform ios $@
