@@ -65,7 +65,7 @@ class DetailsViewController: UIViewController {
         pubYearLabel.text = item?.pubinfo
 
         if let doc_id = item?.mvrObj?.getInt("doc_id"),
-            let url = URL(string: AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(doc_id)),
+            let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(doc_id)),
             let data = try? Data(contentsOf: url)
         {
             itemImage.image = UIImage(data: data)

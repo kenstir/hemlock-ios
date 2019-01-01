@@ -202,9 +202,9 @@ class XDetailsNode: ASCellNode {
         Style.styleButton(asInverse: copyInfoButton)
         copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
     }
-        
+
     private func setupImageNode() {
-        let url = AppSettings.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
+        let url = App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
         self.imageNode.contentMode = .scaleAspectFit 
         self.imageNode.url = URL(string: url)
     }

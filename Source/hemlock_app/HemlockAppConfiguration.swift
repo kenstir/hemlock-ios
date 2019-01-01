@@ -18,10 +18,16 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class HemlockAppConfiguration: AppConfiguration {
+    let title = "Hemlock"
+    let url = "https://catalog.cwmars.org"
+    //let url = "https://kenstir.ddns.net"
+    let logSubsystem = "net.kenstir.apps.hemlock"
+    
     let enableHierarchicalOrgTree = false
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = false
     let enableMainSceneBottomToolbar = false
     let groupCopyInfoBySystem = false
+
     let barcodeFormat: BarcodeFormat = .Disabled
 }

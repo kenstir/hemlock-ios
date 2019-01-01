@@ -21,13 +21,6 @@ import UIKit
 
 //todo make this a protocol
 struct AppSettings {
-
-    //MARK: - Consortium Properties
-
-    static let appTitle = "COOL"
-    static let url = "https://cool-cat.org"
-    static let logSubsystem = "net.kenstir.apps.cool"
-
     static func makeTheme() -> Theme {
         return CoolTheme()
     }

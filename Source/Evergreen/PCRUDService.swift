@@ -23,7 +23,7 @@ import os.log
 
 class PCRUDService {
     static var carriersLoaded = false
-    static let log = OSLog(subsystem: AppSettings.logSubsystem, category: "pcrud")
+    static let log = OSLog(subsystem: App.config.logSubsystem, category: "pcrud")
 
     static func fetchSMSCarriers() -> Promise<Void> {
         if carriersLoaded {

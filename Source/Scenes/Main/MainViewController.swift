@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
     }
 
     func setupViews() {
-        navigationItem.title = AppSettings.appTitle
+        navigationItem.title = App.config.title
         tableView.dataSource = self
         tableView.delegate = self
         logoutButton.target = self

@@ -21,13 +21,6 @@ import UIKit
 
 //todo make this a protocol
 struct AppSettings {
-
-    //MARK: - Consortium Properties
-
-    static let appTitle = "C/W MARS"
-    static let url = "https://catalog.cwmars.org"
-    static let logSubsystem = "net.kenstir.apps.hemlock"
-
     static func makeTheme() -> Theme {
         return CWMarsTheme()
     }

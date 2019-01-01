@@ -22,14 +22,8 @@ import UIKit
 protocol Theme {
     var foregroundColor: UIColor { get }
     var backgroundColor: UIColor { get }
-//    var backgroundDark1: UIColor { get }
     var backgroundDark2: UIColor { get }
-//    var backgroundDark3: UIColor { get }
-//    var backgroundDark4: UIColor { get }
     var backgroundDark5: UIColor { get }
-//    var backgroundDark6: UIColor { get }
-//    var backgroundDark7: UIColor { get }
-//    var backgroundDark8: UIColor { get }
     
     var tableHeaderForeground: UIColor { get }
     var tableHeaderBackground: UIColor { get }

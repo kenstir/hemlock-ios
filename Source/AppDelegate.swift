@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         App.theme = AppSettings.makeTheme()
         App.config = AppSettings.makeAppConfiguration()
-        App.library = Library(AppSettings.url)
+        App.library = Library(App.config.url)
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = UIColor.white
         appearance.barTintColor = App.theme.backgroundDark2

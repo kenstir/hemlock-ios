@@ -21,13 +21,6 @@ import UIKit
 
 //todo make this a protocol
 struct AppSettings {
-
-    //MARK: - Consortium Properties
-
-    static let appTitle = "PINES"
-    static let url = "https://gapines.org"
-    static let logSubsystem = "net.kenstir.apps.pines"
-
     static func makeTheme() -> Theme {
         return PinesTheme()
     }

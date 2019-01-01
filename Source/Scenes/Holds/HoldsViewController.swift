@@ -32,7 +32,7 @@ class HoldsViewController: UIViewController {
 
     var items: [HoldRecord] = []
     var didCompleteFetch = false
-    let log = OSLog(subsystem: AppSettings.logSubsystem, category: "Holds")
+    let log = OSLog(subsystem: App.config.logSubsystem, category: "Holds")
 
     //MARK: - UIViewController
 

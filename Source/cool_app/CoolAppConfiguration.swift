@@ -18,10 +18,15 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class CoolAppConfiguration: AppConfiguration {
+    let title = "COOL"
+    let url = "https://cool-cat.org"
+    let logSubsystem = "net.kenstir.apps.cool"
+
     let enableHierarchicalOrgTree = false
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
     let enableMainSceneBottomToolbar = false
     let groupCopyInfoBySystem = false
+
     let barcodeFormat: BarcodeFormat = .Codabar14
 }
