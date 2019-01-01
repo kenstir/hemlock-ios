@@ -29,4 +29,19 @@ class OSRFObjectTests: XCTestCase {
         let expectedDate = Date(timeIntervalSince1970: 1493661804)
         XCTAssertEqual(checkinDate, expectedDate)
     }
+    
+    func test_equatable() {
+        let obj1 = OSRFObject(["a": 1, "b": nil])
+        let obj2 = OSRFObject(["b": nil, "a": 1])
+        XCTAssertEqual(obj1, obj2)
+        
+        let obj3 = OSRFObject(["b": nil, "a": nil])
+        XCTAssertNotEqual(obj2, obj3)
+        
+        let obj4 = OSRFObject(["b": nil, "a": 12])
+        XCTAssertNotEqual(obj2, obj4)
+        
+        let obj5 = OSRFObject(["b": nil, "a": 1, "c": "any"])
+        XCTAssertNotEqual(obj2, obj5)
+    }
 }

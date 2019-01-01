@@ -184,13 +184,13 @@ struct OSRFObject: Equatable {
     // but this is just for unit tests.  So we treat two OSRFObjects
     // as equal if they serialize to the same JSON String.
     static func == (lhs: OSRFObject, rhs: OSRFObject) -> Bool {
-        
         if lhs.dict.count != rhs.dict.count {
             return false
         }
         if lhs.dict.keys != rhs.dict.keys {
             return false
         }
+        // Swift 4.2: serializing to JSON is not stable, so this fails sometimes
         if
             let jsonDataLHS = try? JSONSerialization.data(withJSONObject: lhs.dict),
             let strLHS = String(data: jsonDataLHS, encoding: .utf8),
