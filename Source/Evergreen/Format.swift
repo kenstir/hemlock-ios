@@ -34,7 +34,7 @@ class Format {
     static let items: [FormatItem] = {
         var items: [FormatItem] = []
         if
-            let data = formatItemsJSON.data(using: .utf8),
+            let data = App.config.searchFormatsJSON.data(using: .utf8),
             let json = try? JSONSerialization.jsonObject(with: data),
             let jsonArray  = json as? [[String: Any?]]
         {
@@ -54,35 +54,6 @@ class Format {
         }
         return items
     }()
-    static let formatItemsJSON = """
-[
-  {"l":"All Formats", "f":""},
-  {"l":"All Books", "f":"book", "L":"Book"},
-  {"l":"All Music", "f":"music", "L":"Music"},
-  {"l":"Audiocassette music recording", "f":"casmusic", "h":true},
-  {"l":"Blu-ray", "f":"blu-ray"},
-  {"l":"Braille", "f":"braille", "h":true},
-  {"l":"Cassette audiobook", "f":"casaudiobook", "h":true},
-  {"l":"CD Audiobook", "f":"cdaudiobook"},
-  {"l":"CD Music recording", "f":"cdmusic"},
-  {"l":"DVD", "f":"dvd"},
-  {"l":"E-audio", "f":"eaudio"},
-  {"l":"E-book", "f":"ebook"},
-  {"l":"E-video", "f":"evideo"},
-  {"l":"Equipment, games, toys", "f":"equip", "h":true},
-  {"l":"Kit", "f":"kit", "h":true},
-  {"l":"Large Print Book", "f":"lpbook"},
-  {"l":"Map", "f":"map", "h":true},
-  {"l":"Microform", "f":"microform", "h":true},
-  {"l":"Music Score", "f":"score", "h":true},
-  {"l":"Phonograph music recording", "f":"phonomusic", "h":true},
-  {"l":"Phonograph spoken recording", "f":"phonospoken", "h":true},
-  {"l":"Picture", "f":"picture"},
-  {"l":"Serials and magazines", "f":"serial"},
-  {"l":"Software and video games", "f":"software"},
-  {"l":"VHS", "f":"vhs", "h":true}
-]
-"""
     
     //MARK: - Functions
     
