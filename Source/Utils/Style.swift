@@ -119,29 +119,29 @@ class Style {
     
     static func makeTableHeaderString(_ str: String) -> NSAttributedString {
         let attrs = [
-            NSAttributedStringKey.foregroundColor: App.theme.tableHeaderForeground,
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps]
+            NSAttributedString.Key.foregroundColor: App.theme.tableHeaderForeground,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     static func makeTitleString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
-            NSAttributedStringKey.foregroundColor: UIColor.black,
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: size, weight: .semibold)]
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .semibold)]
         return NSAttributedString(string: str, attributes: attrs)
     }
 
     static func makeSubtitleString(_ str: String, ofSize size: CGFloat = 14) -> NSAttributedString {
         let attrs = [
-            NSAttributedStringKey.foregroundColor: UIColor.darkGray,
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: size)]
+            NSAttributedString.Key.foregroundColor: UIColor.darkGray,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     static func makeString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
-            NSAttributedStringKey.foregroundColor: UIColor.black,
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: size, weight: .regular)]
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .regular)]
         return NSAttributedString(string: str, attributes: attrs)
     }
 }

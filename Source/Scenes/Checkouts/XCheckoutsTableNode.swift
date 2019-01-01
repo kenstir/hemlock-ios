@@ -59,7 +59,7 @@ class XCheckoutsTableNode: ASCellNode {
     }
     
     private var titleTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
+        return [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
     }
     
     private func setupAuthorNode() {
@@ -69,7 +69,7 @@ class XCheckoutsTableNode: ASCellNode {
     }
     
     private var authorTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
+        return [NSAttributedString.Key.foregroundColor: UIColor.darkGray, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
     }
 
     private func setupSeparatorNode() {
@@ -100,7 +100,7 @@ class XCheckoutsTableNode: ASCellNode {
         
         let contentsSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [detailsSpec])
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0), child: contentsSpec)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0), child: contentsSpec)
     }
     
 }

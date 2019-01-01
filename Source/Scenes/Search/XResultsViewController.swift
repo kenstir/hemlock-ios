@@ -85,7 +85,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         
         self.setupHomeButton()
         
-        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         Style.styleActivityIndicator(activityIndicator)
         self.node.view.addSubview(activityIndicator)
     }

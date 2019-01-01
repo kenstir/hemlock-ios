@@ -161,7 +161,7 @@ class XCheckoutsViewController: ASViewController<ASTableNode> {
     }
     
     private var headerTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
+        return [NSAttributedString.Key.foregroundColor: UIColor.darkGray, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
     }
 }
 

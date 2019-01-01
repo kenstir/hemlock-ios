@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         App.theme = AppSettings.makeTheme()
         App.config = AppSettings.makeAppConfiguration()
@@ -33,9 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = UIColor.white
         appearance.barTintColor = App.theme.backgroundDark2
-        appearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         if #available(iOS 11.0, *) {
-            appearance.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         }
 
         return true

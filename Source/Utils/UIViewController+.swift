@@ -23,7 +23,7 @@ extension UIViewController {
     //MARK: - common view setup
 
     func addActivityIndicator() -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
         return activityIndicator

@@ -71,7 +71,7 @@ class XResultsTableNode: ASCellNode {
     }
     
     private var titleTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)]
+        return [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
     }
     
     private func setupAuthorNode() {
@@ -81,7 +81,7 @@ class XResultsTableNode: ASCellNode {
     }
     
     private var authorTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
+        return [NSAttributedString.Key.foregroundColor: UIColor.darkGray, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
     }
     
     private func setupFormatNode() {
@@ -91,7 +91,7 @@ class XResultsTableNode: ASCellNode {
     }
     
     private var formatTextAttributes = {
-        return [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
+        return [NSAttributedString.Key.foregroundColor: UIColor.darkGray, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)]
     }
     
     private func setupImageNode() {
