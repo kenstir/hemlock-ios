@@ -41,13 +41,17 @@ class Barcode {
         case .Disabled:
             return ""
         case .Codabar:
-            guard str.count == 14 else { return str }
-            var s = str[0..<1]
-            s = s + " " + str[1..<5]
-            s = s + " " + str[5..<9]
-            s = s + " " + str[9..<13]
-            s = s + " " + str[13..<14]
-            return s
+            switch str.count {
+            case 14:
+                var s = str[0..<1]
+                s = s + " " + str[1..<5]
+                s = s + " " + str[5..<9]
+                s = s + " " + str[9..<13]
+                s = s + " " + str[13..<14]
+                return s
+            default:
+                return str
+            }
         }
     }
     
@@ -58,10 +62,16 @@ class Barcode {
         case .Disabled:
             return true
         case .Codabar:
-            guard str.count == 14 else { return false }//TODO
-            let pattern = "^[0123456789]+$" // or "^\\d{14}$"
-            let range = str.range(of: pattern, options: .regularExpression)
-            return (range != nil)
+            // According to http://www.makebarcode.com/specs/codabar.html
+            // the start/stop characters [ABCDE*NT] are also allowed in matching pairs,
+            // but I don't know how to fully check the validity of those and would rather
+            // report a barcode invalid than crash.
+            let pattern = "^[0123456789.+/:$-]+$"
+            let options: NSRegularExpression.Options = [.caseInsensitive]
+            guard let re = try? NSRegularExpression(pattern: pattern, options: options) else { return false }
+            let range = NSRange(location: 0, length: str.count)
+            let num = re.numberOfMatches(in: str, options: [], range: range)
+            return num > 0
         }
     }
 }
