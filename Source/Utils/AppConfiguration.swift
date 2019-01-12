@@ -32,4 +32,5 @@ protocol AppConfiguration {
     var groupCopyInfoBySystem: Bool { get }
 
     var barcodeFormat: BarcodeFormat { get }
+    var searchLimit: Int { get }
 }

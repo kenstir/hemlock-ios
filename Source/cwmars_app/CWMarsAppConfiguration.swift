@@ -28,7 +28,8 @@ class CWMarsAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let groupCopyInfoBySystem = false
 
-    let barcodeFormat: BarcodeFormat = .Codabar14
+    let barcodeFormat = .Codabar14
+    let searchLimit = 200
     
     let searchFormatsJSON = """
 [

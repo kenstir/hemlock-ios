@@ -21,7 +21,7 @@ import Foundation
 
 enum BarcodeFormat {
     case Disabled  // feature is disabled for this consortium
-    case Codabar14 // Codabar with check digit
+    case Codabar
 }
 
 class Barcode {
@@ -30,7 +30,7 @@ class Barcode {
         switch format {
         case .Disabled:
             return ""
-        case .Codabar14:
+        case .Codabar:
             return "00000000000000"
         }
     }
@@ -40,7 +40,7 @@ class Barcode {
         switch format {
         case .Disabled:
             return ""
-        case .Codabar14:
+        case .Codabar:
             guard str.count == 14 else { return str }
             var s = str[0..<1]
             s = s + " " + str[1..<5]
@@ -57,8 +57,8 @@ class Barcode {
         switch format {
         case .Disabled:
             return true
-        case .Codabar14:
-            guard str.count == 14 else { return false }
+        case .Codabar:
+            guard str.count == 14 else { return false }//TODO
             let pattern = "^[0123456789]+$" // or "^\\d{14}$"
             let range = str.range(of: pattern, options: .regularExpression)
             return (range != nil)

@@ -23,11 +23,11 @@ import XCTest
 class BarcodeTests: XCTestCase {
     func test_isValid_Codabar14() {
         // positive tests
-        XCTAssertTrue(Barcode.isValid("12345678901234", format: .Codabar14))
+        XCTAssertTrue(Barcode.isValid("12345678901234", format: .Codabar))
         
         // negative tests
-        XCTAssertFalse(Barcode.isValid("TESTAPP", format: .Codabar14))
-        XCTAssertFalse(Barcode.isValid("1234", format: .Codabar14))
-        XCTAssertFalse(Barcode.isValid("123456789012345", format: .Codabar14))
+        XCTAssertFalse(Barcode.isValid("TESTAPP", format: .Codabar))
+        XCTAssertFalse(Barcode.isValid("1234", format: .Codabar))
+        XCTAssertFalse(Barcode.isValid("123456789012345", format: .Codabar))
     }
 }

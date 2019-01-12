@@ -121,7 +121,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         startOfSearch = Date()
 
         // search
-        let options: [String: Int] = ["limit": 200/*TODO*/, "offset": 0]
+        let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1])
         req.gatewayObjectResponse().done { obj in
             let records = MBRecord.makeArray(fromQueryResponse: obj)

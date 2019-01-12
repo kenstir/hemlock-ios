@@ -28,7 +28,8 @@ class PinesAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = true
     let groupCopyInfoBySystem = true
 
-    let barcodeFormat: BarcodeFormat = .Codabar14
+    let barcodeFormat: BarcodeFormat = .Codabar
+    let searchLimit = 200
     
     let searchFormatsJSON = """
 [

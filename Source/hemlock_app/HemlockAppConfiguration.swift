@@ -30,6 +30,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let groupCopyInfoBySystem = false
 
     let barcodeFormat: BarcodeFormat = .Disabled
+    let searchLimit = 100
 
     let searchFormatsJSON = """
 [

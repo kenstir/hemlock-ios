@@ -28,7 +28,8 @@ class CoolAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let groupCopyInfoBySystem = false
 
-    let barcodeFormat: BarcodeFormat = .Codabar14
+    let barcodeFormat: BarcodeFormat = .Codabar
+    let searchLimit = 100
     
     let searchFormatsJSON = """
 [
