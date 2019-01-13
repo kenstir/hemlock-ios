@@ -26,6 +26,7 @@ class CoolAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
     let enableMainSceneBottomToolbar = false
+    let enablePayFines = false
     let groupCopyInfoBySystem = false
 
     let barcodeFormat: BarcodeFormat = .Codabar

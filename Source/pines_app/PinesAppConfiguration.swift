@@ -26,6 +26,7 @@ class PinesAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = false
     let enableHoldPhoneNotification = true
     let enableMainSceneBottomToolbar = true
+    let enablePayFines = true
     let groupCopyInfoBySystem = true
 
     let barcodeFormat: BarcodeFormat = .Codabar

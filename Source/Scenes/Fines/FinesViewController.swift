@@ -75,8 +75,12 @@ class FinesViewController: UIViewController {
         Style.styleLabel(asTableHeader: balanceOwedLabel)
         Style.styleLabel(asTableHeader: balanceOwedVal)
 
-        Style.styleButton(asOutline: payFinesButton)
         payFinesButton.isEnabled = false
+        if App.config.enablePayFines {
+            Style.styleButton(asOutline: payFinesButton)
+        } else {
+            payFinesButton.isHidden = true
+        }
     }
 
     func fetchData() {
@@ -121,7 +125,8 @@ class FinesViewController: UIViewController {
     }
     
     func updatePayFinesButton() {
-        if let homeOrgID = App.account?.homeOrgID,
+        if App.config.enablePayFines,
+            let homeOrgID = App.account?.homeOrgID,
             let homeOrg = Organization.find(byId: homeOrgID),
             let isPaymentAllowed = homeOrg.isPaymentAllowedSetting,
             isPaymentAllowed && balanceOwed > 0

@@ -26,6 +26,7 @@ class CWMarsAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = false
     let enableMainSceneBottomToolbar = false
+    let enablePayFines = true
     let groupCopyInfoBySystem = false
 
     let barcodeFormat = .Codabar14
