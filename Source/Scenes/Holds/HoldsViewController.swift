@@ -118,7 +118,7 @@ class HoldsViewController: UIViewController {
             return fetchPartHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
         } else if hold.holdType == "C" {
             return fetchCopyHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
-        } else if hold.holdType == "P" {
+        } else if hold.holdType == "V" {
             return fetchVolumeHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
         } else {
             os_log("fetchTargetInfo target=%d holdType=%@ NOT HANDLED", log: log, type: .info, holdTarget, holdType)
@@ -178,6 +178,7 @@ class HoldsViewController: UIViewController {
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             let callNumber = obj.getID("call_number")
             os_log("fetchTargetInfo target=%d holdType=T call start", log: self.log, type: .info, holdTarget)
+            //TODO fix warnings/handle cases where id is null
             return Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber]).gatewayObjectResponse()
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             let id = obj.getID("record")
@@ -194,8 +195,21 @@ class HoldsViewController: UIViewController {
     }
     
     func fetchVolumeHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) -> Promise<Void> {
-        //TODO NOT DONE YET
-        return Promise<Void>()
+        os_log("fetchTargetInfo target=%d holdType=V call start", log: self.log, type: .info, holdTarget)
+        let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [holdTarget])
+        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
+            let id = obj.getID("record")
+            //TODO fix warnings/handle cases where id is null
+            os_log("fetchTargetInfo target=%d holdType=V mods start", log: self.log, type: .info, holdTarget)
+            //hold.partLabel = obj.getString("label")
+            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id]).gatewayObjectResponse()
+        }.done { (obj: OSRFObject) -> Void in
+            os_log("fetchTargetInfo target=%d holdType=V mods done", log: self.log, type: .info, holdTarget)
+            if let id = obj.getInt("doc_id") {
+                hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
+            }
+        }
+        return promise
     }
 
     func fetchHoldQueueStats(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
