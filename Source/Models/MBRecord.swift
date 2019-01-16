@@ -32,17 +32,33 @@ class MBRecord {
     var author: String { return mvrObj?.getString("author") ?? "Unknown" }
     var format: String { return Format.getDisplayLabel(forSearchFormat: searchFormat) }
     var isbn: String { return mvrObj?.getString("isbn") ?? "" }
+    var isOnlineResource: Bool {
+        if let onlineLocation = self.onlineLocation,
+            !onlineLocation.isEmpty,
+            let searchFormat = self.searchFormat,
+            Format.isOnlineResource(forSearchFormat: searchFormat)
+        {
+            return true
+        }
+        return false
+    }
+    var onlineLocation: String? {
+        if let arr = mvrObj?.getAny("online_loc") as? [String] {
+            return arr.first
+        }
+        return nil
+    }
+    var pubinfo: String {
+        let pubdate = mvrObj?.getString("pubdate") ?? ""
+        let publisher = mvrObj?.getString("publisher") ?? ""
+        return pubdate + " " + publisher
+    }
     var synopsis: String { return mvrObj?.getString("synopsis") ?? "" }
     var subject: String {
         if let obj = mvrObj?.getObject("subject") {
             return obj.dict.keys.joined(separator: "\n")
         }
         return ""
-    }
-    var pubinfo: String {
-        let pubdate = mvrObj?.getString("pubdate") ?? ""
-        let publisher = mvrObj?.getString("publisher") ?? ""
-        return pubdate + " " + publisher
     }
 
     init(id: Int, mvrObj: OSRFObject? = nil) {

@@ -44,7 +44,7 @@ class XDetailsNode: ASCellNode {
     private let imageNode: ASNetworkImageNode
     
     private let copySummaryNode: ASTextNode
-    private let placeHoldButton: ASButtonNode
+    private let actionButton: ASButtonNode
     private let copyInfoButton: ASButtonNode
     
     private let synopsisNode = ASTextNode()
@@ -71,7 +71,7 @@ class XDetailsNode: ASCellNode {
         imageNode = ASNetworkImageNode()
         
         copySummaryNode = ASTextNode()
-        placeHoldButton = ASButtonNode()
+        actionButton = ASButtonNode()
         copyInfoButton = ASButtonNode()
 
         super.init()
@@ -88,16 +88,20 @@ class XDetailsNode: ASCellNode {
             return
         }
         
+        // Fetch orgs and copy statuses
         var promises: [Promise<Void>] = []
         promises.append(ActorService.fetchOrgs())
         promises.append(SearchService.fetchCopyStatusAll())
-        
-        let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
-        let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: record.id)
-        let done_promise = promise.done { array in
-            self.record.copyCounts = CopyCounts.makeArray(fromArray: array)
+
+        // Fetch copy counts if not online resource
+        if !record.isOnlineResource {
+            let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
+            let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: record.id)
+            let done_promise = promise.done { array in
+                self.record.copyCounts = CopyCounts.makeArray(fromArray: array)
+            }
+            promises.append(done_promise)
         }
-        promises.append(done_promise)
         
         firstly {
             when(fulfilled: promises)
@@ -119,11 +123,18 @@ class XDetailsNode: ASCellNode {
         myVC.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func onlineAccessPressed(sender: Any) {
+        if let onlineLocation = record.onlineLocation,
+            let url = URL(string: onlineLocation) {
+            UIApplication.shared.open(url)
+        }
+    }
+
     @objc func placeHoldPressed(sender: Any) {
         guard let myVC = self.closestViewController,
             let vc = UIStoryboard(name: "PlaceHolds", bundle: nil).instantiateInitialViewController(),
             let placeHoldsVC = vc as? PlaceHoldsViewController else { return }
-
+        
         placeHoldsVC.record = record
         myVC.navigationController?.pushViewController(vc, animated: true)
     }
@@ -176,31 +187,52 @@ class XDetailsNode: ASCellNode {
 
     private func setupCopySummary() {
         var str = ""
-        if let copyCounts = record.copyCounts,
-            let copyCount = copyCounts.last,
-            let orgName = Organization.find(byId: copyCount.orgID)?.name
-        {
-            str = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
+        if record.isOnlineResource {
+            if let onlineLocation = record.onlineLocation,
+                let host = URL(string: onlineLocation)?.host
+            {
+                str = host
+            }
+            copySummaryNode.attributedText = Style.makeSubtitleString(str)
+        } else {
+            if let copyCounts = record.copyCounts,
+                let copyCount = copyCounts.last,
+                let orgName = Organization.find(byId: copyCount.orgID)?.name
+            {
+                str = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
+            }
+            copySummaryNode.attributedText = Style.makeString(str, ofSize: 16)
         }
-        copySummaryNode.attributedText = Style.makeString(str, ofSize: 16)
     }
     
     private func setupButtons() {
-        let title = "Place Hold"
+        var actionButtonText: String
+        if record.isOnlineResource {
+            actionButtonText = "Online Access"
+            actionButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), forControlEvents: .touchUpInside)
+            actionButton.isEnabled = true
+        } else {
+            actionButtonText = "Place Hold"
+            actionButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
+            actionButton.isEnabled = displayOptions.enablePlaceHold
+        }
         let font = UIFont.systemFont(ofSize: 15)
-        Style.styleButton(asInverse: placeHoldButton)
-        placeHoldButton.setTitle(title, with: font, with: .white, for: .normal)
-        placeHoldButton.setTitle(title, with: font, with: .gray, for: .disabled)
-        placeHoldButton.setTitle(title, with: font, with: .gray, for: .highlighted)
-        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
-        placeHoldButton.isEnabled = displayOptions.enablePlaceHold
+        Style.styleButton(asInverse: actionButton)
+        actionButton.setTitle(actionButtonText, with: font, with: .white, for: .normal)
+        actionButton.setTitle(actionButtonText, with: font, with: .gray, for: .disabled)
+        actionButton.setTitle(actionButtonText, with: font, with: .gray, for: .highlighted)
 
-        let t2 = "Copy Info"
-        copyInfoButton.setTitle(t2, with: font, with: .white, for: .normal)
-        copyInfoButton.setTitle(t2, with: font, with: .gray, for: .disabled)
-        copyInfoButton.setTitle(t2, with: font, with: .gray, for: .highlighted)
-        Style.styleButton(asInverse: copyInfoButton)
-        copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
+        if record.isOnlineResource {
+            copyInfoButton.isEnabled = false
+            copyInfoButton.isHidden = true
+        } else {
+            let buttonText = "Copy Info"
+            copyInfoButton.setTitle(buttonText, with: font, with: .white, for: .normal)
+            copyInfoButton.setTitle(buttonText, with: font, with: .gray, for: .disabled)
+            copyInfoButton.setTitle(buttonText, with: font, with: .gray, for: .highlighted)
+            Style.styleButton(asInverse: copyInfoButton)
+            copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
+        }
     }
 
     private func setupImageNode() {
@@ -226,7 +258,7 @@ class XDetailsNode: ASCellNode {
         self.addSubnode(imageNode)
 
         self.addSubnode(copySummaryNode)
-        self.addSubnode(placeHoldButton)
+        self.addSubnode(actionButton)
         self.addSubnode(copyInfoButton)
         
         self.addSubnode(synopsisNode)
@@ -279,9 +311,9 @@ class XDetailsNode: ASCellNode {
         
         let buttonsSpec = ASStackLayoutSpec.horizontal()
         buttonsSpec.spacing = 8
-        placeHoldButton.style.flexGrow = 1.0
+        actionButton.style.flexGrow = 1.0
         copyInfoButton.style.flexGrow = 1.0
-        buttonsSpec.children = [placeHoldButton, copyInfoButton]
+        buttonsSpec.children = [actionButton, copyInfoButton]
         let buttonRow = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0), child: buttonsSpec)
         
         // subject

@@ -70,6 +70,7 @@ class FormatTests: XCTestCase {
     
     func test_Format_isOnlineResource() {
         XCTAssertTrue(Format.isOnlineResource(forSearchFormat: "ebook"))
+        XCTAssertTrue(Format.isOnlineResource(forSearchFormat: "picture"))
         XCTAssertFalse(Format.isOnlineResource(forSearchFormat: "book"))
     }
 }
