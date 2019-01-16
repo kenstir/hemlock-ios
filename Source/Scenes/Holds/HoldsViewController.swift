@@ -94,15 +94,30 @@ class HoldsViewController: UIViewController {
         os_log("%d promises made", log: self.log, type: .info, promises.count)
 
         firstly {
-            when(fulfilled: promises)
-        }.done {
+            //when(fulfilled: promises)
+            when(resolved: promises)
+        }.done { results in
             os_log("%d promises done", log: self.log, type: .info, promises.count)
+            var holdError: Error? = nil
+            for result in results {
+                switch result {
+                case .fulfilled: //(let value):
+                    break
+                case .rejected(let error):
+                    holdError = error
+                }
+            }
             self.activityIndicator.stopAnimating()
             self.updateItems()
-        }.catch { error in
+            if let error = holdError {
+                self.presentGatewayAlert(forError: error)
+            }
+        }
+        /* no catch for when(resolved:)
+        .catch { error in
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error)
-        }
+        }*/
     }
     
     func fetchHoldTargetDetails(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
@@ -156,18 +171,18 @@ class HoldsViewController: UIViewController {
         param["query"] = ["id": holdTarget]
         let req = Gateway.makeRequest(service: API.fielder, method: API.fielderBMPAtomic, args: [param])
         let promise = req.gatewayArrayResponse().then { (array: [OSRFObject]) -> Promise<(OSRFObject)> in
-            var target = 0
-            if let obj = array.first {
-                target = obj.getInt("record") ?? 0
-                hold.label = obj.getString("label")
+            guard let obj = array.first,
+                let target = obj.getInt("record") else
+            {
+                throw HemlockError.unexpectedNetworkResponse("Failed to load fields for part hold")
             }
+            hold.label = obj.getString("label")
             os_log("fetchTargetInfo target=%d holdType=P targetRecord=%d fielder done mods start", log: self.log, type: .info, holdTarget, target)
             return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target]).gatewayObjectResponse()
         }.done { (obj: OSRFObject) -> Void in
             os_log("fetchTargetInfo target=%d holdType=P mods done", log: self.log, type: .info, holdTarget)
-            if let id = obj.getInt("doc_id") {
-                hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
-            }
+            guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for part hold") }
+            hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
         }
         return promise
     }
@@ -176,20 +191,18 @@ class HoldsViewController: UIViewController {
         os_log("fetchTargetInfo target=%d holdType=T asset start", log: self.log, type: .info, holdTarget)
         let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            let callNumber = obj.getID("call_number")
+            guard let callNumber = obj.getID("call_numberxxx") else { throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold") }
             os_log("fetchTargetInfo target=%d holdType=T call start", log: self.log, type: .info, holdTarget)
-            //TODO fix warnings/handle cases where id is null
             return Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber]).gatewayObjectResponse()
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            let id = obj.getID("record")
+            guard let id = obj.getID("record") else { throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for copy hold") }
             os_log("fetchTargetInfo target=%d holdType=T mods start", log: self.log, type: .info, holdTarget)
             //hold.partLabel = obj.getString("label")
             return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id]).gatewayObjectResponse()
         }.done { (obj: OSRFObject) -> Void in
             os_log("fetchTargetInfo target=%d holdType=P mods done", log: self.log, type: .info, holdTarget)
-            if let id = obj.getInt("doc_id") {
-                hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
-            }
+            guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for copy hold") }
+            hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
         }
         return promise
     }
@@ -198,16 +211,14 @@ class HoldsViewController: UIViewController {
         os_log("fetchTargetInfo target=%d holdType=V call start", log: self.log, type: .info, holdTarget)
         let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [holdTarget])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            let id = obj.getID("record")
-            //TODO fix warnings/handle cases where id is null
+            guard let id = obj.getID("record") else { throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for volume hold")}
             os_log("fetchTargetInfo target=%d holdType=V mods start", log: self.log, type: .info, holdTarget)
             //hold.partLabel = obj.getString("label")
             return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id]).gatewayObjectResponse()
         }.done { (obj: OSRFObject) -> Void in
             os_log("fetchTargetInfo target=%d holdType=V mods done", log: self.log, type: .info, holdTarget)
-            if let id = obj.getInt("doc_id") {
-                hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
-            }
+            guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for volume hold") }
+            hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
         }
         return promise
     }
