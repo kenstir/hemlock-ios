@@ -88,8 +88,8 @@ class HoldsViewController: UIViewController {
         }
         var promises: [Promise<Void>] = []
         for hold in self.items {
-            promises.append(try fetchTargetDetails(hold: hold, authtoken: authtoken))
-            promises.append(try fetchQueueStats(hold: hold, authtoken: authtoken))
+            promises.append(try fetchHoldTargetDetails(hold: hold, authtoken: authtoken))
+            promises.append(try fetchHoldQueueStats(hold: hold, authtoken: authtoken))
         }
         os_log("%d promises made", log: self.log, type: .info, promises.count)
 
@@ -105,7 +105,7 @@ class HoldsViewController: UIViewController {
         }
     }
     
-    func fetchTargetDetails(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
+    func fetchHoldTargetDetails(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
         guard let holdTarget = hold.target,
             let holdType = hold.holdType else {
             return Promise<Void>() //TODO: add analytics
@@ -116,6 +116,10 @@ class HoldsViewController: UIViewController {
             return fetchMetarecordHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
         } else if hold.holdType == "P" {
             return fetchPartHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+        } else if hold.holdType == "C" {
+            return fetchCopyHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+        } else if hold.holdType == "P" {
+            return fetchVolumeHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
         } else {
             os_log("fetchTargetInfo target=%d holdType=%@ NOT HANDLED", log: log, type: .info, holdTarget, holdType)
             return Promise<Void>() //TODO: add analytics
@@ -146,7 +150,7 @@ class HoldsViewController: UIViewController {
 
     func fetchPartHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) -> Promise<Void> {
         os_log("fetchTargetInfo target=%d holdType=P fielder start", log: self.log, type: .info, holdTarget)
-            var param: [String: Any] = [:]
+        var param: [String: Any] = [:]
         param["cache"] = 1
         param["fields"] = ["label", "record"]
         param["query"] = ["id": holdTarget]
@@ -168,7 +172,33 @@ class HoldsViewController: UIViewController {
         return promise
     }
     
-    func fetchQueueStats(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
+    func fetchCopyHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) -> Promise<Void> {
+        os_log("fetchTargetInfo target=%d holdType=T asset start", log: self.log, type: .info, holdTarget)
+        let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget])
+        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
+            let callNumber = obj.getID("call_number")
+            os_log("fetchTargetInfo target=%d holdType=T call start", log: self.log, type: .info, holdTarget)
+            return Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber]).gatewayObjectResponse()
+        }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
+            let id = obj.getID("record")
+            os_log("fetchTargetInfo target=%d holdType=T mods start", log: self.log, type: .info, holdTarget)
+            //hold.partLabel = obj.getString("label")
+            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id]).gatewayObjectResponse()
+        }.done { (obj: OSRFObject) -> Void in
+            os_log("fetchTargetInfo target=%d holdType=P mods done", log: self.log, type: .info, holdTarget)
+            if let id = obj.getInt("doc_id") {
+                hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
+            }
+        }
+        return promise
+    }
+    
+    func fetchVolumeHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) -> Promise<Void> {
+        //TODO NOT DONE YET
+        return Promise<Void>()
+    }
+
+    func fetchHoldQueueStats(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
         guard let id = hold.ahrObj.getID("id") else {
             return Promise<Void>() //TODO: add analytics
         }

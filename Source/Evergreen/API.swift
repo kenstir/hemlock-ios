@@ -78,6 +78,8 @@ struct API {
     //MARK: - search service
     
     static let search = "open-ils.search"
+    static let assetCallNumberRetrieve = "open-ils.search.asset.call_number.retrieve"
+    static let assetCopyRetrieve = "open-ils.search.asset.copy.retrieve"
     static let metarecordModsRetrieve = "open-ils.search.biblio.metarecord.mods_slim.retrieve"
     static let modsFromCopy = "open-ils.search.biblio.mods_from_copy"
     static let recordModsRetrieve = "open-ils.search.biblio.record.mods_slim.retrieve"
