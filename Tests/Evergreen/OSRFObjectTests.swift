@@ -33,6 +33,7 @@ class OSRFObjectTests: XCTestCase {
     func test_equatable() {
         let obj1 = OSRFObject(["a": 1, "b": nil])
         let obj2 = OSRFObject(["b": nil, "a": 1])
+        // sometimes fails on Xcode 10 due to dict reordering
         XCTAssertEqual(obj1, obj2)
         
         let obj3 = OSRFObject(["b": nil, "a": nil])

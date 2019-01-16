@@ -102,6 +102,7 @@ class OSRFCoderTests: XCTestCase {
         do {
             let decodedObj = try OSRFCoder.decode("aout", wirePayload: jsonArray)
             debugPrint(decodedObj)
+            // sometimes fails on Xcode 10 due to dict reordering
             XCTAssertEqual(decodedObj, expectedObj)
             XCTAssertEqual(decodedObj.dict.keys.count, 8)
         } catch {
