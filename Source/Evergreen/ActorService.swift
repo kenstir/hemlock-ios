@@ -43,11 +43,11 @@ class ActorService {
     }
     
     /// Fetch org tree.
-    /*
     static func fetchOrgTree() -> Promise<Void> {
         if orgTreeLoaded {
             return Promise<Void>()
         }
+//        debugPrint("xyzzy: orgTreeLoaded = \(orgTreeLoaded)")
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
         let promise = req.gatewayObjectResponse().done { obj in
             try Organization.loadOrganizations(fromObj: obj)
@@ -55,7 +55,6 @@ class ActorService {
         }
         return promise
     }
-    */
     
     /// fetch settings for all organizations.
     /// Must be called only after `orgTreeLoaded`.
@@ -65,6 +64,7 @@ class ActorService {
             if org.areSettingsLoaded {
                 continue
             }
+//            debugPrint("xyzzy: org.areSettingsLoaded = \(org.areSettingsLoaded)")
             var settings = [API.settingNotPickupLib, API.settingCreditPaymentsAllow]
             if org.parent == nil {
                 settings.append(API.settingSMSEnable)
@@ -80,13 +80,11 @@ class ActorService {
     
     // fetch org tree and settings for all orgs
     static func fetchOrgs() -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
         let start = Date()
-        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
-            try Organization.loadOrganizations(fromObj: obj)
+        
+        let promise = fetchOrgTree().then { () -> Promise<Void> in
             let elapsed = -start.timeIntervalSinceNow
             os_log("orgTreeRetrieve.elapsed: %.3f", elapsed)
-            orgTreeLoaded = true
             let promises: [Promise<Void>] = self.fetchOrgSettings()
             return when(fulfilled: promises)
         }
