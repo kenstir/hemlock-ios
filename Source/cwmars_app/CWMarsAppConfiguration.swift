@@ -29,7 +29,7 @@ class CWMarsAppConfiguration: AppConfiguration {
     let enablePayFines = true
     let groupCopyInfoBySystem = false
 
-    let barcodeFormat = .Codabar14
+    let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 200
     
     let searchFormatsJSON = """
