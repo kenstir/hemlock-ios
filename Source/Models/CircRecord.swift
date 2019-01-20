@@ -30,6 +30,7 @@ class CircRecord {
     var author: String { return metabibRecord?.author ?? "Unknown Author" }
     var format: String { return Format.getDisplayLabel(forSearchFormat: metabibRecord?.searchFormat) }
     var dueDate: String { return circObj?.getDateString("due_date") ?? "Unknown" }
+    var renewalsRemaining: Int { return circObj?.getInt("renewal_remaining") ?? 0 }
 
     init(id: Int) {
         self.id = id

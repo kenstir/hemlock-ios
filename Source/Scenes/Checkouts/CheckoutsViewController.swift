@@ -112,8 +112,7 @@ class CheckoutsViewController: UIViewController {
             print("xxx \(circRecord.id) circRetrieve done")
             circRecord.circObj = obj
             guard let target = obj.getInt("target_copy") else {
-                // TODO: add anayltics or, just let it throw?
-                throw PMKError.cancelled
+                throw HemlockError.unexpectedNetworkResponse("no target_copy for circ record \(circRecord.id)")
             }
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
             return req.gatewayObjectResponse()
@@ -218,6 +217,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         cell.title.text = item.title
         cell.author.text = item.author
         cell.format.text = item.format
+        cell.renewals.text = "Renewals left: " + String(item.renewalsRemaining)
         var dueText = "Due " + item.dueDate
         if isOverdue {
             dueText = dueText + " (overdue)"
@@ -229,11 +229,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
         cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        if let renewals = item.circObj?.getInt("renewal_remaining"), renewals > 0 {
-            cell.renewButton.isEnabled = true
-        } else {
-            cell.renewButton.isEnabled = false
-        }
+        cell.renewButton.isEnabled = (item.renewalsRemaining > 0)
         Style.styleButton(asOutline: cell.renewButton)
 
         return cell
