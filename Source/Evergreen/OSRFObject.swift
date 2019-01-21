@@ -190,14 +190,23 @@ struct OSRFObject: Equatable {
         if lhs.dict.keys != rhs.dict.keys {
             return false
         }
-        // Swift 4.2: serializing to JSON is not stable, so this fails sometimes
-        if
-            let jsonDataLHS = try? JSONSerialization.data(withJSONObject: lhs.dict),
-            let strLHS = String(data: jsonDataLHS, encoding: .utf8),
-            let jsonDataRHS = try? JSONSerialization.data(withJSONObject: rhs.dict),
-            let strRHS = String(data: jsonDataRHS, encoding: .utf8) {
-            return strLHS == strRHS
+        
+        // Swift 4.2: serializing entire object to JSON is not stable,
+        // so we have to compare each key manually
+        for (k1, _) in lhs.dict {
+            let v1 = lhs.dict[k1]
+            let v2 = rhs.dict[k1]
+            if
+                let jsonDataLHS = try? JSONSerialization.data(withJSONObject: [k1: v1]),
+                let strLHS = String(data: jsonDataLHS, encoding: .utf8),
+                let jsonDataRHS = try? JSONSerialization.data(withJSONObject: [k1: v2]),
+                let strRHS = String(data: jsonDataRHS, encoding: .utf8)
+            {
+                if (strLHS != strRHS) {
+                    return false
+                }
+            }
         }
-        return false
+        return true
     }
 }
