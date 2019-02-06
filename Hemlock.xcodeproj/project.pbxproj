@@ -11,8 +11,6 @@
 		D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
-		D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
-		D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */; };
 		D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2720C5B90A00267503 /* PromiseKitTests.swift */; };
 		D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
@@ -21,8 +19,6 @@
 		D21867A221D039BF0082358C /* CoolTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679F21D039BF0082358C /* CoolTheme.swift */; };
 		D21867A321D039BF0082358C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21867A021D039BF0082358C /* AppSettings.swift */; };
 		D21867A521D039CE0082358C /* cool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21867A421D039CE0082358C /* cool.xcassets */; };
-		D21F683720D8042800D953C1 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21F683620D8042800D953C1 /* Details.storyboard */; };
-		D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21F683820D804DD00D953C1 /* DetailsViewController.swift */; };
 		D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2211B0620D0BA840043947B /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
@@ -94,7 +90,6 @@
 		D276DA8A21336B20007FAA31 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D276DA8B21336B20007FAA31 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725B020E932DF002A4C42 /* ListsViewController.swift */; };
 		D276DA8C21336B20007FAA31 /* XResultsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */; };
-		D276DA8D21336B20007FAA31 /* XCheckoutsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */; };
 		D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
 		D276DA8F21336B20007FAA31 /* String+splitOnRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */; };
 		D276DA9021336B20007FAA31 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
@@ -107,7 +102,6 @@
 		D276DA9721336B20007FAA31 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51F207AF88E001AF644 /* API.swift */; };
 		D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D276DA9921336B20007FAA31 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D276DA9A21336B20007FAA31 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21F683820D804DD00D953C1 /* DetailsViewController.swift */; };
 		D276DA9B21336B20007FAA31 /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D276DA9C21336B20007FAA31 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D276DA9D21336B20007FAA31 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
@@ -136,7 +130,6 @@
 		D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
-		D276DABA21336B20007FAA31 /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
 		D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D276DABC21336B20007FAA31 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D276DABD21336B20007FAA31 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
@@ -160,7 +153,6 @@
 		D276DAD021336B20007FAA31 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D276DAD221336B20007FAA31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
-		D276DAD421336B20007FAA31 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21F683620D8042800D953C1 /* Details.storyboard */; };
 		D276DAD521336B20007FAA31 /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
 		D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
@@ -172,13 +164,11 @@
 		D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D276DAE621336BE3007FAA31 /* cwmars.xcassets */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
-		D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */; };
 		D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
 		D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D27990D120DDD473003B451E /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
 		D27990D220DDD473003B451E /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D27990D320DDD473003B451E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51F207AF88E001AF644 /* API.swift */; };
-		D27990D520DDD473003B451E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21F683820D804DD00D953C1 /* DetailsViewController.swift */; };
 		D27990D620DDD473003B451E /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D27990D720DDD473003B451E /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D27990D820DDD473003B451E /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
@@ -196,7 +186,6 @@
 		D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D27990E720DDD473003B451E /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D27990E820DDD473003B451E /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
-		D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
 		D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D27990EB20DDD473003B451E /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
@@ -214,7 +203,6 @@
 		D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
-		D27990FF20DDD473003B451E /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21F683620D8042800D953C1 /* Details.storyboard */; };
 		D279910020DDD473003B451E /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D279910120DDD473003B451E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
 		D279910220DDD473003B451E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
@@ -264,7 +252,6 @@
 		D284244F21D0358200C7171C /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725B020E932DF002A4C42 /* ListsViewController.swift */; };
 		D284245021D0358200C7171C /* XDetailsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EC217E2369004E7ABE /* XDetailsNode.swift */; };
 		D284245121D0358200C7171C /* XResultsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */; };
-		D284245221D0358200C7171C /* XCheckoutsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */; };
 		D284245321D0358200C7171C /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
 		D284245421D0358200C7171C /* String+splitOnRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */; };
 		D284245521D0358200C7171C /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
@@ -278,7 +265,6 @@
 		D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D284245F21D0358200C7171C /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D284246021D0358200C7171C /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D284246121D0358200C7171C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21F683820D804DD00D953C1 /* DetailsViewController.swift */; };
 		D284246221D0358200C7171C /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D284246321D0358200C7171C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D284246421D0358200C7171C /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
@@ -310,7 +296,6 @@
 		D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D284248121D0358200C7171C /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* Barcode.swift */; };
 		D284248221D0358200C7171C /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
-		D284248321D0358200C7171C /* XCheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */; };
 		D284248421D0358200C7171C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D284248521D0358200C7171C /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D284248621D0358200C7171C /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755A20E144E000795124 /* Format.swift */; };
@@ -337,7 +322,6 @@
 		D284249C21D0358200C7171C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D284249E21D0358200C7171C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
-		D28424A121D0358200C7171C /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21F683620D8042800D953C1 /* Details.storyboard */; };
 		D28424A221D0358200C7171C /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
 		D28424A321D0358200C7171C /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D28424A421D0358200C7171C /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
@@ -435,8 +419,6 @@
 		D20D14D020B783C1008F66B0 /* CircRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecord.swift; sourceTree = "<group>"; };
 		D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutsTableViewCell.swift; sourceTree = "<group>"; };
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
-		D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCheckoutsViewController.swift; sourceTree = "<group>"; };
-		D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCheckoutsTableNode.swift; sourceTree = "<group>"; };
 		D212DB2720C5B90A00267503 /* PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKitTests.swift; sourceTree = "<group>"; };
 		D212DB2920C5C0D200267503 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
@@ -445,8 +427,6 @@
 		D218679F21D039BF0082358C /* CoolTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolTheme.swift; sourceTree = "<group>"; };
 		D21867A021D039BF0082358C /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D21867A421D039CE0082358C /* cool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cool.xcassets; sourceTree = "<group>"; };
-		D21F683620D8042800D953C1 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
-		D21F683820D804DD00D953C1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2211B0320CF68590043947B /* Checkouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkouts.storyboard; sourceTree = "<group>"; };
 		D2211B0520D0BA840043947B /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
 		D22438AB20D357E900D098D0 /* HoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsViewController.swift; sourceTree = "<group>"; };
@@ -696,8 +676,6 @@
 				D2211B0320CF68590043947B /* Checkouts.storyboard */,
 				D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */,
 				D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */,
-				D212DB0E20C3616A00267503 /* XCheckoutsViewController.swift */,
-				D212DB1320C3734100267503 /* XCheckoutsTableNode.swift */,
 			);
 			path = Checkouts;
 			sourceTree = "<group>";
@@ -734,8 +712,6 @@
 		D21F683520D803F900D953C1 /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				D21F683620D8042800D953C1 /* Details.storyboard */,
-				D21F683820D804DD00D953C1 /* DetailsViewController.swift */,
 				D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */,
 				D26210EC217E2369004E7ABE /* XDetailsNode.swift */,
 			);
@@ -1177,7 +1153,6 @@
 				D276DAD221336B20007FAA31 /* LaunchScreen.storyboard in Resources */,
 				D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */,
 				D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */,
-				D276DAD421336B20007FAA31 /* Details.storyboard in Resources */,
 				D276DAD521336B20007FAA31 /* PlaceHolds.storyboard in Resources */,
 				D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */,
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
@@ -1198,7 +1173,6 @@
 				D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
-				D27990FF20DDD473003B451E /* Details.storyboard in Resources */,
 				FA88B4C620FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
@@ -1217,7 +1191,6 @@
 			files = (
 				D284249E21D0358200C7171C /* LaunchScreen.storyboard in Resources */,
 				D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */,
-				D28424A121D0358200C7171C /* Details.storyboard in Resources */,
 				D28424A221D0358200C7171C /* PlaceHolds.storyboard in Resources */,
 				D21867A521D039CE0082358C /* cool.xcassets in Resources */,
 				D28424A321D0358200C7171C /* Holds.storyboard in Resources */,
@@ -1239,7 +1212,6 @@
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
-				D21F683720D8042800D953C1 /* Details.storyboard in Resources */,
 				FA88B4C720FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
@@ -1413,7 +1385,6 @@
 				D276DA8B21336B20007FAA31 /* ListsViewController.swift in Sources */,
 				D26210F3217E3502004E7ABE /* XDetailsNode.swift in Sources */,
 				D276DA8C21336B20007FAA31 /* XResultsTableNode.swift in Sources */,
-				D276DA8D21336B20007FAA31 /* XCheckoutsTableNode.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
 				D276DA8F21336B20007FAA31 /* String+splitOnRegex.swift in Sources */,
 				D276DA9021336B20007FAA31 /* Organization.swift in Sources */,
@@ -1428,7 +1399,6 @@
 				D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */,
 				D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */,
 				D276DA9921336B20007FAA31 /* CopyStatus.swift in Sources */,
-				D276DA9A21336B20007FAA31 /* DetailsViewController.swift in Sources */,
 				D276DA9B21336B20007FAA31 /* Corsortium.swift in Sources */,
 				D276DA9C21336B20007FAA31 /* App.swift in Sources */,
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
@@ -1462,7 +1432,6 @@
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* Barcode.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
-				D276DABA21336B20007FAA31 /* XCheckoutsViewController.swift in Sources */,
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
 				D276DABC21336B20007FAA31 /* ActorService.swift in Sources */,
 				D276DABD21336B20007FAA31 /* Format.swift in Sources */,
@@ -1495,7 +1464,6 @@
 				D26210ED217E2369004E7ABE /* XDetailsNode.swift in Sources */,
 				D28725B120E932DF002A4C42 /* ListsViewController.swift in Sources */,
 				D23E5A0120ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
-				D27990CE20DDD473003B451E /* XCheckoutsTableNode.swift in Sources */,
 				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
 				D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755820E0860300795124 /* Organization.swift in Sources */,
@@ -1508,7 +1476,6 @@
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
 				D2D93CF5210AB6F1004306D8 /* CopyStatus.swift in Sources */,
-				D27990D520DDD473003B451E /* DetailsViewController.swift in Sources */,
 				D27990D620DDD473003B451E /* Corsortium.swift in Sources */,
 				D27990D720DDD473003B451E /* App.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
@@ -1542,7 +1509,6 @@
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* Barcode.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
-				D27990E920DDD473003B451E /* XCheckoutsViewController.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
 				D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */,
 				D260755B20E144E000795124 /* Format.swift in Sources */,
@@ -1574,7 +1540,6 @@
 				D284244F21D0358200C7171C /* ListsViewController.swift in Sources */,
 				D284245021D0358200C7171C /* XDetailsNode.swift in Sources */,
 				D284245121D0358200C7171C /* XResultsTableNode.swift in Sources */,
-				D284245221D0358200C7171C /* XCheckoutsTableNode.swift in Sources */,
 				D21867A321D039BF0082358C /* AppSettings.swift in Sources */,
 				D284245321D0358200C7171C /* OSRFObject.swift in Sources */,
 				D284245421D0358200C7171C /* String+splitOnRegex.swift in Sources */,
@@ -1589,7 +1554,6 @@
 				D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */,
 				D284245F21D0358200C7171C /* HoldsTableViewCell.swift in Sources */,
 				D284246021D0358200C7171C /* CopyStatus.swift in Sources */,
-				D284246121D0358200C7171C /* DetailsViewController.swift in Sources */,
 				D284246221D0358200C7171C /* Corsortium.swift in Sources */,
 				D284246321D0358200C7171C /* App.swift in Sources */,
 				D284246421D0358200C7171C /* Library.swift in Sources */,
@@ -1622,7 +1586,6 @@
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
 				D284248121D0358200C7171C /* Barcode.swift in Sources */,
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
-				D284248321D0358200C7171C /* XCheckoutsViewController.swift in Sources */,
 				D284248421D0358200C7171C /* AppDelegate.swift in Sources */,
 				D284248521D0358200C7171C /* ActorService.swift in Sources */,
 				D284248621D0358200C7171C /* Format.swift in Sources */,
@@ -1655,7 +1618,6 @@
 				D26210F2217E3502004E7ABE /* XDetailsNode.swift in Sources */,
 				D28725B220E93352002A4C42 /* ListsViewController.swift in Sources */,
 				D23E5A0220ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
-				D212DB1420C3734100267503 /* XCheckoutsTableNode.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755920E0860300795124 /* Organization.swift in Sources */,
@@ -1668,7 +1630,6 @@
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				FA57B93920EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
 				D2D93CF6210AB6F1004306D8 /* CopyStatus.swift in Sources */,
-				D21F683920D804DD00D953C1 /* DetailsViewController.swift in Sources */,
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
@@ -1702,7 +1663,6 @@
 				D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20921AB424A002DCC47 /* Barcode.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
-				D212DB0F20C3616A00267503 /* XCheckoutsViewController.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */,
 				D260755C20E144E000795124 /* Format.swift in Sources */,

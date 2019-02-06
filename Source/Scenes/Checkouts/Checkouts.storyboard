@@ -105,20 +105,11 @@
                     <connections>
                         <outlet property="activityIndicator" destination="2gm-6Q-gve" id="0WP-Hd-UD1"/>
                         <outlet property="tableView" destination="5dA-fz-7mv" id="oGc-nh-eMP"/>
-                        <segue destination="Blh-pO-dGN" kind="show" identifier="ShowDetailsSegue" id="YvO-Nw-Bp2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zSq-vL-jRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1590" y="160.56338028169014"/>
-        </scene>
-        <!--Details-->
-        <scene sceneID="bnb-0V-nrl">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Details" id="Blh-pO-dGN" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hhu-d7-2aO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2306" y="78"/>
         </scene>
     </scenes>
 </document>

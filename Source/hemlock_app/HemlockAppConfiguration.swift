@@ -19,8 +19,8 @@
 
 class HemlockAppConfiguration: AppConfiguration {
     let title = "Hemlock"
-    //let url = "https://catalog.cwmars.org"
-    let url = "https://kenstir.ddns.net"
+    let url = "https://catalog.cwmars.org"
+    //let url = "https://kenstir.ddns.net"
     let logSubsystem = "net.kenstir.apps.hemlock"
     
     let enableHierarchicalOrgTree = false
