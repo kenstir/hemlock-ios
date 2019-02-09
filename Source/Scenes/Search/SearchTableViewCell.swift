@@ -1,7 +1,7 @@
 //
-//  FinesTableViewCell.swift
+//  SearchTableViewCell.swift
 //
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (C) 2019 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -20,11 +20,5 @@
 import Foundation
 import UIKit
 
-class FinesTableViewCell: UITableViewCell {
-    //stuff
-
-    @IBOutlet weak var finesTitle: UILabel!
-    @IBOutlet weak var finesValue: UILabel!
-    @IBOutlet weak var finesSubtitle: UILabel!
-    @IBOutlet weak var finesStatus: UILabel!
+class SearchTableViewCell: UITableViewCell {
 }

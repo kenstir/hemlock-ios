@@ -34,8 +34,8 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var scopeControl: UISegmentedControl!
-    @IBOutlet weak var formatPicker: McTextField!
-    @IBOutlet weak var locationPicker: McTextField!
+    //@IBOutlet weak var formatPicker: McTextField!
+    @IBOutlet weak var optionsTable: UITableView!
     @IBOutlet weak var searchButton: UIButton!
     
     weak var activityIndicator: UIActivityIndicatorView!
@@ -91,7 +91,10 @@ class SearchViewController: UIViewController {
     }
     
     func setupViews() {
-        setupActivityIndicator()        
+        setupActivityIndicator()
+        optionsTable.delegate = self
+        optionsTable.dataSource = self
+        optionsTable.tableFooterView = UIView() // prevent ghost rows at end of table
         self.setupHomeButton()
         setupSearchBar()
         setupScopeControl()
@@ -119,6 +122,7 @@ class SearchViewController: UIViewController {
     }
     
     func setupFormatPicker() {
+        /*
         let mcInputView = McPicker(data: [formats])
         mcInputView.backgroundColor = .gray
         mcInputView.backgroundColorAlpha = 0.25
@@ -131,9 +135,11 @@ class SearchViewController: UIViewController {
         formatPicker.textFieldWillBeginEditingHandler = { (selections) in
             self.searchBar.resignFirstResponder()
         }
+        */
     }
-    
+
     func setupLocationPicker() {
+        /*
         self.orgLabels = Organization.getSpinnerLabels()
         var selectOrgIndex = 0
         let defaultSearchLocation = App.account?.searchOrgID
@@ -155,6 +161,7 @@ class SearchViewController: UIViewController {
         locationPicker.textFieldWillBeginEditingHandler = { (selections) in
             self.searchBar.resignFirstResponder()
         }
+        */
     }
     
     func setupSearchButton() {
@@ -171,13 +178,15 @@ class SearchViewController: UIViewController {
             self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
             return
         }
-        guard let formatText = formatPicker.text,
-            let searchOrg = Organization.getShortName(forName: locationPicker.text?.trim()) else
-        {
-            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
-            self.showAlert(title: "Internal error", message: "Internal error preparing for search")
-            return
-        }
+//        guard let formatText = formatPicker.text,
+//            let searchOrg = getShortName(forName: locationPicker.text?.trim()) else
+//        {
+//            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
+//            self.showAlert(title: "Internal error", message: "Internal error preparing for search")
+//            return
+//        }
+        let formatText = "All Formats"
+        let searchOrg = Organization.consortium()?.shortname
         let searchClass = scopes[scopeControl.selectedSegmentIndex].lowercased()
         let searchFormat = Format.getSearchFormat(forSpinnerLabel: formatText)
         let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg)
@@ -197,5 +206,34 @@ extension SearchViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         doSearch()
+    }
+}
+
+extension SearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return ""
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchOptionsCell", for: indexPath) as? SearchTableViewCell else {
+            fatalError("dequeued cell of wrong class!")
+        }
+        
+        cell.textLabel?.text = "Format"
+        cell.detailTextLabel?.text = "Books"
+        
+        return cell
+    }
+}
+
+extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //        let item = items[indexPath.row]
+        //        selectedItem = item
+        //        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
     }
 }

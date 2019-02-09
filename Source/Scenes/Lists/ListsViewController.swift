@@ -26,12 +26,7 @@ class ListsViewController: UIViewController {
 
     //MARK: - Properties
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var firstButton: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     //MARK: - UIViewController
     
@@ -59,13 +54,15 @@ class ListsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
-        self.setupButtons()
+        tableView.dataSource = self
+        //tableView.delegate = self
         self.setupHomeButton()
-        self.setupTapToDismissKeyboard(onScrollView: scrollView)
-        self.scrollView.setupKeyboardAutoResizer()
+        //self.setupTapToDismissKeyboard(onScrollView: scrollView)
+        //self.scrollView.setupKeyboardAutoResizer()
     }
     
     func setupButtons() {
+        /*
         Style.styleButton(asInverse: firstButton)
         Style.styleButton(asInverse: button2)
         Style.styleButton(asInverse: button3)
@@ -74,6 +71,7 @@ class ListsViewController: UIViewController {
         button2.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
         button3.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
         button4.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
+        */
     }
     
     func fetchData() {
@@ -103,5 +101,26 @@ class ListsViewController: UIViewController {
             self.presentGatewayAlert(forError: error)
         }
 
+    }
+}
+
+extension ListsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return ""
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "listsCell", for: indexPath) as? UITableViewCell else {
+            fatalError("dequeued cell of wrong class!")
+        }
+        
+        cell.textLabel?.text = "Format"
+        cell.detailTextLabel?.text = "Books"
+        
+        return cell
     }
 }
