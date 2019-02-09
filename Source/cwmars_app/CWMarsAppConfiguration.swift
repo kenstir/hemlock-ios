@@ -18,7 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class CWMarsAppConfiguration: AppConfiguration {
-    let title = "C/W MARS"
+    let title = "CW MARS"
     let url = "https://catalog.cwmars.org"
     let logSubsystem = "net.kenstir.apps.cwmars"    
 

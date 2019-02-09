@@ -21,9 +21,9 @@ import UIKit
 
 class CWMarsTheme: Theme {
     let foregroundColor = UIColor.white
-    let backgroundColor = UIColor(red: 0x37/0xff, green: 0x96/0xff, blue: 0x76/0xff, alpha: 1.0)
-    let backgroundDark2 = UIColor(red: 0x2e/0xff, green: 0x7b/0xff, blue: 0x61/0xff, alpha: 1.0)
-    let backgroundDark5 = UIColor(red: 0x1e/0xff, green: 0x52/0xff, blue: 0x41/0xff, alpha: 1.0)
+    let backgroundColor = UIColor(red: 0x00/0xff, green: 0x60/0xff, blue: 0x98/0xff, alpha: 1.0)
+    let backgroundDark2 = UIColor(red: 0x16/0xff, green: 0x41/0xff, blue: 0x6f/0xff, alpha: 1.0)
+    let backgroundDark5 = UIColor(red: 0x16/0xff, green: 0x41/0xff, blue: 0x6f/0xff, alpha: 1.0)
 
     let tableHeaderForeground = UIColor.darkGray
     let tableHeaderBackground = UIColor.groupTableViewBackground
