@@ -208,22 +208,17 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="center" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="LrV-yq-gMl">
-                                                <rect key="frame" x="28" y="8" width="264" height="250"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="200" verticalCompressionResistancePriority="749" image="splash3" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-VS-ogx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="264" height="250"/>
-                                                        <accessibility key="accessibilityConfiguration" label="Georgia PINES logo">
-                                                            <bool key="isElement" value="YES"/>
-                                                        </accessibility>
-                                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                                    </imageView>
-                                                </subviews>
-                                            </stackView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="200" verticalCompressionResistancePriority="749" image="splash3" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-VS-ogx">
+                                                <rect key="frame" x="28" y="16" width="264" height="250"/>
+                                                <accessibility key="accessibilityConfiguration" label="library logo">
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
+                                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                            </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ky-33-NgZ">
-                                                <rect key="frame" x="28" y="266" width="264" height="30"/>
+                                                <rect key="frame" x="28" y="290" width="264" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
@@ -232,7 +227,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-Nj-gGI">
-                                                <rect key="frame" x="64" y="370" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="394" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
@@ -240,13 +235,13 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fV-yF-Bl6">
-                                                <rect key="frame" x="28" y="312" width="264" height="30"/>
+                                                <rect key="frame" x="28" y="336" width="264" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-oX-Cjw">
-                                                <rect key="frame" x="64" y="419" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="443" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                 <state key="normal" title="Forgot Password"/>
                                                 <connections>
@@ -254,29 +249,29 @@
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-va-eUu" userLabel="Spinner">
-                                                <rect key="frame" x="141.5" y="286" width="37" height="37"/>
+                                                <rect key="frame" x="141.5" y="310" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="top" secondItem="ofn-Nj-gGI" secondAttribute="bottom" constant="16" id="382-Zk-CVf"/>
-                                            <constraint firstItem="LrV-yq-gMl" firstAttribute="top" secondItem="AZX-Ef-wAD" secondAttribute="top" constant="8" id="4V9-cR-4ba"/>
                                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="28" id="7fN-3F-gyy"/>
                                             <constraint firstItem="bpy-va-eUu" firstAttribute="top" secondItem="2Ky-33-NgZ" secondAttribute="top" priority="500" constant="20" id="9Uz-CO-cn4" userLabel="Spinner.top = Username Field.top + 20"/>
-                                            <constraint firstItem="LrV-yq-gMl" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="A3g-AQ-4DM"/>
+                                            <constraint firstItem="UqT-VS-ogx" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="BfE-jA-C4Y"/>
                                             <constraint firstItem="bpy-va-eUu" firstAttribute="centerX" secondItem="2Ky-33-NgZ" secondAttribute="centerXWithinMargins" priority="500" id="GC0-x1-zwy"/>
-                                            <constraint firstAttribute="trailing" secondItem="L0t-oX-Cjw" secondAttribute="trailing" constant="64" id="HEm-hc-iIq"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="L0t-oX-Cjw" secondAttribute="trailing" constant="64" id="HEm-hc-iIq"/>
                                             <constraint firstAttribute="bottom" secondItem="L0t-oX-Cjw" secondAttribute="bottom" constant="28" id="WVG-bo-mUu"/>
-                                            <constraint firstAttribute="trailing" secondItem="LrV-yq-gMl" secondAttribute="trailing" constant="28" id="c4Z-RV-ffr"/>
+                                            <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="UqT-VS-ogx" secondAttribute="bottom" constant="24" id="cIQ-9d-Z62"/>
                                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="64" id="etz-91-HeA"/>
                                             <constraint firstItem="2fV-yF-Bl6" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="faW-ta-waO"/>
-                                            <constraint firstAttribute="trailing" secondItem="2Ky-33-NgZ" secondAttribute="trailing" constant="28" id="gnc-gl-0e4"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="2Ky-33-NgZ" secondAttribute="trailing" constant="28" id="gnc-gl-0e4"/>
                                             <constraint firstItem="2fV-yF-Bl6" firstAttribute="top" secondItem="2Ky-33-NgZ" secondAttribute="bottom" constant="16" id="hSl-Fi-oRL"/>
+                                            <constraint firstItem="UqT-VS-ogx" firstAttribute="top" secondItem="AZX-Ef-wAD" secondAttribute="top" constant="16" id="hdm-Az-sby"/>
                                             <constraint firstItem="2Ky-33-NgZ" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="jey-yM-8Rt"/>
-                                            <constraint firstAttribute="trailing" secondItem="ofn-Nj-gGI" secondAttribute="trailing" constant="64" id="mYA-Ip-IMv"/>
-                                            <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="LrV-yq-gMl" secondAttribute="bottom" constant="8" id="nCy-Ef-IW3"/>
-                                            <constraint firstAttribute="trailing" secondItem="2fV-yF-Bl6" secondAttribute="trailing" constant="28" id="sJI-jH-Szv"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ofn-Nj-gGI" secondAttribute="trailing" constant="64" id="mYA-Ip-IMv"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="2fV-yF-Bl6" secondAttribute="trailing" constant="28" id="sJI-jH-Szv"/>
                                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="64" id="x7o-36-UfC"/>
+                                            <constraint firstAttribute="trailing" secondItem="UqT-VS-ogx" secondAttribute="trailing" constant="28" id="xhM-c2-S6j"/>
                                         </constraints>
                                     </view>
                                 </subviews>
