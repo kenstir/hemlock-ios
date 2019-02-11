@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search words" translatesAutoresizingMaskIntoConstraints="NO" id="efL-Ge-GEs">
-                                <rect key="frame" x="0.0" y="20" width="320" height="56"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search words" translatesAutoresizingMaskIntoConstraints="NO" id="efL-Ge-GEs">
+                                <rect key="frame" x="0.0" y="28" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits" smartDashesType="no" smartQuotesType="no"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -29,40 +29,32 @@
                                     <outlet property="delegate" destination="aZb-1B-51Z" id="gYJ-rQ-57V"/>
                                 </connections>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GTx-vt-OB6" userLabel="Scope Control">
-                                <rect key="frame" x="8" y="84" width="304" height="29"/>
-                                <segments>
-                                    <segment title="Keyword"/>
-                                    <segment title="Second"/>
-                                    <segment title="Blah"/>
-                                    <segment title="Blah"/>
-                                    <segment title="Blah"/>
-                                </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-Yq-Mnv">
-                                <rect key="frame" x="56" y="400" width="208" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="K3P-te-Er6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Search"/>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lv5-k6-zDw">
-                                <rect key="frame" x="8" y="186" width="304" height="196"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lv5-k6-zDw">
+                                <rect key="frame" x="0.0" y="92" width="320" height="192"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="192" id="awN-x5-bHF"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchOptionsCell" textLabel="Id2-BF-pq4" style="IBUITableViewCellStyleDefault" id="u10-wg-ZQi" customClass="SearchTableViewCell" customModule="COOL" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="304" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchOptionsCell" textLabel="Id2-BF-pq4" detailTextLabel="8Rq-Az-Sxo" style="IBUITableViewCellStyleValue1" id="u10-wg-ZQi" customClass="SearchTableViewCell" customModule="COOL" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u10-wg-ZQi" id="K5t-yq-sJn">
-                                            <rect key="frame" x="0.0" y="0.0" width="271" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Id2-BF-pq4">
-                                                    <rect key="frame" x="15" y="0.0" width="254" height="43.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Search for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Id2-BF-pq4">
+                                                    <rect key="frame" x="15" y="12" width="79" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Books" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Rq-Az-Sxo">
+                                                    <rect key="frame" x="237.5" y="12" width="47.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -70,27 +62,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-Yq-Mnv">
+                                <rect key="frame" x="56" y="312" width="208" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="K3P-te-Er6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Search"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="JUf-Yq-Mnv" secondAttribute="trailing" constant="56" id="022-bt-4wa"/>
-                            <constraint firstItem="efL-Ge-GEs" firstAttribute="top" secondItem="Ljx-32-4Q7" secondAttribute="top" id="50X-QU-eJ4"/>
+                            <constraint firstItem="efL-Ge-GEs" firstAttribute="top" secondItem="Ljx-32-4Q7" secondAttribute="top" constant="8" id="50X-QU-eJ4"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" id="HpY-iF-0ZL"/>
-                            <constraint firstItem="GTx-vt-OB6" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="IVq-AL-BT0"/>
-                            <constraint firstItem="Lv5-k6-zDw" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="8" id="Jl2-Fz-V6z"/>
-                            <constraint firstItem="Lv5-k6-zDw" firstAttribute="top" secondItem="GTx-vt-OB6" secondAttribute="bottom" constant="8" id="M0R-s3-aFU"/>
-                            <constraint firstItem="GTx-vt-OB6" firstAttribute="top" secondItem="efL-Ge-GEs" secondAttribute="bottom" constant="8" id="RRs-C3-6iq"/>
+                            <constraint firstItem="Lv5-k6-zDw" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="Jl2-Fz-V6z"/>
                             <constraint firstItem="JUf-Yq-Mnv" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="56" id="RWf-7t-BZA"/>
-                            <constraint firstItem="JUf-Yq-Mnv" firstAttribute="top" secondItem="Lv5-k6-zDw" secondAttribute="bottom" constant="8" id="RiP-CO-w4b"/>
-                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="GTx-vt-OB6" secondAttribute="trailing" constant="8" id="ZlK-j9-Z4u"/>
-                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="Lv5-k6-zDw" secondAttribute="trailing" constant="8" id="aSr-Pq-08P"/>
+                            <constraint firstItem="JUf-Yq-Mnv" firstAttribute="top" secondItem="Lv5-k6-zDw" secondAttribute="bottom" constant="28" id="RiP-CO-w4b"/>
+                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="Lv5-k6-zDw" secondAttribute="trailing" id="aSr-Pq-08P"/>
+                            <constraint firstItem="Lv5-k6-zDw" firstAttribute="top" secondItem="efL-Ge-GEs" secondAttribute="bottom" constant="8" id="fRG-uS-zg3"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="lek-5H-u3c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ljx-32-4Q7"/>
                     </view>
                     <connections>
                         <outlet property="optionsTable" destination="Lv5-k6-zDw" id="6vt-3C-H2L"/>
-                        <outlet property="scopeControl" destination="GTx-vt-OB6" id="RuR-PJ-GrR"/>
                         <outlet property="searchBar" destination="efL-Ge-GEs" id="FT2-MP-jW2"/>
                         <outlet property="searchButton" destination="JUf-Yq-Mnv" id="kKq-mN-qxo"/>
                     </connections>

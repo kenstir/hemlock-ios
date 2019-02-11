@@ -28,13 +28,20 @@ struct SearchParameters {
     let organizationShortName: String?
 }
 
+class OptionsEntry {
+    var label: String
+    var value: String?
+    init(_ label: String, value: String?) {
+        self.label = label
+        self.value = value
+    }
+}
+
 class SearchViewController: UIViewController {
     
     //MARK: - Properties
 
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var scopeControl: UISegmentedControl!
-    //@IBOutlet weak var formatPicker: McTextField!
     @IBOutlet weak var optionsTable: UITableView!
     @IBOutlet weak var searchButton: UIButton!
     
@@ -45,16 +52,28 @@ class SearchViewController: UIViewController {
     var orgLabels: [String] = []
     var didCompleteFetch = false
 
+    var options: [OptionsEntry] = []
+    let searchClassIndex = 0
+    let searchFormatIndex = 1
+    let searchLocationIndex = 2
+
     //MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         searchButton.isEnabled = false
+        optionsTable.isUserInteractionEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        // deselect row when navigating back
+        if let indexPath = optionsTable.indexPathForSelectedRow {
+            optionsTable.deselectRow(at: indexPath, animated: true)
+        }
+
         if !didCompleteFetch {
             fetchData()
         }
@@ -82,6 +101,7 @@ class SearchViewController: UIViewController {
         }.done {
             self.setupLocationPicker()
             self.searchButton.isEnabled = true
+            self.optionsTable.isUserInteractionEnabled = true
             self.didCompleteFetch = true
         }.ensure {
             self.activityIndicator.stopAnimating()
@@ -97,9 +117,8 @@ class SearchViewController: UIViewController {
         optionsTable.tableFooterView = UIView() // prevent ghost rows at end of table
         self.setupHomeButton()
         setupSearchBar()
-        setupScopeControl()
-        setupFormatPicker()
-        //setupLocationPicker() // has to wait until fetchData
+        setupOptionsTable()
+        setupLocationPicker() // will be redone after fetchData
         setupSearchButton()
     }
     
@@ -112,35 +131,19 @@ class SearchViewController: UIViewController {
         Style.styleSearchBar(searchBar)
     }
     
-    func setupScopeControl() {
-        scopeControl.removeAllSegments()
-        Style.styleSegmentedControl(scopeControl)
-        for i in 0..<scopes.count {
-            scopeControl.insertSegment(withTitle: scopes[i], at: i, animated: false)
-        }
-        scopeControl.selectedSegmentIndex = 0 //TODO: better initial value
-    }
-    
-    func setupFormatPicker() {
-        /*
-        let mcInputView = McPicker(data: [formats])
-        mcInputView.backgroundColor = .gray
-        mcInputView.backgroundColorAlpha = 0.25
-        mcInputView.fontSize = 20
-        formatPicker.text = formats[0] //TODO: better initial value
-        formatPicker.inputViewMcPicker = mcInputView
-        formatPicker.doneHandler = { [weak formatPicker] (selections) in
-            formatPicker?.text = selections[0]!
-        }
-        formatPicker.textFieldWillBeginEditingHandler = { (selections) in
-            self.searchBar.resignFirstResponder()
-        }
-        */
+    func setupOptionsTable() {
+        options = []
+        options.append(OptionsEntry("Search by", value: scopes[0]))
+        options.append(OptionsEntry("Limit to", value: formats[0]))
+        options.append(OptionsEntry("Search within", value: nil))
     }
 
     func setupLocationPicker() {
-        /*
         self.orgLabels = Organization.getSpinnerLabels()
+        if orgLabels.count == 0 {
+            return // we are early
+        }
+
         var selectOrgIndex = 0
         let defaultSearchLocation = App.account?.searchOrgID
         for index in 0..<Organization.orgs.count {
@@ -150,18 +153,9 @@ class SearchViewController: UIViewController {
             }
         }
 
-        let mcInputView = McPicker(data: [orgLabels])
-        Style.stylePicker(asOrgPicker: mcInputView)
-        mcInputView.pickerSelectRowsForComponents = [0: [selectOrgIndex: true]]
-        locationPicker.text = orgLabels[selectOrgIndex].trim()
-        locationPicker.inputViewMcPicker = mcInputView
-        locationPicker.doneHandler = { [weak locationPicker] (selections) in
-            locationPicker?.text = selections[0]!.trim()
-        }
-        locationPicker.textFieldWillBeginEditingHandler = { (selections) in
-            self.searchBar.resignFirstResponder()
-        }
-        */
+        let entry = options[searchLocationIndex]
+        entry.value = orgLabels[selectOrgIndex].trim()
+        self.optionsTable.reloadData()
     }
     
     func setupSearchButton() {
@@ -178,16 +172,18 @@ class SearchViewController: UIViewController {
             self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
             return
         }
-//        guard let formatText = formatPicker.text,
-//            let searchOrg = getShortName(forName: locationPicker.text?.trim()) else
-//        {
-//            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
-//            self.showAlert(title: "Internal error", message: "Internal error preparing for search")
-//            return
-//        }
-        let formatText = "All Formats"
-        let searchOrg = Organization.consortium()?.shortname
-        let searchClass = scopes[scopeControl.selectedSegmentIndex].lowercased()
+        if searchButton.isEnabled == false {
+            self.showAlert(title: "Busy", message: "Please wait until data is finished loading")
+            return
+        }
+        guard let searchClass = options[searchClassIndex].value?.lowercased(),
+            let formatText = options[searchFormatIndex].value,
+            let searchOrg = Organization.getShortName(forName: options[searchLocationIndex].value?.trim()) else
+        {
+            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
+            self.showAlert(title: "Internal error", message: "Internal error preparing for search")
+            return
+        }
         let searchFormat = Format.getSearchFormat(forSpinnerLabel: formatText)
         let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg)
         let vc = XResultsViewController()
@@ -195,7 +191,6 @@ class SearchViewController: UIViewController {
         print("--- searchParams \(String(describing: vc.searchParameters))")
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -211,20 +206,19 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return options.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ""
+        return "Options"
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchOptionsCell", for: indexPath) as? SearchTableViewCell else {
-            fatalError("dequeued cell of wrong class!")
-        }
-        
-        cell.textLabel?.text = "Format"
-        cell.detailTextLabel?.text = "Books"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchOptionsCell", for: indexPath)
+
+        let entry = options[indexPath.row]
+        cell.textLabel?.text = entry.label
+        cell.detailTextLabel?.text = entry.value
         
         return cell
     }
@@ -232,8 +226,27 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        let item = items[indexPath.row]
-        //        selectedItem = item
-        //        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
+        guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
+        
+        let entry = options[indexPath.row]
+        vc.title = entry.label
+        vc.selectedOption = entry.value
+        switch indexPath.row {
+        case searchClassIndex:
+            vc.options = scopes
+        case searchFormatIndex:
+            vc.options = formats
+        case searchLocationIndex:
+            vc.options = orgLabels
+        default:
+            break
+        }
+
+        vc.selectionChangedHandler = { value in
+            entry.value = value
+            self.optionsTable.reloadData()
+        }
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

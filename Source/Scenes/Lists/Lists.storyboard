@@ -18,12 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UNL-yV-8MV">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="UNL-yV-8MV">
+                                <rect key="frame" x="0.0" y="20" width="320" height="256"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="EVD-K8-Bpi"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listsCell" textLabel="QWz-Gf-DfJ" detailTextLabel="Jxt-C4-io7" style="IBUITableViewCellStyleValue1" id="AL5-xU-tF5">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AL5-xU-tF5" id="SAv-8T-1MH">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
@@ -48,13 +51,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-En-07q">
+                                <rect key="frame" x="136" y="292" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UNL-yV-8MV" firstAttribute="leading" secondItem="KDx-Ji-lZJ" secondAttribute="leading" id="BhT-Df-GW6"/>
                             <constraint firstItem="UNL-yV-8MV" firstAttribute="trailing" secondItem="KDx-Ji-lZJ" secondAttribute="trailing" id="UYl-q7-aH1"/>
+                            <constraint firstItem="fDw-En-07q" firstAttribute="top" secondItem="UNL-yV-8MV" secondAttribute="bottom" constant="16" id="V42-hm-D2b"/>
                             <constraint firstItem="UNL-yV-8MV" firstAttribute="top" secondItem="KDx-Ji-lZJ" secondAttribute="top" id="aU5-Wt-b5b"/>
-                            <constraint firstItem="UNL-yV-8MV" firstAttribute="bottom" secondItem="KDx-Ji-lZJ" secondAttribute="bottom" id="uBj-3N-gOI"/>
+                            <constraint firstItem="fDw-En-07q" firstAttribute="centerX" secondItem="KDx-Ji-lZJ" secondAttribute="centerX" id="f1y-XE-BQb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KDx-Ji-lZJ"/>
                     </view>

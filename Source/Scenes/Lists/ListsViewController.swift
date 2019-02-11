@@ -26,6 +26,11 @@ class ListsViewController: UIViewController {
 
     //MARK: - Properties
     
+    var options: [OptionsEntry] = []
+    let formatIndex = 0
+    let locationIndex = 1
+
+    //var searchButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - UIViewController
@@ -54,24 +59,27 @@ class ListsViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        setupOptions()
+        setupSearchButton()
+
         tableView.dataSource = self
         //tableView.delegate = self
+        
         self.setupHomeButton()
         //self.setupTapToDismissKeyboard(onScrollView: scrollView)
         //self.scrollView.setupKeyboardAutoResizer()
     }
     
-    func setupButtons() {
-        /*
-        Style.styleButton(asInverse: firstButton)
-        Style.styleButton(asInverse: button2)
-        Style.styleButton(asInverse: button3)
-        Style.styleButton(asInverse: button4)
-        firstButton.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
-        button2.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
-        button3.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
-        button4.addTarget(self, action: #selector(firstButtonPressed(sender:)), for: .touchUpInside)
-        */
+    func setupOptions() {
+        options = []
+        options.append(OptionsEntry("Search in", value: "All CWMARS libraries"))
+        options.append(OptionsEntry("For", value: "Books"))
+    }
+    
+    func setupSearchButton() {
+//        searchButton = UIButton(type: UIButton.ButtonType.roundedRect)
+//        searchButton.titleLabel?.text = "Search"
+//        Style.styleButton(asInverse: searchButton)
     }
     
     func fetchData() {
@@ -106,20 +114,21 @@ class ListsViewController: UIViewController {
 
 extension ListsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return options.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ""
+        return "Search options"
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "listsCell", for: indexPath) as? UITableViewCell else {
-            fatalError("dequeued cell of wrong class!")
-        }
-        
-        cell.textLabel?.text = "Format"
-        cell.detailTextLabel?.text = "Books"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listsCell", for: indexPath)
+
+        let entry = options[indexPath.row]
+
+        cell.tintColor = App.theme.backgroundColor
+        cell.textLabel?.text = entry.label
+        cell.detailTextLabel?.text = entry.value
         
         return cell
     }

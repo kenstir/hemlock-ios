@@ -183,7 +183,7 @@ class Organization {
             }
         }
     }
-    
+
     static func addOrganization(_ obj: OSRFObject, level: Int) throws -> Void {
         let parent = obj.getInt("parent_ou")
         guard let id = obj.getInt("id"),
