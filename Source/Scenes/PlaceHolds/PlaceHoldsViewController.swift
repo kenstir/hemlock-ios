@@ -28,6 +28,7 @@ class PlaceHoldsViewController: UIViewController {
     //MARK: - Properties
     var record: MBRecord?
     let formats = Format.getSpinnerLabels()
+    var orgLabels: [String] = []
     var carrierLabels: [String] = []
     var selectedOrgName = ""
     var selectedCarrierName = ""
@@ -42,10 +43,10 @@ class PlaceHoldsViewController: UIViewController {
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var holdsTitleLabel: UILabel!
     @IBOutlet weak var formatLabel: UILabel!
-    @IBOutlet weak var locationPicker: McTextField!
+    @IBOutlet weak var locationPicker: UITextField!
     @IBOutlet weak var holdsAuthorLabel: UILabel!
     @IBOutlet weak var smsNumber: UITextField!
-    @IBOutlet weak var carrierPicker: McTextField!
+    @IBOutlet weak var carrierPicker: UITextField!
     @IBOutlet weak var emailSwitch: UISwitch!
     @IBAction func phoneSwitchAction(_ sender: Any) {
         setupPhoneSwitch()
@@ -116,7 +117,7 @@ class PlaceHoldsViewController: UIViewController {
     }
 
     func setupLocationPicker() {
-        let orgLabels = Organization.getSpinnerLabels()
+        self.orgLabels = Organization.getSpinnerLabels()
         var selectOrgIndex = 0
         let defaultPickupLocation = App.account?.pickupOrgID
         for index in 0..<Organization.orgs.count {
@@ -125,18 +126,12 @@ class PlaceHoldsViewController: UIViewController {
                 selectOrgIndex = index
             }
         }
- 
-        let mcInputView = McPicker(data: [orgLabels])
-        Style.stylePicker(asOrgPicker: mcInputView)
-        mcInputView.pickerSelectRowsForComponents = [0: [selectOrgIndex: true]]
+        
         self.selectedOrgName = orgLabels[selectOrgIndex].trim()
         locationPicker.text = orgLabels[selectOrgIndex].trim()
-        locationPicker.inputViewMcPicker = mcInputView
         locationPicker.isUserInteractionEnabled = true
-        locationPicker.doneHandler = { [weak self, locationPicker] (selections) in
-            self?.selectedOrgName = selections[0]!.trim()
-            locationPicker?.text = selections[0]!.trim()
-        }
+        locationPicker.delegate = self
+        locationPicker.addDisclosureIndicator()
     }
     
     func setupCarrierPicker() {
@@ -158,20 +153,12 @@ class PlaceHoldsViewController: UIViewController {
                 selectCarrierIndex = index
             }
         }
-
-        let mcInputView = McPicker(data: [carrierLabels])
-        mcInputView.backgroundColor = .gray
-        mcInputView.backgroundColorAlpha = 0.25
-        mcInputView.fontSize = 16
-        mcInputView.pickerSelectRowsForComponents = [0: [selectCarrierIndex: true]]
+        
         self.selectedCarrierName = carrierLabels[selectCarrierIndex]
         carrierPicker.text = carrierLabels[selectCarrierIndex]
-        carrierPicker.inputViewMcPicker = mcInputView
         carrierPicker.isUserInteractionEnabled = true
-        carrierPicker.doneHandler = { [weak self, carrierPicker] (selections) in
-            self?.selectedCarrierName = selections[0]!
-            carrierPicker?.text = selections[0]!
-        }
+        carrierPicker.delegate = self
+        carrierPicker.addDisclosureIndicator()
     }
     
     func setupPhoneSwitch() {
@@ -310,5 +297,34 @@ extension PlaceHoldsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return true }
+
+        // TODO: facter out OptionTextField class a la McTextField
+        switch textField {
+        case locationPicker:
+            vc.title = "Pickup Location"
+            vc.options = orgLabels
+            vc.selectedOption = self.selectedOrgName
+            vc.selectionChangedHandler = { value in
+                self.selectedOrgName = value
+                textField.text = value
+            }
+        case carrierPicker:
+            vc.title = "SMS Carrier"
+            vc.options = carrierLabels
+            vc.selectedOption = self.selectedCarrierName
+            vc.selectionChangedHandler = { value in
+                self.selectedCarrierName = value
+                textField.text = value
+            }
+        default:
+            return true
+        }
+
+        self.navigationController?.pushViewController(vc, animated: true)
+        return false
     }
 }

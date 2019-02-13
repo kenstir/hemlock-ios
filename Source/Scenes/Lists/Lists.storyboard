@@ -52,12 +52,14 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDw-En-07q">
-                                <rect key="frame" x="136" y="292" width="48" height="30"/>
+                                <rect key="frame" x="56" y="292" width="208" height="30"/>
                                 <state key="normal" title="Search"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fDw-En-07q" firstAttribute="leading" secondItem="KDx-Ji-lZJ" secondAttribute="leading" constant="56" id="4aj-I2-kYF"/>
+                            <constraint firstItem="KDx-Ji-lZJ" firstAttribute="trailing" secondItem="fDw-En-07q" secondAttribute="trailing" constant="56" id="8oJ-KR-eyt"/>
                             <constraint firstItem="UNL-yV-8MV" firstAttribute="leading" secondItem="KDx-Ji-lZJ" secondAttribute="leading" id="BhT-Df-GW6"/>
                             <constraint firstItem="UNL-yV-8MV" firstAttribute="trailing" secondItem="KDx-Ji-lZJ" secondAttribute="trailing" id="UYl-q7-aH1"/>
                             <constraint firstItem="fDw-En-07q" firstAttribute="top" secondItem="UNL-yV-8MV" secondAttribute="bottom" constant="16" id="V42-hm-D2b"/>
@@ -67,6 +69,7 @@
                         <viewLayoutGuide key="safeArea" id="KDx-Ji-lZJ"/>
                     </view>
                     <connections>
+                        <outlet property="searchButton" destination="fDw-En-07q" id="rVb-Wh-xxc"/>
                         <outlet property="tableView" destination="UNL-yV-8MV" id="Xk4-ch-WPj"/>
                     </connections>
                 </viewController>

@@ -51,18 +51,21 @@ class OptionsViewController: UIViewController {
     }
     
     func updateCheckmarks() {
-        guard let selectedOption = self.selectedOption,
-            let paths = table?.indexPathsForVisibleRows else { return }
+        guard let paths = table?.indexPathsForVisibleRows else { return }
         
-        for cellPath in paths {
-            guard let cell = table.cellForRow(at: cellPath) else { continue }
-            if cellPath == selectedPath {
-                cell.accessoryType = .checkmark
-            } else if cell.textLabel?.text?.trim() == selectedOption {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
+        for indexPath in paths {
+            guard let cell = table.cellForRow(at: indexPath) else { continue }
+            updateCheckmark(forCell: cell, indexPath: indexPath)
+        }
+    }
+    
+    func updateCheckmark(forCell cell: UITableViewCell, indexPath: IndexPath) {
+        if indexPath == selectedPath {
+            cell.accessoryType = .checkmark
+        } else if cell.textLabel?.text?.trim() == selectedOption {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
     }
 }
@@ -80,6 +83,7 @@ extension OptionsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionsCell", for: indexPath)
         
         cell.textLabel?.text = options[indexPath.row]
+        updateCheckmark(forCell: cell, indexPath: indexPath)
         
         return cell
     }

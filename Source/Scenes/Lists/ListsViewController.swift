@@ -30,7 +30,7 @@ class ListsViewController: UIViewController {
     let formatIndex = 0
     let locationIndex = 1
 
-    //var searchButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: - UIViewController
@@ -77,9 +77,8 @@ class ListsViewController: UIViewController {
     }
     
     func setupSearchButton() {
-//        searchButton = UIButton(type: UIButton.ButtonType.roundedRect)
-//        searchButton.titleLabel?.text = "Search"
-//        Style.styleButton(asInverse: searchButton)
+        //Style.styleButton(asInverse: searchButton)
+        searchButton.addDisclosureIndicator()
     }
     
     func fetchData() {
