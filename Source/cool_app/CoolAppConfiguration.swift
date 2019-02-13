@@ -22,7 +22,7 @@ class CoolAppConfiguration: AppConfiguration {
     let url = "https://cool-cat.org"
     let logSubsystem = "net.kenstir.apps.cool"
 
-    let enableHierarchicalOrgTree = false
+    let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
     let enableMainSceneBottomToolbar = false
