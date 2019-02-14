@@ -30,7 +30,7 @@ class ActorService {
     static var orgTreeLoaded = false
 
     /// Fetch list of org types.
-    static func fetchOrgTypesArray() -> Promise<Void> {
+    static func fetchOrgTypes() -> Promise<Void> {
         if orgTypesLoaded {
             return Promise<Void>()
         }
@@ -79,7 +79,7 @@ class ActorService {
     }
     
     // fetch org tree and settings for all orgs
-    static func fetchOrgs() -> Promise<Void> {
+    static func fetchOrgTreeAndSettings() -> Promise<Void> {
         let start = Date()
         
         let promise = fetchOrgTree().then { () -> Promise<Void> in

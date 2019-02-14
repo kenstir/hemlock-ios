@@ -198,7 +198,7 @@ class LiveServiceTests: XCTestCase {
     func test_orgTypesRetrieve() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let promise = ActorService.fetchOrgTypesArray()
+        let promise = ActorService.fetchOrgTypes()
         promise.ensure {
             let orgTypes = OrgType.orgTypes
             XCTAssert(orgTypes.count > 0, "found some org types")
@@ -216,7 +216,7 @@ class LiveServiceTests: XCTestCase {
     func test_orgTreeRetrieve() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let promise = ActorService.fetchOrgs()
+        let promise = ActorService.fetchOrgTreeAndSettings()
         promise.ensure {
             let org = Organization.find(byId: 1)
             XCTAssertNotNil(org)

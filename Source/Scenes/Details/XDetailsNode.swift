@@ -90,7 +90,9 @@ class XDetailsNode: ASCellNode {
         
         // Fetch orgs and copy statuses
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgs())
+        promises.append(ActorService.fetchOrgTypes())
+        //promises.append(ActorService.fetchOrgTreeAndSettings())
+        promises.append(ActorService.fetchOrgTree())
         promises.append(SearchService.fetchCopyStatusAll())
 
         // Fetch copy counts if not online resource

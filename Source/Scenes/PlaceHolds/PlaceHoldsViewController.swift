@@ -179,8 +179,8 @@ class PlaceHoldsViewController: UIViewController {
         self.startOfFetch = Date()
 
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTypesArray())
-        promises.append(ActorService.fetchOrgs())
+        promises.append(ActorService.fetchOrgTypes())
+        promises.append(ActorService.fetchOrgTreeAndSettings())
         promises.append(PCRUDService.fetchSMSCarriers())
         print("xxx \(promises.count) promises made")
 

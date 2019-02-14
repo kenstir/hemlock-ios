@@ -96,7 +96,7 @@ class FinesViewController: UIViewController {
         activityIndicator.startAnimating()
 
         // fetch the orgs
-        promises.append(ActorService.fetchOrgs())
+        promises.append(ActorService.fetchOrgTreeAndSettings())
 
         // fetch the summary
         let req1 = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid])

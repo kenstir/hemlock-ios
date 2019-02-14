@@ -89,8 +89,9 @@ class SearchViewController: UIViewController {
         }
 
         var promises: [Promise<Void>] = []        
-        promises.append(ActorService.fetchOrgTypesArray())
-        promises.append(ActorService.fetchOrgs())
+        promises.append(ActorService.fetchOrgTypes())
+        //promises.append(ActorService.fetchOrgTreeAndSettings())
+        promises.append(ActorService.fetchOrgTree())
         promises.append(ActorService.fetchUserSettings(account: account))
         promises.append(SearchService.fetchCopyStatusAll())
 
