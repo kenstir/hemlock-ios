@@ -36,7 +36,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanley E. Portny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-dA-blv">
-                                            <rect key="frame" x="8" y="55.5" width="103.5" height="16"/>
+                                            <rect key="frame" x="8" y="53.5" width="103.5" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="mYA-8n-CY1"/>
                                             </constraints>
@@ -45,8 +45,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNY-Ss-L0h" userLabel="Format">
-                                            <rect key="frame" x="8" y="73.5" width="31" height="16"/>
+                                            <rect key="frame" x="8" y="71.5" width="31" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Renewals left: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFZ-DV-lzj" userLabel="Renewals">
+                                            <rect key="frame" x="8" y="89.5" width="88" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -64,12 +70,6 @@
                                             <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                             <state key="normal" title="Renew"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Renewals left: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFZ-DV-lzj" userLabel="Renewals">
-                                            <rect key="frame" x="8" y="91.5" width="88" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="btq-bN-2S2" secondAttribute="trailing" id="70X-ji-HJ9"/>
@@ -77,7 +77,7 @@
                                         <constraint firstItem="kNY-Ss-L0h" firstAttribute="top" secondItem="wdh-dA-blv" secondAttribute="bottom" constant="2" id="Da6-A0-8Hy"/>
                                         <constraint firstItem="PFZ-DV-lzj" firstAttribute="top" secondItem="kNY-Ss-L0h" secondAttribute="bottom" constant="2" id="FWC-Yr-wV9"/>
                                         <constraint firstItem="aA9-TT-zbd" firstAttribute="trailing" secondItem="6qM-sC-2d7" secondAttribute="trailing" id="Fq4-Da-48K"/>
-                                        <constraint firstItem="4b7-Tg-Pfn" firstAttribute="top" secondItem="PFZ-DV-lzj" secondAttribute="bottom" constant="-2" id="Uoy-p5-G1p"/>
+                                        <constraint firstItem="4b7-Tg-Pfn" firstAttribute="top" secondItem="PFZ-DV-lzj" secondAttribute="bottom" id="Uoy-p5-G1p"/>
                                         <constraint firstAttribute="bottom" secondItem="4b7-Tg-Pfn" secondAttribute="bottom" constant="4" id="Vf1-PR-FnL"/>
                                         <constraint firstItem="PFZ-DV-lzj" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="cJo-ZD-uxy"/>
                                         <constraint firstItem="btq-bN-2S2" firstAttribute="top" secondItem="6qM-sC-2d7" secondAttribute="top" constant="8" id="dCQ-E7-YPJ"/>
