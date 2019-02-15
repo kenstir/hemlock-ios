@@ -25,6 +25,7 @@ class ShowCardViewController: UIViewController {
     
     @IBOutlet weak var barCodeImage: UIImageView!
     @IBOutlet weak var barcodeLabel: UILabel!
+    @IBOutlet weak var splashImage: UIImageView!
     
     var didCompleteFetch = false
     let imageWidth: Int32 = 400
@@ -44,13 +45,24 @@ class ShowCardViewController: UIViewController {
         }
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        setupSplash()
+    }
+    
     //MARK: - Functions
     
     func setupViews() {
+        setupSplash()
         //setupBarcode(Barcode.defaultValue(format: App.config.barcodeDisplayFormat))
         self.setupHomeButton()
     }
     
+    func setupSplash() {        
+        // hide splash in landscape so it doesn't obscure the barcode
+        splashImage.isHidden = UIDevice.current.orientation.isLandscape
+    }
+
     func setupBarcode(_ barcode: String) {
         let writer = ZXMultiFormatWriter()
         if Barcode.isValid(barcode, format: App.config.barcodeFormat),
