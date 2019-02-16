@@ -455,6 +455,6 @@
     </scenes>
     <resources>
         <image name="Jason" width="698" height="1200"/>
-        <image name="splash3" width="512" height="250"/>
+        <image name="splash3" width="280" height="176"/>
     </resources>
 </document>
