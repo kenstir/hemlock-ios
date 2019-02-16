@@ -851,13 +851,6 @@
 			path = hemlock_app;
 			sourceTree = "<group>";
 		};
-		D279920020DEEA27003B451E /* thirdparty */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = thirdparty;
-			sourceTree = "<group>";
-		};
 		D27DF20021AA3B65002DCC47 /* ShowCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -907,7 +900,6 @@
 				D2D49BFB20A90CA9000B3A27 /* pines_app */,
 				D212DB1120C3726F00267503 /* Scenes */,
 				D20D14D220B784E3008F66B0 /* Storyboards */,
-				D279920020DEEA27003B451E /* thirdparty */,
 				D22D026E2084F52300DC1F5B /* Utils */,
 			);
 			path = Source;
