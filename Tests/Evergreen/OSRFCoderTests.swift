@@ -135,6 +135,70 @@ class OSRFCoderTests: XCTestCase {
             XCTFail(String(describing: error))
         }
     }
+    
+    // Case: decode an OSRF object when the class hasn't been registered
+    func test_decode_wireObject_unregisteredClass() {
+        let wireProtocol = """
+            {"__c":"test","__p":["t",1,"Hormel"]}
+            """
+        guard let dict = deserializeJSONObject(wireProtocol) else {
+            XCTFail("ERROR decoding JSON")
+            return
+        }
+        
+        do {
+            let decodedObj = try OSRFCoder.decode(fromDictionary: dict)
+            debugPrint(decodedObj)
+            XCTFail("should not get here")
+        } catch {
+            debugPrint(error)
+            XCTAssertNotNil(error, error.localizedDescription)
+        }
+    }
+    
+    // Case: decode an OSRF object from an empty object
+    func test_decode_wireObject_empty() {
+        let wireProtocol = "{}"
+        guard let dict = deserializeJSONObject(wireProtocol) else {
+            XCTFail("ERROR decoding JSON")
+            return
+        }
+        
+        let expectedObj = OSRFObject([:])
+        do {
+            let decodedObj = try OSRFCoder.decode(fromDictionary: dict)
+            debugPrint(decodedObj)
+            XCTAssertEqual(decodedObj, expectedObj)
+        } catch {
+            debugPrint(error)
+            XCTFail(String(describing: error))
+        }
+    }
+
+    // Case: decode object from array larger than expected
+    func test_decode_wireObject_tooManyFields() {
+        OSRFCoder.registerClass("test", fields: ["can_haz_bacon","id","name"])
+        
+        let wireProtocol = """
+            {"__c":"test","__p":["t",1,"Hormel","Unexpected"]}
+            """
+        guard let dict = deserializeJSONObject(wireProtocol) else {
+            XCTFail("ERROR decoding JSON")
+            return
+        }
+        
+        let expectedObj = OSRFObject(["can_haz_bacon": "t",
+                                      "id": 1,
+                                      "name": "Hormel"])
+        do {
+            let decodedObj = try OSRFCoder.decode(fromDictionary: dict)
+            debugPrint(decodedObj)
+            XCTAssertEqual(decodedObj, expectedObj)
+        } catch {
+            debugPrint(error)
+            XCTFail(String(describing: error))
+        }
+    }
 
     // Case: decoding an array of OSRF objects from wire protocol
     func test_decode_wireArray() {

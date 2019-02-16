@@ -97,9 +97,24 @@ struct OSRFCoder {
             throw OSRFDecodingError.classNotFound(netClass)
         }
         var dict: [String: Any?] = [:]
-        let fields = coder.fields
-        for i in 0...jsonArray.count-1 {
-            let key = fields[i]
+        let count = min(jsonArray.count, coder.fields.count)
+        /*
+        if jsonArray.count != coder.fields.count {
+            print("kcxxx: class \(netClass) jsonArray.count \(jsonArray.count) coder.fields.count \(coder.fields.count)")
+            if jsonArray.count > coder.fields.count {
+                for i in coder.fields.count..<jsonArray.count {
+                    print("kcxxx:     jsonExtraValue \(jsonArray[i])")
+                }
+            }
+            if coder.fields.count > jsonArray.count && netClass != "aout" {
+                for i in jsonArray.count..<coder.fields.count {
+                    print("kcxxx:     coderMissingField \(coder.fields[i])")
+                }
+            }
+        }
+        */
+        for i in 0..<count {
+            let key = coder.fields[i]
             let val = jsonArray[i]
             dict[key] = val
         }
