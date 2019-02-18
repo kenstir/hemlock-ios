@@ -191,7 +191,7 @@ class HoldsViewController: UIViewController {
         os_log("fetchTargetInfo target=%d holdType=T asset start", log: self.log, type: .info, holdTarget)
         let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            guard let callNumber = obj.getID("call_numberxxx") else { throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold") }
+            guard let callNumber = obj.getID("call_number") else { throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold") }
             os_log("fetchTargetInfo target=%d holdType=T call start", log: self.log, type: .info, holdTarget)
             return Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber]).gatewayObjectResponse()
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
