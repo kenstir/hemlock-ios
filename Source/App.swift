@@ -54,20 +54,34 @@ class App {
 
     //MARK: - Functions
     
-    static func loadIDL() -> Bool {
-        let start = Date()
-        let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
-        App.idlLoaded = parser.parse()
-        let elapsed = -start.timeIntervalSinceNow
-        os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
-        return App.idlLoaded!
-    }
+//    static func loadIDL() -> Bool {
+//        let start = Date()
+//        let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
+//        App.idlLoaded = parser.parse()
+//        let elapsed = -start.timeIntervalSinceNow
+//        os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
+//        return App.idlLoaded!
+//    }
     static func fetchIDL() -> Promise<Void> {
         if App.idlLoaded ?? false {
             return Promise<Void>()
         }
         let start = Date()
-        let req = Alamofire.request(Gateway.idlURL())
+
+        // Load IDL without caching; IDL is not backward compatible
+        // across server upgrades.
+        //let req = Alamofire.request(Gateway.idlURL())
+        var req: DataRequest
+        do {
+            req = try Alamofire.SessionManager.default
+            .requestWithoutCache(Gateway.idlURL())
+        } catch {
+            // should not happen
+            return Promise<Void> { _ in
+                throw HemlockError.unexpectedNetworkResponse("unexpected error loading IDL: \(error.localizedDescription)")
+            }
+        }
+
         let promise = req.responseData().done { data, pmkresponse in
             let parser = IDLParser(data: data)
             App.idlLoaded = parser.parse()

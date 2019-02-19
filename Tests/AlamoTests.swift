@@ -144,4 +144,33 @@ class AlamoTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
+    func test_requestWithCache() {
+        self.measure {
+            let expectation = XCTestExpectation(description: "async response")
+            let request = Alamofire.request(Gateway.idlURL())
+            print("request:  \(request.description)")
+            request.responseData { response in
+                XCTAssertTrue(response.result.isSuccess)
+                print("response: \(response.description)")
+                expectation.fulfill()
+            }
+            
+            wait(for: [expectation], timeout: 10.0)
+        }
+    }
+    
+    func test_requestWithoutCache() {
+        self.measure {
+            let expectation = XCTestExpectation(description: "async response")
+            let request = try! Alamofire.SessionManager.default.requestWithoutCache(Gateway.idlURL())
+            print("request:  \(request.description)")
+            request.responseData { response in
+                XCTAssertTrue(response.result.isSuccess)
+                print("response: \(response.description)")
+                expectation.fulfill()
+            }
+            
+            wait(for: [expectation], timeout: 10.0)
+        }
+    }
 }

@@ -32,6 +32,10 @@
 		D226B60A20ED519E00CA5B79 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D226B60B20ED519E00CA5B79 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D228FB6520D33402001A7E31 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
+		D22AE119221B75FC0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
 		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
@@ -431,6 +435,7 @@
 		D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+splitOnRegex.swift"; sourceTree = "<group>"; };
 		D226B60920ED519E00CA5B79 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D228FB6420D33402001A7E31 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		D22AE118221B75FC0089C196 /* AFSessionManager+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFSessionManager+.swift"; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D22D02662083E45700DC1F5B /* Corsortium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corsortium.swift; sourceTree = "<group>"; };
@@ -741,6 +746,7 @@
 				D20BDB762214BCF200BB6A5F /* UIView+.swift */,
 				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
+				D22AE118221B75FC0089C196 /* AFSessionManager+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1388,6 +1394,7 @@
 				D276DAA321336B20007FAA31 /* XResultsViewController.swift in Sources */,
 				D276DAA421336B20007FAA31 /* SearchViewController.swift in Sources */,
 				D276DAA521336B20007FAA31 /* CircService.swift in Sources */,
+				D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
 				D26210F1217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
@@ -1463,6 +1470,7 @@
 				D23E5A0320ED96E9005EB391 /* XResultsViewController.swift in Sources */,
 				D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */,
 				D28725AE20E86F30002A4C42 /* CircService.swift in Sources */,
+				D22AE119221B75FC0089C196 /* AFSessionManager+.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
@@ -1538,6 +1546,7 @@
 				D284246A21D0358200C7171C /* XResultsViewController.swift in Sources */,
 				D284246B21D0358200C7171C /* SearchViewController.swift in Sources */,
 				D284246C21D0358200C7171C /* CircService.swift in Sources */,
+				D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */,
 				D284246D21D0358200C7171C /* HoldsViewController.swift in Sources */,
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
 				D284246F21D0358200C7171C /* XDetailsPagerViewController.swift in Sources */,
@@ -1613,6 +1622,7 @@
 				D279911A20DDE160003B451E /* AppSettings.swift in Sources */,
 				D28725AF20E88063002A4C42 /* CircService.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
+				D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */,
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
