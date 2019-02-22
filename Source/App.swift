@@ -54,14 +54,10 @@ class App {
 
     //MARK: - Functions
     
-//    static func loadIDL() -> Bool {
-//        let start = Date()
-//        let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
-//        App.idlLoaded = parser.parse()
-//        let elapsed = -start.timeIntervalSinceNow
-//        os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
-//        return App.idlLoaded!
-//    }
+    static func unloadIDL() {
+        App.idlLoaded = false
+    }
+
     static func fetchIDL() -> Promise<Void> {
         if App.idlLoaded ?? false {
             return Promise<Void>()

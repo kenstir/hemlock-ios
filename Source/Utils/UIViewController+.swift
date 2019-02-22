@@ -74,6 +74,7 @@ extension UIViewController {
     /// handle error in a promise chain by presenting the appropriate alert
     func presentGatewayAlert(forError error: Error) {
         if isSessionExpired(error: error) {
+            App.unloadIDL()
             self.showSessionExpiredAlert(error, relogHandler: {
                 self.popToLogin()
             })
