@@ -1,5 +1,5 @@
 //
-//  Barcode.swift
+//  BarcodeUtils.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -18,13 +18,24 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import ZXingObjC
 
 enum BarcodeFormat {
     case Disabled  // feature is disabled for this consortium
     case Codabar
+    case Code39
 }
 
-class Barcode {
+class BarcodeUtils {
+    static public func toZXFormat(_ format: BarcodeFormat) -> ZXBarcodeFormat {
+        switch format {
+        case .Code39:
+            return kBarcodeFormatCode39
+        default:
+            return kBarcodeFormatCodabar
+        }
+    }
+
     /// return default barcode value for the given format
     static public func defaultValue(format: BarcodeFormat) -> String {
         switch format {
@@ -32,6 +43,8 @@ class Barcode {
             return ""
         case .Codabar:
             return "00000000000000"
+        case .Code39:
+            return "D000000000"
         }
     }
 
@@ -52,26 +65,16 @@ class Barcode {
             default:
                 return str
             }
+        case .Code39:
+            return str
         }
     }
     
-    /// validate codabar, because it's hard/impossible to catch
-    /// objc NSInvalidArgumentException from Swift
-    static public func isValid(_ str: String, format: BarcodeFormat) -> Bool {
-        switch format {
-        case .Disabled:
-            return true
-        case .Codabar:
-            // According to http://www.makebarcode.com/specs/codabar.html
-            // the start/stop characters [ABCDE*NT] are also allowed in matching pairs,
-            // but I don't know how to fully check the validity of those and would rather
-            // report a barcode invalid than crash.
-            let pattern = "^[0123456789.+/:$-]+$"
-            let options: NSRegularExpression.Options = [.caseInsensitive]
-            guard let re = try? NSRegularExpression(pattern: pattern, options: options) else { return false }
-            let range = NSRange(location: 0, length: str.count)
-            let num = re.numberOfMatches(in: str, options: [], range: range)
-            return num > 0
-        }
+    /// encode barcode using the given format, return nil if it fails
+    static public func tryEncode(_ barcode: String, width: Int32, height: Int32, format: BarcodeFormat) -> ZXBitMatrix? {
+        let writer = ZXMultiFormatWriter()
+        let zxFormat = BarcodeUtils.toZXFormat(format)
+        let matrix = writer.safeEncode(barcode, format: zxFormat, width: width, height: height)
+        return matrix
     }
 }

@@ -18,20 +18,27 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import XCTest
+import ZXingObjC
 @testable import Hemlock
 
 class BarcodeTests: XCTestCase {
-    func test_isValid_Codabar14() {
-        // positive tests
-        XCTAssertTrue(Barcode.isValid("12345678901234", format: .Codabar))
-        XCTAssertTrue(Barcode.isValid("1234", format: .Codabar))
-        XCTAssertTrue(Barcode.isValid("1234-$:/+.", format: .Codabar))
-        XCTAssertTrue(Barcode.isValid("123456789012345", format: .Codabar))
+    let width: Int32 = 400
+    let height: Int32 = 200
 
-        // negative tests
-        XCTAssertFalse(Barcode.isValid("TESTAPP", format: .Codabar))
-        XCTAssertFalse(Barcode.isValid("1234E", format: .Codabar))
-        XCTAssertFalse(Barcode.isValid("1234-$:/+.ABCD", format: .Codabar))
-        XCTAssertFalse(Barcode.isValid("1234a", format: .Codabar))
+    func testEncode(_ barcode: String, format: BarcodeFormat) -> ZXBitMatrix? {
+        return BarcodeUtils.tryEncode(barcode, width: width, height: height, format: format)
+    }
+
+    func test_encodeCodabar() {
+        XCTAssertNotNil(testEncode("55555000001234", format: .Codabar))
+        XCTAssertNotNil(testEncode("11661", format: .Codabar))
+
+        XCTAssertNil(testEncode("D782515578", format: .Codabar))
+    }
+
+    func test_encodeCode39() {
+        XCTAssertNotNil(testEncode("D782515578", format: .Code39))
+        XCTAssertNotNil(testEncode("55555000001234", format: .Code39))
+        XCTAssertNotNil(testEncode("11661", format: .Code39))
     }
 }

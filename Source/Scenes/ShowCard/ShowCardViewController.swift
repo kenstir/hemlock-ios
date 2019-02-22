@@ -64,12 +64,15 @@ class ShowCardViewController: UIViewController {
     }
 
     func setupBarcode(_ barcode: String) {
-        let writer = ZXMultiFormatWriter()
-        if Barcode.isValid(barcode, format: App.config.barcodeFormat),
-            let matrix = try? writer.encode(barcode, format: kBarcodeFormatCodabar, width: imageWidth, height: imageHeight),
-            let cgimage = ZXImage(matrix: matrix).cgimage
+        var matrix: ZXBitMatrix? = nil
+        matrix = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, format: .Codabar)
+        if matrix == nil {
+            matrix = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, format: .Code39)
+        }
+        if let m = matrix,
+            let cgimage = ZXImage(matrix: m).cgimage
         {
-            barcodeLabel.text = Barcode.displayLabel(barcode, format: App.config.barcodeFormat)
+            barcodeLabel.text = BarcodeUtils.displayLabel(barcode, format: App.config.barcodeFormat)
             barCodeImage.image = UIImage(cgImage: cgimage)
         } else {
             barcodeLabel.text = "Invalid barcode: \(barcode)"
