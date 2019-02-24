@@ -99,6 +99,15 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.errorMessage, " Circulation has no more renewals remaining ")
     }
     
+    func test_renewFailedForTwoReasons() {
+        let json = """
+            {"payload":[[{"payload":{"fail_part":"asset.copy_location.circulate"},"stacktrace":"/usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:1293 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:4082 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:4034","desc":" Target copy is not allowed to circulate ","ilsevent":"7003","textcode":"COPY_CIRC_NOT_ALLOWED","servertime":"Sat Feb 23 20:55:17 2019","pid":17822},{"payload":{"fail_part":"PATRON_EXCEEDS_FINES"},"pid":17822,"ilsevent":"7013","servertime":"Sat Feb 23 20:55:17 2019","textcode":"PATRON_EXCEEDS_FINES","stacktrace":"/usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:1293 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:4082 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:4034","desc":"The patron in question has reached the maximum fine amount"}]],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertEqual(resp.errorMessage, " Target copy is not allowed to circulate ")
+    }
+    
     func test_actorCheckedOut() {
         let json = """
             {"status":200,"payload":[{"overdue":[],"out":["73107615","72954513"],"lost":[1,2]}]}

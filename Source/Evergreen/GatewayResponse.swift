@@ -144,6 +144,14 @@ struct GatewayResponse {
                 self.error = .failure("Error decoding OSRF object")
                 return
             }
+            if let obj = arrayResult?.first,
+                let ilsevent = obj.getDouble("ilsevent"),
+                ilsevent != 0,
+                let textcode = obj.getString("textcode"),
+                let desc = obj.getString("desc") {
+                self.error = .event(ilsevent: Int(ilsevent), textcode: textcode, desc: desc)
+                return
+            }
             type = .array
         } else if let val = payload.first as? String {
             type = .string
