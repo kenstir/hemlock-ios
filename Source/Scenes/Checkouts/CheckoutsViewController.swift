@@ -142,7 +142,7 @@ class CheckoutsViewController: UIViewController {
         tableView.reloadData()
     }
 
-    @objc func buttonPressed(sender: UIButton) {
+    @objc func renewPressed(sender: UIButton) {
         let item = items[sender.tag]
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
@@ -228,7 +228,7 @@ extension CheckoutsViewController: UITableViewDataSource {
 
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
-        cell.renewButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+        cell.renewButton.addTarget(self, action: #selector(renewPressed(sender:)), for: .touchUpInside)
         cell.renewButton.isEnabled = (item.renewalsRemaining > 0)
         Style.styleButton(asOutline: cell.renewButton)
 
