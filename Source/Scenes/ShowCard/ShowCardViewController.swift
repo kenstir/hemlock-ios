@@ -54,7 +54,6 @@ class ShowCardViewController: UIViewController {
     
     func setupViews() {
         setupSplash()
-        //setupBarcode(Barcode.defaultValue(format: App.config.barcodeDisplayFormat))
         self.setupHomeButton()
     }
     
