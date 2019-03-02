@@ -24,7 +24,7 @@ struct API {
     //MARK: - misc
 
     static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some cases to new EG servers
-    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,cbreb,cbrebi,cbrebin,cbrebn,ccs,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,cbreb,cbrebi,cbrebin,cbrebn,ccs,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
