@@ -24,21 +24,41 @@ import ZXingObjC
 class BarcodeTests: XCTestCase {
     let width: Int32 = 400
     let height: Int32 = 200
+    let supportedFormats: [BarcodeFormat] = [.Codabar, .Code39]
 
     func testEncode(_ barcode: String, format: BarcodeFormat) -> ZXBitMatrix? {
         return BarcodeUtils.tryEncode(barcode, width: width, height: height, format: format)
     }
 
+    func testEncode(_ barcode: String, formats: [BarcodeFormat]) -> ZXBitMatrix? {
+        return BarcodeUtils.tryEncode(barcode, width: width, height: height, formats: formats)
+    }
+
     func test_encodeCodabar() {
+        XCTAssertNil(testEncode("D782515578", format: .Codabar))
+        XCTAssertNil(testEncode("hemlock-cool", format: .Codabar))
+
         XCTAssertNotNil(testEncode("55555000001234", format: .Codabar))
         XCTAssertNotNil(testEncode("11661", format: .Codabar))
-
-        XCTAssertNil(testEncode("D782515578", format: .Codabar))
     }
 
     func test_encodeCode39() {
         XCTAssertNotNil(testEncode("D782515578", format: .Code39))
+        XCTAssertNotNil(testEncode("hemlock-cool", format: .Code39))
         XCTAssertNotNil(testEncode("55555000001234", format: .Code39))
         XCTAssertNotNil(testEncode("11661", format: .Code39))
+    }
+    
+    func test_tryEncodeFormats() {
+        // emoji should not work in either format
+        XCTAssertNil(testEncode("😱", formats: [.Codabar, .Code39]))
+
+        // D782515578 should fail in Codabar, but work in Code39
+        XCTAssertNil(testEncode("D782515578", formats: [.Codabar]))
+        XCTAssertNotNil(testEncode("D782515578", formats: [.Codabar, .Code39]))
+
+        // 11611 works in either
+        XCTAssertNotNil(testEncode("11611", formats: [.Codabar, .Code39]))
+        XCTAssertNotNil(testEncode("11611", formats: [.Code39, .Codabar]))
     }
 }

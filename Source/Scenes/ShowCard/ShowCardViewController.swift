@@ -63,12 +63,9 @@ class ShowCardViewController: UIViewController {
     }
 
     func setupBarcode(_ barcode: String) {
-        var matrix: ZXBitMatrix? = nil
-        matrix = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, format: .Codabar)
-        if matrix == nil {
-            matrix = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, format: .Code39)
-        }
+        let matrix = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39])
         if let m = matrix,
+            m.width > 0 && m.height > 0,
             let cgimage = ZXImage(matrix: m).cgimage
         {
             barcodeLabel.text = BarcodeUtils.displayLabel(barcode, format: App.config.barcodeFormat)

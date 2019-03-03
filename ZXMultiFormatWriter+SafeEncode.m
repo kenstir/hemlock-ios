@@ -30,6 +30,7 @@
         matrix = [self encode:contents format:format width:width height:height hints:nil error:nil];
     } @catch (NSException *exception) {
         // ignore
+        matrix = nil;
     } @finally {
         // nada
     }

@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZXMultiFormatWriter (SafeEncode)
 
-- (ZXBitMatrix *)safeEncode:(NSString *)contents format:(ZXBarcodeFormat)format width:(int)width height:(int)height;
+- (nullable ZXBitMatrix *)safeEncode:(NSString *)contents format:(ZXBarcodeFormat)format width:(int)width height:(int)height;
 
 @end
 

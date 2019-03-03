@@ -77,4 +77,15 @@ class BarcodeUtils {
         let matrix = writer.safeEncode(barcode, format: zxFormat, width: width, height: height)
         return matrix
     }
+    
+    /// try list of formats and return the first that succeeds
+    static public func tryEncode(_ barcode: String, width: Int32, height: Int32, formats: [BarcodeFormat]) -> ZXBitMatrix? {
+        for format in formats {
+            let matrix = tryEncode(barcode, width: width, height: height, format: format)
+            if matrix != nil {
+                return matrix
+            }
+        }
+        return nil
+    }
 }

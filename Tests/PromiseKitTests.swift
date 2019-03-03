@@ -93,7 +93,7 @@ class PromiseKitTests: XCTestCase {
             self.showAlert(error)
         }
         
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 10.0)
         
         XCTAssertEqual(stage, 1)
     }
