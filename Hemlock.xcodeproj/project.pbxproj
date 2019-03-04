@@ -530,7 +530,6 @@
 		D29C72152093A2C000E90952 /* OSRFObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObject.swift; sourceTree = "<group>"; };
 		D29C72172094002100E90952 /* OSRFObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObjectTests.swift; sourceTree = "<group>"; };
 		D29E87FC20D831540003EB27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		D2A6C57E221F1181007BAE6B /* ZXMultiFormatWriter+MultiFormatWriterExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ZXMultiFormatWriter+MultiFormatWriterExtension.h"; path = "Source/ZXMultiFormatWriter+MultiFormatWriterExtension.h"; sourceTree = SOURCE_ROOT; };
 		D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZXMultiFormatWriter+SafeEncode.m"; sourceTree = "<group>"; };
 		D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZXMultiFormatWriter+SafeEncode.h"; sourceTree = "<group>"; };
 		D2A74B1321289D63001D4B0F /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -737,6 +736,7 @@
 		D22D026E2084F52300DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D22AE118221B75FC0089C196 /* AFSessionManager+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D2A74B1321289D63001D4B0F /* AppConfiguration.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
@@ -749,12 +749,10 @@
 				D253343B20C23305008176B9 /* Theme.swift */,
 				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
 				D28164B3213C7D99000B64B4 /* UIScrollView+.swift */,
-				D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */,
 				D20BDB762214BCF200BB6A5F /* UIView+.swift */,
+				D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */,
 				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
-				D22AE118221B75FC0089C196 /* AFSessionManager+.swift */,
-				D2A6C57E221F1181007BAE6B /* ZXMultiFormatWriter+MultiFormatWriterExtension.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
