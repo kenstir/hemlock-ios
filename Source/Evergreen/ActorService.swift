@@ -58,11 +58,17 @@ class ActorService {
     
     /// fetch settings for all organizations.
     /// Must be called only after `orgTreeLoaded`.
-    static private func fetchOrgSettings() -> [Promise<Void>] {
+    /// If `forOrgID` is non-nil, it means load settings for just the one org.
+    static private func fetchOrgSettings(forOrgID: Int?) -> [Promise<Void>] {
         var promises: [Promise<Void>] = []
         for org in Organization.orgs {
             if org.areSettingsLoaded {
                 continue
+            }
+            if let id = forOrgID {
+                if id != org.id {
+                    continue
+                }
             }
 //            debugPrint("xyzzy: org.areSettingsLoaded = \(org.areSettingsLoaded)")
             var settings = [API.settingNotPickupLib, API.settingCreditPaymentsAllow]
@@ -79,13 +85,13 @@ class ActorService {
     }
     
     // fetch org tree and settings for all orgs
-    static func fetchOrgTreeAndSettings() -> Promise<Void> {
+    static func fetchOrgTreeAndSettings(forOrgID orgID: Int? = nil) -> Promise<Void> {
         let start = Date()
-        
+
         let promise = fetchOrgTree().then { () -> Promise<Void> in
             let elapsed = -start.timeIntervalSinceNow
             os_log("orgTreeRetrieve.elapsed: %.3f", elapsed)
-            let promises: [Promise<Void>] = self.fetchOrgSettings()
+            let promises: [Promise<Void>] = self.fetchOrgSettings(forOrgID: orgID)
             return when(fulfilled: promises)
         }
         return promise
