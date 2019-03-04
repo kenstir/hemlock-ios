@@ -99,7 +99,14 @@ extension CopyInfoViewController: UITableViewDataSource {
         
         let item = items[indexPath.row]
         cell.headingLabel.text = item.copyInfoHeading
-        cell.subheadingLabel.text = item.copyInfoSubheading
+        cell.subheadingText.text = item.copyInfoSubheading
+        cell.subheadingText.textContainer.maximumNumberOfLines = 1
+        cell.subheadingText.textContainer.lineBreakMode = NSLineBreakMode.byTruncatingTail
+        cell.subheadingText.isEditable = false
+        cell.subheadingText.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        if App.config.groupCopyInfoBySystem {
+            cell.subheadingText.hyperLink(originalText: item.copyInfoSubheading, hyperLink: "Georgia Public"/*item.copyInfoSubheading*/, urlString: "https://gapines.org")
+        }
         cell.locationLabel.text = item.shelvingLocation
         cell.callNumberLabel.text = item.callNumber
         cell.copyInfoLabel.text = item.countsByStatusLabel
