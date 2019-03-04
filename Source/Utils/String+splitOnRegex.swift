@@ -3,9 +3,9 @@
 
 import Foundation
 
-// String extension to split by regex
-// from https://stackoverflow.com/questions/25818197/how-to-split-a-string-in-swift
-// implicitly released under the MIT license
+// String extension to split by regex from
+// https://stackoverflow.com/questions/25818197/how-to-split-a-string-in-swift
+// implicitly released under the CC by-SA license
 extension String {
     func split(regex pattern: String) -> [String] {
         
