@@ -112,7 +112,7 @@ struct OSRFObject: Equatable {
         return nil
     }
     
-    func getDateString(_ key: String) -> String? {
+    func getDateLabel(_ key: String) -> String? {
         if let val = dict[key] as? String,
             let date = OSRFObject.apiDateFormatter.date(from: val) {
             return OSRFObject.outputDateFormatter.string(from: date)

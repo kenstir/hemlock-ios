@@ -175,7 +175,10 @@ class CheckoutsViewController: UIViewController {
     }
 
     func sortList() {
-        items.sort() { $0.dueDate < $1.dueDate }
+        items.sort() {
+            guard let a = $0.dueDate, let b = $1.dueDate else { return false }
+            return a < b
+        }
         tableView.reloadData()
     }
 
@@ -206,23 +209,15 @@ extension CheckoutsViewController: UITableViewDataSource {
         
         let item = items[indexPath.row]
 
-        // detect overdue
-        let dateFormatter = OSRFObject.outputDateFormatter
-        var isOverdue = false
-        if let dueDate = dateFormatter.date(from: item.dueDate),
-            dueDate < Date() {
-            isOverdue = true
-        }
-
         cell.title.text = item.title
         cell.author.text = item.author
         cell.format.text = item.format
         cell.renewals.text = "Renewals left: " + String(item.renewalsRemaining)
-        var dueText = "Due " + item.dueDate
-        if isOverdue {
+        var dueText = "Due " + item.dueDateLabel
+        if let dueDate = item.dueDate,
+            dueDate < Date() {
             dueText = dueText + " (overdue)"
-            cell.title.textColor = UIColor.red
-            cell.dueDate.textColor = UIColor.red
+            cell.dueDate.textColor = UIColor.red // TODO: make it a theme highlightColor
         }
         cell.dueDate.text = dueText
 
