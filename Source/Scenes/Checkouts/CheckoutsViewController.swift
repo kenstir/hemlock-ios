@@ -218,6 +218,8 @@ extension CheckoutsViewController: UITableViewDataSource {
             dueDate < Date() {
             dueText = dueText + " (overdue)"
             cell.dueDate.textColor = UIColor.red // TODO: make it a theme highlightColor
+        } else {
+            cell.dueDate.textColor = UIColor.black // TODO: make it a theme color
         }
         cell.dueDate.text = dueText
 
