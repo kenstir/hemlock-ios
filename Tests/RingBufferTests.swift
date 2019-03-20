@@ -33,16 +33,13 @@ class RingBufferTests: XCTestCase {
         rb.write(1)
         rb.write(2)
         XCTAssertTrue(rb.elementsEqual([1,2]))
-        
+        XCTAssertFalse(rb.elementsEqual([1]))
+
         // we remove 2 good values then read() returns nil
-        var e = rb.read()
-        XCTAssertEqual(1, e)
-        e = rb.read()
-        XCTAssertEqual(2, e)
-        e = rb.read()
-        XCTAssertEqual(nil, e)
-        e = rb.read()
-        XCTAssertEqual(nil, e)
+        XCTAssertEqual(1, rb.read())
+        XCTAssertEqual(2, rb.read())
+        XCTAssertEqual(nil, rb.read())
+        XCTAssertEqual(nil, rb.read())
     }
 
     func testWraparound() {
@@ -55,9 +52,15 @@ class RingBufferTests: XCTestCase {
         rb.write("c")
         XCTAssertTrue(rb.elementsEqual(["a","b","c"]))
 
-        // then we wraparound
+        // 4th item wraps around
         rb.write("d")
         XCTAssertTrue(rb.elementsEqual(["b","c","d"]))
+        
+        // only 3 items to remove
+        XCTAssertEqual("b", rb.read())
+        XCTAssertEqual("c", rb.read())
+        XCTAssertEqual("d", rb.read())
+        XCTAssertEqual(nil, rb.read())
     }
 
 }
