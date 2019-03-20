@@ -24,42 +24,42 @@ class Style {
     
     //MARK: - ActivityIndicator
     
-    static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView, color: UIColor = App.theme.backgroundDark5) {
+    static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView, color: UIColor = App.theme.primaryDark2Color) {
         activityIndicator.color = color
     }
     
     //MARK: - AlertController
     
     static func styleAlertController(_ alertController: UIAlertController) {
-        alertController.view.tintColor = App.theme.backgroundDark5
+        alertController.view.tintColor = App.theme.primaryDark2Color
     }
     
     //MARK: - BarButtonItem
     
     static func styleBarButton(_ button: UIBarButtonItem) {
-        button.tintColor = App.theme.foregroundColor
+        button.tintColor = App.theme.barTextForegroundColor
     }
 
     static func styleBarButton(asPlain button: UIBarButtonItem) {
-        button.tintColor = App.theme.backgroundDark5
+        button.tintColor = App.theme.primaryDark2Color
     }
 
     //MARK: - Button
 
-    static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.backgroundColor) {
+    static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.primaryColor) {
         button.backgroundColor = color
         button.tintColor = .white
         button.layer.cornerRadius = 6
     }
     
-    static func styleButton(asInverse button: ASButtonNode, color: UIColor = App.theme.backgroundColor) {
+    static func styleButton(asInverse button: ASButtonNode, color: UIColor = App.theme.primaryColor) {
         button.backgroundColor = color
         button.tintColor = .white
         button.cornerRadius = 6
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
-    static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.backgroundDark2) {
+    static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.primaryDarkColor) {
         button.tintColor = color
         // Setting the borderColor to the currentTitleColor handles the case
         // where the button is disabled.
@@ -68,7 +68,7 @@ class Style {
         button.layer.cornerRadius = 6
     }
     
-    static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.backgroundDark2) {
+    static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.primaryDarkColor) {
         button.tintColor = color
         button.layer.cornerRadius = 6
     }
@@ -76,13 +76,13 @@ class Style {
     //MARK: - SearchBar
 
     static func styleSearchBar(_ searchBar: UISearchBar) {
-        searchBar.tintColor = App.theme.backgroundDark2
+        searchBar.tintColor = App.theme.primaryDarkColor
     }
     
     //MARK: - SegmentedControl
     
     static func styleSegmentedControl(_ v: UISegmentedControl) {
-        v.tintColor = App.theme.backgroundDark2
+        v.tintColor = App.theme.primaryDarkColor
     }
     
     //MARK: - Table Header

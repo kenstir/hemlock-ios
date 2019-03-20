@@ -125,7 +125,7 @@ extension ListsViewController: UITableViewDataSource {
 
         let entry = options[indexPath.row]
 
-        cell.tintColor = App.theme.backgroundColor
+        cell.tintColor = App.theme.primaryColor
         cell.textLabel?.text = entry.label
         cell.detailTextLabel?.text = entry.value
         

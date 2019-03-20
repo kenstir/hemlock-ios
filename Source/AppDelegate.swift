@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         App.library = Library(App.config.url)
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = UIColor.white
-        appearance.barTintColor = App.theme.backgroundDark2
+        appearance.barTintColor = App.theme.primaryDarkColor
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         if #available(iOS 11.0, *) {
             appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]

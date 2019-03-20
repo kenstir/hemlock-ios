@@ -20,10 +20,13 @@
 import UIKit
 
 class HemlockTheme: Theme {
-    let foregroundColor = UIColor.white
-    let backgroundColor = UIColor(red: 0x37/0xff, green: 0x96/0xff, blue: 0x76/0xff, alpha: 1.0)
-    let backgroundDark2 = UIColor(red: 0x2e/0xff, green: 0x7b/0xff, blue: 0x61/0xff, alpha: 1.0)
-    let backgroundDark5 = UIColor(red: 0x1e/0xff, green: 0x52/0xff, blue: 0x41/0xff, alpha: 1.0)
+    let barTextForegroundColor = UIColor.white
+
+    let primaryColor = UIColor(red: 0x37/0xff, green: 0x96/0xff, blue: 0x76/0xff, alpha: 1.0)
+    let primaryDarkColor = UIColor(red: 0x2e/0xff, green: 0x7b/0xff, blue: 0x61/0xff, alpha: 1.0)
+    let primaryDark2Color = UIColor(red: 0x1e/0xff, green: 0x52/0xff, blue: 0x41/0xff, alpha: 1.0)
+
+    let secondaryColor = UIColor(rgb: 0xff0000)
 
     let tableHeaderForeground = UIColor.darkGray
     let tableHeaderBackground = UIColor.groupTableViewBackground

@@ -64,6 +64,10 @@
 		D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
 		D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
+		D24D76912234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
+		D24D76922234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
+		D24D76932234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
+		D24D76942234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D253343E20C3076D008176B9 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
 		D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
@@ -465,6 +469,7 @@
 		D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoViewController.swift; sourceTree = "<group>"; };
 		D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CopyInfo.storyboard; sourceTree = "<group>"; };
 		D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoTableViewCell.swift; sourceTree = "<group>"; };
+		D24D76902234418F00AFE50C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
 		D253343F20C30789008176B9 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
@@ -747,6 +752,7 @@
 				D27DF20B21AB4B84002DCC47 /* String+subscript.swift */,
 				D28290F720E6F770008EBE4B /* Style.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
+				D24D76902234418F00AFE50C /* UIColor+.swift */,
 				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
 				D28164B3213C7D99000B64B4 /* UIScrollView+.swift */,
 				D20BDB762214BCF200BB6A5F /* UIView+.swift */,
@@ -1377,6 +1383,7 @@
 				D276DA8C21336B20007FAA31 /* XResultsTableNode.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
 				D276DA8F21336B20007FAA31 /* String+splitOnRegex.swift in Sources */,
+				D24D76932234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBC2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D276DA9021336B20007FAA31 /* Organization.swift in Sources */,
 				D20BDB792214BCF300BB6A5F /* UIView+.swift in Sources */,
@@ -1454,6 +1461,7 @@
 				D26210ED217E2369004E7ABE /* XDetailsNode.swift in Sources */,
 				D28725B120E932DF002A4C42 /* ListsViewController.swift in Sources */,
 				D23E5A0120ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
+				D24D76912234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBA2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
 				D20BDB772214BCF300BB6A5F /* UIView+.swift in Sources */,
@@ -1531,6 +1539,7 @@
 				D284245021D0358200C7171C /* XDetailsNode.swift in Sources */,
 				D284245121D0358200C7171C /* XResultsTableNode.swift in Sources */,
 				D21867A321D039BF0082358C /* AppSettings.swift in Sources */,
+				D24D76942234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBD2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D284245321D0358200C7171C /* OSRFObject.swift in Sources */,
 				D20BDB7A2214BCF300BB6A5F /* UIView+.swift in Sources */,
@@ -1608,6 +1617,7 @@
 				D26210F2217E3502004E7ABE /* XDetailsNode.swift in Sources */,
 				D28725B220E93352002A4C42 /* ListsViewController.swift in Sources */,
 				D23E5A0220ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
+				D24D76922234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBB2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */,

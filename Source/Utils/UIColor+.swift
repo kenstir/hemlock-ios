@@ -1,5 +1,5 @@
 //
-//  Style.swift
+//  UIColor+.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -19,16 +19,12 @@
 
 import UIKit
 
-protocol Theme {
-    var barTextForegroundColor: UIColor { get }
-
-    var primaryColor: UIColor { get }
-    var primaryDarkColor: UIColor { get }
-    var primaryDark2Color: UIColor { get }
-    
-    var secondaryColor: UIColor { get }
-    
-    var tableHeaderForeground: UIColor { get }
-    var tableHeaderBackground: UIColor { get }
+extension UIColor {
+    //static public func fromRGB(_ rgb: Int, alpha: CGFloat = 1.0) -> UIColor {
+    convenience init(rgb: Int, alpha: CGFloat = 1.0) {
+        let r = CGFloat((rgb & 0xff0000) >> 16) / 255.0
+        let g = CGFloat((rgb & 0x00ff00) >> 8) / 255.0
+        let b = CGFloat((rgb & 0x0000ff))     / 255.0
+        self.init(red: r, green: g, blue: b, alpha: alpha)
+    }
 }
-

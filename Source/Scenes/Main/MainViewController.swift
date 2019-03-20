@@ -136,7 +136,7 @@ extension MainViewController: UITableViewDataSource {
         
         let image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
         
-        cell.tintColor = App.theme.backgroundColor
+        cell.tintColor = App.theme.primaryColor
         cell.imageView?.image = image
         cell.textLabel?.text = label
         cell.title = label

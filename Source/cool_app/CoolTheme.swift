@@ -20,11 +20,14 @@
 import UIKit
 
 class CoolTheme: Theme {
-    let foregroundColor = UIColor.white
-    let backgroundColor = UIColor(red: 0x01/0xff, green: 0x57/0xff, blue: 0x9b/0xff, alpha: 1.0)
-    let backgroundDark2 = UIColor(red: 0x00/0xff, green: 0x2f/0xff, blue: 0x6c/0xff, alpha: 1.0)
-    let backgroundDark5 = UIColor(red: 0x1e/0xff, green: 0x52/0xff, blue: 0x41/0xff, alpha: 1.0)
+    let barTextForegroundColor = UIColor.white
+    
+    let primaryColor = UIColor(rgb: 0x01579b)
+    let primaryDarkColor = UIColor(rgb: 0x002f6c)
+    let primaryDark2Color = UIColor(rgb: 0x1e5241)
 
+    let secondaryColor = UIColor.red
+    
     let tableHeaderForeground = UIColor.darkGray
     let tableHeaderBackground = UIColor.groupTableViewBackground
 }
