@@ -23,16 +23,39 @@ import Foundation
 @testable import Hemlock
 
 class RingBufferTests: XCTestCase {
+    
+    func testBasics() {
+        // initial rb is empty
+        var rb = RingBuffer<Int>(count: 4)
+        XCTAssertTrue(rb.elementsEqual([]))
+
+        // after adding 2 we check
+        rb.write(1)
+        rb.write(2)
+        XCTAssertTrue(rb.elementsEqual([1,2]))
+        
+        // we remove 2 good values then read() returns nil
+        var e = rb.read()
+        XCTAssertEqual(1, e)
+        e = rb.read()
+        XCTAssertEqual(2, e)
+        e = rb.read()
+        XCTAssertEqual(nil, e)
+        e = rb.read()
+        XCTAssertEqual(nil, e)
+    }
 
     func testWraparound() {
         var rb = RingBuffer<String>(count: 3)
         XCTAssertNotNil(rb)
 
+        // we can add 3 items
         rb.write("a")
         rb.write("b")
         rb.write("c")
         XCTAssertTrue(rb.elementsEqual(["a","b","c"]))
 
+        // then we wraparound
         rb.write("d")
         XCTAssertTrue(rb.elementsEqual(["b","c","d"]))
     }
