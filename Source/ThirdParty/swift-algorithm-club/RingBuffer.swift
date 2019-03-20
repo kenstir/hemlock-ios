@@ -18,9 +18,11 @@ public struct RingBuffer<T> {
   public init(count: Int) {
     array = [T?](repeating: nil, count: count)
   }
-    
+
+  /* Mark buffer as empty, does not really clear elements. Used for testing. */
   public mutating func clear() {
-    array = [T?](repeating: nil, count: array.count)
+    readIndex = 0
+    writeIndex = 0
   }
 
   public mutating func write(_ element: T) {
@@ -42,7 +44,6 @@ public struct RingBuffer<T> {
   }
 
   private var availableSpaceForReading: Int {
-    debugPrint("availableSpaceForReading = \(writeIndex - readIndex)")
     return writeIndex - readIndex
   }
 
@@ -51,8 +52,6 @@ public struct RingBuffer<T> {
   }
 
   private var availableSpaceForWriting: Int {
-    debugPrint("array.count = \(array.count)")
-    debugPrint("availableSpaceForWriting = \(array.count - availableSpaceForReading)")
     return array.count - availableSpaceForReading
   }
 
