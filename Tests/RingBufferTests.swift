@@ -63,4 +63,11 @@ class RingBufferTests: XCTestCase {
         XCTAssertEqual(nil, rb.read())
     }
 
+    func testClear() {
+        var rb = RingBuffer<Int>(count: 4)
+        rb.write(1)
+        rb.clear()
+        rb.write(2)
+        XCTAssertTrue(rb.elementsEqual([2]))
+    }
 }

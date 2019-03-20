@@ -43,6 +43,7 @@
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
+		D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */; };
 		D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -462,6 +463,7 @@
 		D22D0274208516D600DC1F5B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
 		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
+		D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTests.swift; sourceTree = "<group>"; };
 		D2318BD720CC44FA00A027EE /* HemlockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockError.swift; sourceTree = "<group>"; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -778,6 +780,7 @@
 		D22D0271208506A700DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */,
 				D22D0272208506C500DC1F5B /* MD5Tests.swift */,
 			);
 			path = Utils;
@@ -1730,6 +1733,7 @@
 				D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */,
 				D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */,
 				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
+				D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */,
 				D2806A9121B33F6000F308F4 /* BarcodeTests.swift in Sources */,
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,

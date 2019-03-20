@@ -18,6 +18,10 @@ public struct RingBuffer<T> {
   public init(count: Int) {
     array = [T?](repeating: nil, count: count)
   }
+    
+  public mutating func clear() {
+    array = [T?](repeating: nil, count: array.count)
+  }
 
   public mutating func write(_ element: T) {
     defer {

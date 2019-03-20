@@ -35,13 +35,19 @@ class Analytics {
     }
     
     static func logRequest(method: String) {
-        let s = "method:\(method)"
+        let s = "send: \(method)"
+        os_log("%s", log: log, type: .info, s)
         buf.write(s)
     }
     
     static func logResponse(_ wireString: String) {
-        let s = "resp: \(wireString)"
+        let s = "recv: \(wireString)"
+        os_log("%s", log: log, type: .info, s)
         buf.write(s)
+    }
+    
+    static func clearLog() {
+        buf.clear()
     }
     
     static func getLog() -> String {
@@ -49,6 +55,6 @@ class Analytics {
         for msg in buf {
             arr.append(msg)
         }
-        return arr.joined(separator: "\n")
+        return arr.joined(separator: "\n") + "\n"
     }
 }
