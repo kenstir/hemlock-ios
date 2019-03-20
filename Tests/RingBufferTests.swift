@@ -1,33 +1,40 @@
 //
 //  RingBufferTests.swift
-//  HemlockTests
 //
-//  Created by Ken Cox on 3/19/19.
-//  Copyright © 2019 Ken Cox. All rights reserved.
+//  Copyright (C) 2019 Kenneth H. Cox
 //
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, write to the Free Software
+//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import XCTest
+import Alamofire
+import Foundation
+@testable import Hemlock
 
 class RingBufferTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testWraparound() {
+        var rb = RingBuffer<String>(count: 3)
+        XCTAssertNotNil(rb)
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        rb.write("a")
+        rb.write("b")
+        rb.write("c")
+        XCTAssertTrue(rb.elementsEqual(["a","b","c"]))
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        rb.write("d")
+        XCTAssertTrue(rb.elementsEqual(["b","c","d"]))
     }
 
 }
