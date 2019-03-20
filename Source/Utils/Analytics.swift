@@ -26,8 +26,29 @@ enum AnalyticsErrorCode {
 
 class Analytics {
     static let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Analytics")
+    static var buf = RingBuffer<String>(count: 256)
 
     static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
         os_log("%s:%d: %s", log: log, type: .info, file, line, msg)
+        let s = "\(file):\(line): \(msg)"
+        buf.write(s)
+    }
+    
+    static func logRequest(method: String) {
+        let s = "method:\(method)"
+        buf.write(s)
+    }
+    
+    static func logResponse(_ wireString: String) {
+        let s = "resp: \(wireString)"
+        buf.write(s)
+    }
+    
+    static func getLog() -> String {
+        var arr: [String] = []
+        for msg in buf {
+            arr.append(msg)
+        }
+        return arr.joined(separator: "\n")
     }
 }

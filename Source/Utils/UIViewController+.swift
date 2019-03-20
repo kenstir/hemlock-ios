@@ -61,25 +61,28 @@ extension UIViewController {
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         Style.styleAlertController(alertController)
+        alertController.addAction(UIAlertAction(title: "Email bug report", style: .destructive) { action in
+            return
+        })
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
     
-    func showAlert(error: Error) {
-        showAlert(title: "Error", message: error.localizedDescription)
+    func showAlert(error: Error, title: String) {
+        showAlert(title: title, message: error.localizedDescription)
     }
     
     //MARK: - Handling session expired errors
     
     /// handle error in a promise chain by presenting the appropriate alert
-    func presentGatewayAlert(forError error: Error) {
+    func presentGatewayAlert(forError error: Error, title: String = "Error") {
         if isSessionExpired(error: error) {
             App.unloadIDL()
             self.showSessionExpiredAlert(error, relogHandler: {
                 self.popToLogin()
             })
         } else {
-            self.showAlert(error: error)
+            self.showAlert(error: error, title: title)
         }
     }
 

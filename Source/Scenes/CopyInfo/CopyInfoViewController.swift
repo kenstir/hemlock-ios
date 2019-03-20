@@ -71,7 +71,7 @@ class CopyInfoViewController: UIViewController {
             self.items = CopyLocationCounts.makeArray(fromPayload: resp.payload)
             self.updateItems()
         }.catch { error in
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     

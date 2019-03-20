@@ -73,6 +73,22 @@ struct GatewayResponse {
         }
         return error.localizedDescription
     }
+    var description: String {
+        switch type {
+        case .object:
+            return "object"
+        case .array:
+            return "array"
+        case .string:
+            return "string"
+        case .empty:
+            return "empty"
+        case .unknown:
+            return "unknown"
+        case .error:
+            return "error"
+        }
+    }
     
     //MARK: - Lifecycle
     
@@ -93,7 +109,9 @@ struct GatewayResponse {
 
     init(_ data: Data) {
         self.init()
-        os_log("resp.wire: %@", log: Gateway.log, type: .info, String(data: data, encoding: .utf8)!)
+        let wire_str = String(data: data, encoding: .utf8) ?? "(nil)"
+        os_log("resp.wire: %@", log: Gateway.log, type: .info, wire_str)
+        Analytics.logResponse(wire_str)
         guard var json = decodeJSON(data) else {
             os_log("resp.json: decode_error", log: Gateway.log, type: .info)
             error = .failure("Response not JSON")

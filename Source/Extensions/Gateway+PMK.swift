@@ -54,11 +54,10 @@ extension Alamofire.DataRequest {
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
-                    }
-                    if let array = resp.array {
+                    } else if let array = resp.array {
                         seal.fulfill(array)
                     } else {
-                        seal.reject(HemlockError.unexpectedNetworkResponse("expected array"))
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected array, received \(resp.description)"))
                     }
                 } else if response.result.isFailure,
                     let error = response.error {
@@ -81,11 +80,10 @@ extension Alamofire.DataRequest {
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
-                    }
-                    if let obj = resp.obj {
+                    } else if let obj = resp.obj {
                         seal.fulfill(obj)
                     } else {
-                        seal.reject(HemlockError.unexpectedNetworkResponse("expected object"))
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected object, received \(resp.description)"))
                     }
                 } else if response.result.isFailure,
                     let error = response.error {

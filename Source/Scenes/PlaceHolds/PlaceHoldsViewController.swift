@@ -198,7 +198,7 @@ class PlaceHoldsViewController: UIViewController {
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
-            self.showAlert(error: error)
+            self.presentGatewayAlert(forError: error)
         }
     }
     
