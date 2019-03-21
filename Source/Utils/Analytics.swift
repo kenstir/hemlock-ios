@@ -60,10 +60,7 @@ class Analytics {
     }
     
     static func getLog() -> String {
-        var arr: [String] = []
-        for msg in buf {
-            arr.append(msg)
-        }
+        let arr = buf.map { $0 }
         return arr.joined(separator: "\n") + "\n"
     }
 }
