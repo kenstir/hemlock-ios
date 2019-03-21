@@ -119,7 +119,7 @@ class CheckoutsViewController: UIViewController {
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) modsFromCopy done")
             debugPrint(obj.dict)
-            guard let id = obj.getInt("doc_idxxxx DO NOT COMMIT THIS OR ") else {
+            guard let id = obj.getInt("doc_id") else {
                 throw HemlockError.unexpectedNetworkResponse("no doc_id for circ record \(circRecord.id)")
             }
             circRecord.metabibRecord = MBRecord(id: id, mvrObj: obj)
