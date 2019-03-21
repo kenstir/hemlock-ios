@@ -51,7 +51,10 @@ class SendEmailViewController: UIViewController {
     }
     
     @objc func sendEmailButtonPressed(sender: Any) {
-        guard let to = self.to, let body = self.body else {
+        guard let to = self.to,
+            let subject = self.subject,
+            let body = self.body else
+        {
             showAlert(title: "Internal Error", message: "No email parameters")
             return
         }
@@ -59,6 +62,7 @@ class SendEmailViewController: UIViewController {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients([to])
+            mail.setSubject(subject)
             mail.setMessageBody(body, isHTML: false)
             present(mail, animated: true)
         } else {

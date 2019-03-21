@@ -59,10 +59,10 @@ extension UIViewController {
 
     //MARK: - showAlert
     
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, isError: Bool = false) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         Style.styleAlertController(alertController)
-        if MFMailComposeViewController.canSendMail() {
+        if isError && MFMailComposeViewController.canSendMail() {
             alertController.addAction(UIAlertAction(title: "Send bug report", style: .destructive) { action in
                 guard let vc = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
                     let sendEmailVC = vc as? SendEmailViewController else { return }
@@ -77,7 +77,7 @@ extension UIViewController {
     }
     
     func showAlert(error: Error, title: String) {
-        showAlert(title: title, message: error.localizedDescription)
+        showAlert(title: title, message: error.localizedDescription, isError: true)
     }
     
     //MARK: - Handling session expired errors
