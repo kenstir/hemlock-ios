@@ -44,6 +44,18 @@
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
 		D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */; };
+		D22D0C8E22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
+		D22D0C8F22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
+		D22D0C9022426B6B00DBB31A /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
+		D22D0C9122426B6B00DBB31A /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
+		D22D0C932243104600DBB31A /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
+		D22D0C942243104600DBB31A /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
+		D22D0C952243104600DBB31A /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
+		D22D0C962243104600DBB31A /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
+		D22D0C982243107600DBB31A /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
+		D22D0C992243107600DBB31A /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
+		D22D0C9A2243107600DBB31A /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
+		D22D0C9B2243107600DBB31A /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
 		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -464,6 +476,9 @@
 		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
 		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
 		D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTests.swift; sourceTree = "<group>"; };
+		D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSendEmailViewController.swift; sourceTree = "<group>"; };
+		D22D0C922243104600DBB31A /* SendEmail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendEmail.storyboard; sourceTree = "<group>"; };
+		D22D0C972243107600DBB31A /* SendEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewController.swift; sourceTree = "<group>"; };
 		D2318BD720CC44FA00A027EE /* HemlockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockError.swift; sourceTree = "<group>"; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
 		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -699,6 +714,7 @@
 				D20BDB752214B84F00BB6A5F /* Options */,
 				FA88B4C420FC1AF9000F211F /* PlaceHolds */,
 				FACD142520CDC0C9008F02D3 /* Search */,
+				D22D0C8C22426B3800DBB31A /* SendEmail */,
 				D27DF20021AA3B65002DCC47 /* ShowCard */,
 			);
 			path = Scenes;
@@ -831,6 +847,16 @@
 				D29C72172094002100E90952 /* OSRFObjectTests.swift */,
 			);
 			path = Evergreen;
+			sourceTree = "<group>";
+		};
+		D22D0C8C22426B3800DBB31A /* SendEmail */ = {
+			isa = PBXGroup;
+			children = (
+				D22D0C922243104600DBB31A /* SendEmail.storyboard */,
+				D22D0C972243107600DBB31A /* SendEmailViewController.swift */,
+				D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */,
+			);
+			path = SendEmail;
 			sourceTree = "<group>";
 		};
 		D231B52520815EAC00478D25 /* Frameworks */ = {
@@ -1193,6 +1219,7 @@
 				D2616764220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */,
 				D276DADB21336B20007FAA31 /* Fines.storyboard in Resources */,
+				D22D0C952243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D276DADC21336B20007FAA31 /* Lists.storyboard in Resources */,
 				D276DADD21336B20007FAA31 /* Main.storyboard in Resources */,
 			);
@@ -1209,6 +1236,7 @@
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390302241E5950089D745 /* LICENSE.txt in Resources */,
+				D22D0C932243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D2616762220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
 				D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */,
@@ -1236,6 +1264,7 @@
 				D2616765220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D28424A821D0358200C7171C /* Default-568h@2x.png in Resources */,
 				D28424A921D0358200C7171C /* Fines.storyboard in Resources */,
+				D22D0C962243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D28424AA21D0358200C7171C /* Lists.storyboard in Resources */,
 				D28424AB21D0358200C7171C /* Main.storyboard in Resources */,
 			);
@@ -1252,6 +1281,7 @@
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
+				D22D0C942243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D2616763220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
@@ -1453,6 +1483,7 @@
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
 				D26210F1217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D276DAA821336B20007FAA31 /* CopyInfoViewController.swift in Sources */,
+				D22D0C9A2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D276DAA921336B20007FAA31 /* UIView+UYLExtensions.swift in Sources */,
 				D276DAAA21336B20007FAA31 /* CircRecord.swift in Sources */,
 				D276DAAB21336B20007FAA31 /* CheckoutsViewController.swift in Sources */,
@@ -1469,6 +1500,7 @@
 				D276DAB621336B20007FAA31 /* CopyLocationCounts.swift in Sources */,
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
+				D22D0C9022426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
@@ -1532,6 +1564,7 @@
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D28290F520E5CF48008EBE4B /* UIView+UYLExtensions.swift in Sources */,
+				D22D0C982243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
 				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
 				D27990DF20DDD473003B451E /* Theme.swift in Sources */,
@@ -1548,6 +1581,7 @@
 				D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
+				D22D0C8E22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
@@ -1611,6 +1645,7 @@
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
 				D284246F21D0358200C7171C /* XDetailsPagerViewController.swift in Sources */,
 				D284247021D0358200C7171C /* CopyInfoViewController.swift in Sources */,
+				D22D0C9B2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D284247121D0358200C7171C /* UIView+UYLExtensions.swift in Sources */,
 				D284247221D0358200C7171C /* CircRecord.swift in Sources */,
 				D284247321D0358200C7171C /* CheckoutsViewController.swift in Sources */,
@@ -1627,6 +1662,7 @@
 				D284247E21D0358200C7171C /* MBRecord.swift in Sources */,
 				D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */,
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
+				D22D0C9122426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
 				D284248121D0358200C7171C /* BarcodeUtils.swift in Sources */,
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
@@ -1690,6 +1726,7 @@
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */,
+				D22D0C992243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
@@ -1706,6 +1743,7 @@
 				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
+				D22D0C8F22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20921AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,

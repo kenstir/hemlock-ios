@@ -79,7 +79,7 @@ class CheckoutsViewController: UIViewController {
             self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
         }.catch { error in
             self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forError: error)
+            self.presentGatewayAlert(forError: error, title: "Error fetching checkouts")
         }
     }
     
@@ -102,7 +102,7 @@ class CheckoutsViewController: UIViewController {
             self.updateItems(withRecords: records)
         }.catch { error in
             self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forError: error)
+            self.presentGatewayAlert(forError: error, title: "Error fetching circulation details")
         }
     }
     
@@ -119,7 +119,7 @@ class CheckoutsViewController: UIViewController {
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) modsFromCopy done")
             debugPrint(obj.dict)
-            guard let id = obj.getInt("doc_id") else {
+            guard let id = obj.getInt("doc_idxxxx DO NOT COMMIT THIS OR ") else {
                 throw HemlockError.unexpectedNetworkResponse("no doc_id for circ record \(circRecord.id)")
             }
             circRecord.metabibRecord = MBRecord(id: id, mvrObj: obj)

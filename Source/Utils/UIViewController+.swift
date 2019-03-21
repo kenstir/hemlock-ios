@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
+import MessageUI
 
 extension UIViewController {
     //MARK: - common view setup
@@ -61,9 +62,16 @@ extension UIViewController {
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         Style.styleAlertController(alertController)
-        alertController.addAction(UIAlertAction(title: "Email bug report", style: .destructive) { action in
-            return
-        })
+        if MFMailComposeViewController.canSendMail() {
+            alertController.addAction(UIAlertAction(title: "Send bug report", style: .destructive) { action in
+                guard let vc = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
+                    let sendEmailVC = vc as? SendEmailViewController else { return }
+                sendEmailVC.to = "kenstir.apps@gmail.com" //TODO: take from app config
+                sendEmailVC.subject = "bug report"
+                sendEmailVC.body = Analytics.getLog()
+                self.navigationController?.pushViewController(sendEmailVC, animated: true)
+            })
+        }
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
