@@ -68,7 +68,7 @@ extension UIViewController {
                     let sendEmailVC = vc as? SendEmailViewController else { return }
                 sendEmailVC.to = "kenstir.apps@gmail.com" //TODO: take from app config
                 sendEmailVC.subject = "bug report"
-                sendEmailVC.body = Analytics.getLog()
+                sendEmailVC.body = "error:\n\n" + message + "\n\nlog:\n\n" + Analytics.getLog()
                 self.navigationController?.pushViewController(sendEmailVC, animated: true)
             })
         }

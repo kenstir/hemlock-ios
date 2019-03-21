@@ -29,6 +29,7 @@ class SendEmailViewController: UIViewController {
     var body: String?
 
     @IBOutlet weak var sendEmailButton: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
     
     //MARK: - UIViewController
     
@@ -46,6 +47,8 @@ class SendEmailViewController: UIViewController {
     func setupViews() {
         Style.styleButton(asOutline: sendEmailButton)
         sendEmailButton.addTarget(self, action: #selector(sendEmailButtonPressed(sender:)), for: .touchUpInside)
+        
+        messageLabel.sizeToFit()
 
         self.setupHomeButton()
     }
@@ -66,6 +69,7 @@ class SendEmailViewController: UIViewController {
             mail.setMessageBody(body, isHTML: false)
             present(mail, animated: true)
         } else {
+            messageLabel.text = "Can't send email"
             showAlert(title: "Can't send email", message: "This device is not configured to send email.\n\nPlease manually send this report to \(to)")
         }
     }
@@ -73,7 +77,17 @@ class SendEmailViewController: UIViewController {
 
 //MARK: - MFMailComposeViewControllerDelegate
 extension SendEmailViewController: MFMailComposeViewControllerDelegate {
+    private func resultString(_ result: MFMailComposeResult) -> String {
+        switch result {
+        case .cancelled: return "cancelled"
+        case .failed: return "failed"
+        case .saved: return "saved"
+        case .sent: return "sent, thank you!"
+        }
+    }
+
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        messageLabel.text = resultString(result)
         controller.dismiss(animated: true)
     }
 }
