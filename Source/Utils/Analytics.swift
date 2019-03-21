@@ -41,7 +41,16 @@ class Analytics {
     }
     
     static func logResponse(_ wireString: String) {
-        let s = "recv: \(wireString)"
+        // redact login (au) and orgTree (aou) responses
+        let pattern = """
+            ("__c":"au"|"__c":"aou")
+            """
+        let range = wireString.range(of: pattern, options: .regularExpression)
+        var s: String = "recv: ***"
+        if range == nil {
+            s = "recv: \(wireString)"
+        }
+
         os_log("%s", log: log, type: .info, s)
         buf.write(s)
     }
