@@ -74,7 +74,7 @@ class SendEmailViewController: UIViewController {
                 mail.addAttachmentData(data, mimeType: "text/plain", fileName: "network.log")
             }
 
-            mail.navigationBar.tintColor = UIColor.white
+            mail.navigationBar.tintColor = App.theme.barTextForegroundColor
 
             present(mail, animated: true)
         } else {
