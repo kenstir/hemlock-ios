@@ -73,6 +73,9 @@ class SendEmailViewController: UIViewController {
             if let data = log?.data(using: .utf8) {
                 mail.addAttachmentData(data, mimeType: "text/plain", fileName: "network.log")
             }
+
+            mail.navigationBar.tintColor = UIColor.white
+
             present(mail, animated: true)
         } else {
             messageLabel.text = "Can't send email"
