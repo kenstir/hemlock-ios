@@ -156,10 +156,14 @@ class MiscTests: XCTestCase {
     }
     
     func test_appName() {
-        XCTAssertEqual("Hemlock", App.name)
+        XCTAssertEqual("Hemlock", Bundle.appName)
     }
     
     func test_appVersion() {
-        XCTAssertNotEqual("?", App.version)
+        XCTAssertNotEqual("?", Bundle.appVersion)
+    }
+    
+    func test_isTestFlight() {
+        XCTAssertTrue(Bundle.isTestFlightOrDebug)
     }
 }

@@ -51,19 +51,6 @@ class App {
     
     /// search scopes
     static let searchScopes = ["Keyword","Title","Author","Subject","Series"]
-    
-    static var version: String {
-        guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,
-            let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else
-        {
-            return "?"
-        }
-        return "\(version) (\(build))"
-    }
-
-    static var name: String {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "?"
-    }
 
     //MARK: - Functions
     

@@ -67,7 +67,7 @@ extension UIViewController {
                 guard let initialVC = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
                     let vc = initialVC as? SendEmailViewController else { return }
                 vc.to = "kenstir.apps@gmail.com" //TODO: take from app config
-                vc.subject = "[Hemlock] report from \(App.name) \(App.version)"
+                vc.subject = "[Hemlock] report from \(Bundle.appName) \(Bundle.appVersion)"
                 vc.body = "error:\n\n" + message + "\n\nlog:\n\n" + Analytics.getLog()
                 self.navigationController?.pushViewController(vc, animated: true)
             })
