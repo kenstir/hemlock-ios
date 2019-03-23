@@ -21,7 +21,8 @@ class PinesAppConfiguration: AppConfiguration {
     let title = "PINES"
     let url = "https://gapines.org"
     let logSubsystem = "net.kenstir.apps.pines"
-    
+    let bugReportEmailAddress = "kenstir.apps@gmail.com"
+
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = false
     let enableHoldPhoneNotification = true

@@ -94,7 +94,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.startSpinning()
         
         App.fetchIDL().catch { error in
-            self.showAlert(error: error, title: "Error")
+            self.showAlert(title: "Error", error: error)
         }.finally {
             self.maybeStopSpinning()
             completion()

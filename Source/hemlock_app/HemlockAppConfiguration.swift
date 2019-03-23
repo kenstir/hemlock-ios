@@ -19,10 +19,10 @@
 
 class HemlockAppConfiguration: AppConfiguration {
     let title = "Hemlock"
-    //let url = "https://catalog.cwmars.org"
     let url = "https://kenstir.ddns.net"
     let logSubsystem = "net.kenstir.apps.hemlock"
-    
+    let bugReportEmailAddress = "kenstir.apps@gmail.com"
+
     let enableHierarchicalOrgTree = false
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = false

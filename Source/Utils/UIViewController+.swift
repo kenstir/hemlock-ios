@@ -59,27 +59,38 @@ extension UIViewController {
 
     //MARK: - showAlert
     
-    func showAlert(title: String, message: String, isError: Bool = false) {
+    func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         Style.styleAlertController(alertController)
-        if isError && MFMailComposeViewController.canSendMail() {
-            alertController.addAction(UIAlertAction(title: "Send bug report", style: .destructive) { action in
-                guard let initialVC = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
-                    let vc = initialVC as? SendEmailViewController else { return }
-                vc.to = "kenstir.apps@gmail.com" //TODO: take from app config
-                vc.subject = "[Hemlock] report from \(Bundle.appName) \(Bundle.appVersion)"
-                vc.body = "error:\n\n" + message + "\n\nlog:\n\n" + Analytics.getLog()
-                self.navigationController?.pushViewController(vc, animated: true)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        self.present(alertController, animated: true)
+    }
+
+    func showAlert(title: String, error: Error) {
+        let message = error.localizedDescription
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        Style.styleAlertController(alertController)
+        if Bundle.isTestFlightOrDebug && MFMailComposeViewController.canSendMail() {
+            alertController.addAction(UIAlertAction(title: "Send report to developer", style: .destructive) { action in
+                self.sendBugReport(errorMessage: message)
             })
         }
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
     
-    func showAlert(error: Error, title: String) {
-        showAlert(title: title, message: error.localizedDescription, isError: true)
+    private func sendBugReport(errorMessage: String) {
+        guard let initialVC = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
+            let vc = initialVC as? SendEmailViewController else { return }
+        vc.to = App.config.bugReportEmailAddress
+        vc.subject = "[Hemlock] error report - \(Bundle.appName) \(Bundle.appVersion)"
+        vc.body = "app: \(Bundle.appName)\n"
+            + "version: \(Bundle.appVersion)\n"
+            + "error: " + errorMessage
+        vc.log = Analytics.getLog()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     //MARK: - Handling session expired errors
     
     /// handle error in a promise chain by presenting the appropriate alert
@@ -90,7 +101,7 @@ extension UIViewController {
                 self.popToLogin()
             })
         } else {
-            self.showAlert(error: error, title: title)
+            self.showAlert(title: title, error: error)
         }
     }
 

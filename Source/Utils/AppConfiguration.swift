@@ -23,6 +23,8 @@ protocol AppConfiguration {
     var title: String { get }
     var url: String { get }
     var logSubsystem: String { get }
+    var bugReportEmailAddress: String { get }
+
     var searchFormatsJSON: String { get }
 
     var enableHierarchicalOrgTree: Bool { get }

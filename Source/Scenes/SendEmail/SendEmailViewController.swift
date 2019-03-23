@@ -24,9 +24,11 @@ class SendEmailViewController: UIViewController {
     
     //MARK: - Properties
     
+    var sent = false
     var to: String?
     var subject: String?
     var body: String?
+    var log: String?
 
     @IBOutlet weak var sendEmailButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
@@ -48,6 +50,7 @@ class SendEmailViewController: UIViewController {
         Style.styleButton(asOutline: sendEmailButton)
         sendEmailButton.addTarget(self, action: #selector(sendEmailButtonPressed(sender:)), for: .touchUpInside)
         
+        messageLabel.text = ""
         messageLabel.sizeToFit()
 
         self.setupHomeButton()
@@ -67,6 +70,9 @@ class SendEmailViewController: UIViewController {
             mail.setToRecipients([to])
             mail.setSubject(subject)
             mail.setMessageBody(body, isHTML: false)
+            if let data = log?.data(using: .utf8) {
+                mail.addAttachmentData(data, mimeType: "text/plain", fileName: "network.log")
+            }
             present(mail, animated: true)
         } else {
             messageLabel.text = "Can't send email"
@@ -79,15 +85,16 @@ class SendEmailViewController: UIViewController {
 extension SendEmailViewController: MFMailComposeViewControllerDelegate {
     private func resultString(_ result: MFMailComposeResult) -> String {
         switch result {
-        case .cancelled: return "cancelled"
-        case .failed: return "failed"
-        case .saved: return "saved"
-        case .sent: return "sent, thank you!"
+        case .cancelled: return "Cancelled"
+        case .failed: return "Sending failed"
+        case .saved: return "Not sent, draft saved"
+        case .sent: return "Sent, thank you!"
         }
     }
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         messageLabel.text = resultString(result)
+        self.sendEmailButton.isEnabled = (result != .sent)
         controller.dismiss(animated: true)
     }
 }

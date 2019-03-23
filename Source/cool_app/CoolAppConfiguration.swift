@@ -21,6 +21,7 @@ class CoolAppConfiguration: AppConfiguration {
     let title = "COOL"
     let url = "https://cool-cat.org"
     let logSubsystem = "net.kenstir.apps.cool"
+    let bugReportEmailAddress = "kenstir.apps@gmail.com"
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
