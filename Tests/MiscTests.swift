@@ -154,4 +154,12 @@ class MiscTests: XCTestCase {
         range = phoneNumber.range(of: pattern, options: .regularExpression)
         XCTAssertFalse(range != nil)
     }
+    
+    func test_appName() {
+        XCTAssertEqual("Hemlock", App.name)
+    }
+    
+    func test_appVersion() {
+        XCTAssertNotEqual("?", App.version)
+    }
 }

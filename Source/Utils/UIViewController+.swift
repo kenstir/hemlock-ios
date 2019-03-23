@@ -64,12 +64,12 @@ extension UIViewController {
         Style.styleAlertController(alertController)
         if isError && MFMailComposeViewController.canSendMail() {
             alertController.addAction(UIAlertAction(title: "Send bug report", style: .destructive) { action in
-                guard let vc = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
-                    let sendEmailVC = vc as? SendEmailViewController else { return }
-                sendEmailVC.to = "kenstir.apps@gmail.com" //TODO: take from app config
-                sendEmailVC.subject = "bug report"
-                sendEmailVC.body = "error:\n\n" + message + "\n\nlog:\n\n" + Analytics.getLog()
-                self.navigationController?.pushViewController(sendEmailVC, animated: true)
+                guard let initialVC = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
+                    let vc = initialVC as? SendEmailViewController else { return }
+                vc.to = "kenstir.apps@gmail.com" //TODO: take from app config
+                vc.subject = "[Hemlock] report from \(App.name) \(App.version)"
+                vc.body = "error:\n\n" + message + "\n\nlog:\n\n" + Analytics.getLog()
+                self.navigationController?.pushViewController(vc, animated: true)
             })
         }
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
