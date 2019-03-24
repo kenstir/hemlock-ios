@@ -21,13 +21,19 @@ import UIKit
 import MessageUI
 
 extension UIViewController {
+
     //MARK: - common view setup
 
     func addActivityIndicator() -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
-        activityIndicator.center = view.center
         view.addSubview(activityIndicator)
+        centerSubview(activityIndicator)
+
         return activityIndicator
+    }
+
+    func centerSubview(_ subview: UIView) {
+        subview.center = view.center
     }
 
     func setupHomeButton() {

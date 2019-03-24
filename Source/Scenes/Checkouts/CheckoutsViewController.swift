@@ -26,8 +26,9 @@ class CheckoutsViewController: UIViewController {
     
     //MARK: - Properties
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    weak var activityIndicator: UIActivityIndicatorView!
 
     var items: [CircRecord] = []
     var selectedItem: CircRecord?
@@ -57,7 +58,8 @@ class CheckoutsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        // style the activity indicator
+        // create and style the activity indicator
+        activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
 
         self.setupHomeButton()
@@ -71,6 +73,7 @@ class CheckoutsViewController: UIViewController {
             return //TODO: add analytics
         }
         
+        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
         
         // fetch the list of items
@@ -165,11 +168,16 @@ class CheckoutsViewController: UIViewController {
     }
     
     func renewItem(authtoken: String, userID: Int, targetCopy: Int) {
+
+        centerSubview(activityIndicator)
+        activityIndicator.startAnimating()
+
         let promise = CircService.renew(authtoken: authtoken, userID: userID, targetCopy: targetCopy)
         promise.done { obj in
             self.navigationController?.view.makeToast("Item renewed")
             self.fetchData()
         }.catch { error in
+            self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error)
         }
     }

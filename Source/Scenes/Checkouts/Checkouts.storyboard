@@ -6,107 +6,112 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Items Checked Out-->
         <scene sceneID="Lim-Vh-9VD">
             <objects>
-                <tableViewController title="Items Checked Out" id="8d8-w4-47w" customClass="CheckoutsViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="124" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="10" id="5dA-fz-7mv">
+                <viewController title="Items Checked Out" id="8d8-w4-47w" customClass="CheckoutsViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gpF-W0-RoQ" userLabel="Main View">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="2gm-6Q-gve">
-                            <rect key="frame" x="0.0" y="189.5" width="320" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CheckoutsTableViewCell" rowHeight="124" id="big-A1-FBo" customClass="CheckoutsTableViewCell" customModule="COOL" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="320" height="124"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="big-A1-FBo" id="6qM-sC-2d7">
-                                    <rect key="frame" x="0.0" y="0.0" width="286" height="123.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Management for Dummies" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btq-bN-2S2">
-                                            <rect key="frame" x="8" y="8" width="278" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanley E. Portny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-dA-blv">
-                                            <rect key="frame" x="8" y="53.5" width="103.5" height="16"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="124" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Huq-Hr-aR8">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CheckoutsTableViewCell" rowHeight="124" id="big-A1-FBo" customClass="CheckoutsTableViewCell" customModule="COOL" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="124"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="big-A1-FBo" id="6qM-sC-2d7">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="123.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Management for Dummies" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btq-bN-2S2">
+                                                    <rect key="frame" x="8" y="8" width="279" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanley E. Portny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdh-dA-blv">
+                                                    <rect key="frame" x="8" y="53.5" width="103.5" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="mYA-8n-CY1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNY-Ss-L0h" userLabel="Format">
+                                                    <rect key="frame" x="8" y="71.5" width="31" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Renewals left: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFZ-DV-lzj" userLabel="Renewals">
+                                                    <rect key="frame" x="8" y="89.5" width="88" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Jun 19, 2018 (overdue)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-Tg-Pfn">
+                                                    <rect key="frame" x="8" y="104.5" width="156" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-TT-zbd">
+                                                    <rect key="frame" x="209" y="87.5" width="78" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="1fF-qt-viN"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                    <state key="normal" title="Renew"/>
+                                                </button>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="16" id="mYA-8n-CY1"/>
+                                                <constraint firstAttribute="trailing" secondItem="btq-bN-2S2" secondAttribute="trailing" id="70X-ji-HJ9"/>
+                                                <constraint firstItem="btq-bN-2S2" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="BNB-Rv-epS"/>
+                                                <constraint firstItem="kNY-Ss-L0h" firstAttribute="top" secondItem="wdh-dA-blv" secondAttribute="bottom" constant="2" id="Da6-A0-8Hy"/>
+                                                <constraint firstItem="PFZ-DV-lzj" firstAttribute="top" secondItem="kNY-Ss-L0h" secondAttribute="bottom" constant="2" id="FWC-Yr-wV9"/>
+                                                <constraint firstItem="aA9-TT-zbd" firstAttribute="trailing" secondItem="6qM-sC-2d7" secondAttribute="trailing" id="Fq4-Da-48K"/>
+                                                <constraint firstItem="4b7-Tg-Pfn" firstAttribute="top" secondItem="PFZ-DV-lzj" secondAttribute="bottom" id="Uoy-p5-G1p"/>
+                                                <constraint firstAttribute="bottom" secondItem="4b7-Tg-Pfn" secondAttribute="bottom" constant="4" id="Vf1-PR-FnL"/>
+                                                <constraint firstItem="PFZ-DV-lzj" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="cJo-ZD-uxy"/>
+                                                <constraint firstItem="btq-bN-2S2" firstAttribute="top" secondItem="6qM-sC-2d7" secondAttribute="top" constant="8" id="dCQ-E7-YPJ"/>
+                                                <constraint firstItem="4b7-Tg-Pfn" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="j6Y-P6-t3n"/>
+                                                <constraint firstItem="kNY-Ss-L0h" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="nIX-nb-95U"/>
+                                                <constraint firstItem="wdh-dA-blv" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="oGP-Ld-4H6"/>
+                                                <constraint firstItem="aA9-TT-zbd" firstAttribute="bottom" secondItem="6qM-sC-2d7" secondAttribute="bottom" constant="-6" id="xPN-jD-AtI"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNY-Ss-L0h" userLabel="Format">
-                                            <rect key="frame" x="8" y="71.5" width="31" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Renewals left: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFZ-DV-lzj" userLabel="Renewals">
-                                            <rect key="frame" x="8" y="89.5" width="88" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Jun 19, 2018 (overdue)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-Tg-Pfn">
-                                            <rect key="frame" x="8" y="104.5" width="156" height="15"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-TT-zbd">
-                                            <rect key="frame" x="208" y="87.5" width="78" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="1fF-qt-viN"/>
-                                            </constraints>
-                                            <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                            <state key="normal" title="Renew"/>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="btq-bN-2S2" secondAttribute="trailing" id="70X-ji-HJ9"/>
-                                        <constraint firstItem="btq-bN-2S2" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="BNB-Rv-epS"/>
-                                        <constraint firstItem="kNY-Ss-L0h" firstAttribute="top" secondItem="wdh-dA-blv" secondAttribute="bottom" constant="2" id="Da6-A0-8Hy"/>
-                                        <constraint firstItem="PFZ-DV-lzj" firstAttribute="top" secondItem="kNY-Ss-L0h" secondAttribute="bottom" constant="2" id="FWC-Yr-wV9"/>
-                                        <constraint firstItem="aA9-TT-zbd" firstAttribute="trailing" secondItem="6qM-sC-2d7" secondAttribute="trailing" id="Fq4-Da-48K"/>
-                                        <constraint firstItem="4b7-Tg-Pfn" firstAttribute="top" secondItem="PFZ-DV-lzj" secondAttribute="bottom" id="Uoy-p5-G1p"/>
-                                        <constraint firstAttribute="bottom" secondItem="4b7-Tg-Pfn" secondAttribute="bottom" constant="4" id="Vf1-PR-FnL"/>
-                                        <constraint firstItem="PFZ-DV-lzj" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="cJo-ZD-uxy"/>
-                                        <constraint firstItem="btq-bN-2S2" firstAttribute="top" secondItem="6qM-sC-2d7" secondAttribute="top" constant="8" id="dCQ-E7-YPJ"/>
-                                        <constraint firstItem="4b7-Tg-Pfn" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="j6Y-P6-t3n"/>
-                                        <constraint firstItem="kNY-Ss-L0h" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="nIX-nb-95U"/>
-                                        <constraint firstItem="wdh-dA-blv" firstAttribute="leading" secondItem="6qM-sC-2d7" secondAttribute="leading" constant="8" id="oGP-Ld-4H6"/>
-                                        <constraint firstItem="aA9-TT-zbd" firstAttribute="bottom" secondItem="6qM-sC-2d7" secondAttribute="bottom" constant="-6" id="xPN-jD-AtI"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="author" destination="wdh-dA-blv" id="Qwc-6r-bIB"/>
-                                    <outlet property="dueDate" destination="4b7-Tg-Pfn" id="cjJ-Jk-Xui"/>
-                                    <outlet property="format" destination="kNY-Ss-L0h" id="O2n-bU-U0c"/>
-                                    <outlet property="renewButton" destination="aA9-TT-zbd" id="tTL-9I-qzO"/>
-                                    <outlet property="renewals" destination="PFZ-DV-lzj" id="Dwl-aV-EP4"/>
-                                    <outlet property="title" destination="btq-bN-2S2" id="1H9-BG-dcp"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="8d8-w4-47w" id="Yf0-0q-e0W"/>
-                            <outlet property="delegate" destination="8d8-w4-47w" id="wB6-bQ-AUm"/>
-                        </connections>
-                    </tableView>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="author" destination="wdh-dA-blv" id="Qwc-6r-bIB"/>
+                                            <outlet property="dueDate" destination="4b7-Tg-Pfn" id="cjJ-Jk-Xui"/>
+                                            <outlet property="format" destination="kNY-Ss-L0h" id="O2n-bU-U0c"/>
+                                            <outlet property="renewButton" destination="aA9-TT-zbd" id="tTL-9I-qzO"/>
+                                            <outlet property="renewals" destination="PFZ-DV-lzj" id="Dwl-aV-EP4"/>
+                                            <outlet property="title" destination="btq-bN-2S2" id="1H9-BG-dcp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Huq-Hr-aR8" firstAttribute="bottom" secondItem="kDY-Gq-9eN" secondAttribute="bottom" id="AFk-s0-nhI"/>
+                            <constraint firstItem="Huq-Hr-aR8" firstAttribute="trailing" secondItem="kDY-Gq-9eN" secondAttribute="trailing" id="Dyo-rC-eYd"/>
+                            <constraint firstItem="Huq-Hr-aR8" firstAttribute="leading" secondItem="kDY-Gq-9eN" secondAttribute="leading" id="rMs-Oi-Mwx"/>
+                            <constraint firstItem="Huq-Hr-aR8" firstAttribute="top" secondItem="gpF-W0-RoQ" secondAttribute="topMargin" id="zM0-6r-8XH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kDY-Gq-9eN"/>
+                    </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="2gm-6Q-gve" id="0WP-Hd-UD1"/>
-                        <outlet property="tableView" destination="5dA-fz-7mv" id="oGc-nh-eMP"/>
+                        <outlet property="tableView" destination="Huq-Hr-aR8" id="8mB-YR-0WK"/>
                     </connections>
-                </tableViewController>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zSq-vL-jRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1590" y="160.56338028169014"/>

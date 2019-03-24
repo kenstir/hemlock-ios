@@ -93,6 +93,7 @@ class FinesViewController: UIViewController {
         
         var promises: [Promise<Void>] = []
 
+        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         // fetch the orgs

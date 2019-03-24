@@ -184,6 +184,7 @@ class PlaceHoldsViewController: UIViewController {
         promises.append(PCRUDService.fetchSMSCarriers())
         print("xxx \(promises.count) promises made")
 
+        centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
         
         firstly {
@@ -254,6 +255,7 @@ class PlaceHoldsViewController: UIViewController {
             notifyCarrierID = carrier.id
         }
 
+        centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
 
         let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: recordID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID)

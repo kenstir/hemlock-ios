@@ -95,6 +95,7 @@ class SearchViewController: UIViewController {
         promises.append(ActorService.fetchUserSettings(account: account))
         promises.append(SearchService.fetchCopyStatusAll())
 
+        centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
 
         firstly {

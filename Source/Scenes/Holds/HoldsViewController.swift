@@ -69,6 +69,7 @@ class HoldsViewController: UIViewController {
             return //TODO: add analytics
         }
         
+        centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
         
         // fetch holds
