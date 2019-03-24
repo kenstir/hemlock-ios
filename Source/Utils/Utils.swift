@@ -1,5 +1,5 @@
 //
-//  Bundle+.swift
+//  Utils.swift
 //
 //  Copyright (C) 2019 Kenneth H. Cox
 //
@@ -18,25 +18,8 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import os.log
 
-extension Bundle {
-    static var appName: String {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "?"
-    }
-
-    static var appVersion: String {
-        guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,
-            let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else
-        {
-            return "?"
-        }
-        return "\(version) (\(build))"
-    }
-
-    static var isTestFlightOrDebug: Bool {
-        guard let path = Bundle.main.appStoreReceiptURL?.path else {
-            return false
-        }
-        return path.contains("sandboxReceipt") || path.contains("CoreSimulator")
-    }
+class Utils {
+    static let log = OSLog(subsystem: App.config.logSubsystem, category: "utils")
 }

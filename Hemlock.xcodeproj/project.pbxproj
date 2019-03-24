@@ -395,6 +395,10 @@
 		D2C24A312101712E0028180B /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
+		D2CF924222471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
+		D2CF924322471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
+		D2CF924422471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
+		D2CF924522471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
 		D2D93CF5210AB6F1004306D8 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
 		D2D93CF6210AB6F1004306D8 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
@@ -576,6 +580,7 @@
 		D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		D2C24A2F210171290028180B /* PCRUDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCRUDService.swift; sourceTree = "<group>"; };
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
+		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
 		D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyStatus.swift; sourceTree = "<group>"; };
 		D2DE83EB20F5AC280027FAA1 /* XUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUtils.swift; sourceTree = "<group>"; };
@@ -795,6 +800,7 @@
 				D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */,
 				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
+				D2CF924122471D210009C06A /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1505,6 +1511,7 @@
 				D276DAB421336B20007FAA31 /* IDLParser.swift in Sources */,
 				D276DAB521336B20007FAA31 /* Gateway+PMK.swift in Sources */,
 				D276DAB621336B20007FAA31 /* CopyLocationCounts.swift in Sources */,
+				D2CF924422471D210009C06A /* Utils.swift in Sources */,
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
 				D22D0C9022426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
@@ -1587,6 +1594,7 @@
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
 				D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */,
 				D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */,
+				D2CF924222471D210009C06A /* Utils.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D22D0C8E22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
@@ -1669,6 +1677,7 @@
 				D284247C21D0358200C7171C /* Gateway+PMK.swift in Sources */,
 				D284247D21D0358200C7171C /* CopyLocationCounts.swift in Sources */,
 				D284247E21D0358200C7171C /* MBRecord.swift in Sources */,
+				D2CF924522471D210009C06A /* Utils.swift in Sources */,
 				D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */,
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
 				D22D0C9122426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
@@ -1751,6 +1760,7 @@
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
+				D2CF924322471D210009C06A /* Utils.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D22D0C8F22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
