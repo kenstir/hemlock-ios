@@ -47,6 +47,8 @@ class XDetailsNode: ASCellNode {
     private let actionButton: ASButtonNode
     private let copyInfoButton: ASButtonNode
     
+    //private let containerNode = ASDisplayNode()
+    private let scrollNode = ASScrollNode()
     private let synopsisNode = ASTextNode()
     private let subjectLabel = ASTextNode()
     private let subjectNode = ASTextNode()
@@ -154,6 +156,14 @@ class XDetailsNode: ASCellNode {
         setupCopySummary()
         setupButtons()
         
+        scrollNode.automaticallyManagesSubnodes = true
+        scrollNode.automaticallyManagesContentSize = true
+        scrollNode.layoutSpecBlock = { node, constrainedSize in
+            return self.pageLayoutSpec(constrainedSize)
+        }
+        
+        //containerNode.automaticallyManagesSubnodes = true
+        
         setupMultilineText(synopsisNode, str: record.synopsis, ofSize: 14)
         setupSubtitle(subjectLabel, str: "Subject:", ofSize: 14)
         setupMultilineText(subjectNode, str: record.subject, ofSize: 14)
@@ -249,6 +259,8 @@ class XDetailsNode: ASCellNode {
     //MARK: - Build node hierarchy
     
     private func buildNodeHierarchy() {
+        self.addSubnode(scrollNode)
+/*
         self.addSubnode(pageHeaderText)
         self.addSubnode(pageHeader)
         self.addSubnode(titleNode)
@@ -267,6 +279,7 @@ class XDetailsNode: ASCellNode {
         self.addSubnode(subjectNode)
         self.addSubnode(isbnLabel)
         self.addSubnode(isbnNode)
+ */
     }
     
     //MARK: - Layout
@@ -276,9 +289,11 @@ class XDetailsNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        return ASWrapperLayoutSpec(layoutElement: self.scrollNode)
+    }
+    func pageLayoutSpec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         // header row
 
-        //pageHeader.style.preferredLayoutSize = ASLayoutSize(width: ASDimensionMake("100%"), height: ASDimensionMake(35))
         pageHeaderText.style.alignSelf = .center
         let header = pageHeaderText
 
@@ -316,18 +331,16 @@ class XDetailsNode: ASCellNode {
         copyInfoButton.style.flexGrow = 1.0
         buttonsSpec.children = [actionButton, copyInfoButton]
         let buttonRow = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0), child: buttonsSpec)
-        
+
         // subject
         
         let subject = ASStackLayoutSpec.horizontal()
-//        subject.style.flexGrow = 1.0
         subjectLabel.style.preferredSize = CGSize(width: 64, height: 16)
         subject.children = [subjectLabel, subjectNode]
         
         // isbn
         
         let isbn = ASStackLayoutSpec.horizontal()
-//        isbn.style.flexGrow = 1.0
         isbnLabel.style.preferredSize = CGSize(width: 64, height: 16)
         isbn.children = [isbnLabel, isbnNode]
 
@@ -335,13 +348,13 @@ class XDetailsNode: ASCellNode {
 
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 8
-        pageSpec.style.preferredSize = constrainedSize.max
+        //pageSpec.style.preferredSize = constrainedSize.max
         pageSpec.children = [header, summary, copySummary,
                              buttonRow, synopsisNode, subject, isbn]
         print(pageSpec.asciiArtString())
         
         let page = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: pageSpec)
-
+        
         return page
     }
 

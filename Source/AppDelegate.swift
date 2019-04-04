@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.barTintColor = App.theme.primaryDarkColor
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         if #available(iOS 11.0, *) {
+            appearance.prefersLargeTitles = true
             appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         }
 

@@ -62,7 +62,7 @@ class AlamoTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 2.0)
+        wait(for: [expectation], timeout: 10.0)
     }
 
     // use responseData to get response as Data then decode it as JSON
@@ -97,7 +97,7 @@ class AlamoTests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 2.0)
+        wait(for: [expectation], timeout: 10.0)
     }
     
     // test using gatewayEncoding to encode as param=1&param=2
