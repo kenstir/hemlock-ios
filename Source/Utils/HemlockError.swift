@@ -19,6 +19,7 @@
 
 public enum HemlockError: Error {
     case unexpectedNetworkResponse(String)
+    case shouldNotHappen(String)
     case sessionExpired()
 }
 
@@ -27,6 +28,8 @@ extension HemlockError: LocalizedError {
         switch self {
         case .unexpectedNetworkResponse(let reason):
             return "Unexpected network response: \(reason)"
+        case .shouldNotHappen(let reason):
+            return reason
         case .sessionExpired():
             return "Session expired"
         }

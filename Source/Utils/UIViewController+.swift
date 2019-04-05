@@ -84,14 +84,14 @@ extension UIViewController {
         Style.styleAlertController(alertController)
         if Bundle.isTestFlightOrDebug && MFMailComposeViewController.canSendMail() {
             alertController.addAction(UIAlertAction(title: "Send report to developer", style: .destructive) { action in
-                self.sendBugReport(errorMessage: message)
+                self.sendErrorReport(errorMessage: message)
             })
         }
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true)
     }
     
-    private func sendBugReport(errorMessage: String) {
+    private func sendErrorReport(errorMessage: String) {
         guard let initialVC = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
             let vc = initialVC as? SendEmailViewController else { return }
         vc.to = App.config.bugReportEmailAddress

@@ -112,7 +112,6 @@ class XResultsViewController: ASViewController<ASTableNode> {
             return
         }
         guard let query = getQueryString() else {
-            showAlert(title: "Internal Error", message: "No search parameters")
             return
         }
         
@@ -167,7 +166,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     // e.g. "title:Harry Potter chamber of secrets search_format(book) site(MARLBORO)"
     func getQueryString() -> String? {
         guard let sp = searchParameters else {
-            self.showAlert(title: "Internal Error", message: "No search parameters")
+            showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing search parameters"))
             return nil
         }
         var query = "\(sp.searchClass):\(sp.text)"

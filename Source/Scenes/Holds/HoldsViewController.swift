@@ -252,14 +252,14 @@ class HoldsViewController: UIViewController {
             return
         }
         guard let holdID = hold.id else {
-            self.showAlert(title: "Internal Error", message: "Hold record has no ID")
+            self.showAlert(title: "Internal Error", error: HemlockError.unexpectedNetworkResponse("Hold record has no ID"))
             //TODO: analytics
             return
         }
 
         // confirm action
         let alertController = UIAlertController(title: "Cancel hold?", message: nil, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Keep Hold", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Keep Hold", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Cancel Hold", style: .default) { action in
             self.cancelHold(authtoken: authtoken, holdID: holdID)
         })

@@ -154,7 +154,7 @@ class CheckoutsViewController: UIViewController {
             return
         }
         guard let targetCopy = item.circObj?.getID("target_copy") else {
-            self.showAlert(title: "Error", message: "Circulation item has no target_copy")
+            self.showAlert(title: "Error", error: HemlockError.shouldNotHappen("Circulation item has no target_copy"))
             return
         }
 

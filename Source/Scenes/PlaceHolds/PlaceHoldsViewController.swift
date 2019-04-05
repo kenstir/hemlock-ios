@@ -213,8 +213,7 @@ class PlaceHoldsViewController: UIViewController {
         guard let recordID = record?.id,
             let pickupOrg = Organization.find(byName: self.selectedOrgName) else
         {
-            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
-            self.showAlert(title: "Internal error", message: "Internal error preparing to place hold")
+            self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing record ID or pickup org"))
             return
         }
         print("pickupOrg \(pickupOrg.id) \(pickupOrg.name) \(pickupOrg.isPickupLocation)")

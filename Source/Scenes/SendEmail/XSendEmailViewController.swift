@@ -68,7 +68,7 @@ class XSendEmailViewController: ASViewController<ASTextNode> {
     
     func sendEmail() {
         guard let to = self.to, let body = self.body else {
-            showAlert(title: "Internal Error", message: "No email parameters")
+            showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("No email parameters"))
             return
         }
         if MFMailComposeViewController.canSendMail() {

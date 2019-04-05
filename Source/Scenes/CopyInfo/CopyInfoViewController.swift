@@ -63,7 +63,7 @@ class CopyInfoViewController: UIViewController {
             let org = searchOrg else
         {
             //TODO: analytics
-            self.showAlert(title: "Internal Error", message: "No record or org to search")
+            self.showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing record ID or search org"))
             return
         }
         let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)

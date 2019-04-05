@@ -182,8 +182,7 @@ class SearchViewController: UIViewController {
             let formatText = options[searchFormatIndex].value,
             let searchOrg = Organization.getShortName(forName: options[searchLocationIndex].value?.trim()) else
         {
-            Analytics.logError(code: .shouldNotHappen, msg: "error during prepare", file: #file, line: #line)
-            self.showAlert(title: "Internal error", message: "Internal error preparing for search")
+            self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing search class, format, or org"))
             return
         }
         let searchFormat = Format.getSearchFormat(forSpinnerLabel: formatText)

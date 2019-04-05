@@ -61,7 +61,7 @@ class SendEmailViewController: UIViewController {
             let subject = self.subject,
             let body = self.body else
         {
-            showAlert(title: "Internal Error", message: "No email parameters")
+            showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("No email parameters"))
             return
         }
         if MFMailComposeViewController.canSendMail() {
