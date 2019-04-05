@@ -19,6 +19,7 @@
 
 import UIKit
 import MessageUI
+import PromiseKit
 import os.log
 
 extension UIViewController {
@@ -69,7 +70,7 @@ extension UIViewController {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 
-    //MARK: - showAlert
+    //MARK: - Error Handling
     
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -103,8 +104,6 @@ extension UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    //MARK: - Handling session expired errors
-    
     /// handle error in a promise chain by presenting the appropriate alert
     func presentGatewayAlert(forError error: Error, title: String = "Error") {
         if isSessionExpired(error: error) {
@@ -114,6 +113,24 @@ extension UIViewController {
             })
         } else {
             self.showAlert(title: title, error: error)
+        }
+    }
+    
+    func presentGatewayAlert(forResults results: [PromiseKit.Result<Void>]) {
+        var errors: [Error] = []
+        for result in results {
+            switch result {
+            case .fulfilled: //(let value):
+                break
+            case .rejected(let error):
+                errors.append(error)
+            }
+        }
+        if let error = errors.last, errors.count == 1 {
+            self.presentGatewayAlert(forError: error)
+        } else if let error = errors.last {
+            let title = "\(errors.count) Errors"
+            self.presentGatewayAlert(forError: error, title: title)
         }
     }
 
@@ -130,7 +147,7 @@ extension UIViewController {
         alertController.addAction(loginAction)
         self.present(alertController, animated: true)
     }
-    
+
     /// reset the VC stack to the Login VC (the initial VC on the Main storyboard)
     func popToLogin() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()

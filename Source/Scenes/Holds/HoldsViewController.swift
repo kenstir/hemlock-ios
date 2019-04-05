@@ -95,30 +95,13 @@ class HoldsViewController: UIViewController {
         os_log("%d promises made", log: self.log, type: .info, promises.count)
 
         firstly {
-            //when(fulfilled: promises)
             when(resolved: promises)
         }.done { results in
             os_log("%d promises done", log: self.log, type: .info, promises.count)
-            var holdError: Error? = nil
-            for result in results {
-                switch result {
-                case .fulfilled: //(let value):
-                    break
-                case .rejected(let error):
-                    holdError = error
-                }
-            }
             self.activityIndicator.stopAnimating()
+            self.presentGatewayAlert(forResults: results)
             self.updateItems()
-            if let error = holdError {
-                self.presentGatewayAlert(forError: error)
-            }
         }
-        /* no catch for when(resolved:)
-        .catch { error in
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forError: error)
-        }*/
     }
     
     func fetchHoldTargetDetails(hold: HoldRecord, authtoken: String) throws -> Promise<Void> {
