@@ -21,6 +21,7 @@ import UIKit
 import PromiseKit
 import PMKAlamofire
 import ToastSwiftFramework
+import os.log
 
 class CheckoutsViewController: UIViewController {
     
@@ -33,7 +34,8 @@ class CheckoutsViewController: UIViewController {
     var items: [CircRecord] = []
     var selectedItem: CircRecord?
     var didCompleteFetch = false
-    
+    let log = OSLog(subsystem: App.config.logSubsystem, category: "Checkouts")
+
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -95,17 +97,15 @@ class CheckoutsViewController: UIViewController {
             records.append(record)
             promises.append(fetchCircDetails(authtoken: authtoken, forCircRecord: record))
         }
-        print("xxx \(promises.count) promises made")
-        
+        os_log("%d promises made", log: self.log, type: .info, promises.count)
+
         firstly {
-            when(fulfilled: promises)
-        }.done {
-            print("xxx \(promises.count) promises fulfilled")
+            when(resolved: promises)
+        }.done { results in
+            os_log("%d promises done", log: self.log, type: .info, promises.count)
             self.activityIndicator.stopAnimating()
+            self.presentGatewayAlert(forResults: results)
             self.updateItems(withRecords: records)
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forError: error, title: "Error fetching circulation details")
         }
     }
     
