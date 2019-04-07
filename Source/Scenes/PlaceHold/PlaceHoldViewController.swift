@@ -1,5 +1,5 @@
 //
-//  PlaceHoldsViewController.swift
+//  PlaceHoldViewController.swift
 //
 //  Copyright (C) 2018 Erik Cox
 //
@@ -23,7 +23,7 @@ import PromiseKit
 import PMKAlamofire
 import os.log
 
-class PlaceHoldsViewController: UIViewController {
+class PlaceHoldViewController: UIViewController {
 
     //MARK: - Properties
     var record: MBRecord?
@@ -294,7 +294,7 @@ class PlaceHoldsViewController: UIViewController {
     }
 }
 
-extension PlaceHoldsViewController: UITextFieldDelegate {
+extension PlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

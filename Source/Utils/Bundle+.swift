@@ -34,9 +34,12 @@ extension Bundle {
     }
 
     static var isTestFlightOrDebug: Bool {
-        guard let path = Bundle.main.appStoreReceiptURL?.path else {
-            return false
-        }
+        guard let path = Bundle.main.appStoreReceiptURL?.path else { return false }
         return path.contains("sandboxReceipt") || path.contains("CoreSimulator")
+    }
+
+    static var isDebug: Bool {
+        guard let path = Bundle.main.appStoreReceiptURL?.path else { return false }
+        return path.contains("CoreSimulator")
     }
 }
