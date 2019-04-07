@@ -33,21 +33,20 @@ class XDetailsNode: ASCellNode {
     private let totalItems: Int
     private let displayOptions: RecordDisplayOptions
 
-    private let pageHeader: ASDisplayNode
-    private let pageHeaderText: ASTextNode
+    private let pageHeader = ASDisplayNode()
+    private let pageHeaderText = ASTextNode()
 
-    private let titleNode: ASTextNode
-    private let spacerNode: ASDisplayNode
-    private let authorNode: ASTextNode
-    private let formatNode: ASTextNode
-    private let publicationNode: ASTextNode
-    private let imageNode: ASNetworkImageNode
+    private let titleNode = ASTextNode()
+    private let spacerNode = ASDisplayNode()
+    private let authorNode = ASTextNode()
+    private let formatNode = ASTextNode()
+    private let publicationNode = ASTextNode()
+    private let imageNode = ASNetworkImageNode()
     
-    private let copySummaryNode: ASTextNode
-    private let actionButton: ASButtonNode
-    private let copyInfoButton: ASButtonNode
+    private let copySummaryNode = ASTextNode()
+    private let actionButton = ASButtonNode()
+    private let copyInfoButton = ASButtonNode()
     
-    //private let containerNode = ASDisplayNode()
     private let scrollNode = ASScrollNode()
     private let synopsisNode = ASTextNode()
     private let subjectLabel = ASTextNode()
@@ -62,19 +61,6 @@ class XDetailsNode: ASCellNode {
         self.itemIndex = index
         self.totalItems = totalItems
         self.displayOptions = displayOptions
-
-        pageHeader = ASDisplayNode()
-        pageHeaderText = ASTextNode()
-        titleNode = ASTextNode()
-        spacerNode = ASDisplayNode()
-        authorNode = ASTextNode()
-        formatNode = ASTextNode()
-        publicationNode = ASTextNode()
-        imageNode = ASNetworkImageNode()
-        
-        copySummaryNode = ASTextNode()
-        actionButton = ASButtonNode()
-        copyInfoButton = ASButtonNode()
 
         super.init()
         self.setupNodes()
