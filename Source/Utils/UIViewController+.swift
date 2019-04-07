@@ -93,8 +93,7 @@ extension UIViewController {
     }
     
     private func sendErrorReport(errorMessage: String) {
-        guard let initialVC = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController(),
-            let vc = initialVC as? SendEmailViewController else { return }
+        guard let vc = UIStoryboard(name: "SendEmail", bundle: nil).instantiateInitialViewController() as? SendEmailViewController else { return }
         vc.to = App.config.bugReportEmailAddress
         vc.subject = "[Hemlock] error report - \(Bundle.appName) \(Bundle.appVersion)"
         vc.body = "app: \(Bundle.appName)\n"
