@@ -26,6 +26,7 @@ import os.log
 class PlaceHoldViewController: UIViewController {
 
     //MARK: - Properties
+
     var record: MBRecord?
     let formats = Format.getSpinnerLabels()
     var orgLabels: [String] = []

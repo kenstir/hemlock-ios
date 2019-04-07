@@ -129,4 +129,23 @@ class Style {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .regular)]
         return NSAttributedString(string: str, attributes: attrs)
     }
+    
+    //MARK: - ASTextNode
+    
+    static func setupTitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = 18) {
+        textNode.attributedText = makeTitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 2
+        textNode.truncationMode = .byWordWrapping
+    }
+    
+    static func setupSubtitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = 16) {
+        textNode.attributedText = makeSubtitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 1
+        textNode.truncationMode = .byTruncatingTail
+    }
+
+    static func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
+        textNode.attributedText = makeSubtitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 0
+    }
 }

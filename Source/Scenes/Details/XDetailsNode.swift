@@ -130,10 +130,10 @@ class XDetailsNode: ASCellNode {
 
     private func setupNodes() {
         setupPageHeader()
-        setupTitle(titleNode, str: record.title, ofSize: 18)
-        setupSubtitle(authorNode, str: record.author, ofSize: 16)
-        setupSubtitle(formatNode, str: record.format, ofSize: 16)
-        setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
+        Style.setupTitle(titleNode, str: record.title)
+        Style.setupSubtitle(authorNode, str: record.author)
+        Style.setupSubtitle(formatNode, str: record.format)
+        Style.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
         setupImageNode()
         setupSpacerNode()
         
@@ -142,11 +142,11 @@ class XDetailsNode: ASCellNode {
         
         setupScrollNode()
         
-        setupMultilineText(synopsisNode, str: record.synopsis, ofSize: 14)
-        setupSubtitle(subjectLabel, str: "Subject:", ofSize: 14)
-        setupMultilineText(subjectNode, str: record.subject, ofSize: 14)
-        setupSubtitle(isbnLabel, str: "ISBN:", ofSize: 14)
-        setupMultilineText(isbnNode, str: record.isbn, ofSize: 14)
+        Style.setupMultilineText(synopsisNode, str: record.synopsis, ofSize: 14)
+        Style.setupSubtitle(subjectLabel, str: "Subject:", ofSize: 14)
+        Style.setupMultilineText(subjectNode, str: record.subject, ofSize: 14)
+        Style.setupSubtitle(isbnLabel, str: "ISBN:", ofSize: 14)
+        Style.setupMultilineText(isbnNode, str: record.isbn, ofSize: 14)
     }
     
     private func setupPageHeader() {
@@ -154,24 +154,6 @@ class XDetailsNode: ASCellNode {
         let str = "Showing Item \(naturalNumber) of \(totalItems)"
         pageHeaderText.attributedText = Style.makeTableHeaderString(str)
         pageHeader.backgroundColor = App.theme.tableHeaderBackground
-    }
-
-    private func setupTitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = Style.makeTitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 2
-        textNode.truncationMode = .byWordWrapping
-    }
-    
-    private func setupSubtitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = Style.makeSubtitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 1
-        textNode.truncationMode = .byTruncatingTail
-    }
-    
-    private func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = Style.makeSubtitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 0
-//        textNode.truncationMode = .byTruncatingTail
     }
 
     private func setupCopySummary() {
@@ -233,8 +215,6 @@ class XDetailsNode: ASCellNode {
     private func setupSpacerNode() {
         //self.spacerNode.backgroundColor = UIColor.red
     }
-    
-    //MARK: - Build node hierarchy
     
     private func buildNodeHierarchy() {
         self.addSubnode(scrollNode)

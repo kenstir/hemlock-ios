@@ -31,6 +31,7 @@ class MBRecord {
     var title: String { return mvrObj?.getString("title") ?? "Unknown" }
     var author: String { return mvrObj?.getString("author") ?? "Unknown" }
     var format: String { return Format.getDisplayLabel(forSearchFormat: searchFormat) }
+    var edition: String? { return mvrObj?.getString("edition") }
     var isbn: String { return mvrObj?.getString("isbn") ?? "" }
     var isOnlineResource: Bool {
         if let onlineLocation = self.onlineLocation,
