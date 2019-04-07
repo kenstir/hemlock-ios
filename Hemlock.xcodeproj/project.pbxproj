@@ -130,7 +130,7 @@
 		D276DA9B21336B20007FAA31 /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D276DA9C21336B20007FAA31 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D276DA9D21336B20007FAA31 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
-		D276DA9E21336B20007FAA31 /* PlaceHoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */; };
+		D276DA9E21336B20007FAA31 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldViewController.swift */; };
 		D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D276DAA021336B20007FAA31 /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D276DAA221336B20007FAA31 /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
@@ -178,7 +178,7 @@
 		D276DAD021336B20007FAA31 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D276DAD221336B20007FAA31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
-		D276DAD521336B20007FAA31 /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
+		D276DAD521336B20007FAA31 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHold.storyboard */; };
 		D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
 		D276DAD821336B20007FAA31 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
@@ -281,7 +281,7 @@
 		D284246221D0358200C7171C /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D284246321D0358200C7171C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D284246421D0358200C7171C /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
-		D284246521D0358200C7171C /* PlaceHoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */; };
+		D284246521D0358200C7171C /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldViewController.swift */; };
 		D284246621D0358200C7171C /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D284246721D0358200C7171C /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D284246821D0358200C7171C /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
@@ -335,7 +335,7 @@
 		D284249C21D0358200C7171C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D284249E21D0358200C7171C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
 		D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
-		D28424A221D0358200C7171C /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
+		D28424A221D0358200C7171C /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHold.storyboard */; };
 		D28424A321D0358200C7171C /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D28424A421D0358200C7171C /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
 		D28424A521D0358200C7171C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
@@ -422,11 +422,11 @@
 		FA57B93920EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
-		FA88B4A220F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */; };
-		FA88B4A320F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */; };
-		FA88B4C620FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
-		FA88B4C720FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
-		FA88B4C820FC1B10000F211F /* PlaceHolds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */; };
+		FA88B4A220F91ED4000F211F /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldViewController.swift */; };
+		FA88B4A320F91ED4000F211F /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B4A120F91ED4000F211F /* PlaceHoldViewController.swift */; };
+		FA88B4C620FC1B10000F211F /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHold.storyboard */; };
+		FA88B4C720FC1B10000F211F /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHold.storyboard */; };
+		FA88B4C820FC1B10000F211F /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88B4C520FC1B10000F211F /* PlaceHold.storyboard */; };
 		FAA9E31921962296006BA666 /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		FAA9E31A21962296006BA666 /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
@@ -593,8 +593,8 @@
 		FA37C3F820FC2A09003C2003 /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
 		FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsTableViewCell.swift; sourceTree = "<group>"; };
 		FA64C95F20E04D34009973E5 /* MBRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRecord.swift; sourceTree = "<group>"; };
-		FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldsViewController.swift; sourceTree = "<group>"; };
-		FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaceHolds.storyboard; sourceTree = "<group>"; };
+		FA88B4A120F91ED4000F211F /* PlaceHoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldViewController.swift; sourceTree = "<group>"; };
+		FA88B4C520FC1B10000F211F /* PlaceHold.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlaceHold.storyboard; sourceTree = "<group>"; };
 		FAA9E31821962296006BA666 /* ShowCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowCardViewController.swift; sourceTree = "<group>"; };
 		FACD141C20CDACFF008F02D3 /* Fines.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Fines.storyboard; path = Source/Scenes/Fines/Fines.storyboard; sourceTree = SOURCE_ROOT; };
 		FACD142020CDB01C008F02D3 /* Holds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Holds.storyboard; sourceTree = "<group>"; };
@@ -722,7 +722,7 @@
 				D212DB1620C37B2600267503 /* Login */,
 				D212DB1520C37B0600267503 /* Main */,
 				D20BDB752214B84F00BB6A5F /* Options */,
-				FA88B4C420FC1AF9000F211F /* PlaceHolds */,
+				FA88B4C420FC1AF9000F211F /* PlaceHold */,
 				FACD142520CDC0C9008F02D3 /* Search */,
 				D22D0C8C22426B3800DBB31A /* SendEmail */,
 				D27DF20021AA3B65002DCC47 /* ShowCard */,
@@ -1025,13 +1025,13 @@
 			path = "swift-algorithm-club";
 			sourceTree = "<group>";
 		};
-		FA88B4C420FC1AF9000F211F /* PlaceHolds */ = {
+		FA88B4C420FC1AF9000F211F /* PlaceHold */ = {
 			isa = PBXGroup;
 			children = (
-				FA88B4C520FC1B10000F211F /* PlaceHolds.storyboard */,
-				FA88B4A120F91ED4000F211F /* PlaceHoldsViewController.swift */,
+				FA88B4C520FC1B10000F211F /* PlaceHold.storyboard */,
+				FA88B4A120F91ED4000F211F /* PlaceHoldViewController.swift */,
 			);
-			path = PlaceHolds;
+			path = PlaceHold;
 			sourceTree = "<group>";
 		};
 		FACD141920CDA97E008F02D3 /* Fines */ = {
@@ -1222,7 +1222,7 @@
 				D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */,
 				D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */,
 				D2F390322241E5950089D745 /* LICENSE.txt in Resources */,
-				D276DAD521336B20007FAA31 /* PlaceHolds.storyboard in Resources */,
+				D276DAD521336B20007FAA31 /* PlaceHold.storyboard in Resources */,
 				D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */,
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
 				D276DAD821336B20007FAA31 /* Search.storyboard in Resources */,
@@ -1244,7 +1244,7 @@
 				D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
-				FA88B4C620FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
+				FA88B4C620FC1B10000F211F /* PlaceHold.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390302241E5950089D745 /* LICENSE.txt in Resources */,
@@ -1265,7 +1265,7 @@
 			files = (
 				D284249E21D0358200C7171C /* LaunchScreen.storyboard in Resources */,
 				D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */,
-				D28424A221D0358200C7171C /* PlaceHolds.storyboard in Resources */,
+				D28424A221D0358200C7171C /* PlaceHold.storyboard in Resources */,
 				D2F390332241E5950089D745 /* LICENSE.txt in Resources */,
 				D21867A521D039CE0082358C /* cool.xcassets in Resources */,
 				D28424A321D0358200C7171C /* Holds.storyboard in Resources */,
@@ -1289,7 +1289,7 @@
 				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
-				FA88B4C720FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
+				FA88B4C720FC1B10000F211F /* PlaceHold.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
@@ -1308,7 +1308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA88B4C820FC1B10000F211F /* PlaceHolds.storyboard in Resources */,
+				FA88B4C820FC1B10000F211F /* PlaceHold.storyboard in Resources */,
 				D2385E2E20914E6C00FE0C89 /* TestData in Resources */,
 				D29C720E209245E200E90952 /* TestUserData in Resources */,
 			);
@@ -1482,7 +1482,7 @@
 				D276DA9B21336B20007FAA31 /* Corsortium.swift in Sources */,
 				D276DA9C21336B20007FAA31 /* App.swift in Sources */,
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
-				D276DA9E21336B20007FAA31 /* PlaceHoldsViewController.swift in Sources */,
+				D276DA9E21336B20007FAA31 /* PlaceHoldViewController.swift in Sources */,
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
 				D276DAA021336B20007FAA31 /* SMSCarrier.swift in Sources */,
 				D276DAA221336B20007FAA31 /* HemlockError.swift in Sources */,
@@ -1565,7 +1565,7 @@
 				D27990D620DDD473003B451E /* Corsortium.swift in Sources */,
 				D27990D720DDD473003B451E /* App.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
-				FA88B4A220F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */,
+				FA88B4A220F91ED4000F211F /* PlaceHoldViewController.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
 				D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */,
 				D2A74B1921289F2E001D4B0F /* HemlockAppConfiguration.swift in Sources */,
@@ -1649,7 +1649,7 @@
 				D284246221D0358200C7171C /* Corsortium.swift in Sources */,
 				D284246321D0358200C7171C /* App.swift in Sources */,
 				D284246421D0358200C7171C /* Library.swift in Sources */,
-				D284246521D0358200C7171C /* PlaceHoldsViewController.swift in Sources */,
+				D284246521D0358200C7171C /* PlaceHoldViewController.swift in Sources */,
 				D284246621D0358200C7171C /* GatewayResponse.swift in Sources */,
 				D284246721D0358200C7171C /* SMSCarrier.swift in Sources */,
 				D2F390372241E5950089D745 /* RingBuffer.swift in Sources */,
@@ -1731,7 +1731,7 @@
 				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
-				FA88B4A320F91ED4000F211F /* PlaceHoldsViewController.swift in Sources */,
+				FA88B4A320F91ED4000F211F /* PlaceHoldViewController.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,

@@ -70,7 +70,9 @@ class MainViewController: UIViewController {
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
-        //buttons.append(("My Lists", "ShowListsSegue", nil))
+        if Bundle.isDebug {
+            buttons.append(("My Lists", "ShowListsSegue", nil))
+        }
     }
 
     func setupViews() {
