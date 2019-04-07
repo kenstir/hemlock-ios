@@ -1,6 +1,6 @@
 # Handling the Virtual Keyboard
 
-I had a lot of trouble handling the virtual keyboard, e.g. it would appear and occlude the fields you were trying to edit.  Here is the pattern I adopted (with a lot of help from StackOverflow):
+I had a lot of trouble handling the virtual keyboard, e.g. it would appear and occlude the fields you were trying to edit.  Here is the pattern I adopted for UIKit and Storyboard-based views (with a lot of help from StackOverflow).  NB, the pattern is similar for Texture-based view.
 
 ## Create View Hierarchy
 * Create a ScrollView as the only child of the top View

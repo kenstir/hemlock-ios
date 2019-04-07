@@ -20,15 +20,6 @@
 import Foundation
 import UIKit
 
-struct MainViewButtonData {
-    let title: String
-    let segue: String
-    init(_ title: String, _ segue: String) {
-        self.title = title
-        self.segue = segue
-    }
-}
-
 class MainViewController: UIViewController {
     
     //MARK: - fields
@@ -71,7 +62,8 @@ class MainViewController: UIViewController {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
         if Bundle.isDebug {
-            buttons.append(("My Lists", "ShowListsSegue", nil))
+            //buttons.append(("My Lists", "ShowListsSegue", nil))
+            buttons.append(("Holds", "", XPlaceHoldViewController.self))
         }
     }
 

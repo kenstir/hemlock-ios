@@ -23,6 +23,10 @@
 		D21867A221D039BF0082358C /* CoolTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679F21D039BF0082358C /* CoolTheme.swift */; };
 		D21867A321D039BF0082358C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21867A021D039BF0082358C /* AppSettings.swift */; };
 		D21867A521D039CE0082358C /* cool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21867A421D039CE0082358C /* cool.xcassets */; };
+		D21FF6DB225A6FEA00D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
+		D21FF6DC225A6FEF00D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
+		D21FF6DD225A6FF000D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
+		D21FF6DE225A6FF100D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2211B0620D0BA840043947B /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
@@ -466,6 +470,7 @@
 		D218679F21D039BF0082358C /* CoolTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolTheme.swift; sourceTree = "<group>"; };
 		D21867A021D039BF0082358C /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		D21867A421D039CE0082358C /* cool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cool.xcassets; sourceTree = "<group>"; };
+		D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPlaceHoldViewController.swift; sourceTree = "<group>"; };
 		D2211B0320CF68590043947B /* Checkouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkouts.storyboard; sourceTree = "<group>"; };
 		D2211B0520D0BA840043947B /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
 		D22438AB20D357E900D098D0 /* HoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsViewController.swift; sourceTree = "<group>"; };
@@ -1030,6 +1035,7 @@
 			children = (
 				FA88B4C520FC1B10000F211F /* PlaceHold.storyboard */,
 				FA88B4A120F91ED4000F211F /* PlaceHoldViewController.swift */,
+				D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */,
 			);
 			path = PlaceHold;
 			sourceTree = "<group>";
@@ -1500,6 +1506,7 @@
 				D276DAA921336B20007FAA31 /* UIView+UYLExtensions.swift in Sources */,
 				D276DAAA21336B20007FAA31 /* CircRecord.swift in Sources */,
 				D276DAAB21336B20007FAA31 /* CheckoutsViewController.swift in Sources */,
+				D21FF6DD225A6FF000D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */,
 				D276DAAC21336B20007FAA31 /* Theme.swift in Sources */,
 				D276DAAE21336B20007FAA31 /* XUtils.swift in Sources */,
@@ -1583,6 +1590,7 @@
 				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
 				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
 				D27990DF20DDD473003B451E /* Theme.swift in Sources */,
+				D21FF6DB225A6FEA00D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D279911820DDE11E003B451E /* AppSettings.swift in Sources */,
 				D2DE83EC20F5AC280027FAA1 /* XUtils.swift in Sources */,
 				D27990E020DDD473003B451E /* Analytics.swift in Sources */,
@@ -1666,6 +1674,7 @@
 				D284247121D0358200C7171C /* UIView+UYLExtensions.swift in Sources */,
 				D284247221D0358200C7171C /* CircRecord.swift in Sources */,
 				D284247321D0358200C7171C /* CheckoutsViewController.swift in Sources */,
+				D21FF6DE225A6FF100D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D284247521D0358200C7171C /* Theme.swift in Sources */,
 				D284247621D0358200C7171C /* XUtils.swift in Sources */,
 				D284247721D0358200C7171C /* Analytics.swift in Sources */,
@@ -1749,6 +1758,7 @@
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
+				D21FF6DC225A6FEF00D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */,
 				D2DF196820CEF68700085255 /* Analytics.swift in Sources */,
