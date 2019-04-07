@@ -26,26 +26,20 @@ class XResultsTableNode: ASCellNode {
     
     private let record: MBRecord
     
-    private let titleNode: ASTextNode
-    private let spacerNode: ASDisplayNode
-    private let authorNode: ASTextNode
-    private let formatNode: ASTextNode
-    private let imageNode: ASNetworkImageNode
+    private let titleNode = ASTextNode()
+    private let spacerNode = ASDisplayNode()
+    private let authorNode = ASTextNode()
+    private let formatNode = ASTextNode()
+    private let imageNode = ASNetworkImageNode()
     private var disclosureNode: ASDisplayNode
-    private let separatorNode: ASDisplayNode
+    private let separatorNode = ASDisplayNode()
     
     //MARK: - Lifecycle
     
     init(record: MBRecord) {
         self.record = record
 
-        titleNode = ASTextNode()
-        spacerNode = ASDisplayNode()
-        authorNode = ASTextNode()
-        formatNode = ASTextNode()
-        imageNode = ASNetworkImageNode()
         disclosureNode = XUtils.makeDisclosureNode()
-        separatorNode = ASDisplayNode()
 
         super.init()
         self.setupNodes()
