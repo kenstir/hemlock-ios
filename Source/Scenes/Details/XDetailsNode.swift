@@ -134,8 +134,7 @@ class XDetailsNode: ASCellNode {
 
     @objc func placeHoldPressed(sender: Any) {
         guard let myVC = self.closestViewController,
-            let placeHoldVC = UIStoryboard(name: "PlaceHold", bundle: nil).instantiateInitialViewController(),
-            let vc = placeHoldVC as? PlaceHoldViewController else { return }
+            let vc = UIStoryboard(name: "PlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController else { return }
         
         vc.record = record
         myVC.navigationController?.pushViewController(vc, animated: true)
@@ -155,13 +154,7 @@ class XDetailsNode: ASCellNode {
         setupCopySummary()
         setupButtons()
         
-        scrollNode.automaticallyManagesSubnodes = true
-        scrollNode.automaticallyManagesContentSize = true
-        scrollNode.layoutSpecBlock = { node, constrainedSize in
-            return self.pageLayoutSpec(constrainedSize)
-        }
-        
-        //containerNode.automaticallyManagesSubnodes = true
+        setupScrollNode()
         
         setupMultilineText(synopsisNode, str: record.synopsis, ofSize: 14)
         setupSubtitle(subjectLabel, str: "Subject:", ofSize: 14)
@@ -259,29 +252,17 @@ class XDetailsNode: ASCellNode {
     
     private func buildNodeHierarchy() {
         self.addSubnode(scrollNode)
-/*
-        self.addSubnode(pageHeaderText)
-        self.addSubnode(pageHeader)
-        self.addSubnode(titleNode)
-        self.addSubnode(spacerNode)
-        self.addSubnode(authorNode)
-        self.addSubnode(formatNode)
-        self.addSubnode(publicationNode)
-        self.addSubnode(imageNode)
-
-        self.addSubnode(copySummaryNode)
-        self.addSubnode(actionButton)
-        self.addSubnode(copyInfoButton)
-        
-        self.addSubnode(synopsisNode)
-        self.addSubnode(subjectLabel)
-        self.addSubnode(subjectNode)
-        self.addSubnode(isbnLabel)
-        self.addSubnode(isbnNode)
- */
     }
     
     //MARK: - Layout
+    //
+    // Zen of this layout:
+    // * DetailsNode has scrollNode as its only child
+    // * scrollNode children are all automatically managed
+    // * scrollNode.layoutSpecBlock is closure around pageLayoutSpec
+    //
+    // This is all to workaround a scrollNode issue in the manner described in
+    // https://github.com/TextureGroup/Texture/issues/774
     
     override func layout() {
         super.layout()
@@ -290,6 +271,15 @@ class XDetailsNode: ASCellNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         return ASWrapperLayoutSpec(layoutElement: self.scrollNode)
     }
+    
+    func setupScrollNode() {
+        scrollNode.automaticallyManagesSubnodes = true
+        scrollNode.automaticallyManagesContentSize = true
+        scrollNode.layoutSpecBlock = { node, constrainedSize in
+            return self.pageLayoutSpec(constrainedSize)
+        }
+    }
+
     func pageLayoutSpec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         // header row
 
