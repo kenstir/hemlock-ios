@@ -37,9 +37,19 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let containerNode = ASDisplayNode()
     let scrollNode = ASScrollNode()
     let titleNode = ASTextNode()
-//    let spacerNode = ASDisplayNode()
     let authorNode = ASTextNode()
     let formatNode = ASTextNode()
+    let pickupLabel = ASTextNode()
+    let pickupNode = ASTextNode()
+    let emailLabel = ASTextNode()
+    let emailSwitch = ASDisplayNode()
+    let emailNode = ASTextNode()
+    let smsLabel = ASTextNode()
+    let smsSwitch = ASDisplayNode()
+    let smsNode = ASTextNode()
+    let carrierLabel = ASTextNode()
+    let carrierNode = ASTextNode()
+    let placeHoldButton = ASButtonNode()
 
     //MARK: - Lifecycle
     
