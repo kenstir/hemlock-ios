@@ -71,7 +71,7 @@ class CheckoutsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            presentGatewayAlert(forError: HemlockError.sessionExpired())
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
         
@@ -150,7 +150,7 @@ class CheckoutsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
         {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
         guard let targetCopy = item.circObj?.getID("target_copy") else {

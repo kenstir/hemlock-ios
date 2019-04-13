@@ -87,7 +87,7 @@ class FinesViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
         

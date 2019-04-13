@@ -20,7 +20,7 @@
 public enum HemlockError: Error {
     case unexpectedNetworkResponse(String)
     case shouldNotHappen(String)
-    case sessionExpired()
+    case sessionExpired
 }
 
 extension HemlockError: LocalizedError {
