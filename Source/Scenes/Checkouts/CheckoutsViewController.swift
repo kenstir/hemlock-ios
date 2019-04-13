@@ -49,9 +49,10 @@ class CheckoutsViewController: UIViewController {
         // deselect row when navigating back
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
+        } else {
+            // don't fetch data when navigating back
+            self.fetchData()
         }
-
-        self.fetchData()
     }
 
     //MARK: - Functions
