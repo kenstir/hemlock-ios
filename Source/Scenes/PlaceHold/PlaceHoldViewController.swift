@@ -208,7 +208,7 @@ class PlaceHoldViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
         {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
         guard let recordID = record?.id,

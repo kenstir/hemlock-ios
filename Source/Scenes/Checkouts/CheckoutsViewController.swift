@@ -49,9 +49,10 @@ class CheckoutsViewController: UIViewController {
         // deselect row when navigating back
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
+        } else {
+            // don't fetch data when navigating back
+            self.fetchData()
         }
-
-        self.fetchData()
     }
 
     //MARK: - Functions
@@ -71,7 +72,7 @@ class CheckoutsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            presentGatewayAlert(forError: HemlockError.sessionExpired())
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
         
@@ -150,7 +151,7 @@ class CheckoutsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
         {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
         guard let targetCopy = item.circObj?.getID("target_copy") else {

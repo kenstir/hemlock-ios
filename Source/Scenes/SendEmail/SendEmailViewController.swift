@@ -92,6 +92,8 @@ extension SendEmailViewController: MFMailComposeViewControllerDelegate {
         case .failed: return "Sending failed"
         case .saved: return "Not sent, draft saved"
         case .sent: return "Sent, thank you!"
+        @unknown default:
+            return "Unknown error"
         }
     }
 
