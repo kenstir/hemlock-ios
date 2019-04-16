@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
 
-    var buttons: [(String, String, UIViewController.Type?)] = []
+    var buttons: [(String, String, (() -> UIViewController)?)] = []
     
     //MARK: - UIViewController
     
@@ -62,8 +62,19 @@ class MainViewController: UIViewController {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
         if Bundle.isDebug {
-            //buttons.append(("My Lists", "ShowListsSegue", nil))
-            buttons.append(("Holds", "", XPlaceHoldViewController.self))
+            ///--------------------------------------------------------------
+            /// shortcut to XResultsVC
+            /// kcxxx todo remove this
+            ///--------------------------------------------------------------
+            buttons.append(("kcxxx place hold", "", {
+                let vc = XResultsViewController()
+                if App.config.title == "Hemlock" {
+                    vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil)
+                } else {
+                    vc.searchParameters = SearchParameters(text: "the names they gave us", searchClass: "title", searchFormat: "book", organizationShortName: nil)
+                }
+                return vc
+            }))
         }
     }
 
@@ -146,8 +157,8 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuple = buttons[indexPath.row]
         let segue = tuple.1
-        if let vctype = tuple.2 {
-            let vc = vctype.init()
+        if let vcfunc = tuple.2 {
+            let vc = vcfunc()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             self.performSegue(withIdentifier: segue, sender: nil)

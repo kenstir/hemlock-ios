@@ -36,11 +36,13 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     let containerNode = ASDisplayNode()
     let scrollNode = ASScrollNode()
+
     let titleNode = ASTextNode()
     let authorNode = ASTextNode()
     let formatNode = ASTextNode()
+    let spacerNode = ASDisplayNode()
     let pickupLabel = ASTextNode()
-    let pickupNode = ASTextNode()
+    let pickupNode = ASButtonNode()
     let emailLabel = ASTextNode()
     let emailSwitch = ASDisplayNode()
     let emailNode = ASTextNode()
@@ -57,21 +59,25 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         self.record = record
 
         super.init(node: containerNode)
-//        self.setupNodes()
-//        self.buildNodeHierarchy()
         self.title = "Place Hold"
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     //MARK: - Setup
     
     func setupNodes() {
         Style.setupTitle(titleNode, str: record.title)
         Style.setupSubtitle(authorNode, str: record.author)
         Style.setupSubtitle(formatNode, str: record.format)
+        
+        pickupLabel.attributedText = Style.makeString("Pickup location:")
+        Style.styleButton(asInverse: pickupNode)
+        
+        emailLabel.attributedText = Style.makeString("Email notification:")
+        emailSwitch
         
         setupContainerNode()
         setupScrollNode()
@@ -119,15 +125,27 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     func pageLayoutSpec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 
-        let lhsSpec = ASStackLayoutSpec.vertical()
-//        lhsSpec.style.flexShrink = 1.0
-//        lhsSpec.style.flexGrow = 1.0
-//        spacerNode.style.flexShrink = 1.0
-//        spacerNode.style.flexGrow = 1.0
-        //        lhsSpec.children = [titleNode, spacerNode, authorNode, formatNode]
-        lhsSpec.children = [titleNode, authorNode, formatNode]
+        let summarySpec = ASStackLayoutSpec.vertical()
+        summarySpec.children = [titleNode, authorNode, formatNode]
+        
+        let labelPreferredSize = CGSize(width: 128, height: 16)
 
-        let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 4.0), child: lhsSpec)
+        pickupLabel.style.preferredSize = labelPreferredSize
+        let pickupRowSpec = ASStackLayoutSpec.horizontal()
+        pickupRowSpec.style.flexGrow = 1.0
+        pickupRowSpec.style.flexShrink = 1.0
+        pickupRowSpec.children = [pickupLabel, pickupNode]
+        
+        emailLabel.style.preferredSize = labelPreferredSize
+        let emailRowSpec = ASStackLayoutSpec.horizontal()
+        emailRowSpec.style.flexGrow = 1.0
+        emailRowSpec.style.flexShrink = 1.0
+        emailRowSpec.children = [emailLabel, emailSwitch]
+
+        let pageSpec = ASStackLayoutSpec.vertical()
+        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec]
+
+        let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 4.0), child: pageSpec)
         print(spec.asciiArtString())
         return spec
      }
