@@ -79,7 +79,7 @@ class ShowCardViewController: UIViewController {
     func fetchData() {
         guard let account = App.account else
         {
-            presentGatewayAlert(forError: HemlockError.sessionExpired())
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
 

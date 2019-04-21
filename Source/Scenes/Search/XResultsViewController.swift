@@ -108,7 +108,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
             return
         }
         guard let authtoken = App.account?.authtoken else {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
         guard let query = getQueryString() else {

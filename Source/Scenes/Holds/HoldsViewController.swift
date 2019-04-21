@@ -65,7 +65,7 @@ class HoldsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
         
@@ -85,7 +85,7 @@ class HoldsViewController: UIViewController {
     
     func fetchHoldDetails() throws {
         guard let authtoken = App.account?.authtoken else {
-            throw HemlockError.sessionExpired()
+            throw HemlockError.sessionExpired
         }
         var promises: [Promise<Void>] = []
         for hold in self.items {
@@ -231,7 +231,7 @@ class HoldsViewController: UIViewController {
         let hold = items[sender.tag]
         guard let authtoken = App.account?.authtoken else
         {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
         guard let holdID = hold.id else {

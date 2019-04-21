@@ -87,7 +87,7 @@ class ListsViewController: UIViewController {
     @objc func firstButtonPressed(sender: Any) {
         // JUNK!  just display one book jacket
         guard let authtoken = App.account?.authtoken else {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired())
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
         let records = [MBRecord(id: 71844)]//5859894
