@@ -44,10 +44,13 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let pickupLabel = ASTextNode()
     let pickupNode = ASButtonNode()
     let emailLabel = ASTextNode()
-    let emailSwitch = ASDisplayNode()
-    let emailNode = ASTextNode()
+    let emailSwitch = ASDisplayNode { () -> UIView in
+        return UISwitch()
+    }
     let smsLabel = ASTextNode()
-    let smsSwitch = ASDisplayNode()
+    let smsSwitch = ASDisplayNode { () -> UIView in
+        return UISwitch()
+    }
     let smsNode = ASTextNode()
     let carrierLabel = ASTextNode()
     let carrierNode = ASTextNode()
@@ -73,11 +76,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         Style.setupSubtitle(authorNode, str: record.author)
         Style.setupSubtitle(formatNode, str: record.format)
         
-        pickupLabel.attributedText = Style.makeString("Pickup location:")
-        Style.styleButton(asInverse: pickupNode)
-        
-        emailLabel.attributedText = Style.makeString("Email notification:")
-        emailSwitch
+        setupPickupRow()
+        setupEmailRow()
+        setupSmsRow1()
         
         setupContainerNode()
         setupScrollNode()
@@ -107,6 +108,19 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 //    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 //        return ASWrapperLayoutSpec(layoutElement: self.scrollNode)
 //    }
+    func setupPickupRow() {
+        pickupLabel.attributedText = Style.makeString("Pickup location:")
+        Style.styleButton(asInverse: pickupNode)
+    }
+
+    func setupEmailRow() {
+        emailLabel.attributedText = Style.makeString("Email notification:")
+    }
+
+    func setupSmsRow1() {
+        smsLabel.attributedText = Style.makeString("SMS notification:")
+        smsNode.attributedText = Style.makeString("508-555-1212")
+    }
 
     func setupContainerNode() {
         containerNode.automaticallyManagesSubnodes = true
@@ -114,7 +128,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             return ASWrapperLayoutSpec(layoutElement: self.scrollNode)
         }
     }
-    
+
     func setupScrollNode() {
         scrollNode.automaticallyManagesSubnodes = true
         scrollNode.automaticallyManagesContentSize = true
@@ -125,29 +139,36 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     func pageLayoutSpec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 
+        // summary
         let summarySpec = ASStackLayoutSpec.vertical()
         summarySpec.children = [titleNode, authorNode, formatNode]
         
-        let labelPreferredSize = CGSize(width: 128, height: 16)
+        let labelMinWidth = ASDimensionMake(140)
 
-        pickupLabel.style.preferredSize = labelPreferredSize
+        // pickup row
+        pickupLabel.style.minWidth = labelMinWidth
         let pickupRowSpec = ASStackLayoutSpec.horizontal()
-        pickupRowSpec.style.flexGrow = 1.0
-        pickupRowSpec.style.flexShrink = 1.0
         pickupRowSpec.children = [pickupLabel, pickupNode]
-        
-        emailLabel.style.preferredSize = labelPreferredSize
-        let emailRowSpec = ASStackLayoutSpec.horizontal()
-        emailRowSpec.style.flexGrow = 1.0
-        emailRowSpec.style.flexShrink = 1.0
-        emailRowSpec.children = [emailLabel, emailSwitch]
+        pickupRowSpec.style.spacingBefore = 14
 
+        // email row
+        emailLabel.style.minWidth = labelMinWidth
+        let emailRowSpec = ASStackLayoutSpec.horizontal()
+        emailRowSpec.alignItems = .center
+        emailRowSpec.children = [emailLabel, emailSwitch]
+        
+        // sms row1
+        smsLabel.style.minWidth = labelMinWidth
+        let smsRow1Spec = ASStackLayoutSpec.horizontal()
+        smsRow1Spec.alignItems = .center
+        smsRow1Spec.children = [smsLabel, smsSwitch, smsNode]
+
+        // page
         let pageSpec = ASStackLayoutSpec.vertical()
-        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec]
+        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec, smsRow1Spec]
 
         let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 4.0), child: pageSpec)
         print(spec.asciiArtString())
         return spec
      }
 }
-
