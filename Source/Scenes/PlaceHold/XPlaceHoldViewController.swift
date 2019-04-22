@@ -51,7 +51,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let smsSwitch = ASDisplayNode { () -> UIView in
         return UISwitch()
     }
-    let smsNode = ASTextNode()
+    let smsNode = ASEditableTextNode()
     let carrierLabel = ASTextNode()
     let carrierNode = ASTextNode()
     let placeHoldButton = ASButtonNode()
@@ -105,9 +105,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     //MARK: - Layout
     
-//    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-//        return ASWrapperLayoutSpec(layoutElement: self.scrollNode)
-//    }
     func setupPickupRow() {
         pickupLabel.attributedText = Style.makeString("Pickup location:")
         Style.styleButton(asInverse: pickupNode)
@@ -119,7 +116,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     func setupSmsRow1() {
         smsLabel.attributedText = Style.makeString("SMS notification:")
-        smsNode.attributedText = Style.makeString("508-555-1212")
+        smsNode.attributedPlaceholderText = NSAttributedString(string: "Phone number")
     }
 
     func setupContainerNode() {
@@ -143,22 +140,27 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let summarySpec = ASStackLayoutSpec.vertical()
         summarySpec.children = [titleNode, authorNode, formatNode]
         
+        // shared sizes
+        // TIP: set preferredSize on a wrapped UIView or it ends up being (0,0)
         let labelMinWidth = ASDimensionMake(140)
+        let switchPreferredSize = CGSize(width: 51, height: 31)
 
         // pickup row
         pickupLabel.style.minWidth = labelMinWidth
         let pickupRowSpec = ASStackLayoutSpec.horizontal()
         pickupRowSpec.children = [pickupLabel, pickupNode]
-        pickupRowSpec.style.spacingBefore = 14
+        pickupRowSpec.style.spacingBefore = 28
 
         // email row
         emailLabel.style.minWidth = labelMinWidth
+        emailSwitch.style.preferredSize = switchPreferredSize
         let emailRowSpec = ASStackLayoutSpec.horizontal()
         emailRowSpec.alignItems = .center
         emailRowSpec.children = [emailLabel, emailSwitch]
         
         // sms row1
         smsLabel.style.minWidth = labelMinWidth
+        smsSwitch.style.preferredSize = switchPreferredSize
         let smsRow1Spec = ASStackLayoutSpec.horizontal()
         smsRow1Spec.alignItems = .center
         smsRow1Spec.children = [smsLabel, smsSwitch, smsNode]
