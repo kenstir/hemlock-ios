@@ -47,13 +47,22 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let emailSwitch = ASDisplayNode { () -> UIView in
         return UISwitch()
     }
+    let phoneLabel = ASTextNode()
+    let phoneSwitch = ASDisplayNode { () -> UIView in
+        return UISwitch()
+    }
+    let phoneNode = ASDisplayNode { () -> UIView in
+        return UITextField()
+    }
     let smsLabel = ASTextNode()
     let smsSwitch = ASDisplayNode { () -> UIView in
         return UISwitch()
     }
-    let smsNode = ASEditableTextNode()
+    let smsNode = ASDisplayNode { () -> UIView in
+        return UITextField()
+    }
     let carrierLabel = ASTextNode()
-    let carrierNode = ASTextNode()
+    let carrierNode = ASButtonNode()
     let placeHoldButton = ASButtonNode()
 
     //MARK: - Lifecycle
@@ -78,7 +87,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         
         setupPickupRow()
         setupEmailRow()
-        setupSmsRow1()
+        setupPhoneRow()
+        setupSmsRow()
+        setupCarrierRow()
         
         setupContainerNode()
         setupScrollNode()
@@ -113,10 +124,28 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     func setupEmailRow() {
         emailLabel.attributedText = Style.makeString("Email notification:")
     }
+    
+    func setupPhoneRow() {
+        phoneLabel.attributedText = Style.makeString("Phone notification:")
+        guard let view = phoneNode.view as? UITextField else { return }
+        view.placeholder = "Phone number"
+        view.keyboardType = .phonePad
+        view.borderStyle = .roundedRect
+        view.delegate = self
+    }
 
-    func setupSmsRow1() {
+    func setupSmsRow() {
         smsLabel.attributedText = Style.makeString("SMS notification:")
-        smsNode.attributedPlaceholderText = NSAttributedString(string: "Phone number")
+        guard let view = smsNode.view as? UITextField else { return }
+        view.placeholder = "Phone number"
+        view.keyboardType = .phonePad
+        view.borderStyle = .roundedRect
+        view.delegate = self
+    }
+    
+    func setupCarrierRow() {
+        carrierLabel.attributedText = Style.makeString("SMS carrier:")
+        Style.styleButton(asInverse: carrierNode)
     }
 
     func setupContainerNode() {
@@ -140,16 +169,27 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let summarySpec = ASStackLayoutSpec.vertical()
         summarySpec.children = [titleNode, authorNode, formatNode]
         
-        // shared sizes
+        // calculate size of widest label, so we can give them all the same width
+        let label = App.config.enableHoldPhoneNotification ? phoneLabel : emailLabel
+        let labelWidth = label.frame(forTextRange: NSMakeRange(0, label.attributedText?.length ?? 18)).size.width
+        let labelMinWidth = ASDimensionMake(labelWidth)
+
+        // shared dimensions
         // TIP: set preferredSize on a wrapped UIView or it ends up being (0,0)
-        let labelMinWidth = ASDimensionMake(140)
-        let switchPreferredSize = CGSize(width: 51, height: 31)
+        let switchPreferredSize = CGSize(width: 51, height: 31) // from IB
+        let rowMinHeight = ASDimensionMake(switchPreferredSize.height)
+        let spacing: CGFloat = 4
+        let textFieldPreferredSize = CGSize(width: 217, height: 31) // from IB
 
         // pickup row
         pickupLabel.style.minWidth = labelMinWidth
+        pickupNode.style.flexGrow = 1
         let pickupRowSpec = ASStackLayoutSpec.horizontal()
+        pickupRowSpec.alignItems = .center
         pickupRowSpec.children = [pickupLabel, pickupNode]
+        pickupRowSpec.spacing = spacing
         pickupRowSpec.style.spacingBefore = 28
+        pickupRowSpec.style.minHeight = rowMinHeight
 
         // email row
         emailLabel.style.minWidth = labelMinWidth
@@ -157,20 +197,65 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let emailRowSpec = ASStackLayoutSpec.horizontal()
         emailRowSpec.alignItems = .center
         emailRowSpec.children = [emailLabel, emailSwitch]
-        
-        // sms row1
+        emailRowSpec.spacing = spacing
+
+        // phone row
+        phoneLabel.style.minWidth = labelMinWidth
+        phoneSwitch.style.preferredSize = switchPreferredSize
+        phoneNode.style.flexGrow = 1
+        phoneNode.style.flexShrink = 1
+        phoneNode.style.preferredSize = textFieldPreferredSize
+        let phoneRowSpec = ASStackLayoutSpec.horizontal()
+        phoneRowSpec.alignItems = .center
+        phoneRowSpec.children = [phoneLabel, phoneSwitch, phoneNode]
+        phoneRowSpec.spacing = spacing
+
+        // sms row
         smsLabel.style.minWidth = labelMinWidth
         smsSwitch.style.preferredSize = switchPreferredSize
-        let smsRow1Spec = ASStackLayoutSpec.horizontal()
-        smsRow1Spec.alignItems = .center
-        smsRow1Spec.children = [smsLabel, smsSwitch, smsNode]
+        smsNode.style.flexGrow = 1
+        smsNode.style.flexShrink = 1
+        smsNode.style.preferredSize = textFieldPreferredSize
+        let smsRowSpec = ASStackLayoutSpec.horizontal()
+        smsRowSpec.alignItems = .center
+        smsRowSpec.children = [smsLabel, smsSwitch, smsNode]
+        smsRowSpec.spacing = spacing
+        smsRowSpec.style.minHeight = rowMinHeight
+
+        // sms row2
+        carrierLabel.style.minWidth = labelMinWidth
+        carrierNode.style.flexGrow = 1
+        let carrierRowSpec = ASStackLayoutSpec.horizontal()
+        carrierRowSpec.alignItems = .center
+        carrierRowSpec.children = [carrierLabel, carrierNode]
+        carrierRowSpec.spacing = spacing
+        carrierRowSpec.style.minHeight = rowMinHeight
 
         // page
         let pageSpec = ASStackLayoutSpec.vertical()
-        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec, smsRow1Spec]
+        pageSpec.spacing = 4
+        pageSpec.alignItems = .stretch
+        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec]
+        if App.config.enableHoldPhoneNotification {
+            pageSpec.children?.append(phoneRowSpec)
+        }
+        pageSpec.children?.append(smsRowSpec)
+        pageSpec.children?.append(carrierRowSpec)
 
-        let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 4.0), child: pageSpec)
+        // inset entire page
+        let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 4), child: pageSpec)
         print(spec.asciiArtString())
         return spec
      }
+}
+
+extension XPlaceHoldViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
 }
