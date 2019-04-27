@@ -72,6 +72,13 @@ class Style {
         button.tintColor = color
         button.layer.cornerRadius = 6
     }
+
+    static func setButtonTitle(_ button: ASButtonNode, title: String, fontSize size: CGFloat = 17) {
+        let font = UIFont.systemFont(ofSize: size)
+        button.setTitle(title, with: font, with: .white, for: .normal)
+        button.setTitle(title, with: font, with: .gray, for: .disabled)
+        button.setTitle(title, with: font, with: .gray, for: .highlighted)
+    }
     
     //MARK: - SearchBar
 

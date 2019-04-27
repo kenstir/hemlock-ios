@@ -187,21 +187,15 @@ class XDetailsNode: ASCellNode {
             actionButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
             actionButton.isEnabled = displayOptions.enablePlaceHold
         }
-        let font = UIFont.systemFont(ofSize: 15)
         Style.styleButton(asInverse: actionButton)
-        actionButton.setTitle(actionButtonText, with: font, with: .white, for: .normal)
-        actionButton.setTitle(actionButtonText, with: font, with: .gray, for: .disabled)
-        actionButton.setTitle(actionButtonText, with: font, with: .gray, for: .highlighted)
+        Style.setButtonTitle(actionButton, title: actionButtonText, fontSize: 15)
 
         if record.isOnlineResource {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {
-            let buttonText = "Copy Info"
-            copyInfoButton.setTitle(buttonText, with: font, with: .white, for: .normal)
-            copyInfoButton.setTitle(buttonText, with: font, with: .gray, for: .disabled)
-            copyInfoButton.setTitle(buttonText, with: font, with: .gray, for: .highlighted)
             Style.styleButton(asInverse: copyInfoButton)
+            Style.setButtonTitle(copyInfoButton, title: "Copy Info", fontSize: 15)
             copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
         }
     }
