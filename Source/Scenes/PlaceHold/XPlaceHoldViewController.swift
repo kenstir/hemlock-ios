@@ -46,31 +46,19 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let formatNode = ASTextNode()
     let spacerNode = ASDisplayNode()
     let pickupLabel = ASTextNode()
-    let pickupNode = ASDisplayNode { () -> UIView in
-        return UITextField()
-    }
+    let pickupNode = XUtils.makeTextFieldNode()
+    let pickupDisclosure = XUtils.makeDisclosureNode()
     let emailLabel = ASTextNode()
-    let emailSwitch = ASDisplayNode { () -> UIView in
-        return UISwitch()
-    }
+    let emailSwitch = XUtils.makeSwitchNode()
     let phoneLabel = ASTextNode()
-    let phoneSwitch = ASDisplayNode { () -> UIView in
-        return UISwitch()
-    }
-    let phoneNode = ASDisplayNode { () -> UIView in
-        return UITextField()
-    }
+    let phoneSwitch = XUtils.makeSwitchNode()
+    let phoneNode = XUtils.makeTextFieldNode()
     let smsLabel = ASTextNode()
-    let smsSwitch = ASDisplayNode { () -> UIView in
-        return UISwitch()
-    }
-    let smsNode = ASDisplayNode { () -> UIView in
-        return UITextField()
-    }
+    let smsSwitch = XUtils.makeSwitchNode()
+    let smsNode = XUtils.makeTextFieldNode()
     let carrierLabel = ASTextNode()
-    let carrierNode = ASDisplayNode { () -> UIView in
-        return UITextField()
-    }
+    let carrierNode = XUtils.makeTextFieldNode()
+    let carrierDisclosure = XUtils.makeDisclosureNode()
     let placeHoldButton = ASButtonNode()
 
     //MARK: - Lifecycle
@@ -127,10 +115,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     func setupPickupRow() {
         pickupLabel.attributedText = Style.makeString("Pickup location", ofSize: 14)
-        guard let view = pickupTextField else { return }
-        view.font = UIFont.systemFont(ofSize: 14)
-        view.borderStyle = .roundedRect
-        view.delegate = self
+        pickupTextField?.borderStyle = .roundedRect
+        pickupTextField?.delegate = self
     }
 
     func setupEmailRow() {
@@ -139,31 +125,24 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     func setupPhoneRow() {
         phoneLabel.attributedText = Style.makeString("Phone notification", ofSize: 14)
-        guard let view = phoneTextField else { return }
-        view.font = UIFont.systemFont(ofSize: 14)
-        view.placeholder = "Phone number"
-        view.keyboardType = .phonePad
-        view.borderStyle = .roundedRect
-        view.delegate = self
+        phoneTextField?.placeholder = "Phone number"
+        phoneTextField?.keyboardType = .phonePad
+        phoneTextField?.borderStyle = .roundedRect
+        phoneTextField?.delegate = self
     }
 
     func setupSmsRow() {
         smsLabel.attributedText = Style.makeString("SMS notification", ofSize: 14)
-        guard let view = smsTextField else { return }
-        view.font = UIFont.systemFont(ofSize: 14)
-        view.placeholder = "Phone number"
-        view.keyboardType = .phonePad
-        view.borderStyle = .roundedRect
-        view.delegate = self
+        smsTextField?.placeholder = "Phone number"
+        smsTextField?.keyboardType = .phonePad
+        smsTextField?.borderStyle = .roundedRect
+        smsTextField?.delegate = self
     }
-    
+
     func setupCarrierRow() {
         carrierLabel.attributedText = Style.makeString("SMS carrier", ofSize: 14)
-        guard let view = carrierTextField else { return }
-        view.font = UIFont.systemFont(ofSize: 14)
-        view.borderStyle = .roundedRect
-        view.delegate = self
-        view.addDisclosureIndicator()
+        carrierTextField?.borderStyle = .roundedRect
+        carrierTextField?.delegate = self
     }
     
     func setupButtonRow() {
@@ -207,15 +186,14 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
         // pickup row
         pickupLabel.style.minWidth = labelMinWidth
-        pickupNode.style.flexGrow = 1
-        pickupNode.style.flexShrink = 1
         pickupNode.style.preferredSize = textFieldPreferredSize
+        let pickupButtonSpec = XUtils.makeDisclosureOverlaySpec(pickupNode, overlay: pickupDisclosure)
         let pickupRowSpec = ASStackLayoutSpec.horizontal()
         pickupRowSpec.alignItems = .center
-        pickupRowSpec.children = [pickupLabel, pickupNode]
+        pickupRowSpec.children = [pickupLabel, pickupButtonSpec]
         pickupRowSpec.spacing = spacing
-        pickupRowSpec.style.spacingBefore = 28
         pickupRowSpec.style.minHeight = rowMinHeight
+        pickupRowSpec.style.spacingBefore = 28
 
         // email row
         emailLabel.style.minWidth = labelMinWidth
@@ -250,12 +228,11 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
         // carrier row
         carrierLabel.style.minWidth = labelMinWidth
-        carrierNode.style.flexGrow = 1
-        carrierNode.style.flexShrink = 1
         carrierNode.style.preferredSize = textFieldPreferredSize
+        let carrierButtonSpec = XUtils.makeDisclosureOverlaySpec(carrierNode, overlay: carrierDisclosure)
         let carrierRowSpec = ASStackLayoutSpec.horizontal()
         carrierRowSpec.alignItems = .center
-        carrierRowSpec.children = [carrierLabel, carrierNode]
+        carrierRowSpec.children = [carrierLabel, carrierButtonSpec]
         carrierRowSpec.spacing = spacing
         carrierRowSpec.style.minHeight = rowMinHeight
         
