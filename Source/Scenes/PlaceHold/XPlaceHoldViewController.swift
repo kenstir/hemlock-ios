@@ -33,8 +33,10 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var startOfFetch = Date()
 
     weak var activityIndicator: UIActivityIndicatorView!
+    var pickupTextField: UITextField? { return pickupNode.view as? UITextField }
     var phoneTextField: UITextField? { return phoneNode.view as? UITextField }
     var smsTextField: UITextField? { return smsNode.view as? UITextField }
+    var carrierTextField: UITextField? { return carrierNode.view as? UITextField }
 
     let containerNode = ASDisplayNode()
     let scrollNode = ASScrollNode()
@@ -44,7 +46,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let formatNode = ASTextNode()
     let spacerNode = ASDisplayNode()
     let pickupLabel = ASTextNode()
-    let pickupNode = ASButtonNode()
+    let pickupNode = ASDisplayNode { () -> UIView in
+        return UITextField()
+    }
     let emailLabel = ASTextNode()
     let emailSwitch = ASDisplayNode { () -> UIView in
         return UISwitch()
@@ -64,7 +68,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return UITextField()
     }
     let carrierLabel = ASTextNode()
-    let carrierNode = ASButtonNode()
+    let carrierNode = ASDisplayNode { () -> UIView in
+        return UITextField()
+    }
     let placeHoldButton = ASButtonNode()
 
     //MARK: - Lifecycle
@@ -92,15 +98,13 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         setupPhoneRow()
         setupSmsRow()
         setupCarrierRow()
+        setupButtonRow()
         
         // See Footnote #1 - handling the keyboard
         setupContainerNode()
         setupScrollNode()
     }
     
-    func buildNodeHierarchy() {
-    }
-
     //MARK: - Lifecycle
     
     // NB: viewDidLoad on an ASViewController gets called during construction,
@@ -122,17 +126,21 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     //MARK: - Layout
     
     func setupPickupRow() {
-        pickupLabel.attributedText = Style.makeString("Pickup location:")
-        Style.styleButton(asInverse: pickupNode)
+        pickupLabel.attributedText = Style.makeString("Pickup location", ofSize: 14)
+        guard let view = pickupTextField else { return }
+        view.font = UIFont.systemFont(ofSize: 14)
+        view.borderStyle = .roundedRect
+        view.delegate = self
     }
 
     func setupEmailRow() {
-        emailLabel.attributedText = Style.makeString("Email notification:")
+        emailLabel.attributedText = Style.makeString("Email notification", ofSize: 14)
     }
     
     func setupPhoneRow() {
-        phoneLabel.attributedText = Style.makeString("Phone notification:")
-        guard let view = phoneNode.view as? UITextField else { return }
+        phoneLabel.attributedText = Style.makeString("Phone notification", ofSize: 14)
+        guard let view = phoneTextField else { return }
+        view.font = UIFont.systemFont(ofSize: 14)
         view.placeholder = "Phone number"
         view.keyboardType = .phonePad
         view.borderStyle = .roundedRect
@@ -140,8 +148,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
 
     func setupSmsRow() {
-        smsLabel.attributedText = Style.makeString("SMS notification:")
-        guard let view = smsNode.view as? UITextField else { return }
+        smsLabel.attributedText = Style.makeString("SMS notification", ofSize: 14)
+        guard let view = smsTextField else { return }
+        view.font = UIFont.systemFont(ofSize: 14)
         view.placeholder = "Phone number"
         view.keyboardType = .phonePad
         view.borderStyle = .roundedRect
@@ -149,8 +158,17 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
     
     func setupCarrierRow() {
-        carrierLabel.attributedText = Style.makeString("SMS carrier:")
-        Style.styleButton(asInverse: carrierNode)
+        carrierLabel.attributedText = Style.makeString("SMS carrier", ofSize: 14)
+        guard let view = carrierTextField else { return }
+        view.font = UIFont.systemFont(ofSize: 14)
+        view.borderStyle = .roundedRect
+        view.delegate = self
+        view.addDisclosureIndicator()
+    }
+    
+    func setupButtonRow() {
+        Style.styleButton(asInverse: placeHoldButton)
+        Style.setButtonTitle(placeHoldButton, title: "Place Hold")
     }
 
     func setupContainerNode() {
@@ -179,16 +197,19 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let labelWidth = label.frame(forTextRange: NSMakeRange(0, label.attributedText?.length ?? 18)).size.width
         let labelMinWidth = ASDimensionMake(labelWidth)
 
-        // shared dimensions
         // TIP: set preferredSize on a wrapped UIView or it ends up being (0,0)
         let switchPreferredSize = CGSize(width: 51, height: 31) // from IB
+        let textFieldPreferredSize = CGSize(width: 217, height: 31) // from IB
+
+        // shared dimensions
         let rowMinHeight = ASDimensionMake(switchPreferredSize.height)
         let spacing: CGFloat = 4
-        let textFieldPreferredSize = CGSize(width: 217, height: 31) // from IB
 
         // pickup row
         pickupLabel.style.minWidth = labelMinWidth
         pickupNode.style.flexGrow = 1
+        pickupNode.style.flexShrink = 1
+        pickupNode.style.preferredSize = textFieldPreferredSize
         let pickupRowSpec = ASStackLayoutSpec.horizontal()
         pickupRowSpec.alignItems = .center
         pickupRowSpec.children = [pickupLabel, pickupNode]
@@ -227,25 +248,30 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         smsRowSpec.spacing = spacing
         smsRowSpec.style.minHeight = rowMinHeight
 
-        // sms row2
+        // carrier row
         carrierLabel.style.minWidth = labelMinWidth
         carrierNode.style.flexGrow = 1
+        carrierNode.style.flexShrink = 1
+        carrierNode.style.preferredSize = textFieldPreferredSize
         let carrierRowSpec = ASStackLayoutSpec.horizontal()
         carrierRowSpec.alignItems = .center
         carrierRowSpec.children = [carrierLabel, carrierNode]
         carrierRowSpec.spacing = spacing
         carrierRowSpec.style.minHeight = rowMinHeight
+        
+        // button row
+        placeHoldButton.style.alignSelf = .center
+        placeHoldButton.style.preferredSize = CGSize(width: 200, height: 33)
+        placeHoldButton.style.spacingBefore = 28
 
         // page
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 4
         pageSpec.alignItems = .stretch
-        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec]
+        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec, smsRowSpec, carrierRowSpec, placeHoldButton]
         if App.config.enableHoldPhoneNotification {
-            pageSpec.children?.append(phoneRowSpec)
+            pageSpec.children?.insert(phoneRowSpec, at: 3)
         }
-        pageSpec.children?.append(smsRowSpec)
-        pageSpec.children?.append(carrierRowSpec)
 
         // inset entire page
         let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 4), child: pageSpec)
