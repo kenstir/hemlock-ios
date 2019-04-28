@@ -33,6 +33,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var startOfFetch = Date()
 
     weak var activityIndicator: UIActivityIndicatorView!
+    var phoneTextField: UITextField? { return phoneNode.view as? UITextField }
+    var smsTextField: UITextField? { return smsNode.view as? UITextField }
 
     let containerNode = ASDisplayNode()
     let scrollNode = ASScrollNode()
@@ -112,6 +114,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         // Set isTranslucent=false else scrollNode
         // allows text to scroll underneath the nav bar
         navigationController?.navigationBar.isTranslucent = false
+        
+        self.setupTapToDismissKeyboard(onScrollView: scrollNode.view)
+        scrollNode.view.setupKeyboardAutoResizer()
     }
 
     //MARK: - Layout
@@ -251,11 +256,20 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
 extension XPlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("xxx textFieldShouldReturn")
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
+        print("xxx textFieldShouldBeginEditing")
+        switch textField {
+        case phoneTextField:
+            return true
+        case smsTextField:
+            return true
+        default:
+            return true
+        }
     }
 }
