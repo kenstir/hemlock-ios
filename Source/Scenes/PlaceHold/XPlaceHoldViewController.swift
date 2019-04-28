@@ -93,6 +93,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         setupSmsRow()
         setupCarrierRow()
         
+        // See Footnote #1 - handling the keyboard
         setupContainerNode()
         setupScrollNode()
     }
@@ -111,8 +112,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Set isTranslucent=false else scrollNode
-        // allows text to scroll underneath the nav bar
+        // See Footnote #2 - disable nav bar isTranslucent
         navigationController?.navigationBar.isTranslucent = false
         
         self.setupTapToDismissKeyboard(onScrollView: scrollNode.view)
