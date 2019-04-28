@@ -37,6 +37,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var phoneTextField: UITextField? { return phoneNode.view as? UITextField }
     var smsTextField: UITextField? { return smsNode.view as? UITextField }
     var carrierTextField: UITextField? { return carrierNode.view as? UITextField }
+    var expirationTextField: UITextField? { return expirationNode.view as? UITextField }
 
     let containerNode = ASDisplayNode()
     let scrollNode = ASScrollNode()
@@ -59,6 +60,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let carrierLabel = ASTextNode()
     let carrierNode = XUtils.makeTextFieldNode()
     let carrierDisclosure = XUtils.makeDisclosureNode()
+    let expirationLabel = ASTextNode()
+    let expirationNode = XUtils.makeTextFieldNode()
+    let expirationDisclosure = XUtils.makeDisclosureNode()
     let placeHoldButton = ASButtonNode()
 
     //MARK: - Lifecycle
@@ -86,6 +90,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         setupPhoneRow()
         setupSmsRow()
         setupCarrierRow()
+        setupExpirationRow()
         setupButtonRow()
         
         // See Footnote #1 - handling the keyboard
@@ -143,6 +148,12 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         carrierLabel.attributedText = Style.makeString("SMS carrier", ofSize: 14)
         carrierTextField?.borderStyle = .roundedRect
         carrierTextField?.delegate = self
+    }
+    
+    func setupExpirationRow() {
+        expirationLabel.attributedText = Style.makeString("Expiration date", ofSize: 14)
+        expirationTextField?.borderStyle = .roundedRect
+        expirationTextField?.delegate = self
     }
     
     func setupButtonRow() {
@@ -236,6 +247,16 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         carrierRowSpec.spacing = spacing
         carrierRowSpec.style.minHeight = rowMinHeight
         
+        // expiration row
+        expirationLabel.style.minWidth = labelMinWidth
+        expirationNode.style.preferredSize = textFieldPreferredSize
+        let expirationButtonSpec = XUtils.makeDisclosureOverlaySpec(expirationNode, overlay: expirationDisclosure)
+        let expirationRowSpec = ASStackLayoutSpec.horizontal()
+        expirationRowSpec.alignItems = .center
+        expirationRowSpec.children = [expirationLabel, expirationButtonSpec]
+        expirationRowSpec.spacing = spacing
+        expirationRowSpec.style.minHeight = rowMinHeight
+
         // button row
         placeHoldButton.style.alignSelf = .center
         placeHoldButton.style.preferredSize = CGSize(width: 200, height: 33)
@@ -245,7 +266,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 4
         pageSpec.alignItems = .stretch
-        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec, smsRowSpec, carrierRowSpec, placeHoldButton]
+        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec, smsRowSpec, carrierRowSpec, expirationRowSpec, placeHoldButton]
         if App.config.enableHoldPhoneNotification {
             pageSpec.children?.insert(phoneRowSpec, at: 3)
         }
