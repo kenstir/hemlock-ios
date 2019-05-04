@@ -289,6 +289,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return spec
     }
     
+    //MARK: convenience functions
+
     func makeRowSpec(rowMinHeight: ASDimension, spacing: CGFloat) -> ASStackLayoutSpec {
         let rowSpec = ASStackLayoutSpec.horizontal()
         rowSpec.alignItems = .center
@@ -297,19 +299,31 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return rowSpec
     }
     
-    //MARK:
+    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((String) -> Void)?) -> OptionsViewController? {
+        guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
+        vc.title = title
+        vc.options = options
+        vc.selectedOption = selectedOption
+        vc.selectionChangedHandler = selectionChangedHandler
+        return vc
+    }
 }
 
 extension XPlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("kcxxx textFieldShouldReturn")
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("kcxxx textFieldShouldBeginEditing")
         switch textField {
+        case pickupTextField:
+            let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) { value in
+                self.selectedOrgName = value
+            }
+            guard let vc2 = vc else { return true }
+            self.navigationController?.pushViewController(vc2, animated: true)
+            return false
         case phoneTextField:
             print("kcxxx phone")
             return true
