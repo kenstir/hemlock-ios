@@ -299,7 +299,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return rowSpec
     }
     
-    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((String) -> Void)?) -> OptionsViewController? {
+    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((String) -> Void)? = nil) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
         vc.options = options
@@ -317,19 +317,28 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
-        case pickupTextField:
-            let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) { value in
-                self.selectedOrgName = value
-            }
-            guard let vc2 = vc else { return true }
-            self.navigationController?.pushViewController(vc2, animated: true)
-            return false
         case phoneTextField:
             print("kcxxx phone")
             return true
         case smsTextField:
             print("kcxxx sms")
             return true
+        case pickupTextField:
+            guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) else { return true }
+            vc.selectionChangedHandler = { value in
+                self.selectedOrgName = value
+                self.pickupTextField?.text = value
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+            return false
+        case carrierTextField:
+            guard let vc = makeVC(title: "SMS Carrier", options: carrierLabels, selectedOption: selectedCarrierName) else { return true }
+            vc.selectionChangedHandler = { value in
+                self.selectedCarrierName = value
+                self.carrierTextField?.text = value
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+            return false
         case expirationTextField:
             print("kcxxx expiration")
             expirationPickerVisible = !expirationPickerVisible

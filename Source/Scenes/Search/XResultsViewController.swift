@@ -231,7 +231,7 @@ extension XResultsViewController: ASTableDelegate {
 
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.organizationShortName)
-        if Bundle.isDebug {
+        if true && Bundle.isDebug {
             ///--------------------------------------------------------------
             /// shortcut to XPlaceHold
             /// kcxxx todo remove this
