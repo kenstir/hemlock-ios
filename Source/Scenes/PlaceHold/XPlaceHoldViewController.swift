@@ -20,6 +20,7 @@
 
 import AsyncDisplayKit
 
+
 class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     //MARK: - Properties
@@ -31,6 +32,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var selectedOrgName = ""
     var selectedCarrierName = ""
     var startOfFetch = Date()
+    var expirationPickerVisible = false
 
     weak var activityIndicator: UIActivityIndicatorView!
     var pickupTextField: UITextField? { return pickupNode.view as? UITextField }
@@ -38,6 +40,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var smsTextField: UITextField? { return smsNode.view as? UITextField }
     var carrierTextField: UITextField? { return carrierNode.view as? UITextField }
     var expirationTextField: UITextField? { return expirationNode.view as? UITextField }
+    var expirationPicker: UIDatePicker? { return expirationPickerNode.view as? UIDatePicker }
 
     let containerNode = ASDisplayNode()
     let scrollNode = ASScrollNode()
@@ -62,7 +65,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let carrierDisclosure = XUtils.makeDisclosureNode()
     let expirationLabel = ASTextNode()
     let expirationNode = XUtils.makeTextFieldNode()
-    let expirationDisclosure = XUtils.makeDisclosureNode()
+    let expirationPickerNode = ASDisplayNode { () -> UIView in
+        return UIDatePicker()
+    }
     let placeHoldButton = ASButtonNode()
 
     //MARK: - Lifecycle
@@ -76,6 +81,14 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func expirationChanged(sender: UIDatePicker) {
+        print("kcxxx expiration now \(sender.date)")
+        let date = sender.date
+        print("\(date)")
+        let expirationDateStr = OSRFObject.outputDateFormatter.string(from: date)
+        expirationTextField?.text = expirationDateStr
     }
 
     //MARK: - Setup
@@ -154,6 +167,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         expirationLabel.attributedText = Style.makeString("Expiration date", ofSize: 14)
         expirationTextField?.borderStyle = .roundedRect
         expirationTextField?.delegate = self
+        expirationPicker?.addTarget(self, action: #selector(expirationChanged(sender:)), for: .valueChanged)
+        expirationPicker?.datePickerMode = .date
     }
     
     func setupButtonRow() {
@@ -172,6 +187,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         scrollNode.automaticallyManagesSubnodes = true
         scrollNode.automaticallyManagesContentSize = true
         scrollNode.layoutSpecBlock = { node, constrainedSize in
+            print("kcxxx layoutSpecBlock")
             return self.pageLayoutSpec(constrainedSize)
         }
     }
@@ -190,6 +206,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         // TIP: set preferredSize on a wrapped UIView or it ends up being (0,0)
         let switchPreferredSize = CGSize(width: 51, height: 31) // from IB
         let textFieldPreferredSize = CGSize(width: 217, height: 31) // from IB
+        let pickerPreferredSize = CGSize(width: 414, height: 162) // from IB
 
         // shared dimensions
         let rowMinHeight = ASDimensionMake(switchPreferredSize.height)
@@ -209,10 +226,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         // email row
         emailLabel.style.minWidth = labelMinWidth
         emailSwitch.style.preferredSize = switchPreferredSize
-        let emailRowSpec = ASStackLayoutSpec.horizontal()
-        emailRowSpec.alignItems = .center
+        let emailRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
         emailRowSpec.children = [emailLabel, emailSwitch]
-        emailRowSpec.spacing = spacing
 
         // phone row
         phoneLabel.style.minWidth = labelMinWidth
@@ -220,10 +235,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         phoneNode.style.flexGrow = 1
         phoneNode.style.flexShrink = 1
         phoneNode.style.preferredSize = textFieldPreferredSize
-        let phoneRowSpec = ASStackLayoutSpec.horizontal()
-        phoneRowSpec.alignItems = .center
+        let phoneRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
         phoneRowSpec.children = [phoneLabel, phoneSwitch, phoneNode]
-        phoneRowSpec.spacing = spacing
 
         // sms row
         smsLabel.style.minWidth = labelMinWidth
@@ -231,31 +244,26 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         smsNode.style.flexGrow = 1
         smsNode.style.flexShrink = 1
         smsNode.style.preferredSize = textFieldPreferredSize
-        let smsRowSpec = ASStackLayoutSpec.horizontal()
-        smsRowSpec.alignItems = .center
+        let smsRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
         smsRowSpec.children = [smsLabel, smsSwitch, smsNode]
-        smsRowSpec.spacing = spacing
-        smsRowSpec.style.minHeight = rowMinHeight
 
         // carrier row
         carrierLabel.style.minWidth = labelMinWidth
         carrierNode.style.preferredSize = textFieldPreferredSize
         let carrierButtonSpec = XUtils.makeDisclosureOverlaySpec(carrierNode, overlay: carrierDisclosure)
-        let carrierRowSpec = ASStackLayoutSpec.horizontal()
-        carrierRowSpec.alignItems = .center
+        let carrierRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
         carrierRowSpec.children = [carrierLabel, carrierButtonSpec]
-        carrierRowSpec.spacing = spacing
-        carrierRowSpec.style.minHeight = rowMinHeight
         
         // expiration row
         expirationLabel.style.minWidth = labelMinWidth
+        expirationNode.style.flexGrow = 1
+        expirationNode.style.flexShrink = 1
         expirationNode.style.preferredSize = textFieldPreferredSize
-        let expirationButtonSpec = XUtils.makeDisclosureOverlaySpec(expirationNode, overlay: expirationDisclosure)
-        let expirationRowSpec = ASStackLayoutSpec.horizontal()
-        expirationRowSpec.alignItems = .center
-        expirationRowSpec.children = [expirationLabel, expirationButtonSpec]
-        expirationRowSpec.spacing = spacing
-        expirationRowSpec.style.minHeight = rowMinHeight
+        let expirationRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
+        expirationRowSpec.children = [expirationLabel, expirationNode]
+        
+        // picker
+        expirationPickerNode.style.preferredSize = pickerPreferredSize
 
         // button row
         placeHoldButton.style.alignSelf = .center
@@ -266,32 +274,53 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 4
         pageSpec.alignItems = .stretch
-        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec, smsRowSpec, carrierRowSpec, expirationRowSpec, placeHoldButton]
+        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec, smsRowSpec, carrierRowSpec, expirationRowSpec]
         if App.config.enableHoldPhoneNotification {
             pageSpec.children?.insert(phoneRowSpec, at: 3)
         }
+        if expirationPickerVisible {
+            pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: expirationPickerNode))
+        }
+        pageSpec.children?.append(placeHoldButton)
 
         // inset entire page
         let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 4), child: pageSpec)
         print(spec.asciiArtString())
         return spec
-     }
+    }
+    
+    func makeRowSpec(rowMinHeight: ASDimension, spacing: CGFloat) -> ASStackLayoutSpec {
+        let rowSpec = ASStackLayoutSpec.horizontal()
+        rowSpec.alignItems = .center
+        rowSpec.spacing = spacing
+        rowSpec.style.minHeight = rowMinHeight
+        return rowSpec
+    }
+    
+    //MARK:
 }
 
 extension XPlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("xxx textFieldShouldReturn")
+        print("kcxxx textFieldShouldReturn")
         textField.resignFirstResponder()
         return true
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("xxx textFieldShouldBeginEditing")
+        print("kcxxx textFieldShouldBeginEditing")
         switch textField {
         case phoneTextField:
+            print("kcxxx phone")
             return true
         case smsTextField:
+            print("kcxxx sms")
             return true
+        case expirationTextField:
+            print("kcxxx expiration")
+            expirationPickerVisible = !expirationPickerVisible
+            self.scrollNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true)
+            return false
         default:
             return true
         }
