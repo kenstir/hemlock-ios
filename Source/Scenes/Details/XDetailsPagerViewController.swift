@@ -67,7 +67,7 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
             // scrollToPage has no effect if done in viewWillAppear(),
             // but doing it here means the scrolling is visible to the user
             // See also https://github.com/TextureGroup/Texture/issues/133
-            pagerNode.scrollToPage(at: selectedItem, animated: true)
+            pagerNode.scrollToPage(at: selectedItem, animated: false)
         }
         firstAppearance = false
     }
