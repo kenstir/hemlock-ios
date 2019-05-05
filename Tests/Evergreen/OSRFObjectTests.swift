@@ -58,7 +58,6 @@ class OSRFObjectTests: XCTestCase {
         // en_US date without the leading 0 stays the same
         let localDateStr = "January 1, 2019"
         let localDate = OSRFObject.outputDateFormatter.date(from: localDateStr)
-        debugPrint(localDate)
         let str = OSRFObject.outputDateFormatter.string(from: localDate!)
         XCTAssertEqual(str, localDateStr)
     }
