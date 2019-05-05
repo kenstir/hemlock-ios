@@ -19,22 +19,24 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import AsyncDisplayKit
-
+import PromiseKit
+import PMKAlamofire
+import os.log
 
 class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     //MARK: - Properties
 
     let record: MBRecord
-    let formats = Format.getSpinnerLabels()
     var orgLabels: [String] = []
     var carrierLabels: [String] = []
     var selectedOrgName = ""
     var selectedCarrierName = ""
     var startOfFetch = Date()
+    var didCompleteFetch = false
     var expirationPickerVisible = false
 
-    weak var activityIndicator: UIActivityIndicatorView!
+    var activityIndicator: UIActivityIndicatorView!
     var pickupTextField: UITextField? { return pickupNode.view as? UITextField }
     var phoneTextField: UITextField? { return phoneNode.view as? UITextField }
     var smsTextField: UITextField? { return smsNode.view as? UITextField }
@@ -84,10 +86,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
 
     @objc func expirationChanged(sender: UIDatePicker) {
-        print("kcxxx expiration now \(sender.date)")
-        let date = sender.date
-        print("\(date)")
-        let expirationDateStr = OSRFObject.outputDateFormatter.string(from: date)
+        let expirationDateStr = OSRFObject.outputDateFormatter.string(from: sender.date)
         expirationTextField?.text = expirationDateStr
     }
 
@@ -109,9 +108,13 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         // See Footnote #1 - handling the keyboard
         setupContainerNode()
         setupScrollNode()
+
+        self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        Style.styleActivityIndicator(activityIndicator)
+        self.node.view.addSubview(activityIndicator)
     }
     
-    //MARK: - Lifecycle
+    //MARK: - ViewController
     
     // NB: viewDidLoad on an ASViewController gets called during construction,
     // before there is any UI.  Do not fetchData here.
@@ -127,6 +130,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         
         self.setupTapToDismissKeyboard(onScrollView: scrollNode.view)
         scrollNode.view.setupKeyboardAutoResizer()
+        
+        // don't fetch data when navigating back
+        self.fetchData()
     }
 
     //MARK: - Layout
@@ -289,7 +295,78 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return spec
     }
     
-    //MARK: convenience functions
+    //MARK: - Functions
+    
+    func fetchData() {
+        guard !didCompleteFetch else { return }
+        self.startOfFetch = Date()
+        
+        var promises: [Promise<Void>] = []
+        promises.append(ActorService.fetchOrgTypes())
+        promises.append(ActorService.fetchOrgTreeAndSettings())
+        promises.append(PCRUDService.fetchSMSCarriers())
+        print("xxx \(promises.count) promises made")
+
+        centerSubview(activityIndicator)
+        self.activityIndicator.startAnimating()
+        
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            print("xxx \(promises.count) promises fulfilled")
+            let elapsed = -self.startOfFetch.timeIntervalSinceNow
+            os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
+            self.onOrgDataLoaded()
+            self.onCarrierDataLoaded()
+            self.didCompleteFetch = true
+            self.placeHoldButton.isEnabled = true
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+    
+    func onOrgDataLoaded() {
+        orgLabels = Organization.getSpinnerLabels()
+        var selectOrgIndex = 0
+        let defaultPickupLocation = App.account?.pickupOrgID
+        for index in 0..<Organization.orgs.count {
+            let org = Organization.orgs[index]
+            if org.id == defaultPickupLocation {
+                selectOrgIndex = index
+            }
+        }
+        
+        selectedOrgName = orgLabels[selectOrgIndex].trim()
+        pickupTextField?.text = selectedOrgName
+        pickupTextField?.isUserInteractionEnabled = true
+    }
+    
+    func onCarrierDataLoaded() {
+        carrierLabels = SMSCarrier.getSpinnerLabels()
+        carrierLabels.sort()
+        carrierLabels.insert("---", at: 0)
+
+        var selectCarrierName: String?
+        var selectCarrierIndex = 0
+        if let defaultCarrierID = App.account?.smsCarrier,
+            let defaultCarrier = SMSCarrier.find(byID: defaultCarrierID) {
+            selectCarrierName = defaultCarrier.name
+        } else {
+            selectCarrierName = App.valet.string(forKey: "carrier")
+        }
+        for index in 0..<carrierLabels.count {
+            let carrier = carrierLabels[index]
+            if carrier == selectCarrierName {
+                selectCarrierIndex = index
+            }
+        }
+        
+        selectedCarrierName = carrierLabels[selectCarrierIndex]
+        carrierTextField?.text = selectedCarrierName
+        carrierTextField?.isUserInteractionEnabled = true
+    }
 
     func makeRowSpec(rowMinHeight: ASDimension, spacing: CGFloat) -> ASStackLayoutSpec {
         let rowSpec = ASStackLayoutSpec.horizontal()
@@ -309,6 +386,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
 }
 
+//MARK: - TextFieldDelegate
 extension XPlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -317,12 +395,10 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
-        case phoneTextField:
-            print("kcxxx phone")
-            return true
-        case smsTextField:
-            print("kcxxx sms")
-            return true
+//        case phoneTextField:
+//            return true
+//        case smsTextField:
+//            return true
         case pickupTextField:
             guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) else { return true }
             vc.selectionChangedHandler = { value in
@@ -340,7 +416,6 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
             return false
         case expirationTextField:
-            print("kcxxx expiration")
             expirationPickerVisible = !expirationPickerVisible
             self.scrollNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true)
             return false
