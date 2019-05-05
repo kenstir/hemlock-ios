@@ -32,7 +32,7 @@ class CircService {
         return req.gatewayObjectResponse()
     }
     
-    static func placeHold(authtoken: String, userID: Int, recordID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?) -> Promise<OSRFObject> {
+    static func placeHold(authtoken: String, userID: Int, recordID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?) -> Promise<OSRFObject> {
         var complexParam: JSONDictionary = [
             "email_notify": notifyByEmail,
             "hold_type": "T", //Title
@@ -48,6 +48,9 @@ class CircService {
         {
             complexParam["sms_notify"] = smsNumber
             complexParam["sms_carrier"] = carrierID
+        }
+        if let date = expirationDate {
+            complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
         }
         let req = Gateway.makeRequest(service: API.circ, method: API.holdTestAndCreate, args: [authtoken, complexParam, [recordID]])
         return req.gatewayObjectResponse()

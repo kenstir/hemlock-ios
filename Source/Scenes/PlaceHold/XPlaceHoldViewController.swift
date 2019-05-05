@@ -34,6 +34,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var selectedCarrierName = ""
     var startOfFetch = Date()
     var didCompleteFetch = false
+    var expirationDate: Date? = nil
     var expirationPickerVisible = false
 
     var activityIndicator: UIActivityIndicatorView!
@@ -83,11 +84,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    @objc func expirationChanged(sender: UIDatePicker) {
-        let expirationDateStr = OSRFObject.outputDateFormatter.string(from: sender.date)
-        expirationTextField?.text = expirationDateStr
     }
 
     //MARK: - Setup
@@ -180,6 +176,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     func setupButtonRow() {
         Style.styleButton(asInverse: placeHoldButton)
         Style.setButtonTitle(placeHoldButton, title: "Place Hold")
+        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
+        placeHoldButton.isEnabled = didCompleteFetch
     }
 
     func setupContainerNode() {
@@ -319,7 +317,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             self.onOrgDataLoaded()
             self.onCarrierDataLoaded()
             self.didCompleteFetch = true
+            print("kcxxx \(self.placeHoldButton.isEnabled)")
             self.placeHoldButton.isEnabled = true
+            self.placeHoldButton.setNeedsDisplay()
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
@@ -366,6 +366,113 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         selectedCarrierName = carrierLabels[selectCarrierIndex]
         carrierTextField?.text = selectedCarrierName
         carrierTextField?.isUserInteractionEnabled = true
+    }
+
+    @objc func expirationChanged(sender: UIDatePicker) {
+        expirationDate = sender.date
+        let expirationDateStr = OSRFObject.outputDateFormatter.string(from: sender.date)
+        expirationTextField?.text = expirationDateStr
+    }
+
+    @objc func placeHoldPressed(sender: Any) {
+        placeHold()
+    }
+    
+    func placeHold() {
+        guard let authtoken = App.account?.authtoken,
+            let userID = App.account?.userID else
+        {
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return
+        }
+        guard let pickupOrg = Organization.find(byName: self.selectedOrgName) else
+        {
+            self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing pickup org"))
+            return
+        }
+        print("pickupOrg \(pickupOrg.id) \(pickupOrg.name) \(pickupOrg.isPickupLocation)")
+        if !pickupOrg.isPickupLocation {
+            self.showAlert(title: "Not a pickup location", message: "You cannot pick up items at \(pickupOrg.name)")
+            return
+        }
+        
+        var notifyPhoneNumber: String? = nil
+        var notifySMSNumber: String? = nil
+        var notifyCarrierID: Int? = nil
+        if isOn(phoneSwitch)
+        {
+            guard let phoneNotify = phoneTextField?.text?.trim(),
+                phoneNotify.count > 0 else
+            {
+                self.showAlert(title: "Error", message: "Phone number field cannot be empty")
+                return
+            }
+            notifyPhoneNumber = phoneNotify
+            App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
+        }
+        if isOn(smsSwitch)
+        {
+            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else {
+                self.showAlert(title: "Error", message: "Please select a valid carrier")
+                return
+            }
+            App.valet.set(string: self.selectedCarrierName, forKey: "carrier")
+            guard let smsNotify = smsTextField?.text?.trim(),
+                smsNotify.count > 0 else
+            {
+                self.showAlert(title: "Error", message: "SMS phone number field cannot be empty")
+                return
+            }
+            notifySMSNumber = smsNotify
+            App.valet.set(string: smsNotify, forKey: "SMSNumber")
+            notifyCarrierID = carrier.id
+        }
+
+        centerSubview(activityIndicator)
+        self.activityIndicator.startAnimating()
+        
+        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: record.id, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate)
+        promise.done { obj in
+            if let _ = obj.getInt("result") {
+                // case 1: result is an Int - hold successful
+                self.navigationController?.view.makeToast("Hold successfully placed")
+                self.navigationController?.popViewController(animated: true)
+                return
+            } else if let resultObj = obj.getAny("result") as? OSRFObject,
+                let eventObj = resultObj.getAny("last_event") as? OSRFObject
+            {
+                // case 2: result is an object with last_event - hold failed
+                throw self.holdError(obj: eventObj)
+            } else if let resultArray = obj.getAny("result") as? [OSRFObject],
+                let eventObj = resultArray.first
+            {
+                // case 3: result is an array of ilsevent objects - hold failed
+                throw self.holdError(obj: eventObj)
+            } else {
+                throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
+            }
+            }.ensure {
+                self.activityIndicator.stopAnimating()
+            }.catch { error in
+                self.presentGatewayAlert(forError: error)
+        }
+    }
+    
+    func holdError(obj: OSRFObject) -> Error {
+        if let ilsevent = obj.getInt("ilsevent"),
+            let textcode = obj.getString("textcode"),
+            let desc = obj.getString("desc") {
+            return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc)
+        }
+        return HemlockError.unexpectedNetworkResponse(String(describing: obj))
+    }
+    
+    func isOn(_ switchNode: ASDisplayNode) -> Bool {
+        if let switchView = switchNode.view as? UISwitch, switchView.isOn {
+            return true
+        } else {
+            return false
+        }
     }
 
     func makeRowSpec(rowMinHeight: ASDimension, spacing: CGFloat) -> ASStackLayoutSpec {
