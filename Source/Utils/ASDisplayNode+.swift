@@ -20,7 +20,8 @@
 import AsyncDisplayKit
 
 extension ASDisplayNode {
-    var switchView: UISwitch? {
-        return self.view as? UISwitch
-    }
+    // convenience vars to access wrapped views
+    var datePicker: UIDatePicker? { return self.view as? UIDatePicker }
+    var switchView: UISwitch? { return self.view as? UISwitch }
+    var textField: UITextField? { return self.view as? UITextField }
 }

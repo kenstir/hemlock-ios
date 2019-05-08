@@ -38,12 +38,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var expirationPickerVisible = false
 
     var activityIndicator: UIActivityIndicatorView!
-    var pickupTextField: UITextField? { return pickupNode.view as? UITextField }
-    var phoneTextField: UITextField? { return phoneNode.view as? UITextField }
-    var smsTextField: UITextField? { return smsNode.view as? UITextField }
-    var carrierTextField: UITextField? { return carrierNode.view as? UITextField }
-    var expirationTextField: UITextField? { return expirationNode.view as? UITextField }
-    var expirationPicker: UIDatePicker? { return expirationPickerNode.view as? UIDatePicker }
 
     let containerNode = ASDisplayNode()
     let scrollNode = ASScrollNode()
@@ -132,8 +126,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     func setupPickupRow() {
         pickupLabel.attributedText = Style.makeString("Pickup location", ofSize: 14)
-        pickupTextField?.borderStyle = .roundedRect
-        pickupTextField?.delegate = self
+        pickupNode.textField?.borderStyle = .roundedRect
+        pickupNode.textField?.delegate = self
     }
 
     func setupEmailRow() {
@@ -142,32 +136,32 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     func setupPhoneRow() {
         phoneLabel.attributedText = Style.makeString("Phone notification", ofSize: 14)
-        phoneTextField?.placeholder = "Phone number"
-        phoneTextField?.keyboardType = .phonePad
-        phoneTextField?.borderStyle = .roundedRect
-        phoneTextField?.delegate = self
+        phoneNode.textField?.placeholder = "Phone number"
+        phoneNode.textField?.keyboardType = .phonePad
+        phoneNode.textField?.borderStyle = .roundedRect
+        phoneNode.textField?.delegate = self
     }
 
     func setupSmsRow() {
         smsLabel.attributedText = Style.makeString("SMS notification", ofSize: 14)
-        smsTextField?.placeholder = "Phone number"
-        smsTextField?.keyboardType = .phonePad
-        smsTextField?.borderStyle = .roundedRect
-        smsTextField?.delegate = self
+        smsNode.textField?.placeholder = "Phone number"
+        smsNode.textField?.keyboardType = .phonePad
+        smsNode.textField?.borderStyle = .roundedRect
+        smsNode.textField?.delegate = self
     }
 
     func setupCarrierRow() {
         carrierLabel.attributedText = Style.makeString("SMS carrier", ofSize: 14)
-        carrierTextField?.borderStyle = .roundedRect
-        carrierTextField?.delegate = self
+        carrierNode.textField?.borderStyle = .roundedRect
+        carrierNode.textField?.delegate = self
     }
     
     func setupExpirationRow() {
         expirationLabel.attributedText = Style.makeString("Expiration date", ofSize: 14)
-        expirationTextField?.borderStyle = .roundedRect
-        expirationTextField?.delegate = self
-        expirationPicker?.addTarget(self, action: #selector(expirationChanged(sender:)), for: .valueChanged)
-        expirationPicker?.datePickerMode = .date
+        expirationNode.textField?.borderStyle = .roundedRect
+        expirationNode.textField?.delegate = self
+        expirationPickerNode.datePicker?.addTarget(self, action: #selector(expirationChanged(sender:)), for: .valueChanged)
+        expirationPickerNode.datePicker?.datePickerMode = .date
     }
     
     func setupButtonRow() {
@@ -339,16 +333,16 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         if let val = App.account?.defaultNotifyPhone {
             phoneSwitch.switchView?.isOn = val
             if let number = App.account?.phone {
-                phoneTextField?.text = number
+                phoneNode.textField?.text = number
             }
         }
         if let val = App.account?.defaultNotifySMS {
             smsSwitch.switchView?.isOn = val
         }
         if let number = App.account?.smsNotify {
-            smsTextField?.text = number
+            smsNode.textField?.text = number
         } else {
-            smsTextField?.text = App.valet.string(forKey: "SMSNumber") ?? ""
+            smsNode.textField?.text = App.valet.string(forKey: "SMSNumber") ?? ""
         }
     }
 
@@ -364,8 +358,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         }
         
         selectedOrgName = orgLabels[selectOrgIndex].trim()
-        pickupTextField?.text = selectedOrgName
-        pickupTextField?.isUserInteractionEnabled = true
+        pickupNode.textField?.text = selectedOrgName
+        pickupNode.textField?.isUserInteractionEnabled = true
     }
     
     func onCarrierDataLoaded() {
@@ -389,14 +383,14 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         }
         
         selectedCarrierName = carrierLabels[selectCarrierIndex]
-        carrierTextField?.text = selectedCarrierName
-        carrierTextField?.isUserInteractionEnabled = true
+        carrierNode.textField?.text = selectedCarrierName
+        carrierNode.textField?.isUserInteractionEnabled = true
     }
 
     @objc func expirationChanged(sender: UIDatePicker) {
         expirationDate = sender.date
         let expirationDateStr = OSRFObject.outputDateFormatter.string(from: sender.date)
-        expirationTextField?.text = expirationDateStr
+        expirationNode.textField?.text = expirationDateStr
     }
 
     @objc func placeHoldPressed(sender: Any) {
@@ -425,7 +419,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         var notifySMSNumber: String? = nil
         var notifyCarrierID: Int? = nil
         if isOn(phoneSwitch) {
-            guard let phoneNotify = phoneTextField?.text?.trim(),
+            guard let phoneNotify = phoneNode.textField?.text?.trim(),
                 phoneNotify.count > 0 else
             {
                 self.showAlert(title: "Error", message: "Phone number field cannot be empty")
@@ -441,7 +435,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
                 return
             }
             App.valet.set(string: self.selectedCarrierName, forKey: "carrier")
-            guard let smsNotify = smsTextField?.text?.trim(),
+            guard let smsNotify = smsNode.textField?.text?.trim(),
                 smsNotify.count > 0 else
             {
                 self.showAlert(title: "Error", message: "SMS phone number field cannot be empty")
@@ -526,27 +520,27 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
-//        case phoneTextField:
+//        case phoneNode.textField:
 //            return true
-//        case smsTextField:
+//        case smsNode.textField:
 //            return true
-        case pickupTextField:
+        case pickupNode.textField:
             guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) else { return true }
             vc.selectionChangedHandler = { value in
                 self.selectedOrgName = value
-                self.pickupTextField?.text = value
+                self.pickupNode.textField?.text = value
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false
-        case carrierTextField:
+        case carrierNode.textField:
             guard let vc = makeVC(title: "SMS Carrier", options: carrierLabels, selectedOption: selectedCarrierName) else { return true }
             vc.selectionChangedHandler = { value in
                 self.selectedCarrierName = value
-                self.carrierTextField?.text = value
+                self.carrierNode.textField?.text = value
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false
-        case expirationTextField:
+        case expirationNode.textField:
             expirationPickerVisible = !expirationPickerVisible
             self.scrollNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true)
             return false
