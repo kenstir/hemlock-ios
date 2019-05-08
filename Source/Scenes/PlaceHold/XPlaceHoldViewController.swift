@@ -122,6 +122,16 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         Style.styleActivityIndicator(activityIndicator)
         self.node.view.addSubview(activityIndicator)
+        
+        enableNodesWhenReady()
+    }
+    
+    func enableNodesWhenReady() {
+        pickupNode.textField?.isEnabled = didCompleteFetch
+        phoneNode.textField?.isEnabled = isOn(phoneSwitch)
+        smsNode.textField?.isEnabled = isOn(smsSwitch)
+        carrierNode.textField?.isEnabled = didCompleteFetch
+        placeHoldButton.isEnabled = didCompleteFetch
     }
 
     func setupPickupRow() {
@@ -136,6 +146,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     func setupPhoneRow() {
         phoneLabel.attributedText = Style.makeString("Phone notification", ofSize: 14)
+        phoneSwitch.switchView?.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
         phoneNode.textField?.placeholder = "Phone number"
         phoneNode.textField?.keyboardType = .phonePad
         phoneNode.textField?.borderStyle = .roundedRect
@@ -144,6 +155,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     func setupSmsRow() {
         smsLabel.attributedText = Style.makeString("SMS notification", ofSize: 14)
+        smsSwitch.switchView?.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
         smsNode.textField?.placeholder = "Phone number"
         smsNode.textField?.keyboardType = .phonePad
         smsNode.textField?.borderStyle = .roundedRect
@@ -168,7 +180,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         Style.styleButton(asInverse: placeHoldButton)
         Style.setButtonTitle(placeHoldButton, title: "Place Hold")
         placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
-        placeHoldButton.isEnabled = didCompleteFetch
     }
 
     func setupContainerNode() {
@@ -319,11 +330,11 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     // init that can't happen until fetchData completes
     func onDataLoaded() {
-        self.placeHoldButton.isEnabled = true
-        self.placeHoldButton.setNeedsDisplay()
         self.onAccountPrefsLoaded()
         self.onOrgDataLoaded()
         self.onCarrierDataLoaded()
+        enableNodesWhenReady()
+        //self.placeHoldButton.setNeedsDisplay()
     }
     
     func onAccountPrefsLoaded() {
@@ -397,6 +408,10 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         placeHold()
     }
     
+    @objc func switchChanged(sender: Any) {
+        enableNodesWhenReady()
+    }
+
     func placeHold() {
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
@@ -485,8 +500,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return HemlockError.unexpectedNetworkResponse(String(describing: obj))
     }
     
-    func isOn(_ switchNode: ASDisplayNode) -> Bool {
-        if let switchView = switchNode.view as? UISwitch, switchView.isOn {
+    func isOn(_ node: ASDisplayNode) -> Bool {
+        if let switchView = node.switchView, switchView.isOn == true {
             return true
         } else {
             return false
