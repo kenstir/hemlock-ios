@@ -119,10 +119,9 @@ class XDetailsNode: ASCellNode {
     }
 
     @objc func placeHoldPressed(sender: Any) {
-        guard let myVC = self.closestViewController,
-            let vc = UIStoryboard(name: "PlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController else { return }
+        guard let myVC = self.closestViewController else { return }
         
-        vc.record = record
+        let vc = XPlaceHoldViewController(record: record)
         myVC.navigationController?.pushViewController(vc, animated: true)
     }
 
