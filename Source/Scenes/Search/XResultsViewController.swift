@@ -231,15 +231,6 @@ extension XResultsViewController: ASTableDelegate {
 
     func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
         let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.organizationShortName)
-        if true && Bundle.isDebug {
-            ///--------------------------------------------------------------
-            /// shortcut to XPlaceHold
-            /// kcxxx todo remove this
-            ///--------------------------------------------------------------
-            let vc = XPlaceHoldViewController(record: items[indexPath.row])
-            self.navigationController?.pushViewController(vc, animated: true)
-            return
-        }
         let vc = XDetailsPagerViewController(items: items, selectedItem: indexPath.row, displayOptions: displayOptions)
         self.navigationController?.pushViewController(vc, animated: true)
     }
