@@ -61,7 +61,7 @@ class MainViewController: UIViewController {
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
-        if Bundle.isDebug {
+        if Bundle.isDebug || true {
             ///--------------------------------------------------------------
             /// shortcut to XResultsVC
             /// kcxxx todo remove this

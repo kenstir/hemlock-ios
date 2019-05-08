@@ -334,16 +334,16 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     func onAccountPrefsLoaded() {
         if let val = App.account?.defaultNotifyEmail {
-            asSwitch(emailSwitch)?.isOn = val
+            emailSwitch.switchView?.isOn = val
         }
         if let val = App.account?.defaultNotifyPhone {
-            asSwitch(phoneSwitch)?.isOn = val
+            phoneSwitch.switchView?.isOn = val
             if let number = App.account?.phone {
                 phoneTextField?.text = number
             }
         }
         if let val = App.account?.defaultNotifySMS {
-            asSwitch(smsSwitch)?.isOn = val
+            smsSwitch.switchView?.isOn = val
         }
         if let number = App.account?.smsNotify {
             smsTextField?.text = number
@@ -489,10 +489,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc)
         }
         return HemlockError.unexpectedNetworkResponse(String(describing: obj))
-    }
-    
-    func asSwitch(_ switchNode: ASDisplayNode) -> UISwitch? {
-        return switchNode.view as? UISwitch
     }
     
     func isOn(_ switchNode: ASDisplayNode) -> Bool {

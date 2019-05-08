@@ -65,6 +65,7 @@ class PlaceHoldViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         fetchData()
+        fatalError()//NOTREACHED
     }
 
     func setupViews() {
