@@ -85,30 +85,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    //MARK: - Setup
-    
-    func setupNodes() {
-        Style.setupTitle(titleNode, str: record.title)
-        Style.setupSubtitle(authorNode, str: record.author)
-        Style.setupSubtitle(formatNode, str: record.format)
-        
-        setupPickupRow()
-        setupEmailRow()
-        setupPhoneRow()
-        setupSmsRow()
-        setupCarrierRow()
-        setupExpirationRow()
-        setupButtonRow()
-        
-        // See Footnote #1 - handling the keyboard
-        setupContainerNode()
-        setupScrollNode()
-
-        self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
-        Style.styleActivityIndicator(activityIndicator)
-        self.node.view.addSubview(activityIndicator)
-    }
     
     //MARK: - ViewController
     
@@ -127,12 +103,33 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         self.setupTapToDismissKeyboard(onScrollView: scrollNode.view)
         scrollNode.view.setupKeyboardAutoResizer()
         
-        // don't fetch data when navigating back
-        self.fetchData()
+        fetchData()
     }
 
-    //MARK: - Layout
+    //MARK: - setup
     
+    func setupNodes() {
+        Style.setupTitle(titleNode, str: record.title)
+        Style.setupSubtitle(authorNode, str: record.author)
+        Style.setupSubtitle(formatNode, str: record.format)
+        
+        setupPickupRow()
+        setupEmailRow()
+        setupPhoneRow()
+        setupSmsRow()
+        setupCarrierRow()
+        setupExpirationRow()
+        setupButtonRow()
+        
+        // See Footnote #1 - handling the keyboard
+        setupContainerNode()
+        setupScrollNode()
+        
+        self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        Style.styleActivityIndicator(activityIndicator)
+        self.node.view.addSubview(activityIndicator)
+    }
+
     func setupPickupRow() {
         pickupLabel.attributedText = Style.makeString("Pickup location", ofSize: 14)
         pickupTextField?.borderStyle = .roundedRect
@@ -191,7 +188,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         scrollNode.automaticallyManagesSubnodes = true
         scrollNode.automaticallyManagesContentSize = true
         scrollNode.layoutSpecBlock = { node, constrainedSize in
-            print("kcxxx layoutSpecBlock")
             return self.pageLayoutSpec(constrainedSize)
         }
     }
@@ -296,10 +292,14 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     //MARK: - Functions
     
     func fetchData() {
+        // don't fetch data when navigating back
         guard !didCompleteFetch else { return }
+        guard let account = App.account else { return }
+
         self.startOfFetch = Date()
         
         var promises: [Promise<Void>] = []
+        promises.append(ActorService.fetchUserSettings(account: account))
         promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTreeAndSettings())
         promises.append(PCRUDService.fetchSMSCarriers())
@@ -314,12 +314,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             print("xxx \(promises.count) promises fulfilled")
             let elapsed = -self.startOfFetch.timeIntervalSinceNow
             os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
-            self.onOrgDataLoaded()
-            self.onCarrierDataLoaded()
             self.didCompleteFetch = true
-            print("kcxxx \(self.placeHoldButton.isEnabled)")
-            self.placeHoldButton.isEnabled = true
-            self.placeHoldButton.setNeedsDisplay()
+            self.onDataLoaded()
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
@@ -327,6 +323,35 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         }
     }
     
+    // init that can't happen until fetchData completes
+    func onDataLoaded() {
+        self.placeHoldButton.isEnabled = true
+        self.placeHoldButton.setNeedsDisplay()
+        self.onAccountPrefsLoaded()
+        self.onOrgDataLoaded()
+        self.onCarrierDataLoaded()
+    }
+    
+    func onAccountPrefsLoaded() {
+        if let val = App.account?.defaultNotifyEmail {
+            asSwitch(emailSwitch)?.isOn = val
+        }
+        if let val = App.account?.defaultNotifyPhone {
+            asSwitch(phoneSwitch)?.isOn = val
+            if let number = App.account?.phone {
+                phoneTextField?.text = number
+            }
+        }
+        if let val = App.account?.defaultNotifySMS {
+            asSwitch(smsSwitch)?.isOn = val
+        }
+        if let number = App.account?.smsNotify {
+            smsTextField?.text = number
+        } else {
+            smsTextField?.text = App.valet.string(forKey: "SMSNumber") ?? ""
+        }
+    }
+
     func onOrgDataLoaded() {
         orgLabels = Organization.getSpinnerLabels()
         var selectOrgIndex = 0
@@ -399,8 +424,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         var notifyPhoneNumber: String? = nil
         var notifySMSNumber: String? = nil
         var notifyCarrierID: Int? = nil
-        if isOn(phoneSwitch)
-        {
+        if isOn(phoneSwitch) {
             guard let phoneNotify = phoneTextField?.text?.trim(),
                 phoneNotify.count > 0 else
             {
@@ -410,9 +434,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             notifyPhoneNumber = phoneNotify
             App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
         }
-        if isOn(smsSwitch)
-        {
-            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else {
+        if isOn(smsSwitch) {
+            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else
+            {
                 self.showAlert(title: "Error", message: "Please select a valid carrier")
                 return
             }
@@ -465,6 +489,10 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc)
         }
         return HemlockError.unexpectedNetworkResponse(String(describing: obj))
+    }
+    
+    func asSwitch(_ switchNode: ASDisplayNode) -> UISwitch? {
+        return switchNode.view as? UISwitch
     }
     
     func isOn(_ switchNode: ASDisplayNode) -> Bool {
