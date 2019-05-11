@@ -49,8 +49,9 @@ class CheckoutsViewController: UIViewController {
         // deselect row when navigating back
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
-        } else {
-            // don't fetch data when navigating back
+        }
+        
+        if !didCompleteFetch {
             self.fetchData()
         }
     }
@@ -106,6 +107,7 @@ class CheckoutsViewController: UIViewController {
             os_log("%d promises done", log: self.log, type: .info, promises.count)
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forResults: results)
+            self.didCompleteFetch = true
             self.updateItems(withRecords: records)
         }
     }
@@ -139,7 +141,6 @@ class CheckoutsViewController: UIViewController {
     }
 
     func updateItems(withRecords records: [CircRecord]) {
-        self.didCompleteFetch = true
         self.items = records
         sortList()
         print("xxx \(records.count) records now, time to reloadData")
