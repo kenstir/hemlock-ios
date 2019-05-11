@@ -43,7 +43,9 @@ class HoldsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+        if !didCompleteFetch {
+            fetchData()
+        }
     }
 
     //MARK: - Functions
@@ -62,6 +64,7 @@ class HoldsViewController: UIViewController {
     }
 
     func fetchData() {
+        
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
@@ -226,9 +229,18 @@ class HoldsViewController: UIViewController {
         os_log("updateItems %d items", log: self.log, type: .info, items.count)
         holdsTable.reloadData()
     }
+    
+    func showDetails(_ indexPath: IndexPath) {
+        let hold = items[indexPath.row]
+        let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
+        if let record = hold.metabibRecord {
+            let vc = XDetailsPagerViewController(items: [record], selectedItem: 0, displayOptions: displayOptions)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 
-    @objc func buttonPressed(sender: UIButton) {
-        let hold = items[sender.tag]
+    @objc func cancelHoldPressed(_ indexPath: IndexPath) {
+        let hold = items[indexPath.row]
         guard let authtoken = App.account?.authtoken else
         {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
@@ -259,6 +271,7 @@ class HoldsViewController: UIViewController {
                 return
             }
             self.navigationController?.view.makeToast("Hold cancelled")
+            self.didCompleteFetch = false
             self.fetchData()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
@@ -296,11 +309,6 @@ extension HoldsViewController: UITableViewDataSource {
         cell.holdsQueueLabel.text = holdstotaltext
         cell.holdsQueuePosition.text = "Queue position: \(item.queuePosition)"
 
-        // add an action to the button
-        cell.holdsCancelButton.tag = indexPath.row
-        cell.holdsCancelButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        Style.styleButton(asOutline: cell.holdsCancelButton)
-
         return cell
     }
 }
@@ -310,9 +318,28 @@ extension HoldsViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let item = items[indexPath.row]
-//        selectedItem = item
-//        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
+        let item = items[indexPath.row]
+        debugPrint(item)
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        alertController.addAction(UIAlertAction(title: "Cancel Hold", style: .destructive) { action in
+            self.cancelHoldPressed(indexPath)
+        })
+        alertController.addAction(UIAlertAction(title: "Edit Hold", style: .default) { action in
+            print("kcxxx: \(action.title)")
+        })
+        alertController.addAction(UIAlertAction(title: "Show Details", style: .default) { action in
+            self.showDetails(indexPath)
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alertController, animated: true) {
+            // deselect row
+            if let indexPath = tableView.indexPathForSelectedRow {
+                print("kcxxx: deselectRow \(indexPath.row)")
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
     }
 }
 
