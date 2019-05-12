@@ -229,12 +229,20 @@ class HoldsViewController: UIViewController {
         os_log("updateItems %d items", log: self.log, type: .info, items.count)
         holdsTable.reloadData()
     }
-    
+
     func showDetails(_ indexPath: IndexPath) {
         let hold = items[indexPath.row]
         let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
         if let record = hold.metabibRecord {
             let vc = XDetailsPagerViewController(items: [record], selectedItem: 0, displayOptions: displayOptions)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+    func editHold(_ indexPath: IndexPath) {
+        let hold = items[indexPath.row]
+        if let record = hold.metabibRecord {
+            let vc = XPlaceHoldViewController(record: record, holdRecord: hold)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -327,7 +335,7 @@ extension HoldsViewController: UITableViewDelegate {
             self.cancelHoldPressed(indexPath)
         })
         alertController.addAction(UIAlertAction(title: "Edit Hold", style: .default) { action in
-            print("kcxxx: \(action.title)")
+            self.editHold(indexPath)
         })
         alertController.addAction(UIAlertAction(title: "Show Details", style: .default) { action in
             self.showDetails(indexPath)
@@ -336,7 +344,6 @@ extension HoldsViewController: UITableViewDelegate {
         self.present(alertController, animated: true) {
             // deselect row
             if let indexPath = tableView.indexPathForSelectedRow {
-                print("kcxxx: deselectRow \(indexPath.row)")
                 tableView.deselectRow(at: indexPath, animated: true)
             }
         }

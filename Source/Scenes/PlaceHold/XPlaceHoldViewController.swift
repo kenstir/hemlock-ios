@@ -28,6 +28,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     //MARK: - Properties
 
     let record: MBRecord
+    let holdRecord: HoldRecord?
     var orgLabels: [String] = []
     var carrierLabels: [String] = []
     var selectedOrgName = ""
@@ -36,6 +37,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var didCompleteFetch = false
     var expirationDate: Date? = nil
     var expirationPickerVisible = false
+    var isEditHold: Bool { return holdRecord != nil }
 
     var activityIndicator: UIActivityIndicatorView!
 
@@ -69,11 +71,12 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     //MARK: - Lifecycle
     
-    init(record: MBRecord) {
+    init(record: MBRecord, holdRecord: HoldRecord? = nil) {
         self.record = record
+        self.holdRecord = holdRecord
 
         super.init(node: containerNode)
-        self.title = "Place Hold"
+        self.title = isEditHold ? "Edit Hold" : "Place Hold"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -178,8 +181,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     func setupButtonRow() {
         Style.styleButton(asInverse: placeHoldButton)
-        Style.setButtonTitle(placeHoldButton, title: "Place Hold")
-        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
+        Style.setButtonTitle(placeHoldButton, title: isEditHold ? "Update Hold" : "Place Hold")
+        placeHoldButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), forControlEvents: .touchUpInside)
     }
 
     func setupContainerNode() {
@@ -297,7 +300,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     //MARK: - Functions
     
     func fetchData() {
-        // don't fetch data when navigating back
         guard !didCompleteFetch else { return }
         guard let account = App.account else { return }
 
@@ -328,39 +330,54 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         }
     }
     
+    func toInt(_ str: String?) -> Int? {
+        if let s = str {
+            return Int(s)
+        }
+        return nil
+    }
+
     // init that can't happen until fetchData completes
     func onDataLoaded() {
-        self.onAccountPrefsLoaded()
-        self.onOrgDataLoaded()
-        self.onCarrierDataLoaded()
+        loadAccountPrefs()
+        loadOrgData()
+        loadCarrierData()
+        loadExpirationData()
         enableNodesWhenReady()
         //self.placeHoldButton.setNeedsDisplay()
     }
     
-    func onAccountPrefsLoaded() {
-        if let val = App.account?.defaultNotifyEmail {
+    func loadAccountPrefs() {
+        if let val = Utils.coalesce(holdRecord?.hasEmailNotify,
+                                    App.account?.defaultNotifyEmail) {
             emailSwitch.switchView?.isOn = val
         }
-        if let val = App.account?.defaultNotifyPhone {
-            phoneSwitch.switchView?.isOn = val
-            if let number = App.account?.phone {
-                phoneNode.textField?.text = number
+        if App.config.enableHoldPhoneNotification {
+            if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
+                                        App.account?.defaultNotifyPhone) {
+                phoneSwitch.switchView?.isOn = val
             }
+            let number = Utils.coalesce(holdRecord?.phoneNotify,
+                                        App.account?.phone,
+                                        App.valet.string(forKey: "PhoneNumber"))
+            phoneNode.textField?.text = number
         }
-        if let val = App.account?.defaultNotifySMS {
+        if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
+                                    App.account?.defaultNotifySMS) {
             smsSwitch.switchView?.isOn = val
         }
-        if let number = App.account?.smsNotify {
-            smsNode.textField?.text = number
-        } else {
-            smsNode.textField?.text = App.valet.string(forKey: "SMSNumber") ?? ""
-        }
+        let number = Utils.coalesce(holdRecord?.smsNotify,
+                                    App.account?.smsNotify,
+                                    App.valet.string(forKey: "SMSNumber"))
+        smsNode.textField?.text = number
     }
 
-    func onOrgDataLoaded() {
+    func loadOrgData() {
         orgLabels = Organization.getSpinnerLabels()
+
         var selectOrgIndex = 0
-        let defaultPickupLocation = App.account?.pickupOrgID
+        let defaultPickupLocation = Utils.coalesce(holdRecord?.pickupOrgId,
+                                                   App.account?.pickupOrgID)
         for index in 0..<Organization.orgs.count {
             let org = Organization.orgs[index]
             if org.id == defaultPickupLocation {
@@ -373,18 +390,18 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         pickupNode.textField?.isUserInteractionEnabled = true
     }
     
-    func onCarrierDataLoaded() {
+    func loadCarrierData() {
         carrierLabels = SMSCarrier.getSpinnerLabels()
         carrierLabels.sort()
         carrierLabels.insert("---", at: 0)
 
         var selectCarrierName: String?
         var selectCarrierIndex = 0
-        if let defaultCarrierID = App.account?.smsCarrier,
+        if let defaultCarrierID = Utils.coalesce(holdRecord?.smsCarrier,
+                                                 App.account?.smsCarrier,
+                                                 toInt(App.valet.string(forKey: "SMSCarrier"))),
             let defaultCarrier = SMSCarrier.find(byID: defaultCarrierID) {
             selectCarrierName = defaultCarrier.name
-        } else {
-            selectCarrierName = App.valet.string(forKey: "carrier")
         }
         for index in 0..<carrierLabels.count {
             let carrier = carrierLabels[index]
@@ -397,22 +414,32 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         carrierNode.textField?.text = selectedCarrierName
         carrierNode.textField?.isUserInteractionEnabled = true
     }
+    
+    func loadExpirationData() {
+        if let date = Utils.coalesce(holdRecord?.expireDate) {
+            updateExpirationDate(date)
+        }
+    }
 
     @objc func expirationChanged(sender: UIDatePicker) {
-        expirationDate = sender.date
-        let expirationDateStr = OSRFObject.outputDateFormatter.string(from: sender.date)
+        updateExpirationDate(sender.date)
+    }
+    
+    func updateExpirationDate(_ date: Date) {
+        expirationDate = date
+        let expirationDateStr = OSRFObject.outputDateFormatter.string(from: date)
         expirationNode.textField?.text = expirationDateStr
     }
 
-    @objc func placeHoldPressed(sender: Any) {
-        placeHold()
+    @objc func holdButtonPressed(sender: Any) {
+        placeOrUpdateHold()
     }
-    
+
     @objc func switchChanged(sender: Any) {
         enableNodesWhenReady()
     }
 
-    func placeHold() {
+    func placeOrUpdateHold() {
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
         {
@@ -444,23 +471,31 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
         }
         if isOn(smsSwitch) {
-            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else
-            {
-                self.showAlert(title: "Error", message: "Please select a valid carrier")
-                return
-            }
-            App.valet.set(string: self.selectedCarrierName, forKey: "carrier")
             guard let smsNotify = smsNode.textField?.text?.trim(),
                 smsNotify.count > 0 else
             {
                 self.showAlert(title: "Error", message: "SMS phone number field cannot be empty")
                 return
             }
+            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else
+            {
+                self.showAlert(title: "Error", message: "Please select a valid carrier")
+                return
+            }
+            App.valet.set(string: String(carrier.id), forKey: "SMSCarrier")
             notifySMSNumber = smsNotify
             App.valet.set(string: smsNotify, forKey: "SMSNumber")
             notifyCarrierID = carrier.id
         }
+        
+        if let hold = holdRecord {
+            doUpdateHold(authtoken: authtoken, holdRecord: hold, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
+        } else {
+            doPlaceHold(authtoken: authtoken, userID: userID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
+        }
+    }
 
+    func doPlaceHold(authtoken: String, userID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
         
@@ -468,6 +503,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         promise.done { obj in
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful
+                self.didCompleteFetch = false
                 self.navigationController?.view.makeToast("Hold successfully placed")
                 self.navigationController?.popViewController(animated: true)
                 return
@@ -484,13 +520,48 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             } else {
                 throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
             }
-            }.ensure {
-                self.activityIndicator.stopAnimating()
-            }.catch { error in
-                self.presentGatewayAlert(forError: error)
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
         }
     }
-    
+
+    func doUpdateHold(authtoken: String, holdRecord: HoldRecord, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
+        centerSubview(activityIndicator)
+        self.activityIndicator.startAnimating()
+        
+        let suspendHold = false
+        let thawDate: Date? = nil
+        
+        let promise = CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendHold, thawDate: thawDate)
+        promise.done { obj in
+            if let _ = obj.getInt("result") {
+                // case 1: result is an Int - hold successful
+                self.didCompleteFetch = false
+                self.navigationController?.view.makeToast("Hold updated")
+                self.navigationController?.popViewController(animated: true)
+                return
+            } else if let resultObj = obj.getAny("result") as? OSRFObject,
+                let eventObj = resultObj.getAny("last_event") as? OSRFObject
+            {
+                // case 2: result is an object with last_event - hold failed
+                throw self.holdError(obj: eventObj)
+            } else if let resultArray = obj.getAny("result") as? [OSRFObject],
+                let eventObj = resultArray.first
+            {
+                // case 3: result is an array of ilsevent objects - hold failed
+                throw self.holdError(obj: eventObj)
+            } else {
+                throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
+            }
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
     func holdError(obj: OSRFObject) -> Error {
         if let ilsevent = obj.getInt("ilsevent"),
             let textcode = obj.getString("textcode"),
