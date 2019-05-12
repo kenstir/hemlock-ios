@@ -28,6 +28,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     //MARK: - Properties
 
     let record: MBRecord
+    let holdRecord: HoldRecord?
     var orgLabels: [String] = []
     var carrierLabels: [String] = []
     var selectedOrgName = ""
@@ -36,6 +37,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var didCompleteFetch = false
     var expirationDate: Date? = nil
     var expirationPickerVisible = false
+    var isEditHold: Bool { return holdRecord != nil }
 
     var activityIndicator: UIActivityIndicatorView!
 
@@ -69,11 +71,12 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     //MARK: - Lifecycle
     
-    init(record: MBRecord) {
+    init(record: MBRecord, holdRecord: HoldRecord? = nil) {
         self.record = record
+        self.holdRecord = holdRecord
 
         super.init(node: containerNode)
-        self.title = "Place Hold"
+        self.title = isEditHold ? "Edit Hold" : "Place Hold"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -178,8 +181,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     func setupButtonRow() {
         Style.styleButton(asInverse: placeHoldButton)
-        Style.setButtonTitle(placeHoldButton, title: "Place Hold")
-        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
+        Style.setButtonTitle(placeHoldButton, title: isEditHold ? "Update Hold" : "Place Hold")
+        placeHoldButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), forControlEvents: .touchUpInside)
     }
 
     func setupContainerNode() {
@@ -297,7 +300,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     //MARK: - Functions
     
     func fetchData() {
-        // don't fetch data when navigating back
         guard !didCompleteFetch else { return }
         guard let account = App.account else { return }
 
@@ -404,15 +406,15 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         expirationNode.textField?.text = expirationDateStr
     }
 
-    @objc func placeHoldPressed(sender: Any) {
-        placeHold()
+    @objc func holdButtonPressed(sender: Any) {
+        placeOrUpdateHold()
     }
-    
+
     @objc func switchChanged(sender: Any) {
         enableNodesWhenReady()
     }
 
-    func placeHold() {
+    func placeOrUpdateHold() {
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
         {
@@ -444,23 +446,31 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
         }
         if isOn(smsSwitch) {
-            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else
-            {
-                self.showAlert(title: "Error", message: "Please select a valid carrier")
-                return
-            }
-            App.valet.set(string: self.selectedCarrierName, forKey: "carrier")
             guard let smsNotify = smsNode.textField?.text?.trim(),
                 smsNotify.count > 0 else
             {
                 self.showAlert(title: "Error", message: "SMS phone number field cannot be empty")
                 return
             }
+            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else
+            {
+                self.showAlert(title: "Error", message: "Please select a valid carrier")
+                return
+            }
+            App.valet.set(string: self.selectedCarrierName, forKey: "carrier")
             notifySMSNumber = smsNotify
             App.valet.set(string: smsNotify, forKey: "SMSNumber")
             notifyCarrierID = carrier.id
         }
+        
+        if let hold = holdRecord {
+            doUpdateHold(authtoken: authtoken, userID: userID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID, holdRecord: hold)
+        } else {
+            doPlaceHold(authtoken: authtoken, userID: userID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
+        }
+    }
 
+    func doPlaceHold(authtoken: String, userID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
         
@@ -484,13 +494,19 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             } else {
                 throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
             }
-            }.ensure {
-                self.activityIndicator.stopAnimating()
-            }.catch { error in
-                self.presentGatewayAlert(forError: error)
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
         }
     }
-    
+
+    func doUpdateHold(authtoken: String, userID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?, holdRecord: HoldRecord) {
+        centerSubview(activityIndicator)
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.stopAnimating()
+    }
+
     func holdError(obj: OSRFObject) -> Error {
         if let ilsevent = obj.getInt("ilsevent"),
             let textcode = obj.getString("textcode"),
