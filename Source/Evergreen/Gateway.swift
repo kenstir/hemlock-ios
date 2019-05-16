@@ -49,7 +49,7 @@ class Gateway {
         var params: [String] = []
         for opt_arg in args {
             guard let arg = opt_arg else {
-                params.append("")
+                params.append("null")
                 continue
             }
             if let s = arg as? String {

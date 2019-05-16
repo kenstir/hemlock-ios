@@ -48,7 +48,7 @@ class GatewayTests: XCTestCase {
         let authtoken = "deadbeef"
         let complexParam = ["active": 1]
         let p1 = Gateway.gatewayParams([authtoken, nil, complexParam])
-        XCTAssertEqual(p1, ["\"deadbeef\"","","{\"active\":1}"])
+        XCTAssertEqual(p1, ["\"deadbeef\"","null","{\"active\":1}"])
     }
 
     func test_createRequest_basic() {

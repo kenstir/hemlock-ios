@@ -242,7 +242,9 @@ class HoldsViewController: UIViewController {
     func editHold(_ indexPath: IndexPath) {
         let hold = items[indexPath.row]
         if let record = hold.metabibRecord {
-            let vc = XPlaceHoldViewController(record: record, holdRecord: hold)
+            let vc = XPlaceHoldViewController(record: record, holdRecord: hold) {
+                self.didCompleteFetch = false
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -326,8 +328,7 @@ extension HoldsViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = items[indexPath.row]
-        debugPrint(item)
+//        let item = items[indexPath.row]
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)

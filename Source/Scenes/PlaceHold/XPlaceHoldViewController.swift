@@ -29,6 +29,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     let record: MBRecord
     let holdRecord: HoldRecord?
+    var valueChangedHandler: (() -> Void)?
+
     var orgLabels: [String] = []
     var carrierLabels: [String] = []
     var selectedOrgName = ""
@@ -71,9 +73,10 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     //MARK: - Lifecycle
     
-    init(record: MBRecord, holdRecord: HoldRecord? = nil) {
+    init(record: MBRecord, holdRecord: HoldRecord? = nil, valueChangedHandler: (() -> Void)? = nil) {
         self.record = record
         self.holdRecord = holdRecord
+        self.valueChangedHandler = valueChangedHandler
 
         super.init(node: containerNode)
         self.title = isEditHold ? "Edit Hold" : "Place Hold"
@@ -135,6 +138,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         smsNode.textField?.isEnabled = isOn(smsSwitch)
         carrierNode.textField?.isEnabled = didCompleteFetch
         placeHoldButton.isEnabled = didCompleteFetch
+        placeHoldButton.setNeedsDisplay()
     }
 
     func setupPickupRow() {
@@ -344,7 +348,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         loadCarrierData()
         loadExpirationData()
         enableNodesWhenReady()
-        //self.placeHoldButton.setNeedsDisplay()
     }
     
     func loadAccountPrefs() {
@@ -503,7 +506,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         promise.done { obj in
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful
-                self.didCompleteFetch = false
+                self.valueChangedHandler?();
                 self.navigationController?.view.makeToast("Hold successfully placed")
                 self.navigationController?.popViewController(animated: true)
                 return
@@ -535,25 +538,17 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let thawDate: Date? = nil
         
         let promise = CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendHold, thawDate: thawDate)
-        promise.done { obj in
-            if let _ = obj.getInt("result") {
-                // case 1: result is an Int - hold successful
-                self.didCompleteFetch = false
-                self.navigationController?.view.makeToast("Hold updated")
+        promise.done { resp, pmkresp in
+            if let _ = resp.str {
+                // case 1: result is String - update successful
+                self.valueChangedHandler?();
+                self.navigationController?.view.makeToast("Hold successfully updated")
                 self.navigationController?.popViewController(animated: true)
                 return
-            } else if let resultObj = obj.getAny("result") as? OSRFObject,
-                let eventObj = resultObj.getAny("last_event") as? OSRFObject
-            {
-                // case 2: result is an object with last_event - hold failed
-                throw self.holdError(obj: eventObj)
-            } else if let resultArray = obj.getAny("result") as? [OSRFObject],
-                let eventObj = resultArray.first
-            {
-                // case 3: result is an array of ilsevent objects - hold failed
-                throw self.holdError(obj: eventObj)
+            } else if let err = resp.error {
+                throw err
             } else {
-                throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
+                throw HemlockError.unexpectedNetworkResponse("expected string, received \(resp.description)")
             }
         }.ensure {
             self.activityIndicator.stopAnimating()

@@ -55,22 +55,28 @@ class CircService {
         let req = Gateway.makeRequest(service: API.circ, method: API.holdTestAndCreate, args: [authtoken, complexParam, [recordID]])
         return req.gatewayObjectResponse()
     }
+    
+    static func dump(_ dict: JSONDictionary) {
+        for i in dict.keys.sorted() {
+            if let val = dict[i] {
+                print("kcxxx: \(i) -> \(val)")
+            } else {
+                print("kcxxx: \(i) -> nil")
+            }
+        }
+    }
 
-    static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) -> Promise<OSRFObject> {
+    static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
         var complexParam: JSONDictionary = [
             "id": holdRecord.id,
             "email_notify": notifyByEmail,
             "pickup_lib": pickupOrgID,
             "frozen": suspendHold,
         ]
-        if let phoneNumber = notifyPhoneNumber {
-            complexParam["phone_notify"] = phoneNumber
-        }
-        if let smsNumber = notifySMSNumber,
-            smsNumber.count > 0,
-            let carrierID = smsCarrierID
-        {
-            complexParam["sms_notify"] = smsNumber
+        // NB: "as Any?" is needed to store nil
+        complexParam["phone_notify"] = Utils.coalesce(notifyPhoneNumber) as Any?
+        complexParam["sms_notify"] = Utils.coalesce(notifySMSNumber) as Any?
+        if let carrierID = smsCarrierID {
             complexParam["sms_carrier"] = carrierID
         }
         if let date = expirationDate {
@@ -80,7 +86,7 @@ class CircService {
             complexParam["thaw_date"] = OSRFObject.apiDateFormatter.string(from: date)
         }
         let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [authtoken, nil, complexParam])
-        return req.gatewayObjectResponse()
+        return req.gatewayResponse()
     }
 
     static func cancelHold(authtoken: String, holdID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
