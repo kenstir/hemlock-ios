@@ -55,16 +55,6 @@ class CircService {
         let req = Gateway.makeRequest(service: API.circ, method: API.holdTestAndCreate, args: [authtoken, complexParam, [recordID]])
         return req.gatewayObjectResponse()
     }
-    
-    static func dump(_ dict: JSONDictionary) {
-        for i in dict.keys.sorted() {
-            if let val = dict[i] {
-                print("kcxxx: \(i) -> \(val)")
-            } else {
-                print("kcxxx: \(i) -> nil")
-            }
-        }
-    }
 
     static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
         var complexParam: JSONDictionary = [

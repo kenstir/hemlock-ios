@@ -31,4 +31,14 @@ class Utils {
         }
         return nil
     }
+    
+    static func dump(dict: JSONDictionary) {
+        for i in dict.keys.sorted() {
+            if let val = dict[i], let v = val {
+                print("  \(i) -> \(v)")
+            } else {
+                print("  \(i) -> nil")
+            }
+        }
+    }
 }
