@@ -1,5 +1,5 @@
 //
-//  String+splitOnRegex.swift
+//  String+subscript.swift
 
 import Foundation
 
