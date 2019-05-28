@@ -342,6 +342,14 @@ extension HoldsViewController: UITableViewDelegate {
             self.showDetails(indexPath)
         })
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        if let popoverController = alertController.popoverPresentationController {
+            var view: UIView = self.view
+            if let cell = tableView.cellForRow(at: indexPath) {
+                view = cell.contentView
+            }
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
         self.present(alertController, animated: true) {
             // deselect row
             if let indexPath = tableView.indexPathForSelectedRow {
