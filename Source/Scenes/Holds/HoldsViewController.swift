@@ -43,7 +43,9 @@ class HoldsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+        if !didCompleteFetch {
+            fetchData()
+        }
     }
 
     //MARK: - Functions
@@ -62,6 +64,7 @@ class HoldsViewController: UIViewController {
     }
 
     func fetchData() {
+        
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
         {
@@ -227,8 +230,27 @@ class HoldsViewController: UIViewController {
         holdsTable.reloadData()
     }
 
-    @objc func buttonPressed(sender: UIButton) {
-        let hold = items[sender.tag]
+    func showDetails(_ indexPath: IndexPath) {
+        let hold = items[indexPath.row]
+        let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
+        if let record = hold.metabibRecord {
+            let vc = XDetailsPagerViewController(items: [record], selectedItem: 0, displayOptions: displayOptions)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+    func editHold(_ indexPath: IndexPath) {
+        let hold = items[indexPath.row]
+        if let record = hold.metabibRecord {
+            let vc = XPlaceHoldViewController(record: record, holdRecord: hold) {
+                self.didCompleteFetch = false
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+    @objc func cancelHoldPressed(_ indexPath: IndexPath) {
+        let hold = items[indexPath.row]
         guard let authtoken = App.account?.authtoken else
         {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
@@ -259,6 +281,7 @@ class HoldsViewController: UIViewController {
                 return
             }
             self.navigationController?.view.makeToast("Hold cancelled")
+            self.didCompleteFetch = false
             self.fetchData()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
@@ -296,11 +319,6 @@ extension HoldsViewController: UITableViewDataSource {
         cell.holdsQueueLabel.text = holdstotaltext
         cell.holdsQueuePosition.text = "Queue position: \(item.queuePosition)"
 
-        // add an action to the button
-        cell.holdsCancelButton.tag = indexPath.row
-        cell.holdsCancelButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        Style.styleButton(asOutline: cell.holdsCancelButton)
-
         return cell
     }
 }
@@ -311,8 +329,33 @@ extension HoldsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let item = items[indexPath.row]
-//        selectedItem = item
-//        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: nil)
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        alertController.addAction(UIAlertAction(title: "Cancel Hold", style: .destructive) { action in
+            self.cancelHoldPressed(indexPath)
+        })
+        alertController.addAction(UIAlertAction(title: "Edit Hold", style: .default) { action in
+            self.editHold(indexPath)
+        })
+        alertController.addAction(UIAlertAction(title: "Show Details", style: .default) { action in
+            self.showDetails(indexPath)
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        if let popoverController = alertController.popoverPresentationController {
+            var view: UIView = self.view
+            if let cell = tableView.cellForRow(at: indexPath) {
+                view = cell.contentView
+            }
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
+        self.present(alertController, animated: true) {
+            // deselect row
+            if let indexPath = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
     }
 }
 

@@ -46,6 +46,24 @@ class HoldRecord {
     var id: Int? { return ahrObj.getInt("id") }
     var target: Int? { return ahrObj.getID("target") }
     var holdType: String? { return ahrObj.getString("hold_type") }
+    var hasEmailNotify: Bool? { return ahrObj.getBool("email_notify") }
+    var hasPhoneNotify: Bool? {
+        if ahrObj.getString("phone_notify") != nil {
+            return true
+        }
+        return nil
+    }
+    var phoneNotify: String? { return ahrObj.getString("phone_notify") }
+    var hasSmsNotify: Bool? {
+        if ahrObj.getString("sms_notify") != nil {
+            return true
+        }
+        return nil
+    }
+    var smsNotify: String? { return ahrObj.getString("sms_notify") }
+    var smsCarrier: Int? { return ahrObj.getInt("sms_carrier") }
+    var pickupOrgId: Int? { return ahrObj.getInt("pickup_lib") }
+    var expireDate: Date? { return ahrObj.getDate("expire_time") }
 
     var queuePosition: Int { return qstatsObj?.getInt("queue_position") ?? 0 }
     var totalHolds: Int { return qstatsObj?.getInt("total_holds") ?? 0 }

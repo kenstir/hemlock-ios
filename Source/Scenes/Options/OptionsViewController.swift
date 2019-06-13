@@ -28,7 +28,7 @@ class OptionsViewController: UIViewController {
     var options: [String] = []
     var selectedOption: String?
     var selectedPath: IndexPath?
-    var selectionChangedHandler:  ((String) -> Void)?
+    var selectionChangedHandler: ((String) -> Void)?
 
     //MARK: - UIViewController
     

@@ -26,8 +26,8 @@ import os.log
 class PlaceHoldViewController: UIViewController {
 
     //MARK: - Properties
+
     var record: MBRecord?
-    let formats = Format.getSpinnerLabels()
     var orgLabels: [String] = []
     var carrierLabels: [String] = []
     var selectedOrgName = ""
@@ -65,6 +65,7 @@ class PlaceHoldViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         fetchData()
+        fatalError()//NOTREACHED
     }
 
     func setupViews() {
@@ -257,7 +258,7 @@ class PlaceHoldViewController: UIViewController {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
 
-        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: recordID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID)
+        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: recordID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: nil)
         promise.done { obj in
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful

@@ -30,6 +30,38 @@ class OSRFObjectTests: XCTestCase {
         XCTAssertEqual(checkinDate, expectedDate)
     }
     
+    func test_dateFormatting_ISO_to_UTC() {
+        // parsing and reformatting date converts to UTC
+        let apiDateStr = "2018-04-26T19:27:58-0400"
+        let date = OSRFObject.apiDateFormatter.date(from: apiDateStr)
+        let str = OSRFObject.apiDateFormatter.string(from: date!)
+        XCTAssertEqual(str, "2018-04-26T23:27:58Z")
+    }
+
+    func test_dateFormatting_ISO_in_UTC() {
+        // ISO8601 date in UTC stays just the same
+        let apiDateStr = "2019-01-01T00:00:00Z"
+        let date = OSRFObject.apiDateFormatter.date(from: apiDateStr)
+        let str = OSRFObject.apiDateFormatter.string(from: date!)
+        XCTAssertEqual(str, apiDateStr)
+    }
+    
+    func test_dateFormatting_US_to_US_1() {
+        // en_US date to API and back removes the leading 0
+        let localDateStr = "January 01, 2019"
+        let localDate = OSRFObject.outputDateFormatter.date(from: localDateStr)
+        let str = OSRFObject.outputDateFormatter.string(from: localDate!)
+        XCTAssertEqual(str, "January 1, 2019")
+    }
+
+    func test_dateFormatting_US_to_US_2() {
+        // en_US date without the leading 0 stays the same
+        let localDateStr = "January 1, 2019"
+        let localDate = OSRFObject.outputDateFormatter.date(from: localDateStr)
+        let str = OSRFObject.outputDateFormatter.string(from: localDate!)
+        XCTAssertEqual(str, localDateStr)
+    }
+
     func test_equatable() {
         let obj1 = OSRFObject(["a": 1, "b": nil])
         let obj2 = OSRFObject(["b": nil, "a": 1])

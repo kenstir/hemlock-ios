@@ -1,4 +1,4 @@
-// MD5 implelementation courtesy of
+// MD5 implementation courtesy of
 // https://stackoverflow.com/questions/32163848/how-to-convert-string-to-md5-hash-using-ios-swift
 // originally from
 // http://iosdeveloperzone.com/2014/10/03/using-commoncrypto-in-swift/

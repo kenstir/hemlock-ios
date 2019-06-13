@@ -30,11 +30,11 @@ class Gateway {
 
     /// an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
-    
+
     //MARK: - static methods
-    
+
     /// create an Alamofire request for calling the gateway
-    static func makeRequest(service: String, method: String, args: [Any]) -> Alamofire.DataRequest
+    static func makeRequest(service: String, method: String, args: [Any?]) -> Alamofire.DataRequest
     {
         let url = gatewayURL()
         let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args)]
@@ -44,10 +44,14 @@ class Gateway {
     }
     
     /// encode params as needed by the gateway
-    static func gatewayParams(_ args: [Any]) -> [String]
+    static func gatewayParams(_ args: [Any?]) -> [String]
     {
         var params: [String] = []
-        for arg in args {
+        for opt_arg in args {
+            guard let arg = opt_arg else {
+                params.append("null")
+                continue
+            }
             if let s = arg as? String {
                 let jsonStr = "\"" + s + "\""
                 params.append(jsonStr)

@@ -32,7 +32,7 @@ class CircService {
         return req.gatewayObjectResponse()
     }
     
-    static func placeHold(authtoken: String, userID: Int, recordID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?) -> Promise<OSRFObject> {
+    static func placeHold(authtoken: String, userID: Int, recordID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?) -> Promise<OSRFObject> {
         var complexParam: JSONDictionary = [
             "email_notify": notifyByEmail,
             "hold_type": "T", //Title
@@ -49,10 +49,36 @@ class CircService {
             complexParam["sms_notify"] = smsNumber
             complexParam["sms_carrier"] = carrierID
         }
+        if let date = expirationDate {
+            complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
+        }
         let req = Gateway.makeRequest(service: API.circ, method: API.holdTestAndCreate, args: [authtoken, complexParam, [recordID]])
         return req.gatewayObjectResponse()
     }
-    
+
+    static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
+        var complexParam: JSONDictionary = [
+            "id": holdRecord.id,
+            "email_notify": notifyByEmail,
+            "pickup_lib": pickupOrgID,
+            "frozen": suspendHold,
+        ]
+        // NB: "as Any?" is needed to store nil
+        complexParam["phone_notify"] = Utils.coalesce(notifyPhoneNumber) as Any?
+        complexParam["sms_notify"] = Utils.coalesce(notifySMSNumber) as Any?
+        if let carrierID = smsCarrierID {
+            complexParam["sms_carrier"] = carrierID
+        }
+        if let date = expirationDate {
+            complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
+        }
+        if let date = thawDate {
+            complexParam["thaw_date"] = OSRFObject.apiDateFormatter.string(from: date)
+        }
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [authtoken, nil, complexParam])
+        return req.gatewayResponse()
+    }
+
     static func cancelHold(authtoken: String, holdID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
         let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [authtoken, holdID])
         return req.gatewayResponse()

@@ -72,6 +72,13 @@ class Style {
         button.tintColor = color
         button.layer.cornerRadius = 6
     }
+
+    static func setButtonTitle(_ button: ASButtonNode, title: String, fontSize size: CGFloat = 17) {
+        let font = UIFont.systemFont(ofSize: size)
+        button.setTitle(title, with: font, with: .white, for: .normal)
+        button.setTitle(title, with: font, with: .gray, for: .disabled)
+        button.setTitle(title, with: font, with: .gray, for: .highlighted)
+    }
     
     //MARK: - SearchBar
 
@@ -128,5 +135,24 @@ class Style {
             NSAttributedString.Key.foregroundColor: UIColor.black,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .regular)]
         return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    //MARK: - ASTextNode
+    
+    static func setupTitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = 18) {
+        textNode.attributedText = makeTitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 2
+        textNode.truncationMode = .byWordWrapping
+    }
+    
+    static func setupSubtitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = 16) {
+        textNode.attributedText = makeSubtitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 1
+        textNode.truncationMode = .byTruncatingTail
+    }
+
+    static func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
+        textNode.attributedText = makeSubtitleString(str, ofSize: size)
+        textNode.maximumNumberOfLines = 0
     }
 }

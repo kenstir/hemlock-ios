@@ -119,10 +119,9 @@ class XDetailsNode: ASCellNode {
     }
 
     @objc func placeHoldPressed(sender: Any) {
-        guard let myVC = self.closestViewController,
-            let vc = UIStoryboard(name: "PlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController else { return }
+        guard let myVC = self.closestViewController else { return }
         
-        vc.record = record
+        let vc = XPlaceHoldViewController(record: record)
         myVC.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -130,10 +129,10 @@ class XDetailsNode: ASCellNode {
 
     private func setupNodes() {
         setupPageHeader()
-        setupTitle(titleNode, str: record.title, ofSize: 18)
-        setupSubtitle(authorNode, str: record.author, ofSize: 16)
-        setupSubtitle(formatNode, str: record.format, ofSize: 16)
-        setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
+        Style.setupTitle(titleNode, str: record.title)
+        Style.setupSubtitle(authorNode, str: record.author)
+        Style.setupSubtitle(formatNode, str: record.format)
+        Style.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
         setupImageNode()
         setupSpacerNode()
         
@@ -142,11 +141,11 @@ class XDetailsNode: ASCellNode {
         
         setupScrollNode()
         
-        setupMultilineText(synopsisNode, str: record.synopsis, ofSize: 14)
-        setupSubtitle(subjectLabel, str: "Subject:", ofSize: 14)
-        setupMultilineText(subjectNode, str: record.subject, ofSize: 14)
-        setupSubtitle(isbnLabel, str: "ISBN:", ofSize: 14)
-        setupMultilineText(isbnNode, str: record.isbn, ofSize: 14)
+        Style.setupMultilineText(synopsisNode, str: record.synopsis, ofSize: 14)
+        Style.setupSubtitle(subjectLabel, str: "Subject:", ofSize: 14)
+        Style.setupMultilineText(subjectNode, str: record.subject, ofSize: 14)
+        Style.setupSubtitle(isbnLabel, str: "ISBN:", ofSize: 14)
+        Style.setupMultilineText(isbnNode, str: record.isbn, ofSize: 14)
     }
     
     private func setupPageHeader() {
@@ -154,24 +153,6 @@ class XDetailsNode: ASCellNode {
         let str = "Showing Item \(naturalNumber) of \(totalItems)"
         pageHeaderText.attributedText = Style.makeTableHeaderString(str)
         pageHeader.backgroundColor = App.theme.tableHeaderBackground
-    }
-
-    private func setupTitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = Style.makeTitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 2
-        textNode.truncationMode = .byWordWrapping
-    }
-    
-    private func setupSubtitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = Style.makeSubtitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 1
-        textNode.truncationMode = .byTruncatingTail
-    }
-    
-    private func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = Style.makeSubtitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 0
-//        textNode.truncationMode = .byTruncatingTail
     }
 
     private func setupCopySummary() {
@@ -205,21 +186,15 @@ class XDetailsNode: ASCellNode {
             actionButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
             actionButton.isEnabled = displayOptions.enablePlaceHold
         }
-        let font = UIFont.systemFont(ofSize: 15)
         Style.styleButton(asInverse: actionButton)
-        actionButton.setTitle(actionButtonText, with: font, with: .white, for: .normal)
-        actionButton.setTitle(actionButtonText, with: font, with: .gray, for: .disabled)
-        actionButton.setTitle(actionButtonText, with: font, with: .gray, for: .highlighted)
+        Style.setButtonTitle(actionButton, title: actionButtonText, fontSize: 15)
 
         if record.isOnlineResource {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {
-            let buttonText = "Copy Info"
-            copyInfoButton.setTitle(buttonText, with: font, with: .white, for: .normal)
-            copyInfoButton.setTitle(buttonText, with: font, with: .gray, for: .disabled)
-            copyInfoButton.setTitle(buttonText, with: font, with: .gray, for: .highlighted)
             Style.styleButton(asInverse: copyInfoButton)
+            Style.setButtonTitle(copyInfoButton, title: "Copy Info", fontSize: 15)
             copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
         }
     }
@@ -233,8 +208,6 @@ class XDetailsNode: ASCellNode {
     private func setupSpacerNode() {
         //self.spacerNode.backgroundColor = UIColor.red
     }
-    
-    //MARK: - Build node hierarchy
     
     private func buildNodeHierarchy() {
         self.addSubnode(scrollNode)

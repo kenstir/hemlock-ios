@@ -62,9 +62,11 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if firstAppearance {
             // scrollToPage has no effect if done in viewWillAppear(),
             // but doing it here means the scrolling is visible to the user
+            // See also https://github.com/TextureGroup/Texture/issues/133
             pagerNode.scrollToPage(at: selectedItem, animated: false)
         }
         firstAppearance = false

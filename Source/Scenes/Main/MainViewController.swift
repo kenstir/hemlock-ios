@@ -20,15 +20,6 @@
 import Foundation
 import UIKit
 
-struct MainViewButtonData {
-    let title: String
-    let segue: String
-    init(_ title: String, _ segue: String) {
-        self.title = title
-        self.segue = segue
-    }
-}
-
 class MainViewController: UIViewController {
     
     //MARK: - fields
@@ -40,7 +31,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
 
-    var buttons: [(String, String, UIViewController.Type?)] = []
+    var buttons: [(String, String, (() -> UIViewController)?)] = []
     
     //MARK: - UIViewController
     
@@ -71,7 +62,23 @@ class MainViewController: UIViewController {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
         if Bundle.isDebug {
+	    /*
             buttons.append(("My Lists", "ShowListsSegue", nil))
+            */
+	    /*
+            ///--------------------------------------------------------------
+            /// shortcut to XResultsVC
+            ///--------------------------------------------------------------
+            buttons.append(("kcxxx place hold", "", {
+                let vc = XResultsViewController()
+                if App.config.title == "Hemlock" {
+                    vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil)
+                } else {
+                    vc.searchParameters = SearchParameters(text: "the names they gave us", searchClass: "title", searchFormat: "book", organizationShortName: nil)
+                }
+                return vc
+            }))
+            */
         }
     }
 
@@ -154,8 +161,8 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuple = buttons[indexPath.row]
         let segue = tuple.1
-        if let vctype = tuple.2 {
-            let vc = vctype.init()
+        if let vcfunc = tuple.2 {
+            let vc = vcfunc()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             self.performSegue(withIdentifier: segue, sender: nil)

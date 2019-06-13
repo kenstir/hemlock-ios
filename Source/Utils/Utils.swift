@@ -22,4 +22,23 @@ import os.log
 
 class Utils {
     static let log = OSLog(subsystem: App.config.logSubsystem, category: "utils")
+
+    static func coalesce<T>(_ values: T?...) -> T? {
+        for value in values {
+            if value != nil {
+                return value
+            }
+        }
+        return nil
+    }
+    
+    static func dump(dict: JSONDictionary) {
+        for i in dict.keys.sorted() {
+            if let val = dict[i], let v = val {
+                print("  \(i) -> \(v)")
+            } else {
+                print("  \(i) -> nil")
+            }
+        }
+    }
 }

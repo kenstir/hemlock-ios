@@ -31,15 +31,13 @@ class XResultsTableNode: ASCellNode {
     private let authorNode = ASTextNode()
     private let formatNode = ASTextNode()
     private let imageNode = ASNetworkImageNode()
-    private var disclosureNode: ASDisplayNode
+    private var disclosureNode = XUtils.makeDisclosureNode()
     private let separatorNode = ASDisplayNode()
     
     //MARK: - Lifecycle
     
     init(record: MBRecord) {
         self.record = record
-
-        disclosureNode = XUtils.makeDisclosureNode()
 
         super.init()
         self.setupNodes()
@@ -53,7 +51,6 @@ class XResultsTableNode: ASCellNode {
         self.setupAuthorNode()
         self.setupFormatNode()
         self.setupImageNode()
-        self.setupDisclosureNode()
         self.setupSeparatorNode()
         self.setupSpacerNode()
     }
@@ -92,11 +89,6 @@ class XResultsTableNode: ASCellNode {
         let url = App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
         self.imageNode.contentMode = .scaleAspectFit 
         self.imageNode.url = URL(string: url)
-    }
-    
-    private func setupDisclosureNode() {
-        self.disclosureNode.backgroundColor = .clear
-        self.disclosureNode.tintColor = .darkGray
     }
 
     private func setupSeparatorNode() {

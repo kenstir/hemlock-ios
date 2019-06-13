@@ -1,7 +1,7 @@
 //
-//  HoldsTableViewCell.swift
+//  ASDisplayNode+.swift
 //
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (C) 2019 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -17,15 +17,11 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import Foundation
-import UIKit
+import AsyncDisplayKit
 
-class HoldsTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var holdsAuthorLabel: UILabel!
-    @IBOutlet weak var holdsTitleLabel: UILabel!
-    @IBOutlet weak var holdsFormatLabel: UILabel!
-    @IBOutlet weak var holdsStatusLabel: UILabel!
-    @IBOutlet weak var holdsQueueLabel: UILabel!
-    @IBOutlet weak var holdsQueuePosition: UILabel!
+extension ASDisplayNode {
+    // convenience vars to access wrapped views
+    var datePicker: UIDatePicker? { return self.view as? UIDatePicker }
+    var switchView: UISwitch? { return self.view as? UISwitch }
+    var textField: UITextField? { return self.view as? UITextField }
 }

@@ -166,4 +166,13 @@ class MiscTests: XCTestCase {
     func test_isTestFlight() {
         XCTAssertTrue(Bundle.isTestFlightOrDebug)
     }
+    
+    func test_dump() {
+        let d: JSONDictionary = [
+            "a": nil,
+            "b": 2,
+            "c": "three",
+        ]
+        Utils.dump(dict: d)
+    }
 }

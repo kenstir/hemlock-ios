@@ -25,11 +25,37 @@ class XUtils {
         let node = ASDisplayNode { () -> UIView in
             let disclosure = UITableViewCell()
             disclosure.accessoryType = .disclosureIndicator
+            disclosure.backgroundColor = .clear
             disclosure.isUserInteractionEnabled = false
             disclosure.selectionStyle = .gray
+            disclosure.tintColor = .darkGray
             return disclosure
+        }
+        node.style.preferredSize = CGSize(width: 27, height: 27)
+        return node
+    }
+    
+    static func makeSwitchNode() -> ASDisplayNode {
+        let node = ASDisplayNode { () -> UIView in
+            return UISwitch()
         }
         return node
     }
+    
+    static func makeTextFieldNode(ofSize size: CGFloat = 14) -> ASDisplayNode {
+        let node = ASDisplayNode { () -> UIView in
+            let textField = UITextField()
+            textField.font = UIFont.systemFont(ofSize: size)
+            return textField
+        }
+        return node
+    }
+    
+    static func makeDisclosureOverlaySpec(_ node: ASDisplayNode, overlay: ASDisplayNode) -> ASLayoutSpec {
+        let insetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: CGFloat.infinity, left: CGFloat.infinity, bottom: CGFloat.infinity, right: 0), child: overlay)
+        let spec = ASOverlayLayoutSpec(child: node, overlay: insetSpec)
+        spec.style.flexGrow = 1
+        spec.style.flexShrink = 1
+        return spec
+    }
 }
-

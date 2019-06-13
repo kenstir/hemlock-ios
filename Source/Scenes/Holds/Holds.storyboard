@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x2b-x0-F7V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x2b-x0-F7V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,39 +22,39 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="124" id="7uz-32-Rie" customClass="HoldsTableViewCell" customModule="COOL" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="124" id="7uz-32-Rie" customClass="HoldsTableViewCell" customModule="COOL" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7uz-32-Rie" id="aop-RU-W7k">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="123.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="123.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Management for Dummies" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="o96-V8-dbu" userLabel="Title">
-                                                    <rect key="frame" x="8" y="8" width="359" height="20.5"/>
+                                                    <rect key="frame" x="8" y="8" width="326" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stanley E. Portny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAI-o0-cNm" userLabel="Author">
-                                                    <rect key="frame" x="8" y="50" width="359" height="16"/>
+                                                    <rect key="frame" x="8" y="50" width="326" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="016-Cl-jie" userLabel="Format">
-                                                    <rect key="frame" x="8" y="68" width="359" height="16"/>
+                                                    <rect key="frame" x="8" y="68" width="326" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suspended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IJ-pw-bRJ" userLabel="Hold Status">
-                                                    <rect key="frame" x="8" y="88" width="359" height="15"/>
+                                                    <rect key="frame" x="8" y="88" width="326" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 holds on 73 copies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F69-Lz-bkQ" userLabel="Queue Stats">
-                                                    <rect key="frame" x="8" y="105" width="359" height="15"/>
+                                                    <rect key="frame" x="8" y="105" width="326" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -66,18 +66,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aX-2g-vNn" userLabel="Cancel">
-                                                    <rect key="frame" x="261" y="87.5" width="80" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Fze-ha-MvG"/>
-                                                    </constraints>
-                                                    <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="Cancel"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="F69-Lz-bkQ" firstAttribute="leading" secondItem="aop-RU-W7k" secondAttribute="leading" constant="8" id="9Vt-Ek-lno"/>
-                                                <constraint firstAttribute="trailing" secondItem="3aX-2g-vNn" secondAttribute="trailing" constant="34" id="AEw-Lf-7ZK"/>
                                                 <constraint firstAttribute="trailing" secondItem="sAI-o0-cNm" secondAttribute="trailing" constant="8" id="EoN-Vd-5MX"/>
                                                 <constraint firstItem="o96-V8-dbu" firstAttribute="leading" secondItem="aop-RU-W7k" secondAttribute="leading" constant="8" id="G9X-Oc-f6I"/>
                                                 <constraint firstItem="sAI-o0-cNm" firstAttribute="leading" secondItem="aop-RU-W7k" secondAttribute="leading" constant="8" id="HPw-wt-Czf"/>
@@ -88,7 +79,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="o96-V8-dbu" secondAttribute="trailing" constant="8" id="cTY-ct-VOk"/>
                                                 <constraint firstItem="sAI-o0-cNm" firstAttribute="top" secondItem="o96-V8-dbu" secondAttribute="top" constant="42" id="eLU-Gg-Kbi"/>
                                                 <constraint firstItem="F69-Lz-bkQ" firstAttribute="top" secondItem="8IJ-pw-bRJ" secondAttribute="bottom" constant="2" id="eZM-bD-ntr"/>
-                                                <constraint firstAttribute="bottom" secondItem="3aX-2g-vNn" secondAttribute="bottom" constant="6" id="fCN-Hb-2I8"/>
                                                 <constraint firstItem="8IJ-pw-bRJ" firstAttribute="top" secondItem="016-Cl-jie" secondAttribute="bottom" constant="4" id="gfg-Y4-6kG"/>
                                                 <constraint firstItem="016-Cl-jie" firstAttribute="leading" secondItem="aop-RU-W7k" secondAttribute="leading" constant="8" id="hvO-HD-8tC"/>
                                                 <constraint firstAttribute="trailing" secondItem="8IJ-pw-bRJ" secondAttribute="trailing" constant="8" id="qf5-ZM-ZW5"/>
@@ -97,7 +87,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="holdsAuthorLabel" destination="sAI-o0-cNm" id="x1C-K5-TIm"/>
-                                            <outlet property="holdsCancelButton" destination="3aX-2g-vNn" id="9uD-tN-IDo"/>
                                             <outlet property="holdsFormatLabel" destination="016-Cl-jie" id="CLR-Dl-eSB"/>
                                             <outlet property="holdsQueueLabel" destination="F69-Lz-bkQ" id="EvB-SR-bRv"/>
                                             <outlet property="holdsQueuePosition" destination="DMw-ou-M8B" id="aw2-Oz-4hO"/>
