@@ -22,10 +22,10 @@ import UIKit
 //todo make this a protocol
 struct AppSettings {
     static func makeTheme() -> Theme {
-        return CoolTheme()
+        return BiblioTheme()
     }
     
     static func makeAppConfiguration() -> AppConfiguration {
-        return CoolAppConfiguration()
+        return BiblioAppConfiguration()
     }
 }

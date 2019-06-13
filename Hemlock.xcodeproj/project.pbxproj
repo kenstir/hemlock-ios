@@ -15,13 +15,11 @@
 		D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
-		D210EBC822B1EE55002FB5E0 /* CoolTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679F21D039BF0082358C /* CoolTheme.swift */; };
 		D210EBC922B1EE55002FB5E0 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D210EBCA22B1EE55002FB5E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D210EBCB22B1EE55002FB5E0 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725B020E932DF002A4C42 /* ListsViewController.swift */; };
 		D210EBCC22B1EE55002FB5E0 /* XDetailsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EC217E2369004E7ABE /* XDetailsNode.swift */; };
 		D210EBCD22B1EE55002FB5E0 /* XResultsTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */; };
-		D210EBCE22B1EE55002FB5E0 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21867A021D039BF0082358C /* AppSettings.swift */; };
 		D210EBCF22B1EE55002FB5E0 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D210EBD022B1EE55002FB5E0 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */; };
 		D210EBD122B1EE55002FB5E0 /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
@@ -73,7 +71,6 @@
 		D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
-		D210EC0222B1EE55002FB5E0 /* CoolAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679E21D039BF0082358C /* CoolAppConfiguration.swift */; };
 		D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D210EC0422B1EE55002FB5E0 /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
@@ -119,9 +116,10 @@
 		D210EC2F22B1EE55002FB5E0 /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
 		D210EC3022B1EE55002FB5E0 /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* Lists.storyboard */; };
 		D210EC3122B1EE55002FB5E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
-		D210EC3922B1EEB6002FB5E0 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC3822B1EEB6002FB5E0 /* AppSettings.swift */; };
-		D210EC3C22B1EED3002FB5E0 /* BiblioTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC3A22B1EED2002FB5E0 /* BiblioTheme.swift */; };
-		D210EC3D22B1EED3002FB5E0 /* BiblioAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC3B22B1EED3002FB5E0 /* BiblioAppConfiguration.swift */; };
+		D210EC4422B1F23D002FB5E0 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4322B1F23D002FB5E0 /* AppSettings.swift */; };
+		D210EC4722B1F24A002FB5E0 /* BiblioTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4522B1F24A002FB5E0 /* BiblioTheme.swift */; };
+		D210EC4822B1F24A002FB5E0 /* BiblioAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* BiblioAppConfiguration.swift */; };
+		D210EC4C22B1F331002FB5E0 /* biblio.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* biblio.xcassets */; };
 		D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2720C5B90A00267503 /* PromiseKitTests.swift */; };
 		D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
@@ -574,9 +572,11 @@
 		D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutsTableViewCell.swift; sourceTree = "<group>"; };
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
 		D210EC3622B1EE55002FB5E0 /* acorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = acorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D210EC3822B1EEB6002FB5E0 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppSettings.swift; path = biblio_app/AppSettings.swift; sourceTree = "<group>"; };
-		D210EC3A22B1EED2002FB5E0 /* BiblioTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiblioTheme.swift; path = biblio_app/BiblioTheme.swift; sourceTree = "<group>"; };
-		D210EC3B22B1EED3002FB5E0 /* BiblioAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BiblioAppConfiguration.swift; path = biblio_app/BiblioAppConfiguration.swift; sourceTree = "<group>"; };
+		D210EC4322B1F23D002FB5E0 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		D210EC4522B1F24A002FB5E0 /* BiblioTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiblioTheme.swift; sourceTree = "<group>"; };
+		D210EC4622B1F24A002FB5E0 /* BiblioAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiblioAppConfiguration.swift; sourceTree = "<group>"; };
+		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D210EC4B22B1F331002FB5E0 /* biblio.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = biblio.xcassets; sourceTree = "<group>"; };
 		D212DB2720C5B90A00267503 /* PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKitTests.swift; sourceTree = "<group>"; };
 		D212DB2920C5C0D200267503 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
@@ -835,6 +835,18 @@
 				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D210EC4222B1F1F6002FB5E0 /* biblio_app */ = {
+			isa = PBXGroup;
+			children = (
+				D210EC4B22B1F331002FB5E0 /* biblio.xcassets */,
+				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
+				D210EC4622B1F24A002FB5E0 /* BiblioAppConfiguration.swift */,
+				D210EC4522B1F24A002FB5E0 /* BiblioTheme.swift */,
+				D210EC4322B1F23D002FB5E0 /* AppSettings.swift */,
+			);
+			path = biblio_app;
 			sourceTree = "<group>";
 		};
 		D212DB1020C3717200267503 /* Models */ = {
@@ -1103,11 +1115,9 @@
 		D287D4FA207AEF2B001AF644 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D210EC3B22B1EED3002FB5E0 /* BiblioAppConfiguration.swift */,
-				D210EC3A22B1EED2002FB5E0 /* BiblioTheme.swift */,
-				D210EC3822B1EEB6002FB5E0 /* AppSettings.swift */,
 				D228FB6420D33402001A7E31 /* App.swift */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
+				D210EC4222B1F1F6002FB5E0 /* biblio_app */,
 				D218679D21D039220082358C /* cool_app */,
 				D276DAE521336B9F007FAA31 /* cwmars_app */,
 				D22D027620857DFE00DC1F5B /* Evergreen */,
@@ -1389,6 +1399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D210EC2222B1EE55002FB5E0 /* LaunchScreen.storyboard in Resources */,
+				D210EC4C22B1F331002FB5E0 /* biblio.xcassets in Resources */,
 				D210EC2322B1EE55002FB5E0 /* Checkouts.storyboard in Resources */,
 				D210EC2422B1EE55002FB5E0 /* PlaceHold.storyboard in Resources */,
 				D210EC2522B1EE55002FB5E0 /* LICENSE.txt in Resources */,
@@ -1682,13 +1693,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D210EBC822B1EE55002FB5E0 /* CoolTheme.swift in Sources */,
 				D210EBC922B1EE55002FB5E0 /* OSRFCoder.swift in Sources */,
 				D210EBCA22B1EE55002FB5E0 /* LoginViewController.swift in Sources */,
 				D210EBCB22B1EE55002FB5E0 /* ListsViewController.swift in Sources */,
 				D210EBCC22B1EE55002FB5E0 /* XDetailsNode.swift in Sources */,
 				D210EBCD22B1EE55002FB5E0 /* XResultsTableNode.swift in Sources */,
-				D210EBCE22B1EE55002FB5E0 /* AppSettings.swift in Sources */,
 				D210EBCF22B1EE55002FB5E0 /* UIColor+.swift in Sources */,
 				D210EBD022B1EE55002FB5E0 /* OptionsViewController.swift in Sources */,
 				D210EBD122B1EE55002FB5E0 /* OSRFObject.swift in Sources */,
@@ -1701,12 +1710,12 @@
 				D210EBD822B1EE55002FB5E0 /* PCRUDService.swift in Sources */,
 				D210EBD922B1EE55002FB5E0 /* String+.swift in Sources */,
 				D210EBDA22B1EE55002FB5E0 /* AppConfiguration.swift in Sources */,
-				D210EC3922B1EEB6002FB5E0 /* AppSettings.swift in Sources */,
+				D210EC4422B1F23D002FB5E0 /* AppSettings.swift in Sources */,
 				D210EBDB22B1EE55002FB5E0 /* FinesViewController.swift in Sources */,
 				D210EBDC22B1EE55002FB5E0 /* API.swift in Sources */,
 				D210EBDD22B1EE55002FB5E0 /* ShowCardViewController.swift in Sources */,
 				D210EBDE22B1EE55002FB5E0 /* HoldsTableViewCell.swift in Sources */,
-				D210EC3D22B1EED3002FB5E0 /* BiblioAppConfiguration.swift in Sources */,
+				D210EC4822B1F24A002FB5E0 /* BiblioAppConfiguration.swift in Sources */,
 				D210EBDF22B1EE55002FB5E0 /* CopyStatus.swift in Sources */,
 				D210EBE022B1EE55002FB5E0 /* Corsortium.swift in Sources */,
 				D210EBE122B1EE55002FB5E0 /* App.swift in Sources */,
@@ -1742,12 +1751,11 @@
 				D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */,
 				D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */,
 				D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */,
-				D210EC0222B1EE55002FB5E0 /* CoolAppConfiguration.swift in Sources */,
 				D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */,
 				D210EC0422B1EE55002FB5E0 /* XSendEmailViewController.swift in Sources */,
 				D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */,
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
-				D210EC3C22B1EED3002FB5E0 /* BiblioTheme.swift in Sources */,
+				D210EC4722B1F24A002FB5E0 /* BiblioTheme.swift in Sources */,
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
 				D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */,
 				D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */,
@@ -2184,7 +2192,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "COOL copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/biblio_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2210,7 +2218,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "COOL copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/biblio_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D284244721D0358200C7171C"
-               BuildableName = "COOL.app"
-               BlueprintName = "COOL"
+               BlueprintIdentifier = "D210EBC622B1EE55002FB5E0"
+               BuildableName = "acorn.app"
+               BlueprintName = "acorn"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,23 +42,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D287D50B207AEF2D001AF644"
-               BuildableName = "HemlockTests.xctest"
-               BlueprintName = "HemlockTests"
-               ReferencedContainer = "container:Hemlock.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D284244721D0358200C7171C"
-            BuildableName = "COOL.app"
-            BlueprintName = "COOL"
+            BlueprintIdentifier = "D210EBC622B1EE55002FB5E0"
+            BuildableName = "acorn.app"
+            BlueprintName = "acorn"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,9 +69,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D284244721D0358200C7171C"
-            BuildableName = "COOL.app"
-            BlueprintName = "COOL"
+            BlueprintIdentifier = "D210EBC622B1EE55002FB5E0"
+            BuildableName = "acorn.app"
+            BlueprintName = "acorn"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -98,9 +88,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D284244721D0358200C7171C"
-            BuildableName = "COOL.app"
-            BlueprintName = "COOL"
+            BlueprintIdentifier = "D210EBC622B1EE55002FB5E0"
+            BuildableName = "acorn.app"
+            BlueprintName = "acorn"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
