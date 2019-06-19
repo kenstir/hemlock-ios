@@ -175,4 +175,43 @@ class MiscTests: XCTestCase {
         ]
         Utils.dump(dict: d)
     }
+    
+    func test_online_loc() {
+        let online_loc = [
+            "https://samples.overdrive.com/?crid=3db7f39c-52c2-49d1-b409-b255c71d6e9e&.epub-sample.overdrive.com",
+            "Excerpt",
+            "",
+            "https://excerpts.cdn.overdrive.com/FormatType-425/1191-1/3707522-WhereTheCrawdadsSing.mp3",
+            "Excerpt",
+            "",
+            "http://link.overdrive.com/?websiteID=100043&titleID=3707522",
+            "Available Online from OverDrive. Click here to download. This OverDrive title is only available to Bridgeport Library card patrons",
+            "",
+            "http://link.overdrive.com/?websiteID=197&titleID=3707522",
+            "Available Online from Overdrive. Click here to download.",
+            "",
+            "https://excerpts.cdn.overdrive.com/FormatType-425/1191-1/3707522-WhereTheCrawdadsSing.mp3",
+            "Excerpt Available Online from Overdrive. Click here to download.",
+            "",
+            "https://samples.overdrive.com/?crid=3db7f39c-52c2-49d1-b409-b255c71d6e9e&.epub-sample.overdrive.com",
+            "Excerpt Available Online from Overdrive. Click here to download.",
+            ""
+        ]
+
+        let l = online_loc
+        var i = 0
+        while i < l.count {
+            let url = l[i]
+            var desc: String?
+            if i + 1 < l.count {
+                desc = l[i + 1]
+            }
+            if let d = desc {
+                print("\(d)")
+                print("    \(url)")
+            }
+            i += 3
+        }
+        print("done")
+    }
 }
