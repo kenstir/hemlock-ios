@@ -157,10 +157,14 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
-    func test_LoginController_getSession() {
+    func loadIDL() -> Bool {
         let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
         let ok = parser.parse()
-        XCTAssertTrue(ok)
+        return ok
+    }
+    
+    func test_LoginController_getSession() {
+        XCTAssertTrue(loadIDL())
 
         let expectation = XCTestExpectation(description: "async response")
         LoginController(for: account!).login { resp in
@@ -365,6 +369,29 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 10)
     }
+    
+    func test_retrieveBRE() {
+        XCTAssertTrue(loadIDL())
+
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, self.sampleRecordID])
+        req.gatewayObjectResponse().done({ obj in
+            let marcXML = obj.getString("marc")
+            XCTAssertNotNil(marcXML)
+            let parser = MARCParser(data: marcXML!.data(using: .utf8)!)
+            let ok = parser.parse()
+            XCTAssertTrue(ok)
+            print("marcXML = \(marcXML ?? "nil")")
+            expectation.fulfill()
+        }).catch({ error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        })
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+
 
     //MARK: - actorCheckedOut
     

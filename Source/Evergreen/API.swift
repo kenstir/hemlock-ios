@@ -24,7 +24,8 @@ struct API {
     //MARK: - misc
 
     static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some cases to new EG servers
-    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,cbreb,cbrebi,cbrebin,cbrebn,ccs,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+//    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,cbreb,cbrebi,cbrebin,cbrebn,ccs,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
@@ -88,4 +89,9 @@ struct API {
     static let copyStatusRetrieveAll = "open-ils.search.config.copy_status.retrieve.all"
     static let copyCount = "open-ils.search.biblio.record.copy_count"
     static let copyLocationCounts = "open-ils.search.biblio.copy_location_counts.summary.retrieve"
+    
+    //MARK: - supercat service, testing
+    
+    static let retrieveMarcxml = "open-ils.supercat.record.marcxml.retrieve"
+    static let retrieveBRE = "open-ils.pcrud.retrieve.bre"
 }
