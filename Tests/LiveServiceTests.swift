@@ -380,9 +380,13 @@ class LiveServiceTests: XCTestCase {
             let marcXML = obj.getString("marc")
             XCTAssertNotNil(marcXML)
             let parser = MARCParser(data: marcXML!.data(using: .utf8)!)
-            let ok = parser.parse()
-            XCTAssertTrue(ok)
-            print("marcXML = \(marcXML ?? "nil")")
+            let result = parser.parse()
+            switch result {
+            case .success(let marcrecord):
+                print("marcrecord = \(marcrecord)")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
             expectation.fulfill()
         }).catch({ error in
             XCTFail(error.localizedDescription)

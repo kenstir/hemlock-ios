@@ -19,10 +19,17 @@
 
 import Foundation
 
+enum MARCXMLParseError: Error {
+    case unknownError
+    case parseError
+}
+
 class MARCParser: NSObject, XMLParserDelegate {
     var parser: XMLParser?
     var error: Error?
+    let currentRecord = MARCRecord()
     var currentDatafield: MARCDatafield?
+    var currentSubfield: MARCSubfield?
     
     //MARK: - initializers
     
@@ -36,12 +43,21 @@ class MARCParser: NSObject, XMLParserDelegate {
     
     //MARK: other methods
     
-    func parse() -> Bool {
+    func parse() -> Result<MARCRecord> {
         guard let parser = self.parser else {
-            return false
+            return .failure(MARCXMLParseError.parseError)
         }
         parser.delegate = self
-        return parser.parse()
+        let ok = parser.parse()
+        if ok {
+            return .success(currentRecord)
+        } else {
+            if let err = error {
+                return .failure(err)
+            } else {
+                return .failure(MARCXMLParseError.unknownError)
+            }
+        }
     }
     
     //MARK: - XMLParserDelegate
@@ -60,15 +76,18 @@ class MARCParser: NSObject, XMLParserDelegate {
             if let datafield = currentDatafield,
                 let code = attributes["code"]
             {
-                debugPrint("here")
-                //if code == "3" { datafield.materials = }
+                currentSubfield = MARCSubfield(code: code)
             }
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         print("didEndElement \(elementName)")
-        print("")
+        if elementName == "datafield" {
+            if let datafield = currentDatafield {
+                
+            }
+        }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
