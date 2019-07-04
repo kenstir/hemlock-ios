@@ -379,13 +379,11 @@ class LiveServiceTests: XCTestCase {
         req.gatewayObjectResponse().done({ obj in
             let marcXML = obj.getString("marc")
             XCTAssertNotNil(marcXML)
-            let parser = MARCParser(data: marcXML!.data(using: .utf8)!)
-            let result = parser.parse()
-            switch result {
-            case .success(let marcrecord):
-                print("marcrecord = \(marcrecord)")
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
+            let parser = MARCXMLParser(data: marcXML!.data(using: .utf8)!)
+            if let marcRecord = try? parser.parse() {
+                print("marcRecord = \(marcRecord)")
+            } else {
+                XCTFail(parser.error?.localizedDescription ?? "??")
             }
             expectation.fulfill()
         }).catch({ error in

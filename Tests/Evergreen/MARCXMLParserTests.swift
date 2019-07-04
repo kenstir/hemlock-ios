@@ -39,17 +39,13 @@ class MARCXMLParserTests: XCTestCase {
             XCTFail("unable to open xml resource")
             return
         }
-        let parser = MARCParser(contentsOf: URL(fileURLWithPath: path))
-        let result = parser.parse()
-        switch result {
-        case .success(let marcRecord):
-            print("success")
-            debugPrint(marcRecord)
-            XCTAssertTrue(true)
-        case .failure(let error):
-            print("error")
-            debugPrint(error)
-            XCTFail(error.localizedDescription)
+        let parser = MARCXMLParser(contentsOf: URL(fileURLWithPath: path))
+        if let marcRecord = try? parser.parse() {
+            XCTAssertNotNil(marcRecord)
+            let datafields = marcRecord.datafields
+            XCTAssertEqual(6, datafields.count)
+        } else {
+            XCTFail(parser.error?.localizedDescription ?? "??")
         }
     }
     

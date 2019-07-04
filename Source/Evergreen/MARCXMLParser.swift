@@ -1,5 +1,5 @@
 //
-//  MARCParser.swift
+//  MARCXMLParser.swift
 //
 //  Copyright (C) 2019 Kenneth H. Cox
 //
@@ -24,12 +24,12 @@ enum MARCXMLParseError: Error {
     case parseError
 }
 
-class MARCParser: NSObject, XMLParserDelegate {
+class MARCXMLParser: NSObject, XMLParserDelegate {
     var parser: XMLParser?
     var error: Error?
-    let currentRecord = MARCRecord()
-    var currentDatafield: MARCDatafield?
-    var currentSubfield: MARCSubfield?
+    let currentRecord = MARCXMLRecord()
+    var currentDatafield: MARCXMLDatafield?
+    var currentSubfield: MARCXMLSubfield?
     
     //MARK: - initializers
     
@@ -43,19 +43,19 @@ class MARCParser: NSObject, XMLParserDelegate {
     
     //MARK: other methods
     
-    func parse() -> Result<MARCRecord> {
+    func parse() throws -> MARCXMLRecord {
         guard let parser = self.parser else {
-            return .failure(MARCXMLParseError.parseError)
+            throw MARCXMLParseError.parseError
         }
         parser.delegate = self
         let ok = parser.parse()
         if ok {
-            return .success(currentRecord)
+            return currentRecord
         } else {
             if let err = error {
-                return .failure(err)
+                throw err
             } else {
-                return .failure(MARCXMLParseError.unknownError)
+                throw MARCXMLParseError.unknownError
             }
         }
     }
@@ -70,13 +70,13 @@ class MARCParser: NSObject, XMLParserDelegate {
                 let ind2 = attributes["ind2"],
                 tag == "856" && ind1 == "4" && (ind2 == "0" || ind2 == "1")
             {
-                currentDatafield = MARCDatafield(tag: tag, ind1: ind1, ind2: ind2)
+                currentDatafield = MARCXMLDatafield(tag: tag, ind1: ind1, ind2: ind2)
             }
         } else if elementName == "subfield" {
             if let datafield = currentDatafield,
                 let code = attributes["code"]
             {
-                currentSubfield = MARCSubfield(code: code)
+                currentSubfield = MARCXMLSubfield(code: code)
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  MARCDatafield.swift
+//  MARCXMLRecord.swift
 //
 //  Copyright (C) 2019 Kenneth H. Cox
 //
@@ -19,7 +19,7 @@
 
 import Foundation
 
-struct MARCSubfield {
+struct MARCXMLSubfield {
     let code: String
     var text: String?
     init(code: String) {
@@ -27,11 +27,11 @@ struct MARCSubfield {
     }
 }
 
-struct MARCDatafield {
+struct MARCXMLDatafield {
     let tag: String
     let ind1: String
     let ind2: String
-    let subfields: [MARCSubfield]
+    let subfields: [MARCXMLSubfield]
     init(tag: String, ind1: String, ind2: String) {
         self.tag = tag
         self.ind1 = ind1
@@ -40,8 +40,8 @@ struct MARCDatafield {
     }
 }
 
-struct MARCRecord {
-    let datafields: [MARCDatafield]
+struct MARCXMLRecord {
+    let datafields: [MARCXMLDatafield]
     init() {
         self.datafields = []
     }
