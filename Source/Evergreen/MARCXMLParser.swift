@@ -27,9 +27,9 @@ enum MARCXMLParseError: Error {
 class MARCXMLParser: NSObject, XMLParserDelegate {
     var parser: XMLParser?
     var error: Error?
-    let currentRecord = MARCXMLRecord()
-    var currentDatafield: MARCXMLDatafield?
-    var currentSubfield: MARCXMLSubfield?
+    var currentRecord = MARCRecord()
+    var currentDatafield: MARCDatafield?
+    var currentSubfield: MARCSubfield?
     
     //MARK: - initializers
     
@@ -43,7 +43,7 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
     
     //MARK: other methods
     
-    func parse() throws -> MARCXMLRecord {
+    func parse() throws -> MARCRecord {
         guard let parser = self.parser else {
             throw MARCXMLParseError.parseError
         }
@@ -54,10 +54,8 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
         } else {
             if let err = error {
                 throw err
-            } else {
-                throw MARCXMLParseError.unknownError
             }
-        }
+            throw MARCXMLParseError.unknownError        }
     }
     
     //MARK: - XMLParserDelegate
@@ -67,32 +65,40 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
         if elementName == "datafield" {
             if let tag = attributes["tag"],
                 let ind1 = attributes["ind1"],
-                let ind2 = attributes["ind2"],
-                tag == "856" && ind1 == "4" && (ind2 == "0" || ind2 == "1")
+                let ind2 = attributes["ind2"]
             {
-                currentDatafield = MARCXMLDatafield(tag: tag, ind1: ind1, ind2: ind2)
+                // We only care about certain 856 tags
+                // See also templates/opac/parts/misc_util.tt2
+                // See also https://www.loc.gov/marc/bibliographic/bd856.html
+                if (tag == "856" && ind1 == "4" && (ind2 == "0" || ind2 == "1")) {
+                    currentDatafield = MARCDatafield(tag: tag, ind1: ind1, ind2: ind2)
+                }
             }
         } else if elementName == "subfield" {
-            if let datafield = currentDatafield,
+            if let _ = currentDatafield,
                 let code = attributes["code"]
             {
-                currentSubfield = MARCXMLSubfield(code: code)
+                currentSubfield = MARCSubfield(code: code)
             }
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         print("didEndElement \(elementName)")
-        if elementName == "datafield" {
-            if let datafield = currentDatafield {
-                
-            }
+        if elementName == "datafield", let datafield = currentDatafield {
+            currentRecord.datafields.append(datafield)
+            currentDatafield = nil
+        } else if elementName == "subfield", let subfield = currentSubfield {
+            currentDatafield?.subfields.append(subfield)
+            currentSubfield = nil
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         print("foundCharacters \(string)")
-        print("")
+        if currentSubfield != nil {
+            currentSubfield?.text = string
+        }
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {

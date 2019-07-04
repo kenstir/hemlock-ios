@@ -40,13 +40,28 @@ class MARCXMLParserTests: XCTestCase {
             return
         }
         let parser = MARCXMLParser(contentsOf: URL(fileURLWithPath: path))
-        if let marcRecord = try? parser.parse() {
-            XCTAssertNotNil(marcRecord)
-            let datafields = marcRecord.datafields
-            XCTAssertEqual(6, datafields.count)
-        } else {
+        guard let marcRecord = try? parser.parse() else {
             XCTFail(parser.error?.localizedDescription ?? "??")
+            return
         }
+
+        // only a subset of 856 tags are kept, see MARCXMLParser
+        let datafields = marcRecord.datafields
+        XCTAssertEqual(4, datafields.count)
+        let online_locations = datafields.filter { $0.ind1 == "4" }
+        XCTAssertEqual(4, online_locations.count)
+        
+        // Bibliomation only displays links if the library short code appears in subfield 9
+        var libShortCode = "NORFLK"
+        var matching_links = datafields.filter { datafield in
+            return datafield.subfields.contains(where: { $0.code == "9" && $0.text == libShortCode })
+        }
+        XCTAssertEqual(2, matching_links.count)
+        libShortCode = "NEWTWN"
+        matching_links = datafields.filter { datafield in
+            return datafield.subfields.contains(where: { $0.code == "9" && $0.text == libShortCode })
+        }
+        XCTAssertEqual(4, matching_links.count)        
     }
     
     func test_foo() {

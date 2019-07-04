@@ -19,7 +19,7 @@
 
 import Foundation
 
-struct MARCXMLSubfield {
+struct MARCSubfield {
     let code: String
     var text: String?
     init(code: String) {
@@ -27,11 +27,11 @@ struct MARCXMLSubfield {
     }
 }
 
-struct MARCXMLDatafield {
+struct MARCDatafield {
     let tag: String
     let ind1: String
     let ind2: String
-    let subfields: [MARCXMLSubfield]
+    var subfields: [MARCSubfield]
     init(tag: String, ind1: String, ind2: String) {
         self.tag = tag
         self.ind1 = ind1
@@ -40,8 +40,8 @@ struct MARCXMLDatafield {
     }
 }
 
-struct MARCXMLRecord {
-    let datafields: [MARCXMLDatafield]
+struct MARCRecord {
+    var datafields: [MARCDatafield]
     init() {
         self.datafields = []
     }

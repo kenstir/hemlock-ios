@@ -12,11 +12,11 @@
 		D20B2FE422CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
 		D20B2FE522CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
 		D20B2FE622CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
-		D20B2FE822CC359000F69848 /* MARCXMLRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCXMLRecord.swift */; };
-		D20B2FE922CC359000F69848 /* MARCXMLRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCXMLRecord.swift */; };
-		D20B2FEA22CC359000F69848 /* MARCXMLRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCXMLRecord.swift */; };
-		D20B2FEB22CC359000F69848 /* MARCXMLRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCXMLRecord.swift */; };
-		D20B2FEC22CC359000F69848 /* MARCXMLRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCXMLRecord.swift */; };
+		D20B2FE822CC359000F69848 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
+		D20B2FE922CC359000F69848 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
+		D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
+		D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
+		D20B2FEC22CC359000F69848 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
 		D20B2FEE22CD726900F69848 /* MARCXMLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FED22CD726900F69848 /* MARCXMLParserTests.swift */; };
 		D20BDB772214BCF300BB6A5F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20BDB762214BCF200BB6A5F /* UIView+.swift */; };
 		D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20BDB762214BCF200BB6A5F /* UIView+.swift */; };
@@ -577,7 +577,7 @@
 
 /* Begin PBXFileReference section */
 		D20B2FE122CC309800F69848 /* MARCXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MARCXMLParser.swift; sourceTree = "<group>"; };
-		D20B2FE722CC359000F69848 /* MARCXMLRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCXMLRecord.swift; sourceTree = "<group>"; };
+		D20B2FE722CC359000F69848 /* MARCRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCRecord.swift; sourceTree = "<group>"; };
 		D20B2FED22CD726900F69848 /* MARCXMLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCXMLParserTests.swift; sourceTree = "<group>"; };
 		D20BDB762214BCF200BB6A5F /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutsViewController.swift; sourceTree = "<group>"; };
@@ -997,7 +997,7 @@
 				D270C4082091FCAA00D27159 /* IDLParser.swift */,
 				D231B52B2083C08000478D25 /* Library.swift */,
 				D22D02642083DE9100DC1F5B /* LoginController.swift */,
-				D20B2FE722CC359000F69848 /* MARCXMLRecord.swift */,
+				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				D20B2FE122CC309800F69848 /* MARCXMLParser.swift */,
 				D260755720E0860300795124 /* Organization.swift */,
 				D29C72132092691A00E90952 /* OSRFClass.swift */,
@@ -1723,7 +1723,7 @@
 				D210EBD522B1EE55002FB5E0 /* MainTableViewCell.swift in Sources */,
 				D210EBD622B1EE55002FB5E0 /* HoldRecord.swift in Sources */,
 				D210EBD722B1EE55002FB5E0 /* Bundle+.swift in Sources */,
-				D20B2FEC22CC359000F69848 /* MARCXMLRecord.swift in Sources */,
+				D20B2FEC22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D210EBD822B1EE55002FB5E0 /* PCRUDService.swift in Sources */,
 				D210EBD922B1EE55002FB5E0 /* String+.swift in Sources */,
 				D210EBDA22B1EE55002FB5E0 /* AppConfiguration.swift in Sources */,
@@ -1810,7 +1810,7 @@
 				D276DA9121336B20007FAA31 /* MainTableViewCell.swift in Sources */,
 				D296EE0D21338030009BDB12 /* AppSettings.swift in Sources */,
 				D276DA9221336B20007FAA31 /* HoldRecord.swift in Sources */,
-				D20B2FEA22CC359000F69848 /* MARCXMLRecord.swift in Sources */,
+				D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
 				D2A81798224699C700340074 /* Bundle+.swift in Sources */,
 				D276DA9421336B20007FAA31 /* String+.swift in Sources */,
@@ -1897,7 +1897,7 @@
 				D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755820E0860300795124 /* Organization.swift in Sources */,
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
-				D20B2FE822CC359000F69848 /* MARCXMLRecord.swift in Sources */,
+				D20B2FE822CC359000F69848 /* MARCRecord.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D2A81796224699C700340074 /* Bundle+.swift in Sources */,
 				D2C24A30210171290028180B /* PCRUDService.swift in Sources */,
@@ -1984,7 +1984,7 @@
 				D284245421D0358200C7171C /* String+splitOnRegex.swift in Sources */,
 				D284245521D0358200C7171C /* Organization.swift in Sources */,
 				D284245621D0358200C7171C /* MainTableViewCell.swift in Sources */,
-				D20B2FEB22CC359000F69848 /* MARCXMLRecord.swift in Sources */,
+				D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D284245821D0358200C7171C /* HoldRecord.swift in Sources */,
 				D2A81799224699C700340074 /* Bundle+.swift in Sources */,
 				D284245921D0358200C7171C /* PCRUDService.swift in Sources */,
@@ -2071,7 +2071,7 @@
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
-				D20B2FE922CC359000F69848 /* MARCXMLRecord.swift in Sources */,
+				D20B2FE922CC359000F69848 /* MARCRecord.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
 				D2A81797224699C700340074 /* Bundle+.swift in Sources */,
 				D2C24A312101712E0028180B /* PCRUDService.swift in Sources */,
