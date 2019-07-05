@@ -83,7 +83,7 @@ class XDetailsNode: ASCellNode {
         promises.append(SearchService.fetchCopyStatusAll())
 
         // Fetch copy counts if not online resource
-        if !App.config.isOnlineResource(record: record) {
+        if !App.behavior.isOnlineResource(record: record) {
             let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
             let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: record.id)
             let done_promise = promise.done { array in
@@ -117,9 +117,22 @@ class XDetailsNode: ASCellNode {
     }
     
     @objc func onlineAccessPressed(sender: Any) {
-        if let onlineLocation = record.onlineLocation,
-            let url = URL(string: onlineLocation) {
-            UIApplication.shared.open(url)
+        //guard let onlineLocation = record.onlineLocation else { return }
+        let links = App.behavior.onlineLocations(record: record, forSearchOrg: displayOptions.orgShortName)
+        guard links.count > 0 else { return }
+        var shown = false
+        for link in links {
+            print("kcxxx url=\(link.href)")
+            print("kcxxx     text=\(link.text)")
+        }
+        if links.count == 1 {
+            if let url = URL(string: links[0].href) {
+                UIApplication.shared.open(url)
+            } else {
+                self.closestViewController?.showAlert(title: "Error", message: "Unable to parse online location \(links[0].href)")
+            }
+        } else {
+            self.closestViewController?.showAlert(title: "Have \(links.count) links", message: "unsure what to do")
         }
     }
 
@@ -162,8 +175,8 @@ class XDetailsNode: ASCellNode {
 
     private func setupCopySummary() {
         var str = ""
-        if App.config.isOnlineResource(record: record) {
-            if let onlineLocation = record.onlineLocation,
+        if App.behavior.isOnlineResource(record: record) {
+            if let onlineLocation = record.firstOnlineLocationInMVR,
                 let host = URL(string: onlineLocation)?.host
             {
                 str = host
@@ -182,7 +195,7 @@ class XDetailsNode: ASCellNode {
     
     private func setupButtons() {
         var actionButtonText: String
-        if App.config.isOnlineResource(record: record) {
+        if App.behavior.isOnlineResource(record: record) {
             actionButtonText = "Online Access"
             actionButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), forControlEvents: .touchUpInside)
             actionButton.isEnabled = true
@@ -194,7 +207,7 @@ class XDetailsNode: ASCellNode {
         Style.styleButton(asInverse: actionButton)
         Style.setButtonTitle(actionButton, title: actionButtonText, fontSize: 15)
 
-        if App.config.isOnlineResource(record: record) {
+        if App.behavior.isOnlineResource(record: record) {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {

@@ -20,7 +20,6 @@
 class BiblioAppConfiguration: AppConfiguration {
     let title = "Acorn Catalog"
     let url = "https://acorn.biblio.org"
-    let logSubsystem = "net.kenstir.apps.bibliomation"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
 
     let enableHierarchicalOrgTree = true
@@ -69,17 +68,4 @@ class BiblioAppConfiguration: AppConfiguration {
   {"l":"VHS", "f":"vhs", "h":true}
 ]
 """
-    
-    func isOnlineResource(record: MBRecord) -> Bool {
-        if let item_form = record.mvrObj?.getString("item_form"), item_form == "o" {
-            return true
-        }
-        return false
-    }
-    
-    func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
-        var links: [Link] = []
-        links.append(Link(href: "www.bing.com", text: "Ba da bing"))
-        return links
-    }
 }

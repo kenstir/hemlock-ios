@@ -18,9 +18,8 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class PinesAppConfiguration: AppConfiguration {
-    let title = "PINES"
+    var title = "PINES"
     let url = "https://gapines.org"
-    let logSubsystem = "net.kenstir.apps.pines"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
 
     let enableHierarchicalOrgTree = true
@@ -29,6 +28,7 @@ class PinesAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = true
     let enablePayFines = true
     let groupCopyInfoBySystem = true
+    let needMARCRecord = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 200

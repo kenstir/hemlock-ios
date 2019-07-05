@@ -31,18 +31,17 @@ struct MARCDatafield {
     let tag: String
     let ind1: String
     let ind2: String
-    var subfields: [MARCSubfield]
+    var subfields: [MARCSubfield] = []
     init(tag: String, ind1: String, ind2: String) {
         self.tag = tag
         self.ind1 = ind1
         self.ind2 = ind2
-        self.subfields = []
     }
 }
 
 struct MARCRecord {
-    var datafields: [MARCDatafield]
-    init() {
-        self.datafields = []
-    }
+    var datafields: [MARCDatafield] = []
+//    init() {
+//        self.datafields = []
+//    }
 }

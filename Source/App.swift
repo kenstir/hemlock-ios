@@ -39,6 +39,7 @@ class App {
     
     static var theme: Theme!
     static var config: AppConfiguration!
+    static var behavior: AppBehavior!
     static var library: Library?
     static var idlLoaded: Bool?
     static var account: Account?

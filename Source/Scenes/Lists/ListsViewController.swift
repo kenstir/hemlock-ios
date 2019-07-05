@@ -94,7 +94,7 @@ class ListsViewController: UIViewController {
         var promises: [Promise<Void>] = []
         for record in records {
             promises.append(SearchService.fetchRecordMVR(authtoken: authtoken, forRecord: record))
-            promises.append(PCRUDService.fetchSearchFormat(authtoken: authtoken, forRecord: record))
+            promises.append(PCRUDService.fetchMRA(authtoken: authtoken, forRecord: record))
         }
         print("xxx \(promises.count) promises made")
         

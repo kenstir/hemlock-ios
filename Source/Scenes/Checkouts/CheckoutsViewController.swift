@@ -34,7 +34,7 @@ class CheckoutsViewController: UIViewController {
     var items: [CircRecord] = []
     var selectedItem: CircRecord?
     var didCompleteFetch = false
-    let log = OSLog(subsystem: App.config.logSubsystem, category: "Checkouts")
+    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Checkouts")
 
     //MARK: - UIViewController
     
@@ -132,10 +132,8 @@ class CheckoutsViewController: UIViewController {
             let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id])
             return req.gatewayObjectResponse()
         }.done { obj in
-            debugPrint(obj.dict)
-            print("xxx \(circRecord.id) format done")
-            let searchFormat = Format.getSearchFormat(fromMRAObject: obj)
-            circRecord.metabibRecord?.searchFormat = searchFormat
+            print("xxx \(circRecord.id) MRA done")
+            circRecord.metabibRecord?.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
         }
         return promise
     }

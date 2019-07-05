@@ -20,13 +20,13 @@
 
 import Foundation
 
-/// Metabib Vitual Record
+/// Metabib Record
 class MBRecord {
     
     var id: Int
     var mvrObj: OSRFObject?
+    var attrs: [String: String]? // from MRA object
     var marcRecord: MARCRecord?
-    var searchFormat: String?
     var copyCounts: [CopyCounts]?
 
     var title: String { return mvrObj?.getString("title") ?? "Unknown" }
@@ -34,7 +34,7 @@ class MBRecord {
     var format: String { return Format.getDisplayLabel(forSearchFormat: searchFormat) }
     var edition: String? { return mvrObj?.getString("edition") }
     var isbn: String { return mvrObj?.getString("isbn") ?? "" }
-    var onlineLocation: String? {
+    var firstOnlineLocationInMVR: String? {
         if let arr = mvrObj?.getAny("online_loc") as? [String] {
             return arr.first
         }
@@ -51,6 +51,10 @@ class MBRecord {
             return obj.dict.keys.joined(separator: "\n")
         }
         return ""
+    }
+    var searchFormat: String? {
+        // icon_format is more specific than search_format; see parseAttributes(fromMRAObject:)
+        return attrs?["icon_format"]
     }
 
     init(id: Int, mvrObj: OSRFObject? = nil) {

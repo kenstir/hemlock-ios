@@ -21,7 +21,7 @@ import Foundation
 import os.log
 
 class Utils {
-    static let log = OSLog(subsystem: App.config.logSubsystem, category: "utils")
+    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Utils")
 
     static func coalesce<T>(_ values: T?...) -> T? {
         for value in values {

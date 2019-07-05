@@ -23,11 +23,18 @@
 		D20B2FF222CE7BF500F69848 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
 		D20B2FF322CE7BF500F69848 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
 		D20B2FF422CE7BF500F69848 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
-		D20B2FF622CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
-		D20B2FF722CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
-		D20B2FF822CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
-		D20B2FF922CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
-		D20B2FFA22CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
+		D20B2FF622CF976200F69848 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
+		D20B2FF722CF976200F69848 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
+		D20B2FF822CF976200F69848 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
+		D20B2FF922CF976200F69848 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
+		D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
+		D20B2FFC22CFD91900F69848 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
+		D20B2FFD22CFD91900F69848 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
+		D20B2FFE22CFD91900F69848 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
+		D20B2FFF22CFD91900F69848 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
+		D20B300022CFD91900F69848 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
+		D20B300222CFED2300F69848 /* AcornAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B300122CFED2300F69848 /* AcornAppBehavior.swift */; };
+		D20B300422CFF8BA00F69848 /* RecordAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B300322CFF8BA00F69848 /* RecordAttributesTests.swift */; };
 		D20BDB772214BCF300BB6A5F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20BDB762214BCF200BB6A5F /* UIView+.swift */; };
 		D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20BDB762214BCF200BB6A5F /* UIView+.swift */; };
 		D20BDB792214BCF300BB6A5F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20BDB762214BCF200BB6A5F /* UIView+.swift */; };
@@ -590,7 +597,10 @@
 		D20B2FE722CC359000F69848 /* MARCRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCRecord.swift; sourceTree = "<group>"; };
 		D20B2FED22CD726900F69848 /* MARCXMLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCXMLParserTests.swift; sourceTree = "<group>"; };
 		D20B2FEF22CE7BF500F69848 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
-		D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAppConfiguration.swift; sourceTree = "<group>"; };
+		D20B2FF522CF976200F69848 /* AppBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBehavior.swift; sourceTree = "<group>"; };
+		D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAttributes.swift; sourceTree = "<group>"; };
+		D20B300122CFED2300F69848 /* AcornAppBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcornAppBehavior.swift; sourceTree = "<group>"; };
+		D20B300322CFF8BA00F69848 /* RecordAttributesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAttributesTests.swift; sourceTree = "<group>"; };
 		D20BDB762214BCF200BB6A5F /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutsViewController.swift; sourceTree = "<group>"; };
 		D20D14D020B783C1008F66B0 /* CircRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecord.swift; sourceTree = "<group>"; };
@@ -865,6 +875,7 @@
 		D210EC4222B1F1F6002FB5E0 /* biblio_app */ = {
 			isa = PBXGroup;
 			children = (
+				D20B300122CFED2300F69848 /* AcornAppBehavior.swift */,
 				D210EC4322B1F23D002FB5E0 /* AppSettings.swift */,
 				D210EC4622B1F24A002FB5E0 /* BiblioAppConfiguration.swift */,
 				D210EC4522B1F24A002FB5E0 /* BiblioTheme.swift */,
@@ -1017,6 +1028,7 @@
 				D29C720F209248F500E90952 /* OSRFCoder.swift */,
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
 				D2C24A2F210171290028180B /* PCRUDService.swift */,
+				D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */,
 				D267E4E3210CDE4700C56047 /* SearchService.swift */,
 				D2C24A32210178DD0028180B /* SMSCarrier.swift */,
 			);
@@ -1032,11 +1044,12 @@
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
 				D22D02682083EA7600DC1F5B /* GatewayTests.swift */,
 				D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */,
-				D20B2FED22CD726900F69848 /* MARCXMLParserTests.swift */,
 				D231B52D2083C1E500478D25 /* LibraryTests.swift */,
+				D20B2FED22CD726900F69848 /* MARCXMLParserTests.swift */,
 				D2BBA99720F19CA400B25146 /* OrganizationTests.swift */,
 				D29C721120924CF000E90952 /* OSRFCoderTests.swift */,
 				D29C72172094002100E90952 /* OSRFObjectTests.swift */,
+				D20B300322CFF8BA00F69848 /* RecordAttributesTests.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -1146,7 +1159,7 @@
 			children = (
 				D228FB6420D33402001A7E31 /* App.swift */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
-				D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */,
+				D20B2FF522CF976200F69848 /* AppBehavior.swift */,
 				D210EC4222B1F1F6002FB5E0 /* biblio_app */,
 				D218679D21D039220082358C /* cool_app */,
 				D276DAE521336B9F007FAA31 /* cwmars_app */,
@@ -1727,6 +1740,7 @@
 				D210EBCB22B1EE55002FB5E0 /* ListsViewController.swift in Sources */,
 				D210EBCC22B1EE55002FB5E0 /* XDetailsNode.swift in Sources */,
 				D210EBCD22B1EE55002FB5E0 /* XResultsTableNode.swift in Sources */,
+				D20B300222CFED2300F69848 /* AcornAppBehavior.swift in Sources */,
 				D210EBCF22B1EE55002FB5E0 /* UIColor+.swift in Sources */,
 				D210EBD022B1EE55002FB5E0 /* OptionsViewController.swift in Sources */,
 				D20B2FE622CC309800F69848 /* MARCXMLParser.swift in Sources */,
@@ -1763,7 +1777,7 @@
 				D210EBEB22B1EE55002FB5E0 /* AFSessionManager+.swift in Sources */,
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
-				D20B2FFA22CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
+				D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */,
 				D210EBEE22B1EE55002FB5E0 /* XDetailsPagerViewController.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
 				D210EBF022B1EE55002FB5E0 /* ASDisplayNode+.swift in Sources */,
@@ -1792,6 +1806,7 @@
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
 				D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */,
 				D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */,
+				D20B300022CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D210EC0A22B1EE55002FB5E0 /* Format.swift in Sources */,
 				D210EC0B22B1EE55002FB5E0 /* Gateway.swift in Sources */,
 				D210EC0C22B1EE55002FB5E0 /* UIViewController+.swift in Sources */,
@@ -1852,7 +1867,7 @@
 				D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
-				D20B2FF822CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
+				D20B2FF822CF976200F69848 /* AppBehavior.swift in Sources */,
 				D26210F1217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D276DAA821336B20007FAA31 /* CopyInfoViewController.swift in Sources */,
 				D2AA63C92282691900121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -1881,6 +1896,7 @@
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
 				D276DABC21336B20007FAA31 /* ActorService.swift in Sources */,
+				D20B2FFE22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D276DABD21336B20007FAA31 /* Format.swift in Sources */,
 				D276DABE21336B20007FAA31 /* Gateway.swift in Sources */,
 				D276DABF21336B20007FAA31 /* UIViewController+.swift in Sources */,
@@ -1941,7 +1957,7 @@
 				D22AE119221B75FC0089C196 /* AFSessionManager+.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
-				D20B2FF622CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
+				D20B2FF622CF976200F69848 /* AppBehavior.swift in Sources */,
 				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D28290F520E5CF48008EBE4B /* UIView+UYLExtensions.swift in Sources */,
 				D2AA63C72282691800121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -1970,6 +1986,7 @@
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
 				D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */,
+				D20B2FFC22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D260755B20E144E000795124 /* Format.swift in Sources */,
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
 				D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */,
@@ -2030,7 +2047,7 @@
 				D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */,
 				D284246D21D0358200C7171C /* HoldsViewController.swift in Sources */,
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
-				D20B2FF922CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
+				D20B2FF922CF976200F69848 /* AppBehavior.swift in Sources */,
 				D284246F21D0358200C7171C /* XDetailsPagerViewController.swift in Sources */,
 				D284247021D0358200C7171C /* CopyInfoViewController.swift in Sources */,
 				D2AA63CA2282691900121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -2059,6 +2076,7 @@
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
 				D284248421D0358200C7171C /* AppDelegate.swift in Sources */,
 				D284248521D0358200C7171C /* ActorService.swift in Sources */,
+				D20B2FFF22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D284248621D0358200C7171C /* Format.swift in Sources */,
 				D284248721D0358200C7171C /* Gateway.swift in Sources */,
 				D284248821D0358200C7171C /* UIViewController+.swift in Sources */,
@@ -2119,7 +2137,7 @@
 				D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */,
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
-				D20B2FF722CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
+				D20B2FF722CF976200F69848 /* AppBehavior.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */,
 				D2AA63C82282691900121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -2148,6 +2166,7 @@
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */,
+				D20B2FFD22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D260755C20E144E000795124 /* Format.swift in Sources */,
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,
 				D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */,
@@ -2169,6 +2188,7 @@
 			files = (
 				D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */,
 				D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */,
+				D20B300422CFF8BA00F69848 /* RecordAttributesTests.swift in Sources */,
 				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
 				D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */,
 				D2806A9121B33F6000F308F4 /* BarcodeTests.swift in Sources */,

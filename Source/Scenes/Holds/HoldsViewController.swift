@@ -32,7 +32,7 @@ class HoldsViewController: UIViewController {
 
     var items: [HoldRecord] = []
     var didCompleteFetch = false
-    let log = OSLog(subsystem: App.config.logSubsystem, category: "Holds")
+    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Holds")
 
     //MARK: - UIViewController
 
@@ -135,7 +135,7 @@ class HoldsViewController: UIViewController {
             os_log("fetchTargetInfo target=%d holdType=T mods done", log: self.log, type: .info, holdTarget)
             let record = MBRecord(id: holdTarget, mvrObj: obj)
             hold.metabibRecord = record
-            return PCRUDService.fetchSearchFormat(authtoken: authtoken, forRecord: record)
+            return PCRUDService.fetchMRA(authtoken: authtoken, forRecord: record)
         }
         return promise
     }

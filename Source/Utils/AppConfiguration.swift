@@ -22,7 +22,6 @@ import Foundation
 protocol AppConfiguration {
     var title: String { get }
     var url: String { get }
-    var logSubsystem: String { get }
     var bugReportEmailAddress: String { get }
 
     var searchFormatsJSON: String { get }
@@ -37,7 +36,4 @@ protocol AppConfiguration {
 
     var barcodeFormat: BarcodeFormat { get }
     var searchLimit: Int { get }
-    
-    func isOnlineResource(record: MBRecord) -> Bool
-    func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link]
 }

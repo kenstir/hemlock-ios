@@ -20,7 +20,6 @@
 class HemlockAppConfiguration: AppConfiguration {
     let title = "Hemlock"
     let url = "https://kenstir.ddns.net"
-    let logSubsystem = "net.kenstir.apps.hemlock"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
 
     let enableHierarchicalOrgTree = false
@@ -29,6 +28,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let groupCopyInfoBySystem = false
+    let needMARCRecord = false
 
     let barcodeFormat: BarcodeFormat = .Disabled
     let searchLimit = 100
@@ -62,16 +62,4 @@ class HemlockAppConfiguration: AppConfiguration {
   {"l":"VHS", "f":"vhs", "h":true}
 ]
 """
-
-    func isOnlineResource(record: MBRecord) -> Bool {
-        if let item_form = record.mvrObj?.getString("item_form"), item_form == "o" {
-            return true
-        }
-        return false
-    }
-    
-    func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
-        var links: [Link] = []
-        return links
-    }
 }

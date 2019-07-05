@@ -28,4 +28,8 @@ struct AppSettings {
     static func makeAppConfiguration() -> AppConfiguration {
         return BiblioAppConfiguration()
     }
+    
+    static func makeBehavior() -> AppBehavior {
+        return AcornAppBehavior()
+    }
 }

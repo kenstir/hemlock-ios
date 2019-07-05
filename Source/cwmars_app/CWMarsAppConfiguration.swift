@@ -20,7 +20,6 @@
 class CWMarsAppConfiguration: BaseAppConfiguration {
     let title = "CW MARS"
     let url = "https://catalog.cwmars.org"
-    let logSubsystem = "net.kenstir.apps.cwmars"    
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
 
     let enableHierarchicalOrgTree = false

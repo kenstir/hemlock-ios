@@ -23,7 +23,7 @@ import os.log
 
 class PCRUDService {
     static var carriersLoaded = false
-    static let log = OSLog(subsystem: App.config.logSubsystem, category: "pcrud")
+    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "pcrud")
 
     static func fetchSMSCarriers() -> Promise<Void> {
         if carriersLoaded {
@@ -38,12 +38,12 @@ class PCRUDService {
         return promise
     }
 
-    static func fetchSearchFormat(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
-        os_log("fetchSearchFormat id=%d start", log: PCRUDService.log, type: .info, record.id)
+    static func fetchMRA(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
+        os_log("fetchMRA id=%d start", log: PCRUDService.log, type: .info, record.id)
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id])
         let promise = req.gatewayObjectResponse().done { obj in
-            record.searchFormat = Format.getSearchFormat(fromMRAObject: obj)
-            os_log("fetchSearchFormat id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.searchFormat ?? "?", record.title)
+            record.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
+            os_log("fetchMRA id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.searchFormat ?? "?", record.title)
         }
         return promise
     }
