@@ -33,7 +33,11 @@ protocol AppConfiguration {
     var enableMainSceneBottomToolbar: Bool { get }
     var enablePayFines: Bool { get }
     var groupCopyInfoBySystem: Bool { get }
+    var needMARCRecord: Bool { get }
 
     var barcodeFormat: BarcodeFormat { get }
     var searchLimit: Int { get }
+    
+    func isOnlineResource(record: MBRecord) -> Bool
+    func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link]
 }

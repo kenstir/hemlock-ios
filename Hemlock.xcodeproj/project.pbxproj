@@ -18,6 +18,16 @@
 		D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
 		D20B2FEC22CC359000F69848 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
 		D20B2FEE22CD726900F69848 /* MARCXMLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FED22CD726900F69848 /* MARCXMLParserTests.swift */; };
+		D20B2FF022CE7BF500F69848 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
+		D20B2FF122CE7BF500F69848 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
+		D20B2FF222CE7BF500F69848 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
+		D20B2FF322CE7BF500F69848 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
+		D20B2FF422CE7BF500F69848 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
+		D20B2FF622CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
+		D20B2FF722CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
+		D20B2FF822CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
+		D20B2FF922CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
+		D20B2FFA22CF976200F69848 /* BaseAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */; };
 		D20BDB772214BCF300BB6A5F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20BDB762214BCF200BB6A5F /* UIView+.swift */; };
 		D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20BDB762214BCF200BB6A5F /* UIView+.swift */; };
 		D20BDB792214BCF300BB6A5F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20BDB762214BCF200BB6A5F /* UIView+.swift */; };
@@ -579,6 +589,8 @@
 		D20B2FE122CC309800F69848 /* MARCXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MARCXMLParser.swift; sourceTree = "<group>"; };
 		D20B2FE722CC359000F69848 /* MARCRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCRecord.swift; sourceTree = "<group>"; };
 		D20B2FED22CD726900F69848 /* MARCXMLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCXMLParserTests.swift; sourceTree = "<group>"; };
+		D20B2FEF22CE7BF500F69848 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAppConfiguration.swift; sourceTree = "<group>"; };
 		D20BDB762214BCF200BB6A5F /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutsViewController.swift; sourceTree = "<group>"; };
 		D20D14D020B783C1008F66B0 /* CircRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecord.swift; sourceTree = "<group>"; };
@@ -853,10 +865,10 @@
 		D210EC4222B1F1F6002FB5E0 /* biblio_app */ = {
 			isa = PBXGroup;
 			children = (
-				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
+				D210EC4322B1F23D002FB5E0 /* AppSettings.swift */,
 				D210EC4622B1F24A002FB5E0 /* BiblioAppConfiguration.swift */,
 				D210EC4522B1F24A002FB5E0 /* BiblioTheme.swift */,
-				D210EC4322B1F23D002FB5E0 /* AppSettings.swift */,
+				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
 				D210EC4B22B1F331002FB5E0 /* biblio.xcassets */,
 			);
 			path = biblio_app;
@@ -868,6 +880,7 @@
 				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
+				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
 			);
 			path = Models;
@@ -996,8 +1009,8 @@
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
 				D270C4082091FCAA00D27159 /* IDLParser.swift */,
 				D231B52B2083C08000478D25 /* Library.swift */,
+				D20B2FEF22CE7BF500F69848 /* Link.swift */,
 				D22D02642083DE9100DC1F5B /* LoginController.swift */,
-				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				D20B2FE122CC309800F69848 /* MARCXMLParser.swift */,
 				D260755720E0860300795124 /* Organization.swift */,
 				D29C72132092691A00E90952 /* OSRFClass.swift */,
@@ -1133,6 +1146,7 @@
 			children = (
 				D228FB6420D33402001A7E31 /* App.swift */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
+				D20B2FF522CF976200F69848 /* BaseAppConfiguration.swift */,
 				D210EC4222B1F1F6002FB5E0 /* biblio_app */,
 				D218679D21D039220082358C /* cool_app */,
 				D276DAE521336B9F007FAA31 /* cwmars_app */,
@@ -1723,6 +1737,7 @@
 				D210EBD522B1EE55002FB5E0 /* MainTableViewCell.swift in Sources */,
 				D210EBD622B1EE55002FB5E0 /* HoldRecord.swift in Sources */,
 				D210EBD722B1EE55002FB5E0 /* Bundle+.swift in Sources */,
+				D20B2FF422CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FEC22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D210EBD822B1EE55002FB5E0 /* PCRUDService.swift in Sources */,
 				D210EBD922B1EE55002FB5E0 /* String+.swift in Sources */,
@@ -1748,6 +1763,7 @@
 				D210EBEB22B1EE55002FB5E0 /* AFSessionManager+.swift in Sources */,
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
+				D20B2FFA22CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
 				D210EBEE22B1EE55002FB5E0 /* XDetailsPagerViewController.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
 				D210EBF022B1EE55002FB5E0 /* ASDisplayNode+.swift in Sources */,
@@ -1810,6 +1826,7 @@
 				D276DA9121336B20007FAA31 /* MainTableViewCell.swift in Sources */,
 				D296EE0D21338030009BDB12 /* AppSettings.swift in Sources */,
 				D276DA9221336B20007FAA31 /* HoldRecord.swift in Sources */,
+				D20B2FF222CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
 				D2A81798224699C700340074 /* Bundle+.swift in Sources */,
@@ -1835,6 +1852,7 @@
 				D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
+				D20B2FF822CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
 				D26210F1217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D276DAA821336B20007FAA31 /* CopyInfoViewController.swift in Sources */,
 				D2AA63C92282691900121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -1897,6 +1915,7 @@
 				D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755820E0860300795124 /* Organization.swift in Sources */,
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
+				D20B2FF022CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FE822CC359000F69848 /* MARCRecord.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D2A81796224699C700340074 /* Bundle+.swift in Sources */,
@@ -1922,6 +1941,7 @@
 				D22AE119221B75FC0089C196 /* AFSessionManager+.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
+				D20B2FF622CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
 				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D28290F520E5CF48008EBE4B /* UIView+UYLExtensions.swift in Sources */,
 				D2AA63C72282691800121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -1984,6 +2004,7 @@
 				D284245421D0358200C7171C /* String+splitOnRegex.swift in Sources */,
 				D284245521D0358200C7171C /* Organization.swift in Sources */,
 				D284245621D0358200C7171C /* MainTableViewCell.swift in Sources */,
+				D20B2FF322CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D284245821D0358200C7171C /* HoldRecord.swift in Sources */,
 				D2A81799224699C700340074 /* Bundle+.swift in Sources */,
@@ -2009,6 +2030,7 @@
 				D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */,
 				D284246D21D0358200C7171C /* HoldsViewController.swift in Sources */,
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
+				D20B2FF922CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
 				D284246F21D0358200C7171C /* XDetailsPagerViewController.swift in Sources */,
 				D284247021D0358200C7171C /* CopyInfoViewController.swift in Sources */,
 				D2AA63CA2282691900121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -2071,6 +2093,7 @@
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
+				D20B2FF122CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FE922CC359000F69848 /* MARCRecord.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
 				D2A81797224699C700340074 /* Bundle+.swift in Sources */,
@@ -2096,6 +2119,7 @@
 				D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */,
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
+				D20B2FF722CF976200F69848 /* BaseAppConfiguration.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */,
 				D2AA63C82282691900121CE8 /* ASDisplayNode+.swift in Sources */,

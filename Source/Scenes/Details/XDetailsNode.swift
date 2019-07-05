@@ -83,7 +83,7 @@ class XDetailsNode: ASCellNode {
         promises.append(SearchService.fetchCopyStatusAll())
 
         // Fetch copy counts if not online resource
-        if !record.isOnlineResource {
+        if !App.config.isOnlineResource(record: record) {
             let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
             let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: record.id)
             let done_promise = promise.done { array in
@@ -92,6 +92,11 @@ class XDetailsNode: ASCellNode {
             promises.append(done_promise)
         }
         
+        // Fetch MARCXML record if needed
+        if App.config.needMARCRecord {
+            promises.append(PCRUDService.fetchMARC(forRecord: record))
+        }
+
         firstly {
             when(fulfilled: promises)
         }.done {
@@ -157,7 +162,7 @@ class XDetailsNode: ASCellNode {
 
     private func setupCopySummary() {
         var str = ""
-        if record.isOnlineResource {
+        if App.config.isOnlineResource(record: record) {
             if let onlineLocation = record.onlineLocation,
                 let host = URL(string: onlineLocation)?.host
             {
@@ -177,7 +182,7 @@ class XDetailsNode: ASCellNode {
     
     private func setupButtons() {
         var actionButtonText: String
-        if record.isOnlineResource {
+        if App.config.isOnlineResource(record: record) {
             actionButtonText = "Online Access"
             actionButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), forControlEvents: .touchUpInside)
             actionButton.isEnabled = true
@@ -189,7 +194,7 @@ class XDetailsNode: ASCellNode {
         Style.styleButton(asInverse: actionButton)
         Style.setButtonTitle(actionButton, title: actionButtonText, fontSize: 15)
 
-        if record.isOnlineResource {
+        if App.config.isOnlineResource(record: record) {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {

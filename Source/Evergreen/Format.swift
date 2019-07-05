@@ -104,14 +104,6 @@ class Format {
         return ""
     }
     
-    static func isOnlineResource(forSearchFormat searchFormat: String) -> Bool {
-        if searchFormat == "picture" {
-            return true
-        }
-        let label = Format.getDisplayLabel(forSearchFormat: searchFormat)
-        return label.hasPrefix("E-")
-    }
-    
     /*
     static func synchronized(_ lock: Any, closure: () -> ()) {
         objc_sync_enter(lock)

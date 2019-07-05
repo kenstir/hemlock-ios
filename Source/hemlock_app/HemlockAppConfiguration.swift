@@ -62,4 +62,16 @@ class HemlockAppConfiguration: AppConfiguration {
   {"l":"VHS", "f":"vhs", "h":true}
 ]
 """
+
+    func isOnlineResource(record: MBRecord) -> Bool {
+        if let item_form = record.mvrObj?.getString("item_form"), item_form == "o" {
+            return true
+        }
+        return false
+    }
+    
+    func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+        var links: [Link] = []
+        return links
+    }
 }

@@ -20,6 +20,10 @@
 import Foundation
 
 extension Bundle {
+    static var appIdentifier: String {
+        return Bundle.main.bundleIdentifier ?? "?"
+    }
+
     static var appName: String {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "?"
     }

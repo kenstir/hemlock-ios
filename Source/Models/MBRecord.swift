@@ -25,6 +25,7 @@ class MBRecord {
     
     var id: Int
     var mvrObj: OSRFObject?
+    var marcRecord: MARCRecord?
     var searchFormat: String?
     var copyCounts: [CopyCounts]?
 
@@ -33,16 +34,6 @@ class MBRecord {
     var format: String { return Format.getDisplayLabel(forSearchFormat: searchFormat) }
     var edition: String? { return mvrObj?.getString("edition") }
     var isbn: String { return mvrObj?.getString("isbn") ?? "" }
-    var isOnlineResource: Bool {
-        if let onlineLocation = self.onlineLocation,
-            !onlineLocation.isEmpty,
-            let searchFormat = self.searchFormat,
-            Format.isOnlineResource(forSearchFormat: searchFormat)
-        {
-            return true
-        }
-        return false
-    }
     var onlineLocation: String? {
         if let arr = mvrObj?.getAny("online_loc") as? [String] {
             return arr.first

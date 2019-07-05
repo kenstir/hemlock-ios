@@ -29,6 +29,7 @@ class BiblioAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let groupCopyInfoBySystem = false
+    let needMARCRecord = true
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 100
@@ -68,4 +69,17 @@ class BiblioAppConfiguration: AppConfiguration {
   {"l":"VHS", "f":"vhs", "h":true}
 ]
 """
+    
+    func isOnlineResource(record: MBRecord) -> Bool {
+        if let item_form = record.mvrObj?.getString("item_form"), item_form == "o" {
+            return true
+        }
+        return false
+    }
+    
+    func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+        var links: [Link] = []
+        links.append(Link(href: "www.bing.com", text: "Ba da bing"))
+        return links
+    }
 }

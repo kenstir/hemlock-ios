@@ -47,4 +47,21 @@ class PCRUDService {
         }
         return promise
     }
+    
+    static func fetchMARC(forRecord record: MBRecord) -> Promise<Void> {
+        os_log("fetchMARC id=%d start", log: PCRUDService.log, type: .info, record.id)
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, record.id])
+        let promise = req.gatewayObjectResponse().done { obj in
+            guard let marcXML = obj.getString("marc") else {
+                throw HemlockError.unexpectedNetworkResponse("no marc for record \(record.id)")
+            }
+            guard let data = marcXML.data(using: .utf8) else {
+                throw HemlockError.unexpectedNetworkResponse("failed to parse marc for record \(record.id)")
+            }
+            let parser = MARCXMLParser(data: data)
+            record.marcRecord = try parser.parse()
+            os_log("fetchMARC id=%d done", log: PCRUDService.log, type: .info, record.id, record.searchFormat ?? "?", record.title)
+        }
+        return promise
+    }
 }
