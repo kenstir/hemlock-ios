@@ -31,4 +31,13 @@ extension String {
     func trim() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
+    
+    func trimTrailing(_ suffixChar: Character) -> String {
+        var s = self
+        let suffix = "" + [suffixChar]
+        while s.hasSuffix(suffix) {
+            s = "" + s.dropLast()
+        }
+        return s
+    }
 }

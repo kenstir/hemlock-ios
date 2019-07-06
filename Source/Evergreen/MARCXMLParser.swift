@@ -61,7 +61,7 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
     //MARK: - XMLParserDelegate
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes: [String : String]) {
-        print("didStartElement \(elementName)")
+        //print("didStartElement \(elementName)")
         if elementName == "datafield" {
             if let tag = attributes["tag"],
                 let ind1 = attributes["ind1"],
@@ -84,7 +84,7 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        print("didEndElement \(elementName)")
+        //print("didEndElement \(elementName)")
         if elementName == "datafield", let datafield = currentDatafield {
             currentRecord.datafields.append(datafield)
             currentDatafield = nil
@@ -95,7 +95,7 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        print("foundCharacters \(string)")
+        //print("foundCharacters \(string)")
         if currentSubfield != nil {
             currentSubfield?.text = string
         }

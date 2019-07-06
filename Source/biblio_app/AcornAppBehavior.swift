@@ -37,9 +37,10 @@ class AcornAppBehavior: AppBehavior {
             for datafield in datafields {
                 if datafield.subfields.contains(where: { $0.code == "9" && $0.text == orgShortName }),
                     let href = datafield.subfields.first(where: { $0.code == "u" })?.text,
-                    let text = datafield.subfields.first(where: { $0.code == "y" })?.text
+                    let text = datafield.subfields.first(where: { $0.code == "3" || $0.code == "y" })?.text
                 {
-                    links.append(Link(href: href, text: text))
+                    let trimmedText = text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
+                    links.append(Link(href: href, text: trimmedText))
                 }
             }
         }

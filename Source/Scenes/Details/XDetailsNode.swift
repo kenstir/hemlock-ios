@@ -116,24 +116,44 @@ class XDetailsNode: ASCellNode {
         myVC.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func openOnlineLocation(vc: UIViewController, href: String) {
+        guard let url = URL(string: href) else {
+            vc.showAlert(title: "Error parsing URL", message: "Unable to parse online location \(href)")
+            return
+        }
+        guard url.scheme == "https" else {
+            vc.showAlert(title: "Insecure URL", message: "Only secure (https) URLs are allowed, online location is \(href)")
+            return
+        }
+        UIApplication.shared.open(url)
+    }
+    
     @objc func onlineAccessPressed(sender: Any) {
         //guard let onlineLocation = record.onlineLocation else { return }
         let links = App.behavior.onlineLocations(record: record, forSearchOrg: displayOptions.orgShortName)
-        guard links.count > 0 else { return }
-        var shown = false
+        guard links.count > 0, let vc = self.closestViewController else { return }
         for link in links {
             print("kcxxx url=\(link.href)")
             print("kcxxx     text=\(link.text)")
         }
         if links.count == 1 {
-            if let url = URL(string: links[0].href) {
-                UIApplication.shared.open(url)
-            } else {
-                self.closestViewController?.showAlert(title: "Error", message: "Unable to parse online location \(links[0].href)")
-            }
-        } else {
-            self.closestViewController?.showAlert(title: "Have \(links.count) links", message: "unsure what to do")
+            openOnlineLocation(vc: vc, href: links[0].href)
+            return
         }
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        for link in links {
+            alertController.addAction(UIAlertAction(title: link.text, style: .default) { action in
+                self.openOnlineLocation(vc: vc, href: link.href)
+            })
+        }
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        if let popoverController = alertController.popoverPresentationController {
+            let view: UIView = self.view
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
+        vc.present(alertController, animated: true)
     }
 
     @objc func placeHoldPressed(sender: Any) {
