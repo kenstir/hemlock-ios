@@ -876,9 +876,9 @@
 			isa = PBXGroup;
 			children = (
 				D20B300122CFED2300F69848 /* AcornAppBehavior.swift */,
-				D210EC4322B1F23D002FB5E0 /* AppSettings.swift */,
 				D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */,
 				D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */,
+				D210EC4322B1F23D002FB5E0 /* AppSettings.swift */,
 				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
 				D210EC4B22B1F331002FB5E0 /* acorn.xcassets */,
 			);

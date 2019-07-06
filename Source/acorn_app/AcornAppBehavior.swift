@@ -20,9 +20,6 @@
 class AcornAppBehavior: AppBehavior {
     
     func isOnlineResource(record: MBRecord) -> Bool {
-        if let item_form = record.mvrObj?.getString("item_form"), item_form == "o" {
-            return true
-        }
         if let item_form = record.attrs?["item_form"] {
             if item_form == "o" {
                 return true
@@ -33,6 +30,7 @@ class AcornAppBehavior: AppBehavior {
     
     func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
         var links: [Link] = []
+        var seen: Set<String> = []
         if let datafields = record.marcRecord?.datafields {
             for datafield in datafields {
                 // Include only certain 856 records where subfield 9 contains the library short code
@@ -41,9 +39,15 @@ class AcornAppBehavior: AppBehavior {
                     let href = datafield.subfields.first(where: { $0.code == "u" })?.text,
                     let text = datafield.subfields.first(where: { $0.code == "3" || $0.code == "y" })?.text
                 {
-                    // Trim the link text for a better mobile UX
-                    let trimmedText = text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
-                    links.append(Link(href: href, text: trimmedText))
+                    // Do not show the same URL twice
+                    if seen.contains(href) {
+                        print("kcxxx: dup url \(href)")
+                    } else {
+                        // Trim the link text for a better mobile UX
+                        let trimmedText = text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
+                        links.append(Link(href: href, text: trimmedText))
+                        seen.insert(href)
+                    }
                 }
             }
         }
