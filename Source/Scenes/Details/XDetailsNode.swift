@@ -121,25 +121,20 @@ class XDetailsNode: ASCellNode {
             vc.showAlert(title: "Error parsing URL", message: "Unable to parse online location \(href)")
             return
         }
-        guard url.scheme == "https" else {
-            vc.showAlert(title: "Insecure URL", message: "Only secure (https) URLs are allowed, online location is \(href)")
-            return
-        }
         UIApplication.shared.open(url)
     }
     
     @objc func onlineAccessPressed(sender: Any) {
-        //guard let onlineLocation = record.onlineLocation else { return }
         let links = App.behavior.onlineLocations(record: record, forSearchOrg: displayOptions.orgShortName)
         guard links.count > 0, let vc = self.closestViewController else { return }
-        for link in links {
-            print("kcxxx url=\(link.href)")
-            print("kcxxx     text=\(link.text)")
-        }
+        
+        // If there's only one link, open it without ceremony
         if links.count == 1 {
             openOnlineLocation(vc: vc, href: links[0].href)
             return
         }
+        
+        // Show an actionSheet to present the links
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         for link in links {

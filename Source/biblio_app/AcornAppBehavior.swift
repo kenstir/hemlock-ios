@@ -35,10 +35,13 @@ class AcornAppBehavior: AppBehavior {
         var links: [Link] = []
         if let datafields = record.marcRecord?.datafields {
             for datafield in datafields {
-                if datafield.subfields.contains(where: { $0.code == "9" && $0.text == orgShortName }),
+                // Include only certain 856 records where subfield 9 contains the library short code
+                if datafield.tag == "856" && datafield.ind1 == "4" && (datafield.ind2 == "0" || datafield.ind2 == "1"),
+                    datafield.subfields.contains(where: { $0.code == "9" && $0.text == orgShortName }),
                     let href = datafield.subfields.first(where: { $0.code == "u" })?.text,
                     let text = datafield.subfields.first(where: { $0.code == "3" || $0.code == "y" })?.text
                 {
+                    // Trim the link text for a better mobile UX
                     let trimmedText = text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
                     links.append(Link(href: href, text: trimmedText))
                 }
