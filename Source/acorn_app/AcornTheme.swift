@@ -19,7 +19,7 @@
 
 import UIKit
 
-class BiblioTheme: Theme {
+class AcornTheme: Theme {
     let barTextForegroundColor = UIColor.white
     
     let primaryColor = UIColor(rgb: 0x01579b)

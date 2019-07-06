@@ -144,9 +144,9 @@
 		D210EC3022B1EE55002FB5E0 /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* Lists.storyboard */; };
 		D210EC3122B1EE55002FB5E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
 		D210EC4422B1F23D002FB5E0 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4322B1F23D002FB5E0 /* AppSettings.swift */; };
-		D210EC4722B1F24A002FB5E0 /* BiblioTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4522B1F24A002FB5E0 /* BiblioTheme.swift */; };
-		D210EC4822B1F24A002FB5E0 /* BiblioAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* BiblioAppConfiguration.swift */; };
-		D210EC4C22B1F331002FB5E0 /* biblio.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* biblio.xcassets */; };
+		D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */; };
+		D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */; };
+		D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* acorn.xcassets */; };
 		D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2720C5B90A00267503 /* PromiseKitTests.swift */; };
 		D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
@@ -608,10 +608,10 @@
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
 		D210EC3622B1EE55002FB5E0 /* acorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = acorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D210EC4322B1F23D002FB5E0 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		D210EC4522B1F24A002FB5E0 /* BiblioTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiblioTheme.swift; sourceTree = "<group>"; };
-		D210EC4622B1F24A002FB5E0 /* BiblioAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiblioAppConfiguration.swift; sourceTree = "<group>"; };
+		D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornTheme.swift; sourceTree = "<group>"; };
+		D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornAppConfiguration.swift; sourceTree = "<group>"; };
 		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D210EC4B22B1F331002FB5E0 /* biblio.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = biblio.xcassets; sourceTree = "<group>"; };
+		D210EC4B22B1F331002FB5E0 /* acorn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acorn.xcassets; sourceTree = "<group>"; };
 		D212DB2720C5B90A00267503 /* PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKitTests.swift; sourceTree = "<group>"; };
 		D212DB2920C5C0D200267503 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
@@ -872,17 +872,17 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		D210EC4222B1F1F6002FB5E0 /* biblio_app */ = {
+		D210EC4222B1F1F6002FB5E0 /* acorn_app */ = {
 			isa = PBXGroup;
 			children = (
 				D20B300122CFED2300F69848 /* AcornAppBehavior.swift */,
 				D210EC4322B1F23D002FB5E0 /* AppSettings.swift */,
-				D210EC4622B1F24A002FB5E0 /* BiblioAppConfiguration.swift */,
-				D210EC4522B1F24A002FB5E0 /* BiblioTheme.swift */,
+				D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */,
+				D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */,
 				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
-				D210EC4B22B1F331002FB5E0 /* biblio.xcassets */,
+				D210EC4B22B1F331002FB5E0 /* acorn.xcassets */,
 			);
-			path = biblio_app;
+			path = acorn_app;
 			sourceTree = "<group>";
 		};
 		D212DB1020C3717200267503 /* Models */ = {
@@ -1160,7 +1160,7 @@
 				D228FB6420D33402001A7E31 /* App.swift */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
 				D20B2FF522CF976200F69848 /* AppBehavior.swift */,
-				D210EC4222B1F1F6002FB5E0 /* biblio_app */,
+				D210EC4222B1F1F6002FB5E0 /* acorn_app */,
 				D218679D21D039220082358C /* cool_app */,
 				D276DAE521336B9F007FAA31 /* cwmars_app */,
 				D22D027620857DFE00DC1F5B /* Evergreen */,
@@ -1442,7 +1442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D210EC2222B1EE55002FB5E0 /* LaunchScreen.storyboard in Resources */,
-				D210EC4C22B1F331002FB5E0 /* biblio.xcassets in Resources */,
+				D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */,
 				D210EC2322B1EE55002FB5E0 /* Checkouts.storyboard in Resources */,
 				D210EC2422B1EE55002FB5E0 /* PlaceHold.storyboard in Resources */,
 				D210EC2522B1EE55002FB5E0 /* LICENSE.txt in Resources */,
@@ -1761,7 +1761,7 @@
 				D210EBDC22B1EE55002FB5E0 /* API.swift in Sources */,
 				D210EBDD22B1EE55002FB5E0 /* ShowCardViewController.swift in Sources */,
 				D210EBDE22B1EE55002FB5E0 /* HoldsTableViewCell.swift in Sources */,
-				D210EC4822B1F24A002FB5E0 /* BiblioAppConfiguration.swift in Sources */,
+				D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */,
 				D210EBDF22B1EE55002FB5E0 /* CopyStatus.swift in Sources */,
 				D210EBE022B1EE55002FB5E0 /* Corsortium.swift in Sources */,
 				D210EBE122B1EE55002FB5E0 /* App.swift in Sources */,
@@ -1802,7 +1802,7 @@
 				D210EC0422B1EE55002FB5E0 /* XSendEmailViewController.swift in Sources */,
 				D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */,
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
-				D210EC4722B1F24A002FB5E0 /* BiblioTheme.swift in Sources */,
+				D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */,
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
 				D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */,
 				D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */,
@@ -2262,7 +2262,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/biblio_app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/acorn_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2288,7 +2288,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/Source/biblio_app/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/acorn_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

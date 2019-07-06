@@ -22,11 +22,11 @@ import UIKit
 //todo make this a protocol
 struct AppSettings {
     static func makeTheme() -> Theme {
-        return BiblioTheme()
+        return AcornTheme()
     }
     
     static func makeAppConfiguration() -> AppConfiguration {
-        return BiblioAppConfiguration()
+        return AcornAppConfiguration()
     }
     
     static func makeBehavior() -> AppBehavior {

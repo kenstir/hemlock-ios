@@ -1,5 +1,5 @@
 //
-//  AppConfiguration.swift
+//  AcornAppConfiguration.swift
 //
 //  Copyright (C) 2019 Kenneth H. Cox
 //
@@ -17,7 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class BiblioAppConfiguration: AppConfiguration {
+class AcornAppConfiguration: AppConfiguration {
     let title = "Acorn Catalog"
     let url = "https://acorn.biblio.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
