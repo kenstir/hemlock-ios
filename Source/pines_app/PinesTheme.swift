@@ -22,9 +22,9 @@ import UIKit
 class PinesTheme: Theme {
     let barTextForegroundColor = UIColor.white
 
-    let primaryColor = UIColor(red: 0x37/0xff, green: 0x96/0xff, blue: 0x76/0xff, alpha: 1.0)
-    let primaryDarkColor = UIColor(red: 0x2e/0xff, green: 0x7b/0xff, blue: 0x61/0xff, alpha: 1.0)
-    let primaryDark2Color = UIColor(red: 0x1e/0xff, green: 0x52/0xff, blue: 0x41/0xff, alpha: 1.0)
+    let primaryColor = UIColor(rgb: 0x379676)
+    let primaryDarkColor = UIColor(rgb: 0x2e7b61)
+    let primaryDark2Color = UIColor(rgb: 0x1e5241)
     
     let secondaryColor = UIColor.red
     
