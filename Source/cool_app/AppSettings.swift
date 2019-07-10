@@ -28,4 +28,8 @@ struct AppSettings {
     static func makeAppConfiguration() -> AppConfiguration {
         return CoolAppConfiguration()
     }
+    
+    static func makeBehavior() -> AppBehavior {
+        return BaseAppBehavior()
+    }
 }

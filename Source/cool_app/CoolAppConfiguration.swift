@@ -28,6 +28,7 @@ class CoolAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = false
     let groupCopyInfoBySystem = false
+    let needMARCRecord = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 100
