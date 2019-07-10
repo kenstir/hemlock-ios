@@ -28,4 +28,8 @@ struct AppSettings {
     static func makeAppConfiguration() -> AppConfiguration {
         return CWMarsAppConfiguration()
     }
+    
+    static func makeBehavior() -> AppBehavior {
+        return BaseAppBehavior()
+    }
 }
