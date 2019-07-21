@@ -63,8 +63,4 @@ class MARCXMLParserTests: XCTestCase {
         }
         XCTAssertEqual(4, matching_links.count)        
     }
-    
-    func test_foo() {
-        XCTAssertTrue(true)
-    }
 }
