@@ -176,6 +176,9 @@ class XResultsViewController: ASViewController<ASTableNode> {
         if let org = sp.organizationShortName, !org.isEmpty {
             query += " site(\(org))"
         }
+        if let sort = sp.sort {
+            query += " sort(\(sort))"
+        }
         return query
     }
 }

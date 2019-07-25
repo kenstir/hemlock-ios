@@ -21,6 +21,7 @@ class NobleAppConfiguration: AppConfiguration {
     let title = "NOBLE Libraries"
     let url = "https://evergreen.noblenet.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
+    let sort: String? = "poprel"
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
