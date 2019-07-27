@@ -18,4 +18,10 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class NTLCAppBehavior: BaseAppBehavior {
+    override init() {
+        super.init()
+        customStrings = [
+            "barcode_warning_msg": "Note: not all branches can scan\nbarcodes from smartphones"
+        ]
+    }
 }
