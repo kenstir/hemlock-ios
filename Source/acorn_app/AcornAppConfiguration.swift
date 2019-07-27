@@ -21,6 +21,7 @@ class AcornAppConfiguration: AppConfiguration {
     let title = "Acorn Catalog"
     let url = "https://acorn.biblio.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
+    let sort: String? = nil
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
