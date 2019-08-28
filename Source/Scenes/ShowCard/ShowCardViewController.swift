@@ -23,7 +23,8 @@ import ZXingObjC
 
 class ShowCardViewController: UIViewController {
     
-    @IBOutlet weak var barCodeImage: UIImageView!
+    @IBOutlet weak var barcodeImage: UIImageView!
+    @IBOutlet weak var barcodeWarningLabel: UILabel!
     @IBOutlet weak var barcodeLabel: UILabel!
     @IBOutlet weak var splashImage: UIImageView!
     
@@ -63,16 +64,18 @@ class ShowCardViewController: UIViewController {
     }
 
     func setupBarcode(_ barcode: String) {
-        let matrix = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39])
-        if let m = matrix,
+        guard let m = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39]),
             m.width > 0 && m.height > 0,
-            let cgimage = ZXImage(matrix: m).cgimage
+            let cgimage = ZXImage(matrix: m).cgimage else
         {
-            barcodeLabel.text = BarcodeUtils.displayLabel(barcode, format: App.config.barcodeFormat)
-            barCodeImage.image = UIImage(cgImage: cgimage)
-        } else {
             barcodeLabel.text = "Invalid barcode: \(barcode)"
-            barCodeImage.image = UIImage(named: "invalid_barcode")
+            barcodeImage.image = UIImage(named: "invalid_barcode")
+            return
+        }
+        barcodeLabel.text = BarcodeUtils.displayLabel(barcode, format: App.config.barcodeFormat)
+        barcodeImage.image = UIImage(cgImage: cgimage)
+        if let warning = App.behavior.getString("barcode_warning_msg") {
+            barcodeWarningLabel.attributedText = Style.makeSubtitleString(warning, ofSize: 17)
         }
     }
 

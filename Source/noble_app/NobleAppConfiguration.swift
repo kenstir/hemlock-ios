@@ -18,9 +18,10 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class NobleAppConfiguration: AppConfiguration {
-    let title = "Noble Catalog"
+    let title = "NOBLE Libraries"
     let url = "https://evergreen.noblenet.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
+    let sort: String? = "poprel"
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true

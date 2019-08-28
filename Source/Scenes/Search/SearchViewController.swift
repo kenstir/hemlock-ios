@@ -26,6 +26,7 @@ struct SearchParameters {
     let searchClass: String
     let searchFormat: String?
     let organizationShortName: String?
+    let sort: String?
 }
 
 class OptionsEntry {
@@ -186,7 +187,7 @@ class SearchViewController: UIViewController {
             return
         }
         let searchFormat = Format.getSearchFormat(forSpinnerLabel: formatText)
-        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg)
+        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg, sort: App.config.sort)
         let vc = XResultsViewController()
         vc.searchParameters = params
         print("--- searchParams \(String(describing: vc.searchParameters))")

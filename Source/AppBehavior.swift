@@ -22,9 +22,12 @@ import Foundation
 protocol AppBehavior {
     func isOnlineResource(record: MBRecord) -> Bool
     func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link]
+    func getString(_ key: String) -> String?
 }
 
 class BaseAppBehavior: AppBehavior {
+    var customStrings: [String: String] = [:]
+    
     fileprivate func isOnlineFormat(searchFormat: String) -> Bool {
         if searchFormat == "picture" {
             return true
@@ -50,5 +53,9 @@ class BaseAppBehavior: AppBehavior {
             links.append(Link(href: online_loc, text: ""))
         }
         return links
+    }
+    
+    func getString(_ key: String) -> String? {
+        return customStrings[key]
     }
 }

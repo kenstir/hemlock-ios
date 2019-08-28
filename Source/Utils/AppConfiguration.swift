@@ -23,6 +23,7 @@ protocol AppConfiguration {
     var title: String { get }
     var url: String { get }
     var bugReportEmailAddress: String { get }
+    var sort: String? { get }
 
     var searchFormatsJSON: String { get }
 
