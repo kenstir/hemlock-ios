@@ -94,13 +94,14 @@ class XDetailsNode: ASCellNode {
         
         // Fetch MARCXML record if needed
         if App.config.needMARCRecord {
-            promises.append(PCRUDService.fetchMARC(forRecord: record))
+            promises.insert(PCRUDService.fetchMARC(forRecord: record), at: 0)
         }
 
         firstly {
             when(fulfilled: promises)
         }.done {
             self.setupCopySummary()
+            self.setupButtons()
         }.catch { error in
             self.viewController?.presentGatewayAlert(forError: error)
         }
@@ -210,7 +211,13 @@ class XDetailsNode: ASCellNode {
     
     private func setupButtons() {
         var actionButtonText: String
-        if App.behavior.isOnlineResource(record: record) {
+        let isOnlineResource = App.behavior.isOnlineResource(record: record)
+
+        // This function will be called more than once, clear targets first
+        actionButton.removeTarget(self, action: nil, forControlEvents: .allEvents)
+        copyInfoButton.removeTarget(self, action: nil, forControlEvents: .allEvents)
+
+        if isOnlineResource {
             actionButtonText = "Online Access"
             actionButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), forControlEvents: .touchUpInside)
             actionButton.isEnabled = true
@@ -222,7 +229,7 @@ class XDetailsNode: ASCellNode {
         Style.styleButton(asInverse: actionButton)
         Style.setButtonTitle(actionButton, title: actionButtonText, fontSize: 15)
 
-        if App.behavior.isOnlineResource(record: record) {
+        if isOnlineResource {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {
