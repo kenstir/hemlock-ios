@@ -159,6 +159,10 @@ class Organization {
         }
     }
 
+    static func getIsPickupLocation() -> [Bool] {
+        return orgs.map { $0.isPickupLocation }
+    }
+
     static func getShortName(forName name: String?) -> String? {
         if let org = orgs.first(where: { $0.name == name }) {
             return org.shortname

@@ -32,6 +32,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var valueChangedHandler: (() -> Void)?
 
     var orgLabels: [String] = []
+    var orgIsPickupLocation: [Bool] = []
     var carrierLabels: [String] = []
     var selectedOrgName = ""
     var selectedCarrierName = ""
@@ -377,6 +378,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     func loadOrgData() {
         orgLabels = Organization.getSpinnerLabels()
+        orgIsPickupLocation = Organization.getIsPickupLocation()
 
         var selectOrgIndex = 0
         let defaultPickupLocation = Utils.coalesce(holdRecord?.pickupOrgId,
@@ -611,6 +613,7 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
                 self.selectedOrgName = value
                 self.pickupNode.textField?.text = value
             }
+            vc.optionIsEnabled = self.orgIsPickupLocation
             self.navigationController?.pushViewController(vc, animated: true)
             return false
         case carrierNode.textField:

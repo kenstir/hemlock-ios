@@ -26,6 +26,7 @@ class OptionsViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
     
     var options: [String] = []
+    var optionIsEnabled: [Bool] = []
     var selectedOption: String?
     var selectedPath: IndexPath?
     var selectionChangedHandler: ((String) -> Void)?
@@ -66,6 +67,10 @@ class OptionsViewController: UIViewController {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
+        }
+        if optionIsEnabled.count > indexPath.row {
+            cell.textLabel?.isEnabled = optionIsEnabled[indexPath.row]
+            cell.isUserInteractionEnabled = optionIsEnabled[indexPath.row]
         }
     }
 }
