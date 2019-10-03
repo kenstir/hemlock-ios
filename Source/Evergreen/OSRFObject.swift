@@ -29,6 +29,7 @@ struct OSRFObject: Equatable {
     //MARK: - Properties
     
     var dict: [String: Any?]
+    var netClass: String?
 
     static var apiDateFormatter = ISO8601DateFormatter()
     static var outputDateFormatter: DateFormatter = {
@@ -39,8 +40,9 @@ struct OSRFObject: Equatable {
         return df
     }()
 
-    init(_ dict: [String: Any?] = [:]) {
+    init(_ dict: [String: Any?] = [:], netClass: String? = nil) {
         self.dict = dict
+        self.netClass = netClass
     }
     
     //MARK: - accessors
