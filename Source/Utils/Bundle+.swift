@@ -29,12 +29,20 @@ extension Bundle {
     }
 
     static var appVersion: String {
+        return getAppVersion(urlSafe: false)
+    }
+    
+    static var appVersionUrlSafe: String {
+        return getAppVersion(urlSafe: true)
+    }
+    
+    static func getAppVersion(urlSafe: Bool) -> String {
         guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String,
             let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else
         {
             return "?"
         }
-        return "\(version) (\(build))"
+        return (urlSafe ? "\(version).\(build)" : "\(version) (\(build))")
     }
 
     static var isTestFlightOrDebug: Bool {
