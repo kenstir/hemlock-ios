@@ -81,6 +81,22 @@ extension Alamofire.DataRequest {
                     if let error = resp.error {
                         seal.reject(error)
                     } else if let obj = resp.obj {
+                        //print("xyzzy: resp.obj.netclass=\(obj.netClass ?? "")")
+                        if obj.netClass == "aou" {
+                            //                print("xyzzy: request headers:")
+                            //                if let headerFields = response.request?.allHTTPHeaderFields {
+                            //                    for (k,v) in headerFields {
+                            //                        print("xyzzy: \(k) -> \(v)")
+                            //                    }
+                            //                }
+                            print("xyzzy: response headers:")
+                            if let headerFields = response.response?.allHeaderFields {
+                                for (k,v) in headerFields {
+                                    print("xyzzy: \(k) -> \(v)")
+                                }
+                            }
+                            print("xyzzy: end of response headers")
+                        }
                         seal.fulfill(obj)
                     } else {
                         seal.reject(HemlockError.unexpectedNetworkResponse("expected object, received \(resp.description)"))
