@@ -143,7 +143,7 @@ struct GatewayResponse {
             do {
                 try obj = decodeObject(val)
             } catch {
-                self.error = .failure("Error decoding OSRF object")
+                self.error = .failure("Error decoding OSRF object: " + error.localizedDescription)
                 return
             }
             if let ilsevent = obj?.getDouble("ilsevent"),
@@ -159,7 +159,7 @@ struct GatewayResponse {
             do {
                 try arrayResult = decodeArray(val)
             } catch {
-                self.error = .failure("Error decoding OSRF object")
+                self.error = .failure("Error decoding OSRF array: " + error.localizedDescription)
                 return
             }
             if let obj = arrayResult?.first,
