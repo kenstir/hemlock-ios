@@ -29,6 +29,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let groupCopyInfoBySystem = false
+    let enableCopyInfoWebLinks = true
     let needMARCRecord = false
 
     let barcodeFormat: BarcodeFormat = .Disabled

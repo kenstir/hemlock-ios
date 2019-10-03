@@ -33,6 +33,7 @@ protocol AppConfiguration {
     var enableMainSceneBottomToolbar: Bool { get }
     var enablePayFines: Bool { get }
     var groupCopyInfoBySystem: Bool { get }
+    var enableCopyInfoWebLinks: Bool { get }
     var needMARCRecord: Bool { get }
 
     var barcodeFormat: BarcodeFormat { get }
