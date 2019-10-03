@@ -67,6 +67,7 @@ class App {
 
         // Load IDL without caching; IDL is not backward compatible
         // across server upgrades.
+        // TODO: use cache-busting URL so we can cache this
         //let req = Alamofire.request(Gateway.idlURL())
         var req: DataRequest
         do {
