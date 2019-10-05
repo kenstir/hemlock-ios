@@ -65,7 +65,8 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
         super.viewDidAppear(animated)
         if firstAppearance {
             // scrollToPage has no effect if done in viewWillAppear(),
-            // but doing it here means the scrolling is visible to the user
+            // but doing it here means the scrolling is visible to the user,
+            // so this is the least bad option.
             // See also https://github.com/TextureGroup/Texture/issues/133
             pagerNode.scrollToPage(at: selectedItem, animated: false)
         }
@@ -77,9 +78,9 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     func setupNodes() {
         self.automaticallyAdjustsScrollViewInsets = false
 
-        // If you don't set isTranslucent=false, ASDK positions the content
-        // *under* the navigationBar.
-        self.navigationController?.navigationBar.isTranslucent = false
+        // If you don't set isTranslucent=false, either here or in the AppDelegate,
+        // ASDK positions the content *under* the navigationBar.
+//        self.navigationController?.navigationBar.isTranslucent = false
 
         pagerNode.setDataSource(self)
         pagerNode.setDelegate(self)
