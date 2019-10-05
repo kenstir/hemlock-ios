@@ -112,7 +112,7 @@ struct GatewayResponse {
         let wire_str = String(data: data, encoding: .utf8) ?? "(nil)"
         os_log("resp.wire: %@", log: Gateway.log, type: .info, wire_str)
         Analytics.logResponse(wire_str)
-        guard var json = decodeJSON(data) else {
+        guard let json = decodeJSON(data) else {
             os_log("resp.json: decode_error", log: Gateway.log, type: .info)
             error = .failure("Response not JSON")
             return
