@@ -592,6 +592,17 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         vc.selectionChangedHandler = selectionChangedHandler
         return vc
     }
+    
+    func scrollToEnd() {
+        let sv = self.scrollNode.view
+//        print("sv.contentSize.height = \(sv.contentSize.height)")
+//        print("sv.bounds.size.height = \(sv.bounds.size.height)")
+//        print("sv.contentInset.bottom = \(sv.contentInset.bottom)")
+//        print("sv.frame.size.height = \(sv.frame.size.height)")
+        let bottomOffset = CGPoint(x: 0, y: sv.contentSize.height - sv.bounds.size.height + sv.contentInset.bottom)
+//        print("sv.... -> bottomOffset = \(bottomOffset)")
+        sv.setContentOffset(bottomOffset, animated: true)
+    }
 }
 
 //MARK: - TextFieldDelegate
@@ -626,7 +637,19 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
             return false
         case expirationNode.textField:
             expirationPickerVisible = !expirationPickerVisible
-            self.scrollNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true)
+            self.scrollNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true) {
+                guard self.expirationPickerVisible else { return }
+                // This is a Good Enough workaround for the fact that on a small screen, transitioning
+                // the date picker into view can move the Place Hold button off screen.  This scrolls
+                // slightly too high, but it brings the Place Hold button back on screen.  Doing a
+                // scrollToEnd() without the delay does not work, because the scrollView.bounds.size.height is
+                // not settled yet.  After a short delay it is closer but still not correct.
+                firstly {
+                    return after(seconds: 0.1)
+                }.done {
+                    self.scrollToEnd()
+                }
+            }
             return false
         default:
             return true
