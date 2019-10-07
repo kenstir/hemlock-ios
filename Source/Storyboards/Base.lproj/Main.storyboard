@@ -11,7 +11,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Cgd-dF-q7D">
             <objects>
-                <navigationController storyboardIdentifier="LoginNavigation" id="L5E-wb-4wF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavigation" interfaceStyle="light" toolbarHidden="NO" id="L5E-wb-4wF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SUJ-mx-Mca">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFq-Qa-ogx" userLabel="Jason View">
-                                <rect key="frame" x="0.0" y="-35" width="1024" height="554"/>
+                                <rect key="frame" x="0.0" y="-84" width="1024" height="554"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Jason" translatesAutoresizingMaskIntoConstraints="NO" id="ZHk-Zc-H6p">
                                         <rect key="frame" x="6" y="489" width="54" height="90"/>
@@ -203,7 +203,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APz-Q5-Aod">
-                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="426"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="426.5"/>
@@ -311,7 +311,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2SI-wU-38L">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigation" id="lJi-dZ-su3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigation" modalPresentationStyle="fullScreen" interfaceStyle="light" id="lJi-dZ-su3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ocF-Hd-bJC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
