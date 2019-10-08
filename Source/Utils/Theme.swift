@@ -27,8 +27,5 @@ protocol Theme {
     var primaryDark2Color: UIColor { get }
     
     var secondaryColor: UIColor { get }
-    
-    var tableHeaderForeground: UIColor { get }
-    var tableHeaderBackground: UIColor { get }
 }
 

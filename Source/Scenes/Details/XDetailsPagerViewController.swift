@@ -84,7 +84,7 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
 
         pagerNode.setDataSource(self)
         pagerNode.setDelegate(self)
-        pagerNode.backgroundColor = UIColor.white
+        pagerNode.backgroundColor = Style.systemBackground
         pagerNode.showsHorizontalScrollIndicator = true
 
         self.setupHomeButton()

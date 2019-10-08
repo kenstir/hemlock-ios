@@ -77,7 +77,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     func setupNodes() {
         tableNode.delegate = self
         tableNode.dataSource = self
-        tableNode.backgroundColor = UIColor.white
+        tableNode.backgroundColor = Style.secondarySystemGroupedBackground
         tableNode.view.separatorStyle = .singleLine
         
         // setting an empty UIView as the footer prevents the display of ghost rows at the end of the table
@@ -95,9 +95,9 @@ class XResultsViewController: ASViewController<ASTableNode> {
     // of the way down.  I don't like it but it's good enough for now.
     func centerActivityIndicator(inFrame bounds: CGRect) {
         var frame = activityIndicator.frame
-        print("yyy frame was  \(frame)")
+        //print("yyy frame was  \(frame)")
         frame.origin = CGPoint(x: (bounds.width - frame.width) / 2.0, y: (bounds.height - frame.height) / 3.0)
-        print("yyy set origin to \(frame.origin)")
+        //print("yyy set origin to \(frame.origin)")
         activityIndicator.frame = frame
     }
     
@@ -215,12 +215,12 @@ extension XResultsViewController: ASTableDataSource {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = App.theme.tableHeaderBackground
+        view.backgroundColor = Style.systemGroupedBackground
  
         let rect = CGRect(x: 8, y: 29, width: 320, height: 21)
         let label = UILabel(frame: rect)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = App.theme.tableHeaderForeground
+        label.textColor = Style.secondaryLabelColor
         label.text = titleForHeaderInSection()
         label.font = UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps
 

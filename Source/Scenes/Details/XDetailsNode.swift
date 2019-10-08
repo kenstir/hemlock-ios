@@ -186,7 +186,7 @@ class XDetailsNode: ASCellNode {
         let naturalNumber = itemIndex + 1
         let str = "Showing Item \(naturalNumber) of \(totalItems)"
         pageHeaderText.attributedText = Style.makeTableHeaderString(str)
-        pageHeader.backgroundColor = App.theme.tableHeaderBackground
+        pageHeader.backgroundColor = Style.systemGroupedBackground
     }
 
     private func setupCopySummary() {
