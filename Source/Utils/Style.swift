@@ -154,7 +154,7 @@ class Style {
     //MARK: - Table Header
 
     static func styleLabel(asTableHeader v: UILabel) {
-        v.textColor = UIColor.darkGray
+        v.textColor = Style.secondaryLabelColor
         v.font = UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps
     }
 

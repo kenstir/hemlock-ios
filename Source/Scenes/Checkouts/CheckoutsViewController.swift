@@ -227,7 +227,7 @@ extension CheckoutsViewController: UITableViewDataSource {
             dueText = dueText + " (overdue)"
             cell.dueDate.textColor = App.theme.secondaryColor
         } else {
-            cell.dueDate.textColor = UIColor.black
+            cell.dueDate.textColor = Style.secondaryLabelColor
         }
         cell.dueDate.text = dueText
 
