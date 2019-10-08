@@ -22,6 +22,64 @@ import AsyncDisplayKit
 
 class Style {
     
+    //MARK: - Colors
+    
+    class var systemBackground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemBackground
+        } else {
+            return UIColor.white
+        }
+    }
+    
+    class var systemGroupedBackground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGroupedBackground
+        } else {
+            return UIColor.groupTableViewBackground
+        }
+    }
+    
+    class var secondarySystemGroupedBackground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.secondarySystemGroupedBackground
+        } else {
+            return UIColor.white
+        }
+    }
+
+    class var labelColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            return UIColor.black
+        }
+    }
+    
+    class var secondaryLabelColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.secondaryLabel
+        } else {
+            return UIColor.darkGray
+        }
+    }
+    
+    class var tertiaryLabelColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.tertiaryLabel
+        } else {
+            return UIColor.darkGray
+        }
+    }
+    
+    class var separatorColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.separator
+        } else {
+            return UIColor.lightGray
+        }
+    }
+
     //MARK: - ActivityIndicator
     
     static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView, color: UIColor = App.theme.primaryDark2Color) {
@@ -84,6 +142,7 @@ class Style {
 
     static func styleSearchBar(_ searchBar: UISearchBar) {
         searchBar.tintColor = App.theme.primaryDarkColor
+        searchBar.backgroundColor = systemBackground
     }
     
     //MARK: - SegmentedControl
@@ -101,7 +160,7 @@ class Style {
 
     static func styleStackView(asTableHeader v: UIView) {
         let bgView = UIView()
-        bgView.backgroundColor = App.theme.tableHeaderBackground
+        bgView.backgroundColor = Style.systemGroupedBackground
         bgView.translatesAutoresizingMaskIntoConstraints = false
         v.insertSubview(bgView, at: 0)
         bgView.pin(to: v)
@@ -111,28 +170,28 @@ class Style {
     
     static func makeTableHeaderString(_ str: String) -> NSAttributedString {
         let attrs = [
-            NSAttributedString.Key.foregroundColor: App.theme.tableHeaderForeground,
+            NSAttributedString.Key.foregroundColor: Style.secondaryLabelColor,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     static func makeTitleString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.foregroundColor: Style.labelColor,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .semibold)]
         return NSAttributedString(string: str, attributes: attrs)
     }
 
     static func makeSubtitleString(_ str: String, ofSize size: CGFloat = 14) -> NSAttributedString {
         let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.darkGray,
+            NSAttributedString.Key.foregroundColor: Style.secondaryLabelColor,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)]
         return NSAttributedString(string: str, attributes: attrs)
     }
     
     static func makeString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.foregroundColor: Style.labelColor,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .regular)]
         return NSAttributedString(string: str, attributes: attrs)
     }

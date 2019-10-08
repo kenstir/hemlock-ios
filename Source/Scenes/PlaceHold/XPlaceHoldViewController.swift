@@ -93,7 +93,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     // before there is any UI.  Do not fetchData here.
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = Style.systemBackground
         setupNodes()
     }
     

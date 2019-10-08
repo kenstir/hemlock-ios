@@ -196,7 +196,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1024" id="5dX-ho-GmI"/>
                                     <constraint firstAttribute="height" constant="554" id="v33-xx-o0n"/>
@@ -248,7 +248,7 @@
                                                 <rect key="frame" x="141.5" y="244.5" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="top" secondItem="ofn-Nj-gGI" secondAttribute="bottom" constant="16" id="382-Zk-CVf"/>
                                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="28" id="7fN-3F-gyy"/>
@@ -279,7 +279,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="APz-Q5-Aod" firstAttribute="bottom" secondItem="Qfi-3X-Rfr" secondAttribute="bottom" id="90n-9l-zii"/>
                             <constraint firstItem="APz-Q5-Aod" firstAttribute="leading" secondItem="Qfi-3X-Rfr" secondAttribute="leading" id="AAt-nk-KMz"/>
@@ -366,7 +366,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="pXz-FV-8vg" firstAttribute="top" secondItem="7BW-g6-5vc" secondAttribute="bottom" constant="8" id="LVF-FL-z5a"/>
                             <constraint firstItem="pXz-FV-8vg" firstAttribute="bottom" secondItem="02a-ah-iys" secondAttribute="bottom" constant="-8" id="N91-ee-5UW"/>

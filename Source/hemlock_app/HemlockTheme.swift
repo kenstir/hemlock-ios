@@ -27,7 +27,4 @@ class HemlockTheme: Theme {
     let primaryDark2Color = UIColor(rgb: 0x1e5241)
 
     let secondaryColor = UIColor(rgb: 0xff0000)
-
-    let tableHeaderForeground = UIColor.darkGray
-    let tableHeaderBackground = UIColor.groupTableViewBackground
 }

@@ -27,7 +27,4 @@ class NTLCTheme: Theme {
     let primaryDark2Color = UIColor(rgb: 0x1e5241)
 
     let secondaryColor = UIColor.red
-    
-    let tableHeaderForeground = UIColor.darkGray
-    let tableHeaderBackground = UIColor.groupTableViewBackground
 }

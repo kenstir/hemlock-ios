@@ -27,7 +27,4 @@ class CWMarsTheme: Theme {
     let primaryDark2Color = UIColor(rgb: 0x16416f)
 
     let secondaryColor = UIColor(rgb: 0xd61d4a)
-
-    let tableHeaderForeground = UIColor.darkGray
-    let tableHeaderBackground = UIColor.groupTableViewBackground
 }

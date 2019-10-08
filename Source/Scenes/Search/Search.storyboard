@@ -65,7 +65,7 @@
                                 <state key="normal" title="Search"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="JUf-Yq-Mnv" secondAttribute="trailing" constant="56" id="022-bt-4wa"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="top" secondItem="Ljx-32-4Q7" secondAttribute="top" constant="8" id="50X-QU-eJ4"/>
