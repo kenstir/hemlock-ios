@@ -1,6 +1,4 @@
 //
-//  AppSettings.swift
-//
 //  Copyright (C) 2018 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -20,13 +18,13 @@
 import UIKit
 
 //todo make this a protocol
-struct AppSettings {
+struct AppFactory {
     static func makeTheme() -> Theme {
-        return PinesTheme()
+        return CWMarsTheme()
     }
     
     static func makeAppConfiguration() -> AppConfiguration {
-        return PinesAppConfiguration()
+        return CWMarsAppConfiguration()
     }
     
     static func makeBehavior() -> AppBehavior {

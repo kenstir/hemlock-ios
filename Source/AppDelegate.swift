@@ -27,10 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        App.theme = AppSettings.makeTheme()
-        App.config = AppSettings.makeAppConfiguration()
+        App.theme = AppFactory.makeTheme()
+        App.config = AppFactory.makeAppConfiguration()
         App.library = Library(App.config.url)
-        App.behavior = AppSettings.makeBehavior()
+        App.behavior = AppFactory.makeBehavior()
 
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = UIColor.white

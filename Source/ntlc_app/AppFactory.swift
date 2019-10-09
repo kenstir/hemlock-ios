@@ -1,6 +1,4 @@
 //
-//  AppSettings.swift
-//
 //  Copyright (C) 2018 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -20,16 +18,16 @@
 import UIKit
 
 //todo make this a protocol
-struct AppSettings {
+struct AppFactory {
     static func makeTheme() -> Theme {
-        return CoolTheme()
+        return NTLCTheme()
     }
     
     static func makeAppConfiguration() -> AppConfiguration {
-        return CoolAppConfiguration()
+        return NTLCAppConfiguration()
     }
     
     static func makeBehavior() -> AppBehavior {
-        return BaseAppBehavior()
+        return NTLCAppBehavior()
     }
 }
