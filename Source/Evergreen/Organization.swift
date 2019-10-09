@@ -1,6 +1,4 @@
 //
-//  Organization.swift
-//
 //  Copyright (C) 2018 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -174,6 +172,10 @@ class Organization {
         orgs = []
         try addOrganization(obj, level: 0)
         
+        for label in getSpinnerLabels() {
+            print("orgxxx label=\"\(label)\"")
+        }
+        
         if App.config.enableHierarchicalOrgTree {
             // orgs are already sorted by hierarchy
         } else {
@@ -198,15 +200,17 @@ class Organization {
         {
             throw HemlockError.unexpectedNetworkResponse("decoding orginization tree")
         }
-        //print("xxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        print("orgxxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        var childLevel = level
         if opacVisible {
             let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), parent: parent, ouType: ouType)
             self.orgs.append(org)
+            childLevel = level + 1
         }
         if let children = obj.getAny("children") {
             if let childObjArray = children as? [OSRFObject] {
                 for child in childObjArray {
-                    try addOrganization(child, level: level + 1)
+                    try addOrganization(child, level: childLevel)
                 }
             }
         }
