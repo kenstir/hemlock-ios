@@ -1,5 +1,5 @@
 This directory contains config files for unit testing.
-These files contain passwords and should be excluded from source control.
+These files contain passwords and are excluded from source control.
 
 To get started
 

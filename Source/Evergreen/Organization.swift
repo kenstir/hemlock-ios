@@ -198,7 +198,7 @@ class Organization {
         {
             throw HemlockError.unexpectedNetworkResponse("decoding orginization tree")
         }
-        //print("xxx id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        //print("xxxaddorg id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
         if opacVisible {
             let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), parent: parent, ouType: ouType)
             self.orgs.append(org)

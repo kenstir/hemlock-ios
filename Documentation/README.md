@@ -6,6 +6,10 @@ This is a reference guide to material that may be helpful for other developers l
 
 *  [OSRF JSON Gateway](OSRF JSON Gateway.md)
 
+## Running Tests
+
+Before you can run the tests, you need to provide login creds for a live Evergreen server.  See ../TestUserData/README.md
+
 ## Footnotes
 
 Non-obvious code that gets repeated may have a reference like
