@@ -89,7 +89,8 @@ class Style {
     //MARK: - AlertController
     
     static func styleAlertController(_ alertController: UIAlertController) {
-        alertController.view.tintColor = App.theme.primaryDark2Color
+        // This is low contrast in dark mode
+        //alertController.view.tintColor = App.theme.primaryDark2Color
     }
     
     //MARK: - BarButtonItem
