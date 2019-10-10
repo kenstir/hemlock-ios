@@ -102,7 +102,7 @@ class MainViewController: UIViewController {
     @IBAction func logoutPressed(sender: UIButton) {
         LoginController.clearLoginCredentials(account: App.account)
         App.unloadIDL()
-        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
+        self.popToLogin()
     }
 
     @IBAction func fullCatalogButtonPressed(_ sender: Any) {
