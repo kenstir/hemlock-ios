@@ -29,6 +29,7 @@ class PinesAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = true
     let enablePayFines = true
     let groupCopyInfoBySystem = true
+    let enableCopyInfoWebLinks = true
     let needMARCRecord = false
 
     let barcodeFormat: BarcodeFormat = .Codabar

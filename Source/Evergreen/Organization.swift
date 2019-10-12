@@ -1,6 +1,4 @@
 //
-//  Organization.swift
-//
 //  Copyright (C) 2018 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -173,6 +171,10 @@ class Organization {
     static func loadOrganizations(fromObj obj: OSRFObject) throws -> Void {
         orgs = []
         try addOrganization(obj, level: 0)
+        
+        for label in getSpinnerLabels() {
+            print("orgxxx label=\"\(label)\"")
+        }
         
         if App.config.enableHierarchicalOrgTree {
             // orgs are already sorted by hierarchy

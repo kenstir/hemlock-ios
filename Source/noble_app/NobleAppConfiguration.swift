@@ -29,6 +29,7 @@ class NobleAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let groupCopyInfoBySystem = false
+    let enableCopyInfoWebLinks = false
     let needMARCRecord = false
 
     let barcodeFormat: BarcodeFormat = .Codabar

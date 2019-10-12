@@ -171,7 +171,6 @@ class FinesViewController: UIViewController {
 
 extension FinesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //need stuff here
     }
 }
 

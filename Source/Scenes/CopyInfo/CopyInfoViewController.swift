@@ -82,6 +82,8 @@ class CopyInfoViewController: UIViewController {
 
 }
 
+//MARK: - UITableViewDataSource
+
 extension CopyInfoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,14 +105,19 @@ extension CopyInfoViewController: UITableViewDataSource {
         cell.locationLabel.text = item.shelvingLocation
         cell.callNumberLabel.text = item.callNumber
         cell.copyInfoLabel.text = item.countsByStatusLabel
+        cell.accessoryType = (App.config.enableCopyInfoWebLinks ? .disclosureIndicator : .none)
         
         return cell
     }
 }
 
+//MARK: - UITableViewDelegate
+
 extension CopyInfoViewController: UITableViewDelegate {
     
-    //MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return App.config.enableCopyInfoWebLinks
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]

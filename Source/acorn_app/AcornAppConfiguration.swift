@@ -29,6 +29,7 @@ class AcornAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let groupCopyInfoBySystem = false
+    let enableCopyInfoWebLinks = true
     let needMARCRecord = true
 
     let barcodeFormat: BarcodeFormat = .Codabar
