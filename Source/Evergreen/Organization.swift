@@ -206,7 +206,8 @@ class Organization {
         if let children = obj.getAny("children") {
             if let childObjArray = children as? [OSRFObject] {
                 for child in childObjArray {
-                    try addOrganization(child, level: level + 1)
+                    let childLevel = opacVisible ? level + 1 : level
+                    try addOrganization(child, level: childLevel)
                 }
             }
         }
