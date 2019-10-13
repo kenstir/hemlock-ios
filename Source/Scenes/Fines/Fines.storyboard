@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vj0-Na-E34">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vj0-Na-E34">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -176,8 +176,10 @@
                         <outlet property="finesTable" destination="BRM-0x-QkN" id="il1-XL-KQ7"/>
                         <outlet property="payFinesButton" destination="FWV-Ow-LKT" id="gmq-wH-Ukt"/>
                         <outlet property="totalOwedLabel" destination="UIy-57-Kh0" id="OSs-FU-g5P"/>
+                        <outlet property="totalOwedStack" destination="lvg-3i-V5M" id="mhC-bU-JFF"/>
                         <outlet property="totalOwedVal" destination="9AY-g5-KdB" id="scL-Fg-csj"/>
                         <outlet property="totalPaidLabel" destination="vK0-Fj-KwK" id="tYc-zj-1OR"/>
+                        <outlet property="totalPaidStack" destination="XV6-re-QgD" id="pn6-i1-cLZ"/>
                         <outlet property="totalPaidVal" destination="zdT-Kq-FBl" id="ej8-7r-LhK"/>
                     </connections>
                 </viewController>

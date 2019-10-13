@@ -74,7 +74,7 @@ class ShowCardViewController: UIViewController {
         }
         barcodeLabel.text = BarcodeUtils.displayLabel(barcode, format: App.config.barcodeFormat)
         barcodeImage.image = UIImage(cgImage: cgimage)
-        barcodeWarningLabel.text = App.behavior.getString("barcode_warning_msg")
+        barcodeWarningLabel.text = App.behavior.getCustomString("barcode_warning_msg")
     }
 
     func fetchData() {

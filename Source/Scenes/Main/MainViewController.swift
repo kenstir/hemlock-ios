@@ -61,25 +61,6 @@ class MainViewController: UIViewController {
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
-        if Bundle.isDebug {
-	    /*
-            buttons.append(("My Lists", "ShowListsSegue", nil))
-            */
-	    /*
-            ///--------------------------------------------------------------
-            /// shortcut to XResultsVC
-            ///--------------------------------------------------------------
-            buttons.append(("kcxxx place hold", "", {
-                let vc = XResultsViewController()
-                if App.config.title == "Hemlock" {
-                    vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil)
-                } else {
-                    vc.searchParameters = SearchParameters(text: "the names they gave us", searchClass: "title", searchFormat: "book", organizationShortName: nil)
-                }
-                return vc
-            }))
-            */
-        }
     }
 
     func setupViews() {
@@ -147,7 +128,8 @@ extension MainViewController: UITableViewDataSource {
         
         cell.tintColor = App.theme.primaryColor
         cell.imageView?.image = image
-        cell.textLabel?.text = label
+        cell.textLabel?.text = App.behavior.getCustomString(label) ?? label
+
         cell.title = label
         cell.segue = segue
         

@@ -29,14 +29,16 @@ class FinesViewController: UIViewController {
 
     @IBOutlet weak var finesTable: UITableView!
     @IBOutlet weak var finesSummary: UIStackView!
+    @IBOutlet weak var totalOwedStack: UIStackView!
     @IBOutlet weak var totalOwedLabel: UILabel!
-    @IBOutlet weak var totalPaidLabel: UILabel!
-    @IBOutlet weak var balanceOwedLabel: UILabel!
     @IBOutlet weak var totalOwedVal: UILabel!
+    @IBOutlet weak var totalPaidStack: UIStackView!
+    @IBOutlet weak var totalPaidLabel: UILabel!
     @IBOutlet weak var totalPaidVal: UILabel!
+    @IBOutlet weak var balanceOwedLabel: UILabel!
     @IBOutlet weak var balanceOwedVal: UILabel!
     @IBOutlet weak var payFinesButton: UIButton!
-    
+
     weak var activityIndicator: UIActivityIndicatorView!
 
     var fines: [FineRecord] = []
@@ -74,12 +76,38 @@ class FinesViewController: UIViewController {
         Style.styleLabel(asTableHeader: totalPaidVal)
         Style.styleLabel(asTableHeader: balanceOwedLabel)
         Style.styleLabel(asTableHeader: balanceOwedVal)
+        
+        // hide Total Owed and Total Paid columns if labels are empty
+        if let str = App.behavior.getCustomString("total_owed") {
+            if str.isEmpty {
+                totalOwedStack.isHidden = true
+            } else {
+                totalOwedLabel.text = str
+            }
+        }
+        if let str = App.behavior.getCustomString("total_paid") {
+            if str.isEmpty {
+                totalPaidStack.isHidden = true
+            } else {
+                totalPaidLabel.text = str
+            }
+        }
+        if let str = App.behavior.getCustomString("balance_owed") {
+            if str.isEmpty {
+                //balanceOwedStack.isHidden = true
+            } else {
+                balanceOwedLabel.text = str
+            }
+        }
 
         payFinesButton.isEnabled = false
         if App.config.enablePayFines {
             Style.styleButton(asOutline: payFinesButton)
         } else {
             payFinesButton.isHidden = true
+        }
+        if let str = App.behavior.getCustomString("button_pay_fines") {
+            payFinesButton.setTitle(str, for: .normal)
         }
     }
 
