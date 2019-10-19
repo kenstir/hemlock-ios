@@ -49,7 +49,7 @@ class SearchViewController: UIViewController {
     weak var activityIndicator: UIActivityIndicatorView!
     
     let scopes = App.searchScopes
-    let formats = Format.getSpinnerLabels()
+    let formats = CodedValueMap.searchFormatSpinnerLabels()
     var orgLabels: [String] = []
     var didCompleteFetch = false
 
@@ -180,13 +180,13 @@ class SearchViewController: UIViewController {
             return
         }
         guard let searchClass = options[searchClassIndex].value?.lowercased(),
-            let formatText = options[searchFormatIndex].value,
+            let searchFormatLabel = options[searchFormatIndex].value,
             let searchOrg = Organization.getShortName(forName: options[searchLocationIndex].value?.trim()) else
         {
             self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing search class, format, or org"))
             return
         }
-        let searchFormat = Format.getSearchFormat(forSpinnerLabel: formatText)
+        let searchFormat = CodedValueMap.searchFormatCode(forLabel: searchFormatLabel)
         let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg, sort: App.config.sort)
         let vc = XResultsViewController()
         vc.searchParameters = params

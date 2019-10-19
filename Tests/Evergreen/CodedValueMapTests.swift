@@ -46,6 +46,8 @@ class CodedValueMapTests: XCTestCase {
         
         XCTAssertEqual("", CodedValueMap.searchFormatLabel(forCode: ""))
         XCTAssertEqual("", CodedValueMap.iconFormatLabel(forCode: ""))
+        let s: String? = nil
+        XCTAssertEqual("", CodedValueMap.iconFormatLabel(forCode: s))
 
         XCTAssertEqual("Book (All)", CodedValueMap.searchFormatLabel(forCode: "book"))
         XCTAssertEqual("Book", CodedValueMap.iconFormatLabel(forCode: "book"))

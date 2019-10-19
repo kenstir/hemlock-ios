@@ -29,9 +29,9 @@ class MBRecord {
     var marcRecord: MARCRecord?
     var copyCounts: [CopyCounts]?
 
-    var title: String { return mvrObj?.getString("title") ?? "Unknown" }
-    var author: String { return mvrObj?.getString("author") ?? "Unknown" }
-    var format: String { return Format.getDisplayLabel(forSearchFormat: searchFormat) }
+    var title: String { return mvrObj?.getString("title") ?? "Unknown Title" }
+    var author: String { return mvrObj?.getString("author") ?? "" }
+    var format: String { return CodedValueMap.iconFormatLabel(forCode: searchFormat) }
     var edition: String? { return mvrObj?.getString("edition") }
     var isbn: String { return mvrObj?.getString("isbn") ?? "" }
     var firstOnlineLocationInMVR: String? {
@@ -53,8 +53,7 @@ class MBRecord {
         return ""
     }
     var searchFormat: String? {
-        // icon_format is more specific than search_format; see parseAttributes(fromMRAObject:)
-        return attrs?["icon_format"]
+        return attrs?["search_format"]
     }
 
     init(id: Int, mvrObj: OSRFObject? = nil) {

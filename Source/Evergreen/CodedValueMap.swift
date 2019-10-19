@@ -49,7 +49,7 @@ class CodedValueMap {
         }
     }
     
-    static func iconFormatLabel(forCode code: String) -> String {
+    static func iconFormatLabel(forCode code: String?) -> String {
         if let cv = iconFormats.first(where: { $0.code == code }) {
             return cv.value
         }

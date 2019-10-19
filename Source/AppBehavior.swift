@@ -32,7 +32,7 @@ class BaseAppBehavior: AppBehavior {
         if searchFormat == "picture" {
             return true
         }
-        let label = Format.getDisplayLabel(forSearchFormat: searchFormat)
+        let label = CodedValueMap.iconFormatLabel(forCode: searchFormat)
         return label.hasPrefix("E-")
     }
     
