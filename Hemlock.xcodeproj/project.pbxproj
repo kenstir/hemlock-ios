@@ -153,6 +153,14 @@
 		D21867A221D039BF0082358C /* CoolTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679F21D039BF0082358C /* CoolTheme.swift */; };
 		D21867A321D039BF0082358C /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21867A021D039BF0082358C /* AppFactory.swift */; };
 		D21867A521D039CE0082358C /* cool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21867A421D039CE0082358C /* cool.xcassets */; };
+		D21981F8235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
+		D21981F9235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
+		D21981FA235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
+		D21981FB235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
+		D21981FC235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
+		D21981FD235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
+		D21981FE235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
+		D2198200235BCE45003AE531 /* CodedValueMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */; };
 		D21FF6DB225A6FEA00D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D21FF6DC225A6FEF00D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D21FF6DD225A6FF000D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
@@ -825,6 +833,8 @@
 		D218679F21D039BF0082358C /* CoolTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolTheme.swift; sourceTree = "<group>"; };
 		D21867A021D039BF0082358C /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D21867A421D039CE0082358C /* cool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cool.xcassets; sourceTree = "<group>"; };
+		D21981F7235BC7BC003AE531 /* CodedValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CodedValueMap.swift; path = Source/Evergreen/CodedValueMap.swift; sourceTree = SOURCE_ROOT; };
+		D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedValueMapTests.swift; sourceTree = "<group>"; };
 		D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPlaceHoldViewController.swift; sourceTree = "<group>"; };
 		D2211B0320CF68590043947B /* Checkouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkouts.storyboard; sourceTree = "<group>"; };
 		D2211B0520D0BA840043947B /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
@@ -1260,6 +1270,7 @@
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D28725AD20E86F30002A4C42 /* CircService.swift */,
+				D21981F7235BC7BC003AE531 /* CodedValueMap.swift */,
 				D267E4E6210D17F900C56047 /* CopyCounts.swift */,
 				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
@@ -1290,6 +1301,7 @@
 			children = (
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
 				D2806A9021B33F6000F308F4 /* BarcodeTests.swift */,
+				D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */,
 				D260755D20E165D200795124 /* FormatTests.swift */,
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
 				D22D02682083EA7600DC1F5B /* GatewayTests.swift */,
@@ -2212,6 +2224,7 @@
 				D210EBF922B1EE55002FB5E0 /* MD5.swift in Sources */,
 				D210EBFA22B1EE55002FB5E0 /* FinesTableViewCell.swift in Sources */,
 				D210EBFB22B1EE55002FB5E0 /* LocationPicker.swift in Sources */,
+				D21981F8235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D210EBFC22B1EE55002FB5E0 /* IDLParser.swift in Sources */,
 				D210EBFD22B1EE55002FB5E0 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D210EBFE22B1EE55002FB5E0 /* Gateway+PMK.swift in Sources */,
@@ -2261,6 +2274,7 @@
 				D276DA9121336B20007FAA31 /* MainTableViewCell.swift in Sources */,
 				D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */,
 				D276DA9221336B20007FAA31 /* HoldRecord.swift in Sources */,
+				D21981FA235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF222CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
@@ -2350,6 +2364,7 @@
 				D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755820E0860300795124 /* Organization.swift in Sources */,
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
+				D21981FB235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF022CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FE822CC359000F69848 /* MARCRecord.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
@@ -2439,6 +2454,7 @@
 				D284245421D0358200C7171C /* String+splitOnRegex.swift in Sources */,
 				D284245521D0358200C7171C /* Organization.swift in Sources */,
 				D284245621D0358200C7171C /* MainTableViewCell.swift in Sources */,
+				D21981F9235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF322CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D284245821D0358200C7171C /* HoldRecord.swift in Sources */,
@@ -2528,6 +2544,7 @@
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
+				D21981FE235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF122CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FE922CC359000F69848 /* MARCRecord.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
@@ -2614,6 +2631,7 @@
 				D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */,
 				D20B2FEE22CD726900F69848 /* MARCXMLParserTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
+				D2198200235BCE45003AE531 /* CodedValueMapTests.swift in Sources */,
 				D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */,
 				D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */,
 				D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */,
@@ -2684,6 +2702,7 @@
 				D2BDA64222D176BD00D9B60C /* FinesTableViewCell.swift in Sources */,
 				D2BDA64322D176BD00D9B60C /* LocationPicker.swift in Sources */,
 				D2BDA64422D176BD00D9B60C /* IDLParser.swift in Sources */,
+				D21981FC235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D2BDA64522D176BD00D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D2BDA64622D176BD00D9B60C /* Gateway+PMK.swift in Sources */,
 				D2BDA69F22D17A9100D9B60C /* AppFactory.swift in Sources */,
@@ -2774,6 +2793,7 @@
 				D2BDA6DA22D2A72000D9B60C /* LocationPicker.swift in Sources */,
 				D2BDA6DB22D2A72000D9B60C /* IDLParser.swift in Sources */,
 				D2BDA6DC22D2A72000D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
+				D21981FD235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D2BDA6DD22D2A72000D9B60C /* Gateway+PMK.swift in Sources */,
 				D2BDA6DF22D2A72000D9B60C /* CopyLocationCounts.swift in Sources */,
 				D2BDA71F22D2A87E00D9B60C /* NTLCAppBehavior.swift in Sources */,

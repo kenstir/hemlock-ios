@@ -23,7 +23,21 @@ import os.log
 
 class PCRUDService {
     static var carriersLoaded = false
+    static var ccvmLoaded = false
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "pcrud")
+    
+    static func fetchCodedValueMaps() -> Promise<Void> {
+        if ccvmLoaded {
+            return Promise<Void>()
+        }
+        let query: [String: Any] = ["ctype": ["icon_format", "search_format"]]
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.searchCCVM, args: [API.anonymousAuthToken, query])
+        let promise = req.gatewayArrayResponse().done { array in
+            CodedValueMap.load(fromArray: array)
+            ccvmLoaded = true
+        }
+        return promise
+    }
 
     static func fetchSMSCarriers() -> Promise<Void> {
         if carriersLoaded {
@@ -32,7 +46,7 @@ class PCRUDService {
         let options: [String: Any] = ["active": 1]
         let req = Gateway.makeRequest(service: API.pcrud, method: API.searchSMSCarriers, args: [API.anonymousAuthToken, options])
         let promise = req.gatewayArrayResponse().done { array in
-            try SMSCarrier.loadSMSCarriers(fromArray: array)
+            SMSCarrier.loadSMSCarriers(fromArray: array)
             carriersLoaded = true
         }
         return promise

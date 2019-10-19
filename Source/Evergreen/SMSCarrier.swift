@@ -31,7 +31,7 @@ class SMSCarrier {
         self.name = name
     }
     
-    static func loadSMSCarriers(fromArray objects: [OSRFObject]) throws -> Void {
+    static func loadSMSCarriers(fromArray objects: [OSRFObject]) -> Void {
         carriers = []
         for obj in objects {
             if let id = obj.getInt("id"),
