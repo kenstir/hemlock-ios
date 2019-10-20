@@ -29,7 +29,7 @@ class HoldRecord {
     
     var label: String? // if the hold is a "P" type, this is the part label
     
-    var author: String { return metabibRecord?.author ?? "Unknown Author" }
+    var author: String { return metabibRecord?.author ?? "" }
     var format: String { return metabibRecord?.iconFormatLabel ?? "" }
     var title: String {
         if let title = metabibRecord?.title {
