@@ -37,11 +37,21 @@ struct MARCDatafield {
         self.ind1 = ind1
         self.ind2 = ind2
     }
+    
+    var isOnlineLocation: Bool {
+        return (tag == "856" && ind1 == "4" && (ind2 == "0" || ind2 == "1"))
+    }
+
+    var uri: String? {
+        return subfields.first(where: { $0.code == "u" })?.text
+    }
+
+    var linkText: String? {
+        return subfields.first(where: { $0.code == "3" || $0.code == "y" })?.text
+
+    }
 }
 
 struct MARCRecord {
     var datafields: [MARCDatafield] = []
-//    init() {
-//        self.datafields = []
-//    }
 }

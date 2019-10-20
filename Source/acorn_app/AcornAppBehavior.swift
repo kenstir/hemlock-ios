@@ -26,23 +26,29 @@ class AcornAppBehavior: BaseAppBehavior {
         }
         return (onlineLocations(record: record, forSearchOrg: nil).count > 0)
     }
+
+    func isAvailableToOrg(_ datafield: MARCDatafield, orgShortName: String?, consortiumShortName: String?) -> Bool {
+        return datafield.subfields.contains(where: { $0.code == "9" && (orgShortName == nil || $0.text == orgShortName) })
+    }
     
+    // Trim the link text for a better mobile UX
+    func trimLinkText(_ text: String) -> String {
+        return text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
+    }
+
     override func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
         var links: [Link] = []
         var seen: Set<String> = []
         if let datafields = record.marcRecord?.datafields {
             for datafield in datafields {
-                // Include only certain 856 records where subfield 9 contains the library short code
-                if datafield.tag == "856" && datafield.ind1 == "4" && (datafield.ind2 == "0" || datafield.ind2 == "1"),
-                    datafield.subfields.contains(where: { $0.code == "9" && (orgShortName == nil || $0.text == orgShortName) }),
-                    let href = datafield.subfields.first(where: { $0.code == "u" })?.text,
-                    let text = datafield.subfields.first(where: { $0.code == "3" || $0.code == "y" })?.text
+                if datafield.isOnlineLocation,
+                    let href = datafield.uri,
+                    let text = datafield.linkText,
+                    isAvailableToOrg(datafield, orgShortName: orgShortName, consortiumShortName: nil)
                 {
                     // Do not show the same URL twice
                     if !seen.contains(href) {
-                        // Trim the link text for a better mobile UX
-                        let trimmedText = text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
-                        links.append(Link(href: href, text: trimmedText))
+                        links.append(Link(href: href, text: trimLinkText(text)))
                         seen.insert(href)
                     }
                 }

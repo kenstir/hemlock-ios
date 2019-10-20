@@ -30,7 +30,7 @@ class NobleAppConfiguration: AppConfiguration {
     let enablePayFines = true
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = false
-    let needMARCRecord = false
+    let needMARCRecord = true
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 100

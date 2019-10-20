@@ -28,4 +28,50 @@ class NobleAppBehavior: BaseAppBehavior {
             "balance_owed": "Charges"
         ]
     }
+    
+    override func isOnlineResource(record: MBRecord) -> Bool {
+        if let item_form = record.attrs?["item_form"] {
+            if item_form == "q" || item_form == "o" || item_form == "s" {
+                return true
+            }
+        }
+        return false
+    }
+    
+    // TODO: Check all levels between orgShortName and consortium.  In practice, it seems
+    // electronic items are avaialable to either the branch or the corsortium, so this is Good Enough.
+    // See also Located URIs in docs/cataloging/cataloging_electronic_resources.adoc
+    func isAvailableToOrg(_ datafield: MARCDatafield, orgShortName: String?, consortiumShortName: String?) -> Bool {
+        return datafield.subfields.contains(where: {
+            $0.code == "9" && (orgShortName == nil || $0.text == orgShortName || $0.text == consortiumShortName)
+        })
+    }
+    
+    // Trim the link text for a better mobile UX
+    func trimLinkText(_ s: String) -> String {
+        // haven't seen the need for trimming yet in the NOBLE catalog
+        return s
+    }
+
+    override func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+        let consortiumShortName = Organization.consortium()?.shortname
+        var links: [Link] = []
+        var seen: Set<String> = []
+        if let datafields = record.marcRecord?.datafields {
+            for datafield in datafields {
+                if datafield.isOnlineLocation,
+                    let href = datafield.uri,
+                    let text = datafield.linkText,
+                    isAvailableToOrg(datafield, orgShortName: orgShortName, consortiumShortName: consortiumShortName)
+                {
+                    // Do not show the same URL twice
+                    if !seen.contains(href) {
+                        links.append(Link(href: href, text: trimLinkText(text)))
+                        seen.insert(href)
+                    }
+                }
+            }
+        }
+        return links
+    }
 }
