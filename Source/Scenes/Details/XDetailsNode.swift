@@ -80,6 +80,7 @@ class XDetailsNode: ASCellNode {
         var promises: [Promise<Void>] = []
         promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTree())
+        promises.append(PCRUDService.fetchCodedValueMaps())
         promises.append(SearchService.fetchCopyStatusAll())
 
         // Fetch copy counts if not online resource
@@ -165,7 +166,7 @@ class XDetailsNode: ASCellNode {
         setupPageHeader()
         Style.setupTitle(titleNode, str: record.title)
         Style.setupSubtitle(authorNode, str: record.author)
-        Style.setupSubtitle(formatNode, str: record.format)
+        Style.setupSubtitle(formatNode, str: record.iconFormatLabel)
         Style.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
         setupImageNode()
         setupSpacerNode()

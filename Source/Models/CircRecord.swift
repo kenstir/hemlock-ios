@@ -27,8 +27,8 @@ class CircRecord {
     var metabibRecord: MBRecord?
     
     var title: String { return metabibRecord?.title ?? "Unknown Title" }
-    var author: String { return metabibRecord?.author ?? "Unknown Author" }
-    var format: String { return CodedValueMap.iconFormatLabel(forCode: metabibRecord?.searchFormat) }
+    var author: String { return metabibRecord?.author ?? "" }
+    var format: String { return metabibRecord?.iconFormatLabel ?? "" }
     var dueDate: Date? { return circObj?.getDate("due_date") }
     var dueDateLabel: String { return circObj?.getDateLabel("due_date") ?? "Unknown" }
     var renewalsRemaining: Int { return circObj?.getInt("renewal_remaining") ?? 0 }

@@ -49,7 +49,7 @@ class SearchViewController: UIViewController {
     weak var activityIndicator: UIActivityIndicatorView!
     
     let scopes = App.searchScopes
-    let formats = CodedValueMap.searchFormatSpinnerLabels()
+    var formatLabels: [String] = []
     var orgLabels: [String] = []
     var didCompleteFetch = false
 
@@ -91,9 +91,9 @@ class SearchViewController: UIViewController {
 
         var promises: [Promise<Void>] = []        
         promises.append(ActorService.fetchOrgTypes())
-        //promises.append(ActorService.fetchOrgTreeAndSettings())
         promises.append(ActorService.fetchOrgTree())
         promises.append(ActorService.fetchUserSettings(account: account))
+        promises.append(PCRUDService.fetchCodedValueMaps())
         promises.append(SearchService.fetchCopyStatusAll())
 
         centerSubview(activityIndicator)
@@ -102,6 +102,7 @@ class SearchViewController: UIViewController {
         firstly {
             when(fulfilled: promises)
         }.done {
+            self.setupFormatPicker()
             self.setupLocationPicker()
             self.searchButton.isEnabled = true
             self.optionsTable.isUserInteractionEnabled = true
@@ -121,6 +122,7 @@ class SearchViewController: UIViewController {
         self.setupHomeButton()
         setupSearchBar()
         setupOptionsTable()
+        setupFormatPicker() // will be redone after fetchData
         setupLocationPicker() // will be redone after fetchData
         setupSearchButton()
     }
@@ -137,8 +139,19 @@ class SearchViewController: UIViewController {
     func setupOptionsTable() {
         options = []
         options.append(OptionsEntry("Search by", value: scopes[0]))
-        options.append(OptionsEntry("Limit to", value: formats[0]))
+        options.append(OptionsEntry("Limit to", value: nil))
         options.append(OptionsEntry("Search within", value: nil))
+    }
+
+    func setupFormatPicker() {
+        self.formatLabels = CodedValueMap.searchFormatSpinnerLabels()
+        if formatLabels.count == 0 {
+            return // we are early
+        }
+        
+        let entry = options[searchFormatIndex]
+        entry.value = formatLabels[0]
+        self.optionsTable.reloadData()
     }
 
     func setupLocationPicker() {
@@ -237,7 +250,7 @@ extension SearchViewController: UITableViewDelegate {
         case searchClassIndex:
             vc.options = scopes
         case searchFormatIndex:
-            vc.options = formats
+            vc.options = formatLabels
         case searchLocationIndex:
             vc.options = orgLabels
         default:

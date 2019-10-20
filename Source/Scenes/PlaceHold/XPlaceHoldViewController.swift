@@ -112,7 +112,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     func setupNodes() {
         Style.setupTitle(titleNode, str: record.title)
         Style.setupSubtitle(authorNode, str: record.author)
-        Style.setupSubtitle(formatNode, str: record.format)
+        Style.setupSubtitle(formatNode, str: record.iconFormatLabel)
         
         setupPickupRow()
         setupEmailRow()
@@ -314,6 +314,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         promises.append(ActorService.fetchUserSettings(account: account))
         promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTreeAndSettings())
+        promises.append(PCRUDService.fetchCodedValueMaps())
         promises.append(PCRUDService.fetchSMSCarriers())
         print("xxx \(promises.count) promises made")
 

@@ -57,7 +57,7 @@ class PCRUDService {
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id])
         let promise = req.gatewayObjectResponse().done { obj in
             record.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
-            os_log("fetchMRA id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.searchFormat ?? "?", record.title)
+            os_log("fetchMRA id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.iconFormatLabel ?? "", record.title)
         }
         return promise
     }
@@ -74,7 +74,7 @@ class PCRUDService {
             }
             let parser = MARCXMLParser(data: data)
             record.marcRecord = try parser.parse()
-            os_log("fetchMARC id=%d done", log: PCRUDService.log, type: .info, record.id, record.searchFormat ?? "?", record.title)
+            os_log("fetchMARC id=%d done", log: PCRUDService.log, type: .info, record.id)
         }
         return promise
     }

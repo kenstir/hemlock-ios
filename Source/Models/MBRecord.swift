@@ -31,7 +31,7 @@ class MBRecord {
 
     var title: String { return mvrObj?.getString("title") ?? "Unknown Title" }
     var author: String { return mvrObj?.getString("author") ?? "" }
-    var format: String { return CodedValueMap.iconFormatLabel(forCode: searchFormat) }
+    var iconFormatLabel: String { return CodedValueMap.iconFormatLabel(forCode: attrs?["icon_format"]) }
     var edition: String? { return mvrObj?.getString("edition") }
     var isbn: String { return mvrObj?.getString("isbn") ?? "" }
     var firstOnlineLocationInMVR: String? {
@@ -52,9 +52,9 @@ class MBRecord {
         }
         return ""
     }
-    var searchFormat: String? {
-        return attrs?["search_format"]
-    }
+//    var searchFormat: String? {
+//        return attrs?["search_format"]
+//    }
 
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id

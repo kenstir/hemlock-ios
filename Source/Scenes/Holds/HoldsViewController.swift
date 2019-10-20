@@ -91,6 +91,7 @@ class HoldsViewController: UIViewController {
             throw HemlockError.sessionExpired
         }
         var promises: [Promise<Void>] = []
+        promises.append(PCRUDService.fetchCodedValueMaps())
         for hold in self.items {
             promises.append(try fetchHoldTargetDetails(hold: hold, authtoken: authtoken))
             promises.append(try fetchHoldQueueStats(hold: hold, authtoken: authtoken))

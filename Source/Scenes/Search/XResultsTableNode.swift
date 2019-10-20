@@ -76,7 +76,7 @@ class XResultsTableNode: ASCellNode {
     }
     
     private func setupFormatNode() {
-        self.formatNode.attributedText = NSAttributedString(string: record.format, attributes: self.formatTextAttributes())
+        self.formatNode.attributedText = NSAttributedString(string: record.iconFormatLabel, attributes: self.formatTextAttributes())
         self.formatNode.maximumNumberOfLines = 1
         self.formatNode.truncationMode = .byTruncatingTail
     }

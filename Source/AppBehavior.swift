@@ -28,19 +28,18 @@ protocol AppBehavior {
 class BaseAppBehavior: AppBehavior {
     var customStrings: [String: String] = [:]
     
-    fileprivate func isOnlineFormat(searchFormat: String) -> Bool {
-        if searchFormat == "picture" {
+    fileprivate func isOnlineFormat(iconFormatLabel: String?) -> Bool {
+        guard let label = iconFormatLabel else { return false }
+        if label == "Picture" {
             return true
         }
-        let label = CodedValueMap.iconFormatLabel(forCode: searchFormat)
         return label.hasPrefix("E-")
     }
     
     func isOnlineResource(record: MBRecord) -> Bool {
         if let onlineLocation = record.firstOnlineLocationInMVR,
             !onlineLocation.isEmpty,
-            let searchFormat = record.searchFormat,
-            isOnlineFormat(searchFormat: searchFormat)
+            isOnlineFormat(iconFormatLabel: record.iconFormatLabel)
         {
             return true
         }
