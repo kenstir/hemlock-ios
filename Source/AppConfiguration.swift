@@ -25,8 +25,6 @@ protocol AppConfiguration {
     var bugReportEmailAddress: String { get }
     var sort: String? { get }
 
-    var searchFormatsJSON: String { get }
-
     var enableHierarchicalOrgTree: Bool { get }
     var enableHoldShowQueuePosition: Bool { get }
     var enableHoldPhoneNotification: Bool { get }
@@ -35,6 +33,8 @@ protocol AppConfiguration {
     var groupCopyInfoBySystem: Bool { get }
     var enableCopyInfoWebLinks: Bool { get }
     var needMARCRecord: Bool { get }
+    var showOnlineAccessHostname: Bool { get }
+    var alwaysPopupOnlineLinks: Bool { get }
 
     var barcodeFormat: BarcodeFormat { get }
     var searchLimit: Int { get }

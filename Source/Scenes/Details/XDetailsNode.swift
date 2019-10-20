@@ -131,7 +131,7 @@ class XDetailsNode: ASCellNode {
         guard links.count > 0, let vc = self.closestViewController else { return }
         
         // If there's only one link, open it without ceremony
-        if links.count == 1 {
+        if links.count == 1 && !App.config.alwaysPopupOnlineLinks {
             openOnlineLocation(vc: vc, href: links[0].href)
             return
         }
@@ -194,7 +194,8 @@ class XDetailsNode: ASCellNode {
         var str = ""
         if App.behavior.isOnlineResource(record: record) {
             if let onlineLocation = record.firstOnlineLocationInMVR,
-                let host = URL(string: onlineLocation)?.host
+                let host = URL(string: onlineLocation)?.host,
+                App.config.showOnlineAccessHostname
             {
                 str = host
             }
