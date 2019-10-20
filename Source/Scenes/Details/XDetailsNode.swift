@@ -325,20 +325,23 @@ class XDetailsNode: ASCellNode {
         // subject
         
         let subject = ASStackLayoutSpec.horizontal()
-        subjectLabel.style.preferredSize = CGSize(width: 64, height: 16)
-        subject.children = [subjectLabel, subjectNode]
-        
+        if !record.subject.isEmpty {
+            subjectLabel.style.preferredSize = CGSize(width: 64, height: 16)
+            subject.children = [subjectLabel, subjectNode]
+        }
+
         // isbn
         
         let isbn = ASStackLayoutSpec.horizontal()
-        isbnLabel.style.preferredSize = CGSize(width: 64, height: 16)
-        isbn.children = [isbnLabel, isbnNode]
+        if !record.isbn.isEmpty {
+            isbnLabel.style.preferredSize = CGSize(width: 64, height: 16)
+            isbn.children = [isbnLabel, isbnNode]
+        }
 
         // page
 
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 8
-        //pageSpec.style.preferredSize = constrainedSize.max
         pageSpec.children = [header, summary, copySummary,
                              buttonRow, synopsisNode, subject, isbn]
         print(pageSpec.asciiArtString())
