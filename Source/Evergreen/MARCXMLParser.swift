@@ -97,7 +97,11 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         //print("foundCharacters \(string)")
         if currentSubfield != nil {
-            currentSubfield?.text = string
+            if (currentSubfield?.text) != nil {
+                currentSubfield?.text?.append(string)
+            } else {
+                currentSubfield?.text = string
+            }
         }
     }
     
