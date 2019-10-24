@@ -222,7 +222,7 @@ class XDetailsNode: ASCellNode {
         if isOnlineResource {
             actionButtonText = "Online Access"
             actionButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), forControlEvents: .touchUpInside)
-            actionButton.isEnabled = true
+            actionButton.isEnabled = (App.behavior.onlineLocations(record: record, forSearchOrg: displayOptions.orgShortName).count > 0)
         } else {
             actionButtonText = "Place Hold"
             actionButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), forControlEvents: .touchUpInside)
