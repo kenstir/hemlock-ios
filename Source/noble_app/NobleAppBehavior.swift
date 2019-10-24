@@ -31,7 +31,7 @@ class NobleAppBehavior: BaseAppBehavior {
     
     override func isOnlineResource(record: MBRecord) -> Bool {
         if let item_form = record.attrs?["item_form"] {
-            if item_form == "q" || item_form == "o" || item_form == "s" {
+            if item_form == "o" || item_form == "s" {
                 return true
             }
         }
