@@ -37,13 +37,13 @@ class BaseAppBehavior: AppBehavior {
     }
     
     func isOnlineResource(record: MBRecord) -> Bool {
-        if let onlineLocation = record.firstOnlineLocationInMVR,
-            !onlineLocation.isEmpty,
-            isOnlineFormat(iconFormatLabel: record.iconFormatLabel)
-        {
-            return true
+        if let item_form = record.attrs?["item_form"] {
+            if item_form == "o" || item_form == "s" {
+                return true
+            }
         }
-        return false
+        
+        return isOnlineFormat(iconFormatLabel: record.iconFormatLabel);
     }
     
     func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
