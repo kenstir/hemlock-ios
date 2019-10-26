@@ -19,7 +19,11 @@
 
 import Foundation
 
-struct Link {
+struct Link: Equatable, Comparable {
     let href: String
     let text: String
+    
+    static func < (lhs: Link, rhs: Link) -> Bool {
+        return lhs.text < rhs.text
+    }
 }

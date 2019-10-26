@@ -41,34 +41,11 @@ class NobleAppBehavior: BaseAppBehavior {
     // Don't filter URIs because the query already did.  For a good UX we show all URIs
     // located by the search and let the link text and the link itself controll access.
     // See also Located URIs in docs/cataloging/cataloging_electronic_resources.adoc
-    func isAvailableToOrg(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
+    override func isVisibleToOrg(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
         return true;
-    }
-    
-    // Trim the link text for a better mobile UX
-    func trimLinkText(_ s: String) -> String {
-        // NOBLE link text is pretty good
-        return s
     }
 
     override func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
-        var links: [Link] = []
-        var seen: Set<String> = []
-        if let datafields = record.marcRecord?.datafields {
-            for datafield in datafields {
-                if datafield.isOnlineLocation,
-                    let href = datafield.uri,
-                    let text = datafield.linkText,
-                    isAvailableToOrg(datafield, orgShortName: orgShortName)
-                {
-                    // Do not show the same URL twice
-                    if !seen.contains(href) {
-                        links.append(Link(href: href, text: trimLinkText(text)))
-                        seen.insert(href)
-                    }
-                }
-            }
-        }
-        return links
+        return getOnlineLocationsFromMARC(record: record, forSearchOrg: orgShortName)
     }
 }

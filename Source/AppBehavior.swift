@@ -46,6 +46,42 @@ class BaseAppBehavior: AppBehavior {
         return isOnlineFormat(iconFormatLabel: record.iconFormatLabel);
     }
     
+    // Trim the link text for a better mobile UX
+    func trimLinkText(_ s: String) -> String {
+        return s
+    }
+    
+    // Is this MARC datafield a URI visible to this org?
+    func isVisibleToOrg(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
+        return true;
+    }
+    
+    // Implements the above interface for catalogs that use Located URIs
+    func isVisibleViaLocatedURI(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
+        // PINES TODO
+        return false;
+    }
+
+    func getOnlineLocationsFromMARC(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+        var links: [Link] = []
+        if let datafields = record.marcRecord?.datafields {
+            for datafield in datafields {
+                if datafield.isOnlineLocation,
+                    let href = datafield.uri,
+                    let text = datafield.linkText,
+                    isVisibleToOrg(datafield, orgShortName: orgShortName)
+                {
+                    // Filter duplicate links
+                    let link = Link(href: href, text: trimLinkText(text))
+                    if !links.contains(link) {
+                        links.append(link)
+                    }
+                }
+            }
+        }
+        return links.sorted()
+    }
+
     func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
         var links: [Link] = []
         if let online_loc = record.firstOnlineLocationInMVR {
