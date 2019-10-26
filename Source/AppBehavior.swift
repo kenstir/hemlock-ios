@@ -58,8 +58,15 @@ class BaseAppBehavior: AppBehavior {
     
     // Implements the above interface for catalogs that use Located URIs
     func isVisibleViaLocatedURI(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
-        // PINES TODO
-        return false;
+        let ancestors = Organization.ancestors(byShortName: orgShortName)
+        for subfield in datafield.subfields {
+            if subfield.code == "9",
+                let shortname = subfield.text,
+                ancestors.contains(shortname) {
+                return true
+            }
+        }
+        return false
     }
 
     func getOnlineLocationsFromMARC(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
@@ -72,7 +79,7 @@ class BaseAppBehavior: AppBehavior {
                     isVisibleToOrg(datafield, orgShortName: orgShortName)
                 {
                     // Filter duplicate links
-                    let link = Link(href: href, text: trimLinkText(text))
+                    let link = Link(href: href.trim(), text: trimLinkText(text))
                     if !links.contains(link) {
                         links.append(link)
                     }

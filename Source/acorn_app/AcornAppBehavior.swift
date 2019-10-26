@@ -32,7 +32,7 @@ class AcornAppBehavior: BaseAppBehavior {
     }
     
     // Trim the link text for a better mobile UX
-    func trimLinkText(_ text: String) -> String {
+    override func trimLinkText(_ text: String) -> String {
         return text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
     }
 

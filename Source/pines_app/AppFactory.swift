@@ -28,6 +28,6 @@ struct AppFactory {
     }
     
     static func makeBehavior() -> AppBehavior {
-        return BaseAppBehavior()
+        return PinesAppBehavior()
     }
 }

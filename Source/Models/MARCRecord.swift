@@ -47,8 +47,10 @@ struct MARCDatafield {
     }
 
     var linkText: String? {
-        return subfields.first(where: { $0.code == "3" || $0.code == "y" })?.text
-
+        if let sf = subfields.first(where: { $0.code == "3" || $0.code == "y" }) {
+            return sf.text
+        }
+        return subfields.first(where: { $0.code == "z" })?.text
     }
 }
 

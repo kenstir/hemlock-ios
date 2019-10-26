@@ -521,6 +521,7 @@
 		D2AA63C82282691900121CE8 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D2AA63C92282691900121CE8 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D2AA63CA2282691900121CE8 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
+		D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */; };
 		D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99720F19CA400B25146 /* OrganizationTests.swift */; };
 		D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
@@ -937,6 +938,7 @@
 		D2A74B1821289F2E001D4B0F /* HemlockAppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockAppConfiguration.swift; sourceTree = "<group>"; };
 		D2A81795224699C700340074 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASDisplayNode+.swift"; sourceTree = "<group>"; };
+		D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesAppBehavior.swift; sourceTree = "<group>"; };
 		D2BBA99720F19CA400B25146 /* OrganizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTests.swift; sourceTree = "<group>"; };
 		D2BBA99920F29F0E00B25146 /* ActorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorService.swift; sourceTree = "<group>"; };
 		D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -1477,6 +1479,7 @@
 			isa = PBXGroup;
 			children = (
 				D279911920DDE160003B451E /* AppFactory.swift */,
+				D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */,
 				D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */,
 				D23C304D20E5C6C800666A2B /* PinesTheme.swift */,
 				D287D507207AEF2C001AF644 /* PINESInfo.plist */,
@@ -2555,6 +2558,7 @@
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D20B2FF722CF976200F69848 /* AppBehavior.swift in Sources */,
+				D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */,
 				D2AA63C82282691900121CE8 /* ASDisplayNode+.swift in Sources */,

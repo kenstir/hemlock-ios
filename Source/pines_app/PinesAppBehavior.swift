@@ -1,7 +1,5 @@
 //
-//  PinesAppConfiguration.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (C) 2019 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -17,23 +15,13 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class PinesAppConfiguration: AppConfiguration {
-    var title = "PINES"
-    let url = "https://gapines.org"
-    let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    var sort: String? = nil
+class PinesAppBehavior: BaseAppBehavior {
+    
+    override func isVisibleToOrg(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
+        return isVisibleViaLocatedURI(datafield, orgShortName: orgShortName);
+    }
 
-    let enableHierarchicalOrgTree = true
-    let enableHoldShowQueuePosition = false
-    let enableHoldPhoneNotification = true
-    let enableMainSceneBottomToolbar = true
-    let enablePayFines = true
-    let groupCopyInfoBySystem = true
-    let enableCopyInfoWebLinks = true
-    let needMARCRecord = true
-    let showOnlineAccessHostname = true
-    let alwaysPopupOnlineLinks = true
-
-    let barcodeFormat: BarcodeFormat = .Codabar
-    let searchLimit = 200
+    override func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+        return getOnlineLocationsFromMARC(record: record, forSearchOrg: orgShortName)
+    }
 }

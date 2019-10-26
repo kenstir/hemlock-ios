@@ -138,7 +138,7 @@ class Organization {
         return nil
     }
 
-    static func find(byId id: Int) -> Organization? {
+    static func find(byId id: Int?) -> Organization? {
         if let org = orgs.first(where: { $0.id == id }) {
             return org
         }
@@ -147,6 +147,16 @@ class Organization {
     
     static func consortium() -> Organization? {
         return find(byId: consortiumOrgID)
+    }
+    
+    static func ancestors(byShortName shortname: String?) -> [String] {
+        var shortnames: [String] = []
+        var org: Organization? = find(byShortName: shortname)
+        while let o = org {
+            shortnames.append(o.shortname)
+            org = find(byId: o.parent)
+        }
+        return shortnames
     }
 
     static func getSpinnerLabels() -> [String] {
