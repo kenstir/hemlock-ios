@@ -80,7 +80,8 @@ class CircService {
     }
 
     static func cancelHold(authtoken: String, holdID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [authtoken, holdID])
+        let note = "Cancelled by mobile app"
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [authtoken, holdID, nil, note])
         return req.gatewayResponse()
     }
 }
