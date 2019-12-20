@@ -166,9 +166,19 @@ class Organization {
             return orgs.map { $0.name }
         }
     }
-
+    
     static func getIsPickupLocation() -> [Bool] {
         return orgs.map { $0.isPickupLocation }
+    }
+    
+    static func getIsPrimary() -> [Bool] {
+        return orgs.map {
+            if let canHaveUsers = $0.orgType?.canHaveUsers {
+                return !canHaveUsers
+            } else {
+                return true
+            }
+        }
     }
 
     static func getShortName(forName name: String?) -> String? {
