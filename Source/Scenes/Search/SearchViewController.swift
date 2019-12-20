@@ -253,6 +253,7 @@ extension SearchViewController: UITableViewDelegate {
             vc.options = formatLabels
         case searchLocationIndex:
             vc.options = orgLabels
+            vc.optionIsPrimary = Organization.getIsPrimary()
         default:
             break
         }

@@ -27,6 +27,7 @@ class OptionsViewController: UIViewController {
     
     var options: [String] = []
     var optionIsEnabled: [Bool] = []
+    var optionIsPrimary: [Bool] = []
     var selectedOption: String?
     var selectedPath: IndexPath?
     var selectionChangedHandler: ((String) -> Void)?
@@ -56,11 +57,11 @@ class OptionsViewController: UIViewController {
         
         for indexPath in paths {
             guard let cell = table.cellForRow(at: indexPath) else { continue }
-            updateCheckmark(forCell: cell, indexPath: indexPath)
+            updateViewCell(forCell: cell, indexPath: indexPath)
         }
     }
     
-    func updateCheckmark(forCell cell: UITableViewCell, indexPath: IndexPath) {
+    func updateViewCell(forCell cell: UITableViewCell, indexPath: IndexPath) {
         if indexPath == selectedPath {
             cell.accessoryType = .checkmark
         } else if cell.textLabel?.text?.trim() == selectedOption {
@@ -71,6 +72,11 @@ class OptionsViewController: UIViewController {
         if optionIsEnabled.count > indexPath.row {
             cell.textLabel?.isEnabled = optionIsEnabled[indexPath.row]
             cell.isUserInteractionEnabled = optionIsEnabled[indexPath.row]
+        }
+        if optionIsPrimary.count > indexPath.row {
+            cell.textLabel?.font = optionIsPrimary[indexPath.row]
+                ? UIFont.boldSystemFont(ofSize: 19.0)
+                : UIFont.systemFont(ofSize: 17.0)
         }
     }
 }
@@ -88,7 +94,7 @@ extension OptionsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionsCell", for: indexPath)
         
         cell.textLabel?.text = options[indexPath.row]
-        updateCheckmark(forCell: cell, indexPath: indexPath)
+        updateViewCell(forCell: cell, indexPath: indexPath)
         
         return cell
     }
