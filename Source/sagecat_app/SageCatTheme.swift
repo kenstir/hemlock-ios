@@ -20,9 +20,9 @@ import UIKit
 class SageCatTheme: Theme {
     let barTextForegroundColor = UIColor.white
     
-    let primaryColor = UIColor(rgb: 0x386043)
-    let primaryDarkColor = UIColor(rgb: 0x559767)
-    let primaryDark2Color = UIColor(rgb: 0x1e5241)
+    let primaryColor = UIColor(rgb: 0x23622A)
+    let primaryDarkColor = UIColor(rgb: 0x23622A)
+    let primaryDark2Color = UIColor(rgb: 0x23622A)
 
     let secondaryColor = UIColor.red
 }
