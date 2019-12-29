@@ -232,7 +232,6 @@
 		D23E9F7E23B9200A0030F5C1 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D23E9F7F23B9200A0030F5C1 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D23E9F8023B9200A0030F5C1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51F207AF88E001AF644 /* API.swift */; };
-		D23E9F8123B9200A0030F5C1 /* NTLCAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */; };
 		D23E9F8223B9200A0030F5C1 /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D23E9F8323B9200A0030F5C1 /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D23E9F8423B9200A0030F5C1 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
@@ -269,7 +268,6 @@
 		D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
 		D23E9FA423B9200A0030F5C1 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D23E9FA523B9200A0030F5C1 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
-		D23E9FA623B9200A0030F5C1 /* NTLCAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDA71B22D2A87D00D9B60C /* NTLCAppBehavior.swift */; };
 		D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D23E9FA923B9200A0030F5C1 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
@@ -289,8 +287,6 @@
 		D23E9FB723B9200A0030F5C1 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
 		D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
-		D23E9FBA23B9200A0030F5C1 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDA71A22D2A87D00D9B60C /* AppFactory.swift */; };
-		D23E9FBB23B9200A0030F5C1 /* NTLCTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDA71922D2A87D00D9B60C /* NTLCTheme.swift */; };
 		D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D23E9FBD23B9200A0030F5C1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D23E9FBF23B9200A0030F5C1 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
@@ -318,6 +314,11 @@
 		D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
 		D23E9FD723B9200A0030F5C1 /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* Lists.storyboard */; };
 		D23E9FD823B9200A0030F5C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
+		D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FE823B923B80030F5C1 /* AppFactory.swift */; };
+		D23E9FED23B923B80030F5C1 /* SageCatAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FE923B923B80030F5C1 /* SageCatAppBehavior.swift */; };
+		D23E9FEE23B923B80030F5C1 /* SageCatAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */; };
+		D23E9FEF23B923B80030F5C1 /* SageCatTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */; };
+		D23E9FF123B924390030F5C1 /* SageCat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23E9FF023B924390030F5C1 /* SageCat.xcassets */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
@@ -971,6 +972,11 @@
 		D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XResultsViewController.swift; sourceTree = "<group>"; };
 		D23E9FDD23B9200A0030F5C1 /* SageCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SageCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D23E9FDE23B9200A0030F5C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/kenstir/hemlock-ios/Info.plist"; sourceTree = "<absolute>"; };
+		D23E9FE823B923B80030F5C1 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		D23E9FE923B923B80030F5C1 /* SageCatAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatAppBehavior.swift; sourceTree = "<group>"; };
+		D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatAppConfiguration.swift; sourceTree = "<group>"; };
+		D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatTheme.swift; sourceTree = "<group>"; };
+		D23E9FF023B924390030F5C1 /* SageCat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SageCat.xcassets; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoViewController.swift; sourceTree = "<group>"; };
@@ -1460,6 +1466,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D23E9FE723B923480030F5C1 /* sagecat_app */ = {
+			isa = PBXGroup;
+			children = (
+				D23E9FE823B923B80030F5C1 /* AppFactory.swift */,
+				D23E9FE923B923B80030F5C1 /* SageCatAppBehavior.swift */,
+				D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */,
+				D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */,
+				D23E9FF023B924390030F5C1 /* SageCat.xcassets */,
+			);
+			path = sagecat_app;
+			sourceTree = "<group>";
+		};
 		D248CBDA2120E9D70091D2E6 /* CopyInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -1553,6 +1571,7 @@
 				D2BDA69522D17A4E00D9B60C /* noble_app */,
 				D2BDA6A022D2A6EF00D9B60C /* ntlc_app */,
 				D2D49BFB20A90CA9000B3A27 /* pines_app */,
+				D23E9FE723B923480030F5C1 /* sagecat_app */,
 				D212DB1120C3726F00267503 /* Scenes */,
 				D20D14D220B784E3008F66B0 /* Storyboards */,
 				D2F3902C2241E5950089D745 /* ThirdParty */,
@@ -1935,6 +1954,7 @@
 				D23E9FCB23B9200A0030F5C1 /* Checkouts.storyboard in Resources */,
 				D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */,
 				D23E9FCD23B9200A0030F5C1 /* Holds.storyboard in Resources */,
+				D23E9FF123B924390030F5C1 /* SageCat.xcassets in Resources */,
 				D23E9FCE23B9200A0030F5C1 /* CopyInfo.storyboard in Resources */,
 				D23E9FCF23B9200A0030F5C1 /* Search.storyboard in Resources */,
 				D23E9FD023B9200A0030F5C1 /* Documentation in Resources */,
@@ -2464,6 +2484,7 @@
 				D23E9F7423B9200A0030F5C1 /* UIView+.swift in Sources */,
 				D23E9F7523B9200A0030F5C1 /* String+splitOnRegex.swift in Sources */,
 				D23E9F7623B9200A0030F5C1 /* Organization.swift in Sources */,
+				D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */,
 				D23E9F7723B9200A0030F5C1 /* MainTableViewCell.swift in Sources */,
 				D23E9F7823B9200A0030F5C1 /* HoldRecord.swift in Sources */,
 				D23E9F7923B9200A0030F5C1 /* Bundle+.swift in Sources */,
@@ -2474,7 +2495,6 @@
 				D23E9F7E23B9200A0030F5C1 /* AppConfiguration.swift in Sources */,
 				D23E9F7F23B9200A0030F5C1 /* FinesViewController.swift in Sources */,
 				D23E9F8023B9200A0030F5C1 /* API.swift in Sources */,
-				D23E9F8123B9200A0030F5C1 /* NTLCAppConfiguration.swift in Sources */,
 				D23E9F8223B9200A0030F5C1 /* ShowCardViewController.swift in Sources */,
 				D23E9F8323B9200A0030F5C1 /* HoldsTableViewCell.swift in Sources */,
 				D23E9F8423B9200A0030F5C1 /* CopyStatus.swift in Sources */,
@@ -2498,11 +2518,14 @@
 				D23E9F9623B9200A0030F5C1 /* SendEmailViewController.swift in Sources */,
 				D23E9F9723B9200A0030F5C1 /* UIView+UYLExtensions.swift in Sources */,
 				D23E9F9823B9200A0030F5C1 /* CircRecord.swift in Sources */,
+				D23E9FEE23B923B80030F5C1 /* SageCatAppConfiguration.swift in Sources */,
 				D23E9F9923B9200A0030F5C1 /* CheckoutsViewController.swift in Sources */,
 				D23E9F9A23B9200A0030F5C1 /* XPlaceHoldViewController.swift in Sources */,
+				D23E9FEF23B923B80030F5C1 /* SageCatTheme.swift in Sources */,
 				D23E9F9B23B9200A0030F5C1 /* Theme.swift in Sources */,
 				D23E9F9C23B9200A0030F5C1 /* XUtils.swift in Sources */,
 				D23E9F9D23B9200A0030F5C1 /* Analytics.swift in Sources */,
+				D23E9FED23B923B80030F5C1 /* SageCatAppBehavior.swift in Sources */,
 				D23E9F9E23B9200A0030F5C1 /* MD5.swift in Sources */,
 				D23E9F9F23B9200A0030F5C1 /* FinesTableViewCell.swift in Sources */,
 				D23E9FA023B9200A0030F5C1 /* LocationPicker.swift in Sources */,
@@ -2511,7 +2534,6 @@
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
 				D23E9FA423B9200A0030F5C1 /* Gateway+PMK.swift in Sources */,
 				D23E9FA523B9200A0030F5C1 /* CopyLocationCounts.swift in Sources */,
-				D23E9FA623B9200A0030F5C1 /* NTLCAppBehavior.swift in Sources */,
 				D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */,
 				D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */,
 				D23E9FA923B9200A0030F5C1 /* OSRFClass.swift in Sources */,
@@ -2531,8 +2553,6 @@
 				D23E9FB723B9200A0030F5C1 /* CopyCounts.swift in Sources */,
 				D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */,
 				D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */,
-				D23E9FBA23B9200A0030F5C1 /* AppFactory.swift in Sources */,
-				D23E9FBB23B9200A0030F5C1 /* NTLCTheme.swift in Sources */,
 				D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */,
 				D23E9FBD23B9200A0030F5C1 /* LoginController.swift in Sources */,
 			);
