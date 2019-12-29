@@ -308,7 +308,6 @@
 		D23E9FD023B9200A0030F5C1 /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
 		D23E9FD123B9200A0030F5C1 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
 		D23E9FD223B9200A0030F5C1 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2616761220BA1AF0071E1A5 /* Options.storyboard */; };
-		D23E9FD323B9200A0030F5C1 /* ntlc.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D29E874A22D2AFE7003C5467 /* ntlc.xcassets */; };
 		D23E9FD423B9200A0030F5C1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D296EE0F213381FE009BDB12 /* Default-568h@2x.png */; };
 		D23E9FD523B9200A0030F5C1 /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
@@ -1960,7 +1959,6 @@
 				D23E9FD023B9200A0030F5C1 /* Documentation in Resources */,
 				D23E9FD123B9200A0030F5C1 /* ShowCard.storyboard in Resources */,
 				D23E9FD223B9200A0030F5C1 /* Options.storyboard in Resources */,
-				D23E9FD323B9200A0030F5C1 /* ntlc.xcassets in Resources */,
 				D23E9FD423B9200A0030F5C1 /* Default-568h@2x.png in Resources */,
 				D23E9FD523B9200A0030F5C1 /* Fines.storyboard in Resources */,
 				D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */,
@@ -3231,7 +3229,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "NTLC copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/sagecat_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3259,7 +3257,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "NTLC copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/sagecat_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
