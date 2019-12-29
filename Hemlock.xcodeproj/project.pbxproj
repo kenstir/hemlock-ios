@@ -970,7 +970,7 @@
 		D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XResultsTableNode.swift; sourceTree = "<group>"; };
 		D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XResultsViewController.swift; sourceTree = "<group>"; };
 		D23E9FDD23B9200A0030F5C1 /* SageCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SageCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D23E9FDE23B9200A0030F5C1 /* NTLC copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NTLC copy-Info.plist"; path = "/Users/kenstir/hemlock-ios/NTLC copy-Info.plist"; sourceTree = "<absolute>"; };
+		D23E9FDE23B9200A0030F5C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/kenstir/hemlock-ios/Info.plist"; sourceTree = "<absolute>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoViewController.swift; sourceTree = "<group>"; };
@@ -1517,7 +1517,7 @@
 				D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */,
 				D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */,
 				D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */,
-				D23E9FDE23B9200A0030F5C1 /* NTLC copy-Info.plist */,
+				D23E9FDE23B9200A0030F5C1 /* Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
