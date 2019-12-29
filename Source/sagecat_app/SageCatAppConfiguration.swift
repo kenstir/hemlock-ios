@@ -18,21 +18,21 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class SageCatAppConfiguration: AppConfiguration {
-    let title = "SageCat Catalog"
-    let url = "https://catalog.northtexaslibraries.org"
+    let title = "SageCat"
+    let url = "https://catalog.sage.eou.edu"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     var sort: String? = nil
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
-    let enableHoldPhoneNotification = false
+    let enableHoldPhoneNotification = true
     let enableMainSceneBottomToolbar = false
     let enablePayFines = false
     let groupCopyInfoBySystem = false
-    let enableCopyInfoWebLinks = true
+    let enableCopyInfoWebLinks = false
     let needMARCRecord = false
     let showOnlineAccessHostname = true
-    let alwaysPopupOnlineLinks = false
+    let alwaysPopupOnlineLinks = true
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 100
