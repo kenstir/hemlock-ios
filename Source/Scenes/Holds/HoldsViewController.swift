@@ -185,7 +185,6 @@ class HoldsViewController: UIViewController {
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             guard let id = obj.getID("record") else { throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for copy hold") }
             os_log("fetchTargetInfo target=%d holdType=T mods start", log: self.log, type: .info, holdTarget)
-            //hold.partLabel = obj.getString("label")
             return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id]).gatewayObjectResponse()
         }.done { (obj: OSRFObject) -> Void in
             os_log("fetchTargetInfo target=%d holdType=P mods done", log: self.log, type: .info, holdTarget)
@@ -201,7 +200,6 @@ class HoldsViewController: UIViewController {
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             guard let id = obj.getID("record") else { throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for volume hold")}
             os_log("fetchTargetInfo target=%d holdType=V mods start", log: self.log, type: .info, holdTarget)
-            //hold.partLabel = obj.getString("label")
             return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id]).gatewayObjectResponse()
         }.done { (obj: OSRFObject) -> Void in
             os_log("fetchTargetInfo target=%d holdType=V mods done", log: self.log, type: .info, holdTarget)
