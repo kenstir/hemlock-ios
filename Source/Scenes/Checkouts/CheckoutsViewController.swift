@@ -275,7 +275,13 @@ extension CheckoutsViewController: UITableViewDelegate {
                 records.append(record)
             }
         }
-        let vc = XDetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
-        self.navigationController?.pushViewController(vc, animated: true)
+
+        if records.count > 0 {
+            let vc = XDetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // deselect row
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
