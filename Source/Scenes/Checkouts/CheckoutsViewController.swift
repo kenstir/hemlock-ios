@@ -113,15 +113,19 @@ class CheckoutsViewController: UIViewController {
         }
     }
     
+    static func makeEmptyPromise() -> Promise<(OSRFObject)> {
+        let emptyPromise = Promise<(OSRFObject)>() { seal in
+            seal.fulfill(OSRFObject([:]))
+        }
+        return emptyPromise
+    }
+    
     func fetchCircDetails(authtoken: String, forCircRecord circRecord: CircRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circRecord.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) circRetrieve done")
             circRecord.circObj = obj
-            guard let target = obj.getInt("target_copy") else {
-                throw HemlockError.unexpectedNetworkResponse("no target_copy for circ record \(circRecord.id)")
-            }
-            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [target])
+            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [circRecord.targetCopy])
             return req.gatewayObjectResponse()
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) modsFromCopy done")
@@ -129,12 +133,28 @@ class CheckoutsViewController: UIViewController {
             guard let id = obj.getInt("doc_id") else {
                 throw HemlockError.unexpectedNetworkResponse("no doc_id for circ record \(circRecord.id)")
             }
-            circRecord.metabibRecord = MBRecord(id: id, mvrObj: obj)
-            let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id])
-            return req.gatewayObjectResponse()
-        }.done { obj in
+            if id != -1 {
+                circRecord.metabibRecord = MBRecord(id: id, mvrObj: obj)
+                let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id])
+                return req.gatewayObjectResponse()
+            } else {
+                return CheckoutsViewController.makeEmptyPromise()
+            }
+        }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) MRA done")
-            circRecord.metabibRecord?.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
+            if (obj.dict.count > 0) {
+                circRecord.metabibRecord?.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
+                return CheckoutsViewController.makeEmptyPromise()
+            } else {
+                // emptyPromise above, need to retrieve the acp
+                let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [circRecord.targetCopy])
+                return req.gatewayObjectResponse()
+            }
+        }.done { obj in
+            print("xxx \(circRecord.id) ACP done")
+            if (obj.dict.count > 0) {
+                circRecord.acpObj = obj
+            }
         }
         return promise
     }

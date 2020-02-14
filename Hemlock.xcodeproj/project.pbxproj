@@ -330,6 +330,7 @@
 		D24D76922234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D76932234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D76942234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
+		D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2723F616C000D11662 /* CircRecordTests.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D253343E20C3076D008176B9 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
 		D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
@@ -982,6 +983,7 @@
 		D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CopyInfo.storyboard; sourceTree = "<group>"; };
 		D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D24D76902234418F00AFE50C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		D252DA2723F616C000D11662 /* CircRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecordTests.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
 		D253343F20C30789008176B9 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
@@ -1434,6 +1436,7 @@
 				D29C721120924CF000E90952 /* OSRFCoderTests.swift */,
 				D29C72172094002100E90952 /* OSRFObjectTests.swift */,
 				D20B300322CFF8BA00F69848 /* RecordAttributesTests.swift */,
+				D252DA2723F616C000D11662 /* CircRecordTests.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -2936,6 +2939,7 @@
 				D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */,
 				D2F390392241E6090089D745 /* RingBufferTests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */,
+				D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
