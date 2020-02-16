@@ -146,7 +146,8 @@ class HoldsViewController: UIViewController {
         let req = Gateway.makeRequest(service: API.search, method: API.metarecordModsRetrieve, args: [holdTarget])
         let promise = req.gatewayObjectResponse().done { obj in
             os_log("fetchTargetInfo target=%d holdType=M mods done", log: self.log, type: .info, holdTarget)
-            hold.metabibRecord = MBRecord(id: holdTarget, mvrObj: obj)
+            // the holdTarget is the ID of the metarecord; its "tcn" is the ID of the record
+            hold.metabibRecord = MBRecord(id: obj.getInt("tcn") ?? -1, mvrObj: obj)
         }
         return promise
     }

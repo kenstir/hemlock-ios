@@ -30,7 +30,10 @@ class HoldRecord {
     var label: String? // if the hold is a "P" type, this is the part label
     
     var author: String { return metabibRecord?.author ?? "" }
-    var format: String { return metabibRecord?.iconFormatLabel ?? "" }
+    var format: String {
+        if holdType == "M" { return metarecordHoldFormatLabel() }
+        return metabibRecord?.iconFormatLabel ?? ""
+    }
     var title: String {
         if let title = metabibRecord?.title {
             if let l = label {
@@ -90,4 +93,35 @@ class HoldRecord {
         }
         return ret
     }
+    
+    func metarecordHoldFormatLabel() -> String {
+        let formats = HoldRecord.parseHoldableFormats(holdableFormats: ahrObj.getString("holdable_formats"))
+        let iconFormats = formats.map { CodedValueMap.iconFormatLabel(forCode: $0) }
+        return iconFormats.joined(separator: " or ")
+    }
+
+    static func parseHoldableFormats(holdableFormats: String?) -> [String] {
+        var formats: [String] = []
+        guard
+            let data = holdableFormats?.data(using: .utf8),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let obj = json as? JSONDictionary else
+        {
+            return formats
+        }
+        for (_, v) in obj {
+            if let l = v as? [[String: String]] {
+                for e in l {
+                    if let attr = e["_attr"],
+                        let value = e["_val"],
+                        attr == "mr_hold_format"
+                    {
+                        formats.append(value)
+                    }
+                }
+            }
+        }
+        return formats
+    }
+
 }
