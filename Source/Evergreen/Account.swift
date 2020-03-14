@@ -101,12 +101,13 @@ class Account {
         if let card = obj.getObject("card") {
             barcode = card.getString("barcode")
         }
+        var holdNotifySetting = "email:phone" // OPAC default
         if let settings = obj.getAny("settings") as? [OSRFObject] {
             for setting in settings {
                 if let name = setting.getString("name"),
                     let strvalue = removeStupidExtraQuotes(setting.getString("value"))
                 {
-                    print("setting=\(setting) name=\(name) value=\(strvalue)")
+                    print("name=\(name) value=\(strvalue)")
                     if name == API.userSettingDefaultPickupLocation, let value = Int(strvalue) {
                         userSettingDefaultPickupLocation = value
                     } else if name == API.userSettingDefaultPhone {
@@ -118,11 +119,12 @@ class Account {
                     } else if name == API.userSettingDefaultSMSNotify {
                         userSettingDefaultSMSNotify = strvalue
                     } else if name == API.userSettingHoldNotify {
-                        parseHoldNotifyValue(strvalue)
+                        holdNotifySetting = strvalue
                     }
                 }
             }
         }
+        parseHoldNotifyValue(holdNotifySetting)
         userSettingsLoaded = true
     }
 }
