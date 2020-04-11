@@ -24,7 +24,7 @@ class AcornTheme: Theme {
     
     let primaryColor = UIColor(rgb: 0x01579b)
     let primaryDarkColor = UIColor(rgb: 0x002f6c)
-    let primaryDark2Color = UIColor(rgb: 0x1e5241)
+    let primaryDark2Color = UIColor(rgb: 0x01579b)
 
     let secondaryColor = UIColor.red
 }
