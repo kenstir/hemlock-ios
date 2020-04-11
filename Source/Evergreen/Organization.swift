@@ -123,8 +123,8 @@ class Organization {
         }
         self.areSettingsLoaded = true
     }
-    
-    static func find(byName name: String) -> Organization? {
+
+    static func find(byName name: String?) -> Organization? {
         if let org = orgs.first(where: { $0.name == name }) {
             return org
         }
@@ -192,13 +192,10 @@ class Organization {
         orgs = []
         try addOrganization(obj, level: 0)
         
-        for label in getSpinnerLabels() {
-            print("orgxxx label=\"\(label)\"")
-        }
-        
         if App.config.enableHierarchicalOrgTree {
             // orgs are already sorted by hierarchy
         } else {
+            // sort orgs by name, except consortium comes first
             self.orgs.sort {
                 if $0.id == 1 {
                     return true
