@@ -22,21 +22,35 @@ import XCTest
 
 class OrganizationTests: XCTestCase {
     func test_OrgType_makeArray() {
-    	let obj = OSRFObject([
-            "can_have_users": "f",
-            "can_have_vols": "f",
+    	let orgTypeConsortium = OSRFObject([
             "id": 1,
             "name": "Consortium",
-            "opac_label": "All PINES Libraries"
+            "opac_label": "All Libraries"
+            "can_have_users": "f",
+            "can_have_vols": "f",
 	])
-        let array = OrgType.makeArray([obj])
-        XCTAssertEqual(array.count, 1)
+    	let orgTypeLibrary = OSRFObject([
+            "id": 3,
+            "name": "Library",
+            "opac_label": "This Library"
+            "can_have_users": "t",
+            "can_have_vols": "t",
+	])
+    	let orgTypeSystem = OSRFObject([
+            "id": 2,
+            "name": "System",
+            "opac_label": "All Branches of This Library"
+            "can_have_users": "f",
+            "can_have_vols": "f",
+	])
+        let array = OrgType.makeArray([orgTypeConsortium, orgTypeLibrary, orgTypeSystem])
+        XCTAssertEqual(array.count, 3)
         let orgType = array.first
         XCTAssertEqual(orgType?.canHaveUsers, false)
         XCTAssertEqual(orgType?.canHaveVols, false)
-        XCTAssertEqual(orgType?.label, "All PINES Libraries")
+        XCTAssertEqual(orgType?.label, "All Libraries")
     }
-    
+
     func test_Organization_load() {
         var cons = OSRFObject([
             "name": "Example Consortium",
@@ -88,5 +102,110 @@ class OrganizationTests: XCTestCase {
         XCTAssertEqual(branch2?.name, "Example Branch 2")
         XCTAssertEqual(branch2?.shortname, "BR2")
     }
-}
 
+    func setUpOrgs() {
+        let branchObj = OSRFObject([
+            "id": 29,
+            "ou_type": 3,
+            "shortname": "BETHEL",
+	    "name": "Bethel Public Library",
+            "opac_visible": "t",
+            "parent_ou": 28,
+	    "children": nil])
+        let systemObj = OSRFObject([
+            "id": 28,
+            "ou_type": 2,
+            "shortname": "BETSYS",
+            "name": "Bethel",
+            "opac_visible": "f",
+            "parent_ou": 1,
+	    "children": [branchObj]])
+        var consortiumObj = OSRFObject([
+            "id": 1,
+            "ou_type": 1,
+            "shortname": "CONS",
+            "name": "Bibliomation",
+            "opac_visible": "t",
+            "parent_ou": nil,
+	    "children": [systemObj]])
+	Organization.loadOrganizations(fromObj: consortiumObj)
+    }
+
+    func setUp() {
+        setUpOrgs()
+    }
+
+    func test_loadOrgTypes() {
+        setUpOrgTypes()
+        assertEquals(3, EgOrg.orgTypes.size)
+
+        val topOrgType = EgOrg.findOrgType(1)
+        assertEquals(topOrgType?.name, "Consortium")
+
+        assertNull(EgOrg.findOrgType(999))
+    }
+
+    func test_loadOrganizations() {
+        setUp()
+
+        assertTrue(EgOrg.allOrgs.isNotEmpty())
+    }
+
+    func test_findOrg() {
+        setUp()
+
+        val lib = EgOrg.findOrg(29)
+        assertEquals("BETHEL", lib?.shortname)
+
+        assertNull(EgOrg.findOrg(999))
+    }
+
+    func test_findOrgByShortName() {
+        setUp()
+
+        val lib = EgOrg.findOrgByShortName("BETHEL")
+        assertEquals(29, lib?.id)
+    }
+
+    func test_spinnerLabels() {
+        setUp()
+
+        val lib = EgOrg.findOrgByShortName("BETHEL")
+        assertEquals("   ", lib?.indentedDisplayPrefix)
+
+        val labels = EgOrg.orgSpinnerLabels()
+        assertEquals(arrayListOf("Bibliomation", "   Bethel Public Library"), labels)
+    }
+
+    func test_invisibleOrgsAreLoaded() {
+        setUp()
+
+        assertEquals(3, EgOrg.allOrgs.size)
+        assertEquals(2, EgOrg.visibleOrgs.size)
+
+        val lib = EgOrg.findOrg(29)
+        assertEquals(true, lib?.opac_visible)
+        assertEquals("BETHEL", lib?.shortname)
+        assertTrue(lib!!.orgType!!.canHaveUsers)
+        assertTrue(lib!!.orgType!!.canHaveVols)
+
+        val system = EgOrg.findOrg(28)
+        assertEquals(false, system?.opac_visible)
+        assertEquals("BETSYS", system?.shortname)
+        assertFalse(system!!.orgType!!.canHaveUsers)
+        assertFalse(system!!.orgType!!.canHaveVols)
+
+        val cons = EgOrg.findOrg(1)
+        assertEquals(true, cons?.opac_visible)
+        assertEquals("CONS", cons?.shortname)
+        assertFalse(system!!.orgType!!.canHaveUsers)
+        assertFalse(system!!.orgType!!.canHaveVols)
+    }
+
+    func test_orgAncestry() {
+        setUp()
+
+        val libAncestry = EgOrg.getOrgAncestry("BETHEL")
+        assertEquals(arrayListOf("BETHEL", "BETSYS", "CONS"), libAncestry)
+    }
+}
