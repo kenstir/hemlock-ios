@@ -22,16 +22,13 @@ import XCTest
 
 class OrganizationTests: XCTestCase {
     func test_OrgType_makeArray() {
-    	let dict: JSONDictionary = [
-            "children": NSNull(),
+    	let obj = OSRFObject([
             "can_have_users": "f",
             "can_have_vols": "f",
-            "depth": 0,
             "id": 1,
             "name": "Consortium",
-            "opac_label": "All PINES Libraries",
-            "org_units": NSNull()]
-        let obj = OSRFObject(dict)
+            "opac_label": "All PINES Libraries"
+	])
         let array = OrgType.makeArray([obj])
         XCTAssertEqual(array.count, 1)
         let orgType = array.first
