@@ -61,7 +61,7 @@ class ActorService {
     /// If `forOrgID` is non-nil, it means load settings for just the one org.
     static private func fetchOrgSettings(forOrgID: Int?) -> [Promise<Void>] {
         var promises: [Promise<Void>] = []
-        for org in Organization.orgs {
+        for org in Organization.visibleOrgs {
             if org.areSettingsLoaded {
                 continue
             }

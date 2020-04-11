@@ -162,8 +162,8 @@ class SearchViewController: UIViewController {
 
         var selectOrgIndex = 0
         let defaultSearchLocation = App.account?.searchOrgID
-        for index in 0..<Organization.orgs.count {
-            let org = Organization.orgs[index]
+        for index in 0..<Organization.visibleOrgs.count {
+            let org = Organization.visibleOrgs[index]
             if org.id == defaultSearchLocation {
                 selectOrgIndex = index
             }

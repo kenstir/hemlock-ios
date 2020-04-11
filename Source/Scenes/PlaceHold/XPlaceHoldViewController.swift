@@ -386,8 +386,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         var selectOrgIndex = 0
         let defaultPickupLocation = Utils.coalesce(holdRecord?.pickupOrgId,
                                                    App.account?.pickupOrgID)
-        for index in 0..<Organization.orgs.count {
-            let org = Organization.orgs[index]
+        for index in 0..<Organization.visibleOrgs.count {
+            let org = Organization.visibleOrgs[index]
             if org.id == defaultPickupLocation {
                 selectOrgIndex = index
             }

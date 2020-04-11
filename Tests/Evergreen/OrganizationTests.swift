@@ -130,7 +130,9 @@ class OrganizationTests: XCTestCase {
         // check that the position of an org in the spinner labels is
         // the same as the position of that org in the orgs array
         let orgFromSpinner = Organization.find(byName: labels.last?.trim())
-        let orgFromGlobal = Organization.orgs[labels.endIndex-1]
+        XCTAssertEqual(orgFromSpinner?.name, "Bethel Public Library")
+        let orgFromGlobal = Organization.visibleOrgs[labels.endIndex-1]
+        XCTAssertEqual(orgFromGlobal.name, "Bethel Public Library")
         XCTAssertEqual(orgFromSpinner?.id, orgFromGlobal.id)
     }
 

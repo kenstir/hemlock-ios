@@ -167,12 +167,17 @@ class MiscTests: XCTestCase {
         XCTAssertTrue(Bundle.isTestFlightOrDebug)
     }
     
-    func test_dump() {
+    func test_dumpAndCompactMap() {
         let d: JSONDictionary = [
             "a": nil,
             "b": 2,
             "c": "three",
         ]
         Utils.dump(dict: d)
+        
+        let values = d.map { $0.value }
+        XCTAssertEqual(values.count, 3)
+        let compactValues = d.compactMap { $0.value }
+        XCTAssertEqual(compactValues.count, 2)
     }
 }

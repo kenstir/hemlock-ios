@@ -64,17 +64,21 @@ class OrgType {
 }
 
 class Organization {
-    static var orgs: [Organization] = []
+    static private var orgs: [Organization] = []
     static var isSMSEnabledSetting = false
     static var consortiumOrgID = 1 // as defaulted in Open-ILS code
+    static var visibleOrgs: [Organization] {
+        return Organization.orgs.compactMap { $0.opacVisible ? $0 : nil }
+    }
 
-    var id: Int
-    var level: Int
-    var name: String
-    var shortname: String
-    var parent: Int?
-    var ouType: Int
-    
+    let id: Int
+    let level: Int
+    let name: String
+    let shortname: String
+    let parent: Int?
+    let ouType: Int
+    let opacVisible: Bool
+
     var areSettingsLoaded = false
     var isPickupLocationSetting: Bool?
     var isPaymentAllowedSetting: Bool?
@@ -87,18 +91,25 @@ class Organization {
         }
         return true // should not happen
     }
-    
     var orgType: OrgType? {
         return OrgType.find(byId: ouType)
     }
+    var spinnerLabel: String {
+        if App.config.enableHierarchicalOrgTree {
+            return String(repeating: "   ", count: level) + name
+        } else {
+            return name
+        }
+    }
 
-    init(id: Int, level: Int, name: String, shortname: String, parent: Int?, ouType: Int) {
+    init(id: Int, level: Int, name: String, shortname: String, parent: Int?, ouType: Int, opacVisible: Bool) {
         self.id = id
         self.level = level
         self.name = name
         self.shortname = shortname
         self.parent = parent
         self.ouType = ouType
+        self.opacVisible = opacVisible
     }
     
     static func parseBoolSetting(_ obj: OSRFObject, _ setting: String) -> Bool? {
@@ -160,23 +171,23 @@ class Organization {
     }
 
     static func getSpinnerLabels() -> [String] {
-        if App.config.enableHierarchicalOrgTree {
-            return orgs.map { String(repeating: "   ", count: $0.level) + $0.name }
-        } else {
-            return orgs.map { $0.name }
-        }
+        return orgs.compactMap { $0.opacVisible ? $0.spinnerLabel : nil }
     }
     
     static func getIsPickupLocation() -> [Bool] {
-        return orgs.map { $0.isPickupLocation }
+        return orgs.compactMap { $0.opacVisible ? $0.isPickupLocation : nil }
     }
     
     static func getIsPrimary() -> [Bool] {
-        return orgs.map {
-            if let canHaveUsers = $0.orgType?.canHaveUsers {
-                return !canHaveUsers
+        return orgs.compactMap {
+            if $0.opacVisible {
+                if let canHaveUsers = $0.orgType?.canHaveUsers {
+                    return !canHaveUsers
+                } else {
+                    return true
+                }
             } else {
-                return true
+                return nil
             }
         }
     }
@@ -218,10 +229,9 @@ class Organization {
             throw HemlockError.unexpectedNetworkResponse("decoding orginization tree")
         }
         //print("xxxaddorg id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
-        if opacVisible {
-            let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), parent: parent, ouType: ouType)
-            self.orgs.append(org)
-        }
+        let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), parent: parent, ouType: ouType, opacVisible: opacVisible)
+        self.orgs.append(org)
+
         if let children = obj.getAny("children") {
             if let childObjArray = children as? [OSRFObject] {
                 for child in childObjArray {
