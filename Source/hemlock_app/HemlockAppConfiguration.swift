@@ -23,7 +23,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
 
-    let enableHierarchicalOrgTree = false
+    let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true//false
     let enableMainSceneBottomToolbar = false
