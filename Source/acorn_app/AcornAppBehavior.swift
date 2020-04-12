@@ -24,36 +24,31 @@ class AcornAppBehavior: BaseAppBehavior {
                 return true
             }
         }
-        return (onlineLocations(record: record, forSearchOrg: nil).count > 0)
+        
+        // NB: Checking for item_form="o" fails to identify some online resources, e.g.
+        // https://acorn.biblio.org/eg/opac/record/2891957
+        // so we use this check as a backstop
+        return isOnlineFormatCode(record.attrs?["icon_format"])
     }
-
-    func isAvailableToOrg(_ datafield: MARCDatafield, orgShortName: String?, consortiumShortName: String?) -> Bool {
-        return datafield.subfields.contains(where: { $0.code == "9" && (orgShortName == nil || $0.text == orgShortName) })
+    
+    func isOnlineFormatCode(_ iconFormatCode: String?) -> Bool {
+        guard let code = iconFormatCode else {
+            return false
+        }
+        let onlineFormatCodes = ["ebook","eaudio","evideo","emusic"]
+        return onlineFormatCodes.contains(code)
     }
     
     // Trim the link text for a better mobile UX
     override func trimLinkText(_ text: String) -> String {
         return text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
     }
+    
+    override func isVisibleToOrg(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
+        return isVisibleViaLocatedURI(datafield, orgShortName: orgShortName);
+    }
 
     override func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
-        var links: [Link] = []
-        var seen: Set<String> = []
-        if let datafields = record.marcRecord?.datafields {
-            for datafield in datafields {
-                if datafield.isOnlineLocation,
-                    let href = datafield.uri,
-                    let text = datafield.linkText,
-                    isAvailableToOrg(datafield, orgShortName: orgShortName, consortiumShortName: nil)
-                {
-                    // Do not show the same URL twice
-                    if !seen.contains(href) {
-                        links.append(Link(href: href, text: trimLinkText(text)))
-                        seen.insert(href)
-                    }
-                }
-            }
-        }
-        return links
+        return getOnlineLocationsFromMARC(record: record, forSearchOrg: orgShortName)
     }
 }
