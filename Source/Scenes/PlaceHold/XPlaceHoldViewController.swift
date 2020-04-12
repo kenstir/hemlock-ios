@@ -358,16 +358,17 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
                                     App.account?.defaultNotifyEmail) {
             emailSwitch.switchView?.isOn = val
         }
-        if App.config.enableHoldPhoneNotification {
-            if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
-                                        App.account?.defaultNotifyPhone) {
-                phoneSwitch.switchView?.isOn = val
-            }
-            let number = Utils.coalesce(holdRecord?.phoneNotify,
-                                        App.account?.phone,
-                                        App.valet.string(forKey: "PhoneNumber"))
-            phoneNode.textField?.text = number
+
+        // Allow phone notifications even if UX is not visible
+        if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
+                                    App.account?.defaultNotifyPhone) {
+            phoneSwitch.switchView?.isOn = val
         }
+        let phoneNumber = Utils.coalesce(holdRecord?.phoneNotify,
+                                         App.account?.notifyPhone,
+                                         App.valet.string(forKey: "PhoneNumber"))
+        phoneNode.textField?.text = phoneNumber
+
         if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
                                     App.account?.defaultNotifySMS) {
             smsSwitch.switchView?.isOn = val

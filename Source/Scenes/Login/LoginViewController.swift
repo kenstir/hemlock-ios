@@ -182,6 +182,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             account.userID = resp.obj?.getInt("id")
             account.homeOrgID = resp.obj?.getInt("home_ou")
+            account.dayPhone = resp.obj?.getString("day_phone")
             App.account = account
             LoginController.saveLoginCredentials(account: account)
 

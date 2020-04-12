@@ -26,6 +26,7 @@ class Account {
     var userID: Int?
     var homeOrgID: Int?
     var barcode: String?
+    var dayPhone: String?
     var defaultNotifyEmail: Bool?
     var defaultNotifyPhone: Bool?
     var defaultNotifySMS: Bool?
@@ -37,19 +38,9 @@ class Account {
     fileprivate var userSettingDefaultSMSCarrier: Int?
     fileprivate var userSettingDefaultSMSNotify: String?
 
-    var phone: String? { return userSettingDefaultPhone }
-    var pickupOrgID: Int? {
-        if let id = userSettingDefaultPickupLocation {
-            return id
-        }
-        return homeOrgID
-    }
-    var searchOrgID: Int? {
-        if let id = userSettingDefaultSearchLocation {
-            return id
-        }
-        return homeOrgID
-    }
+    var notifyPhone: String? { return userSettingDefaultPhone ?? dayPhone }
+    var pickupOrgID: Int? { return userSettingDefaultPickupLocation ?? homeOrgID }
+    var searchOrgID: Int? { return userSettingDefaultSearchLocation ?? homeOrgID }
     var smsCarrier: Int? { return userSettingDefaultSMSCarrier }
     var smsNotify: String? { return userSettingDefaultSMSNotify }
     
@@ -63,6 +54,9 @@ class Account {
         self.authtoken = nil
         self.authtokenExpiryDate = nil
         self.userID = nil
+        self.homeOrgID = nil
+        self.barcode = nil
+        self.dayPhone = nil
         self.userSettingsLoaded = false
     }
 
