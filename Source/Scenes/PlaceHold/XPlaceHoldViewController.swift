@@ -360,23 +360,29 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         }
 
         // Allow phone notifications even if UX is not visible
-        if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
-                                    App.account?.defaultNotifyPhone) {
-            phoneSwitch.switchView?.isOn = val
-        }
         let phoneNumber = Utils.coalesce(holdRecord?.phoneNotify,
                                          App.account?.notifyPhone,
                                          App.valet.string(forKey: "PhoneNumber"))
         phoneNode.textField?.text = phoneNumber
-
-        if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
-                                    App.account?.defaultNotifySMS) {
-            smsSwitch.switchView?.isOn = val
+        if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
+                                    App.account?.defaultNotifyPhone),
+            let str = phoneNumber,
+            str.count > 0
+        {
+            phoneSwitch.switchView?.isOn = val
         }
-        let number = Utils.coalesce(holdRecord?.smsNotify,
+
+        let smsNumber = Utils.coalesce(holdRecord?.smsNotify,
                                     App.account?.smsNotify,
                                     App.valet.string(forKey: "SMSNumber"))
-        smsNode.textField?.text = number
+        smsNode.textField?.text = smsNumber
+        if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
+                                    App.account?.defaultNotifySMS),
+            let str = smsNumber,
+            str.count > 0
+        {
+            smsSwitch.switchView?.isOn = val
+        }
     }
 
     func loadOrgData() {
@@ -477,7 +483,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
                 return
             }
             notifyPhoneNumber = phoneNotify
-            App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
+            if App.config.enableHoldPhoneNotification {
+                App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
+            }
         }
         if isOn(smsSwitch) {
             guard let smsNotify = smsNode.textField?.text?.trim(),
