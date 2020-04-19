@@ -124,9 +124,15 @@ extension MainViewController: UITableViewDataSource {
         let label = tuple.0
         let segue = tuple.1
         
-        let image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
-        
-        cell.tintColor = App.theme.primaryColor
+        var image: UIImage?
+        if App.config.haveColorButtonImages {
+            image = UIImage(named: label)?.withRenderingMode(.automatic)
+            //cell.imageView?.image = image
+        } else {
+            image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
+            //cell.imageView?.image = image
+            cell.tintColor = App.theme.primaryColor
+        }
         cell.imageView?.image = image
         cell.textLabel?.text = App.behavior.getCustomString(label) ?? label
 

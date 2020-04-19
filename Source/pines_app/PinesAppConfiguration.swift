@@ -33,6 +33,7 @@ class PinesAppConfiguration: AppConfiguration {
     let needMARCRecord = true
     let showOnlineAccessHostname = true
     let alwaysPopupOnlineLinks = true
+    let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 200

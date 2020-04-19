@@ -33,6 +33,7 @@ class NobleAppConfiguration: AppConfiguration {
     let needMARCRecord = true
     let showOnlineAccessHostname = false
     let alwaysPopupOnlineLinks = true
+    let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 100

@@ -33,6 +33,7 @@ class AcornAppConfiguration: AppConfiguration {
     let needMARCRecord = true
     let showOnlineAccessHostname = true
     let alwaysPopupOnlineLinks = false
+    let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 100

@@ -33,6 +33,7 @@ class CWMarsAppConfiguration: AppConfiguration {
     let needMARCRecord = false
     let showOnlineAccessHostname = true
     let alwaysPopupOnlineLinks = false
+    let haveColorButtonImages = true
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 200

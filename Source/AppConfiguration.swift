@@ -35,6 +35,7 @@ protocol AppConfiguration {
     var needMARCRecord: Bool { get }
     var showOnlineAccessHostname: Bool { get }
     var alwaysPopupOnlineLinks: Bool { get }
+    var haveColorButtonImages: Bool { get }
 
     var barcodeFormat: BarcodeFormat { get }
     var searchLimit: Int { get }

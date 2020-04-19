@@ -33,6 +33,7 @@ class SageCatAppConfiguration: AppConfiguration {
     let needMARCRecord = false
     let showOnlineAccessHostname = true
     let alwaysPopupOnlineLinks = true
+    let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
     let searchLimit = 100

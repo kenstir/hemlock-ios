@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2096E17244BACD800627FF5 /* cwmars-pro.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */; };
 		D20B2FE222CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
 		D20B2FE322CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
 		D20B2FE422CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
@@ -909,6 +910,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "cwmars-pro.xcassets"; sourceTree = "<group>"; };
 		D20B2FE122CC309800F69848 /* MARCXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MARCXMLParser.swift; sourceTree = "<group>"; };
 		D20B2FE722CC359000F69848 /* MARCRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCRecord.swift; sourceTree = "<group>"; };
 		D20B2FED22CD726900F69848 /* MARCXMLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCXMLParserTests.swift; sourceTree = "<group>"; };
@@ -1243,6 +1245,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2096E15244BAC2000627FF5 /* hemlock-pro-assets */ = {
+			isa = PBXGroup;
+			children = (
+				D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */,
+			);
+			path = "hemlock-pro-assets";
+			sourceTree = "<group>";
+		};
 		D20BDB752214B84F00BB6A5F /* Options */ = {
 			isa = PBXGroup;
 			children = (
@@ -1538,6 +1548,7 @@
 				D287D50F207AEF2D001AF644 /* Tests */,
 				D287D4F9207AEF2B001AF644 /* Products */,
 				D231B52520815EAC00478D25 /* Frameworks */,
+				D2096E15244BAC2000627FF5 /* hemlock-pro-assets */,
 				D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */,
 				D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */,
 				D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */,
@@ -1987,6 +1998,7 @@
 				D276DADA21336B20007FAA31 /* Documentation in Resources */,
 				D27DF20521AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				D2616764220BA1AF0071E1A5 /* Options.storyboard in Resources */,
+				D2096E17244BACD800627FF5 /* cwmars-pro.xcassets in Resources */,
 				D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */,
 				D276DADB21336B20007FAA31 /* Fines.storyboard in Resources */,
 				D22D0C952243104600DBB31A /* SendEmail.storyboard in Resources */,
@@ -3286,7 +3298,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3298,7 +3310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cwmars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -3314,7 +3326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3326,7 +3338,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cwmars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";

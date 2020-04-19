@@ -33,6 +33,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let needMARCRecord = false
     let showOnlineAccessHostname = true
     let alwaysPopupOnlineLinks = false
+    let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Disabled
     let searchLimit = 100
