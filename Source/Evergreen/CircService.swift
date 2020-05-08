@@ -39,11 +39,13 @@ class CircService {
             "patronid": userID,
             "pickup_lib": pickupOrgID,
         ]
-        if let phoneNumber = notifyPhoneNumber {
+        if let phoneNumber = notifyPhoneNumber,
+            !phoneNumber.isEmpty
+        {
             complexParam["phone_notify"] = phoneNumber
         }
         if let smsNumber = notifySMSNumber,
-            smsNumber.count > 0,
+            !smsNumber.isEmpty,
             let carrierID = smsCarrierID
         {
             complexParam["sms_notify"] = smsNumber
@@ -63,9 +65,12 @@ class CircService {
             "pickup_lib": pickupOrgID,
             "frozen": suspendHold,
         ]
-        // NB: "as Any?" is needed to store nil
-        complexParam["phone_notify"] = Utils.coalesce(notifyPhoneNumber) as Any?
-        complexParam["sms_notify"] = Utils.coalesce(notifySMSNumber) as Any?
+        if let str = notifyPhoneNumber, !str.isEmpty {
+            complexParam["phone_notify"] = str
+        }
+        if let str = notifySMSNumber, !str.isEmpty {
+            complexParam["sms_notify"] = str
+        }
         if let carrierID = smsCarrierID {
             complexParam["sms_carrier"] = carrierID
         }

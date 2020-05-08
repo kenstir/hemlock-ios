@@ -184,7 +184,7 @@ class SearchViewController: UIViewController {
     }
 
     func doSearch() {
-        guard let searchText = searchBar.text?.trim(), searchText.count > 0 else {
+        guard let searchText = searchBar.text?.trim(), !searchText.isEmpty else {
             self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
             return
         }

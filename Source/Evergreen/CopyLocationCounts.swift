@@ -32,13 +32,13 @@ class CopyLocationCounts {
 
     var callNumber: String {
         var ret = ""
-        if let prefix = callNumberPrefix, prefix.count > 0 {
+        if let prefix = callNumberPrefix, !prefix.isEmpty {
             ret = ret + prefix + " "
         }
         if let label = callNumberLabel {
             ret = ret + label
         }
-        if let suffix = callNumberSuffix, suffix.count > 0 {
+        if let suffix = callNumberSuffix, !suffix.isEmpty {
             ret = ret + " " + suffix
         }
         return ret

@@ -367,7 +367,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
                                     App.account?.defaultNotifyPhone),
             let str = phoneNumber,
-            str.count > 0
+            !str.isEmpty
         {
             phoneSwitch.switchView?.isOn = val
         }
@@ -379,7 +379,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
                                     App.account?.defaultNotifySMS),
             let str = smsNumber,
-            str.count > 0
+            !str.isEmpty
         {
             smsSwitch.switchView?.isOn = val
         }
@@ -476,9 +476,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         var notifySMSNumber: String? = nil
         var notifyCarrierID: Int? = nil
         if isOn(phoneSwitch) {
-            guard let phoneNotify = phoneNode.textField?.text?.trim(),
-                phoneNotify.count > 0 else
-            {
+            guard let phoneNotify = phoneNode.textField?.text?.trim(), !phoneNotify.isEmpty else {
                 self.showAlert(title: "Error", message: "Phone number field cannot be empty")
                 return
             }
@@ -488,14 +486,11 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             }
         }
         if isOn(smsSwitch) {
-            guard let smsNotify = smsNode.textField?.text?.trim(),
-                smsNotify.count > 0 else
-            {
+            guard let smsNotify = smsNode.textField?.text?.trim(), !smsNotify.isEmpty else {
                 self.showAlert(title: "Error", message: "SMS phone number field cannot be empty")
                 return
             }
-            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else
-            {
+            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else {
                 self.showAlert(title: "Error", message: "Please select a valid carrier")
                 return
             }
