@@ -346,20 +346,20 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     // init that can't happen until fetchData completes
     func onDataLoaded() {
-        loadAccountPrefs()
+        loadNotifyData()
         loadOrgData()
         loadCarrierData()
         loadExpirationData()
         enableNodesWhenReady()
     }
     
-    func loadAccountPrefs() {
+    func loadNotifyData() {
         if let val = Utils.coalesce(holdRecord?.hasEmailNotify,
                                     App.account?.defaultNotifyEmail) {
             emailSwitch.switchView?.isOn = val
         }
 
-        // Allow phone notifications even if UX is not visible
+        // Allow phone_notify to be set even if UX is not visible
         let phoneNumber = Utils.coalesce(holdRecord?.phoneNotify,
                                          App.account?.notifyPhone,
                                          App.valet.string(forKey: "PhoneNumber"))

@@ -31,7 +31,19 @@ class Utils {
         }
         return nil
     }
-    
+
+    // coalesce for Strings returns first non-nil non-empty string
+    static func coalesce(_ values: String?...) -> String? {
+        for value in values {
+            if let val = value,
+                val.count > 0
+            {
+                return val
+            }
+        }
+        return nil
+    }
+
     static func dump(dict: JSONDictionary) {
         for i in dict.keys.sorted() {
             if let val = dict[i], let v = val {
