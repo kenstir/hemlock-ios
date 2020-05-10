@@ -25,7 +25,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Your camera is used to scan barcodes</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Launch</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

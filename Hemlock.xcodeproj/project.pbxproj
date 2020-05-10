@@ -127,7 +127,7 @@
 		D210EC1E22B1EE55002FB5E0 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D210EC1F22B1EE55002FB5E0 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D210EC2022B1EE55002FB5E0 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
-		D210EC2222B1EE55002FB5E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D210EC2222B1EE55002FB5E0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D210EC2322B1EE55002FB5E0 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D210EC2522B1EE55002FB5E0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
 		D210EC2722B1EE55002FB5E0 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
@@ -300,7 +300,7 @@
 		D23E9FC623B9200A0030F5C1 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D23E9FC723B9200A0030F5C1 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D23E9FC823B9200A0030F5C1 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
-		D23E9FCA23B9200A0030F5C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D23E9FCA23B9200A0030F5C1 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D23E9FCB23B9200A0030F5C1 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
 		D23E9FCD23B9200A0030F5C1 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
@@ -424,7 +424,7 @@
 		D276DACE21336B20007FAA31 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D276DACF21336B20007FAA31 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D276DAD021336B20007FAA31 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
-		D276DAD221336B20007FAA31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D276DAD221336B20007FAA31 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
@@ -473,7 +473,7 @@
 		D27990F720DDD473003B451E /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
 		D27990F820DDD473003B451E /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D27990FB20DDD473003B451E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D279910020DDD473003B451E /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D279910120DDD473003B451E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
@@ -578,7 +578,7 @@
 		D284249A21D0358200C7171C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D284249B21D0358200C7171C /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D284249C21D0358200C7171C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
-		D284249E21D0358200C7171C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D284249E21D0358200C7171C /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D28424A321D0358200C7171C /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
 		D28424A421D0358200C7171C /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
@@ -598,7 +598,7 @@
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
-		D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D287D506207AEF2C001AF644 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D287D51C207AEF3D001AF644 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51D207AEF54001AF644 /* AccountTests.swift */; };
 		D287D520207AF88E001AF644 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51F207AF88E001AF644 /* API.swift */; };
@@ -729,7 +729,7 @@
 		D2BDA66722D176BD00D9B60C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D2BDA66822D176BD00D9B60C /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D2BDA66922D176BD00D9B60C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
-		D2BDA66B22D176BD00D9B60C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D2BDA66B22D176BD00D9B60C /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2BDA66D22D176BD00D9B60C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2BDA66F22D176BD00D9B60C /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
 		D2BDA67022D176BD00D9B60C /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
@@ -836,7 +836,7 @@
 		D2BDA6FF22D2A72000D9B60C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D2BDA70022D2A72000D9B60C /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D2BDA70122D2A72000D9B60C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
-		D2BDA70322D2A72000D9B60C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */; };
+		D2BDA70322D2A72000D9B60C /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2BDA70422D2A72000D9B60C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2BDA70622D2A72000D9B60C /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
 		D2BDA70722D2A72000D9B60C /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
@@ -1034,7 +1034,7 @@
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D287D500207AEF2B001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D287D505207AEF2C001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D287D505207AEF2C001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		D287D507207AEF2C001AF644 /* PINESInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PINESInfo.plist; sourceTree = "<group>"; };
 		D287D50C207AEF2D001AF644 /* HemlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HemlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D512207AEF2D001AF644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1267,8 +1267,7 @@
 		D20D14D220B784E3008F66B0 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */,
-				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
+				D287D504207AEF2C001AF644 /* Launch.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1331,6 +1330,7 @@
 		D212DB1520C37B0600267503 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
 				D246990520AA5C620006DFF9 /* MainTableViewCell.swift */,
 				D246990320A9D80E0006DFF9 /* MainViewController.swift */,
 			);
@@ -1947,7 +1947,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D210EC2222B1EE55002FB5E0 /* LaunchScreen.storyboard in Resources */,
+				D210EC2222B1EE55002FB5E0 /* Launch.storyboard in Resources */,
 				D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */,
 				D210EC2322B1EE55002FB5E0 /* Checkouts.storyboard in Resources */,
 				D210EC2522B1EE55002FB5E0 /* LICENSE.txt in Resources */,
@@ -1969,7 +1969,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D23E9FCA23B9200A0030F5C1 /* LaunchScreen.storyboard in Resources */,
+				D23E9FCA23B9200A0030F5C1 /* Launch.storyboard in Resources */,
 				D23E9FCB23B9200A0030F5C1 /* Checkouts.storyboard in Resources */,
 				D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */,
 				D23E9FCD23B9200A0030F5C1 /* Holds.storyboard in Resources */,
@@ -1991,7 +1991,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D276DAD221336B20007FAA31 /* LaunchScreen.storyboard in Resources */,
+				D276DAD221336B20007FAA31 /* Launch.storyboard in Resources */,
 				D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */,
 				D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */,
 				D2F390322241E5950089D745 /* LICENSE.txt in Resources */,
@@ -2014,7 +2014,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D27990FB20DDD473003B451E /* LaunchScreen.storyboard in Resources */,
+				D27990FB20DDD473003B451E /* Launch.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
@@ -2035,7 +2035,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D284249E21D0358200C7171C /* LaunchScreen.storyboard in Resources */,
+				D284249E21D0358200C7171C /* Launch.storyboard in Resources */,
 				D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */,
 				D2F390332241E5950089D745 /* LICENSE.txt in Resources */,
 				D21867A521D039CE0082358C /* cool.xcassets in Resources */,
@@ -2057,7 +2057,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D287D506207AEF2C001AF644 /* LaunchScreen.storyboard in Resources */,
+				D287D506207AEF2C001AF644 /* Launch.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
@@ -2087,7 +2087,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BDA66B22D176BD00D9B60C /* LaunchScreen.storyboard in Resources */,
+				D2BDA66B22D176BD00D9B60C /* Launch.storyboard in Resources */,
 				D2BDA66D22D176BD00D9B60C /* Checkouts.storyboard in Resources */,
 				D2BDA66F22D176BD00D9B60C /* LICENSE.txt in Resources */,
 				D2BDA67022D176BD00D9B60C /* Holds.storyboard in Resources */,
@@ -2109,7 +2109,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BDA70322D2A72000D9B60C /* LaunchScreen.storyboard in Resources */,
+				D2BDA70322D2A72000D9B60C /* Launch.storyboard in Resources */,
 				D2BDA70422D2A72000D9B60C /* Checkouts.storyboard in Resources */,
 				D2BDA70622D2A72000D9B60C /* LICENSE.txt in Resources */,
 				D2BDA70722D2A72000D9B60C /* Holds.storyboard in Resources */,
@@ -3175,12 +3175,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		D287D504207AEF2C001AF644 /* LaunchScreen.storyboard */ = {
+		D287D504207AEF2C001AF644 /* Launch.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D287D505207AEF2C001AF644 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Launch.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
