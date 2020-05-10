@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     
     //MARK: - fields
 
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    @IBOutlet weak var accountButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var bottomButtonBar: UIStackView!
@@ -67,9 +67,9 @@ class MainViewController: UIViewController {
         navigationItem.title = App.config.title
         tableView.dataSource = self
         tableView.delegate = self
-        logoutButton.target = self
-        logoutButton.action = #selector(logoutPressed(sender:))
-        Style.styleBarButton(logoutButton)
+        accountButton.target = self
+        accountButton.action = #selector(accountButtonPressed(sender:))
+        Style.styleBarButton(accountButton)
         if App.config.enableMainSceneBottomToolbar {
             Style.styleButton(asPlain: fullCatalogButton)
             Style.styleButton(asPlain: libraryLocatorButton)
@@ -80,10 +80,33 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func logoutPressed(sender: UIButton) {
+    @IBAction func accountButtonPressed(sender: UIButton) {
+        // Show an actionSheet to present the links
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
+            //self.doAddAccount
+        })
+        alertController.addAction(UIAlertAction(title: "Logout", style: .default) { action in
+            self.doLogout()
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        if let popoverController = alertController.popoverPresentationController {
+            let view: UIView = self.view
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
+        self.present(alertController, animated: true)
+    }
+    
+    func doLogout() {
         LoginController.clearLoginCredentials(account: App.account)
         App.unloadIDL()
         self.popToLogin()
+    }
+    
+    func doAddAccount() {
+        
     }
 
     @IBAction func fullCatalogButtonPressed(_ sender: Any) {
