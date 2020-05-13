@@ -27,13 +27,13 @@ class LoginController {
     init(for account: Account) {
         self.account = account
     }
-    
+
+    // TODO: convert to promises
     func login(completion: @escaping (_: GatewayResponse) -> Void) {
         account.authtoken = nil
         account.authtokenExpiryDate = nil
         let request = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [account.username])
         request.responseData { response in
-            // TODO this needs to be simpler
             print("response: \(response.description)")
             switch response.result {
             case .failure(let error):

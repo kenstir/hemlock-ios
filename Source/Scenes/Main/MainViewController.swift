@@ -85,7 +85,7 @@ class MainViewController: UIViewController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
-            //self.doAddAccount
+            self.doAddAccount()
         })
         alertController.addAction(UIAlertAction(title: "Logout", style: .default) { action in
             self.doLogout()
