@@ -621,6 +621,14 @@
 		D2A6C581221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D2A6C582221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D2A6C583221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
+		D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
+		D2A73B20246CB54000874620 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
+		D2A73B21246CB54000874620 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
+		D2A73B22246CB54000874620 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
+		D2A73B23246CB54000874620 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
+		D2A73B24246CB54000874620 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
+		D2A73B25246CB54000874620 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
+		D2A73B26246CB54000874620 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
 		D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D2A74B1521289D63001D4B0F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D2A74B1721289E8E001D4B0F /* PinesAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */; };
@@ -1065,6 +1073,7 @@
 		D29E87FC20D831540003EB27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZXMultiFormatWriter+SafeEncode.m"; sourceTree = "<group>"; };
 		D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZXMultiFormatWriter+SafeEncode.h"; sourceTree = "<group>"; };
+		D2A73B1E246CB54000874620 /* JSONUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		D2A74B1321289D63001D4B0F /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesAppConfiguration.swift; sourceTree = "<group>"; };
 		D2A74B1821289F2E001D4B0F /* HemlockAppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockAppConfiguration.swift; sourceTree = "<group>"; };
@@ -1386,6 +1395,7 @@
 				D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
+				D2A73B1E246CB54000874620 /* JSONUtils.swift */,
 				FA37C3F820FC2A09003C2003 /* LocationPicker.swift */,
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
 				D226B60920ED519E00CA5B79 /* String+.swift */,
@@ -2491,6 +2501,7 @@
 				D210EC0C22B1EE55002FB5E0 /* UIViewController+.swift in Sources */,
 				D210EC0D22B1EE55002FB5E0 /* CheckoutsTableViewCell.swift in Sources */,
 				D210EC0E22B1EE55002FB5E0 /* UIScrollView+.swift in Sources */,
+				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainViewController.swift in Sources */,
 				D210EC1122B1EE55002FB5E0 /* CopyCounts.swift in Sources */,
@@ -2582,6 +2593,7 @@
 				D23E9FB223B9200A0030F5C1 /* UIViewController+.swift in Sources */,
 				D23E9FB323B9200A0030F5C1 /* CheckoutsTableViewCell.swift in Sources */,
 				D23E9FB423B9200A0030F5C1 /* UIScrollView+.swift in Sources */,
+				D2A73B26246CB54000874620 /* JSONUtils.swift in Sources */,
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainViewController.swift in Sources */,
 				D23E9FB723B9200A0030F5C1 /* CopyCounts.swift in Sources */,
@@ -2645,6 +2657,7 @@
 				D22D0C9A2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D276DAA921336B20007FAA31 /* UIView+UYLExtensions.swift in Sources */,
 				D276DAAA21336B20007FAA31 /* CircRecord.swift in Sources */,
+				D2A73B21246CB54000874620 /* JSONUtils.swift in Sources */,
 				D276DAAB21336B20007FAA31 /* CheckoutsViewController.swift in Sources */,
 				D21FF6DD225A6FF000D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */,
@@ -2735,6 +2748,7 @@
 				D22D0C982243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
 				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
+				D2A73B22246CB54000874620 /* JSONUtils.swift in Sources */,
 				D27990DF20DDD473003B451E /* Theme.swift in Sources */,
 				D21FF6DB225A6FEA00D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D279911820DDE11E003B451E /* AppFactory.swift in Sources */,
@@ -2825,6 +2839,7 @@
 				D22D0C9B2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D284247121D0358200C7171C /* UIView+UYLExtensions.swift in Sources */,
 				D284247221D0358200C7171C /* CircRecord.swift in Sources */,
+				D2A73B20246CB54000874620 /* JSONUtils.swift in Sources */,
 				D284247321D0358200C7171C /* CheckoutsViewController.swift in Sources */,
 				D21FF6DE225A6FF100D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D284247521D0358200C7171C /* Theme.swift in Sources */,
@@ -2943,6 +2958,7 @@
 				D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */,
 				D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */,
 				D28164B5213C7D99000B64B4 /* UIScrollView+.swift in Sources */,
+				D2A73B25246CB54000874620 /* JSONUtils.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */,
@@ -3064,6 +3080,7 @@
 				D2BDA65622D176BD00D9B60C /* CheckoutsTableViewCell.swift in Sources */,
 				D2BDA65722D176BD00D9B60C /* UIScrollView+.swift in Sources */,
 				D2BDA65822D176BD00D9B60C /* Style.swift in Sources */,
+				D2A73B23246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainViewController.swift in Sources */,
 				D2BDA65A22D176BD00D9B60C /* CopyCounts.swift in Sources */,
@@ -3155,6 +3172,7 @@
 				D2BDA6EE22D2A72000D9B60C /* UIScrollView+.swift in Sources */,
 				D2BDA6EF22D2A72000D9B60C /* Style.swift in Sources */,
 				D2BDA6F122D2A72000D9B60C /* MainViewController.swift in Sources */,
+				D2A73B24246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BDA6F222D2A72000D9B60C /* CopyCounts.swift in Sources */,
 				D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */,
 				D2BDA6F422D2A72000D9B60C /* SearchService.swift in Sources */,

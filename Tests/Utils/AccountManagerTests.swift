@@ -25,7 +25,7 @@ class AccountManagerTests: XCTestCase {
     let valet = Valet.valet(with: Identifier(nonEmpty: "HemlockTests")!, accessibility: .whenUnlockedThisDeviceOnly)
 
     override func setUp() {
-        // cleanup any possible leftovers
+        // cleanup any leftovers from prior runs
         valet.removeAllObjects()
     }
 
@@ -34,7 +34,56 @@ class AccountManagerTests: XCTestCase {
 
     func test_load_empty() {
         let am = AccountManager(valet: valet)
-        let username = am.lastUsername
-        XCTAssertNil(username)
+        XCTAssertNil(am.lastAccount)
+        XCTAssertEqual(am.accounts.count, 0)
+    }
+    
+    func test_load_oneAccount() {
+        let str = """
+            {
+              "last_username": "alice",
+              "accounts": [
+                {"username": "alice", "password": "*"}
+              ]
+            }
+            """
+        
+        guard let data = str.data(using: .utf8) else {
+            XCTFail()
+            return
+        }
+        valet.set(object: data, forKey: AccountManager.storageKey)
+        
+        let am = AccountManager(valet: valet)
+        XCTAssertEqual(am.lastAccount, StoredAccount(username: "alice", password: "*"))
+        XCTAssertEqual(am.accounts.count, 1)
+        XCTAssertEqual(am.accounts.first?.username, "alice")
+        XCTAssertEqual(am.accounts.first?.password, "*")
+    }
+    
+    func test_load_multipleAccounts() {
+        let str = """
+            {
+              "last_username": "bob",
+              "accounts": [
+                {"username": "alice", "password": "*a"},
+                {"username": "bob", "password": "*b"},
+                {"username": "charlie", "password": "*c"}
+              ]
+            }
+            """
+        
+        guard let data = str.data(using: .utf8) else {
+            XCTFail()
+            return
+        }
+        valet.set(object: data, forKey: AccountManager.storageKey)
+        
+        let am = AccountManager(valet: valet)
+        XCTAssertEqual(am.lastAccount, StoredAccount(username: "bob", password: "*b"))
+        XCTAssertEqual(am.accounts.count, 3)
+        XCTAssertEqual(am.accounts[0], StoredAccount(username: "alice", password: "*a"))
+        XCTAssertEqual(am.accounts[1], StoredAccount(username: "bob", password: "*b"))
+        XCTAssertEqual(am.accounts[2], StoredAccount(username: "charlie", password: "*c"))
     }
 }

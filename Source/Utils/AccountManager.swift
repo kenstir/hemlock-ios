@@ -20,38 +20,45 @@
 import Foundation
 import Valet
 
+struct StoredAccount: Equatable {
+    let username: String
+    let password: String?
+}
+
 // Manages usernames and passwords stored in the keychain
 class AccountManager {
     
-    let version = 1
-    let valet: Valet
-    var accountsBundle: JSONDictionary = [
-        "last_username": nil,
-        "accounts": nil
-    ]
-    var lastUsername: String? { return accountsBundle["last_username"] as? String }
+    static let storageKey = "Accounts"
+    static let storageVersion = 1
+
+    private let valet: Valet
+    private var lastUsername: String? = nil
+    var accounts: [StoredAccount] = []
+    var lastAccount: StoredAccount? {
+        return accounts.first(where: { $0.username == lastUsername })
+    }
     
     init(valet: Valet) {
         self.valet = valet
-        load()
+        loadFromStorage()
     }
     
-    func load() {
-        if let data = valet.object(forKey: "Accounts"),
-            let jsonObject = decodeJSON(data)
-        {
-            accountsBundle = jsonObject
+    func loadFromStorage() {
+        guard let data = valet.object(forKey: AccountManager.storageKey),
+            let jsonObject = JSONUtils.parseObject(fromData: data) else {
+            return
+        }
+        lastUsername = jsonObject["last_username"] as? String
+        guard let accountObjects = jsonObject["accounts"] as? [JSONDictionary] else {
+            return
+        }
+        for accountObject in accountObjects {
+            if let username = accountObject["username"] as? String,
+                let password = accountObject["password"] as? String
+            {
+                accounts.append(StoredAccount(username: username, password: password))
+            }
         }
     }
     
-    func decodeJSON(_ data: Data) -> JSONDictionary? {
-        if
-            let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonObject = json as? JSONDictionary
-        {
-            return jsonObject
-        } else {
-            return nil
-        }
-    }
 }
