@@ -20,9 +20,14 @@
 import Foundation
 import Valet
 
-struct StoredAccount: Equatable {
+struct StoredAccount: Codable, Equatable {
     let username: String
     let password: String?
+}
+
+struct StoredAccountBundle: Codable {
+    var lastUsername: String?
+    var accounts: [StoredAccount]
 }
 
 // Manages usernames and passwords stored in the keychain
@@ -32,33 +37,49 @@ class AccountManager {
     static let storageVersion = 1
 
     private let valet: Valet
-    private var lastUsername: String? = nil
-    var accounts: [StoredAccount] = []
+    private var bundle: StoredAccountBundle
+    var accounts: [StoredAccount] {
+        return bundle.accounts
+    }
     var lastAccount: StoredAccount? {
-        return accounts.first(where: { $0.username == lastUsername })
+        return bundle.accounts.first(where: { $0.username == bundle.lastUsername })
     }
     
     init(valet: Valet) {
         self.valet = valet
+        self.bundle = StoredAccountBundle(lastUsername: nil, accounts: [])
         loadFromStorage()
     }
     
     func loadFromStorage() {
-        guard let data = valet.object(forKey: AccountManager.storageKey),
-            let jsonObject = JSONUtils.parseObject(fromData: data) else {
-            return
-        }
-        lastUsername = jsonObject["last_username"] as? String
-        guard let accountObjects = jsonObject["accounts"] as? [JSONDictionary] else {
-            return
-        }
-        for accountObject in accountObjects {
-            if let username = accountObject["username"] as? String,
-                let password = accountObject["password"] as? String
-            {
-                accounts.append(StoredAccount(username: username, password: password))
-            }
+        let decoder = JSONDecoder()
+        if let data = valet.object(forKey: AccountManager.storageKey),
+            let bundle = try? decoder.decode(StoredAccountBundle.self, from: data) {
+            self.bundle = bundle
         }
     }
     
+    func writeToStorage() {
+        let encoder = JSONEncoder()
+        if let data = try? encoder.encode(bundle) {
+            let str = String(data: data, encoding: .utf8)
+            print("str: \(str)")
+            valet.set(object: data, forKey: AccountManager.storageKey)
+        }
+    }
+
+    func add(account: StoredAccount) {
+        if let index = bundle.accounts.firstIndex(where: { $0.username == account.username }) {
+            bundle.accounts[index] = account
+        } else {
+            bundle.accounts.append(account)
+            sortAccounts()
+        }
+        bundle.lastUsername = account.username
+        writeToStorage()
+    }
+    
+    private func sortAccounts() {
+        bundle.accounts.sort(by: { $0.username < $1.username })
+    }
 }

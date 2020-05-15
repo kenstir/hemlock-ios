@@ -23,13 +23,12 @@ import Valet
 class AccountManagerTests: XCTestCase {
     
     let valet = Valet.valet(with: Identifier(nonEmpty: "HemlockTests")!, accessibility: .whenUnlockedThisDeviceOnly)
+    let alice = StoredAccount(username: "alice", password: "aliceisgreat")
+    let bob = StoredAccount(username: "bob", password: "bobiscool")
 
     override func setUp() {
         // cleanup any leftovers from prior runs
         valet.removeAllObjects()
-    }
-
-    override func tearDown() {
     }
 
     func test_load_empty() {
@@ -41,7 +40,7 @@ class AccountManagerTests: XCTestCase {
     func test_load_oneAccount() {
         let str = """
             {
-              "last_username": "alice",
+              "lastUsername": "alice",
               "accounts": [
                 {"username": "alice", "password": "*"}
               ]
@@ -64,7 +63,7 @@ class AccountManagerTests: XCTestCase {
     func test_load_multipleAccounts() {
         let str = """
             {
-              "last_username": "bob",
+              "lastUsername": "bob",
               "accounts": [
                 {"username": "alice", "password": "*a"},
                 {"username": "bob", "password": "*b"},
@@ -85,5 +84,21 @@ class AccountManagerTests: XCTestCase {
         XCTAssertEqual(am.accounts[0], StoredAccount(username: "alice", password: "*a"))
         XCTAssertEqual(am.accounts[1], StoredAccount(username: "bob", password: "*b"))
         XCTAssertEqual(am.accounts[2], StoredAccount(username: "charlie", password: "*c"))
+    }
+    
+    func test_storeAccount() {
+        let am = AccountManager(valet: valet)
+        am.add(account: bob)
+        XCTAssertEqual(am.accounts.count, 1)
+        XCTAssertEqual(am.accounts.first, bob)
+
+        let am2 = AccountManager(valet: valet)
+        XCTAssertEqual(am2.accounts.count, 1)
+        XCTAssertEqual(am2.accounts.first, bob)
+        am2.add(account: alice)
+        
+        let am3 = AccountManager(valet: valet)
+        XCTAssertEqual(am3.accounts.count, 2)
+        XCTAssertEqual(am3.accounts.first, alice)
     }
 }
