@@ -86,19 +86,39 @@ class AccountManagerTests: XCTestCase {
         XCTAssertEqual(am.accounts[2], StoredAccount(username: "charlie", password: "*c"))
     }
     
-    func test_storeAccount() {
-        let am = AccountManager(valet: valet)
+    // Test that adding and removing works; construce AccountManager multiple
+    // times to test that state is properly saved to storage
+    func test_addAndRemove() {
+        var am: AccountManager
+            
+        // add bob
+        am = AccountManager(valet: valet)
         am.add(account: bob)
         XCTAssertEqual(am.accounts.count, 1)
         XCTAssertEqual(am.accounts.first, bob)
+        XCTAssertEqual(am.lastAccount, bob)
 
-        let am2 = AccountManager(valet: valet)
-        XCTAssertEqual(am2.accounts.count, 1)
-        XCTAssertEqual(am2.accounts.first, bob)
-        am2.add(account: alice)
-        
-        let am3 = AccountManager(valet: valet)
-        XCTAssertEqual(am3.accounts.count, 2)
-        XCTAssertEqual(am3.accounts.first, alice)
+        // test restored state then add alice
+        am = AccountManager(valet: valet)
+        XCTAssertEqual(am.accounts.count, 1)
+        XCTAssertEqual(am.accounts.first, bob)
+        XCTAssertEqual(am.lastAccount, bob)
+        am.add(account: alice)
+        XCTAssertEqual(am.lastAccount, alice)
+
+        // test restored state then remove alice
+        am = AccountManager(valet: valet)
+        XCTAssertEqual(am.accounts.count, 2)
+        XCTAssertEqual(am.accounts.first, alice)
+        am.remove(username: alice.username)
+        XCTAssertEqual(am.lastAccount, bob)
+
+        // test restored state then remove bob
+        am = AccountManager(valet: valet)
+        XCTAssertEqual(am.accounts.count, 1)
+        XCTAssertEqual(am.accounts.first, bob)
+        am.remove(username: bob.username)
+        XCTAssertEqual(am.accounts.count, 0)
+        XCTAssertNil(am.lastAccount)
     }
 }

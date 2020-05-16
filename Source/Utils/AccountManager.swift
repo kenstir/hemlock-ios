@@ -52,18 +52,14 @@ class AccountManager {
     }
     
     func loadFromStorage() {
-        let decoder = JSONDecoder()
         if let data = valet.object(forKey: AccountManager.storageKey),
-            let bundle = try? decoder.decode(StoredAccountBundle.self, from: data) {
+            let bundle = try? JSONDecoder().decode(StoredAccountBundle.self, from: data) {
             self.bundle = bundle
         }
     }
     
     func writeToStorage() {
-        let encoder = JSONEncoder()
-        if let data = try? encoder.encode(bundle) {
-            let str = String(data: data, encoding: .utf8)
-            print("str: \(str)")
+        if let data = try? JSONEncoder().encode(bundle) {
             valet.set(object: data, forKey: AccountManager.storageKey)
         }
     }
@@ -77,6 +73,16 @@ class AccountManager {
         }
         bundle.lastUsername = account.username
         writeToStorage()
+    }
+    
+    func remove(username: String) {
+        if let index = bundle.accounts.firstIndex(where: { $0.username == username }) {
+            bundle.accounts.remove(at: index)
+            if bundle.lastUsername == username {
+                bundle.lastUsername = bundle.accounts.first?.username
+            }
+            writeToStorage()
+        }
     }
     
     private func sortAccounts() {
