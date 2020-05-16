@@ -104,7 +104,7 @@ class AccountManager {
         writeToStorage()
     }
     
-    func remove(username: String) {
+    func remove(username: String?) {
         if let index = bundle.accounts.firstIndex(where: { $0.username == username }) {
             bundle.accounts.remove(at: index)
             if bundle.lastUsername == username {
