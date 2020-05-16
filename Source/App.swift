@@ -49,6 +49,9 @@ class App {
 
     /// the valet saves things in the iOS keychain
     static let valet = Valet.valet(with: Identifier(nonEmpty: "Hemlock")!, accessibility: .whenUnlockedThisDeviceOnly)
+
+    /// the accountManager manages storage of accounts in valet
+    static let accountManager = AccountManager(valet: valet)
     
     /// search scopes
     static let searchScopes = ["Keyword","Title","Author","Subject","Series"]

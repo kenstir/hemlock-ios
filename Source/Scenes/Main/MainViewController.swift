@@ -84,6 +84,12 @@ class MainViewController: UIViewController {
         // Show an actionSheet to present the links
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
+        
+        for storedAccount in App.accountManager.accounts {
+            alertController.addAction(UIAlertAction(title: storedAccount.username, style: .default) { action in
+                self.doSwitchAccount(storedAccount)
+            })
+        }
         alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
             self.doAddAccount()
         })
@@ -97,6 +103,10 @@ class MainViewController: UIViewController {
             popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
         }
         self.present(alertController, animated: true)
+    }
+    
+    func doSwitchAccount(_ storedAccount: StoredAccount) {
+        
     }
     
     func doLogout() {

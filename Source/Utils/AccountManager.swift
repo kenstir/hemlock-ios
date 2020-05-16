@@ -25,19 +25,34 @@ struct StoredAccount: Codable, Equatable {
     let password: String?
 }
 
-struct StoredAccountBundle: Codable {
+struct StoredAccountBundleV1: Codable {
     var lastUsername: String?
     var accounts: [StoredAccount]
 }
 
 // Manages usernames and passwords stored in the keychain
+//
+// Keychain Storage
+// ----------------
+// We store accounts in Valet as a StoredAccountBundleV1, and we rewrite
+// the storage every time something changes.
+//
+// The OG app stored a single account in Valet keys "username" and "password";
+// if we find those keys during construction, we rewrite the bundle in the V1
+// format and remove the old keys.
+//
+// If and when we need a different storage schema, the plan is to define
+// a V2 bundle stored under a V2 key, and convert and V1 storage to it during
+// construction.
+//
 class AccountManager {
     
-    static let storageKey = "Accounts"
-    static let storageVersion = 1
+    static let storageKeyV1 = "Accounts"
+    static let legacyUsernameKey = "username"
+    static let legacyPasswordKey = "password"
 
     private let valet: Valet
-    private var bundle: StoredAccountBundle
+    private var bundle: StoredAccountBundleV1
     var accounts: [StoredAccount] {
         return bundle.accounts
     }
@@ -47,20 +62,34 @@ class AccountManager {
     
     init(valet: Valet) {
         self.valet = valet
-        self.bundle = StoredAccountBundle(lastUsername: nil, accounts: [])
+        self.bundle = StoredAccountBundleV1(lastUsername: nil, accounts: [])
         loadFromStorage()
     }
     
     func loadFromStorage() {
-        if let data = valet.object(forKey: AccountManager.storageKey),
-            let bundle = try? JSONDecoder().decode(StoredAccountBundle.self, from: data) {
+        // handle v1 storage
+        if let data = valet.object(forKey: AccountManager.storageKeyV1),
+            let bundle = try? JSONDecoder().decode(StoredAccountBundleV1.self, from: data) {
             self.bundle = bundle
+            return
+        }
+        
+        // handle legacy storage
+        if let username = valet.string(forKey: AccountManager.legacyUsernameKey),
+            let password = valet.string(forKey: AccountManager.legacyPasswordKey)
+        {
+            let account = StoredAccount(username: username, password: password)
+            self.bundle = StoredAccountBundleV1(lastUsername: username, accounts: [account])
+            valet.removeObject(forKey: AccountManager.legacyUsernameKey)
+            valet.removeObject(forKey: AccountManager.legacyPasswordKey)
+            self.writeToStorage()
+            return
         }
     }
     
     func writeToStorage() {
         if let data = try? JSONEncoder().encode(bundle) {
-            valet.set(object: data, forKey: AccountManager.storageKey)
+            valet.set(object: data, forKey: AccountManager.storageKeyV1)
         }
     }
 

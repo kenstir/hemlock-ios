@@ -89,7 +89,7 @@ class Style {
     //MARK: - AlertController
     
     static func styleAlertController(_ alertController: UIAlertController) {
-        // This is low contrast in dark mode
+        // avoie: this causes low contrast in dark mode
         //alertController.view.tintColor = App.theme.primaryDark2Color
     }
     

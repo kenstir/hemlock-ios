@@ -46,12 +46,8 @@ class AccountManagerTests: XCTestCase {
               ]
             }
             """
-        
-        guard let data = str.data(using: .utf8) else {
-            XCTFail()
-            return
-        }
-        valet.set(object: data, forKey: AccountManager.storageKey)
+        let data = str.data(using: .utf8)!
+        valet.set(object: data, forKey: AccountManager.storageKeyV1)
         
         let am = AccountManager(valet: valet)
         XCTAssertEqual(am.lastAccount, StoredAccount(username: "alice", password: "*"))
@@ -76,7 +72,7 @@ class AccountManagerTests: XCTestCase {
             XCTFail()
             return
         }
-        valet.set(object: data, forKey: AccountManager.storageKey)
+        valet.set(object: data, forKey: AccountManager.storageKeyV1)
         
         let am = AccountManager(valet: valet)
         XCTAssertEqual(am.lastAccount, StoredAccount(username: "bob", password: "*b"))
@@ -84,6 +80,18 @@ class AccountManagerTests: XCTestCase {
         XCTAssertEqual(am.accounts[0], StoredAccount(username: "alice", password: "*a"))
         XCTAssertEqual(am.accounts[1], StoredAccount(username: "bob", password: "*b"))
         XCTAssertEqual(am.accounts[2], StoredAccount(username: "charlie", password: "*c"))
+    }
+        
+    func test_loadLegacyAccount() {
+        valet.set(string: alice.username, forKey: AccountManager.legacyUsernameKey)
+        valet.set(string: alice.password!, forKey: AccountManager.legacyPasswordKey)
+        
+        let am = AccountManager(valet: valet)
+        XCTAssertEqual(am.accounts.count, 1)
+        XCTAssertEqual(am.accounts.first, alice)
+        XCTAssertFalse(valet.containsObject(forKey: AccountManager.legacyUsernameKey))
+        XCTAssertFalse(valet.containsObject(forKey: AccountManager.legacyPasswordKey))
+        XCTAssertTrue(valet.containsObject(forKey: AccountManager.storageKeyV1))
     }
     
     // Test that adding and removing works; construce AccountManager multiple
