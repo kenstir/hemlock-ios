@@ -42,7 +42,7 @@ struct StoredAccountBundleV1: Codable {
 // format and remove the old keys.
 //
 // If and when we need a different storage schema, the plan is to define
-// a V2 bundle stored under a V2 key, and convert and V1 storage to it during
+// a V2 bundle stored under a V2 key, and convert V1 storage to it during
 // construction.
 //
 class AccountManager {
@@ -67,7 +67,7 @@ class AccountManager {
     }
     
     func loadFromStorage() {
-        // handle v1 storage
+        // handle V1 storage
         if let data = valet.object(forKey: AccountManager.storageKeyV1),
             let bundle = try? JSONDecoder().decode(StoredAccountBundleV1.self, from: data) {
             self.bundle = bundle
@@ -104,6 +104,11 @@ class AccountManager {
         writeToStorage()
     }
     
+    func setActive(account: StoredAccount) {
+        // delegate to add() which does everything we need
+        add(account: account)
+    }
+
     func remove(username: String?) {
         if let index = bundle.accounts.firstIndex(where: { $0.username == username }) {
             bundle.accounts.remove(at: index)

@@ -85,9 +85,9 @@ class MainViewController: UIViewController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         
-        for storedAccount in App.accountManager.accounts {
-            alertController.addAction(UIAlertAction(title: storedAccount.username, style: .default) { action in
-                self.doSwitchAccount(storedAccount)
+        for account in App.accountManager.accounts {
+            alertController.addAction(UIAlertAction(title: account.username, style: .default) { action in
+                self.doSwitchAccount(toAccount: account)
             })
         }
         alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
@@ -105,18 +105,17 @@ class MainViewController: UIViewController {
         self.present(alertController, animated: true)
     }
     
-    func doSwitchAccount(_ storedAccount: StoredAccount) {
-        
-    }
-    
-    func doLogout() {
-        LoginController.clearLoginCredentials(account: App.account)
-        App.unloadIDL()
+    func doSwitchAccount(toAccount storedAccount: StoredAccount) {
+        App.switchCredentials(storedAccount: storedAccount)
         self.popToLogin()
     }
     
-    func doAddAccount() {
-        
+    func doAddAccount() {        
+    }
+    
+    func doLogout() {
+        App.logout()
+        self.popToLogin()
     }
 
     @IBAction func fullCatalogButtonPressed(_ sender: Any) {

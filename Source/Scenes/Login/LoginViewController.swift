@@ -45,17 +45,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         
         // auto login
-        let (savedUsername, savedPassword) = LoginController.getSavedLoginCredentials()
-        if let _ = savedUsername, let _ = savedPassword {
+        if App.accountManager.lastAccount != nil {
             doLogin()
         }
     }
 
     func setupViews() {
-        // restore saved username/password
-        let (savedUsername, savedPassword) = LoginController.getSavedLoginCredentials();
-        usernameField.text = savedUsername
-        passwordField.text = savedPassword
+        // restore last credentials used
+        if let lastAccount = App.accountManager.lastAccount {
+            usernameField.text = lastAccount.username
+            passwordField.text = lastAccount.password
+        }
 
         // handle Return in the text fields
         usernameField.delegate = self
@@ -184,7 +184,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             account.homeOrgID = resp.obj?.getInt("home_ou")
             account.dayPhone = resp.obj?.getString("day_phone")
             App.account = account
-            LoginController.saveLoginCredentials(account: account)
+            App.accountManager.add(account: StoredAccount(username: account.username, password: account.password))
 
             self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
         }

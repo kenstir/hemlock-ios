@@ -58,6 +58,20 @@ class App {
 
     //MARK: - Functions
     
+    // Clear the active account and its credentials
+    static func logout() {
+        accountManager.remove(username: account?.username)
+        account?.clear()
+        unloadIDL()
+    }
+    
+    // Clear the active account and switch credentials
+    static func switchCredentials(storedAccount: StoredAccount) {
+        accountManager.setActive(account: storedAccount)
+        account?.clear()
+        unloadIDL()
+    }
+    
     static func unloadIDL() {
         App.idlLoaded = false
     }
