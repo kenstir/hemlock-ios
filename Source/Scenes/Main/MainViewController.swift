@@ -80,16 +80,33 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func accountButtonPressed(sender: UIButton) {
-        // Show an actionSheet to present the links
+    @objc func accountButtonPressed(sender: UIBarButtonItem) {
+        let haveMultipleAccounts = App.accountManager.accounts.count > 1
+
+        // Create an actionSheet to present the account options
+//        if haveMultipleAccounts {
+//            message = "Switch to a different account, add an account, or logout to remove your saved password"
+//        }
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         
-        for account in App.accountManager.accounts {
-            alertController.addAction(UIAlertAction(title: account.username, style: .default) { action in
-                self.doSwitchAccount(toAccount: account)
-            })
+        // Add an action for each stored account
+        if haveMultipleAccounts {
+            for account in App.accountManager.accounts {
+                let action = UIAlertAction(title: account.username, style: .default) { action in
+                    self.doSwitchAccount(toAccount: account)
+                }
+                if account.username == App.account?.username {
+                    action.isEnabled = false
+                }
+                if let icon = UIImage(named: "Account") {
+                    action.setValue(icon, forKey: "image")
+                }
+                alertController.addAction(action)
+            }
         }
+        
+        // Add remaining actions
         alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
             self.doAddAccount()
         })
@@ -97,11 +114,12 @@ class MainViewController: UIViewController {
             self.doLogout()
         })
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        // iPad requires using the popoverPresentationController
         if let popoverController = alertController.popoverPresentationController {
-            let view: UIView = self.view
-            popoverController.sourceView = view
-            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+            popoverController.barButtonItem = sender
         }
+
         self.present(alertController, animated: true)
     }
     
