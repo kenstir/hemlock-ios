@@ -117,4 +117,32 @@ extension Alamofire.DataRequest {
             }
         }
     }
+    
+    func gatewayAuthtokenResponse(queue: DispatchQueue? = nil) -> Promise<(String)>
+    {
+        return Promise { seal in
+            responseData(queue: queue) { response in
+                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
+                if response.result.isSuccess,
+                    let data = response.result.value
+                {
+                    let resp = GatewayResponse(data)
+                    if let error = resp.error {
+                        seal.reject(error)
+                    } else if let obj = resp.obj,
+                        let payload = obj.getObject("payload"),
+                        let authtoken = payload.getString("authtoken") {
+                        seal.fulfill(authtoken)
+                    } else {
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected auth response"))
+                    }
+                } else if response.result.isFailure,
+                    let error = response.error {
+                    seal.reject(error)
+                } else {
+                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
+                }
+            }
+        }
+    }
 }
