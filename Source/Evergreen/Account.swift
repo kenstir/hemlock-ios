@@ -22,7 +22,6 @@ class Account {
     let username: String
     var password: String
     var authtoken: String?
-    var authtokenExpiryDate: Date?
     var userID: Int?
     var homeOrgID: Int?
     var barcode: String?
@@ -52,7 +51,6 @@ class Account {
     func clear() -> Void {
         self.password = ""
         self.authtoken = nil
-        self.authtokenExpiryDate = nil
         self.userID = nil
         self.homeOrgID = nil
         self.barcode = nil
@@ -64,14 +62,12 @@ class Account {
         guard
             let obj = fromObj,
             let payload = obj.getObject("payload"),
-            let authtoken = payload.getString("authtoken"),
-            let authtime = payload.getInt("authtime") else
+            let authtoken = payload.getString("authtoken") else
         {
            throw HemlockError.unexpectedNetworkResponse("Unexpected response to login")
         }
         
         self.authtoken = authtoken
-        self.authtokenExpiryDate = Date(timeIntervalSinceNow: TimeInterval(authtime))
     }
     
     // Fix stupid setting that is returned with extra quotes, e.g. Int 52 in

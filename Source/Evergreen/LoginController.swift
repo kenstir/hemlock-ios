@@ -31,7 +31,6 @@ class LoginController {
     // TODO: convert to promises
     func login(completion: @escaping (_: GatewayResponse) -> Void) {
         account.authtoken = nil
-        account.authtokenExpiryDate = nil
         let request = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [account.username])
         request.responseData { response in
             print("response: \(response.description)")
@@ -87,8 +86,7 @@ class LoginController {
                 return
             }
             guard let payload = resp.obj?.getObject("payload"),
-                let authtoken = payload.getString("authtoken"),
-                let authtime = payload.getInt("authtime") else
+                let authtoken = payload.getString("authtoken") else
             {
                 completion(GatewayResponse.makeError("Unexpected response to login"))
                 return
@@ -96,7 +94,6 @@ class LoginController {
             
             self.account.authtoken = authtoken
             debugPrint(self.account)
-            self.account.authtokenExpiryDate = Date(timeIntervalSinceNow: TimeInterval(authtime))
             completion(resp)
         }
     }

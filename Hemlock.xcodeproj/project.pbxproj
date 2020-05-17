@@ -174,6 +174,14 @@
 		D226B60A20ED519E00CA5B79 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D226B60B20ED519E00CA5B79 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D228FB6520D33402001A7E31 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
+		D229CAF52471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
+		D229CAF62471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
+		D229CAF72471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
+		D229CAF82471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
+		D229CAF92471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
+		D229CAFA2471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
+		D229CAFB2471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
+		D229CAFC2471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
 		D22AE119221B75FC0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
 		D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
 		D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
@@ -966,6 +974,7 @@
 		D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+splitOnRegex.swift"; sourceTree = "<group>"; };
 		D226B60920ED519E00CA5B79 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D228FB6420D33402001A7E31 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		D229CAF42471C099006BCC07 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D22AE118221B75FC0089C196 /* AFSessionManager+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFSessionManager+.swift"; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -1429,9 +1438,10 @@
 		D22D027620857DFE00DC1F5B /* Evergreen */ = {
 			isa = PBXGroup;
 			children = (
+				D287D51F207AF88E001AF644 /* API.swift */,
 				D287D51B207AEF3D001AF644 /* Account.swift */,
 				D2BBA99920F29F0E00B25146 /* ActorService.swift */,
-				D287D51F207AF88E001AF644 /* API.swift */,
+				D229CAF42471C099006BCC07 /* AuthService.swift */,
 				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D28725AD20E86F30002A4C42 /* CircService.swift */,
 				D21981F7235BC7BC003AE531 /* CodedValueMap.swift */,
@@ -2477,6 +2487,7 @@
 				D210EBF622B1EE55002FB5E0 /* Theme.swift in Sources */,
 				D210EBF722B1EE55002FB5E0 /* XUtils.swift in Sources */,
 				D210EBF822B1EE55002FB5E0 /* Analytics.swift in Sources */,
+				D229CAF52471C099006BCC07 /* AuthService.swift in Sources */,
 				D210EBF922B1EE55002FB5E0 /* MD5.swift in Sources */,
 				D210EBFA22B1EE55002FB5E0 /* FinesTableViewCell.swift in Sources */,
 				D210EBFB22B1EE55002FB5E0 /* LocationPicker.swift in Sources */,
@@ -2569,6 +2580,7 @@
 				D23E9F9B23B9200A0030F5C1 /* Theme.swift in Sources */,
 				D23E9F9C23B9200A0030F5C1 /* XUtils.swift in Sources */,
 				D23E9F9D23B9200A0030F5C1 /* Analytics.swift in Sources */,
+				D229CAFC2471C099006BCC07 /* AuthService.swift in Sources */,
 				D23E9FED23B923B80030F5C1 /* SageCatAppBehavior.swift in Sources */,
 				D23E9F9E23B9200A0030F5C1 /* MD5.swift in Sources */,
 				D23E9F9F23B9200A0030F5C1 /* FinesTableViewCell.swift in Sources */,
@@ -2690,6 +2702,7 @@
 				D276DAC321336B20007FAA31 /* CopyCounts.swift in Sources */,
 				D27DF20E21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D276DAC421336B20007FAA31 /* SearchService.swift in Sources */,
+				D229CAF72471C099006BCC07 /* AuthService.swift in Sources */,
 				D276DAC521336B20007FAA31 /* Account.swift in Sources */,
 				D276DAC621336B20007FAA31 /* LoginController.swift in Sources */,
 			);
@@ -2781,6 +2794,7 @@
 				D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */,
 				D27DF20C21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */,
+				D229CAF82471C099006BCC07 /* AuthService.swift in Sources */,
 				D27990EF20DDD473003B451E /* Account.swift in Sources */,
 				D27990F020DDD473003B451E /* LoginController.swift in Sources */,
 			);
@@ -2872,6 +2886,7 @@
 				D284248D21D0358200C7171C /* CopyCounts.swift in Sources */,
 				D284248E21D0358200C7171C /* String+subscript.swift in Sources */,
 				D284248F21D0358200C7171C /* SearchService.swift in Sources */,
+				D229CAF62471C099006BCC07 /* AuthService.swift in Sources */,
 				D284249021D0358200C7171C /* Account.swift in Sources */,
 				D284249121D0358200C7171C /* LoginController.swift in Sources */,
 			);
@@ -2934,6 +2949,7 @@
 				D21FF6DC225A6FEF00D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */,
+				D229CAFB2471C099006BCC07 /* AuthService.swift in Sources */,
 				D2DF196820CEF68700085255 /* Analytics.swift in Sources */,
 				D23C304E20E5C6C800666A2B /* PinesTheme.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
@@ -3056,6 +3072,7 @@
 				D2BDA63F22D176BD00D9B60C /* XUtils.swift in Sources */,
 				D2BDA64022D176BD00D9B60C /* Analytics.swift in Sources */,
 				D2BDA64122D176BD00D9B60C /* MD5.swift in Sources */,
+				D229CAF92471C099006BCC07 /* AuthService.swift in Sources */,
 				D2BDA64222D176BD00D9B60C /* FinesTableViewCell.swift in Sources */,
 				D2BDA64322D176BD00D9B60C /* LocationPicker.swift in Sources */,
 				D2BDA64422D176BD00D9B60C /* IDLParser.swift in Sources */,
@@ -3148,6 +3165,7 @@
 				D2BDA6D722D2A72000D9B60C /* Analytics.swift in Sources */,
 				D2BDA6D822D2A72000D9B60C /* MD5.swift in Sources */,
 				D2BDA6D922D2A72000D9B60C /* FinesTableViewCell.swift in Sources */,
+				D229CAFA2471C099006BCC07 /* AuthService.swift in Sources */,
 				D2BDA6DA22D2A72000D9B60C /* LocationPicker.swift in Sources */,
 				D2BDA6DB22D2A72000D9B60C /* IDLParser.swift in Sources */,
 				D2BDA6DC22D2A72000D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,

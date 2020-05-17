@@ -101,7 +101,6 @@ class LiveServiceTests: XCTestCase {
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
         req.gatewayResponse().then { (resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> in
             print("resp: \(resp)")
-            // todo: refactor to Account.loginContinue(authInitReponse:)
             guard let nonce = resp.str else {
                 throw HemlockError.unexpectedNetworkResponse("expected string")
             }
@@ -128,66 +127,51 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
         print("ok")
     }
-
-    //MARK: - LoginController Tests
-
-    func test_LoginController_success() {
+    
+    func test_fetchAuthToken_ok() {
         let expectation = XCTestExpectation(description: "async response")
-        LoginController(for: account!).login { resp in
-            XCTAssertFalse(resp.failed, String(describing: resp.error))
-            XCTAssertNotNil(self.account?.authtoken)
-            
+
+        let credential = Credential(username: account!.username, password: account!.password)
+        let promise = AuthService.fetchAuthToken(credential: credential)
+        promise.done { obj in
+            print("obj: \(obj)")
+            XCTAssertNotNil(obj)
+            let authtoken = obj.getString("authtoken")
+            XCTAssertEqual(authtoken?.isEmpty, false)
+            print("authtoken: \(authtoken)")
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
             expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 20.0)
     }
     
-    func test_LoginController_failure() {
+    func test_fetchAuthToken_fail() {
         let expectation = XCTestExpectation(description: "async response")
-        let altAccount = Account(username, password: "bogus")
-        LoginController(for: altAccount).login { resp in
-            XCTAssertTrue(resp.failed, String(describing: resp.error))
-            XCTAssertNil(altAccount.authtoken)
-            XCTAssertNotNil(resp.error)
-            XCTAssertEqual(resp.errorMessage, "User login failed")
 
+        let credential = Credential(username: "peterpan", password: "password1")
+        let promise = AuthService.fetchAuthToken(credential: credential)
+        promise.done { obj in
+            XCTFail("fetchAuthToken succeeded but should have failed")
+            expectation.fulfill()
+        }.catch { error in
+            XCTAssertEqual(error.localizedDescription, "User login failed")
             expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 20.0)
     }
+
+    //MARK: - IDL
     
     func loadIDL() -> Bool {
         let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
         let ok = parser.parse()
         return ok
     }
-    
-    func test_LoginController_getSession() {
-        XCTAssertTrue(loadIDL())
 
-        let expectation = XCTestExpectation(description: "async response")
-        LoginController(for: account!).login { resp in
-            XCTAssertFalse(resp.failed, String(describing: resp.error))
-            XCTAssertNotNil(self.account?.authtoken)
-            LoginController.getSession(self.account!) { resp in
-                debugPrint(resp)
-                for key in (resp.obj?.dict.keys)! {
-                    let val = resp.obj?.dict[key]
-                    print("\(key) -> \(String(describing: val))")
-                }
-                let deleted = resp.obj?.getBool("deleted")
-                XCTAssertFalse(deleted!)
-                expectation.fulfill()
-            }
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
-    
-    //MARK: - IDL
-    
     func test_parseIDL_subset() {
         self.measure {
             let url = Gateway.idlURL()

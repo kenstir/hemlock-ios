@@ -84,7 +84,7 @@ class CredentialManagerTests: XCTestCase {
         
     func test_loadLegacyAccount() {
         valet.set(string: alice.username, forKey: CredentialManager.legacyUsernameKey)
-        valet.set(string: alice.password!, forKey: CredentialManager.legacyPasswordKey)
+        valet.set(string: alice.password, forKey: CredentialManager.legacyPasswordKey)
         
         let am = CredentialManager(valet: valet)
         XCTAssertEqual(am.credentials.count, 1)

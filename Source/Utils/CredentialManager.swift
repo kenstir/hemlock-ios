@@ -23,7 +23,7 @@ import os.log
 
 struct Credential: Codable, Equatable {
     let username: String
-    let password: String?
+    let password: String
 }
 
 struct CredentialBundleV1: Codable {
