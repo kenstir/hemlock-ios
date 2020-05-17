@@ -66,7 +66,7 @@ class App {
     }
     
     // Clear the active account and switch credentials
-    static func switchCredentials(storedAccount: StoredAccount) {
+    static func switchCredentials(storedAccount: StoredAccount?) {
         accountManager.setActive(account: storedAccount)
         account?.clear()
         unloadIDL()

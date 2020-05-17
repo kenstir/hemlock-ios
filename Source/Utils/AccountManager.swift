@@ -104,9 +104,13 @@ class AccountManager {
         writeToStorage()
     }
     
-    func setActive(account: StoredAccount) {
-        // delegate to add() which does everything we need
-        add(account: account)
+    func setActive(account: StoredAccount?) {
+        if let username = account?.username,
+            let _ = bundle.accounts.firstIndex(where: { $0.username == username }) {
+            bundle.lastUsername = username
+        } else {
+            bundle.lastUsername = nil
+        }
     }
 
     func remove(username: String?) {

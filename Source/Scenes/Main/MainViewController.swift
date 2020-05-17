@@ -93,7 +93,7 @@ class MainViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
             self.doAddAccount()
         })
-        alertController.addAction(UIAlertAction(title: "Logout", style: .default) { action in
+        alertController.addAction(UIAlertAction(title: "Logout", style: .destructive) { action in
             self.doLogout()
         })
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -110,7 +110,9 @@ class MainViewController: UIViewController {
         self.popToLogin()
     }
     
-    func doAddAccount() {        
+    func doAddAccount() {
+        App.switchCredentials(storedAccount: nil)
+        self.popToLogin()
     }
     
     func doLogout() {
