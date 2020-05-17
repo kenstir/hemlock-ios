@@ -866,15 +866,15 @@
 		D2C24A312101712E0028180B /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
-		D2CAFBC0246B7C3900A56945 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* AccountManager.swift */; };
-		D2CAFBC1246B7C3900A56945 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* AccountManager.swift */; };
-		D2CAFBC2246B7C3900A56945 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* AccountManager.swift */; };
-		D2CAFBC3246B7C3900A56945 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* AccountManager.swift */; };
-		D2CAFBC4246B7C3900A56945 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* AccountManager.swift */; };
-		D2CAFBC5246B7C3900A56945 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* AccountManager.swift */; };
-		D2CAFBC6246B7C3900A56945 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* AccountManager.swift */; };
-		D2CAFBC7246B7C3900A56945 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* AccountManager.swift */; };
-		D2CAFBC9246B842C00A56945 /* AccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBC8246B842C00A56945 /* AccountManagerTests.swift */; };
+		D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
+		D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
+		D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
+		D2CAFBC3246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
+		D2CAFBC4246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
+		D2CAFBC5246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
+		D2CAFBC6246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
+		D2CAFBC7246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
+		D2CAFBC9246B842C00A56945 /* CredentialManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */; };
 		D2CF924222471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2CF924322471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2CF924422471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -1098,8 +1098,8 @@
 		D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLCAppConfiguration.swift; sourceTree = "<group>"; };
 		D2C24A2F210171290028180B /* PCRUDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCRUDService.swift; sourceTree = "<group>"; };
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
-		D2CAFBBF246B7C3900A56945 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
-		D2CAFBC8246B842C00A56945 /* AccountManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagerTests.swift; sourceTree = "<group>"; };
+		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
+		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
 		D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyStatus.swift; sourceTree = "<group>"; };
@@ -1389,11 +1389,11 @@
 		D22D026E2084F52300DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D2CAFBBF246B7C3900A56945 /* AccountManager.swift */,
 				D22AE118221B75FC0089C196 /* AFSessionManager+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
+				D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
 				D2A73B1E246CB54000874620 /* JSONUtils.swift */,
 				FA37C3F820FC2A09003C2003 /* LocationPicker.swift */,
@@ -1418,8 +1418,8 @@
 		D22D0271208506A700DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D2CAFBC8246B842C00A56945 /* AccountManagerTests.swift */,
 				D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */,
+				D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */,
 				D22D0272208506C500DC1F5B /* MD5Tests.swift */,
 				D259671824511CA90076267D /* UtilsTests.swift */,
 			);
@@ -2495,7 +2495,7 @@
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
 				D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */,
 				D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */,
-				D2CAFBC0246B7C3900A56945 /* AccountManager.swift in Sources */,
+				D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D20B300022CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D210EC0B22B1EE55002FB5E0 /* Gateway.swift in Sources */,
 				D210EC0C22B1EE55002FB5E0 /* UIViewController+.swift in Sources */,
@@ -2587,7 +2587,7 @@
 				D23E9FAD23B9200A0030F5C1 /* FineRecord.swift in Sources */,
 				D23E9FAE23B9200A0030F5C1 /* AppDelegate.swift in Sources */,
 				D23E9FAF23B9200A0030F5C1 /* ActorService.swift in Sources */,
-				D2CAFBC7246B7C3900A56945 /* AccountManager.swift in Sources */,
+				D2CAFBC7246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D23E9FB023B9200A0030F5C1 /* RecordAttributes.swift in Sources */,
 				D23E9FB123B9200A0030F5C1 /* Gateway.swift in Sources */,
 				D23E9FB223B9200A0030F5C1 /* UIViewController+.swift in Sources */,
@@ -2628,7 +2628,7 @@
 				D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
 				D2A81798224699C700340074 /* Bundle+.swift in Sources */,
-				D2CAFBC2246B7C3900A56945 /* AccountManager.swift in Sources */,
+				D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D276DA9421336B20007FAA31 /* String+.swift in Sources */,
 				D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */,
 				D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */,
@@ -2719,7 +2719,7 @@
 				D20B2FE822CC359000F69848 /* MARCRecord.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D2A81796224699C700340074 /* Bundle+.swift in Sources */,
-				D2CAFBC3246B7C3900A56945 /* AccountManager.swift in Sources */,
+				D2CAFBC3246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D2C24A30210171290028180B /* PCRUDService.swift in Sources */,
 				D226B60A20ED519E00CA5B79 /* String+.swift in Sources */,
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
@@ -2810,7 +2810,7 @@
 				D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D284245821D0358200C7171C /* HoldRecord.swift in Sources */,
 				D2A81799224699C700340074 /* Bundle+.swift in Sources */,
-				D2CAFBC1246B7C3900A56945 /* AccountManager.swift in Sources */,
+				D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D284245921D0358200C7171C /* PCRUDService.swift in Sources */,
 				D284245A21D0358200C7171C /* String+.swift in Sources */,
 				D284245B21D0358200C7171C /* AppConfiguration.swift in Sources */,
@@ -2952,7 +2952,7 @@
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */,
-				D2CAFBC6246B7C3900A56945 /* AccountManager.swift in Sources */,
+				D2CAFBC6246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D20B2FFD22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D26A146A20B2029900DDA97C /* Gateway.swift in Sources */,
 				D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */,
@@ -2985,7 +2985,7 @@
 				D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */,
 				D20B2FEE22CD726900F69848 /* MARCXMLParserTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
-				D2CAFBC9246B842C00A56945 /* AccountManagerTests.swift in Sources */,
+				D2CAFBC9246B842C00A56945 /* CredentialManagerTests.swift in Sources */,
 				D2198200235BCE45003AE531 /* CodedValueMapTests.swift in Sources */,
 				D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */,
 				D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */,
@@ -3074,7 +3074,7 @@
 				D2BDA65022D176BD00D9B60C /* AppDelegate.swift in Sources */,
 				D2BDA65122D176BD00D9B60C /* ActorService.swift in Sources */,
 				D2BDA65222D176BD00D9B60C /* RecordAttributes.swift in Sources */,
-				D2CAFBC4246B7C3900A56945 /* AccountManager.swift in Sources */,
+				D2CAFBC4246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D2BDA65422D176BD00D9B60C /* Gateway.swift in Sources */,
 				D2BDA65522D176BD00D9B60C /* UIViewController+.swift in Sources */,
 				D2BDA65622D176BD00D9B60C /* CheckoutsTableViewCell.swift in Sources */,
@@ -3166,7 +3166,7 @@
 				D2BDA6E822D2A72000D9B60C /* ActorService.swift in Sources */,
 				D2BDA6E922D2A72000D9B60C /* RecordAttributes.swift in Sources */,
 				D2BDA6EB22D2A72000D9B60C /* Gateway.swift in Sources */,
-				D2CAFBC5246B7C3900A56945 /* AccountManager.swift in Sources */,
+				D2CAFBC5246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D2BDA6EC22D2A72000D9B60C /* UIViewController+.swift in Sources */,
 				D2BDA6ED22D2A72000D9B60C /* CheckoutsTableViewCell.swift in Sources */,
 				D2BDA6EE22D2A72000D9B60C /* UIScrollView+.swift in Sources */,

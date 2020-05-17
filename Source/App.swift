@@ -50,8 +50,8 @@ class App {
     /// the valet saves things in the iOS keychain
     static let valet = Valet.valet(with: Identifier(nonEmpty: "Hemlock")!, accessibility: .whenUnlockedThisDeviceOnly)
 
-    /// the accountManager manages storage of accounts in valet
-    static let accountManager = AccountManager(valet: valet)
+    /// the credentialManager manages storage of credentials in valet
+    static let credentialManager = CredentialManager(valet: valet)
     
     /// search scopes
     static let searchScopes = ["Keyword","Title","Author","Subject","Series"]
@@ -60,14 +60,14 @@ class App {
     
     // Clear the active account and its credentials
     static func logout() {
-        accountManager.remove(username: account?.username)
+        credentialManager.removeCredential(forUsername: account?.username)
         account?.clear()
         unloadIDL()
     }
     
     // Clear the active account and switch credentials
-    static func switchCredentials(storedAccount: StoredAccount?) {
-        accountManager.setActive(account: storedAccount)
+    static func switchCredential(credential: Credential?) {
+        credentialManager.setActive(credential: credential)
         account?.clear()
         unloadIDL()
     }

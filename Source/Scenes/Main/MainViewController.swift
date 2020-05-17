@@ -81,7 +81,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func accountButtonPressed(sender: UIBarButtonItem) {
-        let haveMultipleAccounts = App.accountManager.accounts.count > 1
+        let haveMultipleAccounts = App.credentialManager.credentials.count > 1
 
         // Create an actionSheet to present the account options
 //        if haveMultipleAccounts {
@@ -92,7 +92,7 @@ class MainViewController: UIViewController {
         
         // Add an action for each stored account
         if haveMultipleAccounts {
-            for account in App.accountManager.accounts {
+            for account in App.credentialManager.credentials {
                 let action = UIAlertAction(title: account.username, style: .default) { action in
                     self.doSwitchAccount(toAccount: account)
                 }
@@ -123,13 +123,13 @@ class MainViewController: UIViewController {
         self.present(alertController, animated: true)
     }
     
-    func doSwitchAccount(toAccount storedAccount: StoredAccount) {
-        App.switchCredentials(storedAccount: storedAccount)
+    func doSwitchAccount(toAccount storedAccount: Credential) {
+        App.switchCredential(credential: storedAccount)
         self.popToLogin()
     }
     
     func doAddAccount() {
-        App.switchCredentials(storedAccount: nil)
+        App.switchCredential(credential: nil)
         self.popToLogin()
     }
     
