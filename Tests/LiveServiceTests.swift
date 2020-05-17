@@ -100,8 +100,7 @@ class LiveServiceTests: XCTestCase {
 
         let credential = Credential(username: account!.username, password: account!.password)
         let promise = AuthService.fetchAuthToken(credential: credential)
-        promise.done { str in
-            let authtoken = str
+        promise.done { authtoken in
             XCTAssertFalse(authtoken.isEmpty)
             print("authtoken: \(authtoken)")
             expectation.fulfill()
@@ -118,7 +117,7 @@ class LiveServiceTests: XCTestCase {
 
         let credential = Credential(username: "peterpan", password: "password1")
         let promise = AuthService.fetchAuthToken(credential: credential)
-        promise.done { str in
+        promise.done { authtoken in
             XCTFail("fetchAuthToken succeeded but should have failed")
             expectation.fulfill()
         }.catch { error in

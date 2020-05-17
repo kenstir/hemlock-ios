@@ -58,16 +58,10 @@ class Account {
         self.userSettingsLoaded = false
     }
 
-    func loadFromAuthResponse(_ fromObj: OSRFObject?) throws -> Void {
-        guard
-            let obj = fromObj,
-            let payload = obj.getObject("payload"),
-            let authtoken = payload.getString("authtoken") else
-        {
-           throw HemlockError.unexpectedNetworkResponse("Unexpected response to login")
-        }
-        
-        self.authtoken = authtoken
+    func loadSession(fromObject obj: OSRFObject) {
+        userID = obj.getInt("id")
+        homeOrgID = obj.getInt("home_ou")
+        dayPhone = obj.getString("day_phone")
     }
     
     // Fix stupid setting that is returned with extra quotes, e.g. Int 52 in

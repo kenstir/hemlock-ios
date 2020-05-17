@@ -116,7 +116,6 @@
 		D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D210EC1422B1EE55002FB5E0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D210EC1522B1EE55002FB5E0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D210EC1722B1EE55002FB5E0 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D210EC1822B1EE55002FB5E0 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D210EC1922B1EE55002FB5E0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -186,7 +185,6 @@
 		D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
 		D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
 		D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
-		D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
@@ -297,7 +295,6 @@
 		D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D23E9FBD23B9200A0030F5C1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D23E9FBF23B9200A0030F5C1 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D23E9FC023B9200A0030F5C1 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D23E9FC123B9200A0030F5C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -422,7 +419,6 @@
 		D276DAC321336B20007FAA31 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
 		D276DAC421336B20007FAA31 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D276DAC521336B20007FAA31 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D276DAC621336B20007FAA31 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D276DAC821336B20007FAA31 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D276DAC921336B20007FAA31 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D276DACA21336B20007FAA31 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -472,7 +468,6 @@
 		D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
 		D27990EE20DDD473003B451E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D27990EF20DDD473003B451E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D27990F020DDD473003B451E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D27990F220DDD473003B451E /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D27990F320DDD473003B451E /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -575,7 +570,6 @@
 		D284248E21D0358200C7171C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D284248F21D0358200C7171C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D284249021D0358200C7171C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D284249121D0358200C7171C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D284249321D0358200C7171C /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D284249421D0358200C7171C /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D284249521D0358200C7171C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -734,7 +728,6 @@
 		D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2BDA65D22D176BD00D9B60C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D2BDA65E22D176BD00D9B60C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D2BDA66022D176BD00D9B60C /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D2BDA66122D176BD00D9B60C /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D2BDA66222D176BD00D9B60C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -841,7 +834,6 @@
 		D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2BDA6F422D2A72000D9B60C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2BDA6F522D2A72000D9B60C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D2BDA6F622D2A72000D9B60C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02642083DE9100DC1F5B /* LoginController.swift */; };
 		D2BDA6F822D2A72000D9B60C /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D2BDA6F922D2A72000D9B60C /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D2BDA6FA22D2A72000D9B60C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
@@ -977,7 +969,6 @@
 		D229CAF42471C099006BCC07 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D22AE118221B75FC0089C196 /* AFSessionManager+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFSessionManager+.swift"; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
-		D22D02642083DE9100DC1F5B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D22D02662083E45700DC1F5B /* Corsortium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corsortium.swift; sourceTree = "<group>"; };
 		D22D02682083EA7600DC1F5B /* GatewayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayTests.swift; sourceTree = "<group>"; };
 		D22D026F2084F53E00DC1F5B /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -1455,7 +1446,6 @@
 				D270C4082091FCAA00D27159 /* IDLParser.swift */,
 				D231B52B2083C08000478D25 /* Library.swift */,
 				D20B2FEF22CE7BF500F69848 /* Link.swift */,
-				D22D02642083DE9100DC1F5B /* LoginController.swift */,
 				D20B2FE122CC309800F69848 /* MARCXMLParser.swift */,
 				D260755720E0860300795124 /* Organization.swift */,
 				D29C72132092691A00E90952 /* OSRFClass.swift */,
@@ -2519,7 +2509,6 @@
 				D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */,
 				D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */,
 				D210EC1422B1EE55002FB5E0 /* Account.swift in Sources */,
-				D210EC1522B1EE55002FB5E0 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2612,7 +2601,6 @@
 				D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */,
 				D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */,
 				D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */,
-				D23E9FBD23B9200A0030F5C1 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2704,7 +2692,6 @@
 				D276DAC421336B20007FAA31 /* SearchService.swift in Sources */,
 				D229CAF72471C099006BCC07 /* AuthService.swift in Sources */,
 				D276DAC521336B20007FAA31 /* Account.swift in Sources */,
-				D276DAC621336B20007FAA31 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2796,7 +2783,6 @@
 				D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */,
 				D229CAF82471C099006BCC07 /* AuthService.swift in Sources */,
 				D27990EF20DDD473003B451E /* Account.swift in Sources */,
-				D27990F020DDD473003B451E /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2888,7 +2874,6 @@
 				D284248F21D0358200C7171C /* SearchService.swift in Sources */,
 				D229CAF62471C099006BCC07 /* AuthService.swift in Sources */,
 				D284249021D0358200C7171C /* Account.swift in Sources */,
-				D284249121D0358200C7171C /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2981,7 +2966,6 @@
 				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
-				D22D02652083DE9100DC1F5B /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3104,7 +3088,6 @@
 				D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */,
 				D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */,
 				D2BDA65D22D176BD00D9B60C /* Account.swift in Sources */,
-				D2BDA65E22D176BD00D9B60C /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3197,7 +3180,6 @@
 				D2BDA71E22D2A87E00D9B60C /* AppFactory.swift in Sources */,
 				D2BDA71D22D2A87E00D9B60C /* NTLCTheme.swift in Sources */,
 				D2BDA6F522D2A72000D9B60C /* Account.swift in Sources */,
-				D2BDA6F622D2A72000D9B60C /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

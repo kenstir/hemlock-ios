@@ -17,6 +17,8 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+import PromiseKit
+import PMKAlamofire
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
@@ -29,7 +31,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    private var activitySemaphore = 0 // stop spinning when 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,15 +79,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func startSpinning() {
-        self.activitySemaphore += 1
         activityIndicator.startAnimating()
     }
     
     func maybeStopSpinning() {
-        self.activitySemaphore -= 1
-        if self.activitySemaphore == 0 {
-            self.activityIndicator.stopAnimating()
-        }
+        self.activityIndicator.stopAnimating()
     }
     
     func fetchIDL(completion: @escaping () -> Void) {
@@ -148,45 +145,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         {
             return
         }
-        let account = Account(username, password: password)
 
         self.startSpinning()
 
-        LoginController(for: account).login { resp in
-
-            if resp.failed {
-                self.showAlert(title: "Login failed", message: resp.errorMessage)
-                self.maybeStopSpinning()
-                return
-            }
+        let credential = Credential(username: username, password: password)
+        let account = Account(username, password: password)
+        AuthService.fetchAuthToken(credential: credential).then { (authtoken: String) -> Promise<(OSRFObject)> in
+            account.authtoken = authtoken
+            return AuthService.fetchSession(authtoken: authtoken)
+        }.done { obj in
+            account.loadSession(fromObject: obj)
+            self.saveAccountAndFinish(account: account)
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }.finally {
             self.maybeStopSpinning()
-
-            if account.authtoken != nil {
-                self.getSession(account)
-            }
         }
     }
     
-    func getSession(_ account: Account) {
-        self.startSpinning()
-        
-        LoginController.getSession(account) { resp in
-
-            if resp.failed {
-                self.showAlert(title: "Failed to initialize session", message: resp.errorMessage)
-                self.maybeStopSpinning()
-                return
-            }
-
-            self.maybeStopSpinning()
-
-            account.userID = resp.obj?.getInt("id")
-            account.homeOrgID = resp.obj?.getInt("home_ou")
-            account.dayPhone = resp.obj?.getString("day_phone")
-            App.account = account
-            App.credentialManager.add(credential: Credential(username: account.username, password: account.password))
-
-            self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
-        }
+    func saveAccountAndFinish(account: Account) {
+        App.account = account
+        App.credentialManager.add(credential: Credential(username: account.username, password: account.password))
+        self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
     }
 }
