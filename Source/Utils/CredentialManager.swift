@@ -19,6 +19,7 @@
 
 import Foundation
 import Valet
+import os.log
 
 struct Credential: Codable, Equatable {
     let username: String
@@ -71,6 +72,7 @@ class CredentialManager {
         if let data = valet.object(forKey: CredentialManager.storageKeyV1),
             let bundle = try? JSONDecoder().decode(CredentialBundleV1.self, from: data) {
             self.bundle = bundle
+            os_log("loaded %d V1 creds lastUsername %@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
             return
         }
         
@@ -83,22 +85,28 @@ class CredentialManager {
             valet.removeObject(forKey: CredentialManager.legacyUsernameKey)
             valet.removeObject(forKey: CredentialManager.legacyPasswordKey)
             self.writeToStorage()
+            os_log("loaded %d legacy creds lastUsername %@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
             return
         }
+        
+        os_log("no creds loaded")
     }
     
     func writeToStorage() {
         if let data = try? JSONEncoder().encode(bundle) {
             valet.set(object: data, forKey: CredentialManager.storageKeyV1)
+            os_log("wrote %d V1 creds lastUsername %@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
         }
     }
 
     func add(credential: Credential) {
         if let index = bundle.credentials.firstIndex(where: { $0.username == credential.username }) {
             bundle.credentials[index] = credential
+            os_log("add existing creds username %@", credential.username)
         } else {
             bundle.credentials.append(credential)
             sortCredentialsByName()
+            os_log("add new creds username %@", credential.username)
         }
         bundle.lastUsername = credential.username
         writeToStorage()
@@ -111,6 +119,7 @@ class CredentialManager {
         } else {
             bundle.lastUsername = nil
         }
+        os_log("setActive creds username %@ lastUsername %@", credential?.username ?? "", bundle.lastUsername ?? "")
     }
 
     func removeCredential(forUsername username: String?) {
@@ -119,6 +128,7 @@ class CredentialManager {
             if bundle.lastUsername == username {
                 bundle.lastUsername = bundle.credentials.first?.username
             }
+            os_log("remove creds username %@ lastUsername %@", username ?? "", bundle.lastUsername ?? "")
             writeToStorage()
         }
     }
