@@ -39,11 +39,18 @@ class AuthService {
         }
         return promise
     }
+    
+    static func fetchSession(authtoken: String) -> Promise<(OSRFObject)> {
+        let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [authtoken])
+        return req.gatewayObjectResponse()
+    }
 
+    /*
     static func makeStringPromise(_ str: String) -> Promise<(String)> {
         let promise = Promise<(String)>() { seal in
             seal.fulfill(str)
         }
         return promise
     }
+    */
 }

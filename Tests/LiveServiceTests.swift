@@ -92,42 +92,9 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 20.0)
     }
-    
-    // Test successful login using a promise chain
-    func test_gatewayPromise() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let args: [Any] = [account!.username]
-        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
-        req.gatewayResponse().then { (resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> in
-            print("resp: \(resp)")
-            guard let nonce = resp.str else {
-                throw HemlockError.unexpectedNetworkResponse("expected string")
-            }
-            let password = md5(nonce + md5((self.account?.password)!))
-            let objectParam = ["type": "opac",
-                               "username": self.account!.username,
-                               "password": password]
-            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam]).gatewayResponse()
-        }.done { (resp, pmkresp) in
-            print("resp: \(resp)")
-            try self.account?.loadFromAuthResponse(resp.obj)
-            print("here")
-            expectation.fulfill()
-        }.ensure {
-            print("no ensure today")
-        }.catch { error in
-            print("error: \(error)")
-            let desc = error.localizedDescription
-            print("desc: \(desc)")
-            XCTFail(desc)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 10.0)
-        print("ok")
-    }
-    
+
+    //MARK: - Auth tests
+
     func test_fetchAuthToken_ok() {
         let expectation = XCTestExpectation(description: "async response")
 
@@ -156,6 +123,31 @@ class LiveServiceTests: XCTestCase {
             expectation.fulfill()
         }.catch { error in
             XCTAssertEqual(error.localizedDescription, "User login failed")
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    func test_fetchSession() {
+        XCTAssertTrue(loadIDL())
+
+        let expectation = XCTestExpectation(description: "async response")
+
+        let credential = Credential(username: account!.username, password: account!.password)
+        let promise = AuthService.fetchAuthToken(credential: credential)
+        promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
+            XCTAssertFalse(authtoken.isEmpty)
+            return AuthService.fetchSession(authtoken: authtoken)
+        }.done { obj in
+            print("session obj: \(obj)")
+            let userID = obj.getInt("id")
+            XCTAssertNotNil(userID)
+            let homeOrgID = obj.getInt("home_ou")
+            XCTAssertNotNil(homeOrgID)
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
             expectation.fulfill()
         }
         
