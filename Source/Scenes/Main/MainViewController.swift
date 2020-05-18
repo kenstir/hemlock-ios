@@ -96,10 +96,12 @@ class MainViewController: UIViewController {
                 let action = UIAlertAction(title: account.username, style: .default) { action in
                     self.doSwitchAccount(toAccount: account)
                 }
+                var imageName = "Account"
                 if account.username == App.account?.username {
                     action.isEnabled = false
+                    imageName = "Account with Checkmark"
                 }
-                if let icon = UIImage(named: "Account") {
+                if let icon = UIImage(named: imageName) {
                     action.setValue(icon, forKey: "image")
                 }
                 alertController.addAction(action)
