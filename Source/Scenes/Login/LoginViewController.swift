@@ -20,6 +20,7 @@
 import PromiseKit
 import PMKAlamofire
 import UIKit
+import os.log
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -32,31 +33,49 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var initWithCredential: Credential? = nil
+    var didCompleteFetch = false
+    
+    /// prevent LoginVC from attempting auto-login as it is being destructed during account switching
+    var alreadyLoggedIn = false
+
     override func viewDidLoad() {
+        os_log("login creds:%x:%d: VC viewDidLoad", self, didCompleteFetch)
         super.viewDidLoad()
         setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        os_log("login creds:%x:%d: VC viewWillAppear", self, didCompleteFetch)
         super.viewWillAppear(animated)
+
         self.fetchData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        os_log("login creds:%x:%d: VC viewDidAppear", self, didCompleteFetch)
         super.viewDidAppear(animated)
         
         // auto login
-        if App.credentialManager.lastAccount != nil {
+        if let credential = Utils.coalesce(initWithCredential, App.credentialManager.lastAccount) {
+            usernameField.text = credential.username
+            passwordField.text = credential.password
             doLogin()
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        os_log("login creds:%x:%d: VC viewWillDisappear", self, didCompleteFetch)
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        os_log("login creds:%x:%d: VC viewDidDisappear", self, didCompleteFetch)
+        super.viewDidDisappear(animated)
+    }
 
     func setupViews() {
-        // restore last credentials used
-        if let lastAccount = App.credentialManager.lastAccount {
-            usernameField.text = lastAccount.username
-            passwordField.text = lastAccount.password
-        }
+        os_log("login creds:%x:%d: VC setupViews", self, didCompleteFetch)
 
         // handle Return in the text fields
         usernameField.delegate = self
@@ -75,6 +94,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func fetchData() {
         fetchIDL() {
             self.loginButton.isEnabled = true
+            self.didCompleteFetch = true
         }
     }
     
@@ -137,6 +157,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doLogin() {
+        if alreadyLoggedIn {
+            return
+        }
         guard
             usernameField.hasText,
             passwordField.hasText,
@@ -145,6 +168,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         {
             return
         }
+        os_log("login creds:%x:%d: VC doLogin username=%@", self, didCompleteFetch, username)
 
         self.startSpinning()
 
@@ -164,6 +188,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func saveAccountAndFinish(account: Account) {
+        alreadyLoggedIn = true
         App.account = account
         App.credentialManager.add(credential: Credential(username: account.username, password: account.password))
         self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)

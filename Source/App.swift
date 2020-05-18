@@ -69,7 +69,7 @@ class App {
     static func switchCredential(credential: Credential?) {
         credentialManager.setActive(credential: credential)
         account?.clear()
-        unloadIDL()
+        //unloadIDL()  // I do not see why we would want to do this here
     }
     
     static func unloadIDL() {

@@ -100,13 +100,14 @@ class CredentialManager {
     }
 
     func add(credential: Credential) {
+        os_log("add creds: %@", credential.username)
         if let index = bundle.credentials.firstIndex(where: { $0.username == credential.username }) {
             bundle.credentials[index] = credential
-            os_log("add existing creds username %@", credential.username)
+            os_log("add creds: %@ was already there", credential.username)
         } else {
             bundle.credentials.append(credential)
             sortCredentialsByName()
-            os_log("add new creds username %@", credential.username)
+            os_log("add creds: %@ is new", credential.username)
         }
         bundle.lastUsername = credential.username
         writeToStorage()
@@ -119,7 +120,7 @@ class CredentialManager {
         } else {
             bundle.lastUsername = nil
         }
-        os_log("setActive creds username %@ lastUsername %@", credential?.username ?? "", bundle.lastUsername ?? "")
+        os_log("set creds: %@ lastUsername now %@", credential?.username ?? "", bundle.lastUsername ?? "")
     }
 
     func removeCredential(forUsername username: String?) {
@@ -128,7 +129,7 @@ class CredentialManager {
             if bundle.lastUsername == username {
                 bundle.lastUsername = bundle.credentials.first?.username
             }
-            os_log("remove creds username %@ lastUsername %@", username ?? "", bundle.lastUsername ?? "")
+            os_log("rm creds:  %@ lastUsername now %@", username ?? "", bundle.lastUsername ?? "")
             writeToStorage()
         }
     }
