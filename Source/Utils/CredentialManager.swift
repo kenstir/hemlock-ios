@@ -57,7 +57,7 @@ class CredentialManager {
     var credentials: [Credential] {
         return bundle.credentials
     }
-    var lastAccount: Credential? {
+    var lastUsedCredential: Credential? {
         return bundle.credentials.first(where: { $0.username == bundle.lastUsername })
     }
     
@@ -80,8 +80,8 @@ class CredentialManager {
         if let username = valet.string(forKey: CredentialManager.legacyUsernameKey),
             let password = valet.string(forKey: CredentialManager.legacyPasswordKey)
         {
-            let account = Credential(username: username, password: password)
-            self.bundle = CredentialBundleV1(lastUsername: username, credentials: [account])
+            let credential = Credential(username: username, password: password)
+            self.bundle = CredentialBundleV1(lastUsername: username, credentials: [credential])
             valet.removeObject(forKey: CredentialManager.legacyUsernameKey)
             valet.removeObject(forKey: CredentialManager.legacyPasswordKey)
             self.writeToStorage()

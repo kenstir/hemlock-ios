@@ -32,9 +32,9 @@ class CredentialManagerTests: XCTestCase {
     }
 
     func test_load_empty() {
-        let am = CredentialManager(valet: valet)
-        XCTAssertNil(am.lastAccount)
-        XCTAssertEqual(am.credentials.count, 0)
+        let cm = CredentialManager(valet: valet)
+        XCTAssertNil(cm.lastUsedCredential)
+        XCTAssertEqual(cm.credentials.count, 0)
     }
     
     func test_load_oneAccount() {
@@ -49,11 +49,11 @@ class CredentialManagerTests: XCTestCase {
         let data = str.data(using: .utf8)!
         valet.set(object: data, forKey: CredentialManager.storageKeyV1)
         
-        let am = CredentialManager(valet: valet)
-        XCTAssertEqual(am.lastAccount, Credential(username: "alice", password: "*"))
-        XCTAssertEqual(am.credentials.count, 1)
-        XCTAssertEqual(am.credentials.first?.username, "alice")
-        XCTAssertEqual(am.credentials.first?.password, "*")
+        let cm = CredentialManager(valet: valet)
+        XCTAssertEqual(cm.lastUsedCredential, Credential(username: "alice", password: "*"))
+        XCTAssertEqual(cm.credentials.count, 1)
+        XCTAssertEqual(cm.credentials.first?.username, "alice")
+        XCTAssertEqual(cm.credentials.first?.password, "*")
     }
     
     func test_load_multipleAccounts() {
@@ -74,21 +74,21 @@ class CredentialManagerTests: XCTestCase {
         }
         valet.set(object: data, forKey: CredentialManager.storageKeyV1)
         
-        let am = CredentialManager(valet: valet)
-        XCTAssertEqual(am.lastAccount, Credential(username: "bob", password: "*b"))
-        XCTAssertEqual(am.credentials.count, 3)
-        XCTAssertEqual(am.credentials[0], Credential(username: "alice", password: "*a"))
-        XCTAssertEqual(am.credentials[1], Credential(username: "bob", password: "*b"))
-        XCTAssertEqual(am.credentials[2], Credential(username: "charlie", password: "*c"))
+        let cm = CredentialManager(valet: valet)
+        XCTAssertEqual(cm.lastUsedCredential, Credential(username: "bob", password: "*b"))
+        XCTAssertEqual(cm.credentials.count, 3)
+        XCTAssertEqual(cm.credentials[0], Credential(username: "alice", password: "*a"))
+        XCTAssertEqual(cm.credentials[1], Credential(username: "bob", password: "*b"))
+        XCTAssertEqual(cm.credentials[2], Credential(username: "charlie", password: "*c"))
     }
         
     func test_loadLegacyAccount() {
         valet.set(string: alice.username, forKey: CredentialManager.legacyUsernameKey)
         valet.set(string: alice.password, forKey: CredentialManager.legacyPasswordKey)
         
-        let am = CredentialManager(valet: valet)
-        XCTAssertEqual(am.credentials.count, 1)
-        XCTAssertEqual(am.credentials.first, alice)
+        let cm = CredentialManager(valet: valet)
+        XCTAssertEqual(cm.credentials.count, 1)
+        XCTAssertEqual(cm.credentials.first, alice)
         XCTAssertFalse(valet.containsObject(forKey: CredentialManager.legacyUsernameKey))
         XCTAssertFalse(valet.containsObject(forKey: CredentialManager.legacyPasswordKey))
         XCTAssertTrue(valet.containsObject(forKey: CredentialManager.storageKeyV1))
@@ -97,36 +97,36 @@ class CredentialManagerTests: XCTestCase {
     // Test that adding and removing works; construce CredentialManager multiple
     // times to test that state is properly saved to storage
     func test_addAndRemove() {
-        var am: CredentialManager
+        var cm: CredentialManager
             
         // add bob
-        am = CredentialManager(valet: valet)
-        am.add(credential: bob)
-        XCTAssertEqual(am.credentials.count, 1)
-        XCTAssertEqual(am.credentials.first, bob)
-        XCTAssertEqual(am.lastAccount, bob)
+        cm = CredentialManager(valet: valet)
+        cm.add(credential: bob)
+        XCTAssertEqual(cm.credentials.count, 1)
+        XCTAssertEqual(cm.credentials.first, bob)
+        XCTAssertEqual(cm.lastUsedCredential, bob)
 
         // test restored state then add alice
-        am = CredentialManager(valet: valet)
-        XCTAssertEqual(am.credentials.count, 1)
-        XCTAssertEqual(am.credentials.first, bob)
-        XCTAssertEqual(am.lastAccount, bob)
-        am.add(credential: alice)
-        XCTAssertEqual(am.lastAccount, alice)
+        cm = CredentialManager(valet: valet)
+        XCTAssertEqual(cm.credentials.count, 1)
+        XCTAssertEqual(cm.credentials.first, bob)
+        XCTAssertEqual(cm.lastUsedCredential, bob)
+        cm.add(credential: alice)
+        XCTAssertEqual(cm.lastUsedCredential, alice)
 
         // test restored state then remove alice
-        am = CredentialManager(valet: valet)
-        XCTAssertEqual(am.credentials.count, 2)
-        XCTAssertEqual(am.credentials.first, alice)
-        am.removeCredential(forUsername: alice.username)
-        XCTAssertEqual(am.lastAccount, bob)
+        cm = CredentialManager(valet: valet)
+        XCTAssertEqual(cm.credentials.count, 2)
+        XCTAssertEqual(cm.credentials.first, alice)
+        cm.removeCredential(forUsername: alice.username)
+        XCTAssertEqual(cm.lastUsedCredential, bob)
 
         // test restored state then remove bob
-        am = CredentialManager(valet: valet)
-        XCTAssertEqual(am.credentials.count, 1)
-        XCTAssertEqual(am.credentials.first, bob)
-        am.removeCredential(forUsername: bob.username)
-        XCTAssertEqual(am.credentials.count, 0)
-        XCTAssertNil(am.lastAccount)
+        cm = CredentialManager(valet: valet)
+        XCTAssertEqual(cm.credentials.count, 1)
+        XCTAssertEqual(cm.credentials.first, bob)
+        cm.removeCredential(forUsername: bob.username)
+        XCTAssertEqual(cm.credentials.count, 0)
+        XCTAssertNil(cm.lastUsedCredential)
     }
 }

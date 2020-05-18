@@ -57,7 +57,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         
         // auto login
-        if let credential = Utils.coalesce(initWithCredential, App.credentialManager.lastAccount) {
+        if let credential = Utils.coalesce(initWithCredential, App.credentialManager.lastUsedCredential) {
             usernameField.text = credential.username
             passwordField.text = credential.password
             doLogin()
