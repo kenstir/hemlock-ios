@@ -1110,7 +1110,7 @@
 		D23E9FF223B932DF0030F5C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		D2477C2B24785A6B00FD4CF6 /* Indiana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Indiana.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2477C2B24785A6B00FD4CF6 /* Evergreen Indiana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Evergreen Indiana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2477C2C24785A6C00FD4CF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2477C2F24786CCE00FD4CF6 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D2477C3024786CCF00FD4CF6 /* IndianaTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndianaTheme.swift; sourceTree = "<group>"; };
@@ -1740,7 +1740,7 @@
 				D2BDA67F22D176BD00D9B60C /* NOBLE.app */,
 				D2BDA71722D2A72000D9B60C /* NTLC.app */,
 				D23E9FDD23B9200A0030F5C1 /* SageCat.app */,
-				D2477C2B24785A6B00FD4CF6 /* Indiana.app */,
+				D2477C2B24785A6B00FD4CF6 /* Evergreen Indiana.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1946,7 +1946,7 @@
 			);
 			name = Indiana;
 			productName = Hemlock;
-			productReference = D2477C2B24785A6B00FD4CF6 /* Indiana.app */;
+			productReference = D2477C2B24785A6B00FD4CF6 /* Evergreen Indiana.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D276DA8321336B20007FAA31 /* cwmars */ = {
@@ -3671,7 +3671,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.indiana;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Evergreen Indiana";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -3699,7 +3699,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.indiana;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Evergreen Indiana";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
