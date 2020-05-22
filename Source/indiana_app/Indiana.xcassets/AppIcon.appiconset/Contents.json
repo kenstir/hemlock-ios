@@ -33,13 +33,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "sage_leaves_120.png",
+      "filename" : "egin_120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "sage_leaves_180.png",
+      "filename" : "egin_180.png",
       "scale" : "3x"
     },
     {
@@ -80,19 +80,19 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "sage_leaves_152.png",
+      "filename" : "egin_152.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "sage_leaves_167.png",
+      "filename" : "egin_167.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "sage_leaves_1024.png",
+      "filename" : "egin_1024.png",
       "scale" : "1x"
     }
   ],
