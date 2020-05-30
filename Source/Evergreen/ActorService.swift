@@ -97,6 +97,18 @@ class ActorService {
         return promise
     }
 
+    static func makeEmptyPromise() -> Promise<(OSRFObject?)> {
+        let emptyPromise = Promise<(OSRFObject?)>() { seal in
+            seal.fulfill(nil)
+        }
+        return emptyPromise
+    }
+
+    static func fetchOrgUnitHours(authtoken: String, forOrgID orgID: Int) -> Promise<(OSRFObject?)> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID])
+        return req.gatewayOptionalObjectResponse()
+    }
+
     static func fetchUserSettings(account: Account) -> Promise<Void> {
         if account.userSettingsLoaded {
             return Promise<Void>()

@@ -24,7 +24,7 @@ struct API {
     //MARK: - misc
 
     static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some requests
-    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aouhoo,aout,au,aua,auact,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
@@ -35,6 +35,7 @@ struct API {
     static let orgTypesRetrieve = "open-ils.actor.org_types.retrieve"
     static let orgUnitSetting = "open-ils.actor.ou_setting.ancestor_default"
     static let orgUnitSettingBatch = "open-ils.actor.ou_setting.ancestor_default.batch"
+    static let orgUnitHoursOfOperationRetrieve = "open-ils.actor.org_unit.hours_of_operation.retrieve"
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let settingCreditPaymentsAllow = "credit.payments.allow"

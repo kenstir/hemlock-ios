@@ -342,6 +342,8 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
+    //MARK: - misc API
+    
     func test_retrieveBRE() {
         XCTAssertTrue(loadIDL())
 
@@ -365,7 +367,29 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 20.0)
     }
+    
+    func test_hoursOfOperation() {
+        XCTAssertTrue(loadIDL())
 
+        let expectation = XCTestExpectation(description: "async response")
+
+        let credential = Credential(username: account!.username, password: account!.password)
+        let promise = AuthService.fetchAuthToken(credential: credential)
+        promise.then { (authtoken: String) -> Promise<(OSRFObject?)> in
+            XCTAssertFalse(authtoken.isEmpty)
+            self.authtoken = authtoken
+            return ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: self.homeOrgID)
+        }.done { obj in
+            print("xxxxx obj: \(obj)")
+            XCTAssertNotNil(obj)
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 20.0)
+    }
 
     //MARK: - actorCheckedOut
     
