@@ -106,6 +106,13 @@ struct GatewayResponse {
         }
         self.init(data)
     }
+    
+    static func errorMessage(forInvalidJSON str: String) -> String {
+        if str.contains("canceling statement due to user request") {
+            return "Timeout; the request took too long to complete and the server killed it"
+        }
+        return "Internal Server Error; the server response is not JSON"
+    }
 
     init(_ data: Data) {
         self.init()
@@ -114,17 +121,18 @@ struct GatewayResponse {
         Analytics.logResponse(wire_str)
         guard let json = decodeJSON(data) else {
             os_log("resp.json: decode_error", log: Gateway.log, type: .info)
-            error = .failure("Response not JSON")
+            let errorMessage = GatewayResponse.errorMessage(forInvalidJSON: wire_str)
+            error = .failure(errorMessage)
             return
         }
         os_log("resp.json: %@", log: Gateway.log, type: .info, json)
 
         guard let status = json["status"] as? Int else {
-            error = .failure("Response missing status")
+            error = .failure("Internal Server Error; the server response has no status")
             return
         }
         if status != 200 {
-            error = .failure("Response status \(status)")
+            error = .failure("Request failed with status \(status)")
             return
         }
 
@@ -132,7 +140,7 @@ struct GatewayResponse {
         // usually an array of one json object,
         // but in the cases of authInit it is an array of one string
         guard let payload = json["payload"] as? [Any] else {
-            error = .failure("Response missing payload")
+            error = .failure("Internal Server Error; response has payload")
             return
         }
         self.payload = payload
