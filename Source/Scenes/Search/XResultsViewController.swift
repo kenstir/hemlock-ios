@@ -122,12 +122,13 @@ class XResultsViewController: ASViewController<ASTableNode> {
         // search
         let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1])
-        req.gatewayObjectResponse().done { obj in
+        req.gatewayOptionalObjectResponse().done { obj in
             let records = MBRecord.makeArray(fromQueryResponse: obj)
             self.fetchRecordMVRs(authtoken: authtoken, records: records)
             return
         }.catch { error in
             self.activityIndicator.stopAnimating()
+            self.updateTableSectionHeader(onError: error)
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -151,8 +152,14 @@ class XResultsViewController: ASViewController<ASTableNode> {
             self.updateItems(withRecords: records)
         }.catch { error in
             self.activityIndicator.stopAnimating()
+            self.updateTableSectionHeader(onError: error)
             self.presentGatewayAlert(forError: error)
         }
+    }
+    
+    // Force update of status string in table section header
+    func updateTableSectionHeader(onError error: Error) {
+        tableNode.reloadData()
     }
 
     func updateItems(withRecords records: [MBRecord]) {
@@ -200,7 +207,7 @@ extension XResultsViewController: ASTableDataSource {
     //    }
 
     func titleForHeaderInSection() -> String {
-        if !didCompleteSearch {
+        if activityIndicator?.isAnimating ?? false {
             return "Searching..."
         } else if items.count == 0 {
             return "No results"

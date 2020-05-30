@@ -68,12 +68,13 @@ class MBRecord {
     //   [[32673,null,"0.0"],[886843,null,"0.0"]]      // integer id,?,?
     //   [["503610",null,"0.0"],["502717",null,"0.0"]] // string id,?,?
     //   [["1805532"],["2385399"]]                     // string id only
-    static func makeArray(fromQueryResponse obj: OSRFObject) -> [MBRecord] {
+    static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord] {
         var records: [MBRecord] = []
         
         // early exit if there are no results
-        let count = obj.getInt("count")
-        if count == 0 {
+        guard let obj = theobj,
+            let count = obj.getInt("count"),
+            count > 0 else {
             return records
         }
         
