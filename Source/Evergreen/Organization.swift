@@ -82,6 +82,7 @@ class Organization {
     var areSettingsLoaded = false
     var isPickupLocationSetting: Bool?
     var isPaymentAllowedSetting: Bool?
+    var infoURL: String?
     var isPickupLocation: Bool {
         if let val = isPickupLocationSetting {
             return val
@@ -112,7 +113,8 @@ class Organization {
         self.opacVisible = opacVisible
     }
     
-    static func parseBoolSetting(_ obj: OSRFObject, _ setting: String) -> Bool? {
+    // An org unit setting (ous) is an OSRFObject with "org" and "value" fields
+    static func ousGetBool(_ obj: OSRFObject, _ setting: String) -> Bool? {
         if let valueObj = obj.getObject(setting),
             let value = valueObj.getBool("value")
         {
@@ -121,14 +123,26 @@ class Organization {
         return nil
     }
     
+    static func ousGetString(_ obj: OSRFObject, _ setting: String) -> String? {
+        if let valueObj = obj.getObject(setting),
+            let value = valueObj.getString("value")
+        {
+            return value
+        }
+        return nil
+    }
+    
     func loadSettings(fromObj obj: OSRFObject)  {
-        if let val = Organization.parseBoolSetting(obj, API.settingCreditPaymentsAllow) {
+        if let val = Organization.ousGetBool(obj, API.settingCreditPaymentsAllow) {
             self.isPaymentAllowedSetting = val
         }
-        if let val = Organization.parseBoolSetting(obj, API.settingNotPickupLib) {
+        if let val = Organization.ousGetBool(obj, API.settingNotPickupLib) {
             self.isPickupLocationSetting = !val
         }
-        if let val = Organization.parseBoolSetting(obj, API.settingSMSEnable) {
+        if let val = Organization.ousGetString(obj, API.settingInfoURL) {
+            self.infoURL = val
+        }
+        if let val = Organization.ousGetBool(obj, API.settingSMSEnable) {
             // this setting is only queried on the top-level org
             Organization.isSMSEnabledSetting = val
         }

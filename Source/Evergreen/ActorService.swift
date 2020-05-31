@@ -70,8 +70,11 @@ class ActorService {
                     continue
                 }
             }
-//            debugPrint("xyzzy: org.areSettingsLoaded = \(org.areSettingsLoaded)")
-            var settings = [API.settingNotPickupLib, API.settingCreditPaymentsAllow]
+            var settings = [
+                API.settingNotPickupLib,
+                API.settingCreditPaymentsAllow,
+                API.settingInfoURL
+            ]
             if org.parent == nil {
                 settings.append(API.settingSMSEnable)
             }

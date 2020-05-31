@@ -39,6 +39,7 @@ struct API {
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let settingCreditPaymentsAllow = "credit.payments.allow"
+    static let settingInfoURL = "lib.info_url"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"
     static let userFleshedRetrieve = "open-ils.actor.user.fleshed.retrieve"
     static let userSettingHoldNotify = "opac.hold_notify" // e.g. "email|sms"
