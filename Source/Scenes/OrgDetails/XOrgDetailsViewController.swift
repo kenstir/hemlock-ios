@@ -82,9 +82,10 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
     //MARK: - setup
     
     func setupNodes() {
-        Style.setupTitle(orgHeading, str: org?.name ?? "Unknown")
-        Style.setupSubtitle(hoursSubheading, str: "Opening Hours")
+        org = Organization.find(byId: App.account?.homeOrgID)
         
+        setupTitle()
+        Style.setupSubtitle(hoursSubheading, str: "Opening Hours")
         setupChooserRow()
         
         // See Footnote #1 - handling the keyboard
@@ -99,12 +100,13 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
     }
     
     func enableNodesWhenReady() {
-//        pickupNode.textField?.isEnabled = didCompleteFetch
-//        phoneNode.textField?.isEnabled = isOn(phoneSwitch)
-//        smsNode.textField?.isEnabled = isOn(smsSwitch)
-//        carrierNode.textField?.isEnabled = didCompleteFetch
-//        placeHoldButton.isEnabled = didCompleteFetch
-//        placeHoldButton.setNeedsDisplay()
+        orgChooser.textField?.delegate = self
+        orgChooser.textField?.isEnabled = didCompleteFetch
+        orgChooser.textField?.isUserInteractionEnabled = didCompleteFetch
+    }
+    
+    func setupTitle() {
+        Style.setupTitle(orgHeading, str: org?.name ?? "", ofSize: 20)
     }
 
     func setupChooserRow() {
@@ -150,7 +152,7 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 4
         pageSpec.alignItems = .stretch
-        pageSpec.children = [headingSpec, orgChooserRowSpec]
+        pageSpec.children = [orgChooserRowSpec, headingSpec]
 
         // inset entire page
         let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 4), child: pageSpec)
@@ -162,12 +164,11 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
     
     func fetchData() {
         guard !didCompleteFetch else { return }
-        guard let account = App.account else { return }
+        //guard let account = App.account else { return }
 
         self.startOfFetch = Date()
 
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchUserSettings(account: account))
         promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTreeAndSettings())
         print("xxx \(promises.count) promises made")
@@ -219,8 +220,7 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
         
         selectedOrgName = orgLabels[selectOrgIndex].trim()
         self.org = Organization.find(byName: selectedOrgName)
-
-        orgChooser.textField?.isUserInteractionEnabled = true
+        setupTitle()
     }
 
     //TODO: if used, factor out and share

@@ -727,6 +727,24 @@
 		D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppFactory.swift */; };
 		D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CWMarsTheme.swift */; };
 		D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D296EE0F213381FE009BDB12 /* Default-568h@2x.png */; };
+		D29911DA248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DC248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DD248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DE248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DF248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911E0248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911E1248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911E2248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E5248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911EA248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
 		D29A3B2A2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
 		D29A3B2B2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
 		D29A3B2C2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
@@ -1189,6 +1207,8 @@
 		D296EE0A2133802F009BDB12 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
 		D296EE0F213381FE009BDB12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D29911D9248461C0007DB26C /* OrgDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrgDetails.storyboard; sourceTree = "<group>"; };
+		D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsViewController.swift; sourceTree = "<group>"; };
 		D29A3B292197C14900BBF192 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
 		D29C720D209245E200E90952 /* TestUserData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUserData; sourceTree = SOURCE_ROOT; };
 		D29C720F209248F500E90952 /* OSRFCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoder.swift; sourceTree = "<group>"; };
@@ -1452,6 +1472,8 @@
 		D211DBAA24840F9000E0992C /* OrgDetails */ = {
 			isa = PBXGroup;
 			children = (
+				D29911D9248461C0007DB26C /* OrgDetails.storyboard */,
+				D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */,
 				D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */,
 			);
 			path = OrgDetails;
@@ -2167,6 +2189,7 @@
 				D210EC2A22B1EE55002FB5E0 /* Documentation in Resources */,
 				D210EC2B22B1EE55002FB5E0 /* ShowCard.storyboard in Resources */,
 				D210EC2C22B1EE55002FB5E0 /* Options.storyboard in Resources */,
+				D29911DA248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D210EC2D22B1EE55002FB5E0 /* Default-568h@2x.png in Resources */,
 				D210EC2E22B1EE55002FB5E0 /* Fines.storyboard in Resources */,
 				D210EC2F22B1EE55002FB5E0 /* SendEmail.storyboard in Resources */,
@@ -2189,6 +2212,7 @@
 				D23E9FD023B9200A0030F5C1 /* Documentation in Resources */,
 				D23E9FD123B9200A0030F5C1 /* ShowCard.storyboard in Resources */,
 				D23E9FD223B9200A0030F5C1 /* Options.storyboard in Resources */,
+				D29911E2248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D23E9FD423B9200A0030F5C1 /* Default-568h@2x.png in Resources */,
 				D23E9FD523B9200A0030F5C1 /* Fines.storyboard in Resources */,
 				D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */,
@@ -2211,6 +2235,7 @@
 				D2477C2024785A6B00FD4CF6 /* ShowCard.storyboard in Resources */,
 				D2477C3824786EC000FD4CF6 /* Indiana.xcassets in Resources */,
 				D2477C2124785A6B00FD4CF6 /* Options.storyboard in Resources */,
+				D29911DE248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2477C2224785A6B00FD4CF6 /* Default-568h@2x.png in Resources */,
 				D2477C2324785A6B00FD4CF6 /* Fines.storyboard in Resources */,
 				D2477C2424785A6B00FD4CF6 /* SendEmail.storyboard in Resources */,
@@ -2231,6 +2256,7 @@
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
 				D276DAD821336B20007FAA31 /* Search.storyboard in Resources */,
 				D276DADA21336B20007FAA31 /* Documentation in Resources */,
+				D29911DC248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D27DF20521AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				D2616764220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D2096E17244BACD800627FF5 /* cwmars-pro.xcassets in Resources */,
@@ -2259,6 +2285,7 @@
 				D279910220DDD473003B451E /* Documentation in Resources */,
 				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
 				D279910420DDD473003B451E /* Lists.storyboard in Resources */,
+				D29911DD248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D279910520DDD473003B451E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2277,6 +2304,7 @@
 				D28424A621D0358200C7171C /* Documentation in Resources */,
 				D28424A721D0358200C7171C /* ShowCard.storyboard in Resources */,
 				D2616765220BA1AF0071E1A5 /* Options.storyboard in Resources */,
+				D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D28424A821D0358200C7171C /* Default-568h@2x.png in Resources */,
 				D28424A921D0358200C7171C /* Fines.storyboard in Resources */,
 				D22D0C962243104600DBB31A /* SendEmail.storyboard in Resources */,
@@ -2302,6 +2330,7 @@
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
 				FACD142420CDBED6008F02D3 /* Lists.storyboard in Resources */,
+				D29911E1248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2329,6 +2358,7 @@
 				D2BDA67422D176BD00D9B60C /* ShowCard.storyboard in Resources */,
 				D2BDA67522D176BD00D9B60C /* Options.storyboard in Resources */,
 				D2BDA69722D17A8400D9B60C /* noble.xcassets in Resources */,
+				D29911DF248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2BDA67622D176BD00D9B60C /* Default-568h@2x.png in Resources */,
 				D2BDA67722D176BD00D9B60C /* Fines.storyboard in Resources */,
 				D2BDA67822D176BD00D9B60C /* SendEmail.storyboard in Resources */,
@@ -2351,6 +2381,7 @@
 				D2BDA70B22D2A72000D9B60C /* ShowCard.storyboard in Resources */,
 				D2BDA70C22D2A72000D9B60C /* Options.storyboard in Resources */,
 				D29E874B22D2AFE7003C5467 /* ntlc.xcassets in Resources */,
+				D29911E0248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2BDA70E22D2A72000D9B60C /* Default-568h@2x.png in Resources */,
 				D2BDA70F22D2A72000D9B60C /* Fines.storyboard in Resources */,
 				D2BDA71022D2A72000D9B60C /* SendEmail.storyboard in Resources */,
@@ -2748,6 +2779,7 @@
 				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainViewController.swift in Sources */,
+				D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D210EC1122B1EE55002FB5E0 /* CopyCounts.swift in Sources */,
 				D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */,
 				D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */,
@@ -2841,6 +2873,7 @@
 				D2A73B26246CB54000874620 /* JSONUtils.swift in Sources */,
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainViewController.swift in Sources */,
+				D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D23E9FB723B9200A0030F5C1 /* CopyCounts.swift in Sources */,
 				D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */,
 				D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */,
@@ -2934,6 +2967,7 @@
 				D2477C0524785A6B00FD4CF6 /* JSONUtils.swift in Sources */,
 				D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */,
 				D2477C0724785A6B00FD4CF6 /* MainViewController.swift in Sources */,
+				D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2477C0824785A6B00FD4CF6 /* CopyCounts.swift in Sources */,
 				D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */,
 				D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */,
@@ -2969,6 +3003,7 @@
 				D276DA9421336B20007FAA31 /* String+.swift in Sources */,
 				D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */,
 				D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */,
+				D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D276DA9721336B20007FAA31 /* API.swift in Sources */,
 				D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */,
 				D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */,
@@ -3061,6 +3096,7 @@
 				D2C24A30210171290028180B /* PCRUDService.swift in Sources */,
 				D226B60A20ED519E00CA5B79 /* String+.swift in Sources */,
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
+				D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
@@ -3153,6 +3189,7 @@
 				D284245921D0358200C7171C /* PCRUDService.swift in Sources */,
 				D284245A21D0358200C7171C /* String+.swift in Sources */,
 				D284245B21D0358200C7171C /* AppConfiguration.swift in Sources */,
+				D29911E5248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D284245C21D0358200C7171C /* FinesViewController.swift in Sources */,
 				D284245D21D0358200C7171C /* API.swift in Sources */,
 				D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */,
@@ -3303,6 +3340,7 @@
 				D2A73B25246CB54000874620 /* JSONUtils.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
+				D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */,
 				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
@@ -3426,6 +3464,7 @@
 				D2A73B23246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainViewController.swift in Sources */,
+				D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA65A22D176BD00D9B60C /* CopyCounts.swift in Sources */,
 				D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */,
 				D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */,
@@ -3519,6 +3558,7 @@
 				D2A73B24246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BDA6F222D2A72000D9B60C /* CopyCounts.swift in Sources */,
 				D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */,
+				D29911EA248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA6F422D2A72000D9B60C /* SearchService.swift in Sources */,
 				D2BDA71E22D2A87E00D9B60C /* AppFactory.swift in Sources */,
 				D2BDA71D22D2A87E00D9B60C /* NTLCTheme.swift in Sources */,

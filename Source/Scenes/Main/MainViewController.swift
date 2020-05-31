@@ -56,7 +56,8 @@ class MainViewController: UIViewController {
             ("Items Checked Out", "ShowCheckoutsSegue", nil),
             ("Holds", "ShowHoldsSegue", nil),
             ("Fines", "ShowFinesSegue", nil),
-            ("Library Info", "", { XOrgDetailsViewController() }),
+            //("Library Info", "", { XOrgDetailsViewController() }),
+            ("Library Info", "ShowOrgDetailsSegue", nil),
         ]
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
