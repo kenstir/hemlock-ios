@@ -380,8 +380,11 @@ class LiveServiceTests: XCTestCase {
             self.authtoken = authtoken
             return ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: self.homeOrgID)
         }.done { obj in
-            print("xxxxx obj: \(obj)")
             XCTAssertNotNil(obj)
+            let mondayOpen = obj?.getString("dow_0_open")
+            XCTAssertEqual(mondayOpen?.isEmpty, false)
+            let sundayClose = obj?.getString("dow_6_close")
+            XCTAssertEqual(sundayClose?.isEmpty, false)
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)
