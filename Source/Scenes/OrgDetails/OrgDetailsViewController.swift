@@ -28,6 +28,8 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     weak var activityIndicator: UIActivityIndicatorView!
+    
+    var org: Organization? = nil
 
     var orgLabels: [String] = []
     var didCompleteFetch = false
@@ -69,6 +71,9 @@ class OrgDetailsViewController: UIViewController {
     }
     
     func setupViews() {
+        tableView.dataSource = self
+        tableView.delegate = self
+
         setupActivityIndicator()
         self.setupHomeButton()
     }
@@ -90,9 +95,12 @@ extension OrgDetailsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         let cell = tableView.dequeueReusableCell(withIdentifier: "orgChooserCell", for: indexPath)
-        cell.textLabel?.text = "Location"
-        //cell.detailTextLabel?.text = ""
+        //cell.textLabel?.text = "Location"
+        //cell.detailTextLabel?.text = org?.name
+        cell.textLabel?.text = org?.name ?? "Athens-Clarke County Library"
+        cell.detailTextLabel?.text = "details, details"
         return cell
     }
 }

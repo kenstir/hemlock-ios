@@ -75,9 +75,11 @@ class Organization {
     let level: Int
     let name: String
     let shortname: String
-    let parent: Int?
     let ouType: Int
     let opacVisible: Bool
+    let parent: Int?
+    let email: String?
+    let phoneNumber: String?
 
     var areSettingsLoaded = false
     var isPickupLocationSetting: Bool?
@@ -103,14 +105,19 @@ class Organization {
         }
     }
 
-    init(id: Int, level: Int, name: String, shortname: String, parent: Int?, ouType: Int, opacVisible: Bool) {
+    init(id: Int, level: Int, name: String, shortname: String, ouType: Int, opacVisible: Bool, aouObj obj: OSRFObject) {
+        // required fields are direct params
         self.id = id
         self.level = level
         self.name = name
         self.shortname = shortname
-        self.parent = parent
         self.ouType = ouType
         self.opacVisible = opacVisible
+        
+        // optional fields are read from the aou obj
+        self.parent = obj.getInt("parent_ou")
+        self.email = obj.getString("email")
+        self.phoneNumber = obj.getString("phone")
     }
     
     // An org unit setting (ous) is an OSRFObject with "org" and "value" fields
@@ -233,17 +240,16 @@ class Organization {
     }
 
     static func addOrganization(_ obj: OSRFObject, level: Int) throws -> Void {
-        let parent = obj.getInt("parent_ou")
         guard let id = obj.getInt("id"),
             let name = obj.getString("name"),
             let shortname = obj.getString("shortname"),
             let ouType = obj.getInt("ou_type"),
             let opacVisible = obj.getBool("opac_visible") else
         {
-            throw HemlockError.unexpectedNetworkResponse("decoding orginization tree")
+            throw HemlockError.unexpectedNetworkResponse("decoding org tree")
         }
         //print("xxxaddorg id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
-        let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), parent: parent, ouType: ouType, opacVisible: opacVisible)
+        let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
         self.orgs.append(org)
 
         if let children = obj.getAny("children") {
