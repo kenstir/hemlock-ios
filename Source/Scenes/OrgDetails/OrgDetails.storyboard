@@ -76,7 +76,7 @@
                                                                     <constraint firstAttribute="height" secondItem="LeH-9v-4bT" secondAttribute="height" id="IKa-qS-2Sf"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-LC-Vqh">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-LC-Vqh">
                                                                 <rect key="frame" x="114" y="0.0" width="69.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -103,7 +103,7 @@
                                                                     <constraint firstAttribute="height" secondItem="Usj-uF-wg6" secondAttribute="height" id="nFz-bB-duQ"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-34-Xep">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-34-Xep">
                                                                 <rect key="frame" x="114" y="0.0" width="69.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -130,7 +130,7 @@
                                                                     <constraint firstAttribute="height" secondItem="FaK-i8-hgZ" secondAttribute="height" id="JFh-Gg-pVX"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFB-so-CXv">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFB-so-CXv">
                                                                 <rect key="frame" x="134" y="0.0" width="49.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -157,7 +157,7 @@
                                                                     <constraint firstAttribute="height" secondItem="7v5-3s-YCY" secondAttribute="height" id="dis-l6-MGc"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNs-RT-kSu">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNs-RT-kSu">
                                                                 <rect key="frame" x="134" y="0.0" width="49.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -184,7 +184,7 @@
                                                                     <constraint firstAttribute="height" secondItem="noF-Pc-PGO" secondAttribute="height" id="ZXC-4e-81h"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFe-Jl-CBY">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFe-Jl-CBY">
                                                                 <rect key="frame" x="134" y="0.0" width="49.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -211,7 +211,7 @@
                                                                     <constraint firstAttribute="height" secondItem="8Rn-5c-7ky" secondAttribute="height" id="dKk-4U-yJw"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDW-Aq-sRV">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDW-Aq-sRV">
                                                                 <rect key="frame" x="134" y="0.0" width="49.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -238,7 +238,7 @@
                                                                     <constraint firstAttribute="height" secondItem="F6j-rd-Npu" secondAttribute="height" id="Hll-RU-nNd"/>
                                                                 </constraints>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7X-7f-Ntd">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7X-7f-Ntd">
                                                                 <rect key="frame" x="134" y="0.0" width="49.5" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -294,6 +294,13 @@
                         <viewLayoutGuide key="safeArea" id="OIE-Zt-rE8"/>
                     </view>
                     <connections>
+                        <outlet property="day0Hours" destination="lfq-LC-Vqh" id="ygc-eJ-2qI"/>
+                        <outlet property="day1Hours" destination="l2N-34-Xep" id="uEL-l9-eZR"/>
+                        <outlet property="day2Hours" destination="mFB-so-CXv" id="a6v-1l-kmJ"/>
+                        <outlet property="day3Hours" destination="CNs-RT-kSu" id="775-Ks-waF"/>
+                        <outlet property="day4Hours" destination="yFe-Jl-CBY" id="0dn-AK-sAN"/>
+                        <outlet property="day5Hours" destination="ZDW-Aq-sRV" id="6Ua-rk-e88"/>
+                        <outlet property="day6Hours" destination="M7X-7f-Ntd" id="lW2-d2-N6H"/>
                         <outlet property="tableView" destination="tea-gO-hW9" id="HBb-Wz-fNB"/>
                     </connections>
                 </viewController>
