@@ -46,10 +46,10 @@
                                 <rect key="frame" x="0.0" y="100" width="320" height="468"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAG-pO-mtN" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="454" height="241.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="454" height="264"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xeZ-aY-FSC" userLabel="Content Stack">
-                                                <rect key="frame" x="16" y="8" width="422" height="225.5"/>
+                                                <rect key="frame" x="16" y="8" width="422" height="248"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMg-ib-b6x">
                                                         <rect key="frame" x="0.0" y="0.0" width="422" height="24"/>
@@ -275,6 +275,35 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1W-kB-gat">
+                                                        <rect key="frame" x="0.0" y="227.5" width="422" height="20.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sQ-8v-toi">
+                                                                <rect key="frame" x="0.0" y="0.0" width="16" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="16" id="nZW-oM-uUd"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3m-Is-WHq">
+                                                                <rect key="frame" x="16" y="0.0" width="112" height="20.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="112" id="i1d-vp-BIw"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pE6-q1-AzZ" userLabel="Email">
+                                                                <rect key="frame" x="128" y="0.0" width="294" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
