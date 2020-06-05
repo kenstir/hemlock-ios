@@ -141,28 +141,11 @@ class OrgDetailsViewController: UIViewController {
     // init that can't happen until fetchData completes
     func onOrgsLoaded() {
         tableView.reloadData()
-        loadOrgData()
-    }
 
-    func loadOrgData() {
         orgLabels = Organization.getSpinnerLabels()
         let org = Organization.find(byId: orgID)
         emailAddress.text = org?.email
         phoneNumber.text = org?.phoneNumber
-/*
-        var selectOrgIndex = 0
-        let defaultOrgID = App.account?.homeOrgID
-        for index in 0..<Organization.visibleOrgs.count {
-            let org = Organization.visibleOrgs[index]
-            if org.id == defaultOrgID {
-                selectOrgIndex = index
-            }
-        }
-        
-        selectedOrgName = orgLabels[selectOrgIndex].trim()
-        self.org = Organization.find(byName: selectedOrgName)
-        setupTitle()
- */
     }
 }
 
@@ -187,6 +170,7 @@ extension OrgDetailsViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension OrgDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard orgLabels.count > 0 else { return }
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
         
         //let entry = tableView.
