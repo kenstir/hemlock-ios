@@ -34,8 +34,7 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var day5Hours: UILabel!
     @IBOutlet weak var day6Hours: UILabel!
     @IBOutlet weak var emailAddress: UILabel!
-    @IBOutlet weak var phoneNumber: UILabel!
-    
+    @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var webSiteButton: UIButton!
     
     
@@ -107,26 +106,41 @@ class OrgDetailsViewController: UIViewController {
 
         setupActivityIndicator()
         self.setupHomeButton()
-        self.setupWebSiteButton()
+        self.setupActionButtons()
     }
     
-    func setupWebSiteButton() {
+    func setupActionButtons() {
+        Style.styleButton(asPlain: webSiteButton)
+        Style.styleButton(asPlain: phoneButton)
         webSiteButton.addTarget(self, action: #selector(webSiteButtonPressed(sender:)), for: .touchUpInside)
-        enableWebSiteButton()
+        phoneButton.addTarget(self, action: #selector(phoneButtonPressed(sender:)), for: .touchUpInside)
+        enableButtonsWhenReady()
     }
 
-    func enableWebSiteButton() {
-        if let infoURL = org?.infoURL,
-            !infoURL.isEmpty {
+    func enableButtonsWhenReady() {
+        if let infoURL = org?.infoURL, !infoURL.isEmpty {
             webSiteButton.isEnabled = true
         } else {
             webSiteButton.isEnabled = false
+        }
+        if let number = org?.phoneNumber, !number.isEmpty {
+            phoneButton.isEnabled = true
+            phoneButton.setTitle(number, for: .normal)
+        } else {
+            phoneButton.isEnabled = false
+            phoneButton.setTitle(nil, for: .normal)
         }
     }
     
     @objc func webSiteButtonPressed(sender: UIButton) {
         guard let infoURL = org?.infoURL,
             let url = URL(string: infoURL) else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    @objc func phoneButtonPressed(sender: UIButton) {
+        guard let number = org?.phoneNumber,
+            let url = URL(string: "tel:\(number)") else { return }
         UIApplication.shared.open(url)
     }
     
@@ -168,8 +182,8 @@ class OrgDetailsViewController: UIViewController {
         orgLabels = Organization.getSpinnerLabels()
         org = Organization.find(byId: orgID)
         emailAddress.text = org?.email
-        phoneNumber.text = org?.phoneNumber
-        self.enableWebSiteButton()
+        phoneButton.titleLabel?.text = org?.phoneNumber
+        self.enableButtonsWhenReady()
     }
 }
 
