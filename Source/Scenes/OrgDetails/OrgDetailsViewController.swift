@@ -52,6 +52,11 @@ class OrgDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // deselect row when navigating back
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
 
         //if !didCompleteFetch {
             fetchData()
@@ -170,30 +175,18 @@ extension OrgDetailsViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension OrgDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        /*
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
         
-        let entry = options[indexPath.row]
-        vc.title = entry.label
-        vc.selectedOption = entry.value
-        switch indexPath.row {
-        case searchClassIndex:
-            vc.options = scopes
-        case searchFormatIndex:
-            vc.options = formatLabels
-        case searchLocationIndex:
-            vc.options = orgLabels
-            vc.optionIsPrimary = Organization.getIsPrimary()
-        default:
-            break
-        }
-
+        //let entry = tableView.
+        vc.title = "Library"
+        //vc.selectedOption = ??
+        vc.options = orgLabels
         vc.selectionChangedHandler = { value in
-            entry.value = value
-            self.optionsTable.reloadData()
+//            entry.value = value
+            self.orgID = Organization.find(byName: value.trim())?.id
+            self.tableView.reloadData()
         }
 
         self.navigationController?.pushViewController(vc, animated: true)
- */
     }
 }
