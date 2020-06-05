@@ -36,10 +36,14 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var emailAddress: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
     
+    @IBOutlet weak var webSiteButton: UIButton!
+    
+    
     weak var activityIndicator: UIActivityIndicatorView!
     
     var orgID: Int? = App.account?.homeOrgID
 
+    var org: Organization? = nil
     var orgLabels: [String] = []
     var didCompleteFetch = false
     
@@ -58,9 +62,7 @@ class OrgDetailsViewController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        //if !didCompleteFetch {
-            fetchData()
-        //}
+        fetchData()
     }
     
     //MARK: - Functions
@@ -105,6 +107,27 @@ class OrgDetailsViewController: UIViewController {
 
         setupActivityIndicator()
         self.setupHomeButton()
+        self.setupWebSiteButton()
+    }
+    
+    func setupWebSiteButton() {
+        webSiteButton.addTarget(self, action: #selector(webSiteButtonPressed(sender:)), for: .touchUpInside)
+        enableWebSiteButton()
+    }
+
+    func enableWebSiteButton() {
+        if let infoURL = org?.infoURL,
+            !infoURL.isEmpty {
+            webSiteButton.isEnabled = true
+        } else {
+            webSiteButton.isEnabled = false
+        }
+    }
+    
+    @objc func webSiteButtonPressed(sender: UIButton) {
+        guard let infoURL = org?.infoURL,
+            let url = URL(string: infoURL) else { return }
+        UIApplication.shared.open(url)
     }
     
     func setupActivityIndicator() {
@@ -143,9 +166,10 @@ class OrgDetailsViewController: UIViewController {
         tableView.reloadData()
 
         orgLabels = Organization.getSpinnerLabels()
-        let org = Organization.find(byId: orgID)
+        org = Organization.find(byId: orgID)
         emailAddress.text = org?.email
         phoneNumber.text = org?.phoneNumber
+        self.enableWebSiteButton()
     }
 }
 
@@ -161,7 +185,6 @@ extension OrgDetailsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orgChooserCell", for: indexPath)
-        let org = Organization.find(byId: orgID)
         cell.textLabel?.text = org?.name
         return cell
     }
@@ -177,7 +200,8 @@ extension OrgDetailsViewController: UITableViewDelegate {
         vc.title = "Library"
         vc.options = orgLabels
         vc.selectionChangedHandler = { value in
-            self.orgID = Organization.find(byName: value)?.id
+            self.org = Organization.find(byName: value)
+            self.orgID = self.org?.id
             self.tableView.reloadData()
         }
 
