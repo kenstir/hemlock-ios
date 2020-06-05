@@ -33,6 +33,8 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var day4Hours: UILabel!
     @IBOutlet weak var day5Hours: UILabel!
     @IBOutlet weak var day6Hours: UILabel!
+    @IBOutlet weak var emailAddress: UILabel!
+    @IBOutlet weak var phoneNumber: UILabel!
     
     weak var activityIndicator: UIActivityIndicatorView!
     
@@ -123,6 +125,9 @@ class OrgDetailsViewController: UIViewController {
 
     func loadOrgData() {
         orgLabels = Organization.getSpinnerLabels()
+        let org = Organization.find(byId: orgID)
+        emailAddress.text = org?.email
+        phoneNumber.text = org?.phoneNumber
 /*
         var selectOrgIndex = 0
         let defaultOrgID = App.account?.homeOrgID
