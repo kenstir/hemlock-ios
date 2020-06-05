@@ -112,14 +112,30 @@ class OrgDetailsViewController: UIViewController {
         Style.styleActivityIndicator(activityIndicator)
     }
     
+    func hoursOfOperation(obj: OSRFObject?, day: Int) -> String? {
+        guard let openApiStr = obj?.getString("dow_\(day)_open"),
+            let closeApiStr = obj?.getString("dow_\(day)_close") else { return nil }
+        if openApiStr == closeApiStr {
+            return "closed"
+        }
+        if let openDate = OSRFObject.apiHoursFormatter.date(from: openApiStr),
+            let closeDate = OSRFObject.apiHoursFormatter.date(from: closeApiStr)
+        {
+            let openStr = OSRFObject.outputHoursFormatter.string(from: openDate)
+            let closeStr = OSRFObject.outputHoursFormatter.string(from: closeDate)
+            return "\(openStr) - \(closeStr)"
+        }
+        return nil
+    }
+    
     func onHoursLoaded(_ obj: OSRFObject?) {
-        if let open = obj?.getString("dow_0_open"), let close = obj?.getString("dow_0_close") { day0Hours.text = "\(open) - \(close)" }
-        if let open = obj?.getString("dow_1_open"), let close = obj?.getString("dow_1_close") { day1Hours.text = "\(open) - \(close)" }
-        if let open = obj?.getString("dow_2_open"), let close = obj?.getString("dow_2_close") { day2Hours.text = "\(open) - \(close)" }
-        if let open = obj?.getString("dow_3_open"), let close = obj?.getString("dow_3_close") { day3Hours.text = "\(open) - \(close)" }
-        if let open = obj?.getString("dow_4_open"), let close = obj?.getString("dow_4_close") { day4Hours.text = "\(open) - \(close)" }
-        if let open = obj?.getString("dow_5_open"), let close = obj?.getString("dow_5_close") { day5Hours.text = "\(open) - \(close)" }
-        if let open = obj?.getString("dow_6_open"), let close = obj?.getString("dow_6_close") { day6Hours.text = "\(open) - \(close)" }
+        day0Hours.text = hoursOfOperation(obj: obj, day: 0)
+        day1Hours.text = hoursOfOperation(obj: obj, day: 1)
+        day2Hours.text = hoursOfOperation(obj: obj, day: 2)
+        day3Hours.text = hoursOfOperation(obj: obj, day: 3)
+        day4Hours.text = hoursOfOperation(obj: obj, day: 4)
+        day5Hours.text = hoursOfOperation(obj: obj, day: 5)
+        day6Hours.text = hoursOfOperation(obj: obj, day: 6)
     }
     
     // init that can't happen until fetchData completes
@@ -161,13 +177,9 @@ extension OrgDetailsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         let cell = tableView.dequeueReusableCell(withIdentifier: "orgChooserCell", for: indexPath)
-        //cell.textLabel?.text = "Location"
-        //cell.detailTextLabel?.text = org?.name
         let org = Organization.find(byId: orgID)
         cell.textLabel?.text = org?.name
-        //cell.detailTextLabel?.text = ""
         return cell
     }
 }
@@ -179,11 +191,9 @@ extension OrgDetailsViewController: UITableViewDelegate {
         
         //let entry = tableView.
         vc.title = "Library"
-        //vc.selectedOption = ??
         vc.options = orgLabels
         vc.selectionChangedHandler = { value in
-//            entry.value = value
-            self.orgID = Organization.find(byName: value.trim())?.id
+            self.orgID = Organization.find(byName: value)?.id
             self.tableView.reloadData()
         }
 

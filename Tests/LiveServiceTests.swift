@@ -323,7 +323,7 @@ class LiveServiceTests: XCTestCase {
     func test_copyLocationCounts() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", parent: nil, ouType: 0, opacVisible: true)
+        let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", ouType: 0, opacVisible: true, aouObj: OSRFObject())
         let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: self.sampleRecordID!)
         promise.done { resp, pmkresp in
             XCTAssertNotNil(resp.payload)

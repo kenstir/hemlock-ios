@@ -61,6 +61,22 @@ class OSRFObjectTests: XCTestCase {
         let str = OSRFObject.outputDateFormatter.string(from: localDate!)
         XCTAssertEqual(str, localDateStr)
     }
+    
+    func test_hoursFormatting_API_to_AM() {
+        let apiHoursStr = "10:00:00"
+        let date = OSRFObject.apiHoursFormatter.date(from: apiHoursStr)
+        XCTAssertNotNil(date)
+        let localHoursStr = OSRFObject.outputHoursFormatter.string(from: date!)
+        XCTAssertEqual(localHoursStr, "10:00 AM")
+    }
+    
+    func test_hoursFormatting_API_to_PM() {
+        let apiHoursStr = "22:00:00"
+        let date = OSRFObject.apiHoursFormatter.date(from: apiHoursStr)
+        XCTAssertNotNil(date)
+        let localHoursStr = OSRFObject.outputHoursFormatter.string(from: date!)
+        XCTAssertEqual(localHoursStr, "10:00 PM")
+    }
 
     func test_equatable() {
         let obj1 = OSRFObject(["a": 1, "b": nil])

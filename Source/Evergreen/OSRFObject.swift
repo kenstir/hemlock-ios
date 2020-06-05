@@ -39,6 +39,19 @@ struct OSRFObject: Equatable {
         df.locale = Locale(identifier: "en_US")
         return df
     }()
+    static var apiHoursFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm:ss"
+        df.locale = Locale(identifier: "en_US")
+        return df
+    }()
+    static var outputHoursFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .none
+        df.timeStyle = .short
+        df.locale = Locale(identifier: "en_US")
+        return df
+    }()
 
     init(_ dict: [String: Any?] = [:], netClass: String? = nil) {
         self.dict = dict
