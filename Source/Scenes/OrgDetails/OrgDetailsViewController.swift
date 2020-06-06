@@ -33,7 +33,7 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var day4Hours: UILabel!
     @IBOutlet weak var day5Hours: UILabel!
     @IBOutlet weak var day6Hours: UILabel!
-    @IBOutlet weak var emailAddress: UILabel!
+    @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var webSiteButton: UIButton!
     
@@ -111,8 +111,10 @@ class OrgDetailsViewController: UIViewController {
     
     func setupActionButtons() {
         Style.styleButton(asPlain: webSiteButton)
+        Style.styleButton(asPlain: emailButton)
         Style.styleButton(asPlain: phoneButton)
         webSiteButton.addTarget(self, action: #selector(webSiteButtonPressed(sender:)), for: .touchUpInside)
+        emailButton.addTarget(self, action: #selector(emailButtonPressed(sender:)), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonPressed(sender:)), for: .touchUpInside)
         enableButtonsWhenReady()
     }
@@ -122,6 +124,13 @@ class OrgDetailsViewController: UIViewController {
             webSiteButton.isEnabled = true
         } else {
             webSiteButton.isEnabled = false
+        }
+        if let email = org?.email, !email.isEmpty {
+            emailButton.isEnabled = true
+            emailButton.setTitle(email, for: .normal)
+        } else {
+            emailButton.isEnabled = false
+            emailButton.setTitle(nil, for: .normal)
         }
         if let number = org?.phoneNumber, !number.isEmpty {
             phoneButton.isEnabled = true
@@ -135,12 +144,24 @@ class OrgDetailsViewController: UIViewController {
     @objc func webSiteButtonPressed(sender: UIButton) {
         guard let infoURL = org?.infoURL,
             let url = URL(string: infoURL) else { return }
+        let canOpen = UIApplication.shared.canOpenURL(url)
+        print("canOpen: \(canOpen)")
+        UIApplication.shared.open(url)
+    }
+    
+    @objc func emailButtonPressed(sender: UIButton) {
+        guard let email = org?.email,
+            let url = URL(string: "mailto:\(email)") else { return }
+        let canOpen = UIApplication.shared.canOpenURL(url)
+        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
     
     @objc func phoneButtonPressed(sender: UIButton) {
         guard let number = org?.phoneNumber,
             let url = URL(string: "tel:\(number)") else { return }
+        let canOpen = UIApplication.shared.canOpenURL(url)
+        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
     
@@ -181,8 +202,6 @@ class OrgDetailsViewController: UIViewController {
 
         orgLabels = Organization.getSpinnerLabels()
         org = Organization.find(byId: orgID)
-        emailAddress.text = org?.email
-        phoneButton.titleLabel?.text = org?.phoneNumber
         self.enableButtonsWhenReady()
     }
 }
