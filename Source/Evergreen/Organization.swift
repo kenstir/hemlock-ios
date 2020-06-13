@@ -78,8 +78,11 @@ class Organization {
     let ouType: Int
     let opacVisible: Bool
     let parent: Int?
+    let addressID: Int?
     let email: String?
     let phoneNumber: String?
+    
+    var addressObj: OSRFObject? = nil
 
     var areSettingsLoaded = false
     var isPickupLocationSetting: Bool?
@@ -116,6 +119,7 @@ class Organization {
         
         // optional fields are read from the aou obj
         self.parent = obj.getInt("parent_ou")
+        self.addressID = obj.getInt("mailing_address")
         self.email = obj.getString("email")
         self.phoneNumber = obj.getString("phone")
     }

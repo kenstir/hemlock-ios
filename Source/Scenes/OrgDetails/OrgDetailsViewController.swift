@@ -36,13 +36,13 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var webSiteButton: UIButton!
-    
-    
+    @IBOutlet weak var addressLine1: UILabel!
+    @IBOutlet weak var addressLine2: UILabel!
+
     weak var activityIndicator: UIActivityIndicatorView!
     
     var orgID: Int? = App.account?.homeOrgID
 
-    var org: Organization? = nil
     var orgLabels: [String] = []
     var didCompleteFetch = false
     
@@ -77,11 +77,13 @@ class OrgDetailsViewController: UIViewController {
         firstly {
             when(fulfilled: promises)
         }.done {
-            //self.didCompleteFetch = true
             self.fetchHours()
+            self.fetchAddress()
             self.onOrgsLoaded()
-        }.catch { error in
+        }.ensure {
+            self.enableButtonsWhenReady()
             self.activityIndicator.stopAnimating()
+        }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -93,9 +95,23 @@ class OrgDetailsViewController: UIViewController {
         ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: orgID).done { obj in
             self.onHoursLoaded(obj)
         }.ensure {
+            self.enableButtonsWhenReady()
             self.activityIndicator.stopAnimating()
         }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+    
+    func fetchAddress() {
+        guard let org = Organization.find(byId: orgID),
+            let addressID = org.addressID else { return }
+        
+        ActorService.fetchOrgAddress(addressID: addressID).done { obj in
+            self.onAddressLoaded(obj)
+        }.ensure {
+            self.enableButtonsWhenReady()
             self.activityIndicator.stopAnimating()
+        }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -120,6 +136,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     func enableButtonsWhenReady() {
+        let org = Organization.find(byId: orgID)
         if let infoURL = org?.infoURL, !infoURL.isEmpty {
             webSiteButton.isEnabled = true
         } else {
@@ -142,6 +159,7 @@ class OrgDetailsViewController: UIViewController {
     }
     
     @objc func webSiteButtonPressed(sender: UIButton) {
+        let org = Organization.find(byId: orgID)
         guard let infoURL = org?.infoURL,
             let url = URL(string: infoURL) else { return }
         let canOpen = UIApplication.shared.canOpenURL(url)
@@ -150,6 +168,7 @@ class OrgDetailsViewController: UIViewController {
     }
     
     @objc func emailButtonPressed(sender: UIButton) {
+        let org = Organization.find(byId: orgID)
         guard let email = org?.email,
             let url = URL(string: "mailto:\(email)") else { return }
         let canOpen = UIApplication.shared.canOpenURL(url)
@@ -158,6 +177,7 @@ class OrgDetailsViewController: UIViewController {
     }
     
     @objc func phoneButtonPressed(sender: UIButton) {
+        let org = Organization.find(byId: orgID)
         guard let number = org?.phoneNumber,
             let url = URL(string: "tel:\(number)") else { return }
         let canOpen = UIApplication.shared.canOpenURL(url)
@@ -195,14 +215,41 @@ class OrgDetailsViewController: UIViewController {
         day5Hours.text = hoursOfOperation(obj: obj, day: 5)
         day6Hours.text = hoursOfOperation(obj: obj, day: 6)
     }
-    
-    // init that can't happen until fetchData completes
+
+    func onAddressLoaded(_ aoaObj: OSRFObject?) {
+        //org?.addressObj = aoaObj
+        guard let obj = aoaObj else { return }
+
+        var line1 = ""
+        if let s = obj.getString("street1") {
+            line1.append(contentsOf: s)
+        }
+        if let s = obj.getString("street2"), !s.isEmpty {
+            line1.append(contentsOf: " ")
+            line1.append(contentsOf: s)
+        }
+        addressLine1.text = line1
+        
+        var line2 = ""
+        if let s = obj.getString("city"), !s.isEmpty {
+            line2.append(contentsOf: s)
+        }
+        if let s = obj.getString("state"), !s.isEmpty {
+            line2.append(contentsOf: ", ")
+            line2.append(contentsOf: s)
+        }
+        if let s = obj.getString("post_code"), !s.isEmpty {
+            line2.append(contentsOf: " ")
+            line2.append(contentsOf: s)
+        }
+        addressLine2.text = line2
+    }
+
     func onOrgsLoaded() {
         tableView.reloadData()
 
         orgLabels = Organization.getSpinnerLabels()
-        org = Organization.find(byId: orgID)
-        self.enableButtonsWhenReady()
+        //org = Organization.find(byId: orgID)
     }
 }
 
@@ -218,6 +265,7 @@ extension OrgDetailsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "orgChooserCell", for: indexPath)
+        let org = Organization.find(byId: orgID)
         cell.textLabel?.text = org?.name
         return cell
     }
@@ -233,8 +281,8 @@ extension OrgDetailsViewController: UITableViewDelegate {
         vc.title = "Library"
         vc.options = orgLabels
         vc.selectionChangedHandler = { value in
-            self.org = Organization.find(byName: value)
-            self.orgID = self.org?.id
+            let org = Organization.find(byName: value)
+            self.orgID = org?.id
             self.tableView.reloadData()
         }
 

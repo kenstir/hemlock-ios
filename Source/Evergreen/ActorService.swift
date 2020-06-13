@@ -111,6 +111,11 @@ class ActorService {
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID])
         return req.gatewayOptionalObjectResponse()
     }
+    
+    static func fetchOrgAddress(addressID: Int) -> Promise<(OSRFObject?)> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [addressID])
+        return req.gatewayOptionalObjectResponse()
+    }
 
     static func fetchUserSettings(account: Account) -> Promise<Void> {
         if account.userSettingsLoaded {
