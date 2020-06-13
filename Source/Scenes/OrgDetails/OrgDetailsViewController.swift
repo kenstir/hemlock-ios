@@ -36,6 +36,7 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var webSiteButton: UIButton!
+    @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var addressLine1: UILabel!
     @IBOutlet weak var addressLine2: UILabel!
 
@@ -127,9 +128,11 @@ class OrgDetailsViewController: UIViewController {
     
     func setupActionButtons() {
         Style.styleButton(asPlain: webSiteButton)
+        Style.styleButton(asPlain: mapButton)
         Style.styleButton(asPlain: emailButton)
         Style.styleButton(asPlain: phoneButton)
         webSiteButton.addTarget(self, action: #selector(webSiteButtonPressed(sender:)), for: .touchUpInside)
+        mapButton.addTarget(self, action: #selector(mapButtonPressed(sender:)), for: .touchUpInside)
         emailButton.addTarget(self, action: #selector(emailButtonPressed(sender:)), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonPressed(sender:)), for: .touchUpInside)
         enableButtonsWhenReady()
@@ -156,6 +159,11 @@ class OrgDetailsViewController: UIViewController {
             phoneButton.isEnabled = false
             phoneButton.setTitle(nil, for: .normal)
         }
+        if let obj = org?.addressObj, let _ = mapsURL(obj) {
+            mapButton.isEnabled = true
+        } else {
+            mapButton.isEnabled = false
+        }
     }
     
     @objc func webSiteButtonPressed(sender: UIButton) {
@@ -167,6 +175,15 @@ class OrgDetailsViewController: UIViewController {
         UIApplication.shared.open(url)
     }
     
+    @objc func mapButtonPressed(sender: UIButton) {
+        let org = Organization.find(byId: orgID)
+        guard let addressObj = org?.addressObj,
+            let url = mapsURL(addressObj) else { return }
+        let canOpen = UIApplication.shared.canOpenURL(url)
+        print("canOpen: \(canOpen)")
+        UIApplication.shared.open(url)
+    }
+
     @objc func emailButtonPressed(sender: UIButton) {
         let org = Organization.find(byId: orgID)
         guard let email = org?.email,
@@ -215,11 +232,8 @@ class OrgDetailsViewController: UIViewController {
         day5Hours.text = hoursOfOperation(obj: obj, day: 5)
         day6Hours.text = hoursOfOperation(obj: obj, day: 6)
     }
-
-    func onAddressLoaded(_ aoaObj: OSRFObject?) {
-        //org?.addressObj = aoaObj
-        guard let obj = aoaObj else { return }
-
+    
+    func getAddressLine1(_ obj: OSRFObject) -> String {
         var line1 = ""
         if let s = obj.getString("street1") {
             line1.append(contentsOf: s)
@@ -228,8 +242,10 @@ class OrgDetailsViewController: UIViewController {
             line1.append(contentsOf: " ")
             line1.append(contentsOf: s)
         }
-        addressLine1.text = line1
-        
+        return line1
+    }
+    
+    func getAddressLine2(_ obj: OSRFObject) -> String {
         var line2 = ""
         if let s = obj.getString("city"), !s.isEmpty {
             line2.append(contentsOf: s)
@@ -242,7 +258,25 @@ class OrgDetailsViewController: UIViewController {
             line2.append(contentsOf: " ")
             line2.append(contentsOf: s)
         }
-        addressLine2.text = line2
+        return line2
+    }
+    
+    func mapsURL(_ obj: OSRFObject) -> URL? {
+        var addr = getAddressLine1(obj)
+        addr.append(contentsOf: " ")
+        addr.append(contentsOf: getAddressLine2(obj))
+        guard var c = URLComponents(string: "https://maps.apple.com/") else { return nil }
+        c.queryItems = [URLQueryItem(name: "q", value: addr)]
+        return c.url
+    }
+
+    func onAddressLoaded(_ aoaObj: OSRFObject?) {
+        let org = Organization.find(byId: orgID)
+        org?.addressObj = aoaObj
+        guard let obj = aoaObj else { return }
+
+        addressLine1.text = getAddressLine1(obj)
+        addressLine2.text = getAddressLine2(obj)
     }
 
     func onOrgsLoaded() {

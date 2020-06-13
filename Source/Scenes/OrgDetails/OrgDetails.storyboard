@@ -46,10 +46,10 @@
                                 <rect key="frame" x="0.0" y="100" width="768" height="924"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="NAG-pO-mtN" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="317" height="427.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="317" height="459.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xeZ-aY-FSC" userLabel="Content Stack">
-                                                <rect key="frame" x="16" y="8" width="285" height="411.5"/>
+                                                <rect key="frame" x="16" y="8" width="285" height="443.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ila-jE-fyz">
                                                         <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
@@ -413,6 +413,10 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmt-sd-WS0" userLabel="Map Button">
+                                                        <rect key="frame" x="0.0" y="413.5" width="285" height="30"/>
+                                                        <state key="normal" title="Show map"/>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -456,6 +460,7 @@
                         <outlet property="day5Hours" destination="ZDW-Aq-sRV" id="6Ua-rk-e88"/>
                         <outlet property="day6Hours" destination="M7X-7f-Ntd" id="lW2-d2-N6H"/>
                         <outlet property="emailButton" destination="kPo-aj-ktQ" id="OiI-ec-3ro"/>
+                        <outlet property="mapButton" destination="Gmt-sd-WS0" id="bZK-WM-R7s"/>
                         <outlet property="phoneButton" destination="kGv-co-CjX" id="e4M-OH-Cpf"/>
                         <outlet property="tableView" destination="tea-gO-hW9" id="HBb-Wz-fNB"/>
                         <outlet property="webSiteButton" destination="Ila-jE-fyz" id="Civ-nd-1rV"/>
