@@ -25,7 +25,7 @@ import os.log
 class AuthService {
     static func fetchAuthToken(credential: Credential) -> Promise<(String)> {
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [credential.username])
-        let promise = req.gatewayResponse().then { (resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse) -> Promise<(String)> in
+        let promise = req.gatewayResponse().then { (resp: GatewayResponse) -> Promise<(String)> in
             print("resp: \(resp)")
             guard let nonce = resp.str else {
                 throw HemlockError.unexpectedNetworkResponse("expected string")

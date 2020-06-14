@@ -128,7 +128,7 @@ class ActorService {
         }
         let fields = ["card", "settings"]
         let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [authtoken, userID, fields])
-        let promise = req.gatewayResponse().done { resp, pmkresp in
+        let promise = req.gatewayResponse().done { resp in
             if let obj = resp.obj {
                 account.loadUserSettings(fromObject: obj)
             }

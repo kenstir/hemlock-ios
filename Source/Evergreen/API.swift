@@ -72,6 +72,12 @@ struct API {
     
     static let fielder = "open-ils.fielder"
     static let fielderBMPAtomic = "open-ils.fielder.bmp.atomic"
+    
+    //MARK: - mobile service
+    
+    static let mobile = "open-ils.selfcheck"
+    static let exists = "open-ils.selfcheck.exists"
+    static let xyzzy = "open-ils.selfcheck.xyzzy"
 
     //MARK: - pcrud service
     

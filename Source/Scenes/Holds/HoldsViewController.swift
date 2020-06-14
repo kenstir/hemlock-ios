@@ -273,7 +273,7 @@ class HoldsViewController: UIViewController {
     
     func cancelHold(authtoken: String, holdID: Int) {
         let promise = CircService.cancelHold(authtoken: authtoken, holdID: holdID)
-        promise.done { resp, pmkresp in
+        promise.done { resp in
             guard resp.type == GatewayResponseType.string,
                 resp.str == "1" else
             {

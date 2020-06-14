@@ -67,7 +67,7 @@ class CopyInfoViewController: UIViewController {
             return
         }
         let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
-        promise.done { resp, pmkresp in
+        promise.done { resp in
             self.items = CopyLocationCounts.makeArray(fromPayload: resp.payload)
             self.updateItems()
         }.catch { error in

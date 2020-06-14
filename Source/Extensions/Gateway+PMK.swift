@@ -24,7 +24,7 @@ import PMKAlamofire
 import os.log
 
 extension Alamofire.DataRequest {
-    func gatewayResponse(queue: DispatchQueue? = nil) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)>
+    func gatewayResponse(queue: DispatchQueue? = nil) -> Promise<(GatewayResponse)>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
@@ -32,7 +32,7 @@ extension Alamofire.DataRequest {
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
-                    seal.fulfill((GatewayResponse(data), PMKAlamofireDataResponse(response)))
+                    seal.fulfill((GatewayResponse(data)))
                 } else if response.result.isFailure,
                     let error = response.error {
                     seal.reject(error)

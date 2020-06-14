@@ -58,7 +58,7 @@ class CircService {
         return req.gatewayObjectResponse()
     }
 
-    static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
+    static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) -> Promise<(GatewayResponse)> {
         var complexParam: JSONDictionary = [
             "id": holdRecord.id,
             "email_notify": notifyByEmail,
@@ -84,7 +84,7 @@ class CircService {
         return req.gatewayResponse()
     }
 
-    static func cancelHold(authtoken: String, holdID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
+    static func cancelHold(authtoken: String, holdID: Int) -> Promise<(GatewayResponse)> {
         let note = "Cancelled by mobile app"
         let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [authtoken, holdID, nil, note])
         return req.gatewayResponse()

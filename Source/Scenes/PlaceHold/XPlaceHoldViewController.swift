@@ -547,7 +547,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let thawDate: Date? = nil
         
         let promise = CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendHold, thawDate: thawDate)
-        promise.done { resp, pmkresp in
+        promise.done { resp in
             if let _ = resp.str {
                 // case 1: result is String - update successful
                 self.valueChangedHandler?();

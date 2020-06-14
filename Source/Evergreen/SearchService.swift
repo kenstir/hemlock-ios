@@ -42,7 +42,7 @@ class SearchService {
         return promise
     }
     
-    static func fetchCopyLocationCounts(org: Organization?, recordID: Int) -> Promise<(resp: GatewayResponse, pmkresp: PMKAlamofireDataResponse)> {
+    static func fetchCopyLocationCounts(org: Organization?, recordID: Int) -> Promise<(GatewayResponse)> {
         var args: [Any] = [recordID]
         if let searchOrg = org {
             args.append(searchOrg.id)
