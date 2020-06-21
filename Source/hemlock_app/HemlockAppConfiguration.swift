@@ -19,7 +19,8 @@
 
 class HemlockAppConfiguration: AppConfiguration {
     let title = "Hemlock"
-    let url = "https://kenstir.ddns.net"
+    //let url = "https://kenstir.ddns.net"
+    let url = "http://192.168.1.4"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
 
