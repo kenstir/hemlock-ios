@@ -332,7 +332,7 @@
 		D23E9FED23B923B80030F5C1 /* SageCatAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FE923B923B80030F5C1 /* SageCatAppBehavior.swift */; };
 		D23E9FEE23B923B80030F5C1 /* SageCatAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */; };
 		D23E9FEF23B923B80030F5C1 /* SageCatTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */; };
-		D23E9FF123B924390030F5C1 /* SageCat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23E9FF023B924390030F5C1 /* SageCat.xcassets */; };
+		D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23E9FF023B924390030F5C1 /* sagecat.xcassets */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D2477BB724785A6B00FD4CF6 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -444,7 +444,7 @@
 		D2477C3424786CCF00FD4CF6 /* IndianaTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2477C3024786CCF00FD4CF6 /* IndianaTheme.swift */; };
 		D2477C3524786CCF00FD4CF6 /* IndianaAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2477C3124786CCF00FD4CF6 /* IndianaAppConfiguration.swift */; };
 		D2477C3624786CCF00FD4CF6 /* IndianaAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2477C3224786CCF00FD4CF6 /* IndianaAppBehavior.swift */; };
-		D2477C3824786EC000FD4CF6 /* Indiana.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2477C3724786EC000FD4CF6 /* Indiana.xcassets */; };
+		D2477C3824786EC000FD4CF6 /* indiana.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2477C3724786EC000FD4CF6 /* indiana.xcassets */; };
 		D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
 		D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
 		D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
@@ -603,8 +603,8 @@
 		D279910320DDD473003B451E /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		D279910420DDD473003B451E /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* Lists.storyboard */; };
 		D279910520DDD473003B451E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
-		D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279910E20DDD760003B451E /* Hemlock.xcassets */; };
-		D279911120DDD77F003B451E /* PINES.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* PINES.xcassets */; };
+		D279910F20DDD760003B451E /* hemlock.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279910E20DDD760003B451E /* hemlock.xcassets */; };
+		D279911120DDD77F003B451E /* pines.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* pines.xcassets */; };
 		D279911820DDE11E003B451E /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppFactory.swift */; };
 		D279911A20DDE160003B451E /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppFactory.swift */; };
 		D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
@@ -1143,7 +1143,7 @@
 		D23E9FE923B923B80030F5C1 /* SageCatAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatAppBehavior.swift; sourceTree = "<group>"; };
 		D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatAppConfiguration.swift; sourceTree = "<group>"; };
 		D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatTheme.swift; sourceTree = "<group>"; };
-		D23E9FF023B924390030F5C1 /* SageCat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SageCat.xcassets; sourceTree = "<group>"; };
+		D23E9FF023B924390030F5C1 /* sagecat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sagecat.xcassets; sourceTree = "<group>"; };
 		D23E9FF223B932DF0030F5C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -1153,7 +1153,7 @@
 		D2477C3024786CCF00FD4CF6 /* IndianaTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndianaTheme.swift; sourceTree = "<group>"; };
 		D2477C3124786CCF00FD4CF6 /* IndianaAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndianaAppConfiguration.swift; sourceTree = "<group>"; };
 		D2477C3224786CCF00FD4CF6 /* IndianaAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndianaAppBehavior.swift; sourceTree = "<group>"; };
-		D2477C3724786EC000FD4CF6 /* Indiana.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Indiana.xcassets; sourceTree = "<group>"; };
+		D2477C3724786EC000FD4CF6 /* indiana.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = indiana.xcassets; sourceTree = "<group>"; };
 		D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoViewController.swift; sourceTree = "<group>"; };
 		D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CopyInfo.storyboard; sourceTree = "<group>"; };
 		D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -1182,8 +1182,8 @@
 		D276DAE621336BE3007FAA31 /* cwmars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cwmars.xcassets; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D279910B20DDD473003B451E /* HemlockInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HemlockInfo.plist; sourceTree = "<group>"; };
-		D279910E20DDD760003B451E /* Hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Hemlock.xcassets; sourceTree = "<group>"; };
-		D279911020DDD77F003B451E /* PINES.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PINES.xcassets; sourceTree = "<group>"; };
+		D279910E20DDD760003B451E /* hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hemlock.xcassets; sourceTree = "<group>"; };
+		D279911020DDD77F003B451E /* pines.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pines.xcassets; sourceTree = "<group>"; };
 		D279911720DDE11E003B451E /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D27DF20221AA3D81002DCC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Source/Storyboards/Base.lproj/ShowCard.storyboard; sourceTree = "<group>"; };
@@ -1701,7 +1701,7 @@
 				D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */,
 				D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */,
 				D23E9FF223B932DF0030F5C1 /* Info.plist */,
-				D23E9FF023B924390030F5C1 /* SageCat.xcassets */,
+				D23E9FF023B924390030F5C1 /* sagecat.xcassets */,
 			);
 			path = sagecat_app;
 			sourceTree = "<group>";
@@ -1714,7 +1714,7 @@
 				D2477C3124786CCF00FD4CF6 /* IndianaAppConfiguration.swift */,
 				D2477C3024786CCF00FD4CF6 /* IndianaTheme.swift */,
 				D2477C2C24785A6C00FD4CF6 /* Info.plist */,
-				D2477C3724786EC000FD4CF6 /* Indiana.xcassets */,
+				D2477C3724786EC000FD4CF6 /* indiana.xcassets */,
 			);
 			path = indiana_app;
 			sourceTree = "<group>";
@@ -1748,7 +1748,7 @@
 				D2A74B1821289F2E001D4B0F /* HemlockAppConfiguration.swift */,
 				D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */,
 				D279910B20DDD473003B451E /* HemlockInfo.plist */,
-				D279910E20DDD760003B451E /* Hemlock.xcassets */,
+				D279910E20DDD760003B451E /* hemlock.xcassets */,
 			);
 			path = hemlock_app;
 			sourceTree = "<group>";
@@ -1874,7 +1874,7 @@
 				D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */,
 				D23C304D20E5C6C800666A2B /* PinesTheme.swift */,
 				D287D507207AEF2C001AF644 /* PINESInfo.plist */,
-				D279911020DDD77F003B451E /* PINES.xcassets */,
+				D279911020DDD77F003B451E /* pines.xcassets */,
 			);
 			path = pines_app;
 			sourceTree = "<group>";
@@ -2217,7 +2217,7 @@
 				D23E9FCB23B9200A0030F5C1 /* Checkouts.storyboard in Resources */,
 				D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */,
 				D23E9FCD23B9200A0030F5C1 /* Holds.storyboard in Resources */,
-				D23E9FF123B924390030F5C1 /* SageCat.xcassets in Resources */,
+				D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */,
 				D23E9FCE23B9200A0030F5C1 /* CopyInfo.storyboard in Resources */,
 				D23E9FCF23B9200A0030F5C1 /* Search.storyboard in Resources */,
 				D23E9FD023B9200A0030F5C1 /* Documentation in Resources */,
@@ -2244,7 +2244,7 @@
 				D2477C1E24785A6B00FD4CF6 /* Search.storyboard in Resources */,
 				D2477C1F24785A6B00FD4CF6 /* Documentation in Resources */,
 				D2477C2024785A6B00FD4CF6 /* ShowCard.storyboard in Resources */,
-				D2477C3824786EC000FD4CF6 /* Indiana.xcassets in Resources */,
+				D2477C3824786EC000FD4CF6 /* indiana.xcassets in Resources */,
 				D2477C2124785A6B00FD4CF6 /* Options.storyboard in Resources */,
 				D29911DE248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2477C2224785A6B00FD4CF6 /* Default-568h@2x.png in Resources */,
@@ -2292,7 +2292,7 @@
 				D22D0C932243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D2616762220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
-				D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */,
+				D279910F20DDD760003B451E /* hemlock.xcassets in Resources */,
 				D279910220DDD473003B451E /* Documentation in Resources */,
 				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
 				D279910420DDD473003B451E /* Lists.storyboard in Resources */,
@@ -2336,7 +2336,7 @@
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
 				D22D0C942243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D2616763220BA1AF0071E1A5 /* Options.storyboard in Resources */,
-				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,
+				D279911120DDD77F003B451E /* pines.xcassets in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
