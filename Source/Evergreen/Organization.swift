@@ -75,13 +75,19 @@ class Organization {
     let level: Int
     let name: String
     let shortname: String
-    let parent: Int?
     let ouType: Int
     let opacVisible: Bool
+    let parent: Int?
+    let addressID: Int?
+    let email: String?
+    let phoneNumber: String?
+    
+    var addressObj: OSRFObject? = nil
 
     var areSettingsLoaded = false
     var isPickupLocationSetting: Bool?
     var isPaymentAllowedSetting: Bool?
+    var infoURL: String?
     var isPickupLocation: Bool {
         if let val = isPickupLocationSetting {
             return val
@@ -102,17 +108,24 @@ class Organization {
         }
     }
 
-    init(id: Int, level: Int, name: String, shortname: String, parent: Int?, ouType: Int, opacVisible: Bool) {
+    init(id: Int, level: Int, name: String, shortname: String, ouType: Int, opacVisible: Bool, aouObj obj: OSRFObject) {
+        // required fields are direct params
         self.id = id
         self.level = level
         self.name = name
         self.shortname = shortname
-        self.parent = parent
         self.ouType = ouType
         self.opacVisible = opacVisible
+        
+        // optional fields are read from the aou obj
+        self.parent = obj.getInt("parent_ou")
+        self.addressID = obj.getInt("mailing_address")
+        self.email = obj.getString("email")
+        self.phoneNumber = obj.getString("phone")
     }
     
-    static func parseBoolSetting(_ obj: OSRFObject, _ setting: String) -> Bool? {
+    // An org unit setting (ous) is an OSRFObject with "org" and "value" fields
+    static func ousGetBool(_ obj: OSRFObject, _ setting: String) -> Bool? {
         if let valueObj = obj.getObject(setting),
             let value = valueObj.getBool("value")
         {
@@ -121,14 +134,26 @@ class Organization {
         return nil
     }
     
+    static func ousGetString(_ obj: OSRFObject, _ setting: String) -> String? {
+        if let valueObj = obj.getObject(setting),
+            let value = valueObj.getString("value")
+        {
+            return value
+        }
+        return nil
+    }
+    
     func loadSettings(fromObj obj: OSRFObject)  {
-        if let val = Organization.parseBoolSetting(obj, API.settingCreditPaymentsAllow) {
+        if let val = Organization.ousGetBool(obj, API.settingCreditPaymentsAllow) {
             self.isPaymentAllowedSetting = val
         }
-        if let val = Organization.parseBoolSetting(obj, API.settingNotPickupLib) {
+        if let val = Organization.ousGetBool(obj, API.settingNotPickupLib) {
             self.isPickupLocationSetting = !val
         }
-        if let val = Organization.parseBoolSetting(obj, API.settingSMSEnable) {
+        if let val = Organization.ousGetString(obj, API.settingInfoURL) {
+            self.infoURL = val
+        }
+        if let val = Organization.ousGetBool(obj, API.settingSMSEnable) {
             // this setting is only queried on the top-level org
             Organization.isSMSEnabledSetting = val
         }
@@ -219,17 +244,16 @@ class Organization {
     }
 
     static func addOrganization(_ obj: OSRFObject, level: Int) throws -> Void {
-        let parent = obj.getInt("parent_ou")
         guard let id = obj.getInt("id"),
             let name = obj.getString("name"),
             let shortname = obj.getString("shortname"),
             let ouType = obj.getInt("ou_type"),
             let opacVisible = obj.getBool("opac_visible") else
         {
-            throw HemlockError.unexpectedNetworkResponse("decoding orginization tree")
+            throw HemlockError.unexpectedNetworkResponse("decoding org tree")
         }
         //print("xxxaddorg id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
-        let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), parent: parent, ouType: ouType, opacVisible: opacVisible)
+        let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
         self.orgs.append(org)
 
         if let children = obj.getAny("children") {

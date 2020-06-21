@@ -70,8 +70,11 @@ class ActorService {
                     continue
                 }
             }
-//            debugPrint("xyzzy: org.areSettingsLoaded = \(org.areSettingsLoaded)")
-            var settings = [API.settingNotPickupLib, API.settingCreditPaymentsAllow]
+            var settings = [
+                API.settingNotPickupLib,
+                API.settingCreditPaymentsAllow,
+                API.settingInfoURL
+            ]
             if org.parent == nil {
                 settings.append(API.settingSMSEnable)
             }
@@ -97,6 +100,23 @@ class ActorService {
         return promise
     }
 
+    static func makeEmptyPromise() -> Promise<(OSRFObject?)> {
+        let emptyPromise = Promise<(OSRFObject?)>() { seal in
+            seal.fulfill(nil)
+        }
+        return emptyPromise
+    }
+
+    static func fetchOrgUnitHours(authtoken: String, forOrgID orgID: Int) -> Promise<(OSRFObject?)> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID])
+        return req.gatewayOptionalObjectResponse()
+    }
+    
+    static func fetchOrgAddress(addressID: Int) -> Promise<(OSRFObject?)> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [addressID])
+        return req.gatewayOptionalObjectResponse()
+    }
+
     static func fetchUserSettings(account: Account) -> Promise<Void> {
         if account.userSettingsLoaded {
             return Promise<Void>()
@@ -108,7 +128,7 @@ class ActorService {
         }
         let fields = ["card", "settings"]
         let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [authtoken, userID, fields])
-        let promise = req.gatewayResponse().done { resp, pmkresp in
+        let promise = req.gatewayResponse().done { resp in
             if let obj = resp.obj {
                 account.loadUserSettings(fromObject: obj)
             }

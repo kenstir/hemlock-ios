@@ -144,6 +144,15 @@
 		D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */; };
 		D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */; };
 		D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* acorn.xcassets */; };
+		D211DBB62484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
+		D211DBB72484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
+		D211DBB82484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
+		D211DBB92484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
+		D211DBBA2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
+		D211DBBB2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
+		D211DBBC2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
+		D211DBBD2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
+		D211DBBE2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
 		D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2720C5B90A00267503 /* PromiseKitTests.swift */; };
 		D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
@@ -323,7 +332,7 @@
 		D23E9FED23B923B80030F5C1 /* SageCatAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FE923B923B80030F5C1 /* SageCatAppBehavior.swift */; };
 		D23E9FEE23B923B80030F5C1 /* SageCatAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */; };
 		D23E9FEF23B923B80030F5C1 /* SageCatTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */; };
-		D23E9FF123B924390030F5C1 /* SageCat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23E9FF023B924390030F5C1 /* SageCat.xcassets */; };
+		D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23E9FF023B924390030F5C1 /* sagecat.xcassets */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D2477BB724785A6B00FD4CF6 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -435,7 +444,7 @@
 		D2477C3424786CCF00FD4CF6 /* IndianaTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2477C3024786CCF00FD4CF6 /* IndianaTheme.swift */; };
 		D2477C3524786CCF00FD4CF6 /* IndianaAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2477C3124786CCF00FD4CF6 /* IndianaAppConfiguration.swift */; };
 		D2477C3624786CCF00FD4CF6 /* IndianaAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2477C3224786CCF00FD4CF6 /* IndianaAppBehavior.swift */; };
-		D2477C3824786EC000FD4CF6 /* Indiana.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2477C3724786EC000FD4CF6 /* Indiana.xcassets */; };
+		D2477C3824786EC000FD4CF6 /* indiana.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2477C3724786EC000FD4CF6 /* indiana.xcassets */; };
 		D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
 		D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
 		D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
@@ -594,8 +603,8 @@
 		D279910320DDD473003B451E /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		D279910420DDD473003B451E /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142320CDBED6008F02D3 /* Lists.storyboard */; };
 		D279910520DDD473003B451E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
-		D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279910E20DDD760003B451E /* Hemlock.xcassets */; };
-		D279911120DDD77F003B451E /* PINES.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* PINES.xcassets */; };
+		D279910F20DDD760003B451E /* hemlock.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279910E20DDD760003B451E /* hemlock.xcassets */; };
+		D279911120DDD77F003B451E /* pines.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* pines.xcassets */; };
 		D279911820DDE11E003B451E /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppFactory.swift */; };
 		D279911A20DDE160003B451E /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppFactory.swift */; };
 		D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
@@ -718,6 +727,24 @@
 		D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppFactory.swift */; };
 		D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CWMarsTheme.swift */; };
 		D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D296EE0F213381FE009BDB12 /* Default-568h@2x.png */; };
+		D29911DA248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DC248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DD248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DE248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911DF248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911E0248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911E1248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911E2248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
+		D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E5248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911EA248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
+		D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
 		D29A3B2A2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
 		D29A3B2B2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
 		D29A3B2C2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
@@ -976,6 +1003,15 @@
 		D2C24A312101712E0028180B /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
+		D2C7D6272484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
+		D2C7D6282484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
+		D2C7D6292484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
+		D2C7D62A2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
+		D2C7D62B2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
+		D2C7D62C2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
+		D2C7D62D2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
+		D2C7D62E2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
+		D2C7D62F2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
@@ -1058,6 +1094,7 @@
 		D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornAppConfiguration.swift; sourceTree = "<group>"; };
 		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D210EC4B22B1F331002FB5E0 /* acorn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acorn.xcassets; sourceTree = "<group>"; };
+		D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgDetailsViewController.swift; sourceTree = "<group>"; };
 		D212DB2720C5B90A00267503 /* PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKitTests.swift; sourceTree = "<group>"; };
 		D212DB2920C5C0D200267503 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
@@ -1106,7 +1143,7 @@
 		D23E9FE923B923B80030F5C1 /* SageCatAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatAppBehavior.swift; sourceTree = "<group>"; };
 		D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatAppConfiguration.swift; sourceTree = "<group>"; };
 		D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatTheme.swift; sourceTree = "<group>"; };
-		D23E9FF023B924390030F5C1 /* SageCat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SageCat.xcassets; sourceTree = "<group>"; };
+		D23E9FF023B924390030F5C1 /* sagecat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sagecat.xcassets; sourceTree = "<group>"; };
 		D23E9FF223B932DF0030F5C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -1116,7 +1153,7 @@
 		D2477C3024786CCF00FD4CF6 /* IndianaTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndianaTheme.swift; sourceTree = "<group>"; };
 		D2477C3124786CCF00FD4CF6 /* IndianaAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndianaAppConfiguration.swift; sourceTree = "<group>"; };
 		D2477C3224786CCF00FD4CF6 /* IndianaAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndianaAppBehavior.swift; sourceTree = "<group>"; };
-		D2477C3724786EC000FD4CF6 /* Indiana.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Indiana.xcassets; sourceTree = "<group>"; };
+		D2477C3724786EC000FD4CF6 /* indiana.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = indiana.xcassets; sourceTree = "<group>"; };
 		D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoViewController.swift; sourceTree = "<group>"; };
 		D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CopyInfo.storyboard; sourceTree = "<group>"; };
 		D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -1145,8 +1182,8 @@
 		D276DAE621336BE3007FAA31 /* cwmars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cwmars.xcassets; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D279910B20DDD473003B451E /* HemlockInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HemlockInfo.plist; sourceTree = "<group>"; };
-		D279910E20DDD760003B451E /* Hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Hemlock.xcassets; sourceTree = "<group>"; };
-		D279911020DDD77F003B451E /* PINES.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PINES.xcassets; sourceTree = "<group>"; };
+		D279910E20DDD760003B451E /* hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hemlock.xcassets; sourceTree = "<group>"; };
+		D279911020DDD77F003B451E /* pines.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pines.xcassets; sourceTree = "<group>"; };
 		D279911720DDE11E003B451E /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D27DF20221AA3D81002DCC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Source/Storyboards/Base.lproj/ShowCard.storyboard; sourceTree = "<group>"; };
@@ -1179,6 +1216,8 @@
 		D296EE0A2133802F009BDB12 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
 		D296EE0F213381FE009BDB12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D29911D9248461C0007DB26C /* OrgDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrgDetails.storyboard; sourceTree = "<group>"; };
+		D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsViewController.swift; sourceTree = "<group>"; };
 		D29A3B292197C14900BBF192 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
 		D29C720D209245E200E90952 /* TestUserData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUserData; sourceTree = SOURCE_ROOT; };
 		D29C720F209248F500E90952 /* OSRFCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoder.swift; sourceTree = "<group>"; };
@@ -1215,6 +1254,7 @@
 		D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLCAppConfiguration.swift; sourceTree = "<group>"; };
 		D2C24A2F210171290028180B /* PCRUDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCRUDService.swift; sourceTree = "<group>"; };
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
+		D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -1439,6 +1479,17 @@
 			path = acorn_app;
 			sourceTree = "<group>";
 		};
+		D211DBAA24840F9000E0992C /* OrgDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D29911D9248461C0007DB26C /* OrgDetails.storyboard */,
+				D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */,
+				D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */,
+				D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */,
+			);
+			path = OrgDetails;
+			sourceTree = "<group>";
+		};
 		D212DB1020C3717200267503 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1463,6 +1514,7 @@
 				D212DB1620C37B2600267503 /* Login */,
 				D212DB1520C37B0600267503 /* Main */,
 				D20BDB752214B84F00BB6A5F /* Options */,
+				D211DBAA24840F9000E0992C /* OrgDetails */,
 				FA88B4C420FC1AF9000F211F /* PlaceHold */,
 				FACD142520CDC0C9008F02D3 /* Search */,
 				D22D0C8C22426B3800DBB31A /* SendEmail */,
@@ -1649,7 +1701,7 @@
 				D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */,
 				D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */,
 				D23E9FF223B932DF0030F5C1 /* Info.plist */,
-				D23E9FF023B924390030F5C1 /* SageCat.xcassets */,
+				D23E9FF023B924390030F5C1 /* sagecat.xcassets */,
 			);
 			path = sagecat_app;
 			sourceTree = "<group>";
@@ -1662,7 +1714,7 @@
 				D2477C3124786CCF00FD4CF6 /* IndianaAppConfiguration.swift */,
 				D2477C3024786CCF00FD4CF6 /* IndianaTheme.swift */,
 				D2477C2C24785A6C00FD4CF6 /* Info.plist */,
-				D2477C3724786EC000FD4CF6 /* Indiana.xcassets */,
+				D2477C3724786EC000FD4CF6 /* indiana.xcassets */,
 			);
 			path = indiana_app;
 			sourceTree = "<group>";
@@ -1696,7 +1748,7 @@
 				D2A74B1821289F2E001D4B0F /* HemlockAppConfiguration.swift */,
 				D23C304F20E5C6EA00666A2B /* HemlockTheme.swift */,
 				D279910B20DDD473003B451E /* HemlockInfo.plist */,
-				D279910E20DDD760003B451E /* Hemlock.xcassets */,
+				D279910E20DDD760003B451E /* hemlock.xcassets */,
 			);
 			path = hemlock_app;
 			sourceTree = "<group>";
@@ -1822,7 +1874,7 @@
 				D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */,
 				D23C304D20E5C6C800666A2B /* PinesTheme.swift */,
 				D287D507207AEF2C001AF644 /* PINESInfo.plist */,
-				D279911020DDD77F003B451E /* PINES.xcassets */,
+				D279911020DDD77F003B451E /* pines.xcassets */,
 			);
 			path = pines_app;
 			sourceTree = "<group>";
@@ -2148,6 +2200,7 @@
 				D210EC2A22B1EE55002FB5E0 /* Documentation in Resources */,
 				D210EC2B22B1EE55002FB5E0 /* ShowCard.storyboard in Resources */,
 				D210EC2C22B1EE55002FB5E0 /* Options.storyboard in Resources */,
+				D29911DA248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D210EC2D22B1EE55002FB5E0 /* Default-568h@2x.png in Resources */,
 				D210EC2E22B1EE55002FB5E0 /* Fines.storyboard in Resources */,
 				D210EC2F22B1EE55002FB5E0 /* SendEmail.storyboard in Resources */,
@@ -2164,12 +2217,13 @@
 				D23E9FCB23B9200A0030F5C1 /* Checkouts.storyboard in Resources */,
 				D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */,
 				D23E9FCD23B9200A0030F5C1 /* Holds.storyboard in Resources */,
-				D23E9FF123B924390030F5C1 /* SageCat.xcassets in Resources */,
+				D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */,
 				D23E9FCE23B9200A0030F5C1 /* CopyInfo.storyboard in Resources */,
 				D23E9FCF23B9200A0030F5C1 /* Search.storyboard in Resources */,
 				D23E9FD023B9200A0030F5C1 /* Documentation in Resources */,
 				D23E9FD123B9200A0030F5C1 /* ShowCard.storyboard in Resources */,
 				D23E9FD223B9200A0030F5C1 /* Options.storyboard in Resources */,
+				D29911E2248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D23E9FD423B9200A0030F5C1 /* Default-568h@2x.png in Resources */,
 				D23E9FD523B9200A0030F5C1 /* Fines.storyboard in Resources */,
 				D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */,
@@ -2190,8 +2244,9 @@
 				D2477C1E24785A6B00FD4CF6 /* Search.storyboard in Resources */,
 				D2477C1F24785A6B00FD4CF6 /* Documentation in Resources */,
 				D2477C2024785A6B00FD4CF6 /* ShowCard.storyboard in Resources */,
-				D2477C3824786EC000FD4CF6 /* Indiana.xcassets in Resources */,
+				D2477C3824786EC000FD4CF6 /* indiana.xcassets in Resources */,
 				D2477C2124785A6B00FD4CF6 /* Options.storyboard in Resources */,
+				D29911DE248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2477C2224785A6B00FD4CF6 /* Default-568h@2x.png in Resources */,
 				D2477C2324785A6B00FD4CF6 /* Fines.storyboard in Resources */,
 				D2477C2424785A6B00FD4CF6 /* SendEmail.storyboard in Resources */,
@@ -2212,6 +2267,7 @@
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
 				D276DAD821336B20007FAA31 /* Search.storyboard in Resources */,
 				D276DADA21336B20007FAA31 /* Documentation in Resources */,
+				D29911DC248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D27DF20521AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				D2616764220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D2096E17244BACD800627FF5 /* cwmars-pro.xcassets in Resources */,
@@ -2236,10 +2292,11 @@
 				D22D0C932243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D2616762220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
-				D279910F20DDD760003B451E /* Hemlock.xcassets in Resources */,
+				D279910F20DDD760003B451E /* hemlock.xcassets in Resources */,
 				D279910220DDD473003B451E /* Documentation in Resources */,
 				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
 				D279910420DDD473003B451E /* Lists.storyboard in Resources */,
+				D29911DD248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D279910520DDD473003B451E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2258,6 +2315,7 @@
 				D28424A621D0358200C7171C /* Documentation in Resources */,
 				D28424A721D0358200C7171C /* ShowCard.storyboard in Resources */,
 				D2616765220BA1AF0071E1A5 /* Options.storyboard in Resources */,
+				D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D28424A821D0358200C7171C /* Default-568h@2x.png in Resources */,
 				D28424A921D0358200C7171C /* Fines.storyboard in Resources */,
 				D22D0C962243104600DBB31A /* SendEmail.storyboard in Resources */,
@@ -2278,11 +2336,12 @@
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
 				D22D0C942243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D2616763220BA1AF0071E1A5 /* Options.storyboard in Resources */,
-				D279911120DDD77F003B451E /* PINES.xcassets in Resources */,
+				D279911120DDD77F003B451E /* pines.xcassets in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
 				FACD142420CDBED6008F02D3 /* Lists.storyboard in Resources */,
+				D29911E1248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2310,6 +2369,7 @@
 				D2BDA67422D176BD00D9B60C /* ShowCard.storyboard in Resources */,
 				D2BDA67522D176BD00D9B60C /* Options.storyboard in Resources */,
 				D2BDA69722D17A8400D9B60C /* noble.xcassets in Resources */,
+				D29911DF248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2BDA67622D176BD00D9B60C /* Default-568h@2x.png in Resources */,
 				D2BDA67722D176BD00D9B60C /* Fines.storyboard in Resources */,
 				D2BDA67822D176BD00D9B60C /* SendEmail.storyboard in Resources */,
@@ -2332,6 +2392,7 @@
 				D2BDA70B22D2A72000D9B60C /* ShowCard.storyboard in Resources */,
 				D2BDA70C22D2A72000D9B60C /* Options.storyboard in Resources */,
 				D29E874B22D2AFE7003C5467 /* ntlc.xcassets in Resources */,
+				D29911E0248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2BDA70E22D2A72000D9B60C /* Default-568h@2x.png in Resources */,
 				D2BDA70F22D2A72000D9B60C /* Fines.storyboard in Resources */,
 				D2BDA71022D2A72000D9B60C /* SendEmail.storyboard in Resources */,
@@ -2689,6 +2750,7 @@
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
 				D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */,
+				D211DBB62484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D210EBEE22B1EE55002FB5E0 /* XDetailsPagerViewController.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
 				D210EBF022B1EE55002FB5E0 /* ASDisplayNode+.swift in Sources */,
@@ -2727,7 +2789,9 @@
 				D210EC0E22B1EE55002FB5E0 /* UIScrollView+.swift in Sources */,
 				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
+				D2C7D6272484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainViewController.swift in Sources */,
+				D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D210EC1122B1EE55002FB5E0 /* CopyCounts.swift in Sources */,
 				D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */,
 				D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */,
@@ -2781,6 +2845,7 @@
 				D23E9F9223B9200A0030F5C1 /* AppBehavior.swift in Sources */,
 				D23E9F9323B9200A0030F5C1 /* XDetailsPagerViewController.swift in Sources */,
 				D23E9F9423B9200A0030F5C1 /* CopyInfoViewController.swift in Sources */,
+				D211DBBE2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D23E9F9523B9200A0030F5C1 /* ASDisplayNode+.swift in Sources */,
 				D23E9F9623B9200A0030F5C1 /* SendEmailViewController.swift in Sources */,
 				D23E9F9723B9200A0030F5C1 /* UIView+UYLExtensions.swift in Sources */,
@@ -2819,7 +2884,9 @@
 				D23E9FB423B9200A0030F5C1 /* UIScrollView+.swift in Sources */,
 				D2A73B26246CB54000874620 /* JSONUtils.swift in Sources */,
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
+				D2C7D62F2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainViewController.swift in Sources */,
+				D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D23E9FB723B9200A0030F5C1 /* CopyCounts.swift in Sources */,
 				D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */,
 				D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */,
@@ -2873,6 +2940,7 @@
 				D2477BDE24785A6B00FD4CF6 /* AppBehavior.swift in Sources */,
 				D2477BDF24785A6B00FD4CF6 /* XDetailsPagerViewController.swift in Sources */,
 				D2477BE024785A6B00FD4CF6 /* CopyInfoViewController.swift in Sources */,
+				D211DBBA2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2477BE124785A6B00FD4CF6 /* ASDisplayNode+.swift in Sources */,
 				D2477BE224785A6B00FD4CF6 /* SendEmailViewController.swift in Sources */,
 				D2477BE324785A6B00FD4CF6 /* UIView+UYLExtensions.swift in Sources */,
@@ -2911,7 +2979,9 @@
 				D2477C0424785A6B00FD4CF6 /* UIScrollView+.swift in Sources */,
 				D2477C0524785A6B00FD4CF6 /* JSONUtils.swift in Sources */,
 				D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */,
+				D2C7D62B2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2477C0724785A6B00FD4CF6 /* MainViewController.swift in Sources */,
+				D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2477C0824785A6B00FD4CF6 /* CopyCounts.swift in Sources */,
 				D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */,
 				D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */,
@@ -2940,6 +3010,7 @@
 				D276DA9221336B20007FAA31 /* HoldRecord.swift in Sources */,
 				D21981FA235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF222CE7BF500F69848 /* Link.swift in Sources */,
+				D2C7D6292484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
 				D2A81798224699C700340074 /* Bundle+.swift in Sources */,
@@ -2947,6 +3018,7 @@
 				D276DA9421336B20007FAA31 /* String+.swift in Sources */,
 				D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */,
 				D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */,
+				D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D276DA9721336B20007FAA31 /* API.swift in Sources */,
 				D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */,
 				D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */,
@@ -2990,6 +3062,7 @@
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
 				D22D0C9022426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
+				D211DBB82484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
@@ -3031,6 +3104,7 @@
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
 				D21981FB235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF022CE7BF500F69848 /* Link.swift in Sources */,
+				D2C7D62A2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FE822CC359000F69848 /* MARCRecord.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D2A81796224699C700340074 /* Bundle+.swift in Sources */,
@@ -3038,6 +3112,7 @@
 				D2C24A30210171290028180B /* PCRUDService.swift in Sources */,
 				D226B60A20ED519E00CA5B79 /* String+.swift in Sources */,
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
+				D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
@@ -3081,6 +3156,7 @@
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D22D0C8E22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
+				D211DBB92484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
@@ -3122,6 +3198,7 @@
 				D284245621D0358200C7171C /* MainTableViewCell.swift in Sources */,
 				D21981F9235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF322CE7BF500F69848 /* Link.swift in Sources */,
+				D2C7D6282484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D284245821D0358200C7171C /* HoldRecord.swift in Sources */,
 				D2A81799224699C700340074 /* Bundle+.swift in Sources */,
@@ -3129,6 +3206,7 @@
 				D284245921D0358200C7171C /* PCRUDService.swift in Sources */,
 				D284245A21D0358200C7171C /* String+.swift in Sources */,
 				D284245B21D0358200C7171C /* AppConfiguration.swift in Sources */,
+				D29911E5248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D284245C21D0358200C7171C /* FinesViewController.swift in Sources */,
 				D284245D21D0358200C7171C /* API.swift in Sources */,
 				D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */,
@@ -3172,6 +3250,7 @@
 				D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */,
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
 				D22D0C9122426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
+				D211DBB72484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
 				D284248121D0358200C7171C /* BarcodeUtils.swift in Sources */,
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
@@ -3238,6 +3317,7 @@
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D20B2FF722CF976200F69848 /* AppBehavior.swift in Sources */,
+				D211DBBD2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */,
@@ -3276,7 +3356,9 @@
 				D28164B5213C7D99000B64B4 /* UIScrollView+.swift in Sources */,
 				D2A73B25246CB54000874620 /* JSONUtils.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
+				D2C7D62E2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
+				D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */,
 				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
@@ -3360,6 +3442,7 @@
 				D2BDA63422D176BD00D9B60C /* CopyInfoTableViewCell.swift in Sources */,
 				D2BDA63522D176BD00D9B60C /* AppBehavior.swift in Sources */,
 				D2BDA63622D176BD00D9B60C /* XDetailsPagerViewController.swift in Sources */,
+				D211DBBB2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */,
 				D2BDA63822D176BD00D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA63922D176BD00D9B60C /* SendEmailViewController.swift in Sources */,
@@ -3398,7 +3481,9 @@
 				D2BDA65822D176BD00D9B60C /* Style.swift in Sources */,
 				D2A73B23246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
+				D2C7D62C2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainViewController.swift in Sources */,
+				D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA65A22D176BD00D9B60C /* CopyCounts.swift in Sources */,
 				D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */,
 				D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */,
@@ -3452,6 +3537,7 @@
 				D2BDA6CC22D2A72000D9B60C /* AppBehavior.swift in Sources */,
 				D2BDA6CD22D2A72000D9B60C /* XDetailsPagerViewController.swift in Sources */,
 				D2BDA6CE22D2A72000D9B60C /* CopyInfoViewController.swift in Sources */,
+				D211DBBC2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2BDA6CF22D2A72000D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA6D022D2A72000D9B60C /* SendEmailViewController.swift in Sources */,
 				D2BDA6D122D2A72000D9B60C /* UIView+UYLExtensions.swift in Sources */,
@@ -3490,7 +3576,9 @@
 				D2BDA6F122D2A72000D9B60C /* MainViewController.swift in Sources */,
 				D2A73B24246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BDA6F222D2A72000D9B60C /* CopyCounts.swift in Sources */,
+				D2C7D62D2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */,
+				D29911EA248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA6F422D2A72000D9B60C /* SearchService.swift in Sources */,
 				D2BDA71E22D2A87E00D9B60C /* AppFactory.swift in Sources */,
 				D2BDA71D22D2A87E00D9B60C /* NTLCTheme.swift in Sources */,
@@ -3614,7 +3702,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.sagecat;
 				PRODUCT_NAME = SageCat;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -3642,7 +3730,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.sagecat;
 				PRODUCT_NAME = SageCat;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -3657,7 +3745,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3685,7 +3773,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3724,7 +3812,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cwmars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -3752,7 +3840,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cwmars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -3818,7 +3906,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3830,7 +3918,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -3846,7 +3934,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3858,7 +3946,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -3988,7 +4076,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4018,7 +4106,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4096,7 +4184,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4124,7 +4212,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4151,7 +4239,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4163,7 +4251,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.ntlc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -4179,7 +4267,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4191,7 +4279,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.ntlc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";

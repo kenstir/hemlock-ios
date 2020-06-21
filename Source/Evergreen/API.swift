@@ -24,7 +24,7 @@ struct API {
     //MARK: - misc
 
     static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some requests
-    static let netClasses = "ac,acn,acp,ahr,ahtc,aou,aout,au,aua,auact,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+    static let netClasses = "ac,acn,acp,ahr,ahtc,aoa,aou,aouhoo,aout,au,aua,auact,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
@@ -35,9 +35,12 @@ struct API {
     static let orgTypesRetrieve = "open-ils.actor.org_types.retrieve"
     static let orgUnitSetting = "open-ils.actor.ou_setting.ancestor_default"
     static let orgUnitSettingBatch = "open-ils.actor.ou_setting.ancestor_default.batch"
+    static let orgUnitHoursOfOperationRetrieve = "open-ils.actor.org_unit.hours_of_operation.retrieve"
+    static let orgUnitAddressRetrieve = "open-ils.actor.org_unit.address.retrieve"
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let settingCreditPaymentsAllow = "credit.payments.allow"
+    static let settingInfoURL = "lib.info_url"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"
     static let userFleshedRetrieve = "open-ils.actor.user.fleshed.retrieve"
     static let userSettingHoldNotify = "opac.hold_notify" // e.g. "email|sms"
@@ -69,6 +72,12 @@ struct API {
     
     static let fielder = "open-ils.fielder"
     static let fielderBMPAtomic = "open-ils.fielder.bmp.atomic"
+    
+    //MARK: - mobile service
+    
+    static let mobile = "open-ils.selfcheck"
+    static let exists = "open-ils.selfcheck.exists"
+    static let xyzzy = "open-ils.selfcheck.xyzzy"
 
     //MARK: - pcrud service
     

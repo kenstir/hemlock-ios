@@ -323,9 +323,9 @@ class LiveServiceTests: XCTestCase {
     func test_copyLocationCounts() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", parent: nil, ouType: 0, opacVisible: true)
+        let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", ouType: 0, opacVisible: true, aouObj: OSRFObject())
         let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: self.sampleRecordID!)
-        promise.done { resp, pmkresp in
+        promise.done { resp in
             XCTAssertNotNil(resp.payload)
             let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload!)
             XCTAssertNotNil(copyLocationCounts)
@@ -341,6 +341,8 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 10)
     }
+    
+    //MARK: - misc API
     
     func test_retrieveBRE() {
         XCTAssertTrue(loadIDL())
@@ -365,7 +367,59 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 20.0)
     }
+    
+    func test_hoursOfOperation() {
+        XCTAssertTrue(loadIDL())
 
+        let expectation = XCTestExpectation(description: "async response")
+
+        let credential = Credential(username: account!.username, password: account!.password)
+        let promise = AuthService.fetchAuthToken(credential: credential)
+        promise.then { (authtoken: String) -> Promise<(OSRFObject?)> in
+            XCTAssertFalse(authtoken.isEmpty)
+            self.authtoken = authtoken
+            return ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: self.homeOrgID)
+        }.done { obj in
+            XCTAssertNotNil(obj)
+            let mondayOpen = obj?.getString("dow_0_open")
+            XCTAssertEqual(mondayOpen?.isEmpty, false)
+            let sundayClose = obj?.getString("dow_6_close")
+            XCTAssertEqual(sundayClose?.isEmpty, false)
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 20.0)
+    }
+    
+    func fetchExists(authtoken: String) -> Promise<(GatewayResponse)> {
+        let req = Gateway.makeRequest(service: API.mobile, method: API.exists, args: [])
+        return req.gatewayResponse()
+    }
+
+    func test_exists() {
+        XCTAssertTrue(loadIDL())
+
+        let expectation = XCTestExpectation(description: "async response")
+
+        let credential = Credential(username: account!.username, password: account!.password)
+        let promise = AuthService.fetchAuthToken(credential: credential)
+        promise.then { (authtoken: String) -> Promise<(GatewayResponse)> in
+            XCTAssertFalse(authtoken.isEmpty)
+            self.authtoken = authtoken
+            return self.fetchExists(authtoken: authtoken)
+        }.done { resp in
+            XCTAssertNotNil(resp)
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 20.0)
+    }
 
     //MARK: - actorCheckedOut
     

@@ -20,18 +20,27 @@
 import Foundation
 import UIKit
 
+struct MainViewButtonData {
+    let title: String
+    let segue: String
+    init(_ title: String, _ segue: String) {
+        self.title = title
+        self.segue = segue
+    }
+}
+
 class MainViewController: UIViewController {
     
     //MARK: - fields
 
-    @IBOutlet weak var accountButton: UIBarButtonItem!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var bottomButtonBar: UIStackView!
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
 
-    var buttons: [(String, String, (() -> UIViewController)?)] = []
+    var buttons: [(String, String, UIViewController.Type?)] = []
     
     //MARK: - UIViewController
     
@@ -54,23 +63,23 @@ class MainViewController: UIViewController {
         buttons = [
             ("Search", "ShowSearchSegue", nil),
             ("Items Checked Out", "ShowCheckoutsSegue", nil),
+            ("Items Checked Out", "", XCheckoutsViewController.self),
             ("Holds", "ShowHoldsSegue", nil),
             ("Fines", "ShowFinesSegue", nil),
-            //("Library Info", "", { XOrgDetailsViewController() }),
-            ("Library Info", "ShowOrgDetailsSegue", nil),
         ]
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
+        //        ("My Lists", "ShowListsSegue", nil),
     }
 
     func setupViews() {
         navigationItem.title = App.config.title
         tableView.dataSource = self
         tableView.delegate = self
-        accountButton.target = self
-        accountButton.action = #selector(accountButtonPressed(sender:))
-        Style.styleBarButton(accountButton)
+        logoutButton.target = self
+        logoutButton.action = #selector(logoutPressed(sender:))
+        Style.styleBarButton(logoutButton)
         if App.config.enableMainSceneBottomToolbar {
             Style.styleButton(asPlain: fullCatalogButton)
             Style.styleButton(asPlain: libraryLocatorButton)
@@ -81,64 +90,9 @@ class MainViewController: UIViewController {
         }
     }
     
-    @objc func accountButtonPressed(sender: UIBarButtonItem) {
-        let haveMultipleAccounts = App.credentialManager.credentials.count > 1
-
-        // Create an actionSheet to present the account options
-//        if haveMultipleAccounts {
-//            message = "Switch to a different account, add an account, or logout to remove your saved password"
-//        }
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        Style.styleAlertController(alertController)
-        
-        // Add an action for each stored account
-        if haveMultipleAccounts {
-            for account in App.credentialManager.credentials {
-                let action = UIAlertAction(title: account.username, style: .default) { action in
-                    self.doSwitchAccount(toAccount: account)
-                }
-                var imageName = "Account"
-                if account.username == App.account?.username {
-                    action.isEnabled = false
-                    imageName = "Account with Checkmark"
-                }
-                if let icon = UIImage(named: imageName) {
-                    action.setValue(icon, forKey: "image")
-                }
-                alertController.addAction(action)
-            }
-        }
-        
-        // Add remaining actions
-        alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
-            self.doAddAccount()
-        })
-        alertController.addAction(UIAlertAction(title: "Logout", style: .destructive) { action in
-            self.doLogout()
-        })
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        // iPad requires using the popoverPresentationController
-        if let popoverController = alertController.popoverPresentationController {
-            popoverController.barButtonItem = sender
-        }
-
-        self.present(alertController, animated: true)
-    }
-    
-    func doSwitchAccount(toAccount storedAccount: Credential) {
-        App.switchCredential(credential: storedAccount)
-        self.popToLogin()
-    }
-    
-    func doAddAccount() {
-        App.switchCredential(credential: nil)
-        self.popToLogin()
-    }
-    
-    func doLogout() {
-        App.logout()
-        self.popToLogin()
+    @IBAction func logoutPressed(sender: UIButton) {
+        LoginController.clearLoginCredentials(account: App.account)
+        self.performSegue(withIdentifier: "ShowLoginSegue", sender: nil)
     }
 
     @IBAction func fullCatalogButtonPressed(_ sender: Any) {
@@ -179,18 +133,11 @@ extension MainViewController: UITableViewDataSource {
         let label = tuple.0
         let segue = tuple.1
         
-        var image: UIImage?
-        if App.config.haveColorButtonImages {
-            image = UIImage(named: label)?.withRenderingMode(.automatic)
-            //cell.imageView?.image = image
-        } else {
-            image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
-            //cell.imageView?.image = image
-            cell.tintColor = App.theme.primaryColor
-        }
+        let image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
+        
+        cell.tintColor = App.theme.backgroundColor
         cell.imageView?.image = image
-        cell.textLabel?.text = App.behavior.getCustomString(label) ?? label
-
+        cell.textLabel?.text = label
         cell.title = label
         cell.segue = segue
         
@@ -204,8 +151,8 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuple = buttons[indexPath.row]
         let segue = tuple.1
-        if let vcfunc = tuple.2 {
-            let vc = vcfunc()
+        if let vctype = tuple.2 {
+            let vc = vctype.init()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             self.performSegue(withIdentifier: segue, sender: nil)
