@@ -562,7 +562,6 @@
 		D2572B0C24AD7755000BA698 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2572B0D24AD7755000BA698 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
 		D2572B0E24AD7755000BA698 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
-		D2572B0F24AD7755000BA698 /* sagecat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23E9FF023B924390030F5C1 /* sagecat.xcassets */; };
 		D2572B1024AD7755000BA698 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
 		D2572B1124AD7755000BA698 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142620CDC0DF008F02D3 /* Search.storyboard */; };
 		D2572B1224AD7755000BA698 /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
@@ -578,6 +577,7 @@
 		D2572B2724AD7A13000BA698 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2324AD7A13000BA698 /* AppFactory.swift */; };
 		D2572B2824AD7A13000BA698 /* MoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2424AD7A13000BA698 /* MoTheme.swift */; };
 		D2572B2924AD7A13000BA698 /* MoAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */; };
+		D2592D7D24AFA4C0009E80EC /* mo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2592D7C24AFA4C0009E80EC /* mo.xcassets */; };
 		D259671924511CA90076267D /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D259671824511CA90076267D /* UtilsTests.swift */; };
 		D260755820E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
 		D260755920E0860300795124 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
@@ -1287,6 +1287,7 @@
 		D2572B2324AD7A13000BA698 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D2572B2424AD7A13000BA698 /* MoTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoTheme.swift; sourceTree = "<group>"; };
 		D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoAppBehavior.swift; sourceTree = "<group>"; };
+		D2592D7C24AFA4C0009E80EC /* mo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mo.xcassets; sourceTree = "<group>"; };
 		D259671824511CA90076267D /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		D2616761220BA1AF0071E1A5 /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
@@ -1874,6 +1875,7 @@
 				D2572B2224AD7A13000BA698 /* MoAppConfiguration.swift */,
 				D2572B2424AD7A13000BA698 /* MoTheme.swift */,
 				D2572B2024AD7755000BA698 /* Info.plist */,
+				D2592D7C24AFA4C0009E80EC /* mo.xcassets */,
 			);
 			path = mo_app;
 			sourceTree = "<group>";
@@ -2433,12 +2435,12 @@
 				D2572B0C24AD7755000BA698 /* Checkouts.storyboard in Resources */,
 				D2572B0D24AD7755000BA698 /* LICENSE.txt in Resources */,
 				D2572B0E24AD7755000BA698 /* Holds.storyboard in Resources */,
-				D2572B0F24AD7755000BA698 /* sagecat.xcassets in Resources */,
 				D2572B1024AD7755000BA698 /* CopyInfo.storyboard in Resources */,
 				D2572B1124AD7755000BA698 /* Search.storyboard in Resources */,
 				D2572B1224AD7755000BA698 /* Documentation in Resources */,
 				D2572B1324AD7755000BA698 /* ShowCard.storyboard in Resources */,
 				D2572B1424AD7755000BA698 /* Options.storyboard in Resources */,
+				D2592D7D24AFA4C0009E80EC /* mo.xcassets in Resources */,
 				D2572B1524AD7755000BA698 /* OrgDetails.storyboard in Resources */,
 				D2572B1624AD7755000BA698 /* Default-568h@2x.png in Resources */,
 				D2572B1724AD7755000BA698 /* Fines.storyboard in Resources */,
