@@ -1,12 +1,13 @@
 {
   "images" : [
     {
+      "filename" : "splash_341_114.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "splash.png",
       "idiom" : "universal",
-      "filename" : "splash_title.png",
       "scale" : "2x"
     },
     {
@@ -15,7 +16,7 @@
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
