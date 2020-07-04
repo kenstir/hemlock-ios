@@ -26,6 +26,7 @@ class NobleAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = false
+    let enablePartHolds = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let groupCopyInfoBySystem = false

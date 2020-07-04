@@ -26,6 +26,7 @@ class SageCatAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
+    let enablePartHolds = true
     let enableMainSceneBottomToolbar = false
     let enablePayFines = false
     let groupCopyInfoBySystem = false

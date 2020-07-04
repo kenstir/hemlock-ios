@@ -26,6 +26,7 @@ class CoolAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
+    let enablePartHolds = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = false
     let groupCopyInfoBySystem = false

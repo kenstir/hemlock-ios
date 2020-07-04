@@ -26,6 +26,7 @@ class IndianaAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
+    let enablePartHolds = true
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true // TODO: verify with Anna
     let groupCopyInfoBySystem = false

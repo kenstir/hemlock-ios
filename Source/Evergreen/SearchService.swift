@@ -61,4 +61,13 @@ class SearchService {
         }
         return promise
     }
+    
+    static func fetchHoldParts(recordID: Int) -> Promise<([OSRFObject])> {
+        let param: JSONDictionary = [
+            "record": recordID
+        ]
+        let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param])
+        let promise = req.gatewayArrayResponse()
+        return promise
+    }
 }

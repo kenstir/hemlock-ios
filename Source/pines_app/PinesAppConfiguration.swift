@@ -26,6 +26,7 @@ class PinesAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = false
     let enableHoldPhoneNotification = true
+    let enablePartHolds = false
     let enableMainSceneBottomToolbar = true
     let enablePayFines = true
     let groupCopyInfoBySystem = true

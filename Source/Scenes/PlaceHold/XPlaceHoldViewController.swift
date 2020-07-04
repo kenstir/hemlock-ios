@@ -29,19 +29,21 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     let record: MBRecord
     let holdRecord: HoldRecord?
+    var parts: [OSRFObject] = []
     var valueChangedHandler: (() -> Void)?
 
+    var partLabels: [String] = []
     var orgLabels: [String] = []
     var orgIsPickupLocation: [Bool] = []
     var orgIsPrimary: [Bool] = []
     var carrierLabels: [String] = []
+    var selectedPartLabel = ""
     var selectedOrgName = ""
     var selectedCarrierName = ""
     var startOfFetch = Date()
     var didCompleteFetch = false
     var expirationDate: Date? = nil
     var expirationPickerVisible = false
-    var isEditHold: Bool { return holdRecord != nil }
 
     var activityIndicator: UIActivityIndicatorView!
 
@@ -51,7 +53,10 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let titleNode = ASTextNode()
     let authorNode = ASTextNode()
     let formatNode = ASTextNode()
-    let spacerNode = ASDisplayNode()
+    //let spacerNode = ASDisplayNode()
+    let partLabel = ASTextNode()
+    let partNode = XUtils.makeTextFieldNode()
+    let partDisclosure = XUtils.makeDisclosureNode()
     let pickupLabel = ASTextNode()
     let pickupNode = XUtils.makeTextFieldNode()
     let pickupDisclosure = XUtils.makeDisclosureNode()
@@ -72,6 +77,10 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return UIDatePicker()
     }
     let placeHoldButton = ASButtonNode()
+    
+    var isEditHold: Bool { return holdRecord != nil }
+    var hasParts: Bool { return !parts.isEmpty }
+    var holdType: String { return hasParts ? API.holdTypePart : API.holdTypeTitle }
 
     //MARK: - Lifecycle
     
@@ -111,10 +120,11 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     //MARK: - setup
     
     func setupNodes() {
-        Style.setupTitle(titleNode, str: record.title)
+        Style.setupTitle(titleNode, str: holdRecord?.title ?? record.title)
         Style.setupSubtitle(authorNode, str: record.author)
         Style.setupSubtitle(formatNode, str: record.iconFormatLabel)
         
+        setupPartRow()
         setupPickupRow()
         setupEmailRow()
         setupPhoneRow()
@@ -135,12 +145,19 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
     
     func enableNodesWhenReady() {
+        partNode.textField?.isEnabled = hasParts
         pickupNode.textField?.isEnabled = didCompleteFetch
         phoneNode.textField?.isEnabled = isOn(phoneSwitch)
         smsNode.textField?.isEnabled = isOn(smsSwitch)
         carrierNode.textField?.isEnabled = didCompleteFetch
         placeHoldButton.isEnabled = didCompleteFetch
         placeHoldButton.setNeedsDisplay()
+    }
+    
+    func setupPartRow() {
+        partLabel.attributedText = Style.makeString("Select a part", ofSize: 14)
+        partNode.textField?.borderStyle = .roundedRect
+        partNode.textField?.delegate = self
     }
 
     func setupPickupRow() {
@@ -225,6 +242,17 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         // shared dimensions
         let rowMinHeight = ASDimensionMake(switchPreferredSize.height)
         let spacing: CGFloat = 4
+        
+        // part row
+        partLabel.style.minWidth = labelMinWidth
+        partNode.style.preferredSize = textFieldPreferredSize
+        let partButtonSpec = XUtils.makeDisclosureOverlaySpec(partNode, overlay: partDisclosure)
+        let partRowSpec = ASStackLayoutSpec.horizontal()
+        partRowSpec.alignItems = .center
+        partRowSpec.children = [partLabel, partButtonSpec]
+        partRowSpec.spacing = spacing
+        partRowSpec.style.minHeight = rowMinHeight
+        partRowSpec.style.spacingBefore = 28
 
         // pickup row
         pickupLabel.style.minWidth = labelMinWidth
@@ -235,7 +263,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         pickupRowSpec.children = [pickupLabel, pickupButtonSpec]
         pickupRowSpec.spacing = spacing
         pickupRowSpec.style.minHeight = rowMinHeight
-        pickupRowSpec.style.spacingBefore = 28
+        if !hasParts { pickupRowSpec.style.spacingBefore = 28 }
 
         // email row
         emailLabel.style.minWidth = labelMinWidth
@@ -276,7 +304,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let expirationRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
         expirationRowSpec.children = [expirationLabel, expirationNode]
         
-        // picker
+        // picker row
         expirationPickerNode.style.preferredSize = pickerPreferredSize
 
         // button row
@@ -288,15 +316,14 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 4
         pageSpec.alignItems = .stretch
-        pageSpec.children = [summarySpec, pickupRowSpec, emailRowSpec, smsRowSpec, carrierRowSpec, expirationRowSpec]
-        if App.config.enableHoldPhoneNotification {
-            pageSpec.children?.insert(phoneRowSpec, at: 3)
-        }
-        if expirationPickerVisible {
-            pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: expirationPickerNode))
-        }
+        pageSpec.children = [summarySpec]
+        if hasParts { pageSpec.children?.append(partRowSpec) }
+        pageSpec.children?.append(contentsOf: [pickupRowSpec, emailRowSpec])
+        if App.config.enableHoldPhoneNotification { pageSpec.children?.append(phoneRowSpec) }
+        pageSpec.children?.append(contentsOf: [smsRowSpec, carrierRowSpec, expirationRowSpec])
+        if expirationPickerVisible { pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: expirationPickerNode)) }
         pageSpec.children?.append(placeHoldButton)
-
+        
         // inset entire page
         let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 4), child: pageSpec)
         print(spec.asciiArtString())
@@ -317,6 +344,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         promises.append(ActorService.fetchOrgTreeAndSettings())
         promises.append(PCRUDService.fetchCodedValueMaps())
         promises.append(PCRUDService.fetchSMSCarriers())
+        promises.append(fetchHoldParts())
         print("xxx \(promises.count) promises made")
 
         centerSubview(activityIndicator)
@@ -337,6 +365,16 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         }
     }
     
+    func fetchHoldParts() -> Promise<Void> {
+        if !App.config.enablePartHolds || isEditHold {
+            return Promise<Void>()
+        }
+        let promise = SearchService.fetchHoldParts(recordID: record.id).done { parts in
+            self.parts = parts
+        }
+        return promise
+    }
+    
     func toInt(_ str: String?) -> Int? {
         if let s = str {
             return Int(s)
@@ -347,6 +385,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     // init that can't happen until fetchData completes
     func onDataLoaded() {
         loadNotifyData()
+        loadPartData()
         loadOrgData()
         loadCarrierData()
         loadExpirationData()
@@ -430,6 +469,23 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         carrierNode.textField?.isUserInteractionEnabled = true
     }
     
+    func loadPartData() {
+        partLabels = ["---"]
+        for partObj in parts {
+            if let label = partObj.getString("label"), let _ = partObj.getInt("id") {
+                partLabels.append(label)
+            }
+        }
+
+        selectedPartLabel = partLabels[0]
+        partNode.textField?.text = selectedPartLabel
+        partNode.textField?.isUserInteractionEnabled = true
+
+        // NB: call transitionLayout on the scrollNode (not partNode, which is not
+        // a subnode with Automatic Subnode Management)
+        scrollNode.transitionLayout(withAnimation: true, shouldMeasureAsync: false)
+    }
+
     func loadExpirationData() {
         if let date = Utils.coalesce(holdRecord?.expireDate) {
             updateExpirationDate(date)
@@ -466,10 +522,18 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing pickup org"))
             return
         }
-        print("pickupOrg \(pickupOrg.id) \(pickupOrg.name) \(pickupOrg.isPickupLocation)")
         if !pickupOrg.isPickupLocation {
             self.showAlert(title: "Not a pickup location", message: "You cannot pick up items at \(pickupOrg.name)")
             return
+        }
+        var targetID = record.id
+        if hasParts {
+            guard let partID = parts.first(where: {$0.getString("label") == selectedPartLabel})?.getInt("id") else
+            {
+                self.showAlert(title: "No part selected", message: "You must select a part before placing a hold on this item")
+                return
+            }
+            targetID = partID
         }
         
         var notifyPhoneNumber: String? = nil
@@ -503,15 +567,15 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         if let hold = holdRecord {
             doUpdateHold(authtoken: authtoken, holdRecord: hold, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
         } else {
-            doPlaceHold(authtoken: authtoken, userID: userID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
+            doPlaceHold(authtoken: authtoken, userID: userID, targetID: targetID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
         }
     }
 
-    func doPlaceHold(authtoken: String, userID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
+    func doPlaceHold(authtoken: String, userID: Int, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
         
-        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, recordID: record.id, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate)
+        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate)
         promise.done { obj in
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful
@@ -612,7 +676,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
 }
 
-//MARK: - TextFieldDelegate
+//MARK: - UITextFieldDelegate
 extension XPlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -621,10 +685,6 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
-//        case phoneNode.textField:
-//            return true
-//        case smsNode.textField:
-//            return true
         case pickupNode.textField:
             guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) else { return true }
             vc.selectionChangedHandler = { value in
@@ -640,6 +700,14 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
             vc.selectionChangedHandler = { value in
                 self.selectedCarrierName = value
                 self.carrierNode.textField?.text = value
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+            return false
+        case partNode.textField:
+            guard let vc = makeVC(title: "Select a part", options: partLabels, selectedOption: selectedPartLabel) else { return true }
+            vc.selectionChangedHandler = { value in
+                self.selectedPartLabel = value
+                self.partNode.textField?.text = value
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false

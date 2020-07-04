@@ -67,6 +67,12 @@ struct API {
     static let holdUpdate = "open-ils.circ.hold.update"
     static let holdQueueStats = "open-ils.circ.hold.queue_stats.retrieve"
     static let renew = "open-ils.circ.renew"
+    
+    static let holdTypeCopy = "C"
+    static let holdTypeMetarecord =  "M"
+    static let holdTypePart = "P"
+    static let holdTypeTitle = "T"
+    static let holdTypeVolume = "V"
 
     //MARK: - fielder service
     
@@ -99,6 +105,7 @@ struct API {
     static let copyStatusRetrieveAll = "open-ils.search.config.copy_status.retrieve.all"
     static let copyCount = "open-ils.search.biblio.record.copy_count"
     static let copyLocationCounts = "open-ils.search.biblio.copy_location_counts.summary.retrieve"
+    static let holdParts = "open-ils.search.biblio.record_hold_parts"
     
     //MARK: - supercat service
     

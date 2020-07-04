@@ -113,15 +113,15 @@ class HoldsViewController: UIViewController {
             let holdType = hold.holdType else {
             return Promise<Void>() //TODO: add analytics
         }
-        if holdType == "T" {
+        if holdType == API.holdTypeTitle {
             return fetchTitleHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
-        } else if hold.holdType == "M" {
+        } else if hold.holdType == API.holdTypeMetarecord {
             return fetchMetarecordHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
-        } else if hold.holdType == "P" {
+        } else if hold.holdType == API.holdTypePart {
             return fetchPartHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
-        } else if hold.holdType == "C" {
+        } else if hold.holdType == API.holdTypeCopy {
             return fetchCopyHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
-        } else if hold.holdType == "V" {
+        } else if hold.holdType == API.holdTypeVolume {
             return fetchVolumeHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
         } else {
             os_log("fetchTargetInfo target=%d holdType=%@ NOT HANDLED", log: log, type: .info, holdTarget, holdType)

@@ -26,6 +26,7 @@ class NTLCAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = false
+    let enablePartHolds = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = false
     let groupCopyInfoBySystem = false
