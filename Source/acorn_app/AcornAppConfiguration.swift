@@ -29,6 +29,7 @@ class AcornAppConfiguration: AppConfiguration {
     let enablePartHolds = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
+    let enableHoursOfOperation = true
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = true
     let needMARCRecord = true

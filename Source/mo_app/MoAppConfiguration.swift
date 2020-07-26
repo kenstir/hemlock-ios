@@ -27,6 +27,7 @@ class MoAppConfiguration: AppConfiguration {
     let enablePartHolds = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
+    let enableHoursOfOperation = true
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = false
     let needMARCRecord = true

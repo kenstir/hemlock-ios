@@ -31,6 +31,8 @@ protocol AppConfiguration {
     var enablePartHolds: Bool { get }
     var enableMainSceneBottomToolbar: Bool { get }
     var enablePayFines: Bool { get }
+    var enableHoursOfOperation: Bool { get }
+
     var groupCopyInfoBySystem: Bool { get }
     var enableCopyInfoWebLinks: Bool { get }
     var needMARCRecord: Bool { get }

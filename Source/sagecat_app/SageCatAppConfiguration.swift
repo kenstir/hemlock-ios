@@ -29,6 +29,7 @@ class SageCatAppConfiguration: AppConfiguration {
     let enablePartHolds = true
     let enableMainSceneBottomToolbar = false
     let enablePayFines = false
+    let enableHoursOfOperation = true
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = false
     let needMARCRecord = false

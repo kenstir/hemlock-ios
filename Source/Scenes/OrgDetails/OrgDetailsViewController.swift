@@ -26,12 +26,20 @@ class OrgDetailsViewController: UIViewController {
     //MARK: - Properties
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var hoursHeader: UILabel!
+    @IBOutlet weak var day0Stack: UIStackView!
     @IBOutlet weak var day0Hours: UILabel!
+    @IBOutlet weak var day1Stack: UIStackView!
     @IBOutlet weak var day1Hours: UILabel!
+    @IBOutlet weak var day2Stack: UIStackView!
     @IBOutlet weak var day2Hours: UILabel!
+    @IBOutlet weak var day3Stack: UIStackView!
     @IBOutlet weak var day3Hours: UILabel!
+    @IBOutlet weak var day4Stack: UIStackView!
     @IBOutlet weak var day4Hours: UILabel!
+    @IBOutlet weak var day5Stack: UIStackView!
     @IBOutlet weak var day5Hours: UILabel!
+    @IBOutlet weak var day6Stack: UIStackView!
     @IBOutlet weak var day6Hours: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
@@ -124,6 +132,7 @@ class OrgDetailsViewController: UIViewController {
         setupActivityIndicator()
         self.setupHomeButton()
         self.setupActionButtons()
+        self.setupHoursViews()
     }
     
     func setupActionButtons() {
@@ -136,6 +145,19 @@ class OrgDetailsViewController: UIViewController {
         emailButton.addTarget(self, action: #selector(emailButtonPressed(sender:)), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonPressed(sender:)), for: .touchUpInside)
         enableButtonsWhenReady()
+    }
+    
+    func setupHoursViews() {
+        if !App.config.enableHoursOfOperation {
+            hoursHeader?.isHidden = true
+            day0Stack?.isHidden = true
+            day1Stack?.isHidden = true
+            day2Stack?.isHidden = true
+            day3Stack?.isHidden = true
+            day4Stack?.isHidden = true
+            day5Stack?.isHidden = true
+            day6Stack?.isHidden = true
+        }
     }
 
     func enableButtonsWhenReady() {
@@ -179,8 +201,8 @@ class OrgDetailsViewController: UIViewController {
         let org = Organization.find(byId: orgID)
         guard let addressObj = org?.addressObj,
             let url = mapsURL(addressObj) else { return }
-        let canOpen = UIApplication.shared.canOpenURL(url)
-        print("canOpen: \(canOpen)")
+//        let canOpen = UIApplication.shared.canOpenURL(url)
+//        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
 
@@ -188,8 +210,8 @@ class OrgDetailsViewController: UIViewController {
         let org = Organization.find(byId: orgID)
         guard let email = org?.email,
             let url = URL(string: "mailto:\(email)") else { return }
-        let canOpen = UIApplication.shared.canOpenURL(url)
-        print("canOpen: \(canOpen)")
+//        let canOpen = UIApplication.shared.canOpenURL(url)
+//        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
     
@@ -197,8 +219,8 @@ class OrgDetailsViewController: UIViewController {
         let org = Organization.find(byId: orgID)
         guard let number = org?.phoneNumber,
             let url = URL(string: "tel:\(number)") else { return }
-        let canOpen = UIApplication.shared.canOpenURL(url)
-        print("canOpen: \(canOpen)")
+//        let canOpen = UIApplication.shared.canOpenURL(url)
+//        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
     

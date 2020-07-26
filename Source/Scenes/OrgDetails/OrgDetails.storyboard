@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wOE-LD-4OB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wOE-LD-4OB">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -279,7 +279,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c1W-kB-gat">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c1W-kB-gat" userLabel="Email Stack">
                                                         <rect key="frame" x="0.0" y="259.5" width="285" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sQ-8v-toi" userLabel="Spacer Label">
@@ -302,11 +302,10 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPo-aj-ktQ" userLabel="Email Button">
                                                                 <rect key="frame" x="82" y="0.0" width="203" height="30"/>
-                                                                <state key="normal" title="contact_us@athenslibrary.org"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="os5-YV-Rht">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="os5-YV-Rht" userLabel="Phone Stack">
                                                         <rect key="frame" x="0.0" y="291.5" width="285" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klo-kP-ecd" userLabel="Spacer Label">
@@ -453,13 +452,21 @@
                         <outlet property="addressLine1" destination="JSh-PC-iJO" id="7LV-VG-gmS"/>
                         <outlet property="addressLine2" destination="6h9-LL-79e" id="kom-8Z-8nw"/>
                         <outlet property="day0Hours" destination="lfq-LC-Vqh" id="ygc-eJ-2qI"/>
+                        <outlet property="day0Stack" destination="bxZ-Sa-qfM" id="N0B-g0-W82"/>
                         <outlet property="day1Hours" destination="l2N-34-Xep" id="uEL-l9-eZR"/>
+                        <outlet property="day1Stack" destination="qNr-7K-8Gn" id="lyf-XX-2JE"/>
                         <outlet property="day2Hours" destination="mFB-so-CXv" id="a6v-1l-kmJ"/>
+                        <outlet property="day2Stack" destination="jRa-y8-5Eb" id="b6T-l9-GnI"/>
                         <outlet property="day3Hours" destination="CNs-RT-kSu" id="775-Ks-waF"/>
+                        <outlet property="day3Stack" destination="hxu-hW-r7b" id="lFd-v7-jzc"/>
                         <outlet property="day4Hours" destination="yFe-Jl-CBY" id="0dn-AK-sAN"/>
+                        <outlet property="day4Stack" destination="BOE-JG-zbR" id="Mas-xV-TLQ"/>
                         <outlet property="day5Hours" destination="ZDW-Aq-sRV" id="6Ua-rk-e88"/>
+                        <outlet property="day5Stack" destination="JlZ-YA-1qG" id="tXG-w5-Q8l"/>
                         <outlet property="day6Hours" destination="M7X-7f-Ntd" id="lW2-d2-N6H"/>
+                        <outlet property="day6Stack" destination="TBN-KI-mSc" id="iGM-sW-RPX"/>
                         <outlet property="emailButton" destination="kPo-aj-ktQ" id="OiI-ec-3ro"/>
+                        <outlet property="hoursHeader" destination="wMg-ib-b6x" id="63R-CD-ajT"/>
                         <outlet property="mapButton" destination="Gmt-sd-WS0" id="bZK-WM-R7s"/>
                         <outlet property="phoneButton" destination="kGv-co-CjX" id="e4M-OH-Cpf"/>
                         <outlet property="tableView" destination="tea-gO-hW9" id="HBb-Wz-fNB"/>

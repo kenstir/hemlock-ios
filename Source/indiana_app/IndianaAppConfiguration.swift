@@ -28,7 +28,8 @@ class IndianaAppConfiguration: AppConfiguration {
     let enableHoldPhoneNotification = true
     let enablePartHolds = true
     let enableMainSceneBottomToolbar = false
-    let enablePayFines = true // TODO: verify with Anna
+    let enablePayFines = true
+    let enableHoursOfOperation = true
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = false
     let needMARCRecord = true
