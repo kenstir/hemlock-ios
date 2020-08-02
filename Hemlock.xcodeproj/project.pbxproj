@@ -44,6 +44,27 @@
 		D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
+		D21090C624D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090C724D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090C824D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090C924D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090CA24D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090CB24D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090CC24D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090CD24D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090CE24D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090CF24D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
+		D21090D124D726FA004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D024D726FA004FE532 /* fail_part_msg_map.json */; };
+		D21090D524D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090D624D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090D724D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090D824D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090D924D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090DA24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090DB24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090DC24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090DD24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
+		D21090DE24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
 		D210EBC922B1EE55002FB5E0 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D210EBCA22B1EE55002FB5E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D210EBCB22B1EE55002FB5E0 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725B020E932DF002A4C42 /* ListsViewController.swift */; };
@@ -66,7 +87,6 @@
 		D210EBDD22B1EE55002FB5E0 /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D210EBDE22B1EE55002FB5E0 /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D210EBDF22B1EE55002FB5E0 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D210EBE022B1EE55002FB5E0 /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D210EBE122B1EE55002FB5E0 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D210EBE222B1EE55002FB5E0 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D210EBE422B1EE55002FB5E0 /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -194,7 +214,6 @@
 		D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
 		D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
 		D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
-		D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
@@ -251,7 +270,6 @@
 		D23E9F8223B9200A0030F5C1 /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D23E9F8323B9200A0030F5C1 /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D23E9F8423B9200A0030F5C1 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D23E9F8523B9200A0030F5C1 /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D23E9F8623B9200A0030F5C1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D23E9F8723B9200A0030F5C1 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D23E9F8823B9200A0030F5C1 /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -360,7 +378,6 @@
 		D2477BCE24785A6B00FD4CF6 /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D2477BCF24785A6B00FD4CF6 /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D2477BD024785A6B00FD4CF6 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D2477BD124785A6B00FD4CF6 /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D2477BD224785A6B00FD4CF6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D2477BD324785A6B00FD4CF6 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D2477BD424785A6B00FD4CF6 /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -489,7 +506,6 @@
 		D2572ABE24AD7755000BA698 /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D2572ABF24AD7755000BA698 /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D2572AC024AD7755000BA698 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D2572AC124AD7755000BA698 /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D2572AC224AD7755000BA698 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D2572AC324AD7755000BA698 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D2572AC424AD7755000BA698 /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -615,7 +631,6 @@
 		D276DA9721336B20007FAA31 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51F207AF88E001AF644 /* API.swift */; };
 		D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D276DA9921336B20007FAA31 /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D276DA9B21336B20007FAA31 /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D276DA9C21336B20007FAA31 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D276DA9D21336B20007FAA31 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -678,7 +693,6 @@
 		D27990D120DDD473003B451E /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
 		D27990D220DDD473003B451E /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D27990D320DDD473003B451E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51F207AF88E001AF644 /* API.swift */; };
-		D27990D620DDD473003B451E /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D27990D720DDD473003B451E /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D27990D820DDD473003B451E /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -761,7 +775,6 @@
 		D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D284245F21D0358200C7171C /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D284246021D0358200C7171C /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D284246221D0358200C7171C /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D284246321D0358200C7171C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D284246421D0358200C7171C /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D284246621D0358200C7171C /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -927,7 +940,6 @@
 		D2BDA62322D176BD00D9B60C /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D2BDA62422D176BD00D9B60C /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D2BDA62622D176BD00D9B60C /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D2BDA62722D176BD00D9B60C /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D2BDA62822D176BD00D9B60C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D2BDA62922D176BD00D9B60C /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D2BDA62B22D176BD00D9B60C /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -1033,7 +1045,6 @@
 		D2BDA6BA22D2A72000D9B60C /* ShowCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E31821962296006BA666 /* ShowCardViewController.swift */; };
 		D2BDA6BB22D2A72000D9B60C /* HoldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */; };
 		D2BDA6BC22D2A72000D9B60C /* CopyStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */; };
-		D2BDA6BD22D2A72000D9B60C /* Corsortium.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02662083E45700DC1F5B /* Corsortium.swift */; };
 		D2BDA6BF22D2A72000D9B60C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
 		D2BDA6C022D2A72000D9B60C /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D2BDA6C222D2A72000D9B60C /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
@@ -1202,6 +1213,9 @@
 		D20D14D020B783C1008F66B0 /* CircRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecord.swift; sourceTree = "<group>"; };
 		D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutsTableViewCell.swift; sourceTree = "<group>"; };
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
+		D21090C524D7243F004FE532 /* MessageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMap.swift; sourceTree = "<group>"; };
+		D21090D024D726FA004FE532 /* fail_part_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail_part_msg_map.json; sourceTree = "<group>"; };
+		D21090D324D7275A004FE532 /* fail_part_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail_part_msg_map.json; sourceTree = "<group>"; };
 		D210EC3622B1EE55002FB5E0 /* acorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = acorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D210EC4322B1F23D002FB5E0 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornTheme.swift; sourceTree = "<group>"; };
@@ -1230,7 +1244,6 @@
 		D229CAF42471C099006BCC07 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D22AE118221B75FC0089C196 /* AFSessionManager+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFSessionManager+.swift"; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
-		D22D02662083E45700DC1F5B /* Corsortium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corsortium.swift; sourceTree = "<group>"; };
 		D22D02682083EA7600DC1F5B /* GatewayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayTests.swift; sourceTree = "<group>"; };
 		D22D026F2084F53E00DC1F5B /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		D22D0272208506C500DC1F5B /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
@@ -1604,6 +1617,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		D21090D224D72721004FE532 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				D21090D324D7275A004FE532 /* fail_part_msg_map.json */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
 		D210EC4222B1F1F6002FB5E0 /* acorn_app */ = {
 			isa = PBXGroup;
 			children = (
@@ -1613,6 +1634,7 @@
 				D210EC4322B1F23D002FB5E0 /* AppFactory.swift */,
 				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
 				D210EC4B22B1F331002FB5E0 /* acorn.xcassets */,
+				D21090D024D726FA004FE532 /* fail_part_msg_map.json */,
 			);
 			path = acorn_app;
 			sourceTree = "<group>";
@@ -1763,7 +1785,6 @@
 				D267E4E6210D17F900C56047 /* CopyCounts.swift */,
 				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
-				D22D02662083E45700DC1F5B /* Corsortium.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
 				D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */,
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
@@ -1779,6 +1800,7 @@
 				D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */,
 				D267E4E3210CDE4700C56047 /* SearchService.swift */,
 				D2C24A32210178DD0028180B /* SMSCarrier.swift */,
+				D21090C524D7243F004FE532 /* MessageMap.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -1952,6 +1974,7 @@
 		D287D4FA207AEF2B001AF644 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D21090D224D72721004FE532 /* core */,
 				D228FB6420D33402001A7E31 /* App.swift */,
 				D20B2FF522CF976200F69848 /* AppBehavior.swift */,
 				D2A74B1321289D63001D4B0F /* AppConfiguration.swift */,
@@ -2377,6 +2400,7 @@
 				D210EC2E22B1EE55002FB5E0 /* Fines.storyboard in Resources */,
 				D210EC2F22B1EE55002FB5E0 /* SendEmail.storyboard in Resources */,
 				D210EC3022B1EE55002FB5E0 /* Lists.storyboard in Resources */,
+				D21090D124D726FA004FE532 /* fail_part_msg_map.json in Resources */,
 				D210EC3122B1EE55002FB5E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2400,6 +2424,7 @@
 				D23E9FD523B9200A0030F5C1 /* Fines.storyboard in Resources */,
 				D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */,
 				D23E9FD723B9200A0030F5C1 /* Lists.storyboard in Resources */,
+				D21090DD24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D23E9FD823B9200A0030F5C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2423,6 +2448,7 @@
 				D2477C2324785A6B00FD4CF6 /* Fines.storyboard in Resources */,
 				D2477C2424785A6B00FD4CF6 /* SendEmail.storyboard in Resources */,
 				D2477C2524785A6B00FD4CF6 /* Lists.storyboard in Resources */,
+				D21090D924D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2477C2624785A6B00FD4CF6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2446,6 +2472,7 @@
 				D2572B1724AD7755000BA698 /* Fines.storyboard in Resources */,
 				D2572B1824AD7755000BA698 /* SendEmail.storyboard in Resources */,
 				D2572B1924AD7755000BA698 /* Lists.storyboard in Resources */,
+				D21090DE24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2572B1A24AD7755000BA698 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2455,6 +2482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D276DAD221336B20007FAA31 /* Launch.storyboard in Resources */,
+				D21090D624D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */,
 				D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */,
 				D2F390322241E5950089D745 /* LICENSE.txt in Resources */,
@@ -2481,6 +2509,7 @@
 				D27990FB20DDD473003B451E /* Launch.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
+				D21090D724D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390302241E5950089D745 /* LICENSE.txt in Resources */,
@@ -2515,6 +2544,7 @@
 				D28424A921D0358200C7171C /* Fines.storyboard in Resources */,
 				D22D0C962243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D28424AA21D0358200C7171C /* Lists.storyboard in Resources */,
+				D21090D524D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D28424AB21D0358200C7171C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2526,6 +2556,7 @@
 				D287D506207AEF2C001AF644 /* Launch.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
+				D21090DC24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
@@ -2546,6 +2577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2385E2E20914E6C00FE0C89 /* TestData in Resources */,
+				D21090D824D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D29C720E209245E200E90952 /* TestUserData in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2569,6 +2601,7 @@
 				D2BDA67722D176BD00D9B60C /* Fines.storyboard in Resources */,
 				D2BDA67822D176BD00D9B60C /* SendEmail.storyboard in Resources */,
 				D2BDA67922D176BD00D9B60C /* Lists.storyboard in Resources */,
+				D21090DA24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2BDA67A22D176BD00D9B60C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2592,6 +2625,7 @@
 				D2BDA70F22D2A72000D9B60C /* Fines.storyboard in Resources */,
 				D2BDA71022D2A72000D9B60C /* SendEmail.storyboard in Resources */,
 				D2BDA71122D2A72000D9B60C /* Lists.storyboard in Resources */,
+				D21090DB24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2BDA71222D2A72000D9B60C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2964,7 +2998,6 @@
 				D210EBDE22B1EE55002FB5E0 /* HoldsTableViewCell.swift in Sources */,
 				D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */,
 				D210EBDF22B1EE55002FB5E0 /* CopyStatus.swift in Sources */,
-				D210EBE022B1EE55002FB5E0 /* Corsortium.swift in Sources */,
 				D210EBE122B1EE55002FB5E0 /* App.swift in Sources */,
 				D210EBE222B1EE55002FB5E0 /* Library.swift in Sources */,
 				D210EBE422B1EE55002FB5E0 /* GatewayResponse.swift in Sources */,
@@ -2999,6 +3032,7 @@
 				D210EBFD22B1EE55002FB5E0 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D210EBFE22B1EE55002FB5E0 /* Gateway+PMK.swift in Sources */,
 				D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */,
+				D21090C624D7243F004FE532 /* MessageMap.swift in Sources */,
 				D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */,
 				D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */,
 				D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */,
@@ -3057,7 +3091,6 @@
 				D23E9F8223B9200A0030F5C1 /* ShowCardViewController.swift in Sources */,
 				D23E9F8323B9200A0030F5C1 /* HoldsTableViewCell.swift in Sources */,
 				D23E9F8423B9200A0030F5C1 /* CopyStatus.swift in Sources */,
-				D23E9F8523B9200A0030F5C1 /* Corsortium.swift in Sources */,
 				D23E9F8623B9200A0030F5C1 /* App.swift in Sources */,
 				D23E9F8723B9200A0030F5C1 /* Library.swift in Sources */,
 				D23E9F8823B9200A0030F5C1 /* GatewayResponse.swift in Sources */,
@@ -3094,6 +3127,7 @@
 				D23E9FA223B9200A0030F5C1 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
 				D23E9FA423B9200A0030F5C1 /* Gateway+PMK.swift in Sources */,
+				D21090CE24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D23E9FA523B9200A0030F5C1 /* CopyLocationCounts.swift in Sources */,
 				D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */,
 				D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */,
@@ -3151,7 +3185,6 @@
 				D2477BCE24785A6B00FD4CF6 /* ShowCardViewController.swift in Sources */,
 				D2477BCF24785A6B00FD4CF6 /* HoldsTableViewCell.swift in Sources */,
 				D2477BD024785A6B00FD4CF6 /* CopyStatus.swift in Sources */,
-				D2477BD124785A6B00FD4CF6 /* Corsortium.swift in Sources */,
 				D2477BD224785A6B00FD4CF6 /* App.swift in Sources */,
 				D2477BD324785A6B00FD4CF6 /* Library.swift in Sources */,
 				D2477C3424786CCF00FD4CF6 /* IndianaTheme.swift in Sources */,
@@ -3189,6 +3222,7 @@
 				D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */,
 				D2477BF424785A6B00FD4CF6 /* Gateway+PMK.swift in Sources */,
 				D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */,
+				D21090CA24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2477BF624785A6B00FD4CF6 /* MBRecord.swift in Sources */,
 				D2477BF724785A6B00FD4CF6 /* Utils.swift in Sources */,
 				D2477BF824785A6B00FD4CF6 /* OSRFClass.swift in Sources */,
@@ -3247,7 +3281,6 @@
 				D2572ABE24AD7755000BA698 /* ShowCardViewController.swift in Sources */,
 				D2572ABF24AD7755000BA698 /* HoldsTableViewCell.swift in Sources */,
 				D2572AC024AD7755000BA698 /* CopyStatus.swift in Sources */,
-				D2572AC124AD7755000BA698 /* Corsortium.swift in Sources */,
 				D2572AC224AD7755000BA698 /* App.swift in Sources */,
 				D2572AC324AD7755000BA698 /* Library.swift in Sources */,
 				D2572AC424AD7755000BA698 /* GatewayResponse.swift in Sources */,
@@ -3284,6 +3317,7 @@
 				D2572AE524AD7755000BA698 /* Gateway+PMK.swift in Sources */,
 				D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */,
 				D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */,
+				D21090CF24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2572AE824AD7755000BA698 /* Utils.swift in Sources */,
 				D2572AE924AD7755000BA698 /* OSRFClass.swift in Sources */,
 				D2572AEA24AD7755000BA698 /* XSendEmailViewController.swift in Sources */,
@@ -3345,8 +3379,8 @@
 				D276DA9721336B20007FAA31 /* API.swift in Sources */,
 				D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */,
 				D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */,
+				D21090C824D7243F004FE532 /* MessageMap.swift in Sources */,
 				D276DA9921336B20007FAA31 /* CopyStatus.swift in Sources */,
-				D276DA9B21336B20007FAA31 /* Corsortium.swift in Sources */,
 				D276DA9C21336B20007FAA31 /* App.swift in Sources */,
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
@@ -3439,8 +3473,8 @@
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
+				D21090C924D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2D93CF5210AB6F1004306D8 /* CopyStatus.swift in Sources */,
-				D27990D620DDD473003B451E /* Corsortium.swift in Sources */,
 				D27990D720DDD473003B451E /* App.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
@@ -3533,9 +3567,9 @@
 				D284245C21D0358200C7171C /* FinesViewController.swift in Sources */,
 				D284245D21D0358200C7171C /* API.swift in Sources */,
 				D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */,
+				D21090C724D7243F004FE532 /* MessageMap.swift in Sources */,
 				D284245F21D0358200C7171C /* HoldsTableViewCell.swift in Sources */,
 				D284246021D0358200C7171C /* CopyStatus.swift in Sources */,
-				D284246221D0358200C7171C /* Corsortium.swift in Sources */,
 				D284246321D0358200C7171C /* App.swift in Sources */,
 				D284246421D0358200C7171C /* Library.swift in Sources */,
 				D284246621D0358200C7171C /* GatewayResponse.swift in Sources */,
@@ -3625,7 +3659,6 @@
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
 				FA57B93920EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
 				D2D93CF6210AB6F1004306D8 /* CopyStatus.swift in Sources */,
-				D22D02672083E45700DC1F5B /* Corsortium.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
@@ -3661,6 +3694,7 @@
 				D2A6C581221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
+				D21090CD24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
 				D2CF924322471D210009C06A /* Utils.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
@@ -3749,7 +3783,6 @@
 				D2BDA62322D176BD00D9B60C /* ShowCardViewController.swift in Sources */,
 				D2BDA62422D176BD00D9B60C /* HoldsTableViewCell.swift in Sources */,
 				D2BDA62622D176BD00D9B60C /* CopyStatus.swift in Sources */,
-				D2BDA62722D176BD00D9B60C /* Corsortium.swift in Sources */,
 				D2BDA69D22D17A9100D9B60C /* NobleAppConfiguration.swift in Sources */,
 				D2BDA62822D176BD00D9B60C /* App.swift in Sources */,
 				D2BDA62922D176BD00D9B60C /* Library.swift in Sources */,
@@ -3786,6 +3819,7 @@
 				D2BDA64622D176BD00D9B60C /* Gateway+PMK.swift in Sources */,
 				D2BDA69F22D17A9100D9B60C /* AppFactory.swift in Sources */,
 				D2BDA64722D176BD00D9B60C /* CopyLocationCounts.swift in Sources */,
+				D21090CB24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2BDA64822D176BD00D9B60C /* MBRecord.swift in Sources */,
 				D2BDA64922D176BD00D9B60C /* Utils.swift in Sources */,
 				D2BDA64A22D176BD00D9B60C /* OSRFClass.swift in Sources */,
@@ -3844,7 +3878,6 @@
 				D2BDA6BA22D2A72000D9B60C /* ShowCardViewController.swift in Sources */,
 				D2BDA6BB22D2A72000D9B60C /* HoldsTableViewCell.swift in Sources */,
 				D2BDA6BC22D2A72000D9B60C /* CopyStatus.swift in Sources */,
-				D2BDA6BD22D2A72000D9B60C /* Corsortium.swift in Sources */,
 				D2BDA6BF22D2A72000D9B60C /* App.swift in Sources */,
 				D2BDA6C022D2A72000D9B60C /* Library.swift in Sources */,
 				D2BDA6C222D2A72000D9B60C /* GatewayResponse.swift in Sources */,
@@ -3881,6 +3914,7 @@
 				D2BDA6DF22D2A72000D9B60C /* CopyLocationCounts.swift in Sources */,
 				D2BDA71F22D2A87E00D9B60C /* NTLCAppBehavior.swift in Sources */,
 				D2BDA6E022D2A72000D9B60C /* MBRecord.swift in Sources */,
+				D21090CC24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2BDA6E122D2A72000D9B60C /* Utils.swift in Sources */,
 				D2BDA6E222D2A72000D9B60C /* OSRFClass.swift in Sources */,
 				D2BDA6E322D2A72000D9B60C /* XSendEmailViewController.swift in Sources */,

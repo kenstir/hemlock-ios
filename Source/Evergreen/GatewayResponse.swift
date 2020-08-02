@@ -22,15 +22,17 @@ import os.log
 
 //TODO: fold GatewayError into HemlockError
 public enum GatewayError: Error {
-    case event(ilsevent: Int, textcode: String, desc: String)
+    case event(ilsevent: Int, textcode: String, desc: String, failpart: String?)
     case failure(String)
 }
 extension GatewayError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .event(_, let textcode, let desc):
+        case .event(_, let textcode, let desc, let failpart):
             let messageOverrides = [
                 "HIGH_LEVEL_HOLD_HAS_NO_COPIES": "The selected item is not holdable.  Call your local library with any questions."]
+            if let failPartKey = failpart,
+                let msg = MessageMap.failPartMessageMap[failPartKey] { return msg }
             if let msg = messageOverrides[textcode] { return msg }
             return desc
         case .failure(let reason):
@@ -146,7 +148,7 @@ struct GatewayResponse {
         self.payload = payload
         if payload.count == 0 {
             type = .empty
-        } else if let val = payload.first as? [String: Any?] {
+        } else if let val = payload.first as? JSONDictionary {
             var obj: OSRFObject?
             do {
                 try obj = decodeObject(val)
@@ -154,16 +156,13 @@ struct GatewayResponse {
                 self.error = .failure("Error decoding OSRF object: " + error.localizedDescription)
                 return
             }
-            if let ilsevent = obj?.getDouble("ilsevent"),
-                ilsevent != 0,
-                let textcode = obj?.getString("textcode"),
-                let desc = obj?.getString("desc") {
-                self.error = .event(ilsevent: Int(ilsevent), textcode: textcode, desc: desc)
+            if let eventError = parseEvent(fromObj: obj) {
+                self.error = eventError
                 return
             }
             type = .object
             objectResult = obj
-        } else if let val = payload.first as? [[String: Any?]] {
+        } else if let val = payload.first as? [JSONDictionary] {
             do {
                 try arrayResult = decodeArray(val)
             } catch {
@@ -171,11 +170,8 @@ struct GatewayResponse {
                 return
             }
             if let obj = arrayResult?.first,
-                let ilsevent = obj.getDouble("ilsevent"),
-                ilsevent != 0,
-                let textcode = obj.getString("textcode"),
-                let desc = obj.getString("desc") {
-                self.error = .event(ilsevent: Int(ilsevent), textcode: textcode, desc: desc)
+                let eventError = parseEvent(fromObj: obj) {
+                self.error = eventError
                 return
             }
             type = .array
@@ -190,7 +186,7 @@ struct GatewayResponse {
     }
     
     // MARK: - Functions
-    
+
     func decodeJSON(_ data: Data) -> [String: Any]? {
         if
             let json = try? JSONSerialization.jsonObject(with: data),
@@ -210,6 +206,23 @@ struct GatewayResponse {
     
     func decodeArray(_ jsonArray: [[String: Any?]]) throws -> [OSRFObject] {
         return try OSRFCoder.decode(fromArray: jsonArray)
+    }
+    
+    func parseEvent(fromObj obj: OSRFObject?) -> GatewayError? {
+        if let ilsevent = obj?.getDouble("ilsevent"),
+            ilsevent != 0,
+            let textcode = obj?.getString("textcode"),
+            let desc = obj?.getString("desc")
+        {
+            let failpart = obj?.getObject("payload")?.getString("fail_part")
+            return .event(ilsevent: Int(ilsevent), textcode: textcode, desc: desc, failpart: failpart)
+        }
+        if let resultObj = obj?.getObject("result"),
+            let lastEvent = resultObj.getObject("last_event")
+        {
+            return parseEvent(fromObj: lastEvent)
+        }
+        return nil
     }
 
     static func makeError(_ reason: String) -> GatewayResponse {

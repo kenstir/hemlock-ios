@@ -587,12 +587,12 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
                 let eventObj = resultObj.getAny("last_event") as? OSRFObject
             {
                 // case 2: result is an object with last_event - hold failed
-                throw self.holdError(obj: eventObj)
+                throw self.makeHoldError(fromEventObj: eventObj)
             } else if let resultArray = obj.getAny("result") as? [OSRFObject],
                 let eventObj = resultArray.first
             {
                 // case 3: result is an array of ilsevent objects - hold failed
-                throw self.holdError(obj: eventObj)
+                throw self.makeHoldError(fromEventObj: eventObj)
             } else {
                 throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
             }
@@ -629,16 +629,18 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             self.presentGatewayAlert(forError: error)
         }
     }
-
-    func holdError(obj: OSRFObject) -> Error {
+    
+    func makeHoldError(fromEventObj obj: OSRFObject) -> Error {
         if let ilsevent = obj.getInt("ilsevent"),
             let textcode = obj.getString("textcode"),
-            let desc = obj.getString("desc") {
-            return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc)
+            let desc = obj.getString("desc")
+        {
+            let failpart = obj.getObject("payload")?.getString("fail_part")
+            return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc, failpart: failpart)
         }
         return HemlockError.unexpectedNetworkResponse(String(describing: obj))
     }
-    
+
     func isOn(_ node: ASDisplayNode) -> Bool {
         if let switchView = node.switchView, switchView.isOn == true {
             return true

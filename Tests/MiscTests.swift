@@ -97,7 +97,7 @@ class MiscTests: XCTestCase {
         let hemlockSessionExpiredError = HemlockError.sessionExpired
         XCTAssertTrue(isSessionExpired(error: hemlockSessionExpiredError))
         
-        let gwerr = GatewayError.event(ilsevent: 1001, textcode: "NO_SESSION", desc: "Login session has timed out or does not exist")
+        let gwerr = GatewayError.event(ilsevent: 1001, textcode: "NO_SESSION", desc: "Login session has timed out or does not exist", failpart: nil)
         XCTAssertTrue(isSessionExpired(error: gwerr))
     }
     

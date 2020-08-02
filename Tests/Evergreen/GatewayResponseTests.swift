@@ -92,20 +92,29 @@ class GatewayResponseTests: XCTestCase {
     
     func test_renewFailed() {
         let json = """
-            {"payload":[{"ilsevent":"7008","servertime":"Sun Jul  1 23:15:38 2018","pid":22531,"desc":" Circulation has no more renewals remaining ","textcode":"MAX_RENEWALS_REACHED","stacktrace":"/usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:3701 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:274 /usr/local/share/perl/5.22.1/OpenSRF/Application.pm:628"}],"status":200}
+            {"payload":[{"ilsevent":"7008","servertime":"Sun Jul  1 23:15:38 2018","pid":22531,"desc":" Circulation has no more renewals remaining ","textcode":"MAX_RENEWALS_REACHED","stacktrace":"Circulate.pm:3701"}],"status":200}
             """
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
         XCTAssertEqual(resp.errorMessage, " Circulation has no more renewals remaining ")
     }
     
-    func test_renewFailedForTwoReasons() {
+    func test_failureWithEventList() {
         let json = """
-            {"payload":[[{"payload":{"fail_part":"asset.copy_location.circulate"},"stacktrace":"/usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:1293 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:4082 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:4034","desc":" Target copy is not allowed to circulate ","ilsevent":"7003","textcode":"COPY_CIRC_NOT_ALLOWED","servertime":"Sat Feb 23 20:55:17 2019","pid":17822},{"payload":{"fail_part":"PATRON_EXCEEDS_FINES"},"pid":17822,"ilsevent":"7013","servertime":"Sat Feb 23 20:55:17 2019","textcode":"PATRON_EXCEEDS_FINES","stacktrace":"/usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:1293 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:4082 /usr/local/share/perl/5.22.1/OpenILS/Application/Circ/Circulate.pm:4034","desc":"The patron in question has reached the maximum fine amount"}]],"status":200}
+            {"payload":[[{"payload":{"fail_part":"asset.copy_location.circulate"},"stacktrace":"Circulate.pm:1293","desc":" Target copy is not allowed to circulate ","ilsevent":"7003","textcode":"COPY_CIRC_NOT_ALLOWED","servertime":"Sat Feb 23 20:55:17 2019","pid":17822},{"payload":{"fail_part":"PATRON_EXCEEDS_FINES"},"pid":17822,"ilsevent":"7013","servertime":"Sat Feb 23 20:55:17 2019","textcode":"PATRON_EXCEEDS_FINES","stacktrace":"Circulate.pm:1293","desc":"The patron in question has reached the maximum fine amount"}]],"status":200}
             """
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
-        XCTAssertEqual(resp.errorMessage, " Target copy is not allowed to circulate ")
+        XCTAssertEqual(resp.errorMessage, "Items from this shelving location do not circulate")
+    }
+    
+    func test_placeHold_failWithFailPart() {
+        let json = """
+            {"payload":[{"result":{"place_unfillable":0,"age_protected_copy":0,"success":0,"last_event":{"servertime":"Sun Aug  2 14:52:11 2020","payload":{"fail_part":"config.hold_matrix_test.holdable"},"ilsevent":"1220","pid":103641,"desc":"A copy with a remote circulating library (circ_lib) was encountered","textcode":"ITEM_NOT_HOLDABLE","stacktrace":"PermitHold.pm:70"}},"target":75163}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertEqual(resp.errorMessage, "Hold rules reject this item as unholdable")
     }
     
     func test_actorCheckedOut() {

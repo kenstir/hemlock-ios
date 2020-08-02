@@ -28,6 +28,10 @@ protocol AppBehavior {
 class BaseAppBehavior: AppBehavior {
     var customStrings: [String: String] = [:]
     
+    init() {
+        MessageMap.loadFromResources()
+    }
+    
     fileprivate func isOnlineFormat(iconFormatLabel: String?) -> Bool {
         guard let label = iconFormatLabel else { return false }
         if label == "Picture" {
