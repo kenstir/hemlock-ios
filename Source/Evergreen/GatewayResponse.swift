@@ -209,6 +209,7 @@ struct GatewayResponse {
     }
     
     func parseEvent(fromObj obj: OSRFObject?) -> GatewayError? {
+        // case 1: obj is an event
         if let ilsevent = obj?.getDouble("ilsevent"),
             ilsevent != 0,
             let textcode = obj?.getString("textcode"),
@@ -217,10 +218,17 @@ struct GatewayResponse {
             let failpart = obj?.getObject("payload")?.getString("fail_part")
             return .event(ilsevent: Int(ilsevent), textcode: textcode, desc: desc, failpart: failpart)
         }
+        // case 2: obj has a result that has a last_event
         if let resultObj = obj?.getObject("result"),
             let lastEvent = resultObj.getObject("last_event")
         {
             return parseEvent(fromObj: lastEvent)
+        }
+        // case 3: obj has a result that is an array of events
+        if let array = obj?.getAny("result") as? [OSRFObject],
+            let firstObj = array.first
+        {
+            return parseEvent(fromObj: firstObj)
         }
         return nil
     }

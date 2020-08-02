@@ -117,6 +117,15 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.errorMessage, "Hold rules reject this item as unholdable")
     }
     
+    func test_placeHold_failWithHoldExists() {
+        let json = """
+            {"payload":[{"target":210,"result":[{"ilsevent":"1707","servertime":"Sun Aug  2 18:19:53 2020","stacktrace":"Holds.pm:302","desc":"User already has an open hold on the selected item","pid":9379,"textcode":"HOLD_EXISTS"}]}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertEqual(resp.errorMessage, "User already has an open hold on the selected item")
+    }
+    
     func test_actorCheckedOut() {
         let json = """
             {"status":200,"payload":[{"overdue":[],"out":["73107615","72954513"],"lost":[1,2]}]}
