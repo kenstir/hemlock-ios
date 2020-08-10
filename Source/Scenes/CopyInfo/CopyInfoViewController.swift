@@ -121,11 +121,9 @@ extension CopyInfoViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
-        if let org = Organization.find(byId: item.orgID),
-            let baseurl_string = App.library?.url,
-            let url = URL(string: baseurl_string + "/eg/opac/library/" + org.shortname + "#main-content")
-        {
-            UIApplication.shared.open(url, options: [:])
+        if let vc = UIStoryboard(name: "OrgDetails", bundle: nil).instantiateInitialViewController() as? OrgDetailsViewController {
+            vc.orgID = item.orgID
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
