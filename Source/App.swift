@@ -88,8 +88,7 @@ class App {
         //let req = Alamofire.request(Gateway.idlURL())
         var req: DataRequest
         do {
-            req = try Alamofire.SessionManager.default
-            .requestWithoutCache(Gateway.idlURL())
+            req = try Alamofire.SessionManager.default.requestWithoutCache(Gateway.idlURL())
         } catch {
             // should not happen
             return Promise<Void> { _ in
