@@ -55,6 +55,7 @@ class ShowCardViewController: UIViewController {
     
     func setupViews() {
         setupSplash()
+        setupBarcodeTapActions()
         self.setupHomeButton()
     }
     
@@ -62,6 +63,23 @@ class ShowCardViewController: UIViewController {
         // hide splash in landscape so it doesn't obscure the barcode
         splashImage.isHidden = UIDevice.current.orientation.isLandscape
     }
+    
+    func setupBarcodeTapActions() {
+        barcodeImage.isUserInteractionEnabled = true
+        barcodeImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(barcodeTapped)))
+        barcodeLabel.isUserInteractionEnabled = true
+        barcodeLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(barcodeTapped)))
+    }
+
+    @objc private func barcodeTapped(_ recognizer: UITapGestureRecognizer) {
+        guard let barcode = App.account?.barcode else { return }
+        UIPasteboard.general.string = barcode
+        self.navigationController?.view.makeToast("Barcode copied to clipboard")
+
+    }
+
+//        barcodeImage.addTarget(self, action: #selector(onBarcodeTap(sender:)), for: .touchUpInside)
+        //        cell.renewButton.addTarget(self, action: #selector(renewPressed(sender:)), for: .touchUpInside)
 
     func setupBarcode(_ barcode: String) {
         guard let m = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39]),
