@@ -44,6 +44,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var didCompleteFetch = false
     var expirationDate: Date? = nil
     var expirationPickerVisible = false
+    var thawDate: Date? = nil
+    var thawPickerVisible = false
 
     var activityIndicator: UIActivityIndicatorView!
 
@@ -76,7 +78,14 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     let expirationPickerNode = ASDisplayNode { () -> UIView in
         return UIDatePicker()
     }
-    let placeHoldButton = ASButtonNode()
+    let suspendLabel = ASTextNode()
+    let suspendSwitch = XUtils.makeSwitchNode()
+    let thawLabel = ASTextNode()
+    let thawNode = XUtils.makeTextFieldNode()
+    let thawPickerNode = ASDisplayNode { () -> UIView in
+        return UIDatePicker()
+    }
+    let actionButton = ASButtonNode()
     
     var isEditHold: Bool { return holdRecord != nil }
     var hasParts: Bool { return !parts.isEmpty }
@@ -131,6 +140,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         setupSmsRow()
         setupCarrierRow()
         setupExpirationRow()
+        setupSuspendRow()
+        setupThawRow()
         setupButtonRow()
         
         // See Footnote #1 - handling the keyboard
@@ -150,8 +161,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         phoneNode.textField?.isEnabled = isOn(phoneSwitch)
         smsNode.textField?.isEnabled = isOn(smsSwitch)
         carrierNode.textField?.isEnabled = didCompleteFetch
-        placeHoldButton.isEnabled = didCompleteFetch
-        placeHoldButton.setNeedsDisplay()
+        thawNode.textField?.isEnabled = isOn(suspendSwitch)
+        actionButton.isEnabled = didCompleteFetch
+        actionButton.setNeedsDisplay()
     }
     
     func setupPartRow() {
@@ -168,6 +180,10 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
     func setupEmailRow() {
         emailLabel.attributedText = Style.makeString("Email notification", ofSize: 14)
+    }
+    
+    func setupSuspendRow() {
+        suspendLabel.attributedText = Style.makeString("Suspend hold", ofSize: 14)
     }
     
     func setupPhoneRow() {
@@ -202,10 +218,18 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         expirationPickerNode.datePicker?.datePickerMode = .date
     }
     
+    func setupThawRow() {
+        thawLabel.attributedText = Style.makeString("Activate hold on", ofSize: 14)
+        thawNode.textField?.borderStyle = .roundedRect
+        thawNode.textField?.delegate = self
+        thawPickerNode.datePicker?.addTarget(self, action: #selector(thawChanged(sender:)), for: .valueChanged)
+        thawPickerNode.datePicker?.datePickerMode = .date
+    }
+    
     func setupButtonRow() {
-        Style.styleButton(asInverse: placeHoldButton)
-        Style.setButtonTitle(placeHoldButton, title: isEditHold ? "Update Hold" : "Place Hold")
-        placeHoldButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), forControlEvents: .touchUpInside)
+        Style.styleButton(asInverse: actionButton)
+        Style.setButtonTitle(actionButton, title: isEditHold ? "Update Hold" : "Place Hold")
+        actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), forControlEvents: .touchUpInside)
     }
 
     func setupContainerNode() {
@@ -304,13 +328,30 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         let expirationRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
         expirationRowSpec.children = [expirationLabel, expirationNode]
         
-        // picker row
+        // expiration picker row
         expirationPickerNode.style.preferredSize = pickerPreferredSize
+        
+        // suspend row
+        suspendLabel.style.minWidth = labelMinWidth
+        suspendSwitch.style.preferredSize = switchPreferredSize
+        let suspendRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
+        suspendRowSpec.children = [suspendLabel, suspendSwitch]
+        
+        // thaw row
+        thawLabel.style.minWidth = labelMinWidth
+        thawNode.style.flexGrow = 1
+        thawNode.style.flexShrink = 1
+        thawNode.style.preferredSize = textFieldPreferredSize
+        let thawRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
+        thawRowSpec.children = [thawLabel, thawNode]
+
+        // thaw picker row
+        thawPickerNode.style.preferredSize = pickerPreferredSize
 
         // button row
-        placeHoldButton.style.alignSelf = .center
-        placeHoldButton.style.preferredSize = CGSize(width: 200, height: 33)
-        placeHoldButton.style.spacingBefore = 28
+        actionButton.style.alignSelf = .center
+        actionButton.style.preferredSize = CGSize(width: 200, height: 33)
+        actionButton.style.spacingBefore = 28
 
         // page
         let pageSpec = ASStackLayoutSpec.vertical()
@@ -322,7 +363,9 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         if App.config.enableHoldPhoneNotification { pageSpec.children?.append(phoneRowSpec) }
         pageSpec.children?.append(contentsOf: [smsRowSpec, carrierRowSpec, expirationRowSpec])
         if expirationPickerVisible { pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: expirationPickerNode)) }
-        pageSpec.children?.append(placeHoldButton)
+        if isEditHold { pageSpec.children?.append(contentsOf: [suspendRowSpec, thawRowSpec]) }
+        if thawPickerVisible { pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: thawPickerNode)) }
+        pageSpec.children?.append(actionButton)
         
         // inset entire page
         let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 4), child: pageSpec)
@@ -490,6 +533,12 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         if let date = Utils.coalesce(holdRecord?.expireDate) {
             updateExpirationDate(date)
         }
+        if let date = Utils.coalesce(holdRecord?.thawDate) {
+            updateThawDate(date)
+        }
+        if let val = holdRecord?.isSuspended {
+            suspendSwitch.switchView?.isOn = val
+        }
     }
 
     @objc func expirationChanged(sender: UIDatePicker) {
@@ -500,6 +549,16 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         expirationDate = date
         let expirationDateStr = OSRFObject.outputDateFormatter.string(from: date)
         expirationNode.textField?.text = expirationDateStr
+    }
+    
+    @objc func thawChanged(sender: UIDatePicker) {
+        updateThawDate(sender.date)
+    }
+    
+    func updateThawDate(_ date: Date) {
+        thawDate = date
+        let dateStr = OSRFObject.outputDateFormatter.string(from: date)
+        thawNode.textField?.text = dateStr
     }
 
     @objc func holdButtonPressed(sender: Any) {
@@ -606,11 +665,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     func doUpdateHold(authtoken: String, holdRecord: HoldRecord, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
-        
-        let suspendHold = false
-        let thawDate: Date? = nil
-        
-        let promise = CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendHold, thawDate: thawDate)
+
+        let promise = CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: isOn(suspendSwitch), thawDate: thawDate)
         promise.done { resp in
             if let _ = resp.str {
                 // case 1: result is String - update successful
@@ -715,6 +771,7 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
             return false
         case expirationNode.textField:
             expirationPickerVisible = !expirationPickerVisible
+            if expirationPickerVisible { thawPickerVisible = false }
             self.scrollNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true) {
                 guard self.expirationPickerVisible else { return }
                 // This is a Good Enough workaround for the fact that on a small screen, transitioning
@@ -722,6 +779,18 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
                 // slightly too high, but it brings the Place Hold button back on screen.  Doing a
                 // scrollToEnd() without the delay does not work, because the scrollView.bounds.size.height is
                 // not settled yet.  After a short delay it is closer but still not correct.
+                firstly {
+                    return after(seconds: 0.1)
+                }.done {
+                    self.scrollToEnd()
+                }
+            }
+            return false
+        case thawNode.textField:
+            thawPickerVisible = !thawPickerVisible
+            if thawPickerVisible { expirationPickerVisible = false }
+            self.scrollNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true) {
+                guard self.thawPickerVisible else { return }
                 firstly {
                     return after(seconds: 0.1)
                 }.done {

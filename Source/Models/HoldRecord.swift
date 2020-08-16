@@ -67,6 +67,8 @@ class HoldRecord {
     var smsCarrier: Int? { return ahrObj.getInt("sms_carrier") }
     var pickupOrgId: Int? { return ahrObj.getInt("pickup_lib") }
     var expireDate: Date? { return ahrObj.getDate("expire_time") }
+    var thawDate: Date? { return ahrObj.getDate("thaw_date") }
+    var isSuspended: Bool? { return ahrObj.getBool("frozen") }
 
     var queuePosition: Int { return qstatsObj?.getInt("queue_position") ?? 0 }
     var totalHolds: Int { return qstatsObj?.getInt("total_holds") ?? 0 }
