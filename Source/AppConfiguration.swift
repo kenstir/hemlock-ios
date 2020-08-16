@@ -32,6 +32,7 @@ protocol AppConfiguration {
     var enableMainSceneBottomToolbar: Bool { get }
     var enablePayFines: Bool { get }
     var enableHoursOfOperation: Bool { get }
+    var enableMessages: Bool { get }
 
     var groupCopyInfoBySystem: Bool { get }
     var enableCopyInfoWebLinks: Bool { get }

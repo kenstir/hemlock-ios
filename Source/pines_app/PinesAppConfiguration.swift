@@ -30,6 +30,7 @@ class PinesAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = true
     let enablePayFines = true
     let enableHoursOfOperation = true
+    let enableMessages = true
     let groupCopyInfoBySystem = true
     let enableCopyInfoWebLinks = true
     let needMARCRecord = true

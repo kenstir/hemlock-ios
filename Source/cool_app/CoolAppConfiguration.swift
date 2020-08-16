@@ -30,6 +30,7 @@ class CoolAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = false
     let enableHoursOfOperation = true
+    let enableMessages = false
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = true
     let needMARCRecord = false

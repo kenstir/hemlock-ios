@@ -19,12 +19,15 @@
 
 import Foundation
 import UIKit
+import PromiseKit
+import PMKAlamofire
 
 class MainViewController: UIViewController {
     
     //MARK: - fields
 
     @IBOutlet weak var accountButton: UIBarButtonItem!
+    @IBOutlet weak var messagesButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var bottomButtonBar: UIStackView!
@@ -48,7 +51,18 @@ class MainViewController: UIViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
+                                               name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+        self.fetchData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
+    //MARK: - Functions
     
     func setupButtons() {
         buttons = [
@@ -56,7 +70,6 @@ class MainViewController: UIViewController {
             ("Items Checked Out", "ShowCheckoutsSegue", nil),
             ("Holds", "ShowHoldsSegue", nil),
             ("Fines", "ShowFinesSegue", nil),
-            //("Library Info", "", { XOrgDetailsViewController() }),
             ("Library Info", "ShowOrgDetailsSegue", nil),
         ]
         if App.config.barcodeFormat != .Disabled {
@@ -68,6 +81,14 @@ class MainViewController: UIViewController {
         navigationItem.title = App.config.title
         tableView.dataSource = self
         tableView.delegate = self
+        if App.config.enableMessages {
+            messagesButton.target = self
+            messagesButton.action = #selector(messagesButtonPressed(sender:))
+        } else {
+            //messagesButton.width = 0.01
+            messagesButton.isEnabled = false
+            messagesButton.isAccessibilityElement = false
+        }
         accountButton.target = self
         accountButton.action = #selector(accountButtonPressed(sender:))
         Style.styleBarButton(accountButton)
@@ -81,13 +102,39 @@ class MainViewController: UIViewController {
         }
     }
     
+    func fetchData() {
+        guard let authtoken = App.account?.authtoken,
+            let userid = App.account?.userID,
+            App.config.enableMessages else { return }
+        
+        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userid])
+        req.gatewayArrayResponse().done { array in
+            self.updateMessagesBadge(messageList: array)
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+    
+    func updateMessagesBadge(messageList: [OSRFObject]) {
+        var unreadCount = 0
+        for message in messageList {
+            let readDate = message.getString("read_date")
+            let deleted = message.getBool("deleted") ?? false
+            if readDate == nil && !deleted {
+                unreadCount += 1
+            }
+        }
+        if unreadCount > 0 {
+            messagesButton.setBadge(text: String(unreadCount))
+        } else {
+            messagesButton.setBadge(text: nil)
+        }
+    }
+    
     @objc func accountButtonPressed(sender: UIBarButtonItem) {
         let haveMultipleAccounts = App.credentialManager.credentials.count > 1
 
         // Create an actionSheet to present the account options
-//        if haveMultipleAccounts {
-//            message = "Switch to a different account, add an account, or logout to remove your saved password"
-//        }
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         
@@ -156,6 +203,18 @@ class MainViewController: UIViewController {
             UIApplication.shared.open(url)
         }
     }
+    
+    @objc func messagesButtonPressed(sender: UIBarButtonItem) {
+        if let baseurl_string = App.library?.url,
+            let url = URL(string: baseurl_string + "/eg/opac/myopac/messages") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @objc func applicationDidBecomeActive() {
+        fetchData()
+    }
+
 }
 
 //MARK: - UITableViewDataSource

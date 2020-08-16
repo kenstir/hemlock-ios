@@ -30,6 +30,7 @@ class NobleAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let enableHoursOfOperation = false
+    let enableMessages = false
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = false
     let needMARCRecord = true

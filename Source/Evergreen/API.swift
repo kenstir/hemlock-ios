@@ -31,6 +31,7 @@ struct API {
     static let actor = "open-ils.actor"
     static let actorCheckedOut = "open-ils.actor.user.checked_out"
     static let finesSummary = "open-ils.actor.user.fines.summary"
+    static let messagesRetrieve = "open-ils.actor.message.retrieve"
     static let orgTreeRetrieve = "open-ils.actor.org_tree.retrieve"
     static let orgTypesRetrieve = "open-ils.actor.org_types.retrieve"
     static let orgUnitSetting = "open-ils.actor.ou_setting.ancestor_default"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L5E-wb-4wF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L5E-wb-4wF">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -380,6 +380,7 @@
                         <viewLayoutGuide key="safeArea" id="02a-ah-iys"/>
                     </view>
                     <navigationItem key="navigationItem" title="Hemlock" id="xUo-oL-WrT">
+                        <barButtonItem key="leftBarButtonItem" image="Mail" id="rpB-GJ-5W6"/>
                         <barButtonItem key="rightBarButtonItem" image="Account" id="GJD-cg-1UD" userLabel="Account Button"/>
                     </navigationItem>
                     <connections>
@@ -387,6 +388,7 @@
                         <outlet property="bottomButtonBar" destination="pXz-FV-8vg" id="X59-GT-uyB"/>
                         <outlet property="fullCatalogButton" destination="ToU-UP-BUF" id="KF1-nP-nnz"/>
                         <outlet property="libraryLocatorButton" destination="aQX-m5-77E" id="Yv4-qh-Btu"/>
+                        <outlet property="messagesButton" destination="rpB-GJ-5W6" id="o1M-bz-TXl"/>
                         <outlet property="tableView" destination="7BW-g6-5vc" id="EI1-5W-5Jm"/>
                         <segue destination="Rgl-GN-9cy" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>
                         <segue destination="aSn-Ob-ZbE" kind="show" identifier="ShowHoldsSegue" id="QLz-GT-rH2"/>
@@ -464,6 +466,7 @@
     <resources>
         <image name="Account" width="29.5" height="24"/>
         <image name="Jason" width="698" height="1200"/>
+        <image name="Mail" width="24" height="24"/>
         <image name="splash3" width="298" height="165"/>
     </resources>
 </document>

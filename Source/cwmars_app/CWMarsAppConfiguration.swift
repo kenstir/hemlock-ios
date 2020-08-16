@@ -30,6 +30,7 @@ class CWMarsAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let enableHoursOfOperation = true
+    let enableMessages = false
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = true
     let needMARCRecord = false
