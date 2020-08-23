@@ -219,9 +219,8 @@ struct GatewayResponse {
             return .event(ilsevent: Int(ilsevent), textcode: textcode, desc: desc, failpart: failpart)
         }
 
-        // case 2: obj has a result that has a last_event
-        if let resultObj = obj?.getObject("result"),
-            let lastEvent = resultObj.getObject("last_event")
+        // case 2: obj has a last_event, or a result with a last_event
+        if let lastEvent = obj?.getObject("result")?.getObject("last_event") ?? obj?.getObject("last_event")            
         {
             return parseEvent(fromObj: lastEvent)
         }

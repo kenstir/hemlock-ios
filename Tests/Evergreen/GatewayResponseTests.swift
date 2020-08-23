@@ -126,6 +126,15 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.errorMessage, "User already has an open hold on the selected item")
     }
     
+    func test_titleHoldIsPossibleFail() {
+        let json = """
+            {"payload":[{"last_event":{"ilsevent":"1714","servertime":"Sat Aug 22 09:45:28 2020","pid":6842,"textcode":"HIGH_LEVEL_HOLD_HAS_NO_COPIES","stacktrace":"Holds.pm:2617","desc":"A hold request at a higher level than copy has been attempted, but there are no copies that belonging to the higher-level unit.","payload":{"fail_part":"no_ultimate_items"}},"place_unfillable":1,"age_protected_copy":null,"success":0}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertEqual(resp.errorMessage, "The system could not find any items to match this hold request")
+    }
+    
     func test_actorCheckedOut() {
         let json = """
             {"status":200,"payload":[{"overdue":[],"out":["73107615","72954513"],"lost":[1,2]}]}
