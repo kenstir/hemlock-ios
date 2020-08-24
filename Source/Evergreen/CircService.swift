@@ -32,6 +32,19 @@ class CircService {
         return req.gatewayObjectResponse()
     }
     
+    // This returns a Promise<GatewayResponse> and not Promise<OSRFObject>
+    // because we don't want to reject the promise chain if a title hold is not possible.
+    static func titleHoldIsPossible(authtoken: String, userID: Int, targetID: Int, pickupOrgID: Int) -> Promise<GatewayResponse> {
+        let complexParam: JSONDictionary = [
+            "patronid": userID,
+            "pickup_lib": pickupOrgID,
+            "hold_type": API.holdTypeTitle,
+            "titleid": targetID,
+        ]
+        let req = Gateway.makeRequest(service: API.circ, method: API.titleHoldIsPossible, args: [authtoken, complexParam])
+        return req.gatewayResponse()
+    }
+    
     static func placeHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?) -> Promise<OSRFObject> {
         var complexParam: JSONDictionary = [
             "email_notify": notifyByEmail,

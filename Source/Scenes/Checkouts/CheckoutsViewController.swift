@@ -113,7 +113,8 @@ class CheckoutsViewController: UIViewController {
         }
     }
     
-    static func makeEmptyPromise() -> Promise<(OSRFObject)> {
+    // TODO: factor out to shared class, maybe ServiceUtils
+    static func makeEmptyObjectPromise() -> Promise<(OSRFObject)> {
         let emptyPromise = Promise<(OSRFObject)>() { seal in
             seal.fulfill(OSRFObject([:]))
         }
@@ -138,13 +139,13 @@ class CheckoutsViewController: UIViewController {
                 let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id])
                 return req.gatewayObjectResponse()
             } else {
-                return CheckoutsViewController.makeEmptyPromise()
+                return CheckoutsViewController.makeEmptyObjectPromise()
             }
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) MRA done")
             if (obj.dict.count > 0) {
                 circRecord.metabibRecord?.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
-                return CheckoutsViewController.makeEmptyPromise()
+                return CheckoutsViewController.makeEmptyObjectPromise()
             } else {
                 // emptyPromise above, need to retrieve the acp
                 let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [circRecord.targetCopy])

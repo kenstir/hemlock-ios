@@ -99,10 +99,19 @@ class ActorService {
         }
         return promise
     }
-
-    static func makeEmptyPromise() -> Promise<(OSRFObject?)> {
+    
+    // TODO: factor out to shared class, maybe ServiceUtils
+    static func makeEmptyOptionalObjectPromise() -> Promise<(OSRFObject?)> {
         let emptyPromise = Promise<(OSRFObject?)>() { seal in
             seal.fulfill(nil)
+        }
+        return emptyPromise
+    }
+    
+    // TODO: factor out to shared class, maybe ServiceUtils
+    static func makeEmptyGatewayResponsePromise() -> Promise<(GatewayResponse)> {
+        let emptyPromise = Promise<(GatewayResponse)>() { seal in
+            seal.fulfill(GatewayResponse())
         }
         return emptyPromise
     }

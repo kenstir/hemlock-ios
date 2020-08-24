@@ -89,7 +89,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     var isEditHold: Bool { return holdRecord != nil }
     var hasParts: Bool { return !parts.isEmpty }
-    var holdType: String { return hasParts ? API.holdTypePart : API.holdTypeTitle }
+    var titleHoldSeemsPossible: Bool? = nil
+    var partRequired: Bool { return hasParts && titleHoldSeemsPossible == false }
 
     //MARK: - Lifecycle
     
@@ -387,7 +388,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         promises.append(ActorService.fetchOrgTreeAndSettings())
         promises.append(PCRUDService.fetchCodedValueMaps())
         promises.append(PCRUDService.fetchSMSCarriers())
-        promises.append(fetchHoldParts())
+        promises.append(fetchPartsData(account: account))
         print("xxx \(promises.count) promises made")
 
         centerSubview(activityIndicator)
@@ -407,13 +408,24 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             self.presentGatewayAlert(forError: error)
         }
     }
-    
-    func fetchHoldParts() -> Promise<Void> {
+
+    func fetchPartsData(account: Account) -> Promise<Void> {
         if !App.config.enablePartHolds || isEditHold {
             return Promise<Void>()
         }
-        let promise = SearchService.fetchHoldParts(recordID: record.id).done { parts in
+        let promise = SearchService.fetchHoldParts(recordID: record.id).then { (parts: [OSRFObject]) -> Promise<(GatewayResponse)> in
             self.parts = parts
+            if self.hasParts,
+                let authtoken = account.authtoken,
+                let userID = account.userID,
+                let pickupOrgID = account.pickupOrgID
+            {
+                return CircService.titleHoldIsPossible(authtoken: authtoken, userID: userID, targetID: self.record.id, pickupOrgID: pickupOrgID)
+            } else {
+                return ActorService.makeEmptyGatewayResponsePromise()
+            }
+        }.done { resp in
+            self.titleHoldSeemsPossible = !resp.failed
         }
         return promise
     }
@@ -513,7 +525,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
     
     func loadPartData() {
-        partLabels = ["---"]
+        let sentinelString = partRequired ? "---" : "- All Parts -"
+        partLabels = [sentinelString]
         for partObj in parts {
             if let label = partObj.getString("label"), let _ = partObj.getInt("id") {
                 partLabels.append(label)
@@ -585,14 +598,19 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             self.showAlert(title: "Not a pickup location", message: "You cannot pick up items at \(pickupOrg.name)")
             return
         }
-        var targetID = record.id
-        if hasParts {
-            guard let partID = parts.first(where: {$0.getString("label") == selectedPartLabel})?.getInt("id") else
-            {
+        var holdType: String
+        var targetID: Int
+        let partID = parts.first(where: {$0.getString("label") == selectedPartLabel})?.getInt("id")
+        if partRequired || partID != nil {
+            holdType = API.holdTypePart
+            guard let id = partID else {
                 self.showAlert(title: "No part selected", message: "You must select a part before placing a hold on this item")
                 return
             }
-            targetID = partID
+            targetID = id
+        } else {
+            holdType = API.holdTypeTitle
+            targetID = record.id
         }
         
         var notifyPhoneNumber: String? = nil
@@ -626,11 +644,11 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         if let hold = holdRecord {
             doUpdateHold(authtoken: authtoken, holdRecord: hold, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
         } else {
-            doPlaceHold(authtoken: authtoken, userID: userID, targetID: targetID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
+            doPlaceHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
         }
     }
 
-    func doPlaceHold(authtoken: String, userID: Int, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
+    func doPlaceHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
         

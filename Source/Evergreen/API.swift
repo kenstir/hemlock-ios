@@ -68,6 +68,7 @@ struct API {
     static let holdUpdate = "open-ils.circ.hold.update"
     static let holdQueueStats = "open-ils.circ.hold.queue_stats.retrieve"
     static let renew = "open-ils.circ.renew"
+    static let titleHoldIsPossible = "open-ils.circ.title_hold.is_possible"
     
     static let holdTypeCopy = "C"
     static let holdTypeMetarecord =  "M"
