@@ -422,7 +422,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             {
                 return CircService.titleHoldIsPossible(authtoken: authtoken, userID: userID, targetID: self.record.id, pickupOrgID: pickupOrgID)
             } else {
-                return ActorService.makeEmptyGatewayResponsePromise()
+                return ServiceUtils.makeEmptyGatewayResponsePromise()
             }
         }.done { resp in
             self.titleHoldSeemsPossible = !resp.failed

@@ -113,14 +113,6 @@ class CheckoutsViewController: UIViewController {
         }
     }
     
-    // TODO: factor out to shared class, maybe ServiceUtils
-    static func makeEmptyObjectPromise() -> Promise<(OSRFObject)> {
-        let emptyPromise = Promise<(OSRFObject)>() { seal in
-            seal.fulfill(OSRFObject([:]))
-        }
-        return emptyPromise
-    }
-    
     func fetchCircDetails(authtoken: String, forCircRecord circRecord: CircRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circRecord.id])
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
@@ -139,13 +131,13 @@ class CheckoutsViewController: UIViewController {
                 let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id])
                 return req.gatewayObjectResponse()
             } else {
-                return CheckoutsViewController.makeEmptyObjectPromise()
+                return ServiceUtils.makeEmptyObjectPromise()
             }
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) MRA done")
             if (obj.dict.count > 0) {
                 circRecord.metabibRecord?.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
-                return CheckoutsViewController.makeEmptyObjectPromise()
+                return ServiceUtils.makeEmptyObjectPromise()
             } else {
                 // emptyPromise above, need to retrieve the acp
                 let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [circRecord.targetCopy])
