@@ -27,6 +27,7 @@ class CWMarsAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = false
     let enablePartHolds = true
+    let enableTitleHoldOnItemWithParts = true
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let enableHoursOfOperation = true

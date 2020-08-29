@@ -27,6 +27,7 @@ class IndianaAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
     let enablePartHolds = true
+    let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let enableHoursOfOperation = true

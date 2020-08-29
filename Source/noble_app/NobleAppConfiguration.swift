@@ -27,6 +27,7 @@ class NobleAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = false
     let enablePartHolds = false
+    let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let enableHoursOfOperation = false

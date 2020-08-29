@@ -180,4 +180,11 @@ class MiscTests: XCTestCase {
         let compactValues = d.compactMap { $0.value }
         XCTAssertEqual(compactValues.count, 2)
     }
+    
+    func test_bool_toString() {
+        var a: Bool? = nil
+        XCTAssertEqual(Utils.toString(a), "nil")
+        a = true
+        XCTAssertEqual(Utils.toString(a), "true")
+    }
 }

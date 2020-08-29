@@ -51,4 +51,11 @@ class Utils {
             }
         }
     }
+    
+    static func toString(_ val: Bool?) -> String {
+        if let v = val {
+            return v ? "true" : "false"
+        }
+        return "nil"
+    }
 }

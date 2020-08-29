@@ -27,6 +27,7 @@ class PinesAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = false
     let enableHoldPhoneNotification = true
     let enablePartHolds = true
+    let enableTitleHoldOnItemWithParts = true
     let enableMainSceneBottomToolbar = true
     let enablePayFines = true
     let enableHoursOfOperation = true

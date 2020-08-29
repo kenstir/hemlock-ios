@@ -29,6 +29,7 @@ protocol AppConfiguration {
     var enableHoldShowQueuePosition: Bool { get }
     var enableHoldPhoneNotification: Bool { get }
     var enablePartHolds: Bool { get }
+    var enableTitleHoldOnItemWithParts: Bool { get }
     var enableMainSceneBottomToolbar: Bool { get }
     var enablePayFines: Bool { get }
     var enableHoursOfOperation: Bool { get }

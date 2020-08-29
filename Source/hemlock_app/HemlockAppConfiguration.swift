@@ -28,6 +28,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
     let enablePartHolds = false
+    let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let enableHoursOfOperation = true

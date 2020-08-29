@@ -89,8 +89,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     var isEditHold: Bool { return holdRecord != nil }
     var hasParts: Bool { return !parts.isEmpty }
-    var titleHoldSeemsPossible: Bool? = nil
-    var partRequired: Bool { return hasParts && titleHoldSeemsPossible == false }
+    var titleHoldIsPossible: Bool? = nil
+    var partRequired: Bool { return hasParts && titleHoldIsPossible != true }
 
     //MARK: - Lifecycle
     
@@ -413,19 +413,23 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         if !App.config.enablePartHolds || isEditHold {
             return Promise<Void>()
         }
+        print("PlaceHold: \(record.title): fetching parts")
         let promise = SearchService.fetchHoldParts(recordID: record.id).then { (parts: [OSRFObject]) -> Promise<(GatewayResponse)> in
             self.parts = parts
             if self.hasParts,
+                App.config.enableTitleHoldOnItemWithParts,
                 let authtoken = account.authtoken,
                 let userID = account.userID,
                 let pickupOrgID = account.pickupOrgID
             {
+                print("PlaceHold: \(self.record.title): checking titleHoldIsPossible")
                 return CircService.titleHoldIsPossible(authtoken: authtoken, userID: userID, targetID: self.record.id, pickupOrgID: pickupOrgID)
             } else {
                 return ServiceUtils.makeEmptyGatewayResponsePromise()
             }
         }.done { resp in
-            self.titleHoldSeemsPossible = !resp.failed
+            self.titleHoldIsPossible = !resp.failed
+            print("PlaceHold: \(self.record.title): titleHoldIsPossible=\(Utils.toString(self.titleHoldIsPossible))")
         }
         return promise
     }

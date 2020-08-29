@@ -27,6 +27,7 @@ class SageCatAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
     let enablePartHolds = true
+    let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = false
     let enableHoursOfOperation = true
