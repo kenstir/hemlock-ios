@@ -59,6 +59,10 @@ class FinesViewController: UIViewController {
     //MARK: - Functions
     
     func setupViews() {
+        if let title = R.string["Fines"] {
+            self.title = title
+        }
+
         finesTable.delegate = self
         finesTable.dataSource = self
         finesTable.tableFooterView = UIView() // prevent display of ghost rows at end of table
