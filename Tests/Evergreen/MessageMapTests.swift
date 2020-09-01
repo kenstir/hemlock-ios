@@ -1,7 +1,5 @@
 //
-//  NTLCAppBehavior.swift
-//
-//  Copyright (C) 2019 Kenneth H. Cox
+//  Copyright (C) 2020 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -17,5 +15,24 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class NTLCAppBehavior: BaseAppBehavior {
+import XCTest
+@testable import Hemlock
+
+class MessageMapTests: XCTestCase {
+
+    override func setUpWithError() throws {
+        MessageMap.loadFromResources()
+    }
+
+    override func tearDownWithError() throws {
+    }
+
+    func test_basic() throws {
+        XCTAssertEqual("All parts", MessageMap.string["hold_any_part"])
+        XCTAssertEqual("All parts", R.string["hold_any_part"])
+    }
+    
+    func test_missing() throws {
+        XCTAssertNil(R.string["-missing-"])
+    }
 }

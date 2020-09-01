@@ -17,26 +17,54 @@
 
 import Foundation
 
-/* Emulate the behavior of OPAC messages customized in hold_error_messages.tt2.
+/* Manage strings that can be customized per-app
  *
- * This class is not used directly; it loads the customizations from the app bundle
- * and injects them into the Event class.
+ * failPartMessageMap -
+ *     emulates the behavior of OPAC messages customized in hold_error_messages.tt2.
+ *     Used by GatewayResponse.  To customize a message by "fail_part", add it to
+ *     fail_part_msg_map.json
  *
- * To customize a message by "fail_part", add it to res/raw/fail_part_msg_map.json
+ * string - any other customized string, ala R.string.x on Android
  */
+typealias R = MessageMap
 class MessageMap {
     static var initialized = false
     static var failPartMessageMap: [String: String] = [:]
+    static var string: [String: String] = [:]
     
     static func loadFromResources() {
+        guard !initialized else { return }
+        loadFailPartMessageMap()
+        loadStrings()
+        initialized = true
+    }
+
+    static private func loadFailPartMessageMap() {
+        if let map = loadStringMap(forResource: "fail_part_msg_map") {
+            failPartMessageMap.merge(map) { (_, new) in new }
+        }
+    }
+
+    // Merge strings.json with custom_strings.json, if any.
+    // This behaves in practice like strings.xml merging in Android.
+    static private func loadStrings() {
+        if let map = loadStringMap(forResource: "strings") {
+            string.merge(map) { (_, new) in new }
+        }
+        if let map = loadStringMap(forResource: "custom_strings") {
+            string.merge(map) { (_, new) in new }
+        }
+    }
+
+    static private func loadStringMap(forResource resource: String) -> [String: String]? {
         guard
-            let path = Bundle.main.path(forResource: "fail_part_msg_map", ofType: "json"),
+            let path = Bundle.main.path(forResource: resource, ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let obj = try? JSONSerialization.jsonObject(with: data),
             let map = obj as? [String: String] else
         {
-            return
+            return nil
         }
-        failPartMessageMap = map
+        return map
     }
 }

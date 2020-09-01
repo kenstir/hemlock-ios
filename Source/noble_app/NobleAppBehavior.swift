@@ -18,17 +18,6 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class NobleAppBehavior: BaseAppBehavior {
-    override init() {
-        super.init()
-        customStrings = [
-            "button_pay_fines": "Pay all charges",
-            "Fines": "Charges",
-            "total_owed": "",
-            "total_paid": "",
-            "balance_owed": "Charges"
-        ]
-    }
-    
     override func isOnlineResource(record: MBRecord) -> Bool {
         if let item_form = record.attrs?["item_form"] {
             if item_form == "o" || item_form == "s" {

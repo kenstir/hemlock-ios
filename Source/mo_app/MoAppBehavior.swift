@@ -16,12 +16,4 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class MoAppBehavior: BaseAppBehavior {
-    override init() {
-        super.init()
-        customStrings = [
-            "button_pay_fines": "Pay all charges",
-            "Fines": "Charges",
-            "balance_owed": "Charges"
-        ]
-    }
 }

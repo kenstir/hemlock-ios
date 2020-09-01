@@ -26,8 +26,7 @@ protocol AppBehavior {
 }
 
 class BaseAppBehavior: AppBehavior {
-    var customStrings: [String: String] = [:]
-    
+
     init() {
         MessageMap.loadFromResources()
     }
@@ -102,6 +101,6 @@ class BaseAppBehavior: AppBehavior {
     }
     
     func getCustomString(_ key: String) -> String? {
-        return customStrings[key]
+        return R.string[key]
     }
 }
