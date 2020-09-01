@@ -24,7 +24,7 @@ class MoAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldPhoneNotification = true
-    let enablePartHolds = false
+    let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
