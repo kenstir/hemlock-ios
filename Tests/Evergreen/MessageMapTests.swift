@@ -27,11 +27,11 @@ class MessageMapTests: XCTestCase {
     override func tearDownWithError() throws {
     }
 
-    func test_basic() throws {
-        XCTAssertEqual("All parts", MessageMap.string["hold_any_part"])
-        XCTAssertEqual("All parts", R.string["hold_any_part"])
+    func test_getString() throws {
+        XCTAssertEqual("All parts", R.getString("All parts"))
+        XCTAssertEqual("Fines", R.getString("Fines"))
     }
-    
+
     func test_missing() throws {
         XCTAssertNil(R.string["-missing-"])
     }

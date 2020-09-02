@@ -38,6 +38,14 @@ class MessageMap {
         loadStrings()
         initialized = true
     }
+    
+    // return custom string if any, else return parameter
+    static func getString(_ str: String) -> String {
+        if let customString = string[str] {
+            return customString
+        }
+        return str
+    }
 
     static private func loadFailPartMessageMap() {
         if let map = loadStringMap(forResource: "fail_part_msg_map") {

@@ -529,7 +529,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
     
     func loadPartData() {
-        let sentinelString = partRequired ? "---" : "- All Parts -"
+        let sentinelString = partRequired ? "---" : "- \(R.getString("Any part")) -"
         partLabels = [sentinelString]
         for partObj in parts {
             if let label = partObj.getString("label"), let _ = partObj.getInt("id") {
