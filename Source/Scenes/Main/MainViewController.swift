@@ -248,7 +248,7 @@ extension MainViewController: UITableViewDataSource {
             cell.tintColor = App.theme.primaryColor
         }
         cell.imageView?.image = image
-        cell.textLabel?.text = App.behavior.getCustomString(label) ?? label
+        cell.textLabel?.text = R.getString(label)
 
         cell.title = label
         cell.segue = segue

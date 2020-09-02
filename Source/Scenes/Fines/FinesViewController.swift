@@ -82,21 +82,21 @@ class FinesViewController: UIViewController {
         Style.styleLabel(asTableHeader: balanceOwedVal)
         
         // hide Total Owed and Total Paid columns if labels are empty
-        if let str = App.behavior.getCustomString("total_owed") {
+        if let str = R.string["total_owed"] {
             if str.isEmpty {
                 totalOwedStack.isHidden = true
             } else {
                 totalOwedLabel.text = str
             }
         }
-        if let str = App.behavior.getCustomString("total_paid") {
+        if let str = R.string["total_paid"] {
             if str.isEmpty {
                 totalPaidStack.isHidden = true
             } else {
                 totalPaidLabel.text = str
             }
         }
-        if let str = App.behavior.getCustomString("balance_owed") {
+        if let str = R.string["balance_owed"] {
             if str.isEmpty {
                 //balanceOwedStack.isHidden = true
             } else {
@@ -110,7 +110,7 @@ class FinesViewController: UIViewController {
         } else {
             payFinesButton.isHidden = true
         }
-        if let str = App.behavior.getCustomString("button_pay_fines") {
+        if let str = R.string["button_pay_fines"] {
             payFinesButton.setTitle(str, for: .normal)
         }
     }

@@ -22,7 +22,6 @@ import Foundation
 protocol AppBehavior {
     func isOnlineResource(record: MBRecord) -> Bool
     func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link]
-    func getCustomString(_ key: String) -> String?
 }
 
 class BaseAppBehavior: AppBehavior {
@@ -98,9 +97,5 @@ class BaseAppBehavior: AppBehavior {
             links.append(Link(href: online_loc, text: ""))
         }
         return links
-    }
-    
-    func getCustomString(_ key: String) -> String? {
-        return R.string[key]
     }
 }
