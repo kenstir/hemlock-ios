@@ -170,7 +170,7 @@ class AlamoTests: XCTestCase {
                 expectation.fulfill()
             }
             
-            wait(for: [expectation], timeout: 20.0)
+            wait(for: [expectation], timeout: 30.0)
         }
     }
 }
