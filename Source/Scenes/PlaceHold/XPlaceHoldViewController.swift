@@ -185,6 +185,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     func setupSuspendRow() {
         suspendLabel.attributedText = Style.makeString("Suspend hold", ofSize: 14)
+        suspendSwitch.switchView?.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
     }
     
     func setupPhoneRow() {
