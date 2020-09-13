@@ -201,11 +201,7 @@ class FinesViewController: UIViewController {
     }
 }
 
-extension FinesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-}
-
+//MARK: - UITableViewDataSource
 extension FinesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fines.count
@@ -222,7 +218,47 @@ extension FinesViewController: UITableViewDataSource {
         cell.finesStatus?.text = fine.status
         return cell
     }
-    
 }
 
+//MARK: - UITableViewDelegate
+extension FinesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var haveAnyGroceryBills = false
 
+        // TODO have to deal with grocery bills in the same way as android
+        var records: [MBRecord] = []
+        var selectedIndex = indexPath.row
+        for fine in fines {
+            if let mvrObj = fine.mvrObj,
+                let id = mvrObj.getInt("doc_id"),
+                id > 0
+            {
+                records.append(MBRecord(id: id, mvrObj: mvrObj))
+            } else {
+                haveAnyGroceryBills = true
+            }
+        }
+
+        if haveAnyGroceryBills {
+            // If any of the fines are for non-circulation items ("grocery bills"), we
+            // launch the Details VC with only the selected record, if we can.  We have
+            // no details on grocery bills, and the Details VC doesn't handle nulls.
+            if let mvrObj = fines[indexPath.row].mvrObj,
+                let id = mvrObj.getInt("doc_id"),
+                id > 0
+            {
+                records = [MBRecord(id: id, mvrObj: mvrObj)]
+                selectedIndex = 0
+            }
+        }
+        
+        if records.count > 0 {
+            let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
+            let vc = XDetailsPagerViewController(items: records, selectedItem: selectedIndex, displayOptions: displayOptions)
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // deselect row
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+}

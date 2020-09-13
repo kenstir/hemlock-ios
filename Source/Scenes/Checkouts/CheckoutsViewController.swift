@@ -253,15 +253,14 @@ extension CheckoutsViewController: UITableViewDataSource {
 
         return cell
     }
-    
 }
 
+//MARK: - UITableViewDelegate
 extension CheckoutsViewController: UITableViewDelegate {
 
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
         var records: [MBRecord] = []
         for item in items {
             if let record = item.metabibRecord {
@@ -270,6 +269,7 @@ extension CheckoutsViewController: UITableViewDelegate {
         }
 
         if records.count > 0 {
+            let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
             let vc = XDetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
