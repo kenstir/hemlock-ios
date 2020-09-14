@@ -97,12 +97,16 @@ class XDetailsNode: ASCellNode {
         if App.config.needMARCRecord {
             promises.insert(PCRUDService.fetchMARC(forRecord: record), at: 0)
         }
+        
+        // Fetch MRA if needed
+        if record.attrs == nil {
+            promises.append(PCRUDService.fetchMRA(forRecord: record))
+        }
 
         firstly {
             when(fulfilled: promises)
         }.done {
-            self.setupCopySummary()
-            self.setupButtons()
+            self.setupAsyncDataNodes()
         }.catch { error in
             self.viewController?.presentGatewayAlert(forError: error)
         }
@@ -166,13 +170,11 @@ class XDetailsNode: ASCellNode {
         setupPageHeader()
         Style.setupTitle(titleNode, str: record.title)
         Style.setupSubtitle(authorNode, str: record.author)
-        Style.setupSubtitle(formatNode, str: record.iconFormatLabel)
         Style.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: 14)
         setupImageNode()
         setupSpacerNode()
-        
-        setupCopySummary()
-        setupButtons()
+
+        setupAsyncDataNodes()
         
         setupScrollNode()
         
@@ -188,6 +190,16 @@ class XDetailsNode: ASCellNode {
         let str = "Showing Item \(naturalNumber) of \(totalItems)"
         pageHeaderText.attributedText = Style.makeTableHeaderString(str)
         pageHeader.backgroundColor = Style.systemGroupedBackground
+    }
+    
+    private func setupAsyncDataNodes() {
+        setupFormat()
+        setupCopySummary()
+        setupButtons()
+    }
+    
+    private func setupFormat() {
+        Style.setupSubtitle(formatNode, str: record.iconFormatLabel)
     }
 
     private func setupCopySummary() {

@@ -52,7 +52,7 @@ class PCRUDService {
         return promise
     }
 
-    static func fetchMRA(authtoken: String, forRecord record: MBRecord) -> Promise<Void> {
+    static func fetchMRA(forRecord record: MBRecord) -> Promise<Void> {
         os_log("fetchMRA id=%d start", log: PCRUDService.log, type: .info, record.id)
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id])
         let promise = req.gatewayObjectResponse().done { obj in

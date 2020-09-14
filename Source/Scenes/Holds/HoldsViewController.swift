@@ -136,7 +136,7 @@ class HoldsViewController: UIViewController {
             os_log("fetchTargetInfo target=%d holdType=T mods done", log: self.log, type: .info, holdTarget)
             let record = MBRecord(id: holdTarget, mvrObj: obj)
             hold.metabibRecord = record
-            return PCRUDService.fetchMRA(authtoken: authtoken, forRecord: record)
+            return PCRUDService.fetchMRA(forRecord: record)
         }
         return promise
     }

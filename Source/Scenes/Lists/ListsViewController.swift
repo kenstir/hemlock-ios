@@ -86,15 +86,11 @@ class ListsViewController: UIViewController {
     
     @objc func firstButtonPressed(sender: Any) {
         // JUNK!  just display one book jacket
-        guard let authtoken = App.account?.authtoken else {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return
-        }
         let records = [MBRecord(id: 71844)]//5859894
         var promises: [Promise<Void>] = []
         for record in records {
-            promises.append(SearchService.fetchRecordMVR(authtoken: authtoken, forRecord: record))
-            promises.append(PCRUDService.fetchMRA(authtoken: authtoken, forRecord: record))
+            promises.append(SearchService.fetchRecordMODS(forRecord: record))
+            promises.append(PCRUDService.fetchMRA(forRecord: record))
         }
         print("xxx \(promises.count) promises made")
         

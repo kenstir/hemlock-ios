@@ -124,7 +124,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1])
         req.gatewayOptionalObjectResponse().done { obj in
             let records = MBRecord.makeArray(fromQueryResponse: obj)
-            self.fetchRecordMVRs(authtoken: authtoken, records: records)
+            self.fetchRecordDetails(authtoken: authtoken, records: records)
             return
         }.catch { error in
             self.activityIndicator.stopAnimating()
@@ -133,11 +133,11 @@ class XResultsViewController: ASViewController<ASTableNode> {
         }
     }
     
-    func fetchRecordMVRs(authtoken: String, records: [MBRecord]) {
+    func fetchRecordDetails(authtoken: String, records: [MBRecord]) {
         var promises: [Promise<Void>] = []
         for record in records {
-            promises.append(SearchService.fetchRecordMVR(authtoken: authtoken, forRecord: record))
-            promises.append(PCRUDService.fetchMRA(authtoken: authtoken, forRecord: record))
+            promises.append(SearchService.fetchRecordMODS(forRecord: record))
+            promises.append(PCRUDService.fetchMRA(forRecord: record))
         }
         print("xxx \(promises.count) promises made")
 
