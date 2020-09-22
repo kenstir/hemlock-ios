@@ -132,14 +132,14 @@ class FinesViewController: UIViewController {
         promises.append(ActorService.fetchOrgTreeAndSettings(forOrgID: App.account?.homeOrgID))
 
         // fetch the summary
-        let req1 = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid])
+        let req1 = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid], shouldCache: false)
         let promise1 = req1.gatewayOptionalObjectResponse().done { obj in
             self.loadFinesSummary(fromObj: obj)
         }
         promises.append(promise1)
         
         // fetch the transactions
-        let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid])
+        let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid], shouldCache: false)
         let promise2 = req2.gatewayArrayResponse().done { objects in
             self.loadTransactions(fines: FineRecord.makeArray(objects))
         }

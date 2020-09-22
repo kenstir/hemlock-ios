@@ -28,7 +28,7 @@ class CircService {
             "copyid": targetCopy,
             "opac_renewal": 1
         ]
-        let req = Gateway.makeRequest(service: API.circ, method: API.renew, args: [authtoken, complexParam])
+        let req = Gateway.makeRequest(service: API.circ, method: API.renew, args: [authtoken, complexParam], shouldCache: false)
         return req.gatewayObjectResponse()
     }
     
@@ -41,7 +41,7 @@ class CircService {
             "hold_type": API.holdTypeTitle,
             "titleid": targetID,
         ]
-        let req = Gateway.makeRequest(service: API.circ, method: API.titleHoldIsPossible, args: [authtoken, complexParam])
+        let req = Gateway.makeRequest(service: API.circ, method: API.titleHoldIsPossible, args: [authtoken, complexParam], shouldCache: false)
         return req.gatewayResponse()
     }
     
@@ -67,7 +67,7 @@ class CircService {
         if let date = expirationDate {
             complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
         }
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdTestAndCreate, args: [authtoken, complexParam, [targetID]])
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdTestAndCreate, args: [authtoken, complexParam, [targetID]], shouldCache: false)
         return req.gatewayObjectResponse()
     }
 
@@ -93,13 +93,13 @@ class CircService {
         if let date = thawDate {
             complexParam["thaw_date"] = OSRFObject.apiDateFormatter.string(from: date)
         }
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [authtoken, nil, complexParam])
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [authtoken, nil, complexParam], shouldCache: false)
         return req.gatewayResponse()
     }
 
     static func cancelHold(authtoken: String, holdID: Int) -> Promise<(GatewayResponse)> {
         let note = "Cancelled by mobile app"
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [authtoken, holdID, nil, note])
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [authtoken, holdID, nil, note], shouldCache: false)
         return req.gatewayResponse()
     }
 }

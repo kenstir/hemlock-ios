@@ -86,7 +86,7 @@ class XDetailsNode: ASCellNode {
         // Fetch copy counts if not online resource
         if !App.behavior.isOnlineResource(record: record) {
             let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
-            let promise = SearchService.fetchCopyCounts(orgID: orgID, recordID: record.id)
+            let promise = SearchService.fetchCopyCount(orgID: orgID, recordID: record.id)
             let done_promise = promise.done { array in
                 self.record.copyCounts = CopyCounts.makeArray(fromArray: array)
             }

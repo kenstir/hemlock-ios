@@ -76,7 +76,7 @@ class HoldsViewController: UIViewController {
         self.activityIndicator.startAnimating()
         
         // fetch holds
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdsRetrieve, args: [authtoken, userid])
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdsRetrieve, args: [authtoken, userid], shouldCache: false)
         req.gatewayArrayResponse().done { objects in
             self.items = HoldRecord.makeArray(objects)
             try self.fetchHoldDetails()
@@ -131,7 +131,7 @@ class HoldsViewController: UIViewController {
 
     func fetchTitleHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) -> Promise<Void> {
         os_log("fetchTargetInfo target=%d holdType=T mods start", log: self.log, type: .info, holdTarget)
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [holdTarget])
+        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [holdTarget], shouldCache: true)
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
             os_log("fetchTargetInfo target=%d holdType=T mods done", log: self.log, type: .info, holdTarget)
             let record = MBRecord(id: holdTarget, mvrObj: obj)
@@ -143,7 +143,7 @@ class HoldsViewController: UIViewController {
 
     func fetchMetarecordHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) -> Promise<Void> {
         os_log("fetchTargetInfo target=%d holdType=M mods start", log: self.log, type: .info, holdTarget)
-        let req = Gateway.makeRequest(service: API.search, method: API.metarecordModsRetrieve, args: [holdTarget])
+        let req = Gateway.makeRequest(service: API.search, method: API.metarecordModsRetrieve, args: [holdTarget], shouldCache: true)
         let promise = req.gatewayObjectResponse().done { obj in
             os_log("fetchTargetInfo target=%d holdType=M mods done", log: self.log, type: .info, holdTarget)
             // the holdTarget is the ID of the metarecord; its "tcn" is the ID of the record
@@ -158,7 +158,7 @@ class HoldsViewController: UIViewController {
         param["cache"] = 1
         param["fields"] = ["label", "record"]
         param["query"] = ["id": holdTarget]
-        let req = Gateway.makeRequest(service: API.fielder, method: API.fielderBMPAtomic, args: [param])
+        let req = Gateway.makeRequest(service: API.fielder, method: API.fielderBMPAtomic, args: [param], shouldCache: false)
         let promise = req.gatewayArrayResponse().then { (array: [OSRFObject]) -> Promise<(OSRFObject)> in
             guard let obj = array.first,
                 let target = obj.getInt("record") else
@@ -167,7 +167,7 @@ class HoldsViewController: UIViewController {
             }
             hold.label = obj.getString("label")
             os_log("fetchTargetInfo target=%d holdType=P targetRecord=%d fielder done mods start", log: self.log, type: .info, holdTarget, target)
-            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target]).gatewayObjectResponse()
+            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target], shouldCache: true).gatewayObjectResponse()
         }.done { (obj: OSRFObject) -> Void in
             os_log("fetchTargetInfo target=%d holdType=P mods done", log: self.log, type: .info, holdTarget)
             guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for part hold") }
@@ -178,15 +178,15 @@ class HoldsViewController: UIViewController {
     
     func fetchCopyHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) -> Promise<Void> {
         os_log("fetchTargetInfo target=%d holdType=T asset start", log: self.log, type: .info, holdTarget)
-        let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget])
+        let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget], shouldCache: true)
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             guard let callNumber = obj.getID("call_number") else { throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold") }
             os_log("fetchTargetInfo target=%d holdType=T call start", log: self.log, type: .info, holdTarget)
-            return Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber]).gatewayObjectResponse()
+            return Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber], shouldCache: true).gatewayObjectResponse()
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             guard let id = obj.getID("record") else { throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for copy hold") }
             os_log("fetchTargetInfo target=%d holdType=T mods start", log: self.log, type: .info, holdTarget)
-            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id]).gatewayObjectResponse()
+            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id], shouldCache: true).gatewayObjectResponse()
         }.done { (obj: OSRFObject) -> Void in
             os_log("fetchTargetInfo target=%d holdType=P mods done", log: self.log, type: .info, holdTarget)
             guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for copy hold") }
@@ -197,11 +197,11 @@ class HoldsViewController: UIViewController {
     
     func fetchVolumeHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) -> Promise<Void> {
         os_log("fetchTargetInfo target=%d holdType=V call start", log: self.log, type: .info, holdTarget)
-        let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [holdTarget])
+        let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [holdTarget], shouldCache: true)
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             guard let id = obj.getID("record") else { throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for volume hold")}
             os_log("fetchTargetInfo target=%d holdType=V mods start", log: self.log, type: .info, holdTarget)
-            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id]).gatewayObjectResponse()
+            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id], shouldCache: true).gatewayObjectResponse()
         }.done { (obj: OSRFObject) -> Void in
             os_log("fetchTargetInfo target=%d holdType=V mods done", log: self.log, type: .info, holdTarget)
             guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for volume hold") }
@@ -216,7 +216,7 @@ class HoldsViewController: UIViewController {
         }
         let holdTarget = hold.target ?? 0
         os_log("fetchQueueStats target=%d start", log: self.log, type: .info, holdTarget)
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdQueueStats, args: [authtoken, id])
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdQueueStats, args: [authtoken, id], shouldCache: false)
         let promise = req.gatewayObjectResponse().done { obj in
             os_log("fetchQueueStats target=%d done", log: self.log, type: .info, holdTarget)
             hold.qstatsObj = obj

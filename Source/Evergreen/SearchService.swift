@@ -28,7 +28,7 @@ class SearchService {
         if copyStatusLoaded {
             return Promise<Void>()
         }
-        let req = Gateway.makeRequest(service: API.search, method: API.copyStatusRetrieveAll, args: [])
+        let req = Gateway.makeRequest(service: API.search, method: API.copyStatusRetrieveAll, args: [], shouldCache: true)
         let promise = req.gatewayArrayResponse().done { array in
             CopyStatus.loadCopyStatus(fromArray: array)
             copyStatusLoaded = true
@@ -36,8 +36,8 @@ class SearchService {
         return promise
     }
     
-    static func fetchCopyCounts(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {
-        let req = Gateway.makeRequest(service: API.search, method: API.copyCount, args: [orgID, recordID])
+    static func fetchCopyCount(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {
+        let req = Gateway.makeRequest(service: API.search, method: API.copyCount, args: [orgID, recordID], shouldCache: false)
         let promise = req.gatewayArrayResponse()
         return promise
     }
@@ -48,13 +48,13 @@ class SearchService {
             args.append(searchOrg.id)
             args.append(searchOrg.level)
         }
-        let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: args)
+        let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: args, shouldCache: false)
         let promise = req.gatewayResponse()
         return promise
     }
     
     static func fetchRecordMODS(forRecord record: MBRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id])
+        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
         let promise = req.gatewayObjectResponse().done { obj in
             print("xxx \(record.id) recordModsRetrieve done")
             record.mvrObj = obj
@@ -66,7 +66,7 @@ class SearchService {
         let param: JSONDictionary = [
             "record": recordID
         ]
-        let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param])
+        let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param], shouldCache: true)
         let promise = req.gatewayArrayResponse()
         return promise
     }

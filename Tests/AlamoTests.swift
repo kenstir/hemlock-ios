@@ -147,7 +147,7 @@ class AlamoTests: XCTestCase {
     func test_requestWithCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
-            let request = Alamofire.request(Gateway.idlURL())
+            let request = Gateway.makeRequest(url: "https://httpbin.org/ip", shouldCache: true)
             print("request:  \(request.description)")
             request.responseData { response in
                 XCTAssertTrue(response.result.isSuccess)
@@ -155,14 +155,14 @@ class AlamoTests: XCTestCase {
                 expectation.fulfill()
             }
             
-            wait(for: [expectation], timeout: 10.0)
+            wait(for: [expectation], timeout: 20.0)
         }
     }
     
     func test_requestWithoutCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
-            let request = try! Alamofire.SessionManager.default.requestWithoutCache(Gateway.idlURL())
+            let request = Gateway.makeRequest(url: "https://httpbin.org/headers", shouldCache: false)
             print("request:  \(request.description)")
             request.responseData { response in
                 XCTAssertTrue(response.result.isSuccess)
@@ -170,7 +170,7 @@ class AlamoTests: XCTestCase {
                 expectation.fulfill()
             }
             
-            wait(for: [expectation], timeout: 30.0)
+            wait(for: [expectation], timeout: 20.0)
         }
     }
 }

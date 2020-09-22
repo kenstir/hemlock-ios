@@ -24,7 +24,7 @@ import os.log
 
 class AuthService {
     static func fetchAuthToken(credential: Credential) -> Promise<(String)> {
-        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [credential.username])
+        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [credential.username], shouldCache: false)
         let promise = req.gatewayResponse().then { (resp: GatewayResponse) -> Promise<(String)> in
             print("resp: \(resp)")
             guard let nonce = resp.str else {
@@ -34,14 +34,14 @@ class AuthService {
             let objectParam = ["type": "persist",
                                "username": credential.username,
                                "password": md5password]
-            let req = Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam])
+            let req = Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam], shouldCache: false)
             return req.gatewayAuthtokenResponse()
         }
         return promise
     }
     
     static func fetchSession(authtoken: String) -> Promise<(OSRFObject)> {
-        let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [authtoken])
+        let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [authtoken], shouldCache: false)
         return req.gatewayObjectResponse()
     }
 

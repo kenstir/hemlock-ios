@@ -34,7 +34,7 @@ class ActorService {
         if orgTypesLoaded {
             return Promise<Void>()
         }
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: [])
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: [], shouldCache: true)
         let promise = req.gatewayArrayResponse().done { array in
             OrgType.loadOrgTypes(fromArray: array)
             orgTypesLoaded = true
@@ -47,8 +47,7 @@ class ActorService {
         if orgTreeLoaded {
             return Promise<Void>()
         }
-//        debugPrint("xyzzy: orgTreeLoaded = \(orgTreeLoaded)")
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [])
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: false) // TODO: limit cache lifetime to 24h like Android
         let promise = req.gatewayObjectResponse().done { obj in
             try Organization.loadOrganizations(fromObj: obj)
             orgTreeLoaded = true
@@ -78,7 +77,7 @@ class ActorService {
             if org.parent == nil {
                 settings.append(API.settingSMSEnable)
             }
-            let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [org.id, settings, API.anonymousAuthToken])
+            let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [org.id, settings, API.anonymousAuthToken], shouldCache: true)
             let promise = req.gatewayObjectResponse().done { obj in
                 org.loadSettings(fromObj: obj)
             }
@@ -93,7 +92,7 @@ class ActorService {
 
         let promise = fetchOrgTree().then { () -> Promise<Void> in
             let elapsed = -start.timeIntervalSinceNow
-            os_log("orgTreeRetrieve.elapsed: %.3f", elapsed)
+            os_log("orgTree.elapsed: %.3f", elapsed)
             let promises: [Promise<Void>] = self.fetchOrgSettings(forOrgID: orgID)
             return when(fulfilled: promises)
         }
@@ -101,12 +100,13 @@ class ActorService {
     }
 
     static func fetchOrgUnitHours(authtoken: String, forOrgID orgID: Int) -> Promise<(OSRFObject?)> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID])
+        //let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID], shouldCache: false)
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID], shouldCache: false)
         return req.gatewayOptionalObjectResponse()
     }
     
     static func fetchOrgAddress(addressID: Int) -> Promise<(OSRFObject?)> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [addressID])
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [addressID], shouldCache: true)
         return req.gatewayOptionalObjectResponse()
     }
 
@@ -120,7 +120,7 @@ class ActorService {
             return Promise<Void>()
         }
         let fields = ["card", "settings"]
-        let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [authtoken, userID, fields])
+        let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [authtoken, userID, fields], shouldCache: false)
         let promise = req.gatewayResponse().done { resp in
             if let obj = resp.obj {
                 account.loadUserSettings(fromObject: obj)

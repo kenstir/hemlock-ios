@@ -30,17 +30,44 @@ class Gateway {
 
     /// an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
+    
+    static let sessionManager: SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        
+        let sm = SessionManager(configuration: configuration)
+//        let delegate = sm.delegate
+//        delegate.dataTaskWillCacheResponse = { session, dataTask, proposedResponse in
+//            var exp: String? = nil
+//            if let response = dataTask.response as? HTTPURLResponse,
+//                let headers = response.allHeaderFields as? [String:String],
+//                let expires = headers["Expires"] {
+//                print("Expires: \(expires)")
+//                exp = expires
+//                print("stop here")
+//            }
+//            let size = proposedResponse.data.count
+//            print("willCache: expires:\(exp ?? "") -> \(size) bytes")
+//            return proposedResponse
+//        }
+        return sm
+    }()
 
     //MARK: - static methods
 
     /// create an Alamofire request for calling the gateway
-    static func makeRequest(service: String, method: String, args: [Any?]) -> Alamofire.DataRequest
+    static func makeRequest(service: String, method: String, args: [Any?], shouldCache: Bool) -> Alamofire.DataRequest
     {
         let url = gatewayURL()
         let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args)]
-        let request = Alamofire.request(url, method: .post, parameters: parameters, encoding: gatewayEncoding)
-        os_log("req.params: %@", log: log, type: .info, parameters)
+        let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
+        os_log("req.params: %@", log: log, type: .info, parameters.description)
         return request
+    }
+    
+    static func makeRequest(url: String, shouldCache: Bool) -> Alamofire.DataRequest
+    {
+        return sessionManager.makeRequest(url, shouldCache: shouldCache)
     }
     
     /// encode params as needed by the gateway

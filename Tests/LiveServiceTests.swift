@@ -73,13 +73,13 @@ class LiveServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
         
         let args: [Any] = [account!.username]
-        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args)
+        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args, shouldCache: false)
         req.responseJSON().then { (json: Any, response: PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> in
             print("then: \(json)")
             let objectParam = ["type": "opac",
                                "username": self.account!.username,
                                "password": "badbeef"]
-            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam]).responseJSON()
+            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam], shouldCache: false).responseJSON()
         }.done { (json,response) in
             print("done: \(json)")
             expectation.fulfill()
@@ -218,7 +218,7 @@ class LiveServiceTests: XCTestCase {
 
         let orgID = self.consortiumOrgID
         let setting = API.settingSMSEnable
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSetting, args: [orgID, setting, API.anonymousAuthToken])
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSetting, args: [orgID, setting, API.anonymousAuthToken], shouldCache: false)
         req.gatewayOptionalObjectResponse().done { obj in
             let value = obj?.getBool("value")
             print("org \(orgID) setting \(setting) value \(String(describing: value))")
@@ -239,7 +239,7 @@ class LiveServiceTests: XCTestCase {
         let settings = [API.settingNotPickupLib, API.settingSMSEnable]
         var notPickupLib = false
         var smsEnable = false
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [orgID, settings, API.anonymousAuthToken])
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [orgID, settings, API.anonymousAuthToken], shouldCache: false)
         req.gatewayOptionalObjectResponse().done { obj in
             if let settingObj = obj?.getObject(API.settingNotPickupLib),
                 let settingValue = settingObj.getBool("value")
@@ -307,7 +307,7 @@ class LiveServiceTests: XCTestCase {
     func test_copyCounts() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let promise = SearchService.fetchCopyCounts(orgID: self.consortiumOrgID, recordID: self.sampleRecordID!)
+        let promise = SearchService.fetchCopyCount(orgID: self.consortiumOrgID, recordID: self.sampleRecordID!)
         promise.done { array in
             let copyCounts = CopyCounts.makeArray(fromArray: array)
             XCTAssertGreaterThan(copyCounts.count, 0)
@@ -349,7 +349,7 @@ class LiveServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "async response")
         
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, self.sampleRecordID])
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, self.sampleRecordID], shouldCache: false)
         req.gatewayObjectResponse().done({ obj in
             let marcXML = obj.getString("marc")
             XCTAssertNotNil(marcXML)
@@ -395,7 +395,7 @@ class LiveServiceTests: XCTestCase {
     }
     
     func fetchExists(authtoken: String) -> Promise<(GatewayResponse)> {
-        let req = Gateway.makeRequest(service: API.mobile, method: API.exists, args: [])
+        let req = Gateway.makeRequest(service: API.mobile, method: API.exists, args: [], shouldCache: false)
         return req.gatewayResponse()
     }
 

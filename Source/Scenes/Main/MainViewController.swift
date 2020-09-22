@@ -107,7 +107,7 @@ class MainViewController: UIViewController {
             let userid = App.account?.userID,
             App.config.enableMessages else { return }
         
-        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userid])
+        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userid], shouldCache: false)
         req.gatewayArrayResponse().done { array in
             self.updateMessagesBadge(messageList: array)
         }.catch { error in

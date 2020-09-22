@@ -8,23 +8,25 @@ import Alamofire
 
 extension Alamofire.SessionManager{
     @discardableResult
-    open func requestWithoutCache(
+    open func makeRequest(
         _ url: URLConvertible,
         method: HTTPMethod = .get,
         parameters: Parameters? = nil,
         encoding: ParameterEncoding = URLEncoding.default,
-        headers: HTTPHeaders? = nil)// also you can add URLRequest.CachePolicy here as parameter
-        throws -> DataRequest
+        headers: HTTPHeaders? = nil,
+        shouldCache: Bool)
+        -> DataRequest
     {
-//        do {
+        do {
             var urlRequest = try URLRequest(url: url, method: method, headers: headers)
-            urlRequest.cachePolicy = .reloadIgnoringCacheData // <<== Cache disabled
+            if (shouldCache == false) {
+                // NB: by default POST responses are not cached anyway
+                urlRequest.cachePolicy = .reloadIgnoringCacheData
+            }
             let encodedURLRequest = try encoding.encode(urlRequest, with: parameters)
             return request(encodedURLRequest)
-//        } catch {
-//            // TODO: find a better way to handle error
-//            print(error)
-//            return request(URLRequest(url: URL(string: "http://example.com/wrong_request")!))
-//        }
+        } catch {
+            return request(url)
+        }
     }
 }

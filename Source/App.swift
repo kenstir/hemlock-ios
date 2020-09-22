@@ -85,17 +85,7 @@ class App {
         // Load IDL without caching; IDL is not backward compatible
         // across server upgrades.
         // TODO: use cache-busting URL so we can cache this
-        //let req = Alamofire.request(Gateway.idlURL())
-        var req: DataRequest
-        do {
-            req = try Alamofire.SessionManager.default.requestWithoutCache(Gateway.idlURL())
-        } catch {
-            // should not happen
-            return Promise<Void> { _ in
-                throw HemlockError.unexpectedNetworkResponse("unexpected error loading IDL: \(error.localizedDescription)")
-            }
-        }
-
+        let req = Gateway.makeRequest(url: Gateway.idlURL(), shouldCache: false)
         let promise = req.responseData().done { data, pmkresponse in
             let parser = IDLParser(data: data)
             App.idlLoaded = parser.parse()

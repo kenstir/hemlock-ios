@@ -81,7 +81,7 @@ class CheckoutsViewController: UIViewController {
         activityIndicator.startAnimating()
         
         // fetch the list of items
-        let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid])
+        let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid], shouldCache: false)
         req.gatewayObjectResponse().done { obj in
             self.fetchCircRecords(authtoken: authtoken, fromObject: obj)
         }.catch { error in
@@ -114,11 +114,11 @@ class CheckoutsViewController: UIViewController {
     }
     
     func fetchCircDetails(authtoken: String, forCircRecord circRecord: CircRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circRecord.id])
+        let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circRecord.id], shouldCache: false)
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) circRetrieve done")
             circRecord.circObj = obj
-            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [circRecord.targetCopy])
+            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [circRecord.targetCopy], shouldCache: true)
             return req.gatewayObjectResponse()
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
             print("xxx \(circRecord.id) modsFromCopy done")
@@ -128,7 +128,7 @@ class CheckoutsViewController: UIViewController {
             }
             if id != -1 {
                 circRecord.metabibRecord = MBRecord(id: id, mvrObj: obj)
-                let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id])
+                let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id], shouldCache: true)
                 return req.gatewayObjectResponse()
             } else {
                 return ServiceUtils.makeEmptyObjectPromise()
@@ -140,7 +140,7 @@ class CheckoutsViewController: UIViewController {
                 return ServiceUtils.makeEmptyObjectPromise()
             } else {
                 // emptyPromise above, need to retrieve the acp
-                let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [circRecord.targetCopy])
+                let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [circRecord.targetCopy], shouldCache: true)
                 return req.gatewayObjectResponse()
             }
         }.done { obj in
