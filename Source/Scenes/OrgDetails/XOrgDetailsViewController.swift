@@ -181,8 +181,8 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
         }.done {
             print("xxx \(promises.count) promises fulfilled")
             let elapsed = -self.startOfFetch.timeIntervalSinceNow
-            os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
-            self.didCompleteFetch = true
+            os_log("fetch.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, App.addElapsed(elapsed))
+                self.didCompleteFetch = true
             self.onDataLoaded()
         }.ensure {
             self.activityIndicator.stopAnimating()
