@@ -109,6 +109,9 @@ struct API {
     static let copyLocationCounts = "open-ils.search.biblio.copy_location_counts.summary.retrieve"
     static let holdParts = "open-ils.search.biblio.record_hold_parts"
     
+    //MARK: - misc
+    static let ilsVersion = "opensrf.open-ils.system.ils_version"
+
     //MARK: - supercat service
     
     //alternate for retrieving MARCXML, but was sloweer than retrieveBRE

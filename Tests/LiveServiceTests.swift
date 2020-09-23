@@ -421,28 +421,24 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
 
-    //MARK: - actorCheckedOut
-    
-    /* Can't enable this test until we have IDL for the au class
-    func test_actorCheckedOut_basic() {
-     static let orgTreeRetrieve = "open-ils.actor"
-        LoginController(for: account!).login { resp in
-            guard let authtoken = self.account?.authtoken,
-                let userID = self.account?.userID else
-            {
-                XCTFail()
-                expectation.fulfill()
-                return
+    //MARK: - serverVersion
+
+    func test_serverVersion() {
+        let expectation = XCTestExpectation(description: "async response")
+        
+        let promise = ActorService.fetchServerVersion()
+        promise.done { resp in
+            XCTAssertFalse(resp.failed)
+            XCTAssertEqual(resp.str?.isEmpty, false)
+            if let ver = resp.str {
+                print("ver: \(ver)")
             }
-            let request = Gateway.createRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userID])
-            request.responseData { response in
-                print("response: \(response.description)")
-                XCTAssertTrue(response.result.isSuccess)
-                expectation.fulfill()
-            }
+            expectation.fulfill()
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 20.0)
     }
-    */
 }

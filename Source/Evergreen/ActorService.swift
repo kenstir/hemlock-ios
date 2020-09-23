@@ -21,13 +21,14 @@ import Foundation
 import PromiseKit
 import os.log
 
-//enum FetchState {
-//    case notrun, running, done
-//}
-
 class ActorService {
     static var orgTypesLoaded = false
     static var orgTreeLoaded = false
+    
+    static func fetchServerVersion() -> Promise<GatewayResponse> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.ilsVersion, args: [], shouldCache: false)
+        return req.gatewayResponse()
+    }
 
     /// Fetch list of org types.
     static func fetchOrgTypes() -> Promise<Void> {
