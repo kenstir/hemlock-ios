@@ -28,7 +28,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
+                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, App.addElapsed(response.timeline.totalDuration))
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -47,7 +47,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
+                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, App.addElapsed(response.timeline.totalDuration))
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -73,7 +73,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
+                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, App.addElapsed(response.timeline.totalDuration))
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -99,7 +99,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
+                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, App.addElapsed(response.timeline.totalDuration))
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -122,7 +122,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f", log: Gateway.log, type: .info, response.timeline.totalDuration)
+                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, App.addElapsed(response.timeline.totalDuration))
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
