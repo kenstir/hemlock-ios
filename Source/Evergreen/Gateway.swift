@@ -27,6 +27,23 @@ class Gateway {
     //MARK: - fields
 
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Gateway")
+    
+    // NOTES ON CACHING
+    // ----------------
+    // We add 2 parameters to every request to ensure a coherent cache:
+    // clientCacheKey (the app versionCode), and serverCacheKey (the server ils-version).
+    // In this way we can force cache misses by either upgrading the server or the client.
+    // Server upgrades sometimes involve incompatible IDL which can cause OSRF decode crashes.
+
+    static var clientCacheKey: String {
+        return Bundle.appVersionUrlSafe
+    }
+
+    static var serverCacheKey: String {
+        return serverVersionString
+    }
+    
+    static var serverVersionString: String = String(CACurrentMediaTime().truncatingRemainder(dividingBy: 1))
 
     /// an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
@@ -59,12 +76,14 @@ class Gateway {
     static func makeRequest(service: String, method: String, args: [Any?], shouldCache: Bool) -> Alamofire.DataRequest
     {
         let url = gatewayURL()
-        let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args)]
+        let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args),
+                                         "_ck": clientCacheKey, "_sk": serverCacheKey]
         let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
         os_log("req.params: %@", log: log, type: .info, parameters.description)
         return request
     }
     
+    /// assumes the url already contains cache-busting params
     static func makeRequest(url: String, shouldCache: Bool) -> Alamofire.DataRequest
     {
         return sessionManager.makeRequest(url, shouldCache: shouldCache)
@@ -103,13 +122,14 @@ class Gateway {
         return params
     }
     
-    static func gatewayURL() -> String
+    static private func gatewayURL() -> String
     {
         var url = App.library?.url ?? ""
         url += "/osrf-gateway-v1"
         return url
     }
     
+    // NB: The URL returned includes the cache-busting params.
     static func idlURL() -> String {
         var url = App.library?.url ?? ""
         url += "/reports/fm_IDL.xml?"
@@ -117,6 +137,8 @@ class Gateway {
         for netClass in API.netClasses.split(separator: ",") {
             params.append("class=" + netClass)
         }
+        params.append("_ck=" + clientCacheKey)
+        params.append("_sk=" + serverCacheKey)
         url += params.joined(separator: "&")
         return url
     }

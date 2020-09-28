@@ -90,30 +90,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.setupTapToDismissKeyboard(onScrollView: scrollView)
         self.scrollView.setupKeyboardAutoResizer()
     }
-    
+
     func fetchData() {
-        fetchIDL() {
+        self.activityIndicator.startAnimating()
+        ActorService.fetchServerVersion().then { (resp: GatewayResponse) -> Promise<Void> in
+            if let versionString = resp.str {
+                Gateway.serverVersionString = versionString
+            }
+            return App.fetchIDL()
+        }.done {
             self.loginButton.isEnabled = true
             self.didCompleteFetch = true
-        }
-    }
-    
-    func startSpinning() {
-        activityIndicator.startAnimating()
-    }
-    
-    func maybeStopSpinning() {
-        self.activityIndicator.stopAnimating()
-    }
-    
-    func fetchIDL(completion: @escaping () -> Void) {
-        self.startSpinning()
-        
-        App.fetchIDL().catch { error in
-            self.showAlert(title: "Error", error: error)
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
         }.finally {
-            self.maybeStopSpinning()
-            completion()
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -145,15 +136,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func loginPressed(_ sender: Any) {
-        if App.idlLoaded ?? false {
-            doLogin()
-        } else {
-            fetchIDL() {
-                if App.idlLoaded ?? false {
-                    self.doLogin()
-                }
-            }
-        }
+        doLogin()
     }
     
     func doLogin() {
@@ -170,7 +153,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         os_log("login creds:%x:%d: VC doLogin username=%@", self, didCompleteFetch, username)
 
-        self.startSpinning()
+        activityIndicator.startAnimating()
 
         let credential = Credential(username: username, password: password)
         let account = Account(username, password: password)
@@ -183,7 +166,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }.finally {
-            self.maybeStopSpinning()
+            self.activityIndicator.stopAnimating()
         }
     }
     

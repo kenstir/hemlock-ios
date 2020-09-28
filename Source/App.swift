@@ -82,10 +82,8 @@ class App {
         }
         let start = Date()
 
-        // Load IDL without caching; IDL is not backward compatible
-        // across server upgrades.
-        // TODO: use cache-busting URL so we can cache this
-        let req = Gateway.makeRequest(url: Gateway.idlURL(), shouldCache: false)
+        // Fetch IDL and parse it.
+        let req = Gateway.makeRequest(url: Gateway.idlURL(), shouldCache: true)
         let promise = req.responseData().done { data, pmkresponse in
             let parser = IDLParser(data: data)
             App.idlLoaded = parser.parse()
