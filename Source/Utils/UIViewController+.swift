@@ -125,11 +125,13 @@ extension UIViewController {
                 errors.append(error)
             }
         }
-        if let error = errors.last, errors.count == 1 {
+        if let error = errors.last,
+            isSessionExpired(error: error) {
             self.presentGatewayAlert(forError: error)
-        } else if let error = errors.last {
-            let title = "\(errors.count) Errors"
-            self.presentGatewayAlert(forError: error, title: title)
+        } else {
+            // 2020-09-28 don't present the error; it was an error loading metadata
+            // for checkouts or holds, e.g. record is deleted, and the OPAC doesn't
+            // display such errors either
         }
     }
 
