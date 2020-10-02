@@ -72,6 +72,9 @@ class PCRUDService {
             guard let data = marcXML.data(using: .utf8) else {
                 throw HemlockError.unexpectedNetworkResponse("failed to parse marc for record \(record.id)")
             }
+//            if let deleted = obj.getBool("deleted") {
+//                os_log("fetchMARC id=%d deleted=%@", log: PCRUDService.log, type: .info, record.id, deleted ? "t" : "f")
+//            }
             let parser = MARCXMLParser(data: data)
             record.marcRecord = try parser.parse()
             os_log("fetchMARC id=%d done", log: PCRUDService.log, type: .info, record.id)
