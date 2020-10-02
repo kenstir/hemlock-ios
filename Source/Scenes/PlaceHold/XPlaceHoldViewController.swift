@@ -400,7 +400,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         }.done {
             print("xxx \(promises.count) promises fulfilled")
             let elapsed = -self.startOfFetch.timeIntervalSinceNow
-            os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, App.addElapsed(elapsed))
+            os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
             self.didCompleteFetch = true
             self.onDataLoaded()
         }.ensure {

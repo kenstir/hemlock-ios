@@ -148,7 +148,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
             self.activityIndicator.stopAnimating()
             self.didCompleteSearch = true
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
-            os_log("search.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, App.addElapsed(elapsed))
+            os_log("search.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
             self.updateItems(withRecords: records)
         }.catch { error in
             self.activityIndicator.stopAnimating()

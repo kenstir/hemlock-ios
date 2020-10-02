@@ -93,7 +93,7 @@ class ActorService {
 
         let promise = fetchOrgTree().then { () -> Promise<Void> in
             let elapsed = -start.timeIntervalSinceNow
-            os_log("orgTree.elapsed: %.3f (%.3f)", elapsed, App.addElapsed(elapsed))
+            os_log("orgTree.elapsed: %.3f (%.3f)", elapsed, Gateway.addElapsed(elapsed))
             let promises: [Promise<Void>] = self.fetchOrgSettings(forOrgID: orgID)
             return when(fulfilled: promises)
         }

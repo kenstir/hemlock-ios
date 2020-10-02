@@ -142,4 +142,19 @@ class Gateway {
         url += params.joined(separator: "&")
         return url
     }
+    
+    static var totalElapsed = 0.0
+    @discardableResult
+    static func addElapsed(_ elapsed: Double) -> Double {
+        Gateway.reportCacheUsage()
+        totalElapsed += elapsed
+        return totalElapsed
+    }
+
+    static func reportCacheUsage() {
+        let diskUsageKB = URLCache.shared.currentDiskUsage / 1024
+        let memUsageKB = URLCache.shared.currentMemoryUsage / 1024
+        print("cache in mem : \(memUsageKB) kB")
+        print("cache on disk: \(diskUsageKB) kB")
+    }
 }
