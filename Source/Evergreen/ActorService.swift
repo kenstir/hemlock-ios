@@ -48,7 +48,7 @@ class ActorService {
         if orgTreeLoaded {
             return Promise<Void>()
         }
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: false)//todo make true
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: true)
         let promise = req.gatewayObjectResponse().done { obj in
             try Organization.loadOrganizations(fromObj: obj)
             orgTreeLoaded = true
