@@ -116,7 +116,7 @@ class Organization {
         self.shortname = shortname
         self.ouType = ouType
         self.opacVisible = opacVisible
-        
+
         // optional fields are read from the aou obj
         self.parent = obj.getInt("parent_ou")
         self.addressID = obj.getInt("mailing_address")
@@ -264,5 +264,22 @@ class Organization {
                 }
             }
         }
+    }
+    
+    static func updateOrg(fromObj obj: OSRFObject) throws -> Void {
+        guard let id = obj.getInt("id"),
+            let name = obj.getString("name"),
+            let shortname = obj.getString("shortname"),
+            let ouType = obj.getInt("ou_type"),
+            let opacVisible = obj.getBool("opac_visible") else
+        {
+            throw HemlockError.unexpectedNetworkResponse("decoding org tree")
+        }
+        guard let index = orgs.firstIndex(where: { $0.id == id } ) else {
+            return
+        }
+        let oldOrg = orgs[index]
+        let newOrg = Organization(id: id, level: oldOrg.level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
+        orgs[index] = newOrg
     }
 }

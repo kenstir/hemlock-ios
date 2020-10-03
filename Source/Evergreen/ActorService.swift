@@ -56,6 +56,15 @@ class ActorService {
         return promise
     }
     
+    /// Fetch one specific org unit.  We use this to fetch up-to-date (uncached) info on a specific org
+    static func fetchOrg(forOrgID orgID: Int) -> Promise<Void> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitRetrieve, args: [API.anonymousAuthToken, orgID], shouldCache: false)
+        let promise = req.gatewayObjectResponse().done { obj in
+            Organization.loadOrg(fromObj: obj)
+        }
+        return promise
+    }
+
     /// fetch settings for all organizations.
     /// Must be called only after `orgTreeLoaded`.
     /// If `forOrgID` is non-nil, it means load settings for just the one org.
@@ -101,7 +110,6 @@ class ActorService {
     }
 
     static func fetchOrgUnitHours(authtoken: String, forOrgID orgID: Int) -> Promise<(OSRFObject?)> {
-        //let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID], shouldCache: false)
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID], shouldCache: false)
         return req.gatewayOptionalObjectResponse()
     }

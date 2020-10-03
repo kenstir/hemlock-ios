@@ -86,6 +86,7 @@ class OrgDetailsViewController: UIViewController {
         firstly {
             when(fulfilled: promises)
         }.done {
+            self.fetchOrgDetails()
             self.fetchHours()
             self.fetchAddress()
             self.onOrgsLoaded()
@@ -97,15 +98,21 @@ class OrgDetailsViewController: UIViewController {
         }
     }
     
+    func fetchOrgDetails() {
+        guard let orgID = self.orgID else { return }
+        ActorService.fetchOrg(forOrgID: orgID).ensure {
+            print("stop heree")
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+    
     func fetchHours() {
         guard let authtoken = App.account?.authtoken,
             let orgID = self.orgID else { return }
         
         ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: orgID).done { obj in
             self.onHoursLoaded(obj)
-        }.ensure {
-            self.enableButtonsWhenReady()
-            self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
@@ -117,9 +124,9 @@ class OrgDetailsViewController: UIViewController {
         
         ActorService.fetchOrgAddress(addressID: addressID).done { obj in
             self.onAddressLoaded(obj)
-        }.ensure {
-            self.enableButtonsWhenReady()
-            self.activityIndicator.stopAnimating()
+//        }.ensure {
+//            self.enableButtonsWhenReady()
+//            self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }

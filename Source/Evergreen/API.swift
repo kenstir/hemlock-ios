@@ -34,6 +34,7 @@ struct API {
     static let messagesRetrieve = "open-ils.actor.message.retrieve"
     static let orgTreeRetrieve = "open-ils.actor.org_tree.retrieve"
     static let orgTypesRetrieve = "open-ils.actor.org_types.retrieve"
+    static let orgUnitRetrieve = "open-ils.actor.org_unit.retrieve"
     static let orgUnitSetting = "open-ils.actor.ou_setting.ancestor_default"
     static let orgUnitSettingBatch = "open-ils.actor.ou_setting.ancestor_default.batch"
     static let orgUnitHoursOfOperationRetrieve = "open-ils.actor.org_unit.hours_of_operation.retrieve"
