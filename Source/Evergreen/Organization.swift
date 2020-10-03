@@ -77,12 +77,14 @@ class Organization {
     let shortname: String
     let ouType: Int
     let opacVisible: Bool
-    let parent: Int?
-    let addressID: Int?
-    let email: String?
-    let phoneNumber: String?
-    
+
     var addressObj: OSRFObject? = nil
+
+    var aouObj: OSRFObject
+    var parent: Int? { return aouObj.getInt("parent_ou") }
+    var addressID: Int? { return aouObj.getInt("mailing_address") }
+    var email: String? { return aouObj.getString("email") }
+    var phoneNumber: String? { return aouObj.getString("phone") }
 
     var areSettingsLoaded = false
     var isPickupLocationSetting: Bool?
@@ -109,19 +111,13 @@ class Organization {
     }
 
     init(id: Int, level: Int, name: String, shortname: String, ouType: Int, opacVisible: Bool, aouObj obj: OSRFObject) {
-        // required fields are direct params
         self.id = id
         self.level = level
         self.name = name
         self.shortname = shortname
         self.ouType = ouType
         self.opacVisible = opacVisible
-
-        // optional fields are read from the aou obj
-        self.parent = obj.getInt("parent_ou")
-        self.addressID = obj.getInt("mailing_address")
-        self.email = obj.getString("email")
-        self.phoneNumber = obj.getString("phone")
+        self.aouObj = obj
     }
     
     // An org unit setting (ous) is an OSRFObject with "org" and "value" fields
@@ -254,7 +250,7 @@ class Organization {
         }
         let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
         self.orgs.append(org)
-        print("xxx.org_added id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        //print("xxx.org_added id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
 
         if let children = obj.getAny("children") {
             if let childObjArray = children as? [OSRFObject] {
@@ -267,20 +263,8 @@ class Organization {
     }
     
     static func updateOrg(fromObj obj: OSRFObject) -> Void {
-        guard let id = obj.getInt("id"),
-            let name = obj.getString("name"),
-            let shortname = obj.getString("shortname"),
-            let ouType = obj.getInt("ou_type"),
-            let opacVisible = obj.getBool("opac_visible") else
-        {
-            return
-        }
-        guard let index = orgs.firstIndex(where: { $0.id == id } ) else {
-            return
-        }
-        let oldOrg = orgs[index]
-        let newOrg = Organization(id: id, level: oldOrg.level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
-        orgs[index] = newOrg
-        print("xxx.org_update id=\(id) level=\(newOrg.level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        guard let id = obj.getInt("id"), let org = find(byId: id) else { return }
+        org.aouObj = obj
+        //print("xxx.org_update id=\(id) level=\(org.level) vis=\(org.opacVisible) site=\(org.shortname) name=\(org.name)")
     }
 }

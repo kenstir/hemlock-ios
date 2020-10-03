@@ -86,7 +86,7 @@ class OrgDetailsViewController: UIViewController {
         firstly {
             when(fulfilled: promises)
         }.done {
-            self.fetchOrgDetails()
+            self.refetchThisOrg()
             self.fetchHours()
             self.fetchAddress()
             self.onOrgsLoaded()
@@ -98,8 +98,9 @@ class OrgDetailsViewController: UIViewController {
         }
     }
     
-    func fetchOrgDetails() {
-        // fetch details for this org again, so it's up-to-date and not cached
+    func refetchThisOrg() {
+        // fetch details for this org again, so it's up-to-date
+        // and not the cached version from the orgTree
         guard let orgID = self.orgID else { return }
         ActorService.fetchOrg(forOrgID: orgID).catch { error in
             self.presentGatewayAlert(forError: error)
@@ -198,8 +199,8 @@ class OrgDetailsViewController: UIViewController {
         let org = Organization.find(byId: orgID)
         guard let infoURL = org?.infoURL,
             let url = URL(string: infoURL) else { return }
-        let canOpen = UIApplication.shared.canOpenURL(url)
-        print("canOpen: \(canOpen)")
+//        let canOpen = UIApplication.shared.canOpenURL(url)
+//        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
     
