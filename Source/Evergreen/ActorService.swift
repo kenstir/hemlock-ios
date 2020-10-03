@@ -48,7 +48,7 @@ class ActorService {
         if orgTreeLoaded {
             return Promise<Void>()
         }
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: false) // TODO: limit cache lifetime to 24h like Android
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: false)//todo make true
         let promise = req.gatewayObjectResponse().done { obj in
             try Organization.loadOrganizations(fromObj: obj)
             orgTreeLoaded = true
@@ -60,7 +60,7 @@ class ActorService {
     static func fetchOrg(forOrgID orgID: Int) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitRetrieve, args: [API.anonymousAuthToken, orgID], shouldCache: false)
         let promise = req.gatewayObjectResponse().done { obj in
-            Organization.loadOrg(fromObj: obj)
+            Organization.updateOrg(fromObj: obj)
         }
         return promise
     }

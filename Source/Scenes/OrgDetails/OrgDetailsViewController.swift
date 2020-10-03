@@ -99,10 +99,9 @@ class OrgDetailsViewController: UIViewController {
     }
     
     func fetchOrgDetails() {
+        // fetch details for this org again, so it's up-to-date and not cached
         guard let orgID = self.orgID else { return }
-        ActorService.fetchOrg(forOrgID: orgID).ensure {
-            print("stop heree")
-        }.catch { error in
+        ActorService.fetchOrg(forOrgID: orgID).catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }

@@ -252,9 +252,9 @@ class Organization {
         {
             throw HemlockError.unexpectedNetworkResponse("decoding org tree")
         }
-        //print("xxxaddorg id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
         let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
         self.orgs.append(org)
+        print("xxx.org_added id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
 
         if let children = obj.getAny("children") {
             if let childObjArray = children as? [OSRFObject] {
@@ -266,14 +266,14 @@ class Organization {
         }
     }
     
-    static func updateOrg(fromObj obj: OSRFObject) throws -> Void {
+    static func updateOrg(fromObj obj: OSRFObject) -> Void {
         guard let id = obj.getInt("id"),
             let name = obj.getString("name"),
             let shortname = obj.getString("shortname"),
             let ouType = obj.getInt("ou_type"),
             let opacVisible = obj.getBool("opac_visible") else
         {
-            throw HemlockError.unexpectedNetworkResponse("decoding org tree")
+            return
         }
         guard let index = orgs.firstIndex(where: { $0.id == id } ) else {
             return
@@ -281,5 +281,6 @@ class Organization {
         let oldOrg = orgs[index]
         let newOrg = Organization(id: id, level: oldOrg.level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
         orgs[index] = newOrg
+        print("xxx.org_update id=\(id) level=\(newOrg.level) vis=\(opacVisible) site=\(shortname) name=\(name)")
     }
 }
