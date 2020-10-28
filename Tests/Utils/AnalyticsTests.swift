@@ -24,9 +24,9 @@ class AnalyticsTests: XCTestCase {
 
     func test_getLog() {
         Analytics.clearLog()
-        Analytics.logRequest(method: "m")
+        Analytics.logRequest(method: "m", args: [])
         Analytics.logResponse("{}")
         let s = Analytics.getLog()
-        XCTAssertEqual("send: m\nrecv: {}\n", s)
+        XCTAssertEqual("send: m []\nrecv: {}\n", s)
     }
 }

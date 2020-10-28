@@ -79,7 +79,8 @@ class Gateway {
         let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args),
                                          "_ck": clientCacheKey, "_sk": serverCacheKey]
         let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
-        os_log("req.params: %@", log: log, type: .info, parameters.description)
+        //os_log("req.params: %@", log: log, type: .info, parameters.description)
+        Analytics.logRequest(method: method, args: args)
         return request
     }
     

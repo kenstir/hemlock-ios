@@ -34,16 +34,23 @@ class Analytics {
         buf.write(s)
     }
     
-    static func logRequest(method: String) {
-        let s = "send: \(method)"
+    static func logRequest(method: String, args: [Any?]) {
+        // TODO: redact authtoken inside args
+        var argsDescription = "?"
+        if let jsonData = try? JSONSerialization.data(withJSONObject: args),
+            let str = String(data: jsonData, encoding: .utf8) {
+            argsDescription = str
+        }
+        let s = "send: \(method) \(argsDescription)"
+
         os_log("%s", log: log, type: .info, s)
         buf.write(s)
     }
     
     static func logResponse(_ wireString: String) {
-        // redact login (au) and orgTree (aou) responses
+        // redact certain responses: login (au), message (aum), orgTree (aou)
         let pattern = """
-            ("__c":"au"|"__c":"aou")
+            ("__c":"aum?"|"__c":"aou")
             """
         let range = wireString.range(of: pattern, options: .regularExpression)
         var s: String = "recv: ***"
