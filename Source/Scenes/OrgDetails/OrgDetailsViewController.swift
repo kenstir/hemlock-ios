@@ -340,12 +340,13 @@ extension OrgDetailsViewController: UITableViewDelegate {
         guard orgLabels.count > 0 else { return }
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
         
-        //let entry = tableView.
         vc.title = "Library"
-        vc.options = orgLabels
-        vc.selectionChangedHandler = { value in
-            let org = Organization.find(byName: value)
-            self.orgID = org?.id
+        vc.optionLabels = orgLabels
+        vc.selectionChangedHandler = { index, value in
+            let org = Organization.visibleOrgs[index]
+            self.orgID = org.id
+            print("selected index \(index) value \(value) -> \(org.id)")
+            print("stophere")
             self.tableView.reloadData()
         }
 

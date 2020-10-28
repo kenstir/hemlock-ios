@@ -25,12 +25,13 @@ class OptionsViewController: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     
-    var options: [String] = []
+    var optionLabels: [String] = []
     var optionIsEnabled: [Bool] = []
     var optionIsPrimary: [Bool] = []
-    var selectedOption: String?
+    var optionValues: [String] = []
     var selectedPath: IndexPath?
-    var selectionChangedHandler: ((String) -> Void)?
+    var selectedLabel: String?
+    var selectionChangedHandler: ((_ row: Int, _ label: String) -> Void)?
 
     //MARK: - UIViewController
     
@@ -64,7 +65,7 @@ class OptionsViewController: UIViewController {
     func updateViewCell(forCell cell: UITableViewCell, indexPath: IndexPath) {
         if indexPath == selectedPath {
             cell.accessoryType = .checkmark
-        } else if cell.textLabel?.text?.trim() == selectedOption {
+        } else if cell.textLabel?.text?.trim() == selectedLabel {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -83,7 +84,7 @@ class OptionsViewController: UIViewController {
 
 extension OptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
+        return optionLabels.count
     }
     
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -93,7 +94,7 @@ extension OptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionsCell", for: indexPath)
         
-        cell.textLabel?.text = options[indexPath.row]
+        cell.textLabel?.text = optionLabels[indexPath.row]
         updateViewCell(forCell: cell, indexPath: indexPath)
         
         return cell
@@ -102,11 +103,11 @@ extension OptionsViewController: UITableViewDataSource {
 
 extension OptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let label = optionLabels[indexPath.row].trim()
+        selectedLabel = label
         selectedPath = indexPath
-        let selection = options[indexPath.row].trim()
-        selectedOption = selection
         updateCheckmarks()
         tableView.deselectRow(at: indexPath, animated: true)
-        selectionChangedHandler?(selection)
+        selectionChangedHandler?(indexPath.row, label)
     }
 }

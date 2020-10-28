@@ -32,9 +32,11 @@ struct SearchParameters {
 class OptionsEntry {
     var label: String
     var value: String?
-    init(_ label: String, value: String?) {
+    var id: Int?
+    init(_ label: String, value: String?, id: Int? = nil) {
         self.label = label
         self.value = value
+        self.id = id
     }
 }
 
@@ -247,20 +249,22 @@ extension SearchViewController: UITableViewDelegate {
         
         let entry = options[indexPath.row]
         vc.title = entry.label
-        vc.selectedOption = entry.value
+        vc.selectedLabel = entry.value
         switch indexPath.row {
         case searchClassIndex:
-            vc.options = scopes
+            vc.optionLabels = scopes
         case searchFormatIndex:
-            vc.options = formatLabels
+            vc.optionLabels = formatLabels
         case searchLocationIndex:
-            vc.options = orgLabels
+            vc.optionLabels = orgLabels
             vc.optionIsPrimary = Organization.getIsPrimary()
         default:
             break
         }
 
-        vc.selectionChangedHandler = { value in
+        vc.selectionChangedHandler = { index, value in
+            print("selected index \(index) value \(value)")
+            print("stophere")
             entry.value = value
             self.optionsTable.reloadData()
         }

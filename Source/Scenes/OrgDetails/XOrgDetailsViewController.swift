@@ -32,6 +32,7 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
     var didCompleteFetch = false
     
     // chooser data
+    var selectedOrgIndex = 0
     var selectedOrgName = ""
     var orgLabels: [String] = []
     var orgIsPickupLocation: [Bool] = []
@@ -209,17 +210,18 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
         orgIsPickupLocation = Organization.getIsPickupLocation()
         orgIsPrimary = Organization.getIsPrimary()
 
-        var selectOrgIndex = 0
+        var selectIndex = 0
         let defaultOrgID = App.account?.homeOrgID
         for index in 0..<Organization.visibleOrgs.count {
             let org = Organization.visibleOrgs[index]
             if org.id == defaultOrgID {
-                selectOrgIndex = index
+                selectIndex = index
             }
         }
         
-        selectedOrgName = orgLabels[selectOrgIndex].trim()
-        self.org = Organization.find(byName: selectedOrgName)
+        selectedOrgIndex = selectIndex
+        selectedOrgName = orgLabels[selectIndex].trim()
+        self.org = Organization.visibleOrgs[selectIndex]
         setupTitle()
     }
 
@@ -233,11 +235,11 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
     }
     
     //TODO: if used, factor out and share
-    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((String) -> Void)? = nil) -> OptionsViewController? {
+    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((Int, String) -> Void)? = nil) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
-        vc.options = options
-        vc.selectedOption = selectedOption
+        vc.optionLabels = options
+        vc.selectedLabel = selectedOption
         vc.selectionChangedHandler = selectionChangedHandler
         return vc
     }
@@ -265,9 +267,10 @@ extension XOrgDetailsViewController: UITextFieldDelegate {
         switch textField {
         case orgChooser.textField:
             guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) else { return true }
-            vc.selectionChangedHandler = { value in
+            vc.selectionChangedHandler = { index, value in
+                self.selectedOrgIndex = index
                 self.selectedOrgName = value
-                self.org = Organization.find(byName: value)
+                self.org = Organization.visibleOrgs[index]
             }
             vc.optionIsEnabled = self.orgIsPickupLocation
             vc.optionIsPrimary = self.orgIsPrimary

@@ -736,11 +736,11 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return rowSpec
     }
     
-    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((String) -> Void)? = nil) -> OptionsViewController? {
+    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((Int, String) -> Void)? = nil) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
-        vc.options = options
-        vc.selectedOption = selectedOption
+        vc.optionLabels = options
+        vc.selectedLabel = selectedOption
         vc.selectionChangedHandler = selectionChangedHandler
         return vc
     }
@@ -768,7 +768,7 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
         switch textField {
         case pickupNode.textField:
             guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) else { return true }
-            vc.selectionChangedHandler = { value in
+            vc.selectionChangedHandler = { index, value in
                 self.selectedOrgName = value
                 self.pickupNode.textField?.text = value
             }
@@ -778,7 +778,7 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
             return false
         case carrierNode.textField:
             guard let vc = makeVC(title: "SMS Carrier", options: carrierLabels, selectedOption: selectedCarrierName) else { return true }
-            vc.selectionChangedHandler = { value in
+            vc.selectionChangedHandler = { index, value in
                 self.selectedCarrierName = value
                 self.carrierNode.textField?.text = value
             }
@@ -786,7 +786,7 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
             return false
         case partNode.textField:
             guard let vc = makeVC(title: "Select a part", options: partLabels, selectedOption: selectedPartLabel) else { return true }
-            vc.selectionChangedHandler = { value in
+            vc.selectionChangedHandler = { index, value in
                 self.selectedPartLabel = value
                 self.partNode.textField?.text = value
             }
