@@ -9,6 +9,7 @@ Before opening the project in Xcode, install the prerequisites using Carthage.
 ```
  brew update
  brew install carthage
+ brew upgrade carthage
  ./carthage-update --platform iOS
 ```
 
