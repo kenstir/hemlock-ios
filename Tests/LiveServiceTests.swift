@@ -394,32 +394,32 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
     
-    func fetchExists(authtoken: String) -> Promise<(GatewayResponse)> {
-        let req = Gateway.makeRequest(service: API.mobile, method: API.exists, args: [], shouldCache: false)
-        return req.gatewayResponse()
-    }
-
-    func test_exists() {
-        XCTAssertTrue(loadIDL())
-
-        let expectation = XCTestExpectation(description: "async response")
-
-        let credential = Credential(username: account!.username, password: account!.password)
-        let promise = AuthService.fetchAuthToken(credential: credential)
-        promise.then { (authtoken: String) -> Promise<(GatewayResponse)> in
-            XCTAssertFalse(authtoken.isEmpty)
-            self.authtoken = authtoken
-            return self.fetchExists(authtoken: authtoken)
-        }.done { resp in
-            XCTAssertNotNil(resp)
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 20.0)
-    }
+//    func fetchExists(authtoken: String) -> Promise<(GatewayResponse)> {
+//        let req = Gateway.makeRequest(service: API.mobile, method: API.exists, args: [], shouldCache: false)
+//        return req.gatewayResponse()
+//    }
+//
+//    func test_exists() {
+//        XCTAssertTrue(loadIDL())
+//
+//        let expectation = XCTestExpectation(description: "async response")
+//
+//        let credential = Credential(username: account!.username, password: account!.password)
+//        let promise = AuthService.fetchAuthToken(credential: credential)
+//        promise.then { (authtoken: String) -> Promise<(GatewayResponse)> in
+//            XCTAssertFalse(authtoken.isEmpty)
+//            self.authtoken = authtoken
+//            return self.fetchExists(authtoken: authtoken)
+//        }.done { resp in
+//            XCTAssertNotNil(resp)
+//            expectation.fulfill()
+//        }.catch { error in
+//            XCTFail(error.localizedDescription)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 20.0)
+//    }
 
     //MARK: - serverVersion
 
