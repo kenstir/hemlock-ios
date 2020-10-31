@@ -37,8 +37,10 @@ class Analytics {
 
     static func logRequest(tag: String, method: String, args: [Any?]) {
         // TODO: redact authtoken inside args
-        var argsDescription = "?"
-        if let jsonData = try? JSONSerialization.data(withJSONObject: args),
+        var argsDescription = "***"
+        if method != "open-ils.auth.authenticate.init",
+            method != "open-ils.auth.authenticate.complete",
+            let jsonData = try? JSONSerialization.data(withJSONObject: args),
             let str = String(data: jsonData, encoding: .utf8) {
             argsDescription = str
         }
