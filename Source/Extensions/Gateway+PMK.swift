@@ -61,7 +61,8 @@ extension Alamofire.DataRequest {
                     } else if let array = resp.array {
                         seal.fulfill(array)
                     } else {
-                        seal.reject(HemlockError.unexpectedNetworkResponse("expected array, received \(resp.description)"))
+                        let extra = Bundle.isTestFlightOrDebug ? " (\(tag))" : ""
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected array, received \(resp.description)\(extra)"))
                     }
                 } else if response.result.isFailure,
                     let error = response.error {
@@ -89,7 +90,8 @@ extension Alamofire.DataRequest {
                     } else if let obj = resp.obj {
                         seal.fulfill(obj)
                     } else {
-                        seal.reject(HemlockError.unexpectedNetworkResponse("expected object, received \(resp.description)"))
+                        let extra = Bundle.isTestFlightOrDebug ? " (\(tag))" : ""
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected object, received \(resp.description)\(extra)"))
                     }
                 } else if response.result.isFailure,
                     let error = response.error {
