@@ -65,9 +65,11 @@ class Analytics {
             ("__c":"aum?"|"__c":"aou")
             """
         let range = wireString.range(of: pattern, options: .regularExpression)
-        var s: String = "recv: ***"
+        let s: String
         if range == nil {
             s = "\(tag): recv: \(wireString)"
+        } else {
+            s = "\(tag): recv: ***"
         }
 
         os_log("%s", log: log, type: .info, s)
