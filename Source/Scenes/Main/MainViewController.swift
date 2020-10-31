@@ -205,10 +205,6 @@ class MainViewController: UIViewController {
     }
     
     @objc func messagesButtonPressed(sender: UIBarButtonItem) {
-        if Bundle.isTestFlightOrDebug {
-            self.showAlert(title: "Testing", message: "Testing")
-            return
-        }
         if let baseurl_string = App.library?.url,
             let url = URL(string: baseurl_string + "/eg/opac/myopac/messages") {
             UIApplication.shared.open(url)

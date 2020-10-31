@@ -250,7 +250,7 @@ class Organization {
         }
         let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
         self.orgs.append(org)
-        print("xxx.org_added id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        //print("xxx.org_added id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
 
         if let children = obj.getAny("children") {
             if let childObjArray = children as? [OSRFObject] {
