@@ -345,8 +345,6 @@ extension OrgDetailsViewController: UITableViewDelegate {
         vc.selectionChangedHandler = { index, value in
             let org = Organization.visibleOrgs[index]
             self.orgID = org.id
-            print("selected index \(index) value \(value) -> \(org.id)")
-            print("stophere")
             self.tableView.reloadData()
         }
 

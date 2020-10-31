@@ -32,11 +32,11 @@ struct SearchParameters {
 class OptionsEntry {
     var label: String
     var value: String?
-    var id: Int?
-    init(_ label: String, value: String?, id: Int? = nil) {
+    var index: Int?
+    init(_ label: String, value: String?, index: Int? = nil) {
         self.label = label
         self.value = value
-        self.id = id
+        self.index = index
     }
 }
 
@@ -173,6 +173,7 @@ class SearchViewController: UIViewController {
 
         let entry = options[searchLocationIndex]
         entry.value = orgLabels[selectOrgIndex].trim()
+        entry.index = selectOrgIndex
         self.optionsTable.reloadData()
     }
     
@@ -196,13 +197,14 @@ class SearchViewController: UIViewController {
         }
         guard let searchClass = options[searchClassIndex].value?.lowercased(),
             let searchFormatLabel = options[searchFormatIndex].value,
-            let searchOrg = Organization.getShortName(forName: options[searchLocationIndex].value?.trim()) else
+            let searchOrgIndex = options[searchLocationIndex].index else
         {
             self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing search class, format, or org"))
             return
         }
         let searchFormat = CodedValueMap.searchFormatCode(forLabel: searchFormatLabel)
-        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg, sort: App.config.sort)
+        let searchOrg = Organization.visibleOrgs[searchOrgIndex]
+        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg.shortname, sort: App.config.sort)
         let vc = XResultsViewController()
         vc.searchParameters = params
         print("--- searchParams \(String(describing: vc.searchParameters))")
@@ -263,9 +265,8 @@ extension SearchViewController: UITableViewDelegate {
         }
 
         vc.selectionChangedHandler = { index, value in
-            print("selected index \(index) value \(value)")
-            print("stophere")
             entry.value = value
+            entry.index = index
             self.optionsTable.reloadData()
         }
 

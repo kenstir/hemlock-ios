@@ -38,7 +38,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var orgIsPrimary: [Bool] = []
     var carrierLabels: [String] = []
     var selectedPartLabel = ""
-    var selectedOrgName = ""
+    var selectedOrgIndex = 0
     var selectedCarrierName = ""
     var startOfFetch = Date()
     var didCompleteFetch = false
@@ -499,8 +499,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             }
         }
         
-        selectedOrgName = orgLabels[selectOrgIndex].trim()
-        pickupNode.textField?.text = selectedOrgName
+        selectedOrgIndex = selectOrgIndex
+        pickupNode.textField?.text = orgLabels[selectOrgIndex].trim()
         pickupNode.textField?.isUserInteractionEnabled = true
     }
     
@@ -594,11 +594,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
-        guard let pickupOrg = Organization.find(byName: self.selectedOrgName) else
-        {
-            self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing pickup org"))
-            return
-        }
+        let pickupOrg = Organization.visibleOrgs[selectedOrgIndex]
         if !pickupOrg.isPickupLocation {
             self.showAlert(title: "Not a pickup location", message: "You cannot pick up items at \(pickupOrg.name)")
             return
@@ -745,6 +741,15 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return vc
     }
     
+    func makeVC(title: String, options: [String], selectedIndex: Int, selectionChangedHandler: ((Int, String) -> Void)? = nil) -> OptionsViewController? {
+        guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
+        vc.title = title
+        vc.optionLabels = options
+        vc.selectedPath = IndexPath(row: selectedIndex, section: 0)
+        vc.selectionChangedHandler = selectionChangedHandler
+        return vc
+    }
+
     func scrollToEnd() {
         let sv = self.scrollNode.view
 //        print("sv.contentSize.height = \(sv.contentSize.height)")
@@ -767,9 +772,9 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
         case pickupNode.textField:
-            guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) else { return true }
+            guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedIndex: selectedOrgIndex) else { return true }
             vc.selectionChangedHandler = { index, value in
-                self.selectedOrgName = value
+                self.selectedOrgIndex = index
                 self.pickupNode.textField?.text = value
             }
             vc.optionIsEnabled = self.orgIsPickupLocation
