@@ -119,8 +119,6 @@ struct GatewayResponse {
     init(_ data: Data) {
         self.init()
         let wire_str = String(data: data, encoding: .utf8) ?? "(nil)"
-        //os_log("resp.wire: %@", log: Gateway.log, type: .info, wire_str)
-        Analytics.logResponse(wire_str)
         guard let json = decodeJSON(data) else {
             os_log("resp.json: decode_error", log: Gateway.log, type: .info)
             let errorMessage = GatewayResponse.errorMessage(forInvalidJSON: wire_str)

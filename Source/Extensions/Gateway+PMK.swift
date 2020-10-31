@@ -28,7 +28,9 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                let tag = response.request?.debugTag ?? Analytics.nullTag
+                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -47,7 +49,9 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                let tag = response.request?.debugTag ?? Analytics.nullTag
+                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -73,7 +77,9 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                let tag = response.request?.debugTag ?? Analytics.nullTag
+                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -99,7 +105,9 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                let tag = response.request?.debugTag ?? Analytics.nullTag
+                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -122,7 +130,9 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                os_log("resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                let tag = response.request?.debugTag ?? Analytics.nullTag
+                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {

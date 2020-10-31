@@ -187,4 +187,20 @@ class MiscTests: XCTestCase {
         a = true
         XCTAssertEqual(Utils.toString(a), "true")
     }
+    
+    func test_urlrequest_tag() {
+        let qstring = "service=open-ils.pcrud&method=open-ils.pcrud.retrieve.mra&param=%22ANONYMOUS%22&param=6221645"
+ 
+        let getRequest = try? URLRequest(url: "http://gapines.org/osrf-gateway-v1?\(qstring)", method: .get)
+        var postRequest = try? URLRequest(url: "http://gapines.org/osrf-gateway-v1", method: .post)
+        postRequest?.httpBody = qstring.data(using: .utf8)
+
+        XCTAssertNotNil(getRequest)
+        XCTAssertNotNil(postRequest)
+        
+        let getTag = getRequest?.debugTag
+        let postTag = postRequest?.debugTag
+        XCTAssertNotNil(getTag)
+        XCTAssertEqual(getTag, postTag)
+    }
 }

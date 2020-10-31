@@ -25,6 +25,7 @@ enum AnalyticsErrorCode {
 }
 
 class Analytics {
+    static let nullTag = "nil"
     static let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Analytics")
     static var buf = RingBuffer<String>(count: 256)
 
@@ -33,21 +34,30 @@ class Analytics {
         let s = "\(file):\(line): \(msg)"
         buf.write(s)
     }
-    
-    static func logRequest(method: String, args: [Any?]) {
+
+    static func logRequest(tag: String, method: String, args: [Any?]) {
         // TODO: redact authtoken inside args
         var argsDescription = "?"
         if let jsonData = try? JSONSerialization.data(withJSONObject: args),
             let str = String(data: jsonData, encoding: .utf8) {
             argsDescription = str
         }
-        let s = "send: \(method) \(argsDescription)"
+        let s = "\(tag): send: \(method) \(argsDescription)"
 
         os_log("%s", log: log, type: .info, s)
         buf.write(s)
     }
     
-    static func logResponse(_ wireString: String) {
+    static func logResponse(tag: String, data responseData: Data?) {
+        if let d = responseData,
+            let s = String(data: d, encoding: .utf8) {
+            logResponse(tag: tag, wireString: s)
+        } else {
+            logResponse(tag: tag, wireString: "(null)")
+        }
+    }
+    
+    static func logResponse(tag: String, wireString: String) {
         // redact certain responses: login (au), message (aum), orgTree (aou)
         let pattern = """
             ("__c":"aum?"|"__c":"aou")
@@ -55,7 +65,7 @@ class Analytics {
         let range = wireString.range(of: pattern, options: .regularExpression)
         var s: String = "recv: ***"
         if range == nil {
-            s = "recv: \(wireString)"
+            s = "\(tag): recv: \(wireString)"
         }
 
         os_log("%s", log: log, type: .info, s)

@@ -478,6 +478,16 @@
 		D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */; };
 		D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
+		D24C3930254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3931254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3934254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3935254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3936254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3937254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3938254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24C3939254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
 		D24D76912234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D76922234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D76932234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
@@ -1320,6 +1330,7 @@
 		D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoViewController.swift; sourceTree = "<group>"; };
 		D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CopyInfo.storyboard; sourceTree = "<group>"; };
 		D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoTableViewCell.swift; sourceTree = "<group>"; };
+		D24C392F254B9FA400ECAE64 /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
 		D24D76902234418F00AFE50C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		D252DA2723F616C000D11662 /* CircRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecordTests.swift; sourceTree = "<group>"; };
 		D252DA2923F6382000D11662 /* HoldRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecordTests.swift; sourceTree = "<group>"; };
@@ -1800,6 +1811,7 @@
 				D20BDB762214BCF200BB6A5F /* UIView+.swift */,
 				D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */,
 				D2562FB220CDE9CE0072F750 /* UIViewController+.swift */,
+				D24C392F254B9FA400ECAE64 /* URLRequest+.swift */,
 				D2CF924122471D210009C06A /* Utils.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
 			);
@@ -3103,6 +3115,7 @@
 				D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */,
 				D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */,
 				D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */,
+				D24C3930254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D210EC0422B1EE55002FB5E0 /* XSendEmailViewController.swift in Sources */,
 				D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */,
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
@@ -3200,6 +3213,7 @@
 				D23E9FA523B9200A0030F5C1 /* CopyLocationCounts.swift in Sources */,
 				D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */,
 				D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */,
+				D24C3938254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D23E9FA923B9200A0030F5C1 /* OSRFClass.swift in Sources */,
 				D23E9FAA23B9200A0030F5C1 /* XSendEmailViewController.swift in Sources */,
 				D23E9FAB23B9200A0030F5C1 /* UIFont+smallCaps.swift in Sources */,
@@ -3297,6 +3311,7 @@
 				D2477BF624785A6B00FD4CF6 /* MBRecord.swift in Sources */,
 				D2477BF724785A6B00FD4CF6 /* Utils.swift in Sources */,
 				D2477BF824785A6B00FD4CF6 /* OSRFClass.swift in Sources */,
+				D24C3934254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2477BF924785A6B00FD4CF6 /* XSendEmailViewController.swift in Sources */,
 				D2477BFA24785A6B00FD4CF6 /* UIFont+smallCaps.swift in Sources */,
 				D2477C3324786CCF00FD4CF6 /* AppFactory.swift in Sources */,
@@ -3394,6 +3409,7 @@
 				D2572AE824AD7755000BA698 /* Utils.swift in Sources */,
 				D2572AE924AD7755000BA698 /* OSRFClass.swift in Sources */,
 				D2572AEA24AD7755000BA698 /* XSendEmailViewController.swift in Sources */,
+				D24C3939254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2572AEB24AD7755000BA698 /* UIFont+smallCaps.swift in Sources */,
 				D2572AEC24AD7755000BA698 /* BarcodeUtils.swift in Sources */,
 				D2572AED24AD7755000BA698 /* FineRecord.swift in Sources */,
@@ -3492,6 +3508,7 @@
 				D2CF924422471D210009C06A /* Utils.swift in Sources */,
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
+				D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D22D0C9022426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D211DBB82484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
@@ -3588,6 +3605,7 @@
 				D2CF924222471D210009C06A /* Utils.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
+				D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D22D0C8E22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D211DBB92484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
@@ -3684,6 +3702,7 @@
 				D2CF924522471D210009C06A /* Utils.swift in Sources */,
 				D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */,
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
+				D24C3931254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D22D0C9122426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D211DBB72484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
@@ -3779,6 +3798,7 @@
 				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
 				D2CF924322471D210009C06A /* Utils.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
+				D24C3937254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
 				D22D0C8F22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
@@ -3907,6 +3927,7 @@
 				D2BDA64822D176BD00D9B60C /* MBRecord.swift in Sources */,
 				D2BDA64922D176BD00D9B60C /* Utils.swift in Sources */,
 				D2BDA64A22D176BD00D9B60C /* OSRFClass.swift in Sources */,
+				D24C3935254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BDA64B22D176BD00D9B60C /* XSendEmailViewController.swift in Sources */,
 				D2BDA64C22D176BD00D9B60C /* UIFont+smallCaps.swift in Sources */,
 				D2BDA64D22D176BD00D9B60C /* BarcodeUtils.swift in Sources */,
@@ -4004,6 +4025,7 @@
 				D2BDA6E122D2A72000D9B60C /* Utils.swift in Sources */,
 				D2BDA6E222D2A72000D9B60C /* OSRFClass.swift in Sources */,
 				D2BDA6E322D2A72000D9B60C /* XSendEmailViewController.swift in Sources */,
+				D24C3936254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BDA6E422D2A72000D9B60C /* UIFont+smallCaps.swift in Sources */,
 				D2BDA6E522D2A72000D9B60C /* BarcodeUtils.swift in Sources */,
 				D2BDA6E622D2A72000D9B60C /* FineRecord.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  AnalyticsTests.swift
+//  URLRequest+.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //
@@ -17,16 +17,19 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import XCTest
-@testable import Hemlock
+import Foundation
 
-class AnalyticsTests: XCTestCase {
-
-    func test_getLog() {
-        Analytics.clearLog()
-        Analytics.logRequest(tag: "ff", method: "m", args: [])
-        Analytics.logResponse(tag: "ff", wireString: "{}")
-        let s = Analytics.getLog()
-        XCTAssertEqual("ff:send: m []\nff:recv: {}\n", s)
+extension URLRequest {
+    var debugTag: String? {
+        if httpMethod == "POST",
+            let body = httpBody,
+            let query = String(data: body, encoding: .utf8) {
+            return String(format: "%x", query.hashValue, query)
+        }
+        if httpMethod == "GET",
+            let query = self.url?.query {
+            return String(format: "%x", query.hashValue, query)
+        }
+        return nil
     }
 }
