@@ -27,6 +27,6 @@ class AnalyticsTests: XCTestCase {
         Analytics.logRequest(tag: "ff", method: "m", args: [])
         Analytics.logResponse(tag: "ff", wireString: "{}")
         let s = Analytics.getLog()
-        XCTAssertEqual("ff:send: m []\nff:recv: {}\n", s)
+        XCTAssertEqual("ff: send: m []\nff: recv: {}\n", s)
     }
 }
