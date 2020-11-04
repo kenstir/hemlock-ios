@@ -50,7 +50,7 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.errorMessage, "Request failed with status 404")
     }
     
-    func test_degenerateResponse() {
+    func test_emptyArray() {
         let json = """
             {"payload":[[]],"status":200}
             """
@@ -58,6 +58,17 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertEqual(resp.type, .array)
         XCTAssertEqual(resp.arrayResult?.count, 0)
+    }
+    
+    func test_emptyResponse() {
+        let json = """
+            {"payload":[],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+        XCTAssertEqual(resp.type, .empty)
+        XCTAssertNil(resp.obj)
+        XCTAssertNil(resp.array)
     }
 
     func test_authInitResponse() {
