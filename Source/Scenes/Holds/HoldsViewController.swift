@@ -65,23 +65,41 @@ class HoldsViewController: UIViewController {
 
     func fetchData() {
         
-        guard let authtoken = App.account?.authtoken,
-            let userid = App.account?.userID else
+        guard let account = App.account,
+            let authtoken = account.authtoken,
+            let userid = account.userID else
         {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+            return
         }
         
+        let startOfFetch = Date()
+        
+        var promises: [Promise<Void>] = []
+        promises.append(ActorService.fetchOrgTypes())
+        promises.append(ActorService.fetchOrgTree())
+        promises.append(PCRUDService.fetchCodedValueMaps())
+        
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdsRetrieve, args: [authtoken, userid], shouldCache: false)
+        let promise = req.gatewayArrayResponse().done { objects in
+            self.items = HoldRecord.makeArray(objects)
+            try self.fetchHoldDetails()
+        }
+        promises.append(promise)
+        print("xxx \(promises.count) promises made")
+
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
         
-        // fetch holds
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdsRetrieve, args: [authtoken, userid], shouldCache: false)
-        req.gatewayArrayResponse().done { objects in
-            self.items = HoldRecord.makeArray(objects)
-            try self.fetchHoldDetails()
-        }.catch { error in
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            print("xxx \(promises.count) promises fulfilled")
+            let elapsed = -startOfFetch.timeIntervalSinceNow
+            os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+        }.ensure {
             self.activityIndicator.stopAnimating()
+        }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }

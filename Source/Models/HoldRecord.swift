@@ -77,9 +77,24 @@ class HoldRecord {
         let s = qstatsObj?.getInt("status") ?? -1
         if s == 4 { return "Available" }
         else if s == 7 { return "Suspended" }
-        else if s == 3 || s == 8 { return "In transit" }
+        else if s == 3 || s == 8 { return "In transit from \(transitFrom) since \(transitSince)" }
         else if s < 3 { return "Waiting for copy" }
         else { return "" }
+    }
+    var transitFrom: String {
+        if let transit = ahrObj.getObject("transit"),
+            let source = transit.getInt("source"),
+            let org = Organization.find(byId: source) {
+            return org.name
+        }
+        return "unknown"
+    }
+    var transitSince: String {
+        if let transit = ahrObj.getObject("transit"),
+            let date = transit.getDate("source_send_time") {
+            return OSRFObject.outputDateFormatter.string(from: date)
+        }
+        return "unknown"
     }
 
     //MARK: - Functions
