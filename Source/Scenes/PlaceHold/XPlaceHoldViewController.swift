@@ -40,7 +40,6 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     var selectedPartLabel = ""
     var selectedOrgIndex = 0
     var selectedCarrierName = ""
-    var startOfFetch = Date()
     var didCompleteFetch = false
     var expirationDate: Date? = nil
     var expirationPickerVisible = false
@@ -381,7 +380,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         guard !didCompleteFetch else { return }
         guard let account = App.account else { return }
 
-        self.startOfFetch = Date()
+        let startOfFetch = Date()
         
         var promises: [Promise<Void>] = []
         promises.append(ActorService.fetchUserSettings(account: account))
@@ -399,7 +398,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             when(fulfilled: promises)
         }.done {
             print("xxx \(promises.count) promises fulfilled")
-            let elapsed = -self.startOfFetch.timeIntervalSinceNow
+            let elapsed = -startOfFetch.timeIntervalSinceNow
             os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
             self.didCompleteFetch = true
             self.onDataLoaded()
