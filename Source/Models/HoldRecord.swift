@@ -77,8 +77,8 @@ class HoldRecord {
         let s = qstatsObj?.getInt("status") ?? -1
         if s == 4 { return "Available" }
         else if s == 7 { return "Suspended" }
-        else if s == 3 || s == 8 { return "In transit from \(transitFrom) since \(transitSince)" }
-        else if s < 3 { return "Waiting for copy" }
+        else if s == 3 || s == 8 { return "In transit from \(transitFrom)\nSince \(transitSince)" }
+        else if s < 3 { return "Waiting for copy\n\(totalHolds) holds on \(potentialCopies) copies" }
         else { return "" }
     }
     var transitFrom: String {

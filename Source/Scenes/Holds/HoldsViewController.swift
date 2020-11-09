@@ -333,9 +333,7 @@ extension HoldsViewController: UITableViewDataSource {
         cell.holdsAuthorLabel.text = item.author
         cell.holdsFormatLabel.text = item.format
         cell.holdsStatusLabel.text = item.status
-        let holdstotaltext = "\(item.totalHolds) holds on \(item.potentialCopies) copies"
-        cell.holdsQueueLabel.text = holdstotaltext
-        cell.holdsQueuePosition.text = "Queue position: \(item.queuePosition)"
+        cell.holdsQueuePosition.text = App.config.enableHoldShowQueuePosition ? "Queue position: \(item.queuePosition)" : ""
 
         return cell
     }
