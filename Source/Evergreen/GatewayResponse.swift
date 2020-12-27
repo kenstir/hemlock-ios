@@ -31,6 +31,7 @@ extension GatewayError: LocalizedError {
         case .event(_, let textcode, let desc, let failpart):
             let messageOverrides = [
                 "HIGH_LEVEL_HOLD_HAS_NO_COPIES": "The selected item is not holdable.  Call your local library with any questions."]
+            if let msg = MessageMap.eventMessageMap[textcode] { return msg }
             if let failPartKey = failpart,
                 let msg = MessageMap.failPartMessageMap[failPartKey] { return msg }
             if let msg = messageOverrides[textcode] { return msg }

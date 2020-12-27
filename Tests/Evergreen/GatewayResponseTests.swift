@@ -112,11 +112,12 @@ class GatewayResponseTests: XCTestCase {
     
     func test_failureWithEventList() {
         let json = """
-            {"payload":[[{"payload":{"fail_part":"asset.copy_location.circulate"},"stacktrace":"Circulate.pm:1293","desc":" Target copy is not allowed to circulate ","ilsevent":"7003","textcode":"COPY_CIRC_NOT_ALLOWED","servertime":"Sat Feb 23 20:55:17 2019","pid":17822},{"payload":{"fail_part":"PATRON_EXCEEDS_FINES"},"pid":17822,"ilsevent":"7013","servertime":"Sat Feb 23 20:55:17 2019","textcode":"PATRON_EXCEEDS_FINES","stacktrace":"Circulate.pm:1293","desc":"The patron in question has reached the maximum fine amount"}]],"status":200}
+            {"payload":[[{"stacktrace":"...","payload":{"fail_part":"PATRON_EXCEEDS_FINES"},"servertime":"Mon Nov 25 20:57:11 2019","ilsevent":"7013","pid":23476,"textcode":"PATRON_EXCEEDS_FINES","desc":"The patron in question has reached the maximum fine amount"},{"stacktrace":"...","payload":{"fail_part":"PATRON_EXCEEDS_LOST_COUNT"},"servertime":"Mon Nov 25 20:57:11 2019","ilsevent":"1236","pid":23476,"textcode":"PATRON_EXCEEDS_LOST_COUNT","desc":"The patron has too many lost items."}]],"status":200}
             """
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
-        XCTAssertEqual(resp.errorMessage, "Items from this shelving location do not circulate")
+        let customMessage = "Patron has reached the maximum fine amount" // event_msg_map.json
+        XCTAssertEqual(resp.errorMessage, customMessage)
     }
     
     func test_placeHold_failWithFailPart() {
@@ -125,7 +126,8 @@ class GatewayResponseTests: XCTestCase {
             """
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
-        XCTAssertEqual(resp.errorMessage, "Hold rules reject this item as unholdable")
+        let customMessage = "Hold rules reject this item as unholdable" // fail_part_msg_map.json
+        XCTAssertEqual(resp.errorMessage, customMessage)
     }
     
     func test_placeHold_failWithHoldExists() {

@@ -19,22 +19,24 @@ import Foundation
 
 /* Manage strings that can be customized per-app
  *
- * failPartMessageMap -
+ * eventMessageMap, failPartMessageMap -
  *     emulates the behavior of OPAC messages customized in hold_error_messages.tt2.
  *     Used by GatewayResponse.  To customize a message by "fail_part", add it to
- *     fail_part_msg_map.json
+ *     fail_part_msg_map.json; to customize a message by "textcode", add it to
+ *     event_msg_map.json.
  *
  * string - any other customized string, ala R.string.x on Android
  */
 typealias R = MessageMap
 class MessageMap {
     static var initialized = false
+    static var eventMessageMap: [String: String] = [:]
     static var failPartMessageMap: [String: String] = [:]
     static var string: [String: String] = [:]
     
     static func loadFromResources() {
         guard !initialized else { return }
-        loadFailPartMessageMap()
+        loadMessageMaps()
         loadStrings()
         initialized = true
     }
@@ -47,7 +49,10 @@ class MessageMap {
         return str
     }
 
-    static private func loadFailPartMessageMap() {
+    static private func loadMessageMaps() {
+        if let map = loadStringMap(forResource: "event_msg_map") {
+            eventMessageMap.merge(map) { (_, new) in new }
+        }
         if let map = loadStringMap(forResource: "fail_part_msg_map") {
             failPartMessageMap.merge(map) { (_, new) in new }
         }

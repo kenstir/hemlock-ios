@@ -62,7 +62,6 @@
 		D21090D924D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
 		D21090DA24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
 		D21090DB24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
-		D21090DC24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
 		D21090DD24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
 		D21090DE24D7275A004FE532 /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D21090D324D7275A004FE532 /* fail_part_msg_map.json */; };
 		D210EBC922B1EE55002FB5E0 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -926,6 +925,18 @@
 		D29C72142092691A00E90952 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
 		D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72172094002100E90952 /* OSRFObjectTests.swift */; };
+		D29C95F22599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95F32599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95F42599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95F52599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95F62599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95F72599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95F82599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95F92599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95FA2599283A00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95F12599283A00CACDBD /* event_msg_map.json */; };
+		D29C95FC2599285E00CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95FB2599285E00CACDBD /* event_msg_map.json */; };
+		D29C95FF2599288100CACDBD /* fail_part_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95FD2599288100CACDBD /* fail_part_msg_map.json */; };
+		D29C96002599288100CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95FE2599288100CACDBD /* event_msg_map.json */; };
 		D29E874B22D2AFE7003C5467 /* ntlc.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D29E874A22D2AFE7003C5467 /* ntlc.xcassets */; };
 		D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D2A6C580221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
@@ -1413,6 +1424,10 @@
 		D29C72132092691A00E90952 /* OSRFClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFClass.swift; sourceTree = "<group>"; };
 		D29C72152093A2C000E90952 /* OSRFObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObject.swift; sourceTree = "<group>"; };
 		D29C72172094002100E90952 /* OSRFObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFObjectTests.swift; sourceTree = "<group>"; };
+		D29C95F12599283A00CACDBD /* event_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event_msg_map.json; sourceTree = "<group>"; };
+		D29C95FB2599285E00CACDBD /* event_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event_msg_map.json; sourceTree = "<group>"; };
+		D29C95FD2599288100CACDBD /* fail_part_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail_part_msg_map.json; sourceTree = "<group>"; };
+		D29C95FE2599288100CACDBD /* event_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event_msg_map.json; sourceTree = "<group>"; };
 		D29E874A22D2AFE7003C5467 /* ntlc.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ntlc.xcassets; sourceTree = "<group>"; };
 		D29E87FC20D831540003EB27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZXMultiFormatWriter+SafeEncode.m"; sourceTree = "<group>"; };
@@ -1674,6 +1689,7 @@
 		D21090D224D72721004FE532 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				D29C95F12599283A00CACDBD /* event_msg_map.json */,
 				D21090D324D7275A004FE532 /* fail_part_msg_map.json */,
 				D28AE26124FDD9B200960E9E /* strings.json */,
 			);
@@ -1683,6 +1699,7 @@
 		D210EC4222B1F1F6002FB5E0 /* acorn_app */ = {
 			isa = PBXGroup;
 			children = (
+				D29C95FB2599285E00CACDBD /* event_msg_map.json */,
 				D20B300122CFED2300F69848 /* AcornAppBehavior.swift */,
 				D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */,
 				D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */,
@@ -2107,6 +2124,8 @@
 		D2D49BFB20A90CA9000B3A27 /* pines_app */ = {
 			isa = PBXGroup;
 			children = (
+				D29C95FE2599288100CACDBD /* event_msg_map.json */,
+				D29C95FD2599288100CACDBD /* fail_part_msg_map.json */,
 				D28AE26C24FDD9D400960E9E /* custom_strings.json */,
 				D279911920DDE160003B451E /* AppFactory.swift */,
 				D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */,
@@ -2464,6 +2483,7 @@
 				D210EC2E22B1EE55002FB5E0 /* Fines.storyboard in Resources */,
 				D210EC2F22B1EE55002FB5E0 /* SendEmail.storyboard in Resources */,
 				D210EC3022B1EE55002FB5E0 /* Lists.storyboard in Resources */,
+				D29C95FC2599285E00CACDBD /* event_msg_map.json in Resources */,
 				D21090D124D726FA004FE532 /* fail_part_msg_map.json in Resources */,
 				D210EC3122B1EE55002FB5E0 /* Main.storyboard in Resources */,
 			);
@@ -2489,6 +2509,7 @@
 				D23E9FD523B9200A0030F5C1 /* Fines.storyboard in Resources */,
 				D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */,
 				D23E9FD723B9200A0030F5C1 /* Lists.storyboard in Resources */,
+				D29C95F92599283A00CACDBD /* event_msg_map.json in Resources */,
 				D21090DD24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D23E9FD823B9200A0030F5C1 /* Main.storyboard in Resources */,
 			);
@@ -2514,6 +2535,7 @@
 				D2477C2324785A6B00FD4CF6 /* Fines.storyboard in Resources */,
 				D2477C2424785A6B00FD4CF6 /* SendEmail.storyboard in Resources */,
 				D2477C2524785A6B00FD4CF6 /* Lists.storyboard in Resources */,
+				D29C95F62599283A00CACDBD /* event_msg_map.json in Resources */,
 				D21090D924D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2477C2624785A6B00FD4CF6 /* Main.storyboard in Resources */,
 			);
@@ -2530,6 +2552,7 @@
 				D2572B1024AD7755000BA698 /* CopyInfo.storyboard in Resources */,
 				D2572B1124AD7755000BA698 /* Search.storyboard in Resources */,
 				D2572B1224AD7755000BA698 /* Documentation in Resources */,
+				D29C95FA2599283A00CACDBD /* event_msg_map.json in Resources */,
 				D2572B1324AD7755000BA698 /* ShowCard.storyboard in Resources */,
 				D28AE26B24FDD9B200960E9E /* strings.json in Resources */,
 				D2572B1424AD7755000BA698 /* Options.storyboard in Resources */,
@@ -2556,6 +2579,7 @@
 				D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */,
 				D2F390322241E5950089D745 /* LICENSE.txt in Resources */,
 				D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */,
+				D29C95F32599283A00CACDBD /* event_msg_map.json in Resources */,
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
 				D276DAD821336B20007FAA31 /* Search.storyboard in Resources */,
 				D276DADA21336B20007FAA31 /* Documentation in Resources */,
@@ -2578,6 +2602,7 @@
 				D27990FB20DDD473003B451E /* Launch.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
+				D29C95F42599283A00CACDBD /* event_msg_map.json in Resources */,
 				D21090D724D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
@@ -2615,6 +2640,7 @@
 				D28424A921D0358200C7171C /* Fines.storyboard in Resources */,
 				D22D0C962243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D28424AA21D0358200C7171C /* Lists.storyboard in Resources */,
+				D29C95F22599283A00CACDBD /* event_msg_map.json in Resources */,
 				D21090D524D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D28424AB21D0358200C7171C /* Main.storyboard in Resources */,
 			);
@@ -2627,12 +2653,13 @@
 				D287D506207AEF2C001AF644 /* Launch.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
-				D21090DC24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
+				D29C96002599288100CACDBD /* event_msg_map.json in Resources */,
 				D22D0C942243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D2616763220BA1AF0071E1A5 /* Options.storyboard in Resources */,
+				D29C95FF2599288100CACDBD /* fail_part_msg_map.json in Resources */,
 				D279911120DDD77F003B451E /* pines.xcassets in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
@@ -2652,6 +2679,7 @@
 				D2385E2E20914E6C00FE0C89 /* TestData in Resources */,
 				D21090D824D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D29C720E209245E200E90952 /* TestUserData in Resources */,
+				D29C95F52599283A00CACDBD /* event_msg_map.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2666,6 +2694,7 @@
 				D2BDA67122D176BD00D9B60C /* CopyInfo.storyboard in Resources */,
 				D2BDA67222D176BD00D9B60C /* Search.storyboard in Resources */,
 				D2BDA67322D176BD00D9B60C /* Documentation in Resources */,
+				D29C95F72599283A00CACDBD /* event_msg_map.json in Resources */,
 				D2BDA67422D176BD00D9B60C /* ShowCard.storyboard in Resources */,
 				D28AE26724FDD9B200960E9E /* strings.json in Resources */,
 				D2BDA67522D176BD00D9B60C /* Options.storyboard in Resources */,
@@ -2692,6 +2721,7 @@
 				D2BDA70822D2A72000D9B60C /* CopyInfo.storyboard in Resources */,
 				D2BDA70922D2A72000D9B60C /* Search.storyboard in Resources */,
 				D2BDA70A22D2A72000D9B60C /* Documentation in Resources */,
+				D29C95F82599283A00CACDBD /* event_msg_map.json in Resources */,
 				D2BDA70B22D2A72000D9B60C /* ShowCard.storyboard in Resources */,
 				D28AE26824FDD9B200960E9E /* strings.json in Resources */,
 				D2BDA70C22D2A72000D9B60C /* Options.storyboard in Resources */,
