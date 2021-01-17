@@ -114,7 +114,7 @@ struct GatewayResponse {
         if str.contains("canceling statement due to user request") {
             return "Timeout; the request took too long to complete and the server killed it"
         }
-        return "Internal Server Error; the server response is not JSON"
+        return "Internal Server Error: response is not JSON"
     }
 
     init(_ data: Data) {
@@ -129,7 +129,7 @@ struct GatewayResponse {
         //os_log("resp.json: %@", log: Gateway.log, type: .info, json)
 
         guard let status = json["status"] as? Int else {
-            error = .failure("Internal Server Error; the server response has no status")
+            error = .failure("Internal Server Error: response has no status")
             return
         }
         if status != 200 {
@@ -141,7 +141,7 @@ struct GatewayResponse {
         // usually an array of one json object,
         // but in the cases of authInit it is an array of one string
         guard let payload = json["payload"] as? [Any] else {
-            error = .failure("Internal Server Error; response has payload")
+            error = .failure("Internal Server Error: response is missing payload")
             return
         }
         self.payload = payload

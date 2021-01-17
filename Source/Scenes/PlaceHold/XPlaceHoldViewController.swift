@@ -695,7 +695,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
             } else if let err = resp.error {
                 throw err
             } else {
-                throw HemlockError.unexpectedNetworkResponse("expected string, received \(resp.description)")
+                throw HemlockError.serverError("expected string, received \(resp.description)")
             }
         }.ensure {
             self.activityIndicator.stopAnimating()

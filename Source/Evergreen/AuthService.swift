@@ -28,7 +28,7 @@ class AuthService {
         let promise = req.gatewayResponse().then { (resp: GatewayResponse) -> Promise<(String)> in
             print("resp: \(resp)")
             guard let nonce = resp.str else {
-                throw HemlockError.unexpectedNetworkResponse("expected string")
+                throw HemlockError.serverError("expected string")
             }
             let md5password = md5(nonce + md5(credential.password))
             let objectParam = ["type": "persist",

@@ -29,7 +29,7 @@ class GatewayResponseTests: XCTestCase {
             """
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
-        XCTAssertEqual(resp.errorMessage, "Internal Server Error; the server response is not JSON")
+        XCTAssertEqual(resp.errorMessage, "Internal Server Error: response is not JSON")
     }
     
     func test_failed_missingStatus() {
@@ -38,7 +38,7 @@ class GatewayResponseTests: XCTestCase {
             """
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
-        XCTAssertEqual(resp.errorMessage, "Internal Server Error; the server response has no status")
+        XCTAssertEqual(resp.errorMessage, "Internal Server Error: response has no status")
     }
     
     func test_failed_badStatus() {

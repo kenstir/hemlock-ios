@@ -94,6 +94,9 @@ class MiscTests: XCTestCase {
         let unexpectedError = HemlockError.unexpectedNetworkResponse("because")
         XCTAssertFalse(isSessionExpired(error: unexpectedError))
         
+        let serverError = HemlockError.serverError("because")
+        XCTAssertFalse(isSessionExpired(error: serverError))
+        
         let hemlockSessionExpiredError = HemlockError.sessionExpired
         XCTAssertTrue(isSessionExpired(error: hemlockSessionExpiredError))
         
