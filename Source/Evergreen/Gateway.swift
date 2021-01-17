@@ -53,20 +53,31 @@ class Gateway {
         configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
         
         let sm = SessionManager(configuration: configuration)
-//        let delegate = sm.delegate
-//        delegate.dataTaskWillCacheResponse = { session, dataTask, proposedResponse in
+        let delegate = sm.delegate
+        delegate.dataTaskWillCacheResponse = { session, dataTask, proposedResponse in
 //            var exp: String? = nil
+//            // TODO (maybe): implement max TTL for cache
 //            if let response = dataTask.response as? HTTPURLResponse,
 //                let headers = response.allHeaderFields as? [String:String],
 //                let expires = headers["Expires"] {
 //                print("Expires: \(expires)")
 //                exp = expires
+//                print("response: \(response)")
+//                //if response.result.isSuccess,
+//                //    let data = response.result.value
 //                print("stop here")
 //            }
 //            let size = proposedResponse.data.count
-//            print("willCache: expires:\(exp ?? "") -> \(size) bytes")
-//            return proposedResponse
-//        }
+//            print("data: \(proposedResponse.data)")
+            if let str = String(data: proposedResponse.data, encoding: .utf8),
+                str.contains("\"payload\":[]") {
+                // do not cache empty gateway response
+                // see also: http://list.evergreen-ils.org/pipermail/evergreen-dev/2021-January/000083.html
+                return nil
+            }
+            //print("willCache: expires:\(exp ?? "") -> \(size) bytes")
+            return proposedResponse
+        }
         return sm
     }()
 
