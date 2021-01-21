@@ -160,8 +160,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         AuthService.fetchAuthToken(credential: credential).then { (authtoken: String) -> Promise<(OSRFObject)> in
             account.authtoken = authtoken
             return AuthService.fetchSession(authtoken: authtoken)
-        }.done { obj in
+        }.then { (obj: OSRFObject) -> Promise<Void> in
             account.loadSession(fromObject: obj)
+            return ActorService.fetchUserSettings(account: account)
+        }.done {
             self.saveAccountAndFinish(account: account)
         }.catch { error in
             self.presentGatewayAlert(forError: error)
