@@ -26,21 +26,9 @@ class Account {
     var homeOrgID: Int?
     var barcode: String?
     var dayPhone: String?
-    var firstGivenName: String?
-    var familyName: String?
     var defaultNotifyEmail: Bool?
     var defaultNotifyPhone: Bool?
     var defaultNotifySMS: Bool?
-    
-    var displayName: String {
-        if username == barcode,
-            let first = firstGivenName,
-            let last = familyName {
-            return "\(first) \(last)"
-        } else {
-            return username
-        }
-    }
 
     var userSettingsLoaded = false
     fileprivate var userSettingDefaultPickupLocation: Int?
@@ -74,8 +62,6 @@ class Account {
         userID = obj.getInt("id")
         homeOrgID = obj.getInt("home_ou")
         dayPhone = obj.getString("day_phone")
-        firstGivenName = obj.getString("pref_first_given_name") ?? obj.getString("first_given_name")
-        familyName = obj.getString("pref_family_name") ?? obj.getString("family_name")
     }
     
     // Fix stupid setting that is returned with extra quotes, e.g. Int 52 in
