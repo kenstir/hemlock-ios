@@ -54,6 +54,7 @@ class CredentialManagerTests: XCTestCase {
         XCTAssertEqual(cm.credentials.count, 1)
         XCTAssertEqual(cm.credentials.first?.username, "alice")
         XCTAssertEqual(cm.credentials.first?.password, "*")
+        XCTAssertNil(cm.credentials.first?.displayName)
     }
     
     func test_load_multipleAccounts() {
