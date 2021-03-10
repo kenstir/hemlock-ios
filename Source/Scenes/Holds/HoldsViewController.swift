@@ -249,7 +249,7 @@ class HoldsViewController: UIViewController {
     }
 
     func showDetails(_ indexPath: IndexPath) {
-        let hold = items[indexPath.row]
+        guard let hold = getItem(indexPath) else { return }
         let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
         if let record = hold.metabibRecord {
             let vc = XDetailsPagerViewController(items: [record], selectedItem: 0, displayOptions: displayOptions)
@@ -258,7 +258,7 @@ class HoldsViewController: UIViewController {
     }
 
     func editHold(_ indexPath: IndexPath) {
-        let hold = items[indexPath.row]
+        guard let hold = getItem(indexPath) else { return }
         if let record = hold.metabibRecord {
             let vc = XPlaceHoldViewController(record: record, holdRecord: hold) {
                 self.didCompleteFetch = false
@@ -268,7 +268,7 @@ class HoldsViewController: UIViewController {
     }
 
     @objc func cancelHoldPressed(_ indexPath: IndexPath) {
-        let hold = items[indexPath.row]
+        guard let hold = getItem(indexPath) else { return }
         guard let authtoken = App.account?.authtoken else
         {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
@@ -304,6 +304,11 @@ class HoldsViewController: UIViewController {
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
+    }
+    
+    func getItem(_ indexPath: IndexPath) -> HoldRecord? {
+        guard indexPath.row >= 0 && indexPath.row < items.count else { return nil }
+        return getItem(indexPath)
     }
 }
 
@@ -344,7 +349,7 @@ extension HoldsViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let item = items[indexPath.row]
+//        let item = getItem(indexPath)
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
