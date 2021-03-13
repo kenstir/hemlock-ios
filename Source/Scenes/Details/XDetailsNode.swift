@@ -53,14 +53,7 @@ class XDetailsNode: ASCellNode {
     private let subjectNode = ASTextNode()
     private let isbnLabel = ASTextNode()
     private let isbnNode = ASTextNode()
-    
-    //Size reference: https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography
-    private let bodySize = UIFont.preferredFont(forTextStyle: .body).pointSize // 17pts at default settings
-    private let titleSize = UIFont.preferredFont(forTextStyle: .title2).pointSize // 22
-    private let subtitleSize = UIFont.preferredFont(forTextStyle: .title3).pointSize // 20
-    private let subheadSize = UIFont.preferredFont(forTextStyle: .subheadline).pointSize //15
-    private let calloutSize = UIFont.preferredFont(forTextStyle: .callout).pointSize //16
-    
+
     //MARK: - Lifecycle
     
     init(record: MBRecord, index: Int, of totalItems: Int, displayOptions: RecordDisplayOptions) {
@@ -175,9 +168,9 @@ class XDetailsNode: ASCellNode {
 
     private func setupNodes() {
         setupPageHeader()
-        Style.setupTitle(titleNode, str: record.title, ofSize: titleSize, maxNumLines: 5)
-        Style.setupSubtitle(authorNode, str: record.author, ofSize: subtitleSize)
-        Style.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: subheadSize)
+        Style.setupTitle(titleNode, str: record.title, ofSize: Style.titleSize, maxNumLines: 5)
+        Style.setupSubtitle(authorNode, str: record.author, ofSize: Style.subtitleSize)
+        Style.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: Style.subheadSize)
         setupImageNode()
         setupSpacerNode()
 
@@ -185,17 +178,17 @@ class XDetailsNode: ASCellNode {
         
         setupScrollNode()
         
-        Style.setupSynopsisText(synopsisNode, str: record.synopsis, ofSize: bodySize)
-        Style.setupSubtitle(subjectLabel, str: "Subject:", ofSize: subheadSize)
-        Style.setupMultilineText(subjectNode, str: record.subject, ofSize: subheadSize)
-        Style.setupSubtitle(isbnLabel, str: "ISBN:", ofSize: subheadSize)
-        Style.setupMultilineText(isbnNode, str: record.isbn, ofSize: subheadSize)
+        Style.setupSynopsisText(synopsisNode, str: record.synopsis, ofSize: Style.bodySize)
+        Style.setupSubtitle(subjectLabel, str: "Subject:", ofSize: Style.subheadSize)
+        Style.setupMultilineText(subjectNode, str: record.subject, ofSize: Style.subheadSize)
+        Style.setupSubtitle(isbnLabel, str: "ISBN:", ofSize: Style.subheadSize)
+        Style.setupMultilineText(isbnNode, str: record.isbn, ofSize: Style.subheadSize)
     }
     
     private func setupPageHeader() {
         let naturalNumber = itemIndex + 1
         let str = "Showing Item \(naturalNumber) of \(totalItems)"
-        pageHeaderText.attributedText = Style.makeTableHeaderString(str, size: calloutSize)
+        pageHeaderText.attributedText = Style.makeTableHeaderString(str, size: Style.calloutSize)
         pageHeader.backgroundColor = Style.systemGroupedBackground
     }
     
@@ -206,7 +199,7 @@ class XDetailsNode: ASCellNode {
     }
     
     private func setupFormat() {
-        Style.setupSubtitle(formatNode, str: record.iconFormatLabel, ofSize: calloutSize)
+        Style.setupSubtitle(formatNode, str: record.iconFormatLabel, ofSize: Style.calloutSize)
     }
 
     private func setupCopySummary() {
@@ -218,7 +211,7 @@ class XDetailsNode: ASCellNode {
             {
                 str = host
             }
-            copySummaryNode.attributedText = Style.makeSubtitleString(str, ofSize: subheadSize)
+            copySummaryNode.attributedText = Style.makeSubtitleString(str, ofSize: Style.subheadSize)
         } else {
             if let copyCounts = record.copyCounts,
                 let copyCount = copyCounts.last,
@@ -226,7 +219,7 @@ class XDetailsNode: ASCellNode {
             {
                 str = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
             }
-            copySummaryNode.attributedText = Style.makeString(str, ofSize: calloutSize)
+            copySummaryNode.attributedText = Style.makeString(str, ofSize: Style.calloutSize)
         }
     }
     
@@ -248,14 +241,14 @@ class XDetailsNode: ASCellNode {
             actionButton.isEnabled = displayOptions.enablePlaceHold
         }
         Style.styleButton(asInverse: actionButton)
-        Style.setButtonTitle(actionButton, title: actionButtonText, fontSize: bodySize)
+        Style.setButtonTitle(actionButton, title: actionButtonText, fontSize: Style.bodySize)
 
         if isOnlineResource {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {
             Style.styleButton(asInverse: copyInfoButton)
-            Style.setButtonTitle(copyInfoButton, title: "Copy Info", fontSize: bodySize)
+            Style.setButtonTitle(copyInfoButton, title: "Copy Info", fontSize: Style.bodySize)
             copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
         }
     }
@@ -345,7 +338,7 @@ class XDetailsNode: ASCellNode {
         
         let subject = ASStackLayoutSpec.horizontal()
         if !record.subject.isEmpty {
-            subjectLabel.style.preferredSize = CGSize(width: 64, height: calloutSize)
+            subjectLabel.style.preferredSize = CGSize(width: 64, height: Style.calloutSize)
             subject.children = [subjectLabel, subjectNode]
         }
 
@@ -353,7 +346,7 @@ class XDetailsNode: ASCellNode {
         
         let isbn = ASStackLayoutSpec.horizontal()
         if !record.isbn.isEmpty {
-            isbnLabel.style.preferredSize = CGSize(width: 64, height: calloutSize)
+            isbnLabel.style.preferredSize = CGSize(width: 64, height: Style.calloutSize)
             isbn.children = [isbnLabel, isbnNode]
         }
 
