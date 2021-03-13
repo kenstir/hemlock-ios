@@ -25,7 +25,7 @@ class OrgDetailsViewController: UIViewController {
     
     //MARK: - Properties
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var orgButton: UIButton!
     @IBOutlet weak var hoursHeader: UILabel!
     @IBOutlet weak var day0Stack: UIStackView!
     @IBOutlet weak var day0Hours: UILabel!
@@ -65,11 +65,6 @@ class OrgDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // deselect row when navigating back
-        if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-
         fetchData()
     }
     
@@ -133,9 +128,6 @@ class OrgDetailsViewController: UIViewController {
     }
 
     func setupViews() {
-        tableView.dataSource = self
-        tableView.delegate = self
-
         setupActivityIndicator()
         self.setupHomeButton()
         self.setupActionButtons()
@@ -143,10 +135,12 @@ class OrgDetailsViewController: UIViewController {
     }
     
     func setupActionButtons() {
+        Style.styleButton(asOutline: orgButton)
         Style.styleButton(asPlain: webSiteButton)
         Style.styleButton(asPlain: mapButton)
         Style.styleButton(asPlain: emailButton)
         Style.styleButton(asPlain: phoneButton)
+        orgButton.addTarget(self, action: #selector(orgButtonPressed(sender:)), for: .touchUpInside)
         webSiteButton.addTarget(self, action: #selector(webSiteButtonPressed(sender:)), for: .touchUpInside)
         mapButton.addTarget(self, action: #selector(mapButtonPressed(sender:)), for: .touchUpInside)
         emailButton.addTarget(self, action: #selector(emailButtonPressed(sender:)), for: .touchUpInside)
@@ -169,6 +163,12 @@ class OrgDetailsViewController: UIViewController {
 
     func enableButtonsWhenReady() {
         let org = Organization.find(byId: orgID)
+        if let name = org?.name {
+            orgButton.isEnabled = true
+            orgButton.setTitle(name, for: .normal)
+        } else {
+            orgButton.isEnabled = false
+        }
         if let infoURL = org?.infoURL, !infoURL.isEmpty {
             webSiteButton.isEnabled = true
         } else {
@@ -193,6 +193,20 @@ class OrgDetailsViewController: UIViewController {
         } else {
             mapButton.isEnabled = false
         }
+    }
+    
+    @objc func orgButtonPressed(sender: UIButton) {
+         guard orgLabels.count > 0 else { return }
+         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
+         
+         vc.title = "Library"
+         vc.optionLabels = orgLabels
+         vc.selectionChangedHandler = { index, value in
+             let org = Organization.visibleOrgs[index]
+             self.orgID = org.id
+         }
+
+         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func webSiteButtonPressed(sender: UIButton) {
@@ -309,45 +323,9 @@ class OrgDetailsViewController: UIViewController {
     }
 
     func onOrgsLoaded() {
-        tableView.reloadData()
+        //let org = Organization.find(byId: orgID)
+        //orgButton.setTitle(org?.name, for: .normal)
 
         orgLabels = Organization.getSpinnerLabels()
-        //org = Organization.find(byId: orgID)
-    }
-}
-
-//MARK: - UITableViewDataSource
-extension OrgDetailsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Location"
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "orgChooserCell", for: indexPath)
-        let org = Organization.find(byId: orgID)
-        cell.textLabel?.text = org?.name
-        return cell
-    }
-}
-
-//MARK: - UITableViewDelegate
-extension OrgDetailsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard orgLabels.count > 0 else { return }
-        guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
-        
-        vc.title = "Library"
-        vc.optionLabels = orgLabels
-        vc.selectionChangedHandler = { index, value in
-            let org = Organization.visibleOrgs[index]
-            self.orgID = org.id
-            self.tableView.reloadData()
-        }
-
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
