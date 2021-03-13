@@ -165,7 +165,7 @@ class Style {
 
     static func styleLabel(asTableHeader v: UILabel) {
         v.textColor = Style.secondaryLabelColor
-        v.font = UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps
+        v.font = UIFont.systemFont(ofSize: calloutSize, weight: .light).withSmallCaps
     }
 
     static func styleStackView(asTableHeader v: UIView) {

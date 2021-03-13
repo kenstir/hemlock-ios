@@ -229,7 +229,7 @@ extension XResultsViewController: ASTableDataSource {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Style.secondaryLabelColor
         label.text = titleForHeaderInSection()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .light).withSmallCaps
+        label.font = UIFont.systemFont(ofSize: Style.calloutSize, weight: .light).withSmallCaps
 
         view.addSubview(label)
         return view
