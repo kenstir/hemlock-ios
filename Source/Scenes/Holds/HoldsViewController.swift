@@ -308,7 +308,7 @@ class HoldsViewController: UIViewController {
     
     func getItem(_ indexPath: IndexPath) -> HoldRecord? {
         guard indexPath.row >= 0 && indexPath.row < items.count else { return nil }
-        return getItem(indexPath)
+        return items[indexPath.row]
     }
 }
 
