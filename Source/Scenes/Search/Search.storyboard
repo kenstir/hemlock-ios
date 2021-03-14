@@ -24,11 +24,8 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Lv5-k6-zDw">
-                                <rect key="frame" x="0.0" y="72" width="320" height="192"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="403"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="192" id="awN-x5-bHF"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="searchOptionsCell" textLabel="Id2-BF-pq4" detailTextLabel="8Rq-Az-Sxo" style="IBUITableViewCellStyleValue1" id="u10-wg-ZQi" customClass="SearchTableViewCell" customModule="COOL" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="320" height="43.5"/>
@@ -57,25 +54,23 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-Yq-Mnv">
-                                <rect key="frame" x="56" y="292" width="208" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="K3P-te-Er6"/>
-                                </constraints>
+                                <rect key="frame" x="64" y="503" width="192" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Search"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="JUf-Yq-Mnv" secondAttribute="trailing" constant="56" id="022-bt-4wa"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="top" secondItem="Ljx-32-4Q7" secondAttribute="top" constant="8" id="50X-QU-eJ4"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="trailing" secondItem="Ljx-32-4Q7" secondAttribute="trailing" id="HpY-iF-0ZL"/>
+                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="JUf-Yq-Mnv" secondAttribute="trailing" constant="64" id="J4B-dr-Bdj"/>
                             <constraint firstItem="Lv5-k6-zDw" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="Jl2-Fz-V6z"/>
-                            <constraint firstItem="JUf-Yq-Mnv" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="56" id="RWf-7t-BZA"/>
-                            <constraint firstItem="JUf-Yq-Mnv" firstAttribute="top" secondItem="Lv5-k6-zDw" secondAttribute="bottom" constant="28" id="RiP-CO-w4b"/>
+                            <constraint firstItem="Lv5-k6-zDw" firstAttribute="bottom" secondItem="JUf-Yq-Mnv" secondAttribute="top" constant="-28" id="RiP-CO-w4b"/>
                             <constraint firstItem="Ljx-32-4Q7" firstAttribute="trailing" secondItem="Lv5-k6-zDw" secondAttribute="trailing" id="aSr-Pq-08P"/>
                             <constraint firstItem="Lv5-k6-zDw" firstAttribute="top" secondItem="efL-Ge-GEs" secondAttribute="bottom" constant="8" id="fRG-uS-zg3"/>
                             <constraint firstItem="efL-Ge-GEs" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" id="lek-5H-u3c"/>
+                            <constraint firstItem="Ljx-32-4Q7" firstAttribute="bottom" secondItem="JUf-Yq-Mnv" secondAttribute="bottom" constant="32" id="n5B-kg-MCW"/>
+                            <constraint firstItem="JUf-Yq-Mnv" firstAttribute="leading" secondItem="Ljx-32-4Q7" secondAttribute="leading" constant="64" id="ovX-Bv-ipx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ljx-32-4Q7"/>
                     </view>
