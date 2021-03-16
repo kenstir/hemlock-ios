@@ -351,6 +351,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToU-UP-BUF">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <state key="normal" title="Full Catalog"/>
                                         <connections>
                                             <action selector="fullCatalogButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="kEN-uG-bCd"/>
@@ -358,6 +359,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-m5-77E">
                                         <rect key="frame" x="168" y="0.0" width="152" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <state key="normal" title="Library Locator"/>
                                         <connections>
                                             <action selector="libraryLocatorButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="L3A-4G-Hxz"/>
