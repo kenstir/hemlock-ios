@@ -89,32 +89,28 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Project Management for Dummies" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewq-ag-LQb">
-                                                    <rect key="frame" x="16" y="8" width="242" height="45"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="45" id="VfQ-tw-6tx"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="16" y="8" width="242" height="42.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grY-0I-47c">
-                                                    <rect key="frame" x="16" y="61" width="242" height="18"/>
+                                                    <rect key="frame" x="16" y="58.5" width="242" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdz-WQ-6id">
-                                                    <rect key="frame" x="274" y="8" width="70" height="45"/>
+                                                    <rect key="frame" x="274" y="8" width="70" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="B11-0i-bIE"/>
-                                                        <constraint firstAttribute="height" constant="45" id="upR-ae-u97"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Status" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M1-kn-z1p">
-                                                    <rect key="frame" x="274" y="61" width="70" height="18"/>
+                                                    <rect key="frame" x="274" y="58.5" width="70" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="Arf-dH-gQd"/>
                                                     </constraints>
