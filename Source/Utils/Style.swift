@@ -142,7 +142,7 @@ class Style {
         button.layer.cornerRadius = 6
     }
 
-    static func setButtonTitle(_ button: ASButtonNode, title: String, fontSize size: CGFloat = 17) {
+    static func setButtonTitle(_ button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize) {
         let font = UIFont.systemFont(ofSize: size)
         button.setTitle(title, with: font, with: .white, for: .normal)
         button.setTitle(title, with: font, with: .gray, for: .disabled)
@@ -216,13 +216,13 @@ class Style {
     
     //MARK: - ASTextNode
     
-    static func setupTitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = 18, maxNumLines:UInt = 2) {
+    static func setupTitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = titleSize, maxNumLines: UInt = 2) {
         textNode.attributedText = makeTitleString(str, ofSize: size)
         textNode.maximumNumberOfLines = maxNumLines
         textNode.truncationMode = .byWordWrapping
     }
     
-    static func setupSubtitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = 16) {
+    static func setupSubtitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = subtitleSize) {
         textNode.attributedText = makeSubtitleString(str, ofSize: size)
         textNode.maximumNumberOfLines = 1
         textNode.truncationMode = .byTruncatingTail

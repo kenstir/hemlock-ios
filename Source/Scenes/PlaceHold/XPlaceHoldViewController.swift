@@ -85,7 +85,8 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
         return UIDatePicker()
     }
     let actionButton = ASButtonNode()
-    
+    let labelSize = Style.subheadSize
+
     var isEditHold: Bool { return holdRecord != nil }
     var hasParts: Bool { return !parts.isEmpty }
     var titleHoldIsPossible: Bool? = nil
@@ -131,7 +132,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     func setupNodes() {
         Style.setupTitle(titleNode, str: holdRecord?.title ?? record.title)
         Style.setupSubtitle(authorNode, str: record.author)
-        Style.setupSubtitle(formatNode, str: record.iconFormatLabel)
+        Style.setupSubtitle(formatNode, str: record.iconFormatLabel, ofSize: Style.calloutSize)
         
         setupPartRow()
         setupPickupRow()
@@ -167,28 +168,28 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
     
     func setupPartRow() {
-        partLabel.attributedText = Style.makeString("Select a part", ofSize: 14)
+        partLabel.attributedText = Style.makeString("Select a part", ofSize: labelSize)
         partNode.textField?.borderStyle = .roundedRect
         partNode.textField?.delegate = self
     }
 
     func setupPickupRow() {
-        pickupLabel.attributedText = Style.makeString("Pickup location", ofSize: 14)
+        pickupLabel.attributedText = Style.makeString("Pickup location", ofSize: labelSize)
         pickupNode.textField?.borderStyle = .roundedRect
         pickupNode.textField?.delegate = self
     }
 
     func setupEmailRow() {
-        emailLabel.attributedText = Style.makeString("Email notification", ofSize: 14)
+        emailLabel.attributedText = Style.makeString("Email notification", ofSize: labelSize)
     }
     
     func setupSuspendRow() {
-        suspendLabel.attributedText = Style.makeString("Suspend hold", ofSize: 14)
+        suspendLabel.attributedText = Style.makeString("Suspend hold", ofSize: labelSize)
         suspendSwitch.switchView?.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
     }
     
     func setupPhoneRow() {
-        phoneLabel.attributedText = Style.makeString("Phone notification", ofSize: 14)
+        phoneLabel.attributedText = Style.makeString("Phone notification", ofSize: labelSize)
         phoneSwitch.switchView?.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
         phoneNode.textField?.placeholder = "Phone number"
         phoneNode.textField?.keyboardType = .phonePad
@@ -197,7 +198,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
 
     func setupSmsRow() {
-        smsLabel.attributedText = Style.makeString("SMS notification", ofSize: 14)
+        smsLabel.attributedText = Style.makeString("SMS notification", ofSize: labelSize)
         smsSwitch.switchView?.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
         smsNode.textField?.placeholder = "Phone number"
         smsNode.textField?.keyboardType = .phonePad
@@ -206,13 +207,13 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
 
     func setupCarrierRow() {
-        carrierLabel.attributedText = Style.makeString("SMS carrier", ofSize: 14)
+        carrierLabel.attributedText = Style.makeString("SMS carrier", ofSize: labelSize)
         carrierNode.textField?.borderStyle = .roundedRect
         carrierNode.textField?.delegate = self
     }
     
     func setupExpirationRow() {
-        expirationLabel.attributedText = Style.makeString("Expiration date", ofSize: 14)
+        expirationLabel.attributedText = Style.makeString("Expiration date", ofSize: labelSize)
         expirationNode.textField?.borderStyle = .roundedRect
         expirationNode.textField?.delegate = self
         expirationPickerNode.datePicker?.addTarget(self, action: #selector(expirationChanged(sender:)), for: .valueChanged)
@@ -220,7 +221,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
     
     func setupThawRow() {
-        thawLabel.attributedText = Style.makeString("Activate hold on", ofSize: 14)
+        thawLabel.attributedText = Style.makeString("Activate hold on", ofSize: labelSize)
         thawNode.textField?.borderStyle = .roundedRect
         thawNode.textField?.delegate = self
         thawPickerNode.datePicker?.addTarget(self, action: #selector(thawChanged(sender:)), for: .valueChanged)
@@ -351,7 +352,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
 
         // button row
         actionButton.style.alignSelf = .center
-        actionButton.style.preferredSize = CGSize(width: 200, height: 33)
+        actionButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 48, bottom: 4, right: 48)
         actionButton.style.spacingBefore = 28
 
         // page

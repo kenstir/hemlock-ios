@@ -241,14 +241,14 @@ class XDetailsNode: ASCellNode {
             actionButton.isEnabled = displayOptions.enablePlaceHold
         }
         Style.styleButton(asInverse: actionButton)
-        Style.setButtonTitle(actionButton, title: actionButtonText, fontSize: Style.bodySize)
+        Style.setButtonTitle(actionButton, title: actionButtonText)
 
         if isOnlineResource {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {
             Style.styleButton(asInverse: copyInfoButton)
-            Style.setButtonTitle(copyInfoButton, title: "Copy Info", fontSize: Style.bodySize)
+            Style.setButtonTitle(copyInfoButton, title: "Copy Info")
             copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
         }
     }

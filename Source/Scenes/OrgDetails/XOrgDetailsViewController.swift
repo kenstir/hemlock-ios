@@ -107,7 +107,7 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
     }
     
     func setupTitle() {
-        Style.setupTitle(orgHeading, str: org?.name ?? "", ofSize: 20)
+        Style.setupTitle(orgHeading, str: org?.name ?? "")
     }
 
     func setupChooserRow() {
