@@ -67,6 +67,7 @@ class HoldRecord {
     var smsCarrier: Int? { return ahrObj.getInt("sms_carrier") }
     var pickupOrgId: Int? { return ahrObj.getInt("pickup_lib") }
     var expireDate: Date? { return ahrObj.getDate("expire_time") }
+    var shelfExpireDate: Date? { return ahrObj.getDate("shelf_expire_time") }
     var thawDate: Date? { return ahrObj.getDate("thaw_date") }
     var isSuspended: Bool? { return ahrObj.getBool("frozen") }
 
@@ -75,11 +76,24 @@ class HoldRecord {
     var potentialCopies: Int { return qstatsObj?.getInt("potential_copies") ?? 0 }
     var status: String {
         let s = qstatsObj?.getInt("status") ?? -1
-        if s == 4 { return "Available" }
-        else if s == 7 { return "Suspended" }
-        else if s == 3 || s == 8 { return "In transit from \(transitFrom)\nSince \(transitSince)" }
-        else if s < 3 { return "Waiting for copy\n\(totalHolds) holds on \(potentialCopies) copies" }
-        else { return "" }
+        if s == 4 {
+            if App.config.enableHoldShowExpiration,
+               let date = shelfExpireDate {
+                let dateStr = OSRFObject.outputDateFormatter.string(from: date)
+                return "Available\nExpires \(dateStr)"
+            }
+            return "Available"
+        } else if s == 7 {
+            return "Suspended"
+        } else if s == 3 || s == 8 {
+            return "In transit from \(transitFrom)\nSince \(transitSince)"
+        } else if s < 3 {
+            let copyStatus = "\(totalHolds) holds on \(potentialCopies) copies"
+            let qStatus = App.config.enableHoldShowQueuePosition ? "(queue position: \(queuePosition))" : ""
+            return "Waiting for copy\n\(copyStatus) \(qStatus)"
+        } else {
+            return ""
+        }
     }
     var transitFrom: String {
         if let transit = ahrObj.getObject("transit"),

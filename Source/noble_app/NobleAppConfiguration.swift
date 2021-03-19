@@ -25,6 +25,7 @@ class NobleAppConfiguration: AppConfiguration {
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
+    let enableHoldShowExpiration = true
     let enableHoldPhoneNotification = false
     let enablePartHolds = false
     let enableTitleHoldOnItemWithParts = false

@@ -23,6 +23,7 @@ class MoAppConfiguration: AppConfiguration {
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
+    let enableHoldShowExpiration = false
     let enableHoldPhoneNotification = true
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = false

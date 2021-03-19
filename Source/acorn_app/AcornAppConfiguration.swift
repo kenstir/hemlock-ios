@@ -25,6 +25,7 @@ class AcornAppConfiguration: AppConfiguration {
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
+    let enableHoldShowExpiration = true
     let enableHoldPhoneNotification = true
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = false

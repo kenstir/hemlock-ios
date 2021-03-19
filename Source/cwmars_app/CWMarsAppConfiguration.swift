@@ -25,6 +25,7 @@ class CWMarsAppConfiguration: AppConfiguration {
 
     let enableHierarchicalOrgTree = false
     let enableHoldShowQueuePosition = true
+    let enableHoldShowExpiration = true
     let enableHoldPhoneNotification = false
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = true

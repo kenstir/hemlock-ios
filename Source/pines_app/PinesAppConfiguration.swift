@@ -25,6 +25,7 @@ class PinesAppConfiguration: AppConfiguration {
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = false
+    let enableHoldShowExpiration = false
     let enableHoldPhoneNotification = true
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = true

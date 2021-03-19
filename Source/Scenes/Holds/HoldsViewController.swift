@@ -338,7 +338,6 @@ extension HoldsViewController: UITableViewDataSource {
         cell.holdsAuthorLabel.text = item.author
         cell.holdsFormatLabel.text = item.format
         cell.holdsStatusLabel.text = item.status
-        cell.holdsQueuePosition.text = App.config.enableHoldShowQueuePosition ? "Queue position: \(item.queuePosition)" : ""
 
         return cell
     }

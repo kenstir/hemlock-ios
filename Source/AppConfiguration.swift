@@ -27,6 +27,7 @@ protocol AppConfiguration {
 
     var enableHierarchicalOrgTree: Bool { get }
     var enableHoldShowQueuePosition: Bool { get }
+    var enableHoldShowExpiration: Bool { get }
     var enableHoldPhoneNotification: Bool { get }
     var enablePartHolds: Bool { get }
     var enableTitleHoldOnItemWithParts: Bool { get }
