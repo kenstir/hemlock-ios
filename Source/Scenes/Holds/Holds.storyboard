@@ -17,15 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="120" estimatedRowHeight="120" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="66m-dm-agI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="120" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="66m-dm-agI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="7uz-32-Rie" customClass="HoldsTableViewCell" customModule="COOL" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="120.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7uz-32-Rie" id="aop-RU-W7k">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="120.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project Management for Dummies" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="o96-V8-dbu" userLabel="Title">
@@ -46,8 +46,8 @@
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for copy 12 holds on 2 copies (queue position: 1)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IJ-pw-bRJ" userLabel="Hold Status">
-                                                    <rect key="frame" x="8" y="78.5" width="332" height="34"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Waiting for copy 12 holds on 2 copies (queue position: 1)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IJ-pw-bRJ" userLabel="Hold Status">
+                                                    <rect key="frame" x="8" y="78.5" width="332" height="34.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -64,6 +64,7 @@
                                                 <constraint firstItem="sAI-o0-cNm" firstAttribute="top" secondItem="o96-V8-dbu" secondAttribute="bottom" constant="8" id="eLU-Gg-Kbi"/>
                                                 <constraint firstItem="8IJ-pw-bRJ" firstAttribute="top" secondItem="016-Cl-jie" secondAttribute="bottom" constant="4" id="gfg-Y4-6kG"/>
                                                 <constraint firstItem="016-Cl-jie" firstAttribute="leading" secondItem="aop-RU-W7k" secondAttribute="leading" constant="8" id="hvO-HD-8tC"/>
+                                                <constraint firstAttribute="bottom" secondItem="8IJ-pw-bRJ" secondAttribute="bottom" constant="7.5" id="p1A-Hc-laO"/>
                                                 <constraint firstAttribute="trailing" secondItem="8IJ-pw-bRJ" secondAttribute="trailing" constant="8" id="qf5-ZM-ZW5"/>
                                                 <constraint firstItem="o96-V8-dbu" firstAttribute="top" secondItem="aop-RU-W7k" secondAttribute="top" constant="8" id="yGM-SM-DiZ"/>
                                             </constraints>
