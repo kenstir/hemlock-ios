@@ -155,7 +155,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         activityIndicator.startAnimating()
 
-        let credential = Credential(username: username, password: password)
+        var credential = Credential(username: username, password: password)
         let account = Account(username, password: password)
         AuthService.fetchAuthToken(credential: credential).then { (authtoken: String) -> Promise<(OSRFObject)> in
             account.authtoken = authtoken
@@ -164,7 +164,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             account.loadSession(fromObject: obj)
             return ActorService.fetchUserSettings(account: account)
         }.done {
-            self.saveAccountAndFinish(account: account)
+            credential.displayName = account.displayName
+            self.saveAccountAndFinish(account: account, credential: credential)
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }.finally {
@@ -172,10 +173,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func saveAccountAndFinish(account: Account) {
+    func saveAccountAndFinish(account: Account, credential: Credential) {
         alreadyLoggedIn = true
         App.account = account
-        App.credentialManager.add(credential: Credential(username: account.username, password: account.password))
+        App.credentialManager.add(credential: credential)
         self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
     }
 }

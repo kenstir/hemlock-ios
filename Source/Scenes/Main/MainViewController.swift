@@ -142,12 +142,12 @@ class MainViewController: UIViewController {
         
         // Add an action for each stored account
         if haveMultipleAccounts {
-            for account in App.credentialManager.credentials {
-                let action = UIAlertAction(title: account.username, style: .default) { action in
-                    self.doSwitchAccount(toAccount: account)
+            for credential in App.credentialManager.credentials {
+                let action = UIAlertAction(title: credential.chooserLabel, style: .default) { action in
+                    self.doSwitchAccount(toAccount: credential)
                 }
                 var imageName = "Account"
-                if account.username == App.account?.username {
+                if credential.username == App.account?.username {
                     action.isEnabled = false
                     imageName = "Account with Checkmark"
                 }

@@ -24,7 +24,13 @@ import os.log
 struct Credential: Codable, Equatable {
     let username: String
     let password: String
-    let displayName: String?
+    var displayName: String?
+    var chooserLabel: String {
+        if let dname = displayName, dname != username {
+            return "\(username) (\(dname))"
+        }
+        return username
+    }
     init(username: String, password: String, displayName: String? = nil) {
         self.username = username
         self.password = password
