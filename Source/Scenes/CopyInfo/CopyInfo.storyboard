@@ -17,43 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izW-bL-Z5Y" userLabel="Place Hold Button">
+                                <rect key="frame" x="64" y="602" width="247" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Place Hold"/>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="110" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="j5M-zQ-ez2" userLabel="Copy Info Table">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="594"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CopyInfoTableViewCell" id="f83-m4-dJV" userLabel="Copy Info View Cell" customClass="CopyInfoTableViewCell" customModule="COOL" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="107.5"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="106.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f83-m4-dJV" id="HZK-vV-WNb">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="107.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="106.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Athens Regional Library System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTW-4c-rZC" userLabel="Heading">
-                                                    <rect key="frame" x="8" y="8" width="332" height="21"/>
+                                                    <rect key="frame" x="8" y="8" width="332" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Athens-Clarke County Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxh-tJ-ZDq" userLabel="Subheading">
-                                                    <rect key="frame" x="8" y="31" width="332" height="21"/>
+                                                    <rect key="frame" x="8" y="30.5" width="332" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUNG ADULT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5k-hz-wAh" userLabel="Location">
-                                                    <rect key="frame" x="16" y="54" width="105" height="18"/>
+                                                    <rect key="frame" x="16" y="53" width="105" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROWLING, J K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-4S-FFi" userLabel="Call Number">
-                                                    <rect key="frame" x="16" y="72" width="98.5" height="18"/>
+                                                    <rect key="frame" x="16" y="71" width="98.5" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="1 Available 1 Checked out" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-P9-NhG" userLabel="Copy Status Info">
-                                                    <rect key="frame" x="224" y="54" width="97.5" height="38.5"/>
+                                                    <rect key="frame" x="224" y="53" width="97.5" height="38.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -89,10 +94,13 @@
                         <viewLayoutGuide key="safeArea" id="gz2-tD-rMa"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gz2-tD-rMa" firstAttribute="bottom" secondItem="j5M-zQ-ez2" secondAttribute="bottom" id="2hO-Ws-9aQ"/>
                             <constraint firstItem="j5M-zQ-ez2" firstAttribute="top" secondItem="gz2-tD-rMa" secondAttribute="top" id="8Nw-qo-REQ"/>
+                            <constraint firstItem="izW-bL-Z5Y" firstAttribute="trailing" secondItem="gz2-tD-rMa" secondAttribute="trailing" constant="-64" id="Fax-n0-zCH"/>
+                            <constraint firstItem="izW-bL-Z5Y" firstAttribute="top" secondItem="j5M-zQ-ez2" secondAttribute="bottom" constant="8" id="OBb-eg-g2V"/>
+                            <constraint firstItem="izW-bL-Z5Y" firstAttribute="leading" secondItem="gz2-tD-rMa" secondAttribute="leading" constant="64" id="esO-W2-Kx0"/>
                             <constraint firstItem="j5M-zQ-ez2" firstAttribute="leading" secondItem="gz2-tD-rMa" secondAttribute="leading" id="fIp-hA-gOe"/>
                             <constraint firstItem="gz2-tD-rMa" firstAttribute="trailing" secondItem="j5M-zQ-ez2" secondAttribute="trailing" id="kDj-IH-bTJ"/>
+                            <constraint firstItem="gz2-tD-rMa" firstAttribute="bottom" secondItem="izW-bL-Z5Y" secondAttribute="bottom" constant="32" id="osq-bM-oWw"/>
                         </constraints>
                     </view>
                     <connections>

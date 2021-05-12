@@ -186,7 +186,7 @@
                             <constraint firstItem="78J-wo-VWu" firstAttribute="bottom" secondItem="FWV-Ow-LKT" secondAttribute="bottom" constant="32" id="Vec-zN-gXS"/>
                             <constraint firstItem="BRM-0x-QkN" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" id="e6c-1e-yXt"/>
                             <constraint firstItem="FWV-Ow-LKT" firstAttribute="leading" secondItem="78J-wo-VWu" secondAttribute="leading" constant="64" id="fYC-7p-AqY"/>
-                            <constraint firstItem="78J-wo-VWu" firstAttribute="trailing" secondItem="BRM-0x-QkN" secondAttribute="trailing" id="mVd-j5-uP1"/>
+                            <constraint firstItem="BRM-0x-QkN" firstAttribute="trailing" secondItem="78J-wo-VWu" secondAttribute="trailing" id="mVd-j5-uP1"/>
                         </constraints>
                     </view>
                     <connections>
