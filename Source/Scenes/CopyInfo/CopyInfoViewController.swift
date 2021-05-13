@@ -25,6 +25,7 @@ class CopyInfoViewController: UIViewController {
     //MARK: - Properties
     
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var placeHoldButton: UIButton!
     
     var org: Organization?
     var record: MBRecord?
@@ -55,6 +56,9 @@ class CopyInfoViewController: UIViewController {
         }
         table.tableFooterView = UIView() // prevent display of ghost rows at end of table
         self.setupHomeButton()
+        
+        Style.styleButton(asInverse: placeHoldButton)
+        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
     }
     
     func fetchData() {
@@ -80,6 +84,11 @@ class CopyInfoViewController: UIViewController {
         table.reloadData()
     }
 
+    @objc func placeHoldPressed(sender: UIButton) {
+        guard let record = self.record else { return }
+        let vc = XPlaceHoldViewController(record: record)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 //MARK: - UITableViewDataSource

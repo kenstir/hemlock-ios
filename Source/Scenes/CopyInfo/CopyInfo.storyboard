@@ -104,6 +104,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="placeHoldButton" destination="izW-bL-Z5Y" id="Fmn-k8-Buz"/>
                         <outlet property="table" destination="j5M-zQ-ez2" id="mrB-3T-Ed3"/>
                     </connections>
                 </viewController>
