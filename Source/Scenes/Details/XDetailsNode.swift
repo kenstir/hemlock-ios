@@ -46,6 +46,7 @@ class XDetailsNode: ASCellNode {
     private let copySummaryNode = ASTextNode()
     private let actionButton = ASButtonNode()
     private let copyInfoButton = ASButtonNode()
+    private let extrasButton = ASButtonNode()
     
     private let scrollNode = ASScrollNode()
     private let synopsisNode = ASTextNode()
@@ -53,6 +54,8 @@ class XDetailsNode: ASCellNode {
     private let subjectNode = ASTextNode()
     private let isbnLabel = ASTextNode()
     private let isbnNode = ASTextNode()
+    
+    private var showExtrasButton: Bool { return App.config.detailsExtraLinkText != nil && App.config.detailsExtraLinkFragment != nil }
 
     //MARK: - Lifecycle
     
@@ -120,6 +123,13 @@ class XDetailsNode: ASCellNode {
         vc.org = org
         vc.record = record
         myVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func extrasPressed(sender: Any) {
+        guard let fragment = App.config.detailsExtraLinkFragment else { return }
+        let url = App.config.url + "/eg/opac/record/" + String(record.id) + "#" + fragment
+        guard let vc = self.closestViewController else { return }
+        self.openOnlineLocation(vc: vc, href: url)
     }
     
     func openOnlineLocation(vc: UIViewController, href: String) {
@@ -251,6 +261,13 @@ class XDetailsNode: ASCellNode {
             Style.setButtonTitle(copyInfoButton, title: "Copy Info")
             copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
         }
+        
+        if let title = App.config.detailsExtraLinkText,
+           let _ = App.config.detailsExtraLinkFragment
+        {
+            Style.styleButton(asPlain: extrasButton, title: title)
+            extrasButton.addTarget(self, action: #selector(extrasPressed(sender:)), forControlEvents: .touchUpInside)
+        }
     }
 
     private func setupImageNode() {
@@ -355,7 +372,11 @@ class XDetailsNode: ASCellNode {
         let pageSpec = ASStackLayoutSpec.vertical()
         pageSpec.spacing = 8
         pageSpec.children = [header, summary, copySummary,
-                             buttonRow, synopsisNode, subject, isbn]
+                             buttonRow, synopsisNode]
+        if showExtrasButton {
+            pageSpec.children?.append(extrasButton)
+        }
+        pageSpec.children?.append(contentsOf: [subject, isbn])
         print(pageSpec.asciiArtString())
         
         let page = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: pageSpec)

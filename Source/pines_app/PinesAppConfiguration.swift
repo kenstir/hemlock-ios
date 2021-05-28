@@ -21,7 +21,9 @@ class PinesAppConfiguration: AppConfiguration {
     var title = "PINES"
     let url = "https://gapines.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    var sort: String? = nil
+    let sort: String? = nil
+    let detailsExtraLinkText: String? = "Recommended Reads"
+    let detailsExtraLinkFragment: String? = "awards"
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = false

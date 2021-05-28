@@ -141,6 +141,16 @@ class Style {
         button.tintColor = color
         button.layer.cornerRadius = 6
     }
+    
+    static func styleButton(asPlain button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.primaryDarkColor) {
+        button.tintColor = color
+        button.cornerRadius = 6
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        let font = UIFont.systemFont(ofSize: size)
+        button.setTitle(title, with: font, with: color, for: .normal)
+        button.setTitle(title, with: font, with: .gray, for: .disabled)
+        button.setTitle(title, with: font, with: .gray, for: .highlighted)
+    }
 
     static func setButtonTitle(_ button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize) {
         let font = UIFont.systemFont(ofSize: size)

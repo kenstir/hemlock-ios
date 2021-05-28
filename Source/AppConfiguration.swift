@@ -24,6 +24,8 @@ protocol AppConfiguration {
     var url: String { get }
     var bugReportEmailAddress: String { get }
     var sort: String? { get }
+    var detailsExtraLinkText: String? { get }
+    var detailsExtraLinkFragment: String? { get }
 
     var enableHierarchicalOrgTree: Bool { get }
     var enableHoldShowQueuePosition: Bool { get }
