@@ -21,7 +21,9 @@ class NTLCAppConfiguration: AppConfiguration {
     let title = "NTLC Catalog"
     let url = "https://catalog.northtexaslibraries.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    var sort: String? = nil
+    let sort: String? = nil
+    let detailsExtraLinkText: String? = nil
+    let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true

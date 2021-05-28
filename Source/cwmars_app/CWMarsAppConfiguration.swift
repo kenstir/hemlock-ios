@@ -22,6 +22,8 @@ class CWMarsAppConfiguration: AppConfiguration {
     let url = "https://catalog.cwmars.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
+    let detailsExtraLinkText: String? = nil
+    let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = false
     let enableHoldShowQueuePosition = true

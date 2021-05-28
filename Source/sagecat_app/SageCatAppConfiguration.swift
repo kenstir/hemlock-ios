@@ -21,7 +21,9 @@ class SageCatAppConfiguration: AppConfiguration {
     let title = "SageCat"
     let url = "https://catalog.sage.eou.edu"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    var sort: String? = nil
+    let sort: String? = nil
+    let detailsExtraLinkText: String? = nil
+    let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true

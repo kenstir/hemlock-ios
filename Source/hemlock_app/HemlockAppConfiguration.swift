@@ -22,6 +22,8 @@ class HemlockAppConfiguration: AppConfiguration {
     let url = "http://192.168.1.4"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
+    let detailsExtraLinkText: String? = nil
+    let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true

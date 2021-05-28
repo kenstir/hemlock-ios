@@ -22,6 +22,8 @@ class IndianaAppConfiguration: AppConfiguration {
     let url = "https://evergreen.lib.in.us"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     var sort: String? = nil
+    let detailsExtraLinkText: String? = nil
+    let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
