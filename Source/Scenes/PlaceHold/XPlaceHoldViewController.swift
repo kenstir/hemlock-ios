@@ -229,8 +229,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     }
     
     func setupButtonRow() {
-        Style.styleButton(asInverse: actionButton)
-        Style.setButtonTitle(actionButton, title: isEditHold ? "Update Hold" : "Place Hold")
+        Style.styleButton(asInverse: actionButton, title: isEditHold ? "Update Hold" : "Place Hold")
         actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), forControlEvents: .touchUpInside)
     }
 

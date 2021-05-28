@@ -121,13 +121,6 @@ class Style {
         button.layer.cornerRadius = 6
     }
     
-    static func styleButton(asInverse button: ASButtonNode, color: UIColor = App.theme.primaryColor) {
-        button.backgroundColor = color
-        button.tintColor = .white
-        button.cornerRadius = 6
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-    }
-    
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.primaryDarkColor) {
         button.tintColor = color
         // Setting the borderColor to the currentTitleColor handles the case
@@ -142,19 +135,24 @@ class Style {
         button.layer.cornerRadius = 6
     }
     
+    // styleButton for an ASButtonNode includes setting the title, because that involves colors
+    static func styleButton(asInverse button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.primaryColor) {
+        button.backgroundColor = color
+        button.tintColor = .white
+        button.cornerRadius = 6
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        let font = UIFont.systemFont(ofSize: size)
+        button.setTitle(title, with: font, with: .white, for: .normal)
+        button.setTitle(title, with: font, with: .gray, for: .disabled)
+        button.setTitle(title, with: font, with: .gray, for: .highlighted)
+    }
+
     static func styleButton(asPlain button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.primaryDarkColor) {
         button.tintColor = color
         button.cornerRadius = 6
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         let font = UIFont.systemFont(ofSize: size)
         button.setTitle(title, with: font, with: color, for: .normal)
-        button.setTitle(title, with: font, with: .gray, for: .disabled)
-        button.setTitle(title, with: font, with: .gray, for: .highlighted)
-    }
-
-    static func setButtonTitle(_ button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize) {
-        let font = UIFont.systemFont(ofSize: size)
-        button.setTitle(title, with: font, with: .white, for: .normal)
         button.setTitle(title, with: font, with: .gray, for: .disabled)
         button.setTitle(title, with: font, with: .gray, for: .highlighted)
     }
