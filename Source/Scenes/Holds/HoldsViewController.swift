@@ -137,7 +137,7 @@ class HoldsViewController: UIViewController {
             return fetchMetarecordHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
         } else if hold.holdType == API.holdTypePart {
             return fetchPartHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
-        } else if hold.holdType == API.holdTypeCopy {
+        } else if hold.holdType == API.holdTypeCopy || hold.holdType == API.holdTypeForce || hold.holdType == API.holdTypeRecall {
             return fetchCopyHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
         } else if hold.holdType == API.holdTypeVolume {
             return fetchVolumeHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)

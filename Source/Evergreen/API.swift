@@ -72,10 +72,13 @@ struct API {
     static let titleHoldIsPossible = "open-ils.circ.title_hold.is_possible"
     
     static let holdTypeCopy = "C"
+    static let holdTypeForce = "F"
+    static let holdTypeRecall = "R"
+    static let holdTypeIssuance = "I"
+    static let holdTypeVolume = "V"
+    static let holdTypeTitle = "T"
     static let holdTypeMetarecord =  "M"
     static let holdTypePart = "P"
-    static let holdTypeTitle = "T"
-    static let holdTypeVolume = "V"
 
     //MARK: - fielder service
     
