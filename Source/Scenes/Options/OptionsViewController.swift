@@ -109,5 +109,11 @@ extension OptionsViewController: UITableViewDelegate {
         updateCheckmarks()
         tableView.deselectRow(at: indexPath, animated: true)
         selectionChangedHandler?(indexPath.row, label)
+
+        // navigate back after short delay for user to perceive the update
+        let delay = 0.200
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
