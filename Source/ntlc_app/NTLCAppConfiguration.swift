@@ -23,6 +23,7 @@ class NTLCAppConfiguration: AppConfiguration {
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
     let detailsExtraLinkText: String? = nil
+    let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = true

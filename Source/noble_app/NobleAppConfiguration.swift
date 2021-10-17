@@ -23,6 +23,7 @@ class NobleAppConfiguration: AppConfiguration {
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = "poprel"
     let detailsExtraLinkText: String? = nil
+    let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = true

@@ -22,8 +22,9 @@ class CoolAppConfiguration: AppConfiguration {
     let url = "https://cool-cat.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
-    let detailsExtraLinkText: String? = nil
-    let detailsExtraLinkFragment: String? = nil
+    let detailsExtraLinkText: String? = "Additional Content"
+    let detailsExtraLinkQuery: String? = "expand=addedcontent;ac=summary"
+    let detailsExtraLinkFragment: String? = "addedcontent"
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true

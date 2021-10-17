@@ -55,7 +55,7 @@ class XDetailsNode: ASCellNode {
     private let isbnLabel = ASTextNode()
     private let isbnNode = ASTextNode()
     
-    private var showExtrasButton: Bool { return App.config.detailsExtraLinkText != nil && App.config.detailsExtraLinkFragment != nil }
+    private var showExtrasButton: Bool { return App.config.detailsExtraLinkText != nil }
 
     //MARK: - Lifecycle
     
@@ -126,8 +126,13 @@ class XDetailsNode: ASCellNode {
     }
     
     @objc func extrasPressed(sender: Any) {
-        guard let fragment = App.config.detailsExtraLinkFragment else { return }
-        let url = App.config.url + "/eg/opac/record/" + String(record.id) + "#" + fragment
+        var url = App.config.url + "/eg/opac/record/" + String(record.id)
+        if let q = App.config.detailsExtraLinkQuery {
+            url += "?" + q
+        }
+        if let fragment = App.config.detailsExtraLinkFragment {
+            url += "#" + fragment
+        }
         guard let vc = self.closestViewController else { return }
         self.openOnlineLocation(vc: vc, href: url)
     }

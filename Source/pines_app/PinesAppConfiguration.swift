@@ -23,6 +23,7 @@ class PinesAppConfiguration: AppConfiguration {
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
     let detailsExtraLinkText: String? = "Recommended Reads"
+    let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = "awards"
 
     let enableHierarchicalOrgTree = true
