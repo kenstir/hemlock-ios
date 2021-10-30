@@ -919,6 +919,7 @@
 		D2931AB1272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
 		D2931AB2272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
 		D2931AB3272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AB7272DF49A00CBA5AA /* BookBagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */; };
 		D296EE0C21338030009BDB12 /* CWMarsAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */; };
 		D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppFactory.swift */; };
 		D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CWMarsTheme.swift */; };
@@ -1434,6 +1435,7 @@
 		D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagDetailsView.swift; sourceTree = "<group>"; };
 		D2931A9E272DE56500CBA5AA /* BookBagItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagItem.swift; sourceTree = "<group>"; };
 		D2931AA9272DE83200CBA5AA /* BookBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBag.swift; sourceTree = "<group>"; };
+		D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagTests.swift; sourceTree = "<group>"; };
 		D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsAppConfiguration.swift; sourceTree = "<group>"; };
 		D296EE0A2133802F009BDB12 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
@@ -1907,6 +1909,7 @@
 		D22D027B208588A100DC1F5B /* Evergreen */ = {
 			isa = PBXGroup;
 			children = (
+				D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */,
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
 				D2806A9021B33F6000F308F4 /* BarcodeTests.swift */,
 				D252DA2723F616C000D11662 /* CircRecordTests.swift */,
@@ -3917,6 +3920,7 @@
 				D259671924511CA90076267D /* UtilsTests.swift in Sources */,
 				D2F390392241E6090089D745 /* RingBufferTests.swift in Sources */,
 				D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */,
+				D2931AB7272DF49A00CBA5AA /* BookBagTests.swift in Sources */,
 				D252DA2A23F6382000D11662 /* HoldRecordTests.swift in Sources */,
 				D28AE26024FDD6F000960E9E /* MessageMapTests.swift in Sources */,
 				D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */,

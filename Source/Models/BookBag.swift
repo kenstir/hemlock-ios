@@ -20,7 +20,7 @@
 
 import Foundation
 
-struct BookBag {
+class BookBag {
     var id: Int
     var name: String
     var obj: OSRFObject
@@ -36,6 +36,15 @@ struct BookBag {
         self.id = id
         self.name = name
         self.obj = obj
+    }
+    
+    func loadItems(fromObj obj: OSRFObject) {
+        items.removeAll()
+        if let fleshedItems = obj.getAny("items") as? [OSRFObject] {
+            for item in fleshedItems {
+                items.append(BookBagItem(cbrebiObj: item))
+            }
+        }
     }
 
     static func makeArray(_ objects: [OSRFObject]) -> [BookBag] {
