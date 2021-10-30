@@ -38,11 +38,23 @@ class BookBag {
         self.obj = obj
     }
     
-    func loadItems(fromObj obj: OSRFObject) {
+    func initVisibleIds(fromQueryObj obj: OSRFObject) {
+        filterToVisibleRecords = true
+        visibleRecordIds = MBRecord.getIdsList(fromQueryObj: obj)
+    }
+    
+    func loadItems(fromFleshedObj obj: OSRFObject) {
         items.removeAll()
         if let fleshedItems = obj.getAny("items") as? [OSRFObject] {
             for item in fleshedItems {
-                items.append(BookBagItem(cbrebiObj: item))
+                if !filterToVisibleRecords {
+                    items.append(BookBagItem(cbrebiObj: item))
+                } else {
+                    if let targetId = item.getInt("target_biblio_record_entry"),
+                       visibleRecordIds.contains(targetId) {
+                        items.append(BookBagItem(cbrebiObj: item))
+                    }
+                }
             }
         }
     }

@@ -61,12 +61,39 @@ class BookBagTests: XCTestCase {
         let bookBag = BookBag.makeArray([cbrebObj]).first!
         XCTAssertEqual(0, bookBag.items.count)
         
-        bookBag.loadItems(fromObj: fleshedCbrebObj)
-//        let mvrObj = OSRFObject([
-//            "doc_id": 1234,
-//            "title": "The Testaments",
-//            "author": "Margaret Atwood"
-//        ])
-//        let metabibRecord = MBRecord(id: 1234, mvrObj: mvrObj)
+        bookBag.loadItems(fromFleshedObj: fleshedCbrebObj)
+        XCTAssertEqual(51454078, bookBag.items.first?.id)
+        XCTAssertEqual(2914107, bookBag.items.first?.targetId)
     }
+    
+    func test_filterToVisibleRecords() {
+        let bookBag = BookBag.makeArray([cbrebObj]).first!
+        
+        let recordId = 2914107
+        let queryPayload = OSRFObject([
+            "count": 1,
+            "ids": [[recordId, "2", "4.0"]],
+        ])
+        let emptyQueryPayload = OSRFObject([
+            "count": 1,
+            "ids": [],
+        ])
+
+        // case 1: recordId is visible
+        bookBag.initVisibleIds(fromQueryObj: queryPayload)
+        bookBag.loadItems(fromFleshedObj: fleshedCbrebObj)
+        XCTAssertEqual(1, bookBag.items.count)
+
+        // case 2: recordId is not visible
+        bookBag.initVisibleIds(fromQueryObj: emptyQueryPayload)
+        bookBag.loadItems(fromFleshedObj: fleshedCbrebObj)
+        XCTAssertEqual(0, bookBag.items.count)
+    }
+
+    //        let mvrObj = OSRFObject([
+    //            "doc_id": 1234,
+    //            "title": "The Testaments",
+    //            "author": "Margaret Atwood"
+    //        ])
+    //        let metabibRecord = MBRecord(id: 1234, mvrObj: mvrObj)
 }

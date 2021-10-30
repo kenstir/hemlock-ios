@@ -92,7 +92,7 @@ class OSRFCoderTests: XCTestCase {
             XCTFail("ERROR decoding JSON")
             return
         }
-        XCTAssertNil(jsonArray[0])
+        XCTAssertNil(jsonArray[0] as? [OSRFObject])
         XCTAssertEqual("t", jsonArray[1] as? String)
         XCTAssertEqual(jsonArray.count, 8)
 
