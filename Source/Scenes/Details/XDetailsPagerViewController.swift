@@ -76,7 +76,11 @@ class XDetailsPagerViewController: ASViewController<ASPagerNode> {
     //MARK: - Setup
     
     func setupNodes() {
-        self.automaticallyAdjustsScrollViewInsets = false
+        if #available(iOS 11.0, *) {
+            pagerNode.view.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
 
         // If you don't set isTranslucent=false, either here or in the AppDelegate,
         // ASDK positions the content *under* the navigationBar.
