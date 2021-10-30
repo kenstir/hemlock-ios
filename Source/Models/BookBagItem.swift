@@ -1,5 +1,5 @@
 /*
- * BookBagsView.swift
+ * BookBagItem.swift
  *
  * Copyright (C) 2021 Kenneth H. Cox
  *
@@ -18,28 +18,21 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-import SwiftUI
+import Foundation
 
-@available(iOS 13.0, *)
-struct BookBagsView: View {
-    var body: some View {
-        VStack(
-               alignment: .leading,
-               spacing: 10
-           ) {
-               ForEach(
-                   1...10,
-                   id: \.self
-               ) {
-                   Text("Item \($0)")
-               }
-           }
-    }
-}
+struct BookBagItem {
+    var cbrebiObj: OSRFObject
+    var metabibRecord: MBRecord?
 
-@available(iOS 13.0, *)
-struct BookBagsView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookBagsView()
+    var id: Int {
+        return cbrebiObj.getInt("id") ?? -1
     }
+    var targetId: Int {
+        return cbrebiObj.getInt("target_biblio_record_entry") ?? -1
+    }
+
+    init(cbrebiObj: OSRFObject) {
+        self.cbrebiObj = cbrebiObj
+    }
+
 }

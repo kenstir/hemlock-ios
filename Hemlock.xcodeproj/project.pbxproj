@@ -889,6 +889,36 @@
 		D2931A8F272DB6D800CBA5AA /* BookBagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A87272DB6D800CBA5AA /* BookBagsView.swift */; };
 		D2931A90272DB6D800CBA5AA /* BookBagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A87272DB6D800CBA5AA /* BookBagsView.swift */; };
 		D2931A91272DB6D800CBA5AA /* BookBagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A87272DB6D800CBA5AA /* BookBagsView.swift */; };
+		D2931A94272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A95272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A96272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A97272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A98272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A99272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A9A272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A9B272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A9C272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A9D272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */; };
+		D2931A9F272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA0272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA2272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA3272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA4272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA5272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA6272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA7272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AA8272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
+		D2931AAA272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AAB272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AAC272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AAD272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AAE272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AAF272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AB0272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AB1272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AB2272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
+		D2931AB3272DE83200CBA5AA /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
 		D296EE0C21338030009BDB12 /* CWMarsAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */; };
 		D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppFactory.swift */; };
 		D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CWMarsTheme.swift */; };
@@ -1401,6 +1431,9 @@
 		D28AE27024FDDD8800960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27324FDE01900960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* BookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagsView.swift; sourceTree = "<group>"; };
+		D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagDetailsView.swift; sourceTree = "<group>"; };
+		D2931A9E272DE56500CBA5AA /* BookBagItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagItem.swift; sourceTree = "<group>"; };
+		D2931AA9272DE83200CBA5AA /* BookBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBag.swift; sourceTree = "<group>"; };
 		D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsAppConfiguration.swift; sourceTree = "<group>"; };
 		D296EE0A2133802F009BDB12 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
@@ -1714,6 +1747,8 @@
 		D212DB1020C3717200267503 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D2931AA9272DE83200CBA5AA /* BookBag.swift */,
+				D2931A9E272DE56500CBA5AA /* BookBagItem.swift */,
 				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
@@ -2085,6 +2120,7 @@
 		D2931A92272DB77100CBA5AA /* BookBags */ = {
 			isa = PBXGroup;
 			children = (
+				D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */,
 				D2931A87272DB6D800CBA5AA /* BookBagsView.swift */,
 			);
 			path = BookBags;
@@ -3086,6 +3122,7 @@
 				D210EBDF22B1EE55002FB5E0 /* CopyStatus.swift in Sources */,
 				D210EBE122B1EE55002FB5E0 /* App.swift in Sources */,
 				D210EBE222B1EE55002FB5E0 /* Library.swift in Sources */,
+				D2931A9F272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D210EBE422B1EE55002FB5E0 /* GatewayResponse.swift in Sources */,
 				D210EBE522B1EE55002FB5E0 /* SMSCarrier.swift in Sources */,
 				D210EBE622B1EE55002FB5E0 /* RingBuffer.swift in Sources */,
@@ -3101,6 +3138,7 @@
 				D210EBEE22B1EE55002FB5E0 /* XDetailsPagerViewController.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
 				D210EBF022B1EE55002FB5E0 /* ASDisplayNode+.swift in Sources */,
+				D2931AAA272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D210EBF122B1EE55002FB5E0 /* SendEmailViewController.swift in Sources */,
 				D210EBF222B1EE55002FB5E0 /* UIView+UYLExtensions.swift in Sources */,
 				D210EBF322B1EE55002FB5E0 /* CircRecord.swift in Sources */,
@@ -3128,6 +3166,7 @@
 				D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */,
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
 				D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */,
+				D2931A94272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
 				D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */,
 				D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */,
@@ -3184,6 +3223,7 @@
 				D23E9F8723B9200A0030F5C1 /* Library.swift in Sources */,
 				D23E9F8823B9200A0030F5C1 /* GatewayResponse.swift in Sources */,
 				D23E9F8923B9200A0030F5C1 /* SMSCarrier.swift in Sources */,
+				D2931AA7272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D23E9F8A23B9200A0030F5C1 /* RingBuffer.swift in Sources */,
 				D23E9F8B23B9200A0030F5C1 /* HemlockError.swift in Sources */,
 				D23E9F8C23B9200A0030F5C1 /* XResultsViewController.swift in Sources */,
@@ -3199,6 +3239,7 @@
 				D23E9F9523B9200A0030F5C1 /* ASDisplayNode+.swift in Sources */,
 				D23E9F9623B9200A0030F5C1 /* SendEmailViewController.swift in Sources */,
 				D23E9F9723B9200A0030F5C1 /* UIView+UYLExtensions.swift in Sources */,
+				D2931AB2272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D23E9F9823B9200A0030F5C1 /* CircRecord.swift in Sources */,
 				D23E9FEE23B923B80030F5C1 /* SageCatAppConfiguration.swift in Sources */,
 				D23E9F9923B9200A0030F5C1 /* CheckoutsViewController.swift in Sources */,
@@ -3226,6 +3267,7 @@
 				D23E9FAA23B9200A0030F5C1 /* XSendEmailViewController.swift in Sources */,
 				D23E9FAB23B9200A0030F5C1 /* UIFont+smallCaps.swift in Sources */,
 				D23E9FAC23B9200A0030F5C1 /* BarcodeUtils.swift in Sources */,
+				D2931A9C272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D23E9FAD23B9200A0030F5C1 /* FineRecord.swift in Sources */,
 				D23E9FAE23B9200A0030F5C1 /* AppDelegate.swift in Sources */,
 				D23E9FAF23B9200A0030F5C1 /* ActorService.swift in Sources */,
@@ -3282,6 +3324,7 @@
 				D2477C3424786CCF00FD4CF6 /* IndianaTheme.swift in Sources */,
 				D2477BD424785A6B00FD4CF6 /* GatewayResponse.swift in Sources */,
 				D2477BD524785A6B00FD4CF6 /* SMSCarrier.swift in Sources */,
+				D2931AA3272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2477BD624785A6B00FD4CF6 /* RingBuffer.swift in Sources */,
 				D2477BD724785A6B00FD4CF6 /* HemlockError.swift in Sources */,
 				D2477BD824785A6B00FD4CF6 /* XResultsViewController.swift in Sources */,
@@ -3297,6 +3340,7 @@
 				D2477BE124785A6B00FD4CF6 /* ASDisplayNode+.swift in Sources */,
 				D2477BE224785A6B00FD4CF6 /* SendEmailViewController.swift in Sources */,
 				D2477BE324785A6B00FD4CF6 /* UIView+UYLExtensions.swift in Sources */,
+				D2931AAE272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2477BE424785A6B00FD4CF6 /* CircRecord.swift in Sources */,
 				D2477BE624785A6B00FD4CF6 /* CheckoutsViewController.swift in Sources */,
 				D2477BE724785A6B00FD4CF6 /* XPlaceHoldViewController.swift in Sources */,
@@ -3324,6 +3368,7 @@
 				D2477BFA24785A6B00FD4CF6 /* UIFont+smallCaps.swift in Sources */,
 				D2477C3324786CCF00FD4CF6 /* AppFactory.swift in Sources */,
 				D2477BFB24785A6B00FD4CF6 /* BarcodeUtils.swift in Sources */,
+				D2931A98272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D2477BFC24785A6B00FD4CF6 /* FineRecord.swift in Sources */,
 				D2477BFD24785A6B00FD4CF6 /* AppDelegate.swift in Sources */,
 				D2477BFE24785A6B00FD4CF6 /* ActorService.swift in Sources */,
@@ -3380,6 +3425,7 @@
 				D2572AC324AD7755000BA698 /* Library.swift in Sources */,
 				D2572AC424AD7755000BA698 /* GatewayResponse.swift in Sources */,
 				D2572AC524AD7755000BA698 /* SMSCarrier.swift in Sources */,
+				D2931AA8272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2572AC624AD7755000BA698 /* RingBuffer.swift in Sources */,
 				D2572AC724AD7755000BA698 /* HemlockError.swift in Sources */,
 				D2572AC824AD7755000BA698 /* XResultsViewController.swift in Sources */,
@@ -3395,6 +3441,7 @@
 				D2572AD224AD7755000BA698 /* ASDisplayNode+.swift in Sources */,
 				D2572AD324AD7755000BA698 /* SendEmailViewController.swift in Sources */,
 				D2572AD424AD7755000BA698 /* UIView+UYLExtensions.swift in Sources */,
+				D2931AB3272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2572AD524AD7755000BA698 /* CircRecord.swift in Sources */,
 				D2572AD724AD7755000BA698 /* CheckoutsViewController.swift in Sources */,
 				D2572AD824AD7755000BA698 /* XPlaceHoldViewController.swift in Sources */,
@@ -3422,6 +3469,7 @@
 				D2572AEC24AD7755000BA698 /* BarcodeUtils.swift in Sources */,
 				D2572AED24AD7755000BA698 /* FineRecord.swift in Sources */,
 				D2572AEE24AD7755000BA698 /* AppDelegate.swift in Sources */,
+				D2931A9D272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D2572AEF24AD7755000BA698 /* ActorService.swift in Sources */,
 				D2572AF024AD7755000BA698 /* CredentialManager.swift in Sources */,
 				D2572AF124AD7755000BA698 /* RecordAttributes.swift in Sources */,
@@ -3450,6 +3498,7 @@
 				D276DA8921336B20007FAA31 /* OSRFCoder.swift in Sources */,
 				D276DA8A21336B20007FAA31 /* LoginViewController.swift in Sources */,
 				D26210F3217E3502004E7ABE /* XDetailsNode.swift in Sources */,
+				D2931A96272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D276DA8C21336B20007FAA31 /* XResultsTableNode.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
 				D276DA8F21336B20007FAA31 /* String+splitOnRegex.swift in Sources */,
@@ -3463,6 +3512,7 @@
 				D276DA9221336B20007FAA31 /* HoldRecord.swift in Sources */,
 				D21981FA235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF222CE7BF500F69848 /* Link.swift in Sources */,
+				D2931AAC272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2C7D6292484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
@@ -3522,6 +3572,7 @@
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
+				D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
 				D276DABC21336B20007FAA31 /* ActorService.swift in Sources */,
 				D20B2FFE22CFD91900F69848 /* RecordAttributes.swift in Sources */,
@@ -3547,6 +3598,7 @@
 				FAA9E31921962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D26210EB217E130E004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
+				D2931A97272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
 				D26210ED217E2369004E7ABE /* XDetailsNode.swift in Sources */,
 				D23E5A0120ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
@@ -3560,6 +3612,7 @@
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
 				D21981FB235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF022CE7BF500F69848 /* Link.swift in Sources */,
+				D2931AAD272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2C7D62A2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FE822CC359000F69848 /* MARCRecord.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
@@ -3619,6 +3672,7 @@
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
+				D2931AA2272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
 				D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */,
 				D20B2FFC22CFD91900F69848 /* RecordAttributes.swift in Sources */,
@@ -3644,6 +3698,7 @@
 				D21867A221D039BF0082358C /* CoolTheme.swift in Sources */,
 				D284244D21D0358200C7171C /* OSRFCoder.swift in Sources */,
 				D284244E21D0358200C7171C /* LoginViewController.swift in Sources */,
+				D2931A95272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D284245021D0358200C7171C /* XDetailsNode.swift in Sources */,
 				D284245121D0358200C7171C /* XResultsTableNode.swift in Sources */,
 				D21867A321D039BF0082358C /* AppFactory.swift in Sources */,
@@ -3657,6 +3712,7 @@
 				D284245621D0358200C7171C /* MainTableViewCell.swift in Sources */,
 				D21981F9235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF322CE7BF500F69848 /* Link.swift in Sources */,
+				D2931AAB272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2C7D6282484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D284245821D0358200C7171C /* HoldRecord.swift in Sources */,
@@ -3716,6 +3772,7 @@
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
 				D284248121D0358200C7171C /* BarcodeUtils.swift in Sources */,
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
+				D2931AA0272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D284248421D0358200C7171C /* AppDelegate.swift in Sources */,
 				D284248521D0358200C7171C /* ActorService.swift in Sources */,
 				D20B2FFF22CFD91900F69848 /* RecordAttributes.swift in Sources */,
@@ -3769,6 +3826,7 @@
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
+				D2931AA6272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
 				D2F390352241E5950089D745 /* RingBuffer.swift in Sources */,
@@ -3784,6 +3842,7 @@
 				D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */,
+				D2931AB1272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2AA63C82282691900121CE8 /* ASDisplayNode+.swift in Sources */,
 				D22D0C992243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
@@ -3811,6 +3870,7 @@
 				D22D0C8F22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20921AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
+				D2931A9B272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */,
@@ -3898,6 +3958,7 @@
 				D2BDA62822D176BD00D9B60C /* App.swift in Sources */,
 				D2BDA62922D176BD00D9B60C /* Library.swift in Sources */,
 				D2BDA62B22D176BD00D9B60C /* GatewayResponse.swift in Sources */,
+				D2931AA4272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2BDA62C22D176BD00D9B60C /* SMSCarrier.swift in Sources */,
 				D2BDA62D22D176BD00D9B60C /* RingBuffer.swift in Sources */,
 				D2BDA62E22D176BD00D9B60C /* HemlockError.swift in Sources */,
@@ -3913,6 +3974,7 @@
 				D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */,
 				D2BDA63822D176BD00D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA63922D176BD00D9B60C /* SendEmailViewController.swift in Sources */,
+				D2931AAF272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2BDA63A22D176BD00D9B60C /* UIView+UYLExtensions.swift in Sources */,
 				D2BDA63B22D176BD00D9B60C /* CircRecord.swift in Sources */,
 				D2BDA63C22D176BD00D9B60C /* CheckoutsViewController.swift in Sources */,
@@ -3940,6 +4002,7 @@
 				D2BDA64C22D176BD00D9B60C /* UIFont+smallCaps.swift in Sources */,
 				D2BDA64D22D176BD00D9B60C /* BarcodeUtils.swift in Sources */,
 				D2BDA64F22D176BD00D9B60C /* FineRecord.swift in Sources */,
+				D2931A99272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D2BDA65022D176BD00D9B60C /* AppDelegate.swift in Sources */,
 				D2BDA65122D176BD00D9B60C /* ActorService.swift in Sources */,
 				D2BDA65222D176BD00D9B60C /* RecordAttributes.swift in Sources */,
@@ -3996,6 +4059,7 @@
 				D2BDA6C022D2A72000D9B60C /* Library.swift in Sources */,
 				D2BDA6C222D2A72000D9B60C /* GatewayResponse.swift in Sources */,
 				D2BDA6C322D2A72000D9B60C /* SMSCarrier.swift in Sources */,
+				D2931AA5272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2BDA6C422D2A72000D9B60C /* RingBuffer.swift in Sources */,
 				D2BDA6C522D2A72000D9B60C /* HemlockError.swift in Sources */,
 				D2BDA6C622D2A72000D9B60C /* XResultsViewController.swift in Sources */,
@@ -4011,6 +4075,7 @@
 				D2BDA6CF22D2A72000D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA6D022D2A72000D9B60C /* SendEmailViewController.swift in Sources */,
 				D2BDA6D122D2A72000D9B60C /* UIView+UYLExtensions.swift in Sources */,
+				D2931AB0272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2BDA6D222D2A72000D9B60C /* CircRecord.swift in Sources */,
 				D2BDA6D322D2A72000D9B60C /* CheckoutsViewController.swift in Sources */,
 				D2BDA6D422D2A72000D9B60C /* XPlaceHoldViewController.swift in Sources */,
@@ -4038,6 +4103,7 @@
 				D2BDA6E522D2A72000D9B60C /* BarcodeUtils.swift in Sources */,
 				D2BDA6E622D2A72000D9B60C /* FineRecord.swift in Sources */,
 				D2BDA6E722D2A72000D9B60C /* AppDelegate.swift in Sources */,
+				D2931A9A272DE25D00CBA5AA /* BookBagDetailsView.swift in Sources */,
 				D2BDA6E822D2A72000D9B60C /* ActorService.swift in Sources */,
 				D2BDA6E922D2A72000D9B60C /* RecordAttributes.swift in Sources */,
 				D2BDA6EB22D2A72000D9B60C /* Gateway.swift in Sources */,

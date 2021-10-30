@@ -1,5 +1,5 @@
 /*
- * BookBagsView.swift
+ * BookBagDetailsView.swift
  *
  * Copyright (C) 2021 Kenneth H. Cox
  *
@@ -21,25 +21,16 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct BookBagsView: View {
+struct BookBagDetailsView: View {
     var body: some View {
-        VStack(
-               alignment: .leading,
-               spacing: 10
-           ) {
-               ForEach(
-                   1...10,
-                   id: \.self
-               ) {
-                   Text("Item \($0)")
-               }
-           }
+        Text("BookBagDetails")
+            .font(.headline)
     }
 }
 
 @available(iOS 13.0, *)
-struct BookBagsView_Previews: PreviewProvider {
+struct BookBagDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        BookBagsView()
+        BookBagDetailsView()
     }
 }

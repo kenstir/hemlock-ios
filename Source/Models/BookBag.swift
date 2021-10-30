@@ -1,5 +1,5 @@
 /*
- * BookBagsView.swift
+ * BookBag.swift
  *
  * Copyright (C) 2021 Kenneth H. Cox
  *
@@ -18,28 +18,35 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-import SwiftUI
+import Foundation
 
-@available(iOS 13.0, *)
-struct BookBagsView: View {
-    var body: some View {
-        VStack(
-               alignment: .leading,
-               spacing: 10
-           ) {
-               ForEach(
-                   1...10,
-                   id: \.self
-               ) {
-                   Text("Item \($0)")
-               }
-           }
+struct BookBag {
+    var id: Int
+    var name: String
+    var obj: OSRFObject
+    var items: [BookBagItem] = []
+    var filterToVisibleRecords = false
+    var visibleRecordIds: [Int] = []
+
+    var description: String? {
+        return obj.getString("description")
     }
-}
 
-@available(iOS 13.0, *)
-struct BookBagsView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookBagsView()
+    init(id: Int, name: String, obj: OSRFObject) {
+        self.id = id
+        self.name = name
+        self.obj = obj
+    }
+
+    static func makeArray(_ objects: [OSRFObject]) -> [BookBag] {
+        var ret: [BookBag] = []
+        for obj in objects {
+            if let id = obj.getInt("id"),
+               let name = obj.getString("name")
+            {
+                ret.append(BookBag(id: id, name: name, obj: obj))
+            }
+        }
+        return ret
     }
 }
