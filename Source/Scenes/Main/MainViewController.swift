@@ -1,26 +1,28 @@
-//
-//  MainViewController.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
-//
-//  This program is free software; you can redistribute it and/or
-//  modify it under the terms of the GNU General Public License
-//  as published by the Free Software Foundation; either version 2
-//  of the License, or (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/*
+ *  MainViewController.swift
+ *
+ *  Copyright (C) 2018 Kenneth H. Cox
+ *
+ *  This program is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU General Public License
+ *  as published by the Free Software Foundation; either version 2
+ *  of the License, or (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 
 import Foundation
 import UIKit
 import PromiseKit
 import PMKAlamofire
+import SwiftUI
 
 class MainViewController: UIViewController {
     
@@ -70,11 +72,21 @@ class MainViewController: UIViewController {
             ("Items Checked Out", "ShowCheckoutsSegue", nil),
             ("Holds", "ShowHoldsSegue", nil),
             ("Fines", "ShowFinesSegue", nil),
-            ("Library Info", "ShowOrgDetailsSegue", nil),
         ]
+        if #available(iOS 13.0, *) {
+            buttons.append(("My Lists", "", {
+                return UIHostingController(rootView: BookBagsView())
+            }))
+        }
+        buttons.append(("Library Info", "ShowOrgDetailsSegue", nil))
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
+//        buttons.append(("Potter Search Now", "", {
+//            let vc = XResultsViewController()
+//            vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
+//            return vc
+//        }))
     }
 
     func setupViews() {
