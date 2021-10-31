@@ -22,24 +22,32 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 struct BookBagsView: View {
+    var bookBags: [BookBag]
+
     var body: some View {
-        VStack(
-               alignment: .leading,
-               spacing: 10
-           ) {
-               ForEach(
-                   1...10,
-                   id: \.self
-               ) {
-                   Text("Item \($0)")
-               }
-           }
+        NavigationView {
+            List(bookBags) { bookBag in
+                NavigationLink(destination: Text(bookBag.name)) {
+                    VStack(alignment: .leading) {
+                        Text(bookBag.name)
+                           .font(.title2)
+                        Text(bookBag.description ?? "")
+                           .font(.title3)
+                           .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .navigationBarTitle(Text("My Lists"))
+        }
     }
 }
 
 @available(iOS 14.0, *)
 struct BookBagsView_Previews: PreviewProvider {
     static var previews: some View {
-        BookBagsView()
+        Group {
+            BookBagsView(bookBags: testData)
+            BookBagsView(bookBags: testData)
+        }
     }
 }

@@ -75,7 +75,7 @@ class MainViewController: UIViewController {
         ]
         if #available(iOS 14.0, *) {
             buttons.append(("My Lists", "", {
-                return UIHostingController(rootView: BookBagsView())
+                return UIHostingController(rootView: BookBagsView(bookBags: []))
             }))
         }
         buttons.append(("Library Info", "ShowOrgDetailsSegue", nil))

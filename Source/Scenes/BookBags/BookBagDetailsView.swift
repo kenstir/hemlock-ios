@@ -23,12 +23,23 @@ import SwiftUI
 @available(iOS 14.0, *)
 struct BookBagDetailsView: View {
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("books to read")
-                .font(.title2)
-            Text("random books I want to read")
-                .font(.title3)
-                .foregroundColor(.secondary)
+        VStack {
+            VStack(alignment: .leading) {
+                Text("books to read")
+                    .font(.title2)
+                Text("random books I want to read")
+                    .font(.title3)
+                    .foregroundColor(.secondary)
+            }
+            List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+                VStack(alignment: .leading) {
+                    Text("Harry Potter and the Order of the Phoenix")
+                        .font(.headline)
+                    Text("Rowling, J. K.")
+                        .font(.subheadline)
+                    
+                }
+            }
         }
     }
 }

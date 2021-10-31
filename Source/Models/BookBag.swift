@@ -20,7 +20,7 @@
 
 import Foundation
 
-class BookBag {
+class BookBag : Identifiable {
     var id: Int
     var name: String
     var obj: OSRFObject
@@ -71,3 +71,17 @@ class BookBag {
         return ret
     }
 }
+
+#if DEBUG
+let testData = [
+    BookBag(id: 1, name: "books to read", obj: OSRFObject([
+        "description": "books I have not read"
+    ])),
+    BookBag(id: 2, name: "movies to watch with A", obj: OSRFObject([
+        "description": nil
+    ])),
+    BookBag(id: 3, name: "movies to watch", obj: OSRFObject([
+        "description": "movies nobody else but me would like"
+    ])),
+]
+#endif
