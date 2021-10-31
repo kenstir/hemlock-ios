@@ -20,7 +20,7 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 struct BookBagsView: View {
     var body: some View {
         VStack(
@@ -37,7 +37,7 @@ struct BookBagsView: View {
     }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 struct BookBagsView_Previews: PreviewProvider {
     static var previews: some View {
         BookBagsView()

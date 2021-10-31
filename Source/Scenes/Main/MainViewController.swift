@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
             ("Holds", "ShowHoldsSegue", nil),
             ("Fines", "ShowFinesSegue", nil),
         ]
-        if #available(iOS 13.0, *) {
+        if #available(iOS 14.0, *) {
             buttons.append(("My Lists", "", {
                 return UIHostingController(rootView: BookBagsView())
             }))

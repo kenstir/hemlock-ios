@@ -20,15 +20,20 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 struct BookBagDetailsView: View {
     var body: some View {
-        Text("BookBagDetails")
-            .font(.headline)
+        VStack(alignment: .leading) {
+            Text("books to read")
+                .font(.title2)
+            Text("random books I want to read")
+                .font(.title3)
+                .foregroundColor(.secondary)
+        }
     }
 }
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 struct BookBagDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         BookBagDetailsView()
