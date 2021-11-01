@@ -31,6 +31,7 @@ class Account {
     var defaultNotifyEmail: Bool?
     var defaultNotifyPhone: Bool?
     var defaultNotifySMS: Bool?
+    var bookBags: [BookBag] = []
     
     var displayName: String {
         if username == barcode,
@@ -124,5 +125,9 @@ class Account {
         }
         parseHoldNotifyValue(holdNotifySetting)
         userSettingsLoaded = true
+    }
+    
+    func loadBookBags(fromArray objects: [OSRFObject]) {
+        bookBags = BookBag.makeArray(objects)
     }
 }

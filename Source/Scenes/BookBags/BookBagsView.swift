@@ -25,17 +25,18 @@ struct BookBagsView: View {
     var bookBags: [BookBag]
 
     var body: some View {
-            List(bookBags) { bookBag in
-                NavigationLink(destination: Text(bookBag.name)) {
-                    VStack(alignment: .leading) {
-                        Text(bookBag.name)
-                           .font(.title2)
-                        Text(bookBag.description ?? "")
-                           .font(.title3)
-                           .foregroundColor(.secondary)
-                    }
+        List(bookBags) { bookBag in
+            NavigationLink(destination: Text(bookBag.name)) {
+                VStack(alignment: .leading) {
+                    Text(bookBag.name)
+                       .font(.title2)
+                    Text(bookBag.description ?? "")
+                       .font(.title3)
+                       .foregroundColor(.secondary)
                 }
-            }.navigationBarTitle("My Lists")
+            }
+        }.navigationBarTitle("My Lists")
+            .frame(maxWidth: .infinity)
     }
 }
 

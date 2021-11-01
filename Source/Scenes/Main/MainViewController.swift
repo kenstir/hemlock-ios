@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
 
-    var buttons: [(String, String, (() -> UIViewController)?)] = []
+    var buttons: [(String, String, (() -> Void)?)] = []
     
     //MARK: - UIViewController
     
@@ -75,18 +75,28 @@ class MainViewController: UIViewController {
         ]
         if #available(iOS 14.0, *) {
             buttons.append(("My Lists", "", {
-                return UIHostingController(rootView: BookBagsView(bookBags: []))
+                guard let account = App.account else { return }
+                ActorService.fetchBookBags(account: account).done {
+                    let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }.catch { error in
+                    self.presentGatewayAlert(forError: error)
+                }
             }))
         }
         buttons.append(("Library Info", "ShowOrgDetailsSegue", nil))
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
-//        buttons.append(("Potter Search Now", "", {
-//            let vc = XResultsViewController()
-//            vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
-//            return vc
-//        }))
+        buttons.append(("Potter Search Now", "", {
+            let vc = XResultsViewController()
+            vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }))
+    }
+    
+    func showMyLists() {
+        
     }
 
     func setupViews() {
@@ -277,9 +287,8 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tuple = buttons[indexPath.row]
         let segue = tuple.1
-        if let vcfunc = tuple.2 {
-            let vc = vcfunc()
-            self.navigationController?.pushViewController(vc, animated: true)
+        if let actionFunc = tuple.2 {
+            actionFunc()
         } else {
             self.performSegue(withIdentifier: segue, sender: nil)
         }

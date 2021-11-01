@@ -137,4 +137,17 @@ class ActorService {
         }
         return promise
     }
+    
+    static func fetchBookBags(account: Account) -> Promise<Void> {
+        guard let authtoken = account.authtoken,
+            let userID = account.userID else {
+            //TODO: analytics
+            return Promise<Void>()
+        }
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [authtoken, userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
+        let promise = req.gatewayArrayResponse().done { array in
+            account.loadBookBags(fromArray: array)
+        }
+        return promise
+    }
 }
