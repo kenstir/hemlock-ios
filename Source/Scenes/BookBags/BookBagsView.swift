@@ -25,7 +25,6 @@ struct BookBagsView: View {
     var bookBags: [BookBag]
 
     var body: some View {
-        NavigationView {
             List(bookBags) { bookBag in
                 NavigationLink(destination: Text(bookBag.name)) {
                     VStack(alignment: .leading) {
@@ -36,18 +35,13 @@ struct BookBagsView: View {
                            .foregroundColor(.secondary)
                     }
                 }
-            }
-            .navigationBarTitle(Text("My Lists"))
-        }
+            }.navigationBarTitle("My Lists")
     }
 }
 
 @available(iOS 14.0, *)
 struct BookBagsView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            BookBagsView(bookBags: testData)
-            BookBagsView(bookBags: testData)
-        }
+        BookBagsView(bookBags: testData)
     }
 }
