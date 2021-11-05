@@ -31,7 +31,7 @@ struct BookBagDetailsView: View {
                     .font(.title3)
                     .foregroundColor(.secondary)
             }
-            List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { item in
+            List(0 ..< 15) { item in
                 VStack(alignment: .leading) {
                     Text("Harry Potter and the Order of the Phoenix")
                         .font(.headline)

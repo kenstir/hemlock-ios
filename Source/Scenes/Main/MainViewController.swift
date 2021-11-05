@@ -88,11 +88,11 @@ class MainViewController: UIViewController {
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
-        buttons.append(("Potter Search Now", "", {
-            let vc = XResultsViewController()
-            vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }))
+//        buttons.append(("Potter Search Now", "", {
+//            let vc = XResultsViewController()
+//            vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }))
     }
     
     func showMyLists() {

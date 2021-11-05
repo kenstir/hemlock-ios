@@ -27,16 +27,22 @@ struct BookBagsView: View {
     var body: some View {
         List(bookBags) { bookBag in
             NavigationLink(destination: Text(bookBag.name)) {
-                VStack(alignment: .leading) {
-                    Text(bookBag.name)
-                       .font(.title2)
-                    Text(bookBag.description ?? "")
-                       .font(.title3)
-                       .foregroundColor(.secondary)
+                HStack() {
+                    VStack(alignment: .leading) {
+                        Text(bookBag.name)
+                           .font(.title2)
+                           .frame(maxWidth: .infinity, alignment: .topLeading)
+                        Text(bookBag.description ?? "")
+                           .font(.title3)
+                           .foregroundColor(.secondary)
+                    }
+                    Text("\(bookBag.items.count) items")
+                        .foregroundColor(.secondary)
+                        .frame(alignment: .topLeading)
                 }
             }
         }.navigationBarTitle("My Lists")
-            .frame(maxWidth: .infinity)
+            .listStyle(.grouped)
     }
 }
 
