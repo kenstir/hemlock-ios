@@ -356,6 +356,46 @@
 		D23E9FEE23B923B80030F5C1 /* SageCatAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */; };
 		D23E9FEF23B923B80030F5C1 /* SageCatTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */; };
 		D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23E9FF023B924390030F5C1 /* sagecat.xcassets */; };
+		D24628EC273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628ED273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628EE273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628EF273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628F0273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628F1273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628F2273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628F3273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628F4273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628F5273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
+		D24628F7273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D24628F8273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D24628F9273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D24628FA273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D24628FB273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D24628FC273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D24628FD273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D24628FE273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D24628FF273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D2462900273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
+		D2462902273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D2462903273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D2462904273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D2462905273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D2462906273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D2462907273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D2462908273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D2462909273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D246290A273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D246290B273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
+		D246290D273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D246290E273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D246290F273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D2462910273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D2462911273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D2462912273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D2462913273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D2462914273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D2462915273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
+		D2462916273732DC000DC659 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
 		D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D2477BB724785A6B00FD4CF6 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -1350,6 +1390,10 @@
 		D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatTheme.swift; sourceTree = "<group>"; };
 		D23E9FF023B924390030F5C1 /* sagecat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sagecat.xcassets; sourceTree = "<group>"; };
 		D23E9FF223B932DF0030F5C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D24628EB273705FB000DC659 /* BookBagStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookBagStore.swift; path = Source/Models/BookBagStore.swift; sourceTree = "<group>"; };
+		D24628F6273722E0000DC659 /* BookBags.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookBags.storyboard; sourceTree = "<group>"; };
+		D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagsTableViewCell.swift; sourceTree = "<group>"; };
+		D246290C273732DC000DC659 /* BookBagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagsViewController.swift; sourceTree = "<group>"; };
 		D246990320A9D80E0006DFF9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D246990520AA5C620006DFF9 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D2477C2B24785A6B00FD4CF6 /* Evergreen Indiana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Evergreen Indiana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2042,6 +2086,7 @@
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
+				D24628EB273705FB000DC659 /* BookBagStore.swift */,
 				D296EE0F213381FE009BDB12 /* Default-568h@2x.png */,
 				D22D0274208516D600DC1F5B /* LICENSE */,
 				D27EFD5A2094E1EB00D7E22E /* README.md */,
@@ -2125,6 +2170,9 @@
 			children = (
 				D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */,
 				D2931A87272DB6D800CBA5AA /* BookBagsView.swift */,
+				D24628F6273722E0000DC659 /* BookBags.storyboard */,
+				D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */,
+				D246290C273732DC000DC659 /* BookBagsViewController.swift */,
 			);
 			path = BookBags;
 			sourceTree = "<group>";
@@ -2505,6 +2553,7 @@
 				D28AE26224FDD9B200960E9E /* strings.json in Resources */,
 				D210EC2B22B1EE55002FB5E0 /* ShowCard.storyboard in Resources */,
 				D210EC2C22B1EE55002FB5E0 /* Options.storyboard in Resources */,
+				D24628F7273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D29911DA248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D210EC2D22B1EE55002FB5E0 /* Default-568h@2x.png in Resources */,
 				D210EC2E22B1EE55002FB5E0 /* Fines.storyboard in Resources */,
@@ -2530,6 +2579,7 @@
 				D28AE26A24FDD9B200960E9E /* strings.json in Resources */,
 				D23E9FD123B9200A0030F5C1 /* ShowCard.storyboard in Resources */,
 				D23E9FD223B9200A0030F5C1 /* Options.storyboard in Resources */,
+				D24628FF273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D29911E2248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D23E9FD423B9200A0030F5C1 /* Default-568h@2x.png in Resources */,
 				D23E9FD523B9200A0030F5C1 /* Fines.storyboard in Resources */,
@@ -2555,6 +2605,7 @@
 				D28AE26624FDD9B200960E9E /* strings.json in Resources */,
 				D2477C3824786EC000FD4CF6 /* indiana.xcassets in Resources */,
 				D2477C2124785A6B00FD4CF6 /* Options.storyboard in Resources */,
+				D24628FB273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D29911DE248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2477C2224785A6B00FD4CF6 /* Default-568h@2x.png in Resources */,
 				D2477C2324785A6B00FD4CF6 /* Fines.storyboard in Resources */,
@@ -2587,6 +2638,7 @@
 				D2572B1824AD7755000BA698 /* SendEmail.storyboard in Resources */,
 				D21090DE24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2572B1A24AD7755000BA698 /* Main.storyboard in Resources */,
+				D2462900273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D28AE27424FDE01900960E9E /* custom_strings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2613,6 +2665,7 @@
 				D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */,
 				D276DADB21336B20007FAA31 /* Fines.storyboard in Resources */,
 				D22D0C952243104600DBB31A /* SendEmail.storyboard in Resources */,
+				D24628F9273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D276DADD21336B20007FAA31 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2637,6 +2690,7 @@
 				D28AE26524FDD9B200960E9E /* strings.json in Resources */,
 				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
 				D29911DD248461C0007DB26C /* OrgDetails.storyboard in Resources */,
+				D24628FA273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D279910520DDD473003B451E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2656,6 +2710,7 @@
 				D28AE26324FDD9B200960E9E /* strings.json in Resources */,
 				D28424A721D0358200C7171C /* ShowCard.storyboard in Resources */,
 				D2616765220BA1AF0071E1A5 /* Options.storyboard in Resources */,
+				D24628F8273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D28424A821D0358200C7171C /* Default-568h@2x.png in Resources */,
 				D28424A921D0358200C7171C /* Fines.storyboard in Resources */,
@@ -2681,6 +2736,7 @@
 				D2616763220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D29C95FF2599288100CACDBD /* fail_part_msg_map.json in Resources */,
 				D279911120DDD77F003B451E /* pines.xcassets in Resources */,
+				D24628FE273722E0000DC659 /* BookBags.storyboard in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				D28AE26924FDD9B200960E9E /* strings.json in Resources */,
@@ -2724,6 +2780,7 @@
 				D2BDA67822D176BD00D9B60C /* SendEmail.storyboard in Resources */,
 				D21090DA24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2BDA67A22D176BD00D9B60C /* Main.storyboard in Resources */,
+				D24628FC273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D28AE27224FDDE8300960E9E /* custom_strings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2750,6 +2807,7 @@
 				D2BDA71022D2A72000D9B60C /* SendEmail.storyboard in Resources */,
 				D21090DB24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2BDA71222D2A72000D9B60C /* Main.storyboard in Resources */,
+				D24628FD273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D28AE26F24FDDD7700960E9E /* custom_strings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3095,8 +3153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D210EBC922B1EE55002FB5E0 /* OSRFCoder.swift in Sources */,
+				D2462902273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D210EBCA22B1EE55002FB5E0 /* LoginViewController.swift in Sources */,
 				D210EBCC22B1EE55002FB5E0 /* XDetailsNode.swift in Sources */,
+				D24628EC273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D210EBCD22B1EE55002FB5E0 /* XResultsTableNode.swift in Sources */,
 				D20B300222CFED2300F69848 /* AcornAppBehavior.swift in Sources */,
 				D210EBCF22B1EE55002FB5E0 /* UIColor+.swift in Sources */,
@@ -3133,6 +3193,7 @@
 				D210EBE822B1EE55002FB5E0 /* XResultsViewController.swift in Sources */,
 				D210EBE922B1EE55002FB5E0 /* SearchViewController.swift in Sources */,
 				D210EBEA22B1EE55002FB5E0 /* CircService.swift in Sources */,
+				D246290D273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D210EBEB22B1EE55002FB5E0 /* AFSessionManager+.swift in Sources */,
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
@@ -3196,8 +3257,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D23E9F6B23B9200A0030F5C1 /* OSRFCoder.swift in Sources */,
+				D246290A273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D23E9F6C23B9200A0030F5C1 /* LoginViewController.swift in Sources */,
 				D23E9F6E23B9200A0030F5C1 /* XDetailsNode.swift in Sources */,
+				D24628F4273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D23E9F6F23B9200A0030F5C1 /* XResultsTableNode.swift in Sources */,
 				D23E9F7023B9200A0030F5C1 /* UIColor+.swift in Sources */,
 				D23E9F7123B9200A0030F5C1 /* OptionsViewController.swift in Sources */,
@@ -3234,6 +3297,7 @@
 				D23E9F8E23B9200A0030F5C1 /* CircService.swift in Sources */,
 				D23E9F8F23B9200A0030F5C1 /* AFSessionManager+.swift in Sources */,
 				D23E9F9023B9200A0030F5C1 /* HoldsViewController.swift in Sources */,
+				D2462915273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D23E9F9123B9200A0030F5C1 /* CopyInfoTableViewCell.swift in Sources */,
 				D23E9F9223B9200A0030F5C1 /* AppBehavior.swift in Sources */,
 				D23E9F9323B9200A0030F5C1 /* XDetailsPagerViewController.swift in Sources */,
@@ -3297,8 +3361,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2477BB724785A6B00FD4CF6 /* OSRFCoder.swift in Sources */,
+				D2462906273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2477BB824785A6B00FD4CF6 /* LoginViewController.swift in Sources */,
 				D2477BBA24785A6B00FD4CF6 /* XDetailsNode.swift in Sources */,
+				D24628F0273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2477BBB24785A6B00FD4CF6 /* XResultsTableNode.swift in Sources */,
 				D2477BBC24785A6B00FD4CF6 /* UIColor+.swift in Sources */,
 				D2477BBD24785A6B00FD4CF6 /* OptionsViewController.swift in Sources */,
@@ -3335,6 +3401,7 @@
 				D2477BDA24785A6B00FD4CF6 /* CircService.swift in Sources */,
 				D2477BDB24785A6B00FD4CF6 /* AFSessionManager+.swift in Sources */,
 				D2477BDC24785A6B00FD4CF6 /* HoldsViewController.swift in Sources */,
+				D2462911273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2477BDD24785A6B00FD4CF6 /* CopyInfoTableViewCell.swift in Sources */,
 				D2477BDE24785A6B00FD4CF6 /* AppBehavior.swift in Sources */,
 				D2477BDF24785A6B00FD4CF6 /* XDetailsPagerViewController.swift in Sources */,
@@ -3398,8 +3465,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2572AA724AD7755000BA698 /* OSRFCoder.swift in Sources */,
+				D246290B273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2572AA824AD7755000BA698 /* LoginViewController.swift in Sources */,
 				D2572AAA24AD7755000BA698 /* XDetailsNode.swift in Sources */,
+				D24628F5273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2572AAB24AD7755000BA698 /* XResultsTableNode.swift in Sources */,
 				D2572AAC24AD7755000BA698 /* UIColor+.swift in Sources */,
 				D2572B2624AD7A13000BA698 /* MoAppConfiguration.swift in Sources */,
@@ -3436,6 +3505,7 @@
 				D2572ACA24AD7755000BA698 /* CircService.swift in Sources */,
 				D2572ACB24AD7755000BA698 /* AFSessionManager+.swift in Sources */,
 				D2572ACC24AD7755000BA698 /* HoldsViewController.swift in Sources */,
+				D2462916273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2572ACD24AD7755000BA698 /* CopyInfoTableViewCell.swift in Sources */,
 				D2572ACE24AD7755000BA698 /* AppBehavior.swift in Sources */,
 				D2572ACF24AD7755000BA698 /* XDetailsPagerViewController.swift in Sources */,
@@ -3527,6 +3597,8 @@
 				D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */,
 				D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D276DA9721336B20007FAA31 /* API.swift in Sources */,
+				D24628EE273705FB000DC659 /* BookBagStore.swift in Sources */,
+				D246290F273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */,
 				D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */,
 				D21090C824D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -3577,6 +3649,7 @@
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
 				D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
+				D2462904273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D276DABC21336B20007FAA31 /* ActorService.swift in Sources */,
 				D20B2FFE22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D276DABE21336B20007FAA31 /* Gateway.swift in Sources */,
@@ -3627,6 +3700,8 @@
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
 				D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
+				D24628EF273705FB000DC659 /* BookBagStore.swift in Sources */,
+				D2462910273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
 				D21090C924D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -3677,6 +3752,7 @@
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
 				D2931AA2272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
+				D2462905273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */,
 				D20B2FFC22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
@@ -3727,6 +3803,8 @@
 				D284245B21D0358200C7171C /* AppConfiguration.swift in Sources */,
 				D29911E5248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D284245C21D0358200C7171C /* FinesViewController.swift in Sources */,
+				D24628ED273705FB000DC659 /* BookBagStore.swift in Sources */,
+				D246290E273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D284245D21D0358200C7171C /* API.swift in Sources */,
 				D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */,
 				D21090C724D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -3777,6 +3855,7 @@
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
 				D2931AA0272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D284248421D0358200C7171C /* AppDelegate.swift in Sources */,
+				D2462903273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D284248521D0358200C7171C /* ActorService.swift in Sources */,
 				D20B2FFF22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D284248721D0358200C7171C /* Gateway.swift in Sources */,
@@ -3799,8 +3878,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2A74B1721289E8E001D4B0F /* PinesAppConfiguration.swift in Sources */,
+				D2462909273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				FAA9E31A21962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
+				D24628F3273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
 				D26210F2217E3502004E7ABE /* XDetailsNode.swift in Sources */,
 				D23E5A0220ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
@@ -3837,6 +3918,7 @@
 				D279911A20DDE160003B451E /* AppFactory.swift in Sources */,
 				D28725AF20E88063002A4C42 /* CircService.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
+				D2462914273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */,
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
@@ -3932,8 +4014,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2BDA60B22D176BD00D9B60C /* OSRFCoder.swift in Sources */,
+				D2462907273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2BDA60C22D176BD00D9B60C /* LoginViewController.swift in Sources */,
 				D2BDA60E22D176BD00D9B60C /* XDetailsNode.swift in Sources */,
+				D24628F1273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2BDA60F22D176BD00D9B60C /* XResultsTableNode.swift in Sources */,
 				D2BDA61122D176BD00D9B60C /* UIColor+.swift in Sources */,
 				D2BDA61222D176BD00D9B60C /* OptionsViewController.swift in Sources */,
@@ -3970,6 +4054,7 @@
 				D2BDA63022D176BD00D9B60C /* SearchViewController.swift in Sources */,
 				D2BDA63122D176BD00D9B60C /* CircService.swift in Sources */,
 				D2BDA63222D176BD00D9B60C /* AFSessionManager+.swift in Sources */,
+				D2462912273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2BDA63322D176BD00D9B60C /* HoldsViewController.swift in Sources */,
 				D2BDA63422D176BD00D9B60C /* CopyInfoTableViewCell.swift in Sources */,
 				D2BDA63522D176BD00D9B60C /* AppBehavior.swift in Sources */,
@@ -4033,8 +4118,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2BDA6A322D2A72000D9B60C /* OSRFCoder.swift in Sources */,
+				D2462908273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2BDA6A422D2A72000D9B60C /* LoginViewController.swift in Sources */,
 				D2BDA6A622D2A72000D9B60C /* XDetailsNode.swift in Sources */,
+				D24628F2273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2BDA6A722D2A72000D9B60C /* XResultsTableNode.swift in Sources */,
 				D2BDA6A822D2A72000D9B60C /* UIColor+.swift in Sources */,
 				D2BDA6A922D2A72000D9B60C /* OptionsViewController.swift in Sources */,
@@ -4071,6 +4158,7 @@
 				D2BDA6C822D2A72000D9B60C /* CircService.swift in Sources */,
 				D2BDA6C922D2A72000D9B60C /* AFSessionManager+.swift in Sources */,
 				D2BDA6CA22D2A72000D9B60C /* HoldsViewController.swift in Sources */,
+				D2462913273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2BDA6CB22D2A72000D9B60C /* CopyInfoTableViewCell.swift in Sources */,
 				D2BDA6CC22D2A72000D9B60C /* AppBehavior.swift in Sources */,
 				D2BDA6CD22D2A72000D9B60C /* XDetailsPagerViewController.swift in Sources */,
@@ -4605,7 +4693,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -4660,7 +4748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

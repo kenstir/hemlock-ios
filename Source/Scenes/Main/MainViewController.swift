@@ -72,19 +72,20 @@ class MainViewController: UIViewController {
             ("Items Checked Out", "ShowCheckoutsSegue", nil),
             ("Holds", "ShowHoldsSegue", nil),
             ("Fines", "ShowFinesSegue", nil),
+            ("My Lists", "ShowBookBagsSegue", nil),
+            ("Library Info", "ShowOrgDetailsSegue", nil),
         ]
-        if #available(iOS 14.0, *) {
-            buttons.append(("My Lists", "", {
-                guard let account = App.account else { return }
-                ActorService.fetchBookBags(account: account).done {
-                    let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }.catch { error in
-                    self.presentGatewayAlert(forError: error)
-                }
-            }))
-        }
-        buttons.append(("Library Info", "ShowOrgDetailsSegue", nil))
+//        if #available(iOS 14.0, *) {
+//            buttons.append(("My Lists", "", {
+//                guard let account = App.account else { return }
+//                ActorService.fetchBookBags(account: account).done {
+//                    let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }.catch { error in
+//                    self.presentGatewayAlert(forError: error)
+//                }
+//            }))
+//        }
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }

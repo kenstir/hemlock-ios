@@ -400,11 +400,12 @@
                         <segue destination="WoH-Us-ADe" kind="show" identifier="ShowCheckoutsSegue" id="lgg-cF-pgT"/>
                         <segue destination="F1d-4Q-gY1" kind="show" identifier="ShowCardSegue" id="TFl-Q7-5No"/>
                         <segue destination="je8-xt-n1w" kind="show" identifier="ShowOrgDetailsSegue" id="Xrd-57-VZ1"/>
+                        <segue destination="d8T-7C-gtm" kind="show" identifier="ShowBookBagsSegue" id="snH-Wb-ph4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="296.80000000000001" y="89.505247376311857"/>
+            <point key="canvasLocation" x="347" y="91"/>
         </scene>
         <!--Checkouts-->
         <scene sceneID="aTK-ho-xBV">
@@ -420,7 +421,17 @@
                 <viewControllerPlaceholder storyboardName="Fines" id="RCs-ov-Y8N" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNY-I9-YrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="242"/>
+            <point key="canvasLocation" x="1023" y="213"/>
+        </scene>
+        <!--BookBags-->
+        <scene sceneID="utM-QO-CcJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BookBags" id="d8T-7C-gtm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4si-c8-rj6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6NJ-p2-r4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="330"/>
         </scene>
         <!--Holds-->
         <scene sceneID="6Lk-6H-wk1">

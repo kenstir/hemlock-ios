@@ -26,21 +26,7 @@ struct BookBagsView: View {
 
     var body: some View {
         List(bookBags) { bookBag in
-            NavigationLink(destination: Text(bookBag.name)) {
-                HStack() {
-                    VStack(alignment: .leading) {
-                        Text(bookBag.name)
-                           .font(.title2)
-                           .frame(maxWidth: .infinity, alignment: .topLeading)
-                        Text(bookBag.description ?? "")
-                           .font(.title3)
-                           .foregroundColor(.secondary)
-                    }
-                    Text("\(bookBag.items.count) items")
-                        .foregroundColor(.secondary)
-                        .frame(alignment: .topLeading)
-                }
-            }
+            BookBagRow(bookBag: bookBag)
         }.navigationBarTitle("My Lists")
             .listStyle(.grouped)
     }
@@ -50,5 +36,28 @@ struct BookBagsView: View {
 struct BookBagsView_Previews: PreviewProvider {
     static var previews: some View {
         BookBagsView(bookBags: testData)
+    }
+}
+
+@available(iOS 14.0, *)
+struct BookBagRow: View {
+    let bookBag: BookBag
+
+    var body: some View {
+        NavigationLink(destination: Text(bookBag.name)) {
+            HStack() {
+                VStack(alignment: .leading) {
+                    Text(bookBag.name)
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                    Text(bookBag.description ?? "")
+                        .font(.title3)
+                        .foregroundColor(.secondary)
+                }
+                Text("\(bookBag.items.count) items")
+                    .foregroundColor(.secondary)
+                    .frame(alignment: .topLeading)
+            }
+        }
     }
 }
