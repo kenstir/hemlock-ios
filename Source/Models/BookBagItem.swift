@@ -20,7 +20,7 @@
 
 import Foundation
 
-struct BookBagItem {
+class BookBagItem {
     var cbrebiObj: OSRFObject
     var metabibRecord: MBRecord?
 

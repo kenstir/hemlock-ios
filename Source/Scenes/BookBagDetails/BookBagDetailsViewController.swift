@@ -23,7 +23,9 @@ import PromiseKit
 import os.log
 
 class BookBagDetailsViewController : UITableViewController {
-    
+
+    weak var activityIndicator: UIActivityIndicatorView!
+
     var bookBag: BookBag?
     var items: [BookBagItem] = []
 //    var didCompleteFetch = false
@@ -38,24 +40,65 @@ class BookBagDetailsViewController : UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let items = bookBag?.items {
-            self.items = items
+        
+        // deselect row when navigating back
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
+
+        self.fetchData()
+//        if let items = bookBag?.items {
+//            self.items = items
+//        }
     }
 
     //MARK: - Functions
     
     func setupViews() {
+        // create and style the activity indicator
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
+
         self.setupHomeButton()
         navigationItem.rightBarButtonItems?.append(editButtonItem)
     }
     
     func fetchData() {
-        guard let account = App.account else
-        {
-            presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+//        guard let account = App.account else
+//        {
+//            presentGatewayAlert(forError: HemlockError.sessionExpired)
+//            return //TODO: add analytics
+//        }
+        
+        centerSubview(activityIndicator)
+        activityIndicator.startAnimating()
+
+        // fetch the record details
+        var promises: [Promise<Void>] = []
+        if let items = bookBag?.items {
+            for item in items {
+                promises.append(fetchTargetDetails(forItem: item))
+            }
         }
+        
+        // wait for them to be fulfilled
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            self.updateItems()
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+    
+    func fetchTargetDetails(forItem item: BookBagItem) -> Promise<Void> {
+        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [item.targetId], shouldCache: true)
+        let promise = req.gatewayObjectResponse().done { obj in
+            item.metabibRecord = MBRecord(id: item.targetId, mvrObj: obj)
+        }
+        return promise
     }
     
     func updateItems() {
@@ -83,8 +126,7 @@ class BookBagDetailsViewController : UITableViewController {
         }
 
         let item = items[indexPath.row]
-//        cell.title.text = item.metabibRecord?.title
-        cell.title.text = "Item \(item.id) target \(item.targetId)"
+        cell.title.text = item.metabibRecord?.title
         cell.author.text = item.metabibRecord?.author
         cell.format.text = item.metabibRecord?.iconFormatLabel
 
