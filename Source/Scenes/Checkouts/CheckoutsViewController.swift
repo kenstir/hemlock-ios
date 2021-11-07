@@ -67,7 +67,6 @@ class CheckoutsViewController: UIViewController {
         Style.styleActivityIndicator(activityIndicator)
 
         self.setupHomeButton()
-        navigationItem.rightBarButtonItems?.append(editButtonItem)
     }
     
     func fetchData() {
@@ -223,10 +222,6 @@ extension CheckoutsViewController: UITableViewDataSource {
             return "Items checked out: \(items.count)"
         }
     }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CheckoutsTableViewCell"
@@ -281,9 +276,5 @@ extension CheckoutsViewController: UITableViewDelegate {
             // deselect row
             tableView.deselectRow(at: indexPath, animated: true)
         }
-    }
-    
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        self.isEditing = editing
     }
 }
