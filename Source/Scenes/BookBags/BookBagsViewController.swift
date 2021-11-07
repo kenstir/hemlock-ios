@@ -53,9 +53,6 @@ class BookBagsViewController : UITableViewController {
     //MARK: - Functions
     
     func setupViews() {
-        //tableView.dataSource = self
-        //tableView.delegate = self
-        
         // create and style the activity indicator
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
@@ -88,8 +85,7 @@ class BookBagsViewController : UITableViewController {
     }
     
     func fetchBookBagContents(account: Account) {
-        //TODO
-        let queryForVisibleItems = true
+        let queryForVisibleItems = true // TODO: parameterize per app?
         var promises: [Promise<Void>] = []
         for bookBag in account.bookBags {
             promises.append(ActorService.fetchBookBagContents(account: account, bookBag: bookBag, queryForVisibleItems: queryForVisibleItems))
@@ -109,6 +105,7 @@ class BookBagsViewController : UITableViewController {
     
     @objc func addButtonPressed(sender: UIBarButtonItem) {
         print("stop here")
+        self.showAlert(title: "TODO", message: "Not implemented yet")
     }
 
     func updateItems() {
@@ -126,6 +123,7 @@ class BookBagsViewController : UITableViewController {
         guard editingStyle == .delete else { return }
         print("delete row \(indexPath.row)")
         print("stop here")
+        self.showAlert(title: "TODO", message: "Not implemented yet")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -134,11 +132,18 @@ class BookBagsViewController : UITableViewController {
         }
         
         let item = items[indexPath.row]
-
         cell.title.text = item.name
         cell.subtitle.text = item.description
         cell.detail.text = "\(item.items.count) items"
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        if let vc = UIStoryboard(name: "BookBagDetails", bundle: nil).instantiateInitialViewController() as? BookBagDetailsViewController {
+            vc.bookBag = item
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

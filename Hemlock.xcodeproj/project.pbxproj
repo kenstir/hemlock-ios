@@ -1049,6 +1049,16 @@
 		D2AA9D5827383C41001E78DB /* BookBagDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */; };
 		D2AA9D5927383C41001E78DB /* BookBagDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */; };
 		D2AA9D5A27383C41001E78DB /* BookBagDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */; };
+		D2AA9D5E2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D5F2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D602738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D612738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D622738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D632738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D642738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D652738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D662738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AA9D672738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
 		D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */; };
 		D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99720F19CA400B25146 /* OrganizationTests.swift */; };
 		D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
@@ -1529,6 +1539,7 @@
 		D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASDisplayNode+.swift"; sourceTree = "<group>"; };
 		D2AA9D4527383B75001E78DB /* BookBagDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookBagDetails.storyboard; sourceTree = "<group>"; };
 		D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagDetailsViewController.swift; sourceTree = "<group>"; };
+		D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesAppBehavior.swift; sourceTree = "<group>"; };
 		D2BBA99720F19CA400B25146 /* OrganizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTests.swift; sourceTree = "<group>"; };
 		D2BBA99920F29F0E00B25146 /* ActorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorService.swift; sourceTree = "<group>"; };
@@ -2195,6 +2206,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AA9D4527383B75001E78DB /* BookBagDetails.storyboard */,
+				D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */,
 				D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */,
 			);
 			path = BookBagDetails;
@@ -3249,6 +3261,7 @@
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
 				D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */,
 				D211DBB62484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
+				D2AA9D5E2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D210EBEE22B1EE55002FB5E0 /* XDetailsPagerViewController.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
 				D210EBF022B1EE55002FB5E0 /* ASDisplayNode+.swift in Sources */,
@@ -3354,6 +3367,7 @@
 				D23E9F9323B9200A0030F5C1 /* XDetailsPagerViewController.swift in Sources */,
 				D23E9F9423B9200A0030F5C1 /* CopyInfoViewController.swift in Sources */,
 				D211DBBE2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
+				D2AA9D662738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D23E9F9523B9200A0030F5C1 /* ASDisplayNode+.swift in Sources */,
 				D23E9F9623B9200A0030F5C1 /* SendEmailViewController.swift in Sources */,
 				D23E9F9723B9200A0030F5C1 /* UIView+UYLExtensions.swift in Sources */,
@@ -3459,6 +3473,7 @@
 				D2477BDF24785A6B00FD4CF6 /* XDetailsPagerViewController.swift in Sources */,
 				D2477BE024785A6B00FD4CF6 /* CopyInfoViewController.swift in Sources */,
 				D211DBBA2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
+				D2AA9D622738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2477BE124785A6B00FD4CF6 /* ASDisplayNode+.swift in Sources */,
 				D2477BE224785A6B00FD4CF6 /* SendEmailViewController.swift in Sources */,
 				D2477BE324785A6B00FD4CF6 /* UIView+UYLExtensions.swift in Sources */,
@@ -3564,6 +3579,7 @@
 				D2572ACF24AD7755000BA698 /* XDetailsPagerViewController.swift in Sources */,
 				D2572AD024AD7755000BA698 /* CopyInfoViewController.swift in Sources */,
 				D2572AD124AD7755000BA698 /* XOrgDetailsViewController.swift in Sources */,
+				D2AA9D672738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2572AD224AD7755000BA698 /* ASDisplayNode+.swift in Sources */,
 				D2572AD324AD7755000BA698 /* SendEmailViewController.swift in Sources */,
 				D2572AD424AD7755000BA698 /* UIView+UYLExtensions.swift in Sources */,
@@ -3658,6 +3674,7 @@
 				D21090C824D7243F004FE532 /* MessageMap.swift in Sources */,
 				D276DA9921336B20007FAA31 /* CopyStatus.swift in Sources */,
 				D276DA9C21336B20007FAA31 /* App.swift in Sources */,
+				D2AA9D602738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
 				D276DAA021336B20007FAA31 /* SMSCarrier.swift in Sources */,
@@ -3762,6 +3779,7 @@
 				D21090C924D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2D93CF5210AB6F1004306D8 /* CopyStatus.swift in Sources */,
 				D27990D720DDD473003B451E /* App.swift in Sources */,
+				D2AA9D612738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
 				D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */,
@@ -3866,6 +3884,7 @@
 				D21090C724D7243F004FE532 /* MessageMap.swift in Sources */,
 				D284245F21D0358200C7171C /* HoldsTableViewCell.swift in Sources */,
 				D284246021D0358200C7171C /* CopyStatus.swift in Sources */,
+				D2AA9D5F2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D284246321D0358200C7171C /* App.swift in Sources */,
 				D284246421D0358200C7171C /* Library.swift in Sources */,
 				D284246621D0358200C7171C /* GatewayResponse.swift in Sources */,
@@ -3981,6 +4000,7 @@
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D20B2FF722CF976200F69848 /* AppBehavior.swift in Sources */,
 				D211DBBD2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
+				D2AA9D652738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */,
@@ -4118,6 +4138,7 @@
 				D2BDA63522D176BD00D9B60C /* AppBehavior.swift in Sources */,
 				D2BDA63622D176BD00D9B60C /* XDetailsPagerViewController.swift in Sources */,
 				D211DBBB2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
+				D2AA9D632738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */,
 				D2BDA63822D176BD00D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA63922D176BD00D9B60C /* SendEmailViewController.swift in Sources */,
@@ -4223,6 +4244,7 @@
 				D2BDA6CD22D2A72000D9B60C /* XDetailsPagerViewController.swift in Sources */,
 				D2BDA6CE22D2A72000D9B60C /* CopyInfoViewController.swift in Sources */,
 				D211DBBC2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
+				D2AA9D642738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2BDA6CF22D2A72000D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA6D022D2A72000D9B60C /* SendEmailViewController.swift in Sources */,
 				D2BDA6D122D2A72000D9B60C /* UIView+UYLExtensions.swift in Sources */,
