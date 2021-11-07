@@ -2182,11 +2182,11 @@
 		D2931A92272DB77100CBA5AA /* BookBags */ = {
 			isa = PBXGroup;
 			children = (
-				D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */,
-				D2931A87272DB6D800CBA5AA /* BookBagsView.swift */,
 				D24628F6273722E0000DC659 /* BookBags.storyboard */,
 				D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */,
 				D246290C273732DC000DC659 /* BookBagsViewController.swift */,
+				D2931A93272DE25D00CBA5AA /* BookBagDetailsView.swift */,
+				D2931A87272DB6D800CBA5AA /* BookBagsView.swift */,
 			);
 			path = BookBags;
 			sourceTree = "<group>";

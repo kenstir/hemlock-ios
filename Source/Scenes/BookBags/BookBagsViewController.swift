@@ -62,6 +62,8 @@ class BookBagsViewController : UITableViewController {
 
         self.setupHomeButton()
         navigationItem.rightBarButtonItems?.append(editButtonItem)
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(sender:)))
+        navigationItem.rightBarButtonItems?.append(addButton)
     }
     
     func fetchData() {
@@ -104,6 +106,10 @@ class BookBagsViewController : UITableViewController {
             self.updateItems()
         }
     }
+    
+    @objc func addButtonPressed(sender: UIBarButtonItem) {
+        print("stop here")
+    }
 
     func updateItems() {
         if let items = App.account?.bookBags {
@@ -120,10 +126,6 @@ class BookBagsViewController : UITableViewController {
         guard editingStyle == .delete else { return }
         print("delete row \(indexPath.row)")
         print("stop here")
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
