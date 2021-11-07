@@ -211,11 +211,13 @@ extension FinesViewController: UITableViewDataSource {
         guard let cell: FinesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "finesCell") as? FinesTableViewCell else {
             fatalError("Could not dequeue a cell")
         }
+
         let fine = fines[indexPath.row]
         cell.finesTitle?.text = fine.title
         cell.finesSubtitle?.text = fine.subtitle
         cell.finesValue?.text = String(format: "$ %.2f ", fine.balance!)
         cell.finesStatus?.text = fine.status
+
         return cell
     }
 }
