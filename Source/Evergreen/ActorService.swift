@@ -150,4 +150,27 @@ class ActorService {
         }
         return promise
     }
+    
+    static func fetchBookBagContents(account: Account, bookBag: BookBag, queryForVisibleItems: Bool) -> Promise<Void> {
+        guard let authtoken = account.authtoken else {
+            return Promise<Void>()
+        }
+
+        if (queryForVisibleItems) {
+            let query = "container(bre,bookbag,\(bookBag.id),\(authtoken))"
+            let options = ["limit": 999]
+            let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 0], shouldCache: false)
+            let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
+                bookBag.initVisibleIds(fromQueryObj: obj)
+                let req2 = Gateway.makeRequest(service: API.actor, method: API.containerFlesh, args: [authtoken, API.containerClassBiblio, bookBag.id], shouldCache: false)
+                return req2.gatewayObjectResponse()
+            }.done { obj in
+                bookBag.loadItems(fromFleshedObj: obj)
+            }
+            return promise
+        } else {
+            // TODO
+            return Promise<Void>()
+        }
+    }
 }

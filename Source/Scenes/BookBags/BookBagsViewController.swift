@@ -76,13 +76,32 @@ class BookBagsViewController : UITableViewController {
         
         // fetch the list of bookbags
         ActorService.fetchBookBags(account: account).done {
-            os_log("done with %d bookbags", log: self.log, type: .info, account.bookBags.count)
-            self.updateItems()
+            os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
+            //self.updateItems()
+            self.fetchBookBagContents(account: account)
         }.catch { error in
-            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
-        }.finally {
             self.activityIndicator.stopAnimating()
+            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
+        }
+    }
+    
+    func fetchBookBagContents(account: Account) {
+        //TODO
+        let queryForVisibleItems = true
+        var promises: [Promise<Void>] = []
+        for bookBag in account.bookBags {
+            promises.append(ActorService.fetchBookBagContents(account: account, bookBag: bookBag, queryForVisibleItems: queryForVisibleItems))
+        }
+        os_log("%d promises made", log: self.log, type: .info, promises.count)
+
+        firstly {
+            when(resolved: promises)
+        }.done { results in
+            os_log("%d promises done", log: self.log, type: .info, promises.count)
+            self.activityIndicator.stopAnimating()
+            self.presentGatewayAlert(forResults: results)
             self.didCompleteFetch = true
+            self.updateItems()
         }
     }
 
