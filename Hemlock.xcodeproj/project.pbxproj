@@ -2157,16 +2157,6 @@
 				D212DB1120C3726F00267503 /* Scenes */,
 				D20D14D220B784E3008F66B0 /* Storyboards */,
 				D2F3902C2241E5950089D745 /* ThirdParty */,
-				D210EC4222B1F1F6002FB5E0 /* acorn_app */,
-				D218679D21D039220082358C /* cool_app */,
-				D276DAE521336B9F007FAA31 /* cwmars_app */,
-				D279911220DDDC8C003B451E /* hemlock_app */,
-				D2477C2D24785C0300FD4CF6 /* indiana_app */,
-				D2572B2124AD7819000BA698 /* mo_app */,
-				D2BDA69522D17A4E00D9B60C /* noble_app */,
-				D2BDA6A022D2A6EF00D9B60C /* ntlc_app */,
-				D2D49BFB20A90CA9000B3A27 /* pines_app */,
-				D23E9FE723B923480030F5C1 /* sagecat_app */,
 				D22D026E2084F52300DC1F5B /* Utils */,
 			);
 			path = Source;
@@ -2213,6 +2203,16 @@
 		D2AA9D5C27383EF3001E78DB /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				D210EC4222B1F1F6002FB5E0 /* acorn_app */,
+				D218679D21D039220082358C /* cool_app */,
+				D276DAE521336B9F007FAA31 /* cwmars_app */,
+				D279911220DDDC8C003B451E /* hemlock_app */,
+				D2477C2D24785C0300FD4CF6 /* indiana_app */,
+				D2572B2124AD7819000BA698 /* mo_app */,
+				D2BDA69522D17A4E00D9B60C /* noble_app */,
+				D2BDA6A022D2A6EF00D9B60C /* ntlc_app */,
+				D2D49BFB20A90CA9000B3A27 /* pines_app */,
+				D23E9FE723B923480030F5C1 /* sagecat_app */,
 			);
 			name = Apps;
 			sourceTree = "<group>";
