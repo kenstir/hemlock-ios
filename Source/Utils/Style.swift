@@ -32,6 +32,9 @@ class Style {
     static var subheadSize = UIFont.preferredFont(forTextStyle: .subheadline).pointSize // 15
     static var calloutSize = UIFont.preferredFont(forTextStyle: .callout).pointSize // 16
     
+    //MARK: - Sizes
+    static var tableHeaderHeight = 55.0
+    
     //MARK: - Colors
     
     class var systemBackground: UIColor {
