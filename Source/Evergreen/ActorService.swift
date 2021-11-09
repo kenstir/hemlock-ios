@@ -173,4 +173,18 @@ class ActorService {
             return Promise<Void>()
         }
     }
+    
+    static func removeItemFromBookBag(account: Account, bookBagItemId: Int) -> Promise<Void> {
+        guard let authtoken = account.authtoken else {
+            return Promise<Void>()
+        }
+        
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, bookBagItemId], shouldCache: false)
+        let promise = req.gatewayResponse().done { resp in
+            if let str = resp.str {
+                os_log("[bookbag] removeItem %d result %@", bookBagItemId, str)
+            }
+        }
+        return promise
+    }
 }

@@ -122,9 +122,20 @@ class BookBagDetailsViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        print("delete row \(indexPath.row)")
-        print("stop here")
-        self.showAlert(title: "TODO", message: "Not implemented yet")
+        guard let account = App.account else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return //TODO: add analytics
+        }
+
+        let item = items[indexPath.row]
+        ActorService.removeItemFromBookBag(account: account, bookBagItemId: item.id).done {
+            self.items.remove(at: indexPath.row)
+            self.bookBag?.items.remove(at: indexPath.row)
+            tableView.reloadData()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
