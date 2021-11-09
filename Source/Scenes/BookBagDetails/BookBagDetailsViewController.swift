@@ -139,4 +139,22 @@ class BookBagDetailsViewController : UITableViewController {
 
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var records: [MBRecord] = []
+        for item in items {
+            if let record = item.metabibRecord {
+                records.append(record)
+            }
+        }
+
+        if records.count > 0 {
+            let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
+            let vc = XDetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            // deselect row
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
