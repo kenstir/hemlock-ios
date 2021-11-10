@@ -137,25 +137,16 @@ class ActorService {
         }
         return promise
     }
-    
-    static func fetchBookBags(account: Account) -> Promise<Void> {
-        guard let authtoken = account.authtoken,
-            let userID = account.userID else {
-            //TODO: analytics
-            return Promise<Void>()
-        }
+
+    static func fetchBookBags(account: Account, authtoken: String, userID: Int) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [authtoken, userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
         let promise = req.gatewayArrayResponse().done { array in
             account.loadBookBags(fromArray: array)
         }
         return promise
     }
-    
-    static func fetchBookBagContents(account: Account, bookBag: BookBag, queryForVisibleItems: Bool) -> Promise<Void> {
-        guard let authtoken = account.authtoken else {
-            return Promise<Void>()
-        }
 
+    static func fetchBookBagContents(authtoken: String, bookBag: BookBag, queryForVisibleItems: Bool) -> Promise<Void> {
         if (queryForVisibleItems) {
             let query = "container(bre,bookbag,\(bookBag.id),\(authtoken))"
             let options = ["limit": 999]
@@ -174,11 +165,17 @@ class ActorService {
         }
     }
     
-    static func removeItemFromBookBag(account: Account, bookBagItemId: Int) -> Promise<Void> {
-        guard let authtoken = account.authtoken else {
-            return Promise<Void>()
+    static func deleteBookBag(authtoken: String, bookBagId: Int) -> Promise<Void> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, bookBagId], shouldCache: false)
+        let promise = req.gatewayResponse().done { resp in
+            if let str = resp.str {
+                os_log("[bookbag] bag %d deleteBag result %@", bookBagId, str)
+            }
         }
-        
+        return promise
+    }
+    
+    static func removeItemFromBookBag(authtoken: String, bookBagItemId: Int) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, bookBagItemId], shouldCache: false)
         let promise = req.gatewayResponse().done { resp in
             if let str = resp.str {

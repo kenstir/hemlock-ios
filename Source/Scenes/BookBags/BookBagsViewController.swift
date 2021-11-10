@@ -26,7 +26,7 @@ class BookBagsViewController : UITableViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
-    var items: [BookBag] = []
+    var items: [BookBag] = [] // TODO: replace with Account
     var didCompleteFetch = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
 
@@ -64,7 +64,9 @@ class BookBagsViewController : UITableViewController {
     }
     
     func fetchData() {
-        guard let account = App.account else
+        guard let account = App.account,
+              let authtoken = account.authtoken,
+              let userID = account.userID else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
@@ -74,21 +76,21 @@ class BookBagsViewController : UITableViewController {
         activityIndicator.startAnimating()
         
         // fetch the list of bookbags
-        ActorService.fetchBookBags(account: account).done {
+        ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
             os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
             //self.updateItems()
-            self.fetchBookBagContents(account: account)
+            self.fetchBookBagContents(account: account, authtoken: authtoken)
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error, title: "Error fetching lists")
         }
     }
     
-    func fetchBookBagContents(account: Account) {
+    func fetchBookBagContents(account: Account, authtoken: String) {
         let queryForVisibleItems = true // TODO: parameterize per app?
         var promises: [Promise<Void>] = []
         for bookBag in account.bookBags {
-            promises.append(ActorService.fetchBookBagContents(account: account, bookBag: bookBag, queryForVisibleItems: queryForVisibleItems))
+            promises.append(ActorService.fetchBookBagContents(authtoken: authtoken, bookBag: bookBag, queryForVisibleItems: queryForVisibleItems))
         }
         os_log("%d promises made", log: self.log, type: .info, promises.count)
 
@@ -105,7 +107,7 @@ class BookBagsViewController : UITableViewController {
     
     @objc func addButtonPressed(sender: UIBarButtonItem) {
         print("stop here")
-        self.showAlert(title: "TODO", message: "Not implemented yet")
+        self.showAlert(title: "TODO", message: "create list not implemented yet")
     }
 
     func updateItems() {
@@ -135,9 +137,20 @@ class BookBagsViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        print("delete row \(indexPath.row)")
-        print("stop here")
-        self.showAlert(title: "TODO", message: "Not implemented yet")
+        guard let account = App.account,
+              let authtoken = account.authtoken else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return //TODO: add analytics
+        }
+
+        let item = items[indexPath.row]
+        ActorService.deleteBookBag(authtoken: authtoken, bookBagId: item.id).done {
+            App.account?.bookBags.remove(at: indexPath.row)
+            self.updateItems()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

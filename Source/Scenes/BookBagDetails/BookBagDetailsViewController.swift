@@ -122,17 +122,17 @@ class BookBagDetailsViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        guard let account = App.account else
+        guard let account = App.account,
+              let authtoken = account.authtoken else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
 
         let item = items[indexPath.row]
-        ActorService.removeItemFromBookBag(account: account, bookBagItemId: item.id).done {
-            self.items.remove(at: indexPath.row)
+        ActorService.removeItemFromBookBag(authtoken: authtoken, bookBagItemId: item.id).done {
             self.bookBag?.items.remove(at: indexPath.row)
-            tableView.reloadData()
+            self.updateItems()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
