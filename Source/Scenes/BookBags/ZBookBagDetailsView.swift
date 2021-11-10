@@ -1,5 +1,6 @@
 /*
- * BookBagDetailsView.swift
+ * ZBookBagDetailsView.swift
+ * Z is for SwiftUI
  *
  * Copyright (C) 2021 Kenneth H. Cox
  *
@@ -21,7 +22,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-struct BookBagDetailsView: View {
+struct ZBookBagDetailsView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -47,6 +48,6 @@ struct BookBagDetailsView: View {
 @available(iOS 14.0, *)
 struct BookBagDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        BookBagDetailsView()
+        ZBookBagDetailsView()
     }
 }
