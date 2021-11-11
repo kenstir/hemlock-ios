@@ -145,7 +145,18 @@ class BookBagsViewController : UITableViewController {
         }
 
         let item = items[indexPath.row]
-        ActorService.deleteBookBag(authtoken: authtoken, bookBagId: item.id).done {
+
+        // confirm action
+        let alertController = UIAlertController(title: "Delete list?", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.deleteBookBag(authtoken: authtoken, bookBagId: item.id, indexPath: indexPath)
+        })
+        self.present(alertController, animated: true)
+    }
+    
+    func deleteBookBag(authtoken: String, bookBagId: Int, indexPath: IndexPath) {
+        ActorService.deleteBookBag(authtoken: authtoken, bookBagId: bookBagId).done {
             App.account?.bookBags.remove(at: indexPath.row)
             self.updateItems()
         }.catch { error in
