@@ -356,16 +356,6 @@
 		D23E9FEE23B923B80030F5C1 /* SageCatAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEA23B923B80030F5C1 /* SageCatAppConfiguration.swift */; };
 		D23E9FEF23B923B80030F5C1 /* SageCatTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */; };
 		D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23E9FF023B924390030F5C1 /* sagecat.xcassets */; };
-		D24628EC273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628ED273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628EE273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628EF273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628F0273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628F1273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628F2273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628F3273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628F4273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
-		D24628F5273705FB000DC659 /* BookBagStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24628EB273705FB000DC659 /* BookBagStore.swift */; };
 		D24628F7273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
 		D24628F8273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
 		D24628F9273722E0000DC659 /* BookBags.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24628F6273722E0000DC659 /* BookBags.storyboard */; };
@@ -1400,7 +1390,6 @@
 		D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatTheme.swift; sourceTree = "<group>"; };
 		D23E9FF023B924390030F5C1 /* sagecat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sagecat.xcassets; sourceTree = "<group>"; };
 		D23E9FF223B932DF0030F5C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D24628EB273705FB000DC659 /* BookBagStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookBagStore.swift; path = Source/Models/BookBagStore.swift; sourceTree = "<group>"; };
 		D24628F6273722E0000DC659 /* BookBags.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookBags.storyboard; sourceTree = "<group>"; };
 		D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagsTableViewCell.swift; sourceTree = "<group>"; };
 		D246290C273732DC000DC659 /* BookBagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagsViewController.swift; sourceTree = "<group>"; };
@@ -2100,7 +2089,6 @@
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
-				D24628EB273705FB000DC659 /* BookBagStore.swift */,
 				D296EE0F213381FE009BDB12 /* Default-568h@2x.png */,
 				D22D0274208516D600DC1F5B /* LICENSE */,
 				D27EFD5A2094E1EB00D7E22E /* README.md */,
@@ -3198,7 +3186,6 @@
 				D2462902273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D210EBCA22B1EE55002FB5E0 /* LoginViewController.swift in Sources */,
 				D210EBCC22B1EE55002FB5E0 /* XDetailsNode.swift in Sources */,
-				D24628EC273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D210EBCD22B1EE55002FB5E0 /* XResultsTableNode.swift in Sources */,
 				D20B300222CFED2300F69848 /* AcornAppBehavior.swift in Sources */,
 				D210EBCF22B1EE55002FB5E0 /* UIColor+.swift in Sources */,
@@ -3302,7 +3289,6 @@
 				D246290A273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D23E9F6C23B9200A0030F5C1 /* LoginViewController.swift in Sources */,
 				D23E9F6E23B9200A0030F5C1 /* XDetailsNode.swift in Sources */,
-				D24628F4273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D23E9F6F23B9200A0030F5C1 /* XResultsTableNode.swift in Sources */,
 				D23E9F7023B9200A0030F5C1 /* UIColor+.swift in Sources */,
 				D23E9F7123B9200A0030F5C1 /* OptionsViewController.swift in Sources */,
@@ -3406,7 +3392,6 @@
 				D2462906273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2477BB824785A6B00FD4CF6 /* LoginViewController.swift in Sources */,
 				D2477BBA24785A6B00FD4CF6 /* XDetailsNode.swift in Sources */,
-				D24628F0273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2477BBB24785A6B00FD4CF6 /* XResultsTableNode.swift in Sources */,
 				D2477BBC24785A6B00FD4CF6 /* UIColor+.swift in Sources */,
 				D2477BBD24785A6B00FD4CF6 /* OptionsViewController.swift in Sources */,
@@ -3510,7 +3495,6 @@
 				D246290B273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2572AA824AD7755000BA698 /* LoginViewController.swift in Sources */,
 				D2572AAA24AD7755000BA698 /* XDetailsNode.swift in Sources */,
-				D24628F5273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2572AAB24AD7755000BA698 /* XResultsTableNode.swift in Sources */,
 				D2572AAC24AD7755000BA698 /* UIColor+.swift in Sources */,
 				D2572B2624AD7A13000BA698 /* MoAppConfiguration.swift in Sources */,
@@ -3637,7 +3621,6 @@
 				D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */,
 				D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D276DA9721336B20007FAA31 /* API.swift in Sources */,
-				D24628EE273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D246290F273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */,
 				D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */,
@@ -3740,7 +3723,6 @@
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
 				D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
-				D24628EF273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2462910273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
@@ -3843,7 +3825,6 @@
 				D284245B21D0358200C7171C /* AppConfiguration.swift in Sources */,
 				D29911E5248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D284245C21D0358200C7171C /* FinesViewController.swift in Sources */,
-				D24628ED273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D246290E273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D284245D21D0358200C7171C /* API.swift in Sources */,
 				D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */,
@@ -3923,7 +3904,6 @@
 				D2462909273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				FAA9E31A21962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
-				D24628F3273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
 				D26210F2217E3502004E7ABE /* XDetailsNode.swift in Sources */,
 				D23E5A0220ED96E9005EB391 /* XResultsTableNode.swift in Sources */,
@@ -4059,7 +4039,6 @@
 				D2462907273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2BDA60C22D176BD00D9B60C /* LoginViewController.swift in Sources */,
 				D2BDA60E22D176BD00D9B60C /* XDetailsNode.swift in Sources */,
-				D24628F1273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2BDA60F22D176BD00D9B60C /* XResultsTableNode.swift in Sources */,
 				D2BDA61122D176BD00D9B60C /* UIColor+.swift in Sources */,
 				D2BDA61222D176BD00D9B60C /* OptionsViewController.swift in Sources */,
@@ -4163,7 +4142,6 @@
 				D2462908273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2BDA6A422D2A72000D9B60C /* LoginViewController.swift in Sources */,
 				D2BDA6A622D2A72000D9B60C /* XDetailsNode.swift in Sources */,
-				D24628F2273705FB000DC659 /* BookBagStore.swift in Sources */,
 				D2BDA6A722D2A72000D9B60C /* XResultsTableNode.swift in Sources */,
 				D2BDA6A822D2A72000D9B60C /* UIColor+.swift in Sources */,
 				D2BDA6A922D2A72000D9B60C /* OptionsViewController.swift in Sources */,
