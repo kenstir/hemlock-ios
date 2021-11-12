@@ -46,6 +46,7 @@ class XDetailsNode: ASCellNode {
     private let copySummaryNode = ASTextNode()
     private let actionButton = ASButtonNode()
     private let copyInfoButton = ASButtonNode()
+    private let addToListButton = ASButtonNode()
     private let extrasButton = ASButtonNode()
     
     private let scrollNode = ASScrollNode()
@@ -123,6 +124,11 @@ class XDetailsNode: ASCellNode {
         vc.org = org
         vc.record = record
         myVC.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func addToListPressed(sender: Any) {
+        guard let myVC = self.closestViewController else { return }
+        myVC.showAlert(title: "TODO", message: "not implemented yet")
     }
     
     @objc func extrasPressed(sender: Any) {
@@ -245,6 +251,7 @@ class XDetailsNode: ASCellNode {
         // This function will be called more than once, clear targets first
         actionButton.removeTarget(self, action: nil, forControlEvents: .allEvents)
         copyInfoButton.removeTarget(self, action: nil, forControlEvents: .allEvents)
+        addToListButton.removeTarget(self, action: nil, forControlEvents: .allEvents)
 
         if isOnlineResource {
             actionButtonText = "Online Access"
@@ -261,10 +268,13 @@ class XDetailsNode: ASCellNode {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {
-            Style.styleButton(asInverse: copyInfoButton, title: "Copy Info")
+            Style.styleButton(asOutline: copyInfoButton, title: "Copy Info")
             copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
         }
         
+        Style.styleButton(asOutline: addToListButton, title: "Add to List")
+        addToListButton.addTarget(self, action: #selector(addToListPressed(sender:)), forControlEvents: .touchUpInside)
+
         if let title = App.config.detailsExtraLinkText,
            let _ = App.config.detailsExtraLinkFragment
         {
@@ -351,7 +361,8 @@ class XDetailsNode: ASCellNode {
         buttonsSpec.spacing = 8
         actionButton.style.flexGrow = 1.0
         copyInfoButton.style.flexGrow = 1.0
-        buttonsSpec.children = [actionButton, copyInfoButton]
+        addToListButton.style.flexGrow = 1.0
+        buttonsSpec.children = [actionButton, copyInfoButton, addToListButton]
         let buttonRow = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0), child: buttonsSpec)
 
         // subject

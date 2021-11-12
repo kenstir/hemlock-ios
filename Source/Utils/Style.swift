@@ -150,6 +150,18 @@ class Style {
         button.setTitle(title, with: font, with: .gray, for: .highlighted)
     }
 
+    static func styleButton(asOutline button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.primaryColor) {
+        button.borderColor = color.cgColor
+        button.borderWidth = 1.0
+        button.tintColor = color
+        button.cornerRadius = 6
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        let font = UIFont.systemFont(ofSize: size)
+        button.setTitle(title, with: font, with: color, for: .normal)
+        button.setTitle(title, with: font, with: .gray, for: .disabled)
+        button.setTitle(title, with: font, with: .gray, for: .highlighted)
+    }
+
     static func styleButton(asPlain button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.primaryDarkColor) {
         button.tintColor = color
         button.cornerRadius = 6
