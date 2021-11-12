@@ -163,7 +163,7 @@ class XDetailsNode: ASCellNode {
         Style.styleAlertController(alertController)
         for bookBag in bookBags {
             alertController.addAction(UIAlertAction(title: bookBag.name, style: .default) { action in
-                vc.showAlert(title: "TODO", message: "add to \(bookBag.name)")
+                self.addItem(toBookBag: bookBag)
             })
         }
 //        alertController.addAction(UIAlertAction(title: "Add to New List", style: .default) { action in
@@ -177,6 +177,17 @@ class XDetailsNode: ASCellNode {
             popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
         }
         vc.present(alertController, animated: true)
+    }
+    
+    func addItem(toBookBag bookBag: BookBag) {
+        guard let authtoken = App.account?.authtoken else { return }
+        guard let vc = self.closestViewController else { return }
+
+        ActorService.addItemToBookBag(authtoken: authtoken, bookBagId: bookBag.id, recordId: record.id).done {
+            vc.navigationController?.view.makeToast("Item added to list")
+        }.catch { error in
+            vc.presentGatewayAlert(forError: error)
+        }
     }
     
     @objc func extrasPressed(sender: Any) {
