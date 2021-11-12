@@ -106,8 +106,44 @@ class BookBagsViewController : UITableViewController {
     }
     
     @objc func addButtonPressed(sender: UIBarButtonItem) {
-        print("stop here")
-        self.showAlert(title: "TODO", message: "create list not implemented yet")
+        let alertController = UIAlertController(title: "Create list", message: nil, preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: { textField in
+            textField.placeholder = "List name"
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "Create", style: .default) { action in
+            if let listName = alertController.textFields?[0].text?.trim(),
+               !listName.isEmpty {
+                self.createBookBag(name: listName)
+            }
+        })
+        self.present(alertController, animated: true)
+    }
+    
+    func createBookBag(name: String) {
+        guard let account = App.account,
+              let authtoken = account.authtoken,
+              let userID = account.userID else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return
+        }
+        
+        ActorService.createBookBag(authtoken: authtoken, userId: userID, name: name).done {
+            self.navigationController?.view.makeToast("List created")
+            self.fetchData()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    func deleteBookBag(authtoken: String, bookBagId: Int, indexPath: IndexPath) {
+        ActorService.deleteBookBag(authtoken: authtoken, bookBagId: bookBagId).done {
+            App.account?.bookBags.remove(at: indexPath.row)
+            self.updateItems()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
     }
 
     func updateItems() {
@@ -141,7 +177,7 @@ class BookBagsViewController : UITableViewController {
               let authtoken = account.authtoken else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+            return
         }
 
         let item = items[indexPath.row]
@@ -153,15 +189,6 @@ class BookBagsViewController : UITableViewController {
             self.deleteBookBag(authtoken: authtoken, bookBagId: item.id, indexPath: indexPath)
         })
         self.present(alertController, animated: true)
-    }
-    
-    func deleteBookBag(authtoken: String, bookBagId: Int, indexPath: IndexPath) {
-        ActorService.deleteBookBag(authtoken: authtoken, bookBagId: bookBagId).done {
-            App.account?.bookBags.remove(at: indexPath.row)
-            self.updateItems()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
-        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

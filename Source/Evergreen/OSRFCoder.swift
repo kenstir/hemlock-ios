@@ -26,7 +26,6 @@ enum OSRFDecodingError: Error {
 }
 
 /// `OSRFCoder` decodes OSRF objects from OSRF wire format.
-/// For now, I don't need encoding.
 struct OSRFCoder {
     static private var registry: [String: OSRFCoder] = [:]
     
@@ -122,5 +121,43 @@ struct OSRFCoder {
         }
         
         return OSRFObject(dict)
+    }
+    
+    static func getWirePayload(_ obj: OSRFObject) throws -> [Any?] {
+        guard let netClass = obj.netClass,
+              let coder = registry[netClass] else {
+            throw OSRFDecodingError.classNotFound(obj.netClass ?? "unknown class")
+        }
+        var ret: [Any?] = []
+        for field in coder.fields {
+            ret.append(obj.getAny(field))
+        }
+        return ret
+    }
+}
+
+extension OSRFObject: Encodable {
+    enum CodingKeys: String, CodingKey {
+       case __c
+       case __p
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(netClass, forKey: .__c)
+        var payloadContainer = container.nestedUnkeyedContainer(forKey: .__p)
+        for optionalElem in try OSRFCoder.getWirePayload(self) {
+            guard let elem = optionalElem else {
+                try payloadContainer.encodeNil()
+                continue
+            }
+            if let s = elem as? String {
+                try payloadContainer.encode(s)
+            } else if let d = elem as? Double {
+                try payloadContainer.encode(d)
+            } else if let i = elem as? Int {
+                try payloadContainer.encode(i)
+            }
+        }
     }
 }

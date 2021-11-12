@@ -22,8 +22,6 @@ import XCTest
 
 class OSRFCoderTests: XCTestCase {
     
-    var payload: [Any?]?
-    
     //MARK: - methods
 
     override func setUp() {
@@ -277,5 +275,26 @@ class OSRFCoderTests: XCTestCase {
             debugPrint(error)
             XCTFail(String(describing: error))
         }
+    }
+
+    func test_encode_wireObject() {
+        OSRFCoder.registerClass("test", fields: ["can_haz_bacon","id","name","opt"])
+        
+        let obj = OSRFObject(["can_haz_bacon": "t",
+                              "id": 1,
+                              "name": "Hormel",
+                              "opt": nil],
+                             netClass: "test")
+
+        let expected = """
+            {"__c":"test","__p":["t",1,"Hormel",null]}
+            """.trim()
+        let jsonEncoder = JSONEncoder()
+        guard let data = try? jsonEncoder.encode(obj) else {
+            XCTFail("ERROR encoding JSON")
+            return
+        }
+        let str = String(data: data, encoding: .utf8)
+        XCTAssertEqual(str, expected)
     }
 }

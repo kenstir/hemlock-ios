@@ -35,14 +35,12 @@ class Analytics {
         buf.write(s)
     }
 
-    static func logRequest(tag: String, method: String, args: [Any?]) {
+    static func logRequest(tag: String, method: String, args: [String]) {
         // TODO: redact authtoken inside args
         var argsDescription = "***"
         if method != "open-ils.auth.authenticate.init",
-            method != "open-ils.auth.authenticate.complete",
-            let jsonData = try? JSONSerialization.data(withJSONObject: args),
-            let str = String(data: jsonData, encoding: .utf8) {
-            argsDescription = str
+           method != "open-ils.auth.authenticate.complete" {
+            argsDescription = args.joined(separator: ",")
         }
         let s = "\(tag): send: \(method) \(argsDescription)"
 

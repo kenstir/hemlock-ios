@@ -165,6 +165,22 @@ class ActorService {
         }
     }
     
+    static func createBookBag(authtoken: String, userId: Int, name: String) -> Promise<Void> {
+        let obj = OSRFObject([
+            "btype": API.containerTypeBookbag,
+            "name": name,
+            "pub": false,
+            "owner": userId,
+        ], netClass: "cbreb")
+            let req = Gateway.makeRequest(service: API.actor, method: API.containerCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
+        let promise = req.gatewayResponse().done { resp in
+            if let str = resp.str {
+                os_log("[bookbag] createBag %@ result %@", name, str)
+            }
+        }
+        return promise
+    }
+    
     static func deleteBookBag(authtoken: String, bookBagId: Int) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, bookBagId], shouldCache: false)
         let promise = req.gatewayResponse().done { resp in
