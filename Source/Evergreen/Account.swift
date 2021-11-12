@@ -32,6 +32,7 @@ class Account {
     var defaultNotifyPhone: Bool?
     var defaultNotifySMS: Bool?
     var bookBags: [BookBag] = []
+    var bookBagsEverLoaded = false
     
     var displayName: String {
         if username == barcode,
@@ -69,6 +70,8 @@ class Account {
         self.barcode = nil
         self.dayPhone = nil
         self.userSettingsLoaded = false
+        self.bookBags = []
+        self.bookBagsEverLoaded = false
     }
 
     func loadSession(fromObject obj: OSRFObject) {
@@ -129,5 +132,6 @@ class Account {
     
     func loadBookBags(fromArray objects: [OSRFObject]) {
         bookBags = BookBag.makeArray(objects)
+        bookBagsEverLoaded = true
     }
 }

@@ -127,6 +127,29 @@ class XDetailsNode: ASCellNode {
     }
     
     @objc func addToListPressed(sender: Any) {
+        if App.account?.bookBagsEverLoaded == true {
+            addToList()
+            return
+        }
+
+        guard let vc = self.closestViewController else { return }
+        guard let account = App.account,
+              let authtoken = account.authtoken,
+              let userID = account.userID else
+        {
+            vc.presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return
+        }
+
+        // fetch the list of bookbags
+        ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
+            self.addToList()
+        }.catch { error in
+            vc.presentGatewayAlert(forError: error, title: "Error fetching lists")
+        }
+    }
+
+    func addToList() {
         guard let vc = self.closestViewController else { return }
         guard let bookBags = App.account?.bookBags,
               bookBags.count > 0 else
