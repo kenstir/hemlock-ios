@@ -22,8 +22,7 @@ import AsyncDisplayKit
 import PromiseKit
 import PMKAlamofire
 
-// mainly a copy of XResultsTableNode
-// TODO: factor out commonality
+// TODO: factor out common features of XResultsTableNode
 class XDetailsNode: ASCellNode {
     
     //MARK: - Properties
