@@ -159,7 +159,7 @@ class MainViewController: UIViewController {
     @objc func accountButtonPressed(sender: UIBarButtonItem) {
         let haveMultipleAccounts = App.credentialManager.credentials.count > 1
 
-        // Create an actionSheet to present the account options
+        // Create an action sheet to present the account options
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         
@@ -190,7 +190,7 @@ class MainViewController: UIViewController {
         })
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
-        // iPad requires using the popoverPresentationController
+        // iPad requires a popoverPresentationController
         if let popoverController = alertController.popoverPresentationController {
             popoverController.barButtonItem = sender
         }

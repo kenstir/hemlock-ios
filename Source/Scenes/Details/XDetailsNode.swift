@@ -127,8 +127,33 @@ class XDetailsNode: ASCellNode {
     }
     
     @objc func addToListPressed(sender: Any) {
-        guard let myVC = self.closestViewController else { return }
-        myVC.showAlert(title: "TODO", message: "not implemented yet")
+        guard let vc = self.closestViewController else { return }
+        guard let bookBags = App.account?.bookBags,
+              bookBags.count > 0 else
+        {
+            vc.navigationController?.view.makeToast("No lists")
+            return
+        }
+
+        // Build an action sheet to display the options
+        let alertController = UIAlertController(title: "Add to List", message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        for bookBag in bookBags {
+            alertController.addAction(UIAlertAction(title: bookBag.name, style: .default) { action in
+                vc.showAlert(title: "TODO", message: "add to \(bookBag.name)")
+            })
+        }
+//        alertController.addAction(UIAlertAction(title: "Add to New List", style: .default) { action in
+//            vc.showAlert(title: "TODO", message: "create new")
+//        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        if let popoverController = alertController.popoverPresentationController {
+            let view: UIView = self.view
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
+        vc.present(alertController, animated: true)
     }
     
     @objc func extrasPressed(sender: Any) {
@@ -160,8 +185,8 @@ class XDetailsNode: ASCellNode {
             openOnlineLocation(vc: vc, href: links[0].href)
             return
         }
-        
-        // Show an actionSheet to present the links
+
+        // Build an action sheet to present the links
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         for link in links {
@@ -170,8 +195,10 @@ class XDetailsNode: ASCellNode {
             })
         }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        // iPad requires a popoverPresentationController
         if let popoverController = alertController.popoverPresentationController {
-            let view: UIView = self.view
+            let view = self.view
             popoverController.sourceView = view
             popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
         }

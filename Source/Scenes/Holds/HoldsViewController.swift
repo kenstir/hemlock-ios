@@ -348,8 +348,7 @@ extension HoldsViewController: UITableViewDelegate {
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let item = getItem(indexPath)
-        
+        // build an action sheet to display the options
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         alertController.addAction(UIAlertAction(title: "Cancel Hold", style: .destructive) { action in
@@ -362,6 +361,8 @@ extension HoldsViewController: UITableViewDelegate {
             self.showDetails(indexPath)
         })
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        // iPad requires a popoverPresentationController
         if let popoverController = alertController.popoverPresentationController {
             var view: UIView = self.view
             if let cell = tableView.cellForRow(at: indexPath) {

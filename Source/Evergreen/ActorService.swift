@@ -172,7 +172,7 @@ class ActorService {
             "pub": false,
             "owner": userId,
         ], netClass: "cbreb")
-            let req = Gateway.makeRequest(service: API.actor, method: API.containerCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let promise = req.gatewayResponse().done { resp in
             if let str = resp.str {
                 os_log("[bookbag] createBag %@ result %@", name, str)
@@ -186,6 +186,21 @@ class ActorService {
         let promise = req.gatewayResponse().done { resp in
             if let str = resp.str {
                 os_log("[bookbag] bag %d deleteBag result %@", bookBagId, str)
+            }
+        }
+        return promise
+    }
+    
+    static func addItemToBookBag(authtoken: String, bookBagId: Int, recordId: Int) -> Promise<Void> {
+        let obj = OSRFObject([
+            "bucket": bookBagId,
+            "target_biblio_record_entry": recordId,
+            "id": nil,
+        ], netClass: "cbrebi")
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerItemCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
+        let promise = req.gatewayResponse().done { resp in
+            if let str = resp.str {
+                os_log("[bookbag] bag %d addItem %d result %@", bookBagId, recordId, str)
             }
         }
         return promise
