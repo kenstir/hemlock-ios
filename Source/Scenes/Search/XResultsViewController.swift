@@ -79,6 +79,10 @@ class XResultsViewController: ASViewController<ASTableNode> {
         tableNode.dataSource = self
         tableNode.backgroundColor = Style.secondarySystemGroupedBackground
         tableNode.view.separatorStyle = .singleLine
+        if #available(iOS 15.0, *) {
+            // remove extra padding added in iOS 15
+            tableNode.view.sectionHeaderTopPadding = 0
+        }
         
         // setting an empty UIView as the footer prevents the display of ghost rows at the end of the table
         tableNode.view.tableFooterView = UIView()
