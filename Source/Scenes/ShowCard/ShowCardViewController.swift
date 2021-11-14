@@ -29,8 +29,8 @@ class ShowCardViewController: UIViewController {
     @IBOutlet weak var splashImage: UIImageView!
     
     var didCompleteFetch = false
-    let imageWidth: Int32 = 400
-    let imageHeight: Int32 = 200
+    let imageWidth: Int32 = 512
+    let imageHeight: Int32 = 256
 
     //MARK: - UIViewController
 
@@ -77,9 +77,6 @@ class ShowCardViewController: UIViewController {
         self.navigationController?.view.makeToast("Barcode copied to clipboard")
 
     }
-
-//        barcodeImage.addTarget(self, action: #selector(onBarcodeTap(sender:)), for: .touchUpInside)
-        //        cell.renewButton.addTarget(self, action: #selector(renewPressed(sender:)), for: .touchUpInside)
 
     func setupBarcode(_ barcode: String) {
         guard let m = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39]),
