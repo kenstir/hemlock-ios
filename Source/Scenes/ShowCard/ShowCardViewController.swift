@@ -29,8 +29,8 @@ class ShowCardViewController: UIViewController {
     @IBOutlet weak var splashImage: UIImageView!
     
     var didCompleteFetch = false
-    let imageWidth: Int32 = 512
-    let imageHeight: Int32 = 256
+    let imageWidth: Int32 = 400
+    let imageHeight: Int32 = 200
 
     //MARK: - UIViewController
 
