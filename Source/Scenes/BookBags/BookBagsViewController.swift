@@ -44,10 +44,8 @@ class BookBagsViewController : UITableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
-        if !didCompleteFetch {
-            self.fetchData()
-        }
+
+        self.fetchData()
     }
 
     //MARK: - Functions
