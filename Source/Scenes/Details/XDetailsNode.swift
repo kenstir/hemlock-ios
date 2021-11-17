@@ -419,6 +419,8 @@ class XDetailsNode: ASCellNode {
         
         let buttonsSpec = ASStackLayoutSpec.horizontal()
         buttonsSpec.spacing = 8
+        buttonsSpec.lineSpacing = 8
+        buttonsSpec.flexWrap = .wrap
         actionButton.style.flexGrow = 1.0
         copyInfoButton.style.flexGrow = 1.0
         addToListButton.style.flexGrow = 1.0
