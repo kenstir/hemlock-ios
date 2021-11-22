@@ -22,8 +22,7 @@ import AsyncDisplayKit
 import PromiseKit
 import PMKAlamofire
 
-// mainly a copy of XResultsTableNode
-// TODO: factor out commonality
+// TODO: factor out common features of XResultsTableNode
 class XDetailsNode: ASCellNode {
     
     //MARK: - Properties
@@ -46,6 +45,7 @@ class XDetailsNode: ASCellNode {
     private let copySummaryNode = ASTextNode()
     private let actionButton = ASButtonNode()
     private let copyInfoButton = ASButtonNode()
+    private let addToListButton = ASButtonNode()
     private let extrasButton = ASButtonNode()
     
     private let scrollNode = ASScrollNode()
@@ -125,6 +125,70 @@ class XDetailsNode: ASCellNode {
         myVC.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func addToListPressed(sender: Any) {
+        if App.account?.bookBagsEverLoaded == true {
+            addToList()
+            return
+        }
+
+        guard let vc = self.closestViewController else { return }
+        guard let account = App.account,
+              let authtoken = account.authtoken,
+              let userID = account.userID else
+        {
+            vc.presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return
+        }
+
+        // fetch the list of bookbags
+        ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
+            self.addToList()
+        }.catch { error in
+            vc.presentGatewayAlert(forError: error, title: "Error fetching lists")
+        }
+    }
+
+    func addToList() {
+        guard let vc = self.closestViewController else { return }
+        guard let bookBags = App.account?.bookBags,
+              bookBags.count > 0 else
+        {
+            vc.navigationController?.view.makeToast("No lists")
+            return
+        }
+
+        // Build an action sheet to display the options
+        let alertController = UIAlertController(title: "Add to List", message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        for bookBag in bookBags {
+            alertController.addAction(UIAlertAction(title: bookBag.name, style: .default) { action in
+                self.addItem(toBookBag: bookBag)
+            })
+        }
+//        alertController.addAction(UIAlertAction(title: "Add to New List", style: .default) { action in
+//            vc.showAlert(title: "TODO", message: "create new")
+//        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        if let popoverController = alertController.popoverPresentationController {
+            let view: UIView = self.view
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
+        vc.present(alertController, animated: true)
+    }
+    
+    func addItem(toBookBag bookBag: BookBag) {
+        guard let authtoken = App.account?.authtoken else { return }
+        guard let vc = self.closestViewController else { return }
+
+        ActorService.addItemToBookBag(authtoken: authtoken, bookBagId: bookBag.id, recordId: record.id).done {
+            vc.navigationController?.view.makeToast("Item added to list")
+        }.catch { error in
+            vc.presentGatewayAlert(forError: error)
+        }
+    }
+    
     @objc func extrasPressed(sender: Any) {
         var url = App.config.url + "/eg/opac/record/" + String(record.id)
         if let q = App.config.detailsExtraLinkQuery {
@@ -154,8 +218,8 @@ class XDetailsNode: ASCellNode {
             openOnlineLocation(vc: vc, href: links[0].href)
             return
         }
-        
-        // Show an actionSheet to present the links
+
+        // Build an action sheet to present the links
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
         for link in links {
@@ -164,8 +228,10 @@ class XDetailsNode: ASCellNode {
             })
         }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        // iPad requires a popoverPresentationController
         if let popoverController = alertController.popoverPresentationController {
-            let view: UIView = self.view
+            let view = self.view
             popoverController.sourceView = view
             popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
         }
@@ -245,6 +311,7 @@ class XDetailsNode: ASCellNode {
         // This function will be called more than once, clear targets first
         actionButton.removeTarget(self, action: nil, forControlEvents: .allEvents)
         copyInfoButton.removeTarget(self, action: nil, forControlEvents: .allEvents)
+        addToListButton.removeTarget(self, action: nil, forControlEvents: .allEvents)
 
         if isOnlineResource {
             actionButtonText = "Online Access"
@@ -261,10 +328,13 @@ class XDetailsNode: ASCellNode {
             copyInfoButton.isEnabled = false
             copyInfoButton.isHidden = true
         } else {
-            Style.styleButton(asInverse: copyInfoButton, title: "Copy Info")
+            Style.styleButton(asOutline: copyInfoButton, title: "Copy Info")
             copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), forControlEvents: .touchUpInside)
         }
         
+        Style.styleButton(asOutline: addToListButton, title: "Add to List")
+        addToListButton.addTarget(self, action: #selector(addToListPressed(sender:)), forControlEvents: .touchUpInside)
+
         if let title = App.config.detailsExtraLinkText,
            let _ = App.config.detailsExtraLinkFragment
         {
@@ -349,9 +419,12 @@ class XDetailsNode: ASCellNode {
         
         let buttonsSpec = ASStackLayoutSpec.horizontal()
         buttonsSpec.spacing = 8
+        buttonsSpec.lineSpacing = 8
+        buttonsSpec.flexWrap = .wrap
         actionButton.style.flexGrow = 1.0
         copyInfoButton.style.flexGrow = 1.0
-        buttonsSpec.children = [actionButton, copyInfoButton]
+        addToListButton.style.flexGrow = 1.0
+        buttonsSpec.children = [actionButton, copyInfoButton, addToListButton]
         let buttonRow = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0), child: buttonsSpec)
 
         // subject

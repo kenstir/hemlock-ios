@@ -79,22 +79,39 @@ class MBRecord {
         }
         
         // construct the list
-        if let ids = obj.getAny("ids"),
-            let ids_array = ids as? [[Any]]
+        if let ids = obj.getAny("ids") as? [[Any]]
         {
-            for elem in ids_array {
+            for elem in ids {
                 if let id = elem.first as? Int {
                     records.append(MBRecord(id: id))
                 } else if let str = elem.first as? String, let id = Int(str) {
                     records.append(MBRecord(id: id))
                 } else {
-                    Analytics.logError(code: .shouldNotHappen, msg: "Unexpected id in results: \(String(describing: elem.first))", file: #file, line: #line)
+                    Analytics.logError(code: .shouldNotHappen, msg: "Unexpected element in ids list: \(elem))", file: #file, line: #line)
                 }
             }
         } else {
-            Analytics.logError(code: .shouldNotHappen, msg: "Unexpected ids format in results: \(String(describing: obj.getAny("ids")))", file: #file, line: #line)
+            Analytics.logError(code: .shouldNotHappen, msg: "Unexpected format of ids list: \(String(describing: obj.getAny("ids")))", file: #file, line: #line)
         }
         return records
     }
 
+    static func getIdsList(fromQueryObj obj: OSRFObject) -> [Int] {
+        var ret: [Int] = []
+
+        if let ids = obj.getAny("ids") as? [[Any]] {
+            for elem in ids {
+                if let id = elem.first as? Int {
+                    ret.append(id)
+                } else if let str = elem.first as? String, let id = Int(str) {
+                    ret.append(id)
+                } else {
+                    Analytics.logError(code: .shouldNotHappen, msg: "Unexpected element in ids list: \(elem))", file: #file, line: #line)
+                }
+            }
+        } else {
+            Analytics.logError(code: .shouldNotHappen, msg: "Unexpected format of ids list: \(String(describing: obj.getAny("ids")))", file: #file, line: #line)
+        }
+        return ret
+    }
 }

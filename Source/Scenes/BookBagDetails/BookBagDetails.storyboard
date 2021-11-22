@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RSn-CW-Oap">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19455"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--List Details-->
+        <scene sceneID="eiA-SR-XFc">
+            <objects>
+                <tableViewController title="List Details" id="RSn-CW-Oap" customClass="BookBagDetailsViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Oxi-x0-QL5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="bookBagDetailsCell" id="e71-FK-WvG" customClass="BookBagDetailsTableViewCell" customModule="COOL" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="77.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e71-FK-WvG" id="2Rc-rd-Ehk">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="77.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="The checklist manifesto : how to get things right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PB4-Ic-Jwz" userLabel="Title">
+                                            <rect key="frame" x="20" y="11" width="356.5" height="17.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gawande, Atul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZB-Qt-03d" userLabel="Author">
+                                            <rect key="frame" x="20" y="36.5" width="82" height="15"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oda-Us-Jlo" userLabel="Format">
+                                            <rect key="frame" x="20" y="51.5" width="29" height="15"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="PB4-Ic-Jwz" firstAttribute="top" secondItem="2Rc-rd-Ehk" secondAttribute="topMargin" id="2Qu-oY-z0C"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oda-Us-Jlo" secondAttribute="bottom" id="90e-Iz-69q"/>
+                                        <constraint firstItem="oda-Us-Jlo" firstAttribute="leading" secondItem="2Rc-rd-Ehk" secondAttribute="leadingMargin" id="9ox-5o-3lf"/>
+                                        <constraint firstItem="aZB-Qt-03d" firstAttribute="top" secondItem="PB4-Ic-Jwz" secondAttribute="bottom" constant="8" symbolic="YES" id="EWD-Lb-uYm"/>
+                                        <constraint firstItem="PB4-Ic-Jwz" firstAttribute="leading" secondItem="2Rc-rd-Ehk" secondAttribute="leadingMargin" id="LWy-3M-vfR"/>
+                                        <constraint firstItem="oda-Us-Jlo" firstAttribute="top" secondItem="aZB-Qt-03d" secondAttribute="bottom" id="O68-DW-B5S"/>
+                                        <constraint firstItem="aZB-Qt-03d" firstAttribute="leading" secondItem="2Rc-rd-Ehk" secondAttribute="leadingMargin" id="p8R-uZ-KzP"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="PB4-Ic-Jwz" secondAttribute="trailing" id="xka-Lm-103"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="author" destination="aZB-Qt-03d" id="DUv-gz-REI"/>
+                                    <outlet property="format" destination="oda-Us-Jlo" id="56H-kF-YS8"/>
+                                    <outlet property="title" destination="PB4-Ic-Jwz" id="5IX-sk-odj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RSn-CW-Oap" id="jl8-Sq-6fv"/>
+                            <outlet property="delegate" destination="RSn-CW-Oap" id="fxU-lF-osH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ADb-Y3-gOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-144" y="70"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

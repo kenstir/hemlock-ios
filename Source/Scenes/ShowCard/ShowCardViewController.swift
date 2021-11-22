@@ -78,9 +78,6 @@ class ShowCardViewController: UIViewController {
 
     }
 
-//        barcodeImage.addTarget(self, action: #selector(onBarcodeTap(sender:)), for: .touchUpInside)
-        //        cell.renewButton.addTarget(self, action: #selector(renewPressed(sender:)), for: .touchUpInside)
-
     func setupBarcode(_ barcode: String) {
         guard let m = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39]),
             m.width > 0 && m.height > 0,

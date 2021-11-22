@@ -25,12 +25,16 @@ class Style {
     //MARK: - Fonts
     
     // Size reference: https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography
-    static var bodySize = UIFont.preferredFont(forTextStyle: .body).pointSize // 17pt at default settings
-    static var titleSize = UIFont.preferredFont(forTextStyle: .title2).pointSize // 22
-    static var subtitleSize = UIFont.preferredFont(forTextStyle: .title3).pointSize // 20
-    static var headlineSize = UIFont.preferredFont(forTextStyle: .headline).pointSize // 17
-    static var subheadSize = UIFont.preferredFont(forTextStyle: .subheadline).pointSize // 15
-    static var calloutSize = UIFont.preferredFont(forTextStyle: .callout).pointSize // 16
+    class var bodySize: CGFloat { return UIFont.preferredFont(forTextStyle: .body).pointSize } // 17pt at default settings
+    class var titleSize: CGFloat { return UIFont.preferredFont(forTextStyle: .title2).pointSize } // 22
+    class var subtitleSize: CGFloat { return UIFont.preferredFont(forTextStyle: .title3).pointSize } // 20
+    class var headlineSize: CGFloat { return UIFont.preferredFont(forTextStyle: .headline).pointSize } // 17
+    class var subheadSize: CGFloat { return UIFont.preferredFont(forTextStyle: .subheadline).pointSize } // 15
+    class var calloutSize: CGFloat { return UIFont.preferredFont(forTextStyle: .callout).pointSize } // 16
+    
+    //MARK: - Sizes
+    static var tableHeaderHeight = 55.0
+    static let buttonCornerRadius = 6.0
     
     //MARK: - Colors
     
@@ -118,7 +122,7 @@ class Style {
     static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.primaryColor) {
         button.backgroundColor = color
         button.tintColor = .white
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = buttonCornerRadius
     }
     
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.primaryDarkColor) {
@@ -127,19 +131,19 @@ class Style {
         // where the button is disabled.
         button.layer.borderColor = button.currentTitleColor.cgColor
         button.layer.borderWidth = 1
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = buttonCornerRadius
     }
     
     static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.primaryDarkColor) {
         button.tintColor = color
-        button.layer.cornerRadius = 6
+        button.layer.cornerRadius = buttonCornerRadius
     }
     
     // styleButton for an ASButtonNode includes setting the title, because that involves colors
     static func styleButton(asInverse button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.primaryColor) {
         button.backgroundColor = color
         button.tintColor = .white
-        button.cornerRadius = 6
+        button.cornerRadius = buttonCornerRadius
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         let font = UIFont.systemFont(ofSize: size)
         button.setTitle(title, with: font, with: .white, for: .normal)
@@ -147,9 +151,21 @@ class Style {
         button.setTitle(title, with: font, with: .gray, for: .highlighted)
     }
 
+    static func styleButton(asOutline button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.primaryColor) {
+        button.borderColor = color.cgColor
+        button.borderWidth = 1.0
+        button.tintColor = color
+        button.cornerRadius = buttonCornerRadius
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        let font = UIFont.systemFont(ofSize: size)
+        button.setTitle(title, with: font, with: color, for: .normal)
+        button.setTitle(title, with: font, with: .gray, for: .disabled)
+        button.setTitle(title, with: font, with: .gray, for: .highlighted)
+    }
+
     static func styleButton(asPlain button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.primaryDarkColor) {
         button.tintColor = color
-        button.cornerRadius = 6
+        button.cornerRadius = buttonCornerRadius
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         let font = UIFont.systemFont(ofSize: size)
         button.setTitle(title, with: font, with: color, for: .normal)

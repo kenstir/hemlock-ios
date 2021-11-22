@@ -21,7 +21,6 @@ import XCTest
 @testable import Hemlock
 
 class GatewayTests: XCTestCase {
-    var sut: API?
     
     override func setUp() {
         super.setUp()
@@ -36,14 +35,14 @@ class GatewayTests: XCTestCase {
         let p3 = Gateway.gatewayParams([3.14])
         XCTAssertEqual(p3, ["3.14"])
     }
-    
+
     func test_gatewayParam_jsonObject() {
         let authtoken = "deadbeef"
         let complexParam = ["active": 1]
         let p1 = Gateway.gatewayParams([authtoken, complexParam])
         XCTAssertEqual(p1, ["\"deadbeef\"","{\"active\":1}"])
     }
-    
+
     func test_gatewayParam_nil() {
         let authtoken = "deadbeef"
         let complexParam = ["active": 1]

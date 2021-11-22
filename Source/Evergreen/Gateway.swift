@@ -92,7 +92,7 @@ class Gateway {
         let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
         let tag = request.request?.debugTag ?? Analytics.nullTag
 //        os_log("%@: req.params: %@", log: log, type: .info, tag, parameters.description)
-        Analytics.logRequest(tag: tag, method: method, args: args)
+        Analytics.logRequest(tag: tag, method: method, args: gatewayParams(args))
         return request
     }
     
@@ -119,13 +119,16 @@ class Gateway {
             } else if let i = arg as? Int {
                 params.append(String(i))
             } else if let dict = arg as? [String: Any],
-                let jsonData = try? JSONSerialization.data(withJSONObject: dict),
-                let str = String(data: jsonData, encoding: .utf8)
+                      let jsonData = try? JSONSerialization.data(withJSONObject: dict),
+                      let str = String(data: jsonData, encoding: .utf8)
             {
-                params.append(str) 
+                params.append(str)
+            } else if let obj = arg as? OSRFObject,
+                      let jsonData = try? JSONEncoder().encode(obj),
+                      let str = String(data: jsonData, encoding: .utf8) {
+                params.append(str)
             } else if let jsonData = try? JSONSerialization.data(withJSONObject: arg),
-                let str = String(data: jsonData, encoding: .utf8)
-            {
+                      let str = String(data: jsonData, encoding: .utf8) {
                 params.append(str)
             } else {
                 debugPrint(arg)
