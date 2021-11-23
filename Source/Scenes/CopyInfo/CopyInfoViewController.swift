@@ -49,11 +49,6 @@ class CopyInfoViewController: UIViewController {
     func setupViews() {
         table.delegate = self
         table.dataSource = self
-        if App.config.groupCopyInfoBySystem {
-            table.rowHeight = 94
-        } else {
-            table.rowHeight = 72
-        }
         table.tableFooterView = UIView() // prevent display of ghost rows at end of table
         self.setupHomeButton()
         
