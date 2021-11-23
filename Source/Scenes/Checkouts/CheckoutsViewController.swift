@@ -204,6 +204,18 @@ class CheckoutsViewController: UIViewController {
         tableView.reloadData()
     }
 
+    func dueDateText(_ item: CircRecord) -> String {
+        if item.isOverdue {
+            return "Due \(item.dueDateLabel) (overdue)"
+        }
+//        if item.isDue && item.autoRenewals > 0 {
+//            return "Due \(item.dueDateLabel) (but may auto-renew)"
+//        }
+//        if item.wasAutoRenewed && !item.isDue {
+//            return "Due \(item.dueDateLabel) (item was auto-renewed)"
+//        }
+        return "Due \(item.dueDateLabel)"
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -235,15 +247,8 @@ extension CheckoutsViewController: UITableViewDataSource {
         cell.author.text = item.author
         cell.format.text = item.format
         cell.renewals.text = "Renewals left: " + String(item.renewalsRemaining)
-        var dueText = "Due " + item.dueDateLabel
-        if let dueDate = item.dueDate,
-            dueDate < Date() {
-            dueText = dueText + " (overdue)"
-            cell.dueDate.textColor = App.theme.secondaryColor
-        } else {
-            cell.dueDate.textColor = Style.secondaryLabelColor
-        }
-        cell.dueDate.text = dueText
+        cell.dueDate.text = dueDateText(item)
+        cell.dueDate.textColor = item.isDue ? App.theme.secondaryColor : Style.secondaryLabelColor
 
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row

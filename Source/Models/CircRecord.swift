@@ -42,8 +42,26 @@ class CircRecord {
     var dueDate: Date? { return circObj?.getDate("due_date") }
     var dueDateLabel: String { return circObj?.getDateLabel("due_date") ?? "Unknown" }
     var renewalsRemaining: Int { return circObj?.getInt("renewal_remaining") ?? 0 }
+    var autoRenewals: Int { return circObj?.getInt("auto_renewal_remaining") ?? 0 }
+    var wasAutoRenewed: Bool { return circObj?.getBool("auto_renewal") ?? false }
     var targetCopy: Int { return circObj?.getInt("target_copy") ?? -1 }
-
+    var isOverdue: Bool {
+        guard let dueDate = dueDate else {
+            return false
+        }
+        let now = Date()
+        return now > dueDate
+    }
+    var isDue: Bool {
+        guard let dueDate = dueDate,
+              let warningDate = Calendar.current.date(byAdding: .day, value: -3, to: dueDate) else
+        {
+            return false
+        }
+        let now = Date()
+        return now > warningDate
+    }
+    
     init(id: Int) {
         self.id = id
     }
