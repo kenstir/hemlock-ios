@@ -85,10 +85,9 @@ class BookBagsViewController : UITableViewController {
     }
     
     func fetchBookBagContents(account: Account, authtoken: String) {
-        let queryForVisibleItems = true // TODO: parameterize per app?
         var promises: [Promise<Void>] = []
         for bookBag in account.bookBags {
-            promises.append(ActorService.fetchBookBagContents(authtoken: authtoken, bookBag: bookBag, queryForVisibleItems: queryForVisibleItems))
+            promises.append(ActorService.fetchBookBagContents(authtoken: authtoken, bookBag: bookBag))
         }
         os_log("%d promises made", log: self.log, type: .info, promises.count)
 
