@@ -1,5 +1,5 @@
 //
-//  Style.swift
+//  Theme.swift
 //
 //  Copyright (C) 2018 Kenneth H. Cox
 //

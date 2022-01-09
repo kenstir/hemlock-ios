@@ -113,10 +113,6 @@ class Style {
         button.tintColor = App.theme.barTextForegroundColor
     }
 
-    static func styleBarButton(asPlain button: UIBarButtonItem) {
-        button.tintColor = App.theme.primaryDark2Color
-    }
-
     //MARK: - Button
 
     static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.primaryColor) {

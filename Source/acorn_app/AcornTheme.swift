@@ -23,7 +23,7 @@ class AcornTheme: Theme {
     let barTextForegroundColor = UIColor.white
     
     let primaryColor = UIColor(rgb: 0x01579b)
-    let primaryDarkColor = UIColor(rgb: 0x002f6c)
+    let primaryDarkColor = UIColor(named: "primaryDarkColor") ?? UIColor(rgb: 0x002f6c)
     let primaryDark2Color = UIColor(rgb: 0x01579b)
 
     let secondaryColor = UIColor.red
