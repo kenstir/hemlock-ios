@@ -270,7 +270,7 @@ extension MainViewController: UITableViewDataSource {
         } else {
             image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
             //cell.imageView?.image = image
-            cell.tintColor = App.theme.primaryColor
+            cell.tintColor = App.theme.buttonInverseColor
         }
         cell.imageView?.image = image
         cell.textLabel?.text = R.getString(label)

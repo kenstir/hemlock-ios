@@ -1,5 +1,5 @@
 //
-//  BarCodeViewController.swift
+//  ShowCardViewController.swift
 //
 //  Copyright (C) 2018 Erik Cox
 //

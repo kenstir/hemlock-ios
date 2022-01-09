@@ -248,7 +248,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         cell.format.text = item.format
         cell.renewals.text = "Renewals left: " + String(item.renewalsRemaining)
         cell.dueDate.text = dueDateText(item)
-        cell.dueDate.textColor = item.isDue ? App.theme.secondaryColor : Style.secondaryLabelColor
+        cell.dueDate.textColor = item.isDue ? App.theme.alertTextColor : Style.secondaryLabelColor
 
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row

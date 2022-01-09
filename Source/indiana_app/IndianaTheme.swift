@@ -18,11 +18,11 @@
 import UIKit
 
 class IndianaTheme: Theme {
+    let barBackgroundColor = UIColor(rgb: 0x005a3e)
     let barTextForegroundColor = UIColor.white
     
-    let primaryColor = UIColor(rgb: 0x007647)
-    let primaryDarkColor = UIColor(rgb: 0x005a3e)
-    let primaryDark2Color = UIColor(rgb: 0x005a3e)
+    let buttonInverseColor = UIColor(rgb: 0x007647)
+    let buttonTintColor = UIColor(rgb: 0x005a3e)
 
-    let secondaryColor = UIColor.red
+    let alertTextColor = UIColor.red
 }

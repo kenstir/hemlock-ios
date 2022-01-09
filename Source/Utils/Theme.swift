@@ -20,12 +20,12 @@
 import UIKit
 
 protocol Theme {
+    var barBackgroundColor: UIColor { get }
     var barTextForegroundColor: UIColor { get }
 
-    var primaryColor: UIColor { get }
-    var primaryDarkColor: UIColor { get }
-    var primaryDark2Color: UIColor { get }
+    var buttonInverseColor: UIColor { get }
+    var buttonTintColor: UIColor { get }
     
-    var secondaryColor: UIColor { get }
+    var alertTextColor: UIColor { get }
 }
 

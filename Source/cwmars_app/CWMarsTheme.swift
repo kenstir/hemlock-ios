@@ -20,11 +20,11 @@
 import UIKit
 
 class CWMarsTheme: Theme {
+    let barBackgroundColor = UIColor(rgb: 0x16416f)
     let barTextForegroundColor = UIColor.white
 
-    let primaryColor = UIColor(rgb: 0x006098)
-    let primaryDarkColor = UIColor(rgb: 0x16416f)
-    let primaryDark2Color = UIColor(rgb: 0x16416f)
+    let buttonInverseColor = UIColor(rgb: 0x006098)
+    let buttonTintColor = UIColor(rgb: 0x16416f)
 
-    let secondaryColor = UIColor(rgb: 0xd61d4a)
+    let alertTextColor = UIColor(rgb: 0xd61d4a)
 }

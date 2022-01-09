@@ -20,11 +20,11 @@
 import UIKit
 
 class NobleTheme: Theme {
+    let barBackgroundColor = UIColor(rgb: 0x002f6c)
     let barTextForegroundColor = UIColor.white
     
-    let primaryColor = UIColor(rgb: 0x01579b)
-    let primaryDarkColor = UIColor(rgb: 0x002f6c)
-    let primaryDark2Color = UIColor(rgb: 0x01579b)
+    let buttonInverseColor = UIColor(rgb: 0x01579b)
+    let buttonTintColor = UIColor(rgb: 0x002f6c)
 
-    let secondaryColor = UIColor.red
+    let alertTextColor = UIColor.red
 }

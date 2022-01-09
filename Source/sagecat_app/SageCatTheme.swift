@@ -18,11 +18,11 @@
 import UIKit
 
 class SageCatTheme: Theme {
+    let barBackgroundColor = UIColor(rgb: 0x23622A)
     let barTextForegroundColor = UIColor.white
     
-    let primaryColor = UIColor(rgb: 0x23622A)
-    let primaryDarkColor = UIColor(rgb: 0x23622A)
-    let primaryDark2Color = UIColor(rgb: 0x23622A)
+    let buttonInverseColor = UIColor(rgb: 0x23622A)
+    let buttonTintColor = UIColor(rgb: 0x23622A)
 
-    let secondaryColor = UIColor.red
+    let alertTextColor = UIColor.red
 }

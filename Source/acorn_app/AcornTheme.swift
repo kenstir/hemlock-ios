@@ -20,11 +20,11 @@
 import UIKit
 
 class AcornTheme: Theme {
+    let barBackgroundColor = UIColor(rgb: 0x002F6C)
     let barTextForegroundColor = UIColor.white
     
-    let primaryColor = UIColor(rgb: 0x01579b)
-    let primaryDarkColor = UIColor(named: "primaryDarkColor") ?? UIColor(rgb: 0x002f6c)
-    let primaryDark2Color = UIColor(rgb: 0x01579b)
+    let buttonInverseColor = UIColor(rgb: 0x01579b)
+    let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
 
-    let secondaryColor = UIColor.red
+    let alertTextColor = UIColor.red
 }
