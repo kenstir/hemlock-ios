@@ -24,7 +24,7 @@ class CWMarsTheme: Theme {
     let barTextForegroundColor = UIColor.white
 
     let buttonInverseColor = UIColor(rgb: 0x006098)
-    let buttonTintColor = UIColor(rgb: 0x16416f)
+    let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
 
-    let alertTextColor = UIColor(rgb: 0xd61d4a)
+    let alertTextColor = UIColor(rgb: 0xee7623)
 }
