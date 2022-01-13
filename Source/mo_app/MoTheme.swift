@@ -22,7 +22,7 @@ class MoTheme: Theme {
     let barTextForegroundColor = UIColor.white
     
     let buttonInverseColor = UIColor(rgb: 0x23622A)
-    let buttonTintColor = UIColor(rgb: 0x23622A)
+    let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
 
     let alertTextColor = UIColor.red
 }
