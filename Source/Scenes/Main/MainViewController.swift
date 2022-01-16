@@ -145,7 +145,8 @@ class MainViewController: UIViewController {
         for message in messageList {
             let readDate = message.getString("read_date")
             let deleted = message.getBool("deleted") ?? false
-            if readDate == nil && !deleted {
+            let patronVisible = message.getBool("pub") ?? false
+            if readDate == nil && !deleted && patronVisible {
                 unreadCount += 1
             }
         }
