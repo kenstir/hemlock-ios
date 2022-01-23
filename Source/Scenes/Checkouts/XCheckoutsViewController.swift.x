@@ -22,7 +22,7 @@ import AsyncDisplayKit
 import PromiseKit
 import PMKAlamofire
 
-class XCheckoutsViewController: ASViewController<ASTableNode> {
+class XCheckoutsViewController: ASDKViewController<ASTableNode> {
     
     //MARK: - Properties
     

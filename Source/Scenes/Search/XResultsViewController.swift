@@ -22,7 +22,7 @@ import AsyncDisplayKit
 import PromiseKit
 import PMKAlamofire
 
-class XResultsViewController: ASViewController<ASTableNode> {
+class XResultsViewController: ASDKViewController<ASTableNode> {
     
     //MARK: - Properties
     
@@ -41,7 +41,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     
     //MARK: - Lifecycle
 
-    init() {
+    override init() {
         super.init(node: ASTableNode(style: .plain))
         self.title = "Results"
     }
@@ -52,7 +52,7 @@ class XResultsViewController: ASViewController<ASTableNode> {
     
     //MARK: - ViewController
     
-    // NB: viewDidLoad on an ASViewController gets called during construction,
+    // NB: viewDidLoad on an ASDKViewController gets called during construction,
     // before there is any UI.  Do not fetchData here.
     override func viewDidLoad() {
         super.viewDidLoad()

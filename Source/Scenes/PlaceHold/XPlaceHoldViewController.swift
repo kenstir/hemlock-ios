@@ -23,7 +23,7 @@ import PromiseKit
 import PMKAlamofire
 import os.log
 
-class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
+class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     
     //MARK: - Properties
 
@@ -109,7 +109,7 @@ class XPlaceHoldViewController: ASViewController<ASDisplayNode> {
     
     //MARK: - ViewController
     
-    // NB: viewDidLoad on an ASViewController gets called during construction,
+    // NB: viewDidLoad on an ASDKViewController gets called during construction,
     // before there is any UI.  Do not fetchData here.
     override func viewDidLoad() {
         super.viewDidLoad()

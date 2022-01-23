@@ -21,7 +21,7 @@
 import AsyncDisplayKit
 import MessageUI
 
-class XSendEmailViewController: ASViewController<ASTextNode> {
+class XSendEmailViewController: ASDKViewController<ASTextNode> {
     
     //MARK: - Properties
     
@@ -30,7 +30,7 @@ class XSendEmailViewController: ASViewController<ASTextNode> {
     
     //MARK: - Lifecycle
     
-    init() {
+    override init() {
         super.init(node: ASTextNode())
         self.title = "Send Email"
     }
@@ -41,7 +41,7 @@ class XSendEmailViewController: ASViewController<ASTextNode> {
     
     //MARK: - ViewController
     
-    // NB: viewDidLoad on an ASViewController gets called during construction,
+    // NB: viewDidLoad on an ASDKViewController gets called during construction,
     // before there is any UI.  Do not fetchData here.
     override func viewDidLoad() {
         super.viewDidLoad()

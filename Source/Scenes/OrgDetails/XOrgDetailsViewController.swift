@@ -23,7 +23,7 @@ import PromiseKit
 import PMKAlamofire
 import os.log
 
-class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
+class XOrgDetailsViewController: ASDKViewController<ASDisplayNode> {
     
     //MARK: - Properties
 
@@ -51,7 +51,7 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
 
     //MARK: - Lifecycle
     
-    init() {
+    override init() {
         super.init(node: containerNode)
         self.title = "Library Info"
     }
@@ -62,7 +62,7 @@ class XOrgDetailsViewController: ASViewController<ASDisplayNode> {
     
     //MARK: - ViewController
     
-    // NB: viewDidLoad on an ASViewController gets called during construction,
+    // NB: viewDidLoad on an ASDKViewController gets called during construction,
     // before there is any UI.  Do not fetchData here.
     override func viewDidLoad() {
         super.viewDidLoad()

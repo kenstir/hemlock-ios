@@ -27,7 +27,7 @@ struct RecordDisplayOptions {
     let orgShortName: String?
 }
 
-class XDetailsPagerViewController: ASViewController<ASPagerNode> {
+class XDetailsPagerViewController: ASDKViewController<ASPagerNode> {
     
     //MARK: - Properties
     
