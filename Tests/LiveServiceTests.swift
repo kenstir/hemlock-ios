@@ -177,7 +177,7 @@ class LiveServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
         
         let promise = ActorService.fetchOrgTypes()
-        promise.ensure {
+        promise.done {
             let orgTypes = OrgType.orgTypes
             XCTAssert(orgTypes.count > 0, "found some org types")
             expectation.fulfill()
@@ -195,7 +195,7 @@ class LiveServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
         
         let promise = ActorService.fetchOrgTreeAndSettings()
-        promise.ensure {
+        promise.done {
             let org = Organization.find(byId: 1)
             XCTAssertNotNil(org)
             XCTAssertNotNil(org?.name)
@@ -269,7 +269,7 @@ class LiveServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
         
         let promise = PCRUDService.fetchSMSCarriers()
-        promise.ensure {
+        promise.done {
             let carriers = SMSCarrier.getSpinnerLabels()
             for l in carriers {
                 print ("carrier: \(l)")
@@ -287,11 +287,13 @@ class LiveServiceTests: XCTestCase {
     //MARK: - Copy Status
 
     func test_copyStatusAll() {
+        XCTAssertTrue(loadIDL())
+
         let expectation = XCTestExpectation(description: "async response")
         
         let promise = SearchService.fetchCopyStatusAll()
         print("xxx promise made")
-        promise.ensure {
+        promise.done {
             XCTAssertGreaterThan(CopyStatus.status.count, 0)
             expectation.fulfill()
         }.catch { error in
@@ -301,7 +303,7 @@ class LiveServiceTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
         
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 20.0)
     }
     
     func test_copyCounts() {
