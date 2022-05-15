@@ -103,7 +103,8 @@ class BookBagDetailsViewController : UITableViewController {
     
     func updateItems() {
         if let items = bookBag?.items {
-            self.items = items
+            self.items = items.sorted(by: {
+                Utils.pubdateComparator($0.metabibRecord?.pubdate) ?? 0 > Utils.pubdateComparator($1.metabibRecord?.pubdate) ?? 0 })
             tableView.reloadData()
         }
     }

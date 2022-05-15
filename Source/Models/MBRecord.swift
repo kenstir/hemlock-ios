@@ -40,6 +40,7 @@ class MBRecord {
         }
         return nil
     }
+    var pubdate: String { return mvrObj?.getString("pubdate") ?? "" }
     var pubinfo: String {
         let pubdate = mvrObj?.getString("pubdate") ?? ""
         let publisher = mvrObj?.getString("publisher") ?? ""

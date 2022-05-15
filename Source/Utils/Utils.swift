@@ -1,21 +1,22 @@
-//
-//  Utils.swift
-//
-//  Copyright (C) 2019 Kenneth H. Cox
-//
-//  This program is free software; you can redistribute it and/or
-//  modify it under the terms of the GNU General Public License
-//  as published by the Free Software Foundation; either version 2
-//  of the License, or (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/*
+ * Utils.swift
+ *
+ * Copyright (C) 2019 Kenneth H. Cox
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 
 import Foundation
 import os.log
@@ -57,5 +58,21 @@ class Utils {
             return v ? "true" : "false"
         }
         return "nil"
+    }
+    
+    // Given a pubdate like "2000", "c2002", "[2003]", or "2007-2014",
+    // extract the first number as an Int for sorting.
+    static func pubdateComparator(_ pubdate: String?) -> Int? {
+        if let s = pubdate,
+           let startIndex = s.firstIndex(where: { $0.isNumber }) {
+            let s2 = s[startIndex...]
+            if let endIndex = s2.firstIndex(where: { !$0.isNumber}) {
+                let s3 = s2[s2.startIndex..<endIndex]
+                return Int(s3)
+            } else {
+                return Int(s2)
+            }
+        }
+        return nil
     }
 }
