@@ -133,11 +133,12 @@ class SearchViewController: UIViewController {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
     }
-    
+  
     func setupSearchBar() {
         Style.styleSearchBar(searchBar)
+        searchBar.returnKeyType = .done
     }
-    
+  
     func setupOptionsTable() {
         options = []
         options.append(OptionsEntry("Search by", value: scopes[0]))
@@ -219,7 +220,15 @@ extension SearchViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        doSearch()
+        //doSearch()
+        if #available(iOS 13.0, *) {
+            searchBar.searchTextField.resignFirstResponder()
+        } else {
+            let subViews = searchBar.subviews.flatMap { $0.subviews }
+            if let textField = (subViews.filter { $0 is UITextField }).first as? UITextField {
+                textField.resignFirstResponder()
+            }
+        }
     }
 }
 
