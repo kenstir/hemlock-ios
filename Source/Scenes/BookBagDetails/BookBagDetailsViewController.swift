@@ -27,7 +27,7 @@ class BookBagDetailsViewController : UITableViewController {
     weak var activityIndicator: UIActivityIndicatorView!
 
     var bookBag: BookBag?
-    var items: [BookBagItem] = []
+    var sortedItems: [BookBagItem] = []
 //    var didCompleteFetch = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
     
@@ -103,14 +103,14 @@ class BookBagDetailsViewController : UITableViewController {
     
     func updateItems() {
         if let items = bookBag?.items {
-            self.items = items.sorted(by: {
-                Utils.pubdateComparator($0.metabibRecord?.pubdate) ?? 0 > Utils.pubdateComparator($1.metabibRecord?.pubdate) ?? 0 })
+            self.sortedItems = items.sorted(by: {
+                Utils.pubdateSortKey($0.metabibRecord?.pubdate) ?? 0 > Utils.pubdateSortKey($1.metabibRecord?.pubdate) ?? 0 })
             tableView.reloadData()
         }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return sortedItems.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -130,9 +130,9 @@ class BookBagDetailsViewController : UITableViewController {
             return //TODO: add analytics
         }
 
-        let item = items[indexPath.row]
+        let item = sortedItems[indexPath.row]
         ActorService.removeItemFromBookBag(authtoken: authtoken, bookBagItemId: item.id).done {
-            self.bookBag?.items.remove(at: indexPath.row)
+            self.bookBag?.items.removeAll(where: { $0.id == item.id })
             self.updateItems()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
@@ -144,7 +144,7 @@ class BookBagDetailsViewController : UITableViewController {
             fatalError("dequeued cell of wrong class!")
         }
 
-        let item = items[indexPath.row]
+        let item = sortedItems[indexPath.row]
         cell.title.text = item.metabibRecord?.title
         cell.author.text = item.metabibRecord?.author
         cell.format.text = item.metabibRecord?.iconFormatLabel
@@ -154,7 +154,7 @@ class BookBagDetailsViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var records: [MBRecord] = []
-        for item in items {
+        for item in sortedItems {
             if let record = item.metabibRecord {
                 records.append(record)
             }

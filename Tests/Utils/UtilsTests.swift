@@ -46,11 +46,11 @@ class UtilsTests: XCTestCase {
     }
     
     func test_pubdateComparator() {
-        XCTAssertNil(Utils.pubdateComparator(nil))
-        XCTAssertNil(Utils.pubdateComparator("abcde"))
-        XCTAssertEqual(2000, Utils.pubdateComparator("2000"))
-        XCTAssertEqual(2000, Utils.pubdateComparator("c2000"))
-        XCTAssertEqual(2000, Utils.pubdateComparator("2000-"))
-        XCTAssertEqual(2000, Utils.pubdateComparator("[2000]"))
+        XCTAssertNil(Utils.pubdateSortKey(_:)(nil))
+        XCTAssertNil(Utils.pubdateSortKey("abcde"))
+        XCTAssertEqual(2000, Utils.pubdateSortKey("2000"))
+        XCTAssertEqual(2000, Utils.pubdateSortKey("c2000"))
+        XCTAssertEqual(2000, Utils.pubdateSortKey("2000-"))
+        XCTAssertEqual(2000, Utils.pubdateSortKey("[2000]"))
     }
 }

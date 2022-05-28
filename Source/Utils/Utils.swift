@@ -62,7 +62,7 @@ class Utils {
     
     // Given a pubdate like "2000", "c2002", "[2003]", or "2007-2014",
     // extract the first number as an Int for sorting.
-    static func pubdateComparator(_ pubdate: String?) -> Int? {
+    static func pubdateSortKey(_ pubdate: String?) -> Int? {
         if let s = pubdate,
            let startIndex = s.firstIndex(where: { $0.isNumber }) {
             let s2 = s[startIndex...]
