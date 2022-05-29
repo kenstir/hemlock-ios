@@ -136,7 +136,9 @@ class SearchViewController: UIViewController {
   
     func setupSearchBar() {
         Style.styleSearchBar(searchBar)
-        searchBar.returnKeyType = .done
+        if UIScreen.main.bounds.height < 667 {
+            searchBar.returnKeyType = .done
+        }
     }
   
     func setupOptionsTable() {
@@ -214,20 +216,21 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar,
-                   textDidChange searchText: String) {
-        //called on every key press, do not search here
+    func getTextView(_ searchBar: UISearchBar) -> UITextField? {
+        if #available(iOS 13.0, *) {
+            return searchBar.searchTextField
+        } else {
+            let subViews = searchBar.subviews.flatMap { $0.subviews }
+            let textField = (subViews.filter { $0 is UITextField }).first as? UITextField
+            return textField
+        }
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //doSearch()
-        if #available(iOS 13.0, *) {
-            searchBar.searchTextField.resignFirstResponder()
+        if searchBar.returnKeyType == .done {
+            getTextView(searchBar)?.resignFirstResponder()
         } else {
-            let subViews = searchBar.subviews.flatMap { $0.subviews }
-            if let textField = (subViews.filter { $0 is UITextField }).first as? UITextField {
-                textField.resignFirstResponder()
-            }
+            doSearch()
         }
     }
 }
