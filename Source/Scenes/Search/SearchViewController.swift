@@ -136,9 +136,13 @@ class SearchViewController: UIViewController {
   
     func setupSearchBar() {
         Style.styleSearchBar(searchBar)
-        if UIScreen.main.bounds.height < 667 {
-            searchBar.returnKeyType = .done
-        }
+
+        // The idea here was to use a .done keyboard for small screens,
+        // where the keyboard obscures the search options.  But that
+        // doesn't prevent cases where dynamic type is extra huge, so
+        // for now always use .done instead of .search.
+        //if UIScreen.main.bounds.height < 667
+        searchBar.returnKeyType = .done
     }
   
     func setupOptionsTable() {
