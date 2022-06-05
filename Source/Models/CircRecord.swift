@@ -28,14 +28,14 @@ class CircRecord {
     var acpObj: OSRFObject?
     
     var title: String {
-        if let title = metabibRecord?.title { return title }
-        if let title = acpObj?.getString("dummy_title") { return title }
+        if let title = metabibRecord?.title, !title.isEmpty { return title }
+        if let title = acpObj?.getString("dummy_title"), !title.isEmpty { return title }
         return "Unknown Title"
         
     }
     var author: String {
-        if let author = metabibRecord?.author { return author }
-        if let author = acpObj?.getString("dummy_author") { return author }
+        if let author = metabibRecord?.author, !author.isEmpty { return author }
+        if let author = acpObj?.getString("dummy_author"), !author.isEmpty { return author }
         return ""
     }
     var format: String { return metabibRecord?.iconFormatLabel ?? "" }
