@@ -42,7 +42,7 @@ class MBRecord {
     var pubinfo: String {
         let pubdate = mvrObj?.getString("pubdate") ?? ""
         let publisher = mvrObj?.getString("publisher") ?? ""
-        return pubdate + " " + publisher
+        return (pubdate + " " + publisher).trim()
     }
     var synopsis: String { return mvrObj?.getString("synopsis") ?? "" }
     var subject: String {
