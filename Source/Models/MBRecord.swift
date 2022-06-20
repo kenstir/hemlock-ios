@@ -25,7 +25,7 @@ class MBRecord {
     var mvrObj: OSRFObject?
     var attrs: [String: String]? // from MRA object
     var marcRecord: MARCRecord?
-    var copyCounts: [CopyCounts]?
+    var copyCounts: [CopyCount]?
 
     var title: String { return mvrObj?.getString("title") ?? "" }
     var author: String { return mvrObj?.getString("author") ?? "" }

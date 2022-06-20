@@ -311,7 +311,7 @@ class LiveServiceTests: XCTestCase {
         
         let promise = SearchService.fetchCopyCount(orgID: self.consortiumOrgID, recordID: self.sampleRecordID!)
         promise.done { array in
-            let copyCounts = CopyCounts.makeArray(fromArray: array)
+            let copyCounts = CopyCount.makeArray(fromArray: array)
             XCTAssertGreaterThan(copyCounts.count, 0)
             expectation.fulfill()
         }.catch { error in

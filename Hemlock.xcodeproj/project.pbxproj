@@ -130,7 +130,7 @@
 		D210EC0E22B1EE55002FB5E0 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D210EC1022B1EE55002FB5E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
-		D210EC1122B1EE55002FB5E0 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D210EC1122B1EE55002FB5E0 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D210EC1422B1EE55002FB5E0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
@@ -324,7 +324,7 @@
 		D23E9FB423B9200A0030F5C1 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D23E9FB623B9200A0030F5C1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
-		D23E9FB723B9200A0030F5C1 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D23E9FB723B9200A0030F5C1 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
@@ -463,7 +463,7 @@
 		D2477C0524785A6B00FD4CF6 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
 		D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D2477C0724785A6B00FD4CF6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
-		D2477C0824785A6B00FD4CF6 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D2477C0824785A6B00FD4CF6 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2477C0B24785A6B00FD4CF6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
@@ -602,7 +602,7 @@
 		D2572AF824AD7755000BA698 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D2572AF924AD7755000BA698 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D2572AFA24AD7755000BA698 /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
-		D2572AFB24AD7755000BA698 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D2572AFC24AD7755000BA698 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2572AFD24AD7755000BA698 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2572AFE24AD7755000BA698 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
@@ -652,8 +652,8 @@
 		D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
-		D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
-		D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
+		D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D276DA8921336B20007FAA31 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -704,7 +704,7 @@
 		D276DAC021336B20007FAA31 /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
 		D276DAC121336B20007FAA31 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D276DAC221336B20007FAA31 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
-		D276DAC321336B20007FAA31 /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D276DAC321336B20007FAA31 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D276DAC421336B20007FAA31 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D276DAC521336B20007FAA31 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D276DAC821336B20007FAA31 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
@@ -849,7 +849,7 @@
 		D284248A21D0358200C7171C /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D284248B21D0358200C7171C /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D284248C21D0358200C7171C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
-		D284248D21D0358200C7171C /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D284248D21D0358200C7171C /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D284248E21D0358200C7171C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D284248F21D0358200C7171C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D284249021D0358200C7171C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
@@ -1108,7 +1108,7 @@
 		D2BDA65722D176BD00D9B60C /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D2BDA65822D176BD00D9B60C /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D2BDA65922D176BD00D9B60C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
-		D2BDA65A22D176BD00D9B60C /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D2BDA65A22D176BD00D9B60C /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2BDA65D22D176BD00D9B60C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
@@ -1211,7 +1211,7 @@
 		D2BDA6EE22D2A72000D9B60C /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D2BDA6EF22D2A72000D9B60C /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D2BDA6F122D2A72000D9B60C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
-		D2BDA6F222D2A72000D9B60C /* CopyCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCounts.swift */; };
+		D2BDA6F222D2A72000D9B60C /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2BDA6F422D2A72000D9B60C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2BDA6F522D2A72000D9B60C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
@@ -1430,7 +1430,7 @@
 		D26210EC217E2369004E7ABE /* XDetailsNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XDetailsNode.swift; sourceTree = "<group>"; };
 		D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCounts.swift; sourceTree = "<group>"; };
 		D267E4E3210CDE4700C56047 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
-		D267E4E6210D17F900C56047 /* CopyCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCounts.swift; sourceTree = "<group>"; };
+		D267E4E6210D17F900C56047 /* CopyCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCount.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D276DAE221336B20007FAA31 /* cwmars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cwmars.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1929,7 +1929,7 @@
 				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D28725AD20E86F30002A4C42 /* CircService.swift */,
 				D21981F7235BC7BC003AE531 /* CodedValueMap.swift */,
-				D267E4E6210D17F900C56047 /* CopyCounts.swift */,
+				D267E4E6210D17F900C56047 /* CopyCount.swift */,
 				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
@@ -3274,7 +3274,7 @@
 				D2C7D6272484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainViewController.swift in Sources */,
 				D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
-				D210EC1122B1EE55002FB5E0 /* CopyCounts.swift in Sources */,
+				D210EC1122B1EE55002FB5E0 /* CopyCount.swift in Sources */,
 				D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */,
 				D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */,
 				D210EC1422B1EE55002FB5E0 /* Account.swift in Sources */,
@@ -3377,7 +3377,7 @@
 				D2C7D62F2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainViewController.swift in Sources */,
 				D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
-				D23E9FB723B9200A0030F5C1 /* CopyCounts.swift in Sources */,
+				D23E9FB723B9200A0030F5C1 /* CopyCount.swift in Sources */,
 				D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */,
 				D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */,
 				D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */,
@@ -3480,7 +3480,7 @@
 				D2C7D62B2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2477C0724785A6B00FD4CF6 /* MainViewController.swift in Sources */,
 				D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
-				D2477C0824785A6B00FD4CF6 /* CopyCounts.swift in Sources */,
+				D2477C0824785A6B00FD4CF6 /* CopyCount.swift in Sources */,
 				D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */,
 				D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */,
 				D2477C0B24785A6B00FD4CF6 /* Account.swift in Sources */,
@@ -3583,7 +3583,7 @@
 				D2572AF824AD7755000BA698 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2572AF924AD7755000BA698 /* MainViewController.swift in Sources */,
 				D2572AFA24AD7755000BA698 /* OrgDetailsViewController.swift in Sources */,
-				D2572AFB24AD7755000BA698 /* CopyCounts.swift in Sources */,
+				D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */,
 				D2572AFC24AD7755000BA698 /* String+subscript.swift in Sources */,
 				D2572AFD24AD7755000BA698 /* SearchService.swift in Sources */,
 				D2572AFE24AD7755000BA698 /* Account.swift in Sources */,
@@ -3684,7 +3684,7 @@
 				D276DAC121336B20007FAA31 /* Style.swift in Sources */,
 				D276DAC221336B20007FAA31 /* MainViewController.swift in Sources */,
 				D2346FFD24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
-				D276DAC321336B20007FAA31 /* CopyCounts.swift in Sources */,
+				D276DAC321336B20007FAA31 /* CopyCount.swift in Sources */,
 				D27DF20E21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D276DAC421336B20007FAA31 /* SearchService.swift in Sources */,
 				D229CAF72471C099006BCC07 /* AuthService.swift in Sources */,
@@ -3786,7 +3786,7 @@
 				D28290F820E6F770008EBE4B /* Style.swift in Sources */,
 				D27990EE20DDD473003B451E /* MainViewController.swift in Sources */,
 				D2346FFE24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
-				D267E4E7210D17F900C56047 /* CopyCounts.swift in Sources */,
+				D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */,
 				D27DF20C21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */,
 				D229CAF82471C099006BCC07 /* AuthService.swift in Sources */,
@@ -3888,7 +3888,7 @@
 				D284248B21D0358200C7171C /* Style.swift in Sources */,
 				D284248C21D0358200C7171C /* MainViewController.swift in Sources */,
 				D2346FFC24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
-				D284248D21D0358200C7171C /* CopyCounts.swift in Sources */,
+				D284248D21D0358200C7171C /* CopyCount.swift in Sources */,
 				D284248E21D0358200C7171C /* String+subscript.swift in Sources */,
 				D284248F21D0358200C7171C /* SearchService.swift in Sources */,
 				D229CAF62471C099006BCC07 /* AuthService.swift in Sources */,
@@ -3992,7 +3992,7 @@
 				D2C7D62E2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
 				D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
-				D267E4E8210D17F900C56047 /* CopyCounts.swift in Sources */,
+				D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */,
 				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
@@ -4127,7 +4127,7 @@
 				D2C7D62C2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainViewController.swift in Sources */,
 				D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
-				D2BDA65A22D176BD00D9B60C /* CopyCounts.swift in Sources */,
+				D2BDA65A22D176BD00D9B60C /* CopyCount.swift in Sources */,
 				D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */,
 				D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */,
 				D2BDA65D22D176BD00D9B60C /* Account.swift in Sources */,
@@ -4226,7 +4226,7 @@
 				D2BDA6F122D2A72000D9B60C /* MainViewController.swift in Sources */,
 				D2A73B24246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2AA9D5727383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
-				D2BDA6F222D2A72000D9B60C /* CopyCounts.swift in Sources */,
+				D2BDA6F222D2A72000D9B60C /* CopyCount.swift in Sources */,
 				D2C7D62D2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */,
 				D29911EA248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,

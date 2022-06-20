@@ -55,7 +55,8 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
             if let err = error {
                 throw err
             }
-            throw MARCXMLParseError.unknownError        }
+            throw MARCXMLParseError.unknownError
+        }
     }
     
     //MARK: - XMLParserDelegate

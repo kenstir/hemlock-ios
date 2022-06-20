@@ -91,7 +91,7 @@ class XDetailsNode: ASCellNode {
             let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
             let promise = SearchService.fetchCopyCount(orgID: orgID, recordID: record.id)
             let done_promise = promise.done { array in
-                self.record.copyCounts = CopyCounts.makeArray(fromArray: array)
+                self.record.copyCounts = CopyCount.makeArray(fromArray: array)
             }
             promises.append(done_promise)
         }

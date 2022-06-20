@@ -18,7 +18,7 @@
 import Foundation
 
 // Summary of the available/total copies in an org unit
-class CopyCounts {
+class CopyCount {
 
     let orgID: Int
     let available: Int
@@ -33,14 +33,14 @@ class CopyCounts {
         self.available = available
     }
     
-    static func makeArray(fromArray objects: [OSRFObject]) -> [CopyCounts] {
-        var copyCounts: [CopyCounts] = []
+    static func makeArray(fromArray objects: [OSRFObject]) -> [CopyCount] {
+        var copyCounts: [CopyCount] = []
         for obj in objects {
             if let orgID = obj.getInt("org_unit"),
                 let available = obj.getInt("available"),
                 let count = obj.getInt("count")
             {
-                copyCounts.append(CopyCounts(orgID: orgID, count: count, available: available))
+                copyCounts.append(CopyCount(orgID: orgID, count: count, available: available))
             }
         }
         return copyCounts
