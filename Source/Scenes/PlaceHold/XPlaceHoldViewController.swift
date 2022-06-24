@@ -362,7 +362,8 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         if hasParts { pageSpec.children?.append(partRowSpec) }
         pageSpec.children?.append(contentsOf: [pickupRowSpec, emailRowSpec])
         if App.config.enableHoldPhoneNotification { pageSpec.children?.append(phoneRowSpec) }
-        pageSpec.children?.append(contentsOf: [smsRowSpec, carrierRowSpec, expirationRowSpec])
+        pageSpec.children?.append(contentsOf: [smsRowSpec, carrierRowSpec])
+        if isEditHold { pageSpec.children?.append(expirationRowSpec) }
         if expirationPickerVisible { pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: expirationPickerNode)) }
         if isEditHold { pageSpec.children?.append(contentsOf: [suspendRowSpec, thawRowSpec]) }
         if thawPickerVisible { pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: thawPickerNode)) }
