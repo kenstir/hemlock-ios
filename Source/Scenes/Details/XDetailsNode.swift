@@ -36,7 +36,6 @@ class XDetailsNode: ASCellNode {
     private let pageHeaderText = ASTextNode()
 
     private let titleNode = ASTextNode()
-    private let spacerNode = ASDisplayNode()
     private let authorNode = ASTextNode()
     private let formatNode = ASTextNode()
     private let publicationNode = ASTextNode()
@@ -253,7 +252,6 @@ class XDetailsNode: ASCellNode {
         Style.setupSubtitle(authorNode, str: record.author, ofSize: Style.subtitleSize)
         Style.setupSubtitle(publicationNode, str: record.pubinfo, ofSize: Style.subheadSize)
         setupImageNode()
-        setupSpacerNode()
 
         setupAsyncDataNodes()
         
@@ -347,10 +345,6 @@ class XDetailsNode: ASCellNode {
         let url = App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
         self.imageNode.contentMode = .scaleAspectFit 
         self.imageNode.url = URL(string: url)
-    }
-    
-    private func setupSpacerNode() {
-        //self.spacerNode.backgroundColor = UIColor.red
     }
     
     private func buildNodeHierarchy() {

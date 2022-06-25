@@ -1,22 +1,23 @@
-//
-//  XPlaceHoldViewController.swift
-//  X is for teXture
-//
-//  Copyright (C) 2018 Kenneth H. Cox
-//
-//  This program is free software; you can redistribute it and/or
-//  modify it under the terms of the GNU General Public License
-//  as published by the Free Software Foundation; either version 2
-//  of the License, or (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/*
+ * XPlaceHoldViewController.swift
+ * X is for teXture
+ *
+ * Copyright (C) 2018 Kenneth H. Cox
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 
 import AsyncDisplayKit
 import PromiseKit
@@ -54,7 +55,6 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     let titleNode = ASTextNode()
     let authorNode = ASTextNode()
     let formatNode = ASTextNode()
-    //let spacerNode = ASDisplayNode()
     let partLabel = ASTextNode()
     let partNode = XUtils.makeTextFieldNode()
     let partDisclosure = XUtils.makeDisclosureNode()
@@ -74,16 +74,12 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     let carrierDisclosure = XUtils.makeDisclosureNode()
     let expirationLabel = ASTextNode()
     let expirationNode = XUtils.makeTextFieldNode()
-    let expirationPickerNode = ASDisplayNode { () -> UIView in
-        return UIDatePicker()
-    }
+    let expirationPickerNode = XPlaceHoldViewController.makeDatePickerNode()
     let suspendLabel = ASTextNode()
     let suspendSwitch = XUtils.makeSwitchNode()
     let thawLabel = ASTextNode()
     let thawNode = XUtils.makeTextFieldNode()
-    let thawPickerNode = ASDisplayNode { () -> UIView in
-        return UIDatePicker()
-    }
+    let thawPickerNode = XPlaceHoldViewController.makeDatePickerNode()
     let actionButton = ASButtonNode()
     let labelSize = Style.subheadSize
 
@@ -163,6 +159,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         smsNode.textField?.isEnabled = isOn(smsSwitch)
         carrierNode.textField?.isEnabled = didCompleteFetch
         thawNode.textField?.isEnabled = isOn(suspendSwitch)
+        thawPickerNode.datePicker?.isEnabled = isOn(suspendSwitch)
         actionButton.isEnabled = didCompleteFetch
         actionButton.setNeedsDisplay()
     }
@@ -214,20 +211,16 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     
     func setupExpirationRow() {
         expirationLabel.attributedText = Style.makeString("Expiration date", ofSize: labelSize)
-        expirationNode.textField?.borderStyle = .roundedRect
-        expirationNode.textField?.delegate = self
         expirationPickerNode.datePicker?.addTarget(self, action: #selector(expirationChanged(sender:)), for: .valueChanged)
-        expirationPickerNode.datePicker?.datePickerMode = .date
+        setupPickerRow(textNode: expirationNode, picker: expirationPickerNode)
     }
     
     func setupThawRow() {
         thawLabel.attributedText = Style.makeString("Activate hold on", ofSize: labelSize)
-        thawNode.textField?.borderStyle = .roundedRect
-        thawNode.textField?.delegate = self
         thawPickerNode.datePicker?.addTarget(self, action: #selector(thawChanged(sender:)), for: .valueChanged)
-        thawPickerNode.datePicker?.datePickerMode = .date
+        setupPickerRow(textNode: thawNode, picker: thawPickerNode)
     }
-    
+
     func setupButtonRow() {
         Style.styleButton(asInverse: actionButton, title: isEditHold ? "Update Hold" : "Place Hold")
         actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), forControlEvents: .touchUpInside)
@@ -262,7 +255,6 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         // TIP: set preferredSize on a wrapped UIView or it ends up being (0,0)
         let switchPreferredSize = CGSize(width: 51, height: 31) // from IB
         let textFieldPreferredSize = CGSize(width: 217, height: 31) // from IB
-        let pickerPreferredSize = CGSize(width: 414, height: 162) // from IB
 
         // shared dimensions
         let rowMinHeight = ASDimensionMake(switchPreferredSize.height)
@@ -323,14 +315,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         
         // expiration row
         expirationLabel.style.minWidth = labelMinWidth
-        expirationNode.style.flexGrow = 1
-        expirationNode.style.flexShrink = 1
-        expirationNode.style.preferredSize = textFieldPreferredSize
-        let expirationRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
-        expirationRowSpec.children = [expirationLabel, expirationNode]
-        
-        // expiration picker row
-        expirationPickerNode.style.preferredSize = pickerPreferredSize
+        let expirationRowSpec = makePickerRowSpec(label: expirationLabel, textNode: expirationNode, picker: expirationPickerNode, rowMinHeight: rowMinHeight, spacing: spacing, textPreferredSize: textFieldPreferredSize)
         
         // suspend row
         suspendLabel.style.minWidth = labelMinWidth
@@ -340,14 +325,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         
         // thaw row
         thawLabel.style.minWidth = labelMinWidth
-        thawNode.style.flexGrow = 1
-        thawNode.style.flexShrink = 1
-        thawNode.style.preferredSize = textFieldPreferredSize
-        let thawRowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
-        thawRowSpec.children = [thawLabel, thawNode]
-
-        // thaw picker row
-        thawPickerNode.style.preferredSize = pickerPreferredSize
+        let thawRowSpec = makePickerRowSpec(label: thawLabel, textNode: thawNode, picker: thawPickerNode, rowMinHeight: rowMinHeight, spacing: spacing, textPreferredSize: textFieldPreferredSize)
 
         // button row
         actionButton.style.alignSelf = .center
@@ -364,9 +342,9 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         if App.config.enableHoldPhoneNotification { pageSpec.children?.append(phoneRowSpec) }
         pageSpec.children?.append(contentsOf: [smsRowSpec, carrierRowSpec])
         if isEditHold { pageSpec.children?.append(expirationRowSpec) }
-        if expirationPickerVisible { pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: expirationPickerNode)) }
+        if expirationPickerVisible { addPickerRowToPageSpec(pageSpec, picker: expirationPickerNode) }
         if isEditHold { pageSpec.children?.append(contentsOf: [suspendRowSpec, thawRowSpec]) }
-        if thawPickerVisible { pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: thawPickerNode)) }
+        if thawPickerVisible { addPickerRowToPageSpec(pageSpec, picker: thawPickerNode) }
         pageSpec.children?.append(actionButton)
         
         // inset entire page
@@ -375,8 +353,81 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         return spec
     }
     
-    //MARK: - Functions
+    //MARK: - Date Picker Functions
     
+    static func useCompactPicker() -> Bool {
+        if #available(iOS 13.4, *) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func setCompactPicker(_ picker: UIDatePicker) {
+        if #available(iOS 13.4, *) {
+            picker.preferredDatePickerStyle = .compact
+        }
+    }
+
+    static func makeDatePickerNode() -> ASDisplayNode {
+        let node = ASDisplayNode { () -> UIView in
+            let picker = UIDatePicker()
+            setCompactPicker(picker)
+            picker.datePickerMode = .date
+            return picker
+        }
+        return node
+    }
+    
+    func setupPickerRow(textNode: ASDisplayNode, picker: ASDisplayNode) {
+        if XPlaceHoldViewController.useCompactPicker() {
+            // nada
+        } else {
+            textNode.textField?.borderStyle = .roundedRect
+            textNode.textField?.delegate = self
+        }
+        picker.datePicker?.datePickerMode = .date
+    }
+    
+    func setPickerDate(textNode: ASDisplayNode, picker: ASDisplayNode, date: Date) {
+        if XPlaceHoldViewController.useCompactPicker() {
+            // nada
+        } else {
+            let dateStr = OSRFObject.outputDateFormatter.string(from: date)
+            textNode.textField?.text = dateStr
+        }
+        picker.datePicker?.date = date
+    }
+
+    func makePickerRowSpec(label: ASTextNode, textNode: ASDisplayNode, picker: ASDisplayNode, rowMinHeight: ASDimension, spacing: CGFloat, textPreferredSize: CGSize) -> ASLayoutSpec {
+        let rowSpec = makeRowSpec(rowMinHeight: rowMinHeight, spacing: spacing)
+        if XPlaceHoldViewController.useCompactPicker() {
+            rowSpec.children = [label, picker]
+            let pickerPreferredSize = CGSize(width: 75, height: 34.5)
+            picker.style.flexGrow = 0
+            picker.style.flexShrink = 0
+            picker.style.preferredSize = pickerPreferredSize
+        } else {
+            textNode.style.flexGrow = 1
+            textNode.style.flexShrink = 1
+            textNode.style.preferredSize = textPreferredSize
+            rowSpec.children = [label, textNode]
+            let pickerPreferredSize = CGSize(width: 414, height: 162) // from IB
+            picker.style.preferredSize = pickerPreferredSize
+        }
+        return rowSpec
+    }
+    
+    func addPickerRowToPageSpec(_ pageSpec: ASLayoutSpec, picker: ASDisplayNode) {
+        if XPlaceHoldViewController.useCompactPicker() {
+            // nada
+        } else {
+            pageSpec.children?.append(ASWrapperLayoutSpec(layoutElement: picker))
+        }
+    }
+    
+    //MARK: - Functions
+
     func fetchData() {
         guard !didCompleteFetch else { return }
         guard let account = App.account else { return }
@@ -553,6 +604,8 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         }
         if let date = Utils.coalesce(holdRecord?.thawDate) {
             updateThawDate(date)
+        } else {
+            updateThawDate(Date())
         }
         if let val = holdRecord?.isSuspended {
             suspendSwitch.switchView?.isOn = val
@@ -565,8 +618,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     
     func updateExpirationDate(_ date: Date) {
         expirationDate = date
-        let expirationDateStr = OSRFObject.outputDateFormatter.string(from: date)
-        expirationNode.textField?.text = expirationDateStr
+        setPickerDate(textNode: expirationNode, picker: expirationPickerNode, date: date)
     }
     
     @objc func thawChanged(sender: UIDatePicker) {
@@ -575,8 +627,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     
     func updateThawDate(_ date: Date) {
         thawDate = date
-        let dateStr = OSRFObject.outputDateFormatter.string(from: date)
-        thawNode.textField?.text = dateStr
+        setPickerDate(textNode: thawNode, picker: thawPickerNode, date: date)
     }
 
     @objc func holdButtonPressed(sender: Any) {
