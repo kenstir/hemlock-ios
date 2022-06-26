@@ -366,6 +366,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     static func setCompactPicker(_ picker: UIDatePicker) {
         if #available(iOS 14.2, *) {
             picker.preferredDatePickerStyle = .compact
+            picker.contentHorizontalAlignment = .left
         } else if #available(iOS 13.4, *) {
             picker.preferredDatePickerStyle = .wheels
         }
@@ -406,8 +407,8 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         if XPlaceHoldViewController.useCompactPicker() {
             rowSpec.children = [label, picker]
             let pickerPreferredSize = CGSize(width: 75, height: 34.5)
-            picker.style.flexGrow = 0
-            picker.style.flexShrink = 0
+            picker.style.flexGrow = 1
+            picker.style.flexShrink = 1
             picker.style.preferredSize = pickerPreferredSize
         } else {
             textNode.style.flexGrow = 1
@@ -525,8 +526,8 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         }
 
         let smsNumber = Utils.coalesce(holdRecord?.smsNotify,
-                                    App.account?.smsNotify,
-                                    App.valet.string(forKey: "SMSNumber"))
+                                       App.account?.smsNotify,
+                                       App.valet.string(forKey: "SMSNumber"))
         smsNode.textField?.text = smsNumber
         if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
                                     App.account?.defaultNotifySMS),
@@ -601,16 +602,14 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     }
 
     func loadExpirationData() {
-        if let date = Utils.coalesce(holdRecord?.expireDate) {
-            updateExpirationDate(date)
-        }
-        if let date = Utils.coalesce(holdRecord?.thawDate) {
-            updateThawDate(date)
-        } else {
-            updateThawDate(Date())
-        }
         if let val = holdRecord?.isSuspended {
             suspendSwitch.switchView?.isOn = val
+        }
+        if let date = holdRecord?.expireDate {
+            updateExpirationDate(date)
+        }
+        if let date = holdRecord?.thawDate {
+            updateThawDate(date)
         }
     }
 
