@@ -356,7 +356,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     //MARK: - Date Picker Functions
     
     static func useCompactPicker() -> Bool {
-        if #available(iOS 13.4, *) {
+        if #available(iOS 14.2, *) {
             return true
         } else {
             return false
@@ -364,8 +364,10 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
     }
     
     static func setCompactPicker(_ picker: UIDatePicker) {
-        if #available(iOS 13.4, *) {
+        if #available(iOS 14.2, *) {
             picker.preferredDatePickerStyle = .compact
+        } else if #available(iOS 13.4, *) {
+            picker.preferredDatePickerStyle = .wheels
         }
     }
 
