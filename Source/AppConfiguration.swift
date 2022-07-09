@@ -38,6 +38,7 @@ protocol AppConfiguration {
     var enablePayFines: Bool { get }
     var enableHoursOfOperation: Bool { get }
     var enableMessages: Bool { get }
+    var enableEventsButton: Bool { get }
 
     var groupCopyInfoBySystem: Bool { get }
     var enableCopyInfoWebLinks: Bool { get }

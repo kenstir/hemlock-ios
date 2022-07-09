@@ -2202,10 +2202,10 @@
 			children = (
 				D28AE27024FDDD8800960E9E /* custom_strings.json */,
 				D2BDA69B22D17A9100D9B60C /* AppFactory.swift */,
-				D2BDA68022D176BD00D9B60C /* Info.plist */,
 				D2BDA69A22D17A9000D9B60C /* NobleAppBehavior.swift */,
 				D2BDA69922D17A9000D9B60C /* NobleAppConfiguration.swift */,
 				D2BDA69822D17A9000D9B60C /* NobleTheme.swift */,
+				D2BDA68022D176BD00D9B60C /* Info.plist */,
 				D2BDA69622D17A8400D9B60C /* noble.xcassets */,
 			);
 			path = noble_app;

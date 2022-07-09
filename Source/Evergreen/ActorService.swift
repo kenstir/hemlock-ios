@@ -82,7 +82,8 @@ class ActorService {
             var settings = [
                 API.settingNotPickupLib,
                 API.settingCreditPaymentsAllow,
-                API.settingInfoURL
+                API.settingInfoURL,
+                API.settingHemlockEventsURL,
             ]
             if org.parent == nil {
                 settings.append(API.settingSMSEnable)

@@ -127,9 +127,37 @@ class MainViewController: UIViewController {
     
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
-            let userid = App.account?.userID,
-            App.config.enableMessages else { return }
-        
+              let userid = App.account?.userID else { return }
+
+        if App.config.enableMessages {
+            fetchMessages(authtoken: authtoken, userid: userid)
+        }
+        if App.config.enableEventsButton {
+            fetchEventsURL()
+        }
+    }
+    
+    func fetchEventsURL() {
+        guard let orgID = App.account?.homeOrgID else { return }
+        let promise = ActorService.fetchOrgTreeAndSettings(forOrgID: orgID)
+        promise.done {
+            if let org = Organization.find(byId: orgID),
+               let eventsURL = org.eventsURL,
+               !eventsURL.isEmpty,
+               let url = URL(string: eventsURL)
+            {
+                let index = self.buttons.index(before: self.buttons.endIndex)
+                self.buttons.insert(("Events", "", {
+                    UIApplication.shared.open(url)
+                }), at: index)
+                self.tableView.reloadData()
+            }
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    func fetchMessages(authtoken: String, userid: Int) {
         let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userid], shouldCache: false)
         req.gatewayResponse().done { resp in
             if let array = resp.array {
