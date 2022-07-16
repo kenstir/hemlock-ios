@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var libraryLocatorButton: UIButton!
 
     var buttons: [(String, String, (() -> Void)?)] = []
+    var didFetchEventsURL = false
     
     //MARK: - UIViewController
     
@@ -138,9 +139,11 @@ class MainViewController: UIViewController {
     }
     
     func fetchEventsURL() {
+        if didFetchEventsURL { return }
         guard let orgID = App.account?.homeOrgID else { return }
         let promise = ActorService.fetchOrgTreeAndSettings(forOrgID: orgID)
         promise.done {
+            self.didFetchEventsURL = true
             if let org = Organization.find(byId: orgID),
                let eventsURL = org.eventsURL,
                !eventsURL.isEmpty,
