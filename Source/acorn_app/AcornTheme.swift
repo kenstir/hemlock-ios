@@ -23,8 +23,9 @@ class AcornTheme: Theme {
     let barBackgroundColor = UIColor(rgb: 0x002F6C)
     let barTextForegroundColor = UIColor.white
     
-    let buttonInverseColor = UIColor(rgb: 0x01579b)
+    let inverseButtonColor = UIColor(rgb: 0x01579b)
     let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
+    let mainButtonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
 
     let alertTextColor = UIColor.red
 }

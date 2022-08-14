@@ -21,8 +21,9 @@ class IndianaTheme: Theme {
     let barBackgroundColor = UIColor(rgb: 0x005a3e)
     let barTextForegroundColor = UIColor.white
     
-    let buttonInverseColor = UIColor(rgb: 0x007647)
+    let inverseButtonColor = UIColor(rgb: 0x007647)
     let buttonTintColor = UIColor(rgb: 0x005a3e)
+    let mainButtonTintColor = UIColor(rgb: 0x005a3e)
 
     let alertTextColor = UIColor.red
 }

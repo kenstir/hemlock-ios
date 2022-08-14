@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40S-Re-Xlj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40S-Re-Xlj">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" image="splash3" translatesAutoresizingMaskIntoConstraints="NO" id="jXX-cs-NhO">
-                                <rect key="frame" x="11" y="24" width="298" height="165"/>
+                                <rect key="frame" x="28" y="24" width="264" height="195.5"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uat-eb-NXW" userLabel="Spacer Label">
-                                <rect key="frame" x="0.0" y="213" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="243.5" width="320" height="13"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -65,7 +65,9 @@
                             <constraint firstItem="Uat-eb-NXW" firstAttribute="leading" secondItem="YsH-mP-jHd" secondAttribute="leading" id="6pW-v0-yC3"/>
                             <constraint firstItem="Ebi-qN-NYg" firstAttribute="top" secondItem="Uat-eb-NXW" secondAttribute="bottom" constant="24" id="6wH-1B-H9m"/>
                             <constraint firstItem="Ebi-qN-NYg" firstAttribute="leading" secondItem="YsH-mP-jHd" secondAttribute="leading" id="781-X0-lma"/>
+                            <constraint firstAttribute="trailing" secondItem="jXX-cs-NhO" secondAttribute="trailing" constant="28" id="DDq-QD-fNg"/>
                             <constraint firstItem="YsH-mP-jHd" firstAttribute="trailing" secondItem="Uat-eb-NXW" secondAttribute="trailing" id="T29-s8-Dp0"/>
+                            <constraint firstItem="jXX-cs-NhO" firstAttribute="leading" secondItem="Vzk-57-A2c" secondAttribute="leading" constant="28" id="gN5-tG-4Sr"/>
                             <constraint firstItem="jXX-cs-NhO" firstAttribute="top" secondItem="YsH-mP-jHd" secondAttribute="top" constant="24" id="hGL-Pl-27m"/>
                             <constraint firstItem="jXX-cs-NhO" firstAttribute="centerX" secondItem="YsH-mP-jHd" secondAttribute="centerX" id="iEs-dW-SiT"/>
                             <constraint firstItem="YsH-mP-jHd" firstAttribute="trailing" secondItem="Ebi-qN-NYg" secondAttribute="trailing" id="nAN-So-hGf"/>
@@ -86,7 +88,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash3" width="298" height="165"/>
+        <image name="splash3" width="403.5" height="195.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

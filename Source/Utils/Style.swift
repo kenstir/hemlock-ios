@@ -115,7 +115,7 @@ class Style {
 
     //MARK: - Button
 
-    static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.buttonInverseColor) {
+    static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.inverseButtonColor) {
         button.backgroundColor = color
         button.tintColor = .white
         button.layer.cornerRadius = buttonCornerRadius
@@ -136,7 +136,7 @@ class Style {
     }
     
     // styleButton for an ASButtonNode includes setting the title, because that involves colors
-    static func styleButton(asInverse button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.buttonInverseColor) {
+    static func styleButton(asInverse button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.inverseButtonColor) {
         button.backgroundColor = color
         button.tintColor = .white
         button.cornerRadius = buttonCornerRadius

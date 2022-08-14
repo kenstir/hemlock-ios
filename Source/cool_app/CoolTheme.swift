@@ -23,8 +23,10 @@ class CoolTheme: Theme {
     let barBackgroundColor = UIColor(rgb: 0x002f6c)
     let barTextForegroundColor = UIColor.white
     
-    let buttonInverseColor = UIColor(rgb: 0x01579b)
+    let inverseButtonColor = UIColor(rgb: 0x01579b)
     let buttonTintColor = UIColor(rgb: 0x002f6c)
+    let mainButtonTintColor = UIColor(rgb: 0x002f6c)
+
 
     let alertTextColor = UIColor.red
 }

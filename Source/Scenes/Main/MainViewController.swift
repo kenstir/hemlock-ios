@@ -298,11 +298,9 @@ extension MainViewController: UITableViewDataSource {
         var image: UIImage?
         if App.config.haveColorButtonImages {
             image = UIImage(named: label)?.withRenderingMode(.automatic)
-            //cell.imageView?.image = image
         } else {
             image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
-            //cell.imageView?.image = image
-            cell.tintColor = App.theme.buttonInverseColor
+            cell.tintColor = App.theme.mainButtonTintColor
         }
         cell.imageView?.image = image
         cell.textLabel?.text = R.getString(label)
