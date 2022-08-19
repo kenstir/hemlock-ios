@@ -1,21 +1,22 @@
-//
-//  SearchViewController.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
-//
-//  This program is free software; you can redistribute it and/or
-//  modify it under the terms of the GNU General Public License
-//  as published by the Free Software Foundation; either version 2
-//  of the License, or (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/*
+ * SearchViewController.swift
+ *
+ * Copyright (C) 2018 Kenneth H. Cox
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 
 import UIKit
 import PromiseKit
@@ -59,6 +60,8 @@ class SearchViewController: UIViewController {
     let searchClassIndex = 0
     let searchFormatIndex = 1
     let searchLocationIndex = 2
+    
+    var scannedBarcode: String? = nil
 
     //MARK: - UIViewController
     
@@ -75,6 +78,12 @@ class SearchViewController: UIViewController {
         // deselect row when navigating back
         if let indexPath = optionsTable.indexPathForSelectedRow {
             optionsTable.deselectRow(at: indexPath, animated: true)
+        }
+        
+        // handle barcode when navigating back
+        if let barcode = scannedBarcode {
+            showAlert(title: "got one", message: barcode)
+            scannedBarcode = nil
         }
 
         if !didCompleteFetch {
@@ -275,12 +284,11 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func showScanBarcodeVC() {
-        if let vc = UIStoryboard(name: "ScanBarcode", bundle: nil).instantiateInitialViewController() as? ScanBarcodeViewController {
-            vc.barcodeScannedHandler = { barcode in
-                self.showAlert(title: "got one", message: barcode)
-            }
-            self.navigationController?.pushViewController(vc, animated: true)
+        guard let vc = UIStoryboard(name: "ScanBarcode", bundle: nil).instantiateInitialViewController() as? ScanBarcodeViewController else { return }
+        vc.barcodeScannedHandler = { barcode in
+            self.scannedBarcode = barcode
         }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func onBarcodeScanned(_ barcode: String) {
