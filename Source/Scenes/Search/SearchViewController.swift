@@ -122,6 +122,7 @@ class SearchViewController: UIViewController {
         optionsTable.dataSource = self
         optionsTable.tableFooterView = UIView() // prevent ghost rows at end of table
         self.setupHomeButton()
+//        setupScanButton()
         setupSearchBar()
         setupOptionsTable()
         setupFormatPicker() // will be redone after fetchData
@@ -133,7 +134,12 @@ class SearchViewController: UIViewController {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
     }
-  
+    
+//    func setupScanButton() {
+//        let scanButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(scanButtonPressed(sender:)))
+//        navigationItem.rightBarButtonItems?.append(scanButton)
+//    }
+
     func setupSearchBar() {
         Style.styleSearchBar(searchBar)
 
@@ -143,6 +149,13 @@ class SearchViewController: UIViewController {
         // for now always use .done instead of .search.
         //if UIScreen.main.bounds.height < 667
         searchBar.returnKeyType = .done
+        
+        var image = UIImage(named: "barcode_scan")
+        if #available(iOS 13.0, *) {
+            image = image?.withTintColor(Style.secondaryLabelColor)
+        }
+        searchBar.showsBookmarkButton = true
+        searchBar.setImage(image, for: .bookmark, state: .normal)
     }
   
     func setupOptionsTable() {
@@ -188,7 +201,7 @@ class SearchViewController: UIViewController {
         searchButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asInverse: searchButton)
     }
-    
+                                                       
     @objc func buttonPressed(sender: UIButton) {
         doSearch()
     }
@@ -236,6 +249,42 @@ extension SearchViewController: UISearchBarDelegate {
         } else {
             doSearch()
         }
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        let grantMessage = "Grant access to the camera in the Settings app under Privacy >> Camera"
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { [self] granted in
+                // NB: non-main thread
+                DispatchQueue.main.async {
+                    if !granted {
+                        self.showAlert(title: "Notice", message: "Can't scan a barcode without camera access.")
+                    } else {
+                        self.showScanBarcodeVC()
+                    }
+                }
+            }
+        case .denied:
+            showAlert(title: "Camera access was denied", message: grantMessage)
+        case .restricted:
+            showAlert(title: "Camera access is restricted", message: grantMessage)
+        default:
+            showScanBarcodeVC()
+        }
+    }
+    
+    func showScanBarcodeVC() {
+        if let vc = UIStoryboard(name: "ScanBarcode", bundle: nil).instantiateInitialViewController() as? ScanBarcodeViewController {
+            vc.barcodeScannedHandler = { barcode in
+                self.showAlert(title: "got one", message: barcode)
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func onBarcodeScanned(_ barcode: String) {
+        showAlert(title: "got one", message: barcode)
     }
 }
 

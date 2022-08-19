@@ -54,7 +54,8 @@ class App {
     static let credentialManager = CredentialManager(valet: valet)
     
     /// search scopes
-    static let searchScopes = ["Keyword","Title","Author","Subject","Series"]
+    static let searchScopes = ["Keyword","Title","Author","Subject","Series",
+                               "ISBN or UPC"]//TODO map to "identifier"
 
     //MARK: - Functions
     
