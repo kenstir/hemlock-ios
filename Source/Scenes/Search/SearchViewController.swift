@@ -82,7 +82,7 @@ class SearchViewController: UIViewController {
         
         // handle barcode when navigating back
         if let barcode = scannedBarcode {
-            showAlert(title: "got one", message: barcode)
+            searchBar.textField?.text = barcode
             scannedBarcode = nil
         }
 
@@ -241,20 +241,22 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UISearchBarDelegate {
-    func getTextView(_ searchBar: UISearchBar) -> UITextField? {
+extension UISearchBar {
+    var textField: UITextField? {
         if #available(iOS 13.0, *) {
-            return searchBar.searchTextField
+            return searchTextField
         } else {
-            let subViews = searchBar.subviews.flatMap { $0.subviews }
+            let subViews = subviews.flatMap { $0.subviews }
             let textField = (subViews.filter { $0 is UITextField }).first as? UITextField
             return textField
         }
     }
+}
 
+extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.returnKeyType == .done {
-            getTextView(searchBar)?.resignFirstResponder()
+            searchBar.textField?.resignFirstResponder()
         } else {
             doSearch()
         }
@@ -289,10 +291,6 @@ extension SearchViewController: UISearchBarDelegate {
             self.scannedBarcode = barcode
         }
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func onBarcodeScanned(_ barcode: String) {
-        showAlert(title: "got one", message: barcode)
     }
 }
 

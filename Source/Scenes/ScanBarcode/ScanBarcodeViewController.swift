@@ -107,21 +107,34 @@ class ScanBarcodeViewController: UIViewController {
                 
                 for barcode in barcodes {
                     guard
-                        // TODO: Check symbology
                         let b = barcode as? VNBarcodeObservation,
-                        b.confidence > 0.7,
                         let value = b.payloadStringValue
                     else { return }
+                    os_log("[scan] confidence %.2f symbology %@ len %d value %@", b.confidence, format(b), value.count, value)
+                    guard b.confidence > 0.8 else { return }
 
-                    barcodeScannedHandler?(value)
-
-                    // navigate back after short delay for user to perceive the update
-                    let delay = 0.200
-                    DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                        self.navigationController?.popViewController(animated: true)
+                    // UPC-A is recognized as EAN-13 and a leading 0 is added; remove it.
+                    // See also: https://stackoverflow.com/questions/22767584/ios7-barcode-scanner-api-adds-a-zero-to-upca-barcode-format
+                    if b.symbology == .ean13 && value.hasPrefix("0") {
+                        let s = String(value.dropFirst())
+                        barcodeScannedHandler?(s)
+                    } else {
+                        barcodeScannedHandler?(value)
                     }
+
+                    // navigate back
+                    self.navigationController?.popViewController(animated: true)
                 }
             }
+        }
+    }
+
+    private func format(_ barcode: VNBarcodeObservation) -> String {
+        switch(barcode.symbology) {
+        case .ean13: return "EAN-13"
+        case .ean8: return "EAN-8"
+        case .upce: return "UPC-E"
+        default: return "other"
         }
     }
 }
