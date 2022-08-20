@@ -235,12 +235,11 @@ class XOrgDetailsViewController: ASDKViewController<ASDisplayNode> {
     }
     
     //TODO: if used, factor out and share
-    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((Int, String) -> Void)? = nil) -> OptionsViewController? {
+    func makeVC(title: String, options: [String], selectedOption: String) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
         vc.optionLabels = options
         vc.selectedLabel = selectedOption
-        vc.selectionChangedHandler = selectionChangedHandler
         return vc
     }
     
@@ -267,9 +266,9 @@ extension XOrgDetailsViewController: UITextFieldDelegate {
         switch textField {
         case orgChooser.textField:
             guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedOption: selectedOrgName) else { return true }
-            vc.selectionChangedHandler = { index, value in
+            vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedOrgIndex = index
-                self.selectedOrgName = value
+                self.selectedOrgName = trimmedLabel
                 self.org = Organization.visibleOrgs[index]
             }
             vc.optionIsEnabled = self.orgIsPickupLocation

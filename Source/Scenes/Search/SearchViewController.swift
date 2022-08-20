@@ -21,6 +21,7 @@
 import UIKit
 import PromiseKit
 import PMKAlamofire
+import os.log
 
 struct SearchParameters {
     let text: String
@@ -51,7 +52,11 @@ class SearchViewController: UIViewController {
     
     weak var activityIndicator: UIActivityIndicatorView!
     
-    let scopes = App.searchScopes
+    static let searchKeywordKeyword = "keyword"
+    static let searchKeywordIdentifier = "identifier"
+    let searchClassLabels = ["Keyword","Title","Author","Subject","Series","ISBN or UPC"]
+    let searchClassKeywords = [searchKeywordKeyword,"title","author","subject","series",searchKeywordIdentifier]
+    var selectedSearchClassIndex = 0
     var formatLabels: [String] = []
     var orgLabels: [String] = []
     var didCompleteFetch = false
@@ -84,6 +89,9 @@ class SearchViewController: UIViewController {
         if let barcode = scannedBarcode {
             searchBar.textField?.text = barcode
             scannedBarcode = nil
+            DispatchQueue.main.async {
+                self.doSearch(byBarcode: barcode)
+            }
         }
 
         if !didCompleteFetch {
@@ -131,7 +139,6 @@ class SearchViewController: UIViewController {
         optionsTable.dataSource = self
         optionsTable.tableFooterView = UIView() // prevent ghost rows at end of table
         self.setupHomeButton()
-//        setupScanButton()
         setupSearchBar()
         setupOptionsTable()
         setupFormatPicker() // will be redone after fetchData
@@ -144,11 +151,6 @@ class SearchViewController: UIViewController {
         Style.styleActivityIndicator(activityIndicator)
     }
     
-//    func setupScanButton() {
-//        let scanButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(scanButtonPressed(sender:)))
-//        navigationItem.rightBarButtonItems?.append(scanButton)
-//    }
-
     func setupSearchBar() {
         Style.styleSearchBar(searchBar)
 
@@ -169,7 +171,7 @@ class SearchViewController: UIViewController {
   
     func setupOptionsTable() {
         options = []
-        options.append(OptionsEntry("Search by", value: scopes[0]))
+        options.append(OptionsEntry("Search by", value: searchClassLabels[0]))
         options.append(OptionsEntry("Limit to", value: nil))
         options.append(OptionsEntry("Search within", value: nil))
     }
@@ -210,6 +212,14 @@ class SearchViewController: UIViewController {
         searchButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asInverse: searchButton)
     }
+    
+    func doSearch(byBarcode barcode: String) {
+        let entry = options[searchClassIndex]
+        entry.index = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordIdentifier)
+        entry.value = searchClassLabels[entry.index ?? 0]
+        self.optionsTable.reloadData()
+        doSearch()
+    }
                                                        
     @objc func buttonPressed(sender: UIButton) {
         doSearch()
@@ -224,13 +234,14 @@ class SearchViewController: UIViewController {
             self.showAlert(title: "Busy", message: "Please wait until data is finished loading")
             return
         }
-        guard let searchClass = options[searchClassIndex].value?.lowercased(),
+        guard let searchClassLabel = options[searchClassIndex].value,
             let searchFormatLabel = options[searchFormatIndex].value,
             let searchOrgIndex = options[searchLocationIndex].index else
         {
             self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing search class, format, or org"))
             return
         }
+        let searchClass = searchClass(forLabel: searchClassLabel)
         let searchFormat = CodedValueMap.searchFormatCode(forLabel: searchFormatLabel)
         let searchOrg = Organization.visibleOrgs[searchOrgIndex]
         let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg.shortname, sort: App.config.sort)
@@ -238,6 +249,11 @@ class SearchViewController: UIViewController {
         vc.searchParameters = params
         print("--- searchParams \(String(describing: vc.searchParameters))")
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func searchClass(forLabel label: String) -> String {
+        let index = searchClassLabels.firstIndex(of: label) ?? 0
+        return searchClassKeywords[index]
     }
 }
 
@@ -310,6 +326,9 @@ extension SearchViewController: UITableViewDataSource {
         let entry = options[indexPath.row]
         cell.textLabel?.text = entry.label
         cell.detailTextLabel?.text = entry.value
+        if indexPath.row == searchClassIndex {
+            os_log("[search] cellForRowAt value=%@", entry.value ?? "")
+        }
         
         return cell
     }
@@ -325,7 +344,7 @@ extension SearchViewController: UITableViewDelegate {
         vc.selectedLabel = entry.value
         switch indexPath.row {
         case searchClassIndex:
-            vc.optionLabels = scopes
+            vc.optionLabels = searchClassLabels
         case searchFormatIndex:
             vc.optionLabels = formatLabels
         case searchLocationIndex:
@@ -335,9 +354,10 @@ extension SearchViewController: UITableViewDelegate {
             break
         }
 
-        vc.selectionChangedHandler = { index, value in
-            entry.value = value
+        vc.selectionChangedHandler = { index, trimmedLabel in
             entry.index = index
+            entry.value = trimmedLabel
+            os_log("[search] selection    value=%@, reload", entry.value ?? "")
             self.optionsTable.reloadData()
         }
 

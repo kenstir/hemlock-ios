@@ -205,16 +205,19 @@ extension XResultsViewController: ASTableDataSource {
         let node = XResultsTableNode(record: record)
         return node
     }
-    
-    //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    //        return titleForHeaderInSection()
-    //    }
 
     func titleForHeaderInSection() -> String {
         if activityIndicator?.isAnimating ?? false {
             return "Searching..."
         } else if items.count == 0 {
-            return "No results"
+            if let searchClass = searchParameters?.searchClass,
+               searchClass != SearchViewController.searchKeywordKeyword,
+               let searchText = searchParameters?.text
+            {
+                return "No results for \(searchClass): \(searchText)"
+            } else {
+                return "No results"
+            }
         } else {
             return "\(items.count) most relevant results"
         }

@@ -103,15 +103,15 @@ extension OptionsViewController: UITableViewDataSource {
 
 extension OptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let label = optionLabels[indexPath.row].trim()
-        selectedLabel = label
+        let trimmedLabel = optionLabels[indexPath.row].trim()
+        selectedLabel = trimmedLabel
         selectedPath = indexPath
         updateCheckmarks()
         tableView.deselectRow(at: indexPath, animated: true)
-        selectionChangedHandler?(indexPath.row, label)
+        selectionChangedHandler?(indexPath.row, trimmedLabel)
 
         // navigate back after short delay for user to perceive the update
-        let delay = 0.100
+        let delay = 0.200
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             self.navigationController?.popViewController(animated: true)
         }
