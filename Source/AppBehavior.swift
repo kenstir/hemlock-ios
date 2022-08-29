@@ -77,9 +77,9 @@ class BaseAppBehavior: AppBehavior {
             for datafield in datafields {
                 if datafield.isOnlineLocation,
                     let href = datafield.uri,
-                    let text = datafield.linkText,
                     isVisibleToOrg(datafield, orgShortName: orgShortName)
                 {
+                    let text = datafield.linkText ?? href
                     // Filter duplicate links
                     let link = Link(href: href.trim(), text: trimLinkText(text))
                     if !links.contains(link) {

@@ -39,7 +39,7 @@ class MoAppConfiguration: AppConfiguration {
     let enableCopyInfoWebLinks = false
     let needMARCRecord = true
     let showOnlineAccessHostname = false
-    let alwaysPopupOnlineLinks = true
+    let alwaysUseActionSheetForOnlineLinks = true
     let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar

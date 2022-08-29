@@ -41,7 +41,7 @@ class SageCatAppConfiguration: AppConfiguration {
     let enableCopyInfoWebLinks = false
     let needMARCRecord = false
     let showOnlineAccessHostname = true
-    let alwaysPopupOnlineLinks = true
+    let alwaysUseActionSheetForOnlineLinks = true
     let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar

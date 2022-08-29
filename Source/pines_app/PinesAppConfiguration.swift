@@ -41,7 +41,7 @@ class PinesAppConfiguration: AppConfiguration {
     let enableCopyInfoWebLinks = true
     let needMARCRecord = true
     let showOnlineAccessHostname = true
-    let alwaysPopupOnlineLinks = true
+    let alwaysUseActionSheetForOnlineLinks = true
     let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar

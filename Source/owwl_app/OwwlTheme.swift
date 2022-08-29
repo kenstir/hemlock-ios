@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2019 Kenneth H. Cox
+//  Copyright (C) 2022 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License

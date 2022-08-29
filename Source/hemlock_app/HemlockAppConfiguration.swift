@@ -41,7 +41,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let enableCopyInfoWebLinks = true
     let needMARCRecord = false
     let showOnlineAccessHostname = true
-    let alwaysPopupOnlineLinks = false
+    let alwaysUseActionSheetForOnlineLinks = false
     let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Disabled

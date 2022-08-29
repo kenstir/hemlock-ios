@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2020 Kenneth H. Cox
+//  Copyright (C) 2022 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -39,7 +39,7 @@ class OwwlAppConfiguration: AppConfiguration {
     let enableCopyInfoWebLinks = false
     let needMARCRecord = true
     let showOnlineAccessHostname = false
-    let alwaysPopupOnlineLinks = true
+    let alwaysUseActionSheetForOnlineLinks = false
     let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar

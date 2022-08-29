@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2020 Kenneth H. Cox
+//  Copyright (C) 2022 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -16,4 +16,11 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class OwwlAppBehavior: BaseAppBehavior {
+    override func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+        return getOnlineLocationsFromMARC(record: record, forSearchOrg: orgShortName)
+    }
+
+    override func trimLinkText(_ s: String) -> String {
+        return s.trim().trimTrailing(".")
+    }
 }

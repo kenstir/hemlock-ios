@@ -44,7 +44,7 @@ protocol AppConfiguration {
     var enableCopyInfoWebLinks: Bool { get }
     var needMARCRecord: Bool { get }
     var showOnlineAccessHostname: Bool { get }
-    var alwaysPopupOnlineLinks: Bool { get }
+    var alwaysUseActionSheetForOnlineLinks: Bool { get }
     var haveColorButtonImages: Bool { get }
 
     var barcodeFormat: BarcodeFormat { get }

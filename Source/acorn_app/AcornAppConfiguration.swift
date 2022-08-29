@@ -41,7 +41,7 @@ class AcornAppConfiguration: AppConfiguration {
     let enableCopyInfoWebLinks = true
     let needMARCRecord = true
     let showOnlineAccessHostname = true
-    let alwaysPopupOnlineLinks = false
+    let alwaysUseActionSheetForOnlineLinks = false
     let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
