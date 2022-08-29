@@ -16,7 +16,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class OwwlAppConfiguration: AppConfiguration {
-    let title = "OWWL Libraries"
+    let title = "OWWL"
     let url = "https://evergreen.owwl.org/"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     var sort: String? = nil
@@ -31,7 +31,7 @@ class OwwlAppConfiguration: AppConfiguration {
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
-    let enablePayFines = true
+    let enablePayFines = false
     let enableHoursOfOperation = true
     let enableMessages = false
     let enableEventsButton = false
