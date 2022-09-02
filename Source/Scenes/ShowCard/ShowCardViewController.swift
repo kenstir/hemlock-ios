@@ -31,6 +31,7 @@ class ShowCardViewController: UIViewController {
     var didCompleteFetch = false
     let imageWidth: Int32 = 400
     let imageHeight: Int32 = 200
+    var savedBrightness: CGFloat = 0.5
 
     //MARK: - UIViewController
 
@@ -41,9 +42,16 @@ class ShowCardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        savedBrightness = UIScreen.main.brightness
+        UIScreen.main.brightness = 1.0
         if !didCompleteFetch {
             fetchData()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIScreen.main.brightness = savedBrightness
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
