@@ -30,6 +30,7 @@ class PinesAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = false
     let enableHoldShowExpiration = false
     let enableHoldPhoneNotification = true
+    let enableHoldUseOverride = false
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = true
     let enableMainSceneBottomToolbar = true

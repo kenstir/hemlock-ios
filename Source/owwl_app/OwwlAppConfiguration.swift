@@ -15,33 +15,16 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class OwwlAppConfiguration: AppConfiguration {
-    let title = "OWWL"
-    let url = "https://evergreen.owwl.org/"
-    let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    var sort: String? = nil
-    let detailsExtraLinkText: String? = nil
-    let detailsExtraLinkQuery: String? = nil
-    let detailsExtraLinkFragment: String? = nil
+class OwwlAppConfiguration: BaseAppConfiguration {
+    override var title: String { return "OWWL" }
+    override var url: String { return "https://evergreen.owwl.org/" }
+    override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
-    let enableHierarchicalOrgTree = true
-    let enableHoldShowQueuePosition = true
-    let enableHoldShowExpiration = false
-    let enableHoldPhoneNotification = true
-    let enablePartHolds = true
-    let enableTitleHoldOnItemWithParts = false
-    let enableMainSceneBottomToolbar = false
-    let enablePayFines = false
-    let enableHoursOfOperation = true
-    let enableMessages = false
-    let enableEventsButton = false
-    let groupCopyInfoBySystem = false
-    let enableCopyInfoWebLinks = false
-    let needMARCRecord = true
-    let showOnlineAccessHostname = false
-    let alwaysUseActionSheetForOnlineLinks = false
-    let haveColorButtonImages = false
+    override var enableHoldPhoneNotification: Bool { return true }
+    override var enableHoldUseOverride: Bool { return true }
+    override var enablePartHolds: Bool { return true }
+    override var enablePayFines: Bool { return false }
+    override var needMARCRecord: Bool { return true }
 
-    let barcodeFormat: BarcodeFormat = .Codabar
-    let searchLimit = 100
+    override var searchLimit: Int { return 100 }
 }

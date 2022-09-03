@@ -30,6 +30,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = true
     let enableHoldPhoneNotification = true
+    let enableHoldUseOverride = false
     let enablePartHolds = false
     let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
