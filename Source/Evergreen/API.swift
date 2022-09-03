@@ -75,6 +75,7 @@ struct API {
     static let holdsRetrieve = "open-ils.circ.holds.retrieve"
     static let holdCancel = "open-ils.circ.hold.cancel"
     static let holdTestAndCreate = "open-ils.circ.holds.test_and_create.batch"
+    static let holdTestAndCreateOverride = "open-ils.circ.holds.test_and_create.batch.override"
     static let holdUpdate = "open-ils.circ.hold.update"
     static let holdQueueStats = "open-ils.circ.hold.queue_stats.retrieve"
     static let renew = "open-ils.circ.renew"

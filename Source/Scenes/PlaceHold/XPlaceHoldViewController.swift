@@ -705,7 +705,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
         
-        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate)
+        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrgID: pickupOrg.id, notifyByEmail: isOn(emailSwitch), notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, useOverride: App.config.enableHoldUseOverride)
         promise.done { obj in
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful
