@@ -1,25 +1,27 @@
-//
-//  SearchViewController.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
-//
-//  This program is free software; you can redistribute it and/or
-//  modify it under the terms of the GNU General Public License
-//  as published by the Free Software Foundation; either version 2
-//  of the License, or (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/*
+ * SearchViewController.swift
+ *
+ * Copyright (C) 2018 Kenneth H. Cox
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
 
 import UIKit
 import PromiseKit
 import PMKAlamofire
+import os.log
 
 struct SearchParameters {
     let text: String
@@ -50,7 +52,11 @@ class SearchViewController: UIViewController {
     
     weak var activityIndicator: UIActivityIndicatorView!
     
-    let scopes = App.searchScopes
+    static let searchKeywordKeyword = "keyword"
+    static let searchKeywordIdentifier = "identifier"
+    let searchClassLabels = ["Keyword","Title","Author","Subject","Series","ISBN or UPC"]
+    let searchClassKeywords = [searchKeywordKeyword,"title","author","subject","series",searchKeywordIdentifier]
+    var selectedSearchClassIndex = 0
     var formatLabels: [String] = []
     var orgLabels: [String] = []
     var didCompleteFetch = false
@@ -59,6 +65,8 @@ class SearchViewController: UIViewController {
     let searchClassIndex = 0
     let searchFormatIndex = 1
     let searchLocationIndex = 2
+    
+    var scannedBarcode: String? = nil
 
     //MARK: - UIViewController
     
@@ -75,6 +83,15 @@ class SearchViewController: UIViewController {
         // deselect row when navigating back
         if let indexPath = optionsTable.indexPathForSelectedRow {
             optionsTable.deselectRow(at: indexPath, animated: true)
+        }
+        
+        // handle barcode when navigating back
+        if let barcode = scannedBarcode {
+            searchBar.textField?.text = barcode
+            scannedBarcode = nil
+            DispatchQueue.main.async {
+                self.doSearch(byBarcode: barcode)
+            }
         }
 
         if !didCompleteFetch {
@@ -133,7 +150,7 @@ class SearchViewController: UIViewController {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
     }
-  
+    
     func setupSearchBar() {
         Style.styleSearchBar(searchBar)
 
@@ -143,11 +160,18 @@ class SearchViewController: UIViewController {
         // for now always use .done instead of .search.
         //if UIScreen.main.bounds.height < 667
         searchBar.returnKeyType = .done
+        
+        var image = UIImage(named: "barcode_scan")
+        if #available(iOS 13.0, *) {
+            image = image?.withTintColor(Style.secondaryLabelColor)
+        }
+        searchBar.showsBookmarkButton = true
+        searchBar.setImage(image, for: .bookmark, state: .normal)
     }
   
     func setupOptionsTable() {
         options = []
-        options.append(OptionsEntry("Search by", value: scopes[0]))
+        options.append(OptionsEntry("Search by", value: searchClassLabels[0]))
         options.append(OptionsEntry("Limit to", value: nil))
         options.append(OptionsEntry("Search within", value: nil))
     }
@@ -189,6 +213,14 @@ class SearchViewController: UIViewController {
         Style.styleButton(asInverse: searchButton)
     }
     
+    func doSearch(byBarcode barcode: String) {
+        let entry = options[searchClassIndex]
+        entry.index = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordIdentifier)
+        entry.value = searchClassLabels[entry.index ?? 0]
+        self.optionsTable.reloadData()
+        doSearch()
+    }
+                                                       
     @objc func buttonPressed(sender: UIButton) {
         doSearch()
     }
@@ -202,13 +234,14 @@ class SearchViewController: UIViewController {
             self.showAlert(title: "Busy", message: "Please wait until data is finished loading")
             return
         }
-        guard let searchClass = options[searchClassIndex].value?.lowercased(),
+        guard let searchClassLabel = options[searchClassIndex].value,
             let searchFormatLabel = options[searchFormatIndex].value,
             let searchOrgIndex = options[searchLocationIndex].index else
         {
             self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing search class, format, or org"))
             return
         }
+        let searchClass = searchClass(forLabel: searchClassLabel)
         let searchFormat = CodedValueMap.searchFormatCode(forLabel: searchFormatLabel)
         let searchOrg = Organization.visibleOrgs[searchOrgIndex]
         let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg.shortname, sort: App.config.sort)
@@ -217,25 +250,63 @@ class SearchViewController: UIViewController {
         print("--- searchParams \(String(describing: vc.searchParameters))")
         self.navigationController?.pushViewController(vc, animated: true)
     }
+
+    func searchClass(forLabel label: String) -> String {
+        let index = searchClassLabels.firstIndex(of: label) ?? 0
+        return searchClassKeywords[index]
+    }
 }
 
-extension SearchViewController: UISearchBarDelegate {
-    func getTextView(_ searchBar: UISearchBar) -> UITextField? {
+extension UISearchBar {
+    var textField: UITextField? {
         if #available(iOS 13.0, *) {
-            return searchBar.searchTextField
+            return searchTextField
         } else {
-            let subViews = searchBar.subviews.flatMap { $0.subviews }
+            let subViews = subviews.flatMap { $0.subviews }
             let textField = (subViews.filter { $0 is UITextField }).first as? UITextField
             return textField
         }
     }
+}
 
+extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.returnKeyType == .done {
-            getTextView(searchBar)?.resignFirstResponder()
+            searchBar.textField?.resignFirstResponder()
         } else {
             doSearch()
         }
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        let grantMessage = "Grant access to the camera in the Settings app under Privacy >> Camera"
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { [self] granted in
+                // NB: non-main thread
+                DispatchQueue.main.async {
+                    if !granted {
+                        self.showAlert(title: "Notice", message: "Can't scan a barcode without camera access.")
+                    } else {
+                        self.showScanBarcodeVC()
+                    }
+                }
+            }
+        case .denied:
+            showAlert(title: "Camera access was denied", message: grantMessage)
+        case .restricted:
+            showAlert(title: "Camera access is restricted", message: grantMessage)
+        default:
+            showScanBarcodeVC()
+        }
+    }
+    
+    func showScanBarcodeVC() {
+        guard let vc = UIStoryboard(name: "ScanBarcode", bundle: nil).instantiateInitialViewController() as? ScanBarcodeViewController else { return }
+        vc.barcodeScannedHandler = { barcode in
+            self.scannedBarcode = barcode
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -255,6 +326,9 @@ extension SearchViewController: UITableViewDataSource {
         let entry = options[indexPath.row]
         cell.textLabel?.text = entry.label
         cell.detailTextLabel?.text = entry.value
+        if indexPath.row == searchClassIndex {
+            os_log("[search] cellForRowAt value=%@", entry.value ?? "")
+        }
         
         return cell
     }
@@ -270,7 +344,7 @@ extension SearchViewController: UITableViewDelegate {
         vc.selectedLabel = entry.value
         switch indexPath.row {
         case searchClassIndex:
-            vc.optionLabels = scopes
+            vc.optionLabels = searchClassLabels
         case searchFormatIndex:
             vc.optionLabels = formatLabels
         case searchLocationIndex:
@@ -280,9 +354,10 @@ extension SearchViewController: UITableViewDelegate {
             break
         }
 
-        vc.selectionChangedHandler = { index, value in
-            entry.value = value
+        vc.selectionChangedHandler = { index, trimmedLabel in
             entry.index = index
+            entry.value = trimmedLabel
+            os_log("[search] selection    value=%@, reload", entry.value ?? "")
             self.optionsTable.reloadData()
         }
 

@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "baseline_mail_outline_black_24dp_1x.png",
+      "filename" : "ic_barcode_scan_grey_24.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "baseline_mail_outline_black_24dp_2x.png",
+      "filename" : "ic_barcode_scan_grey_48.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

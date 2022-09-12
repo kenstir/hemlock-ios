@@ -201,7 +201,7 @@ class OrgDetailsViewController: UIViewController {
          
          vc.title = "Library"
          vc.optionLabels = orgLabels
-         vc.selectionChangedHandler = { index, value in
+         vc.selectionChangedHandler = { index, _ in
              let org = Organization.visibleOrgs[index]
              self.orgID = org.id
          }

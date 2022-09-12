@@ -784,21 +784,19 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         return rowSpec
     }
     
-    func makeVC(title: String, options: [String], selectedOption: String, selectionChangedHandler: ((Int, String) -> Void)? = nil) -> OptionsViewController? {
+    func makeVC(title: String, options: [String], selectedOption: String) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
         vc.optionLabels = options
         vc.selectedLabel = selectedOption
-        vc.selectionChangedHandler = selectionChangedHandler
         return vc
     }
     
-    func makeVC(title: String, options: [String], selectedIndex: Int, selectionChangedHandler: ((Int, String) -> Void)? = nil) -> OptionsViewController? {
+    func makeVC(title: String, options: [String], selectedIndex: Int) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
         vc.optionLabels = options
         vc.selectedPath = IndexPath(row: selectedIndex, section: 0)
-        vc.selectionChangedHandler = selectionChangedHandler
         return vc
     }
 
@@ -825,9 +823,9 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
         switch textField {
         case pickupNode.textField:
             guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedIndex: selectedOrgIndex) else { return true }
-            vc.selectionChangedHandler = { index, value in
+            vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedOrgIndex = index
-                self.pickupNode.textField?.text = value
+                self.pickupNode.textField?.text = trimmedLabel
             }
             vc.optionIsEnabled = self.orgIsPickupLocation
             vc.optionIsPrimary = self.orgIsPrimary
@@ -835,17 +833,17 @@ extension XPlaceHoldViewController: UITextFieldDelegate {
             return false
         case carrierNode.textField:
             guard let vc = makeVC(title: "SMS Carrier", options: carrierLabels, selectedOption: selectedCarrierName) else { return true }
-            vc.selectionChangedHandler = { index, value in
-                self.selectedCarrierName = value
-                self.carrierNode.textField?.text = value
+            vc.selectionChangedHandler = { index, trimmedLabel in
+                self.selectedCarrierName = trimmedLabel
+                self.carrierNode.textField?.text = trimmedLabel
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false
         case partNode.textField:
             guard let vc = makeVC(title: "Select a part", options: partLabels, selectedOption: selectedPartLabel) else { return true }
-            vc.selectionChangedHandler = { index, value in
-                self.selectedPartLabel = value
-                self.partNode.textField?.text = value
+            vc.selectionChangedHandler = { index, trimmedLabel in
+                self.selectedPartLabel = trimmedLabel
+                self.partNode.textField?.text = trimmedLabel
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false

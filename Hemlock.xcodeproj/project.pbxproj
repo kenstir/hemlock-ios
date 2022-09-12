@@ -917,6 +917,26 @@
 		D28164B4213C7D99000B64B4 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D28164B5213C7D99000B64B4 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D28164B6213C7D99000B64B4 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
+		D2816CBC28B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CBD28B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CBE28B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CBF28B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CC028B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CC128B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CC228B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CC328B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CC428B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CC528B013C30060F688 /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
+		D2816CC728B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CC828B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CC928B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CCA28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CCB28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CCC28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CCD28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CCE28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CCF28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
+		D2816CD028B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
 		D28290F520E5CF48008EBE4B /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D28290F820E6F770008EBE4B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
@@ -1583,6 +1603,8 @@
 		D2806A9021B33F6000F308F4 /* BarcodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTests.swift; sourceTree = "<group>"; };
 		D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+smallCaps.swift"; sourceTree = "<group>"; };
 		D28164B3213C7D99000B64B4 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
+		D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanBarcode.storyboard; sourceTree = "<group>"; };
+		D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBarcodeViewController.swift; sourceTree = "<group>"; };
 		D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UYLExtensions.swift"; sourceTree = "<group>"; };
 		D28290F720E6F770008EBE4B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D28424B021D0358200C7171C /* COOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1971,6 +1993,7 @@
 				D20BDB752214B84F00BB6A5F /* Options */,
 				D211DBAA24840F9000E0992C /* OrgDetails */,
 				FA88B4C420FC1AF9000F211F /* PlaceHold */,
+				D2816CBA28B013630060F688 /* ScanBarcode */,
 				FACD142520CDC0C9008F02D3 /* Search */,
 				D22D0C8C22426B3800DBB31A /* SendEmail */,
 				D27DF20021AA3B65002DCC47 /* ShowCard */,
@@ -2247,6 +2270,15 @@
 				FAA9E31821962296006BA666 /* ShowCardViewController.swift */,
 			);
 			path = ShowCard;
+			sourceTree = "<group>";
+		};
+		D2816CBA28B013630060F688 /* ScanBarcode */ = {
+			isa = PBXGroup;
+			children = (
+				D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */,
+				D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */,
+			);
+			path = ScanBarcode;
 			sourceTree = "<group>";
 		};
 		D287D4EF207AEF2B001AF644 = {
@@ -2751,6 +2783,7 @@
 				D210EC2322B1EE55002FB5E0 /* Checkouts.storyboard in Resources */,
 				D210EC2522B1EE55002FB5E0 /* LICENSE.txt in Resources */,
 				D210EC2722B1EE55002FB5E0 /* Holds.storyboard in Resources */,
+				D2816CBC28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D210EC2822B1EE55002FB5E0 /* CopyInfo.storyboard in Resources */,
 				D210EC2922B1EE55002FB5E0 /* Search.storyboard in Resources */,
 				D210EC2A22B1EE55002FB5E0 /* Documentation in Resources */,
@@ -2778,6 +2811,7 @@
 				D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */,
 				D23E9FCD23B9200A0030F5C1 /* Holds.storyboard in Resources */,
 				D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */,
+				D2816CC428B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D23E9FCE23B9200A0030F5C1 /* CopyInfo.storyboard in Resources */,
 				D23E9FCF23B9200A0030F5C1 /* Search.storyboard in Resources */,
 				D23E9FD023B9200A0030F5C1 /* Documentation in Resources */,
@@ -2805,6 +2839,7 @@
 				D2477C1A24785A6B00FD4CF6 /* LICENSE.txt in Resources */,
 				D2477C1B24785A6B00FD4CF6 /* Holds.storyboard in Resources */,
 				D2477C1D24785A6B00FD4CF6 /* CopyInfo.storyboard in Resources */,
+				D2816CC028B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2477C1E24785A6B00FD4CF6 /* Search.storyboard in Resources */,
 				D2477C1F24785A6B00FD4CF6 /* Documentation in Resources */,
 				D2477C2024785A6B00FD4CF6 /* ShowCard.storyboard in Resources */,
@@ -2828,6 +2863,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2572B0B24AD7755000BA698 /* Launch.storyboard in Resources */,
+				D2816CC528B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2572B0C24AD7755000BA698 /* Checkouts.storyboard in Resources */,
 				D2572B0D24AD7755000BA698 /* LICENSE.txt in Resources */,
 				D2572B0E24AD7755000BA698 /* Holds.storyboard in Resources */,
@@ -2883,6 +2919,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D28AE26424FDD9B200960E9E /* strings.json in Resources */,
+				D2816CBE28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D276DAD221336B20007FAA31 /* Launch.storyboard in Resources */,
 				D21090D624D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */,
@@ -2919,6 +2956,7 @@
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390302241E5950089D745 /* LICENSE.txt in Resources */,
 				D22D0C932243104600DBB31A /* SendEmail.storyboard in Resources */,
+				D2816CBF28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2616762220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D2AA9D4927383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
@@ -2941,6 +2979,7 @@
 				D2F390332241E5950089D745 /* LICENSE.txt in Resources */,
 				D21867A521D039CE0082358C /* cool.xcassets in Resources */,
 				D28424A321D0358200C7171C /* Holds.storyboard in Resources */,
+				D2816CBD28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D28424A421D0358200C7171C /* CopyInfo.storyboard in Resources */,
 				D28424A521D0358200C7171C /* Search.storyboard in Resources */,
 				D28424A621D0358200C7171C /* Documentation in Resources */,
@@ -2968,6 +3007,7 @@
 				D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
+				D2816CC328B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
 				D29C96002599288100CACDBD /* event_msg_map.json in Resources */,
 				D22D0C942243104600DBB31A /* SendEmail.storyboard in Resources */,
@@ -3002,6 +3042,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2BDA66B22D176BD00D9B60C /* Launch.storyboard in Resources */,
+				D2816CC128B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2BDA66D22D176BD00D9B60C /* Checkouts.storyboard in Resources */,
 				D2BDA66F22D176BD00D9B60C /* LICENSE.txt in Resources */,
 				D2BDA67022D176BD00D9B60C /* Holds.storyboard in Resources */,
@@ -3030,6 +3071,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2BDA70322D2A72000D9B60C /* Launch.storyboard in Resources */,
+				D2816CC228B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2BDA70422D2A72000D9B60C /* Checkouts.storyboard in Resources */,
 				D2BDA70622D2A72000D9B60C /* LICENSE.txt in Resources */,
 				D2BDA70722D2A72000D9B60C /* Holds.storyboard in Resources */,
@@ -3438,6 +3480,7 @@
 				D210EBD122B1EE55002FB5E0 /* OSRFObject.swift in Sources */,
 				D210EBD222B1EE55002FB5E0 /* UIView+.swift in Sources */,
 				D210EBD322B1EE55002FB5E0 /* String+splitOnRegex.swift in Sources */,
+				D2816CC728B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D210EBD422B1EE55002FB5E0 /* Organization.swift in Sources */,
 				D28AE24A24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D210EBD522B1EE55002FB5E0 /* MainTableViewCell.swift in Sources */,
@@ -3541,6 +3584,7 @@
 				D23E9F7423B9200A0030F5C1 /* UIView+.swift in Sources */,
 				D23E9F7523B9200A0030F5C1 /* String+splitOnRegex.swift in Sources */,
 				D23E9F7623B9200A0030F5C1 /* Organization.swift in Sources */,
+				D2816CCF28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */,
 				D28AE25224F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D23E9F7723B9200A0030F5C1 /* MainTableViewCell.swift in Sources */,
@@ -3644,6 +3688,7 @@
 				D2477BC024785A6B00FD4CF6 /* UIView+.swift in Sources */,
 				D2477BC124785A6B00FD4CF6 /* String+splitOnRegex.swift in Sources */,
 				D2477BC224785A6B00FD4CF6 /* Organization.swift in Sources */,
+				D2816CCB28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2477BC424785A6B00FD4CF6 /* MainTableViewCell.swift in Sources */,
 				D28AE24E24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2477BC524785A6B00FD4CF6 /* HoldRecord.swift in Sources */,
@@ -3747,6 +3792,7 @@
 				D2572AAF24AD7755000BA698 /* OSRFObject.swift in Sources */,
 				D2572AB024AD7755000BA698 /* UIView+.swift in Sources */,
 				D2572AB124AD7755000BA698 /* String+splitOnRegex.swift in Sources */,
+				D2816CD028B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2572AB224AD7755000BA698 /* Organization.swift in Sources */,
 				D28AE25324F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2572AB424AD7755000BA698 /* MainTableViewCell.swift in Sources */,
@@ -4019,6 +4065,7 @@
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
+				D2816CC928B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
 				D2462904273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
@@ -4121,6 +4168,7 @@
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
+				D2816CCA28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2931AA2272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
 				D2462905273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
@@ -4223,6 +4271,7 @@
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
 				D284248121D0358200C7171C /* BarcodeUtils.swift in Sources */,
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
+				D2816CC828B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2931AA0272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D284248421D0358200C7171C /* AppDelegate.swift in Sources */,
 				D2462903273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
@@ -4259,6 +4308,7 @@
 				D2BCFCBB2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */,
+				D2816CCE28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D28AE25124F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D260755920E0860300795124 /* Organization.swift in Sources */,
@@ -4394,6 +4444,7 @@
 				D2BDA61422D176BD00D9B60C /* OSRFObject.swift in Sources */,
 				D2BDA61522D176BD00D9B60C /* UIView+.swift in Sources */,
 				D2BDA61622D176BD00D9B60C /* String+splitOnRegex.swift in Sources */,
+				D2816CCC28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA61722D176BD00D9B60C /* Organization.swift in Sources */,
 				D28AE24F24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2BDA61822D176BD00D9B60C /* MainTableViewCell.swift in Sources */,
@@ -4497,6 +4548,7 @@
 				D2BDA6AD22D2A72000D9B60C /* UIView+.swift in Sources */,
 				D2BDA6AE22D2A72000D9B60C /* String+splitOnRegex.swift in Sources */,
 				D2BDA6AF22D2A72000D9B60C /* Organization.swift in Sources */,
+				D2816CCD28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA6B022D2A72000D9B60C /* MainTableViewCell.swift in Sources */,
 				D28AE25024F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2BDA6B122D2A72000D9B60C /* HoldRecord.swift in Sources */,
@@ -5016,7 +5068,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5028,7 +5080,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.4;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -5044,7 +5096,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5056,7 +5108,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.4;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
@@ -5200,7 +5252,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.4;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5230,7 +5282,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.4;
+				MARKETING_VERSION = 2.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

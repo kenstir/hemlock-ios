@@ -52,9 +52,6 @@ class App {
 
     /// the credentialManager manages storage of credentials in valet
     static let credentialManager = CredentialManager(valet: valet)
-    
-    /// search scopes
-    static let searchScopes = ["Keyword","Title","Author","Subject","Series"]
 
     //MARK: - Functions
     
