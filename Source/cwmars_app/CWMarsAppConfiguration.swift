@@ -30,6 +30,7 @@ class CWMarsAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = true
     let enableHoldPhoneNotification = false
+    let enableHoldUseOverride = false
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = true
     let enableMainSceneBottomToolbar = false
