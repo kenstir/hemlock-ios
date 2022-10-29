@@ -8,7 +8,7 @@ import Alamofire
 
 extension Alamofire.SessionManager{
     @discardableResult
-    open func makeRequest(
+    public func makeRequest(
         _ url: URLConvertible,
         method: HTTPMethod = .get,
         parameters: Parameters? = nil,
