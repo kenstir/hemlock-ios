@@ -43,15 +43,31 @@ class BookBag : Identifiable {
         visibleRecordIds = MBRecord.getIdsList(fromQueryObj: obj)
     }
     
+    func distinctBy(_ array: [OSRFObject], selector: (OSRFObject) -> Int?) -> [OSRFObject] {
+        var set: Set<Int> = []
+        var ret: [OSRFObject] = []
+        for item in array {
+            if let itemIndex = selector(item) {
+                if set.insert(itemIndex).inserted {
+                    ret.append(item)
+                }
+            }
+        }
+        return ret
+    }
+
     func loadItems(fromFleshedObj obj: OSRFObject) {
         items.removeAll()
-        if let fleshedItems = obj.getAny("items") as? [OSRFObject] {
-            for item in fleshedItems {
+        if let fleshedItems = obj.getAny("items") as? [OSRFObject]
+        {
+            let distinctItems = distinctBy(fleshedItems) { $0.getInt("target_biblio_record_entry") }
+            for item in distinctItems {
                 if !filterToVisibleRecords {
                     items.append(BookBagItem(cbrebiObj: item))
                 } else {
                     if let targetId = item.getInt("target_biblio_record_entry"),
-                       visibleRecordIds.contains(targetId) {
+                        visibleRecordIds.contains(targetId)
+                    {
                         items.append(BookBagItem(cbrebiObj: item))
                     }
                 }
