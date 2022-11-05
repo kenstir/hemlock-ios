@@ -149,7 +149,9 @@ class OrgDetailsViewController: UIViewController {
     }
     
     func setupHoursViews() {
-        if !App.config.enableHoursOfOperation {
+        if App.config.enableHoursOfOperation {
+            hoursHeader?.text = R.getString("Hours")
+        } else {
             hoursHeader?.isHidden = true
             day0Stack?.isHidden = true
             day1Stack?.isHidden = true

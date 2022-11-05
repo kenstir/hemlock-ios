@@ -86,7 +86,7 @@ class XOrgDetailsViewController: ASDKViewController<ASDisplayNode> {
         org = Organization.find(byId: App.account?.homeOrgID)
         
         setupTitle()
-        Style.setupSubtitle(hoursSubheading, str: "Opening Hours")
+        Style.setupSubtitle(hoursSubheading, str: R.getString("Hours"))
         setupChooserRow()
         
         // See Footnote #1 - handling the keyboard
