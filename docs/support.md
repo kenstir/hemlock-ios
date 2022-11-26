@@ -1,8 +1,7 @@
 ---
 title: Support
 layout: default
-redirect_from:
-  - /
+favicon: owwl/favicon.png
 ---
 # Support
 
@@ -20,4 +19,6 @@ If it is not, we cannot help; please visit your local library.
 
 ### Q: How do I report an issue?
 
-A: Send email to (kenstir.apps@gmail.com)[mailto:kenstir.apps@gmail.com]
+A: Send email to kenstir.apps@gmail.com .  Please include a screenshot,
+and a description of what you were trying to do at the time.
+
