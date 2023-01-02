@@ -61,6 +61,8 @@ class BookBagDetailsViewController : UITableViewController {
 
         self.setupHomeButton()
         navigationItem.rightBarButtonItems?.append(editButtonItem)
+        let sortButton = UIBarButtonItem(image: UIImage(named: "sort"), style: .plain, target: self, action: #selector(sortButtonPressed(sender:)))
+        navigationItem.rightBarButtonItems?.append(sortButton)
     }
     
     func fetchData() {
@@ -101,12 +103,47 @@ class BookBagDetailsViewController : UITableViewController {
         return promise
     }
     
+    @objc func sortButtonPressed(sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Sort by", message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        alertController.addAction(UIAlertAction(title: "Author", style: .default) { action in
+            self.setPreferredSortOrder("authorsort")
+        })
+        alertController.addAction(UIAlertAction(title: "Publication Date", style: .default) { action in
+            self.setPreferredSortOrder("pubdate")
+        })
+        alertController.addAction(UIAlertAction(title: "Title", style: .default) { action in
+            self.setPreferredSortOrder("titlesort")
+        })
+
+        // iPad requires a popoverPresentationController
+        if let popoverController = alertController.popoverPresentationController {
+            let view: UIView = sender.value(forKey: "view") as? UIView ?? self.view
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
+        self.present(alertController, animated: true)
+    }
+    
+    func setPreferredSortOrder(_ sortBy: String) {
+        App.valet.set(string: sortBy, forKey: "sortBy")
+        updateItems()
+    }
+
     func updateItems() {
-        if let items = bookBag?.items {
+        guard let items = bookBag?.items else { return }
+        let sortBy = App.valet.string(forKey: "sortBy") ?? "pubdate"
+        if (sortBy == "authorsort") {
+            self.sortedItems = items.sorted(by: { $0.metabibRecord?.author ?? "" < $1.metabibRecord?.author ?? "" })
+        } else if (sortBy == "titlesort") {
+            self.sortedItems = items.sorted(by: {
+                Utils.titleSortKey($0.metabibRecord?.title) < Utils.titleSortKey($1.metabibRecord?.title) })
+        } else {
+            // pubdate
             self.sortedItems = items.sorted(by: {
                 Utils.pubdateSortKey($0.metabibRecord?.pubdate) ?? 0 > Utils.pubdateSortKey($1.metabibRecord?.pubdate) ?? 0 })
-            tableView.reloadData()
         }
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

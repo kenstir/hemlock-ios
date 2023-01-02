@@ -75,4 +75,15 @@ class Utils {
         }
         return nil
     }
+    
+    // Given a title, return a sort key, removing leading articles and lowercasing the string
+    static func titleSortKey(_ title: String?) -> String {
+        guard let s = title else { return "" }
+        return s.lowercased()
+            .removePrefix("a ")
+            .removePrefix("an ")
+            .removePrefix("the ")
+            .replacingOccurrences(of: " : ", with: " ")
+            .replacingOccurrences(of: ": ", with: " ")
+    }
 }
