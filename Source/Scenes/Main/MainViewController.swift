@@ -249,9 +249,8 @@ class MainViewController: UIViewController {
     }
     
     @objc func messagesButtonPressed(sender: UIBarButtonItem) {
-        if let baseurl_string = App.library?.url,
-            let url = URL(string: baseurl_string + "/eg/opac/myopac/messages") {
-            UIApplication.shared.open(url)
+        if let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateInitialViewController() as? MessagesViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
