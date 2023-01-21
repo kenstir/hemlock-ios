@@ -105,6 +105,12 @@ struct OSRFObject: Equatable {
         }
         return nil
     }
+
+    // getBool should really return a Bool not an Optional,
+    // but that's too invasive for the moment.
+    func getBoolOrFalse(_ key: String) -> Bool {
+        return getBool(key) ?? false
+    }
     
     static func getBool(fromAny anyval: Any) -> Bool? {
         if let val = anyval as? Bool {

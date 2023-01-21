@@ -161,31 +161,18 @@ class MainViewController: UIViewController {
     }
 
     func fetchMessages(authtoken: String, userid: Int) {
-        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userid], shouldCache: false)
-        req.gatewayResponse().done { resp in
-            if let array = resp.array {
-                self.updateMessagesBadge(messageList: array)
-            }
+        let promise = ActorService.fetchMessages(authtoken: authtoken, userId: userid)
+        promise.done { array in
+            self.updateMessagesBadge(messageList: array)
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }
-    
+
     func updateMessagesBadge(messageList: [OSRFObject]) {
-        var unreadCount = 0
-        for message in messageList {
-            let readDate = message.getString("read_date")
-            let deleted = message.getBool("deleted") ?? false
-            let patronVisible = message.getBool("pub") ?? false
-            if readDate == nil && !deleted && patronVisible {
-                unreadCount += 1
-            }
-        }
-        if unreadCount > 0 {
-            messagesButton.setBadge(text: String(unreadCount))
-        } else {
-            messagesButton.setBadge(text: nil)
-        }
+        let messages = PatronMessage.makeArray(messageList)
+        let unreadCount = messages.filter { !$0.isRead && !$0.isDeleted && $0.isPatronVisible }.count
+        messagesButton.setBadge(text: (unreadCount > 0) ? String(unreadCount) : nil)
     }
     
     @objc func accountButtonPressed(sender: UIBarButtonItem) {

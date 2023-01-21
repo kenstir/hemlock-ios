@@ -1179,6 +1179,17 @@
 		D2AA9D662738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
 		D2AA9D672738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
 		D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */; };
+		D2BB668A297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB668B297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB668C297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB668D297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB668E297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB668F297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB6690297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB6691297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB6692297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB6693297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB6694297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
 		D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99720F19CA400B25146 /* OrganizationTests.swift */; };
 		D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
@@ -1669,6 +1680,7 @@
 		D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagDetailsViewController.swift; sourceTree = "<group>"; };
 		D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesAppBehavior.swift; sourceTree = "<group>"; };
+		D2BB6689297C813A007E19E7 /* PatronMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronMessage.swift; sourceTree = "<group>"; };
 		D2BBA99720F19CA400B25146 /* OrganizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTests.swift; sourceTree = "<group>"; };
 		D2BBA99920F29F0E00B25146 /* ActorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorService.swift; sourceTree = "<group>"; };
 		D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -1978,6 +1990,7 @@
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
 				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
+				D2BB6689297C813A007E19E7 /* PatronMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3512,6 +3525,7 @@
 				D210EBE522B1EE55002FB5E0 /* SMSCarrier.swift in Sources */,
 				D210EBE622B1EE55002FB5E0 /* RingBuffer.swift in Sources */,
 				D210EBE722B1EE55002FB5E0 /* HemlockError.swift in Sources */,
+				D2BB668A297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D210EBE822B1EE55002FB5E0 /* XResultsViewController.swift in Sources */,
 				D210EBE922B1EE55002FB5E0 /* SearchViewController.swift in Sources */,
 				D210EBEA22B1EE55002FB5E0 /* CircService.swift in Sources */,
@@ -3616,6 +3630,7 @@
 				D23E9F8B23B9200A0030F5C1 /* HemlockError.swift in Sources */,
 				D23E9F8C23B9200A0030F5C1 /* XResultsViewController.swift in Sources */,
 				D23E9F8D23B9200A0030F5C1 /* SearchViewController.swift in Sources */,
+				D2BB6694297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D23E9F8E23B9200A0030F5C1 /* CircService.swift in Sources */,
 				D23E9F8F23B9200A0030F5C1 /* AFSessionManager+.swift in Sources */,
 				D23E9F9023B9200A0030F5C1 /* HoldsViewController.swift in Sources */,
@@ -3720,6 +3735,7 @@
 				D2477BD724785A6B00FD4CF6 /* HemlockError.swift in Sources */,
 				D2477BD824785A6B00FD4CF6 /* XResultsViewController.swift in Sources */,
 				D2477BD924785A6B00FD4CF6 /* SearchViewController.swift in Sources */,
+				D2BB668E297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2477BDA24785A6B00FD4CF6 /* CircService.swift in Sources */,
 				D2477BDB24785A6B00FD4CF6 /* AFSessionManager+.swift in Sources */,
 				D2477BDC24785A6B00FD4CF6 /* HoldsViewController.swift in Sources */,
@@ -3824,6 +3840,7 @@
 				D2572AC724AD7755000BA698 /* HemlockError.swift in Sources */,
 				D2572AC824AD7755000BA698 /* XResultsViewController.swift in Sources */,
 				D2572AC924AD7755000BA698 /* SearchViewController.swift in Sources */,
+				D2BB668F297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2572ACA24AD7755000BA698 /* CircService.swift in Sources */,
 				D2572ACB24AD7755000BA698 /* AFSessionManager+.swift in Sources */,
 				D2572ACC24AD7755000BA698 /* HoldsViewController.swift in Sources */,
@@ -3928,6 +3945,7 @@
 				D25EEC6A28A1E8310090F108 /* RingBuffer.swift in Sources */,
 				D25EEC6B28A1E8310090F108 /* HemlockError.swift in Sources */,
 				D25EEC6C28A1E8310090F108 /* XResultsViewController.swift in Sources */,
+				D2BB6692297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D25EEC6D28A1E8310090F108 /* SearchViewController.swift in Sources */,
 				D25EEC6E28A1E8310090F108 /* CircService.swift in Sources */,
 				D25EEC6F28A1E8310090F108 /* AFSessionManager+.swift in Sources */,
@@ -4031,6 +4049,7 @@
 				D2AA9D602738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
+				D2BB668C297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D276DAA021336B20007FAA31 /* SMSCarrier.swift in Sources */,
 				D276DAA221336B20007FAA31 /* HemlockError.swift in Sources */,
 				D2F390362241E5950089D745 /* RingBuffer.swift in Sources */,
@@ -4134,6 +4153,7 @@
 				D2AA9D612738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
+				D2BB668D297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */,
 				D2A74B1921289F2E001D4B0F /* HemlockAppConfiguration.swift in Sources */,
 				D2F390342241E5950089D745 /* RingBuffer.swift in Sources */,
@@ -4237,6 +4257,7 @@
 				D2AA9D5F2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D284246321D0358200C7171C /* App.swift in Sources */,
 				D284246421D0358200C7171C /* Library.swift in Sources */,
+				D2BB668B297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D284246621D0358200C7171C /* GatewayResponse.swift in Sources */,
 				D284246721D0358200C7171C /* SMSCarrier.swift in Sources */,
 				D2F390372241E5950089D745 /* RingBuffer.swift in Sources */,
@@ -4341,6 +4362,7 @@
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
 				D2F390352241E5950089D745 /* RingBuffer.swift in Sources */,
 				D23E5A0420ED96E9005EB391 /* XResultsViewController.swift in Sources */,
+				D2BB6693297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D279911A20DDE160003B451E /* AppFactory.swift in Sources */,
 				D28725AF20E88063002A4C42 /* CircService.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
@@ -4477,6 +4499,7 @@
 				D2BDA62D22D176BD00D9B60C /* RingBuffer.swift in Sources */,
 				D2BDA62E22D176BD00D9B60C /* HemlockError.swift in Sources */,
 				D2BDA62F22D176BD00D9B60C /* XResultsViewController.swift in Sources */,
+				D2BB6690297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2BDA63022D176BD00D9B60C /* SearchViewController.swift in Sources */,
 				D2BDA63122D176BD00D9B60C /* CircService.swift in Sources */,
 				D2BDA63222D176BD00D9B60C /* AFSessionManager+.swift in Sources */,
@@ -4581,6 +4604,7 @@
 				D2BDA6C522D2A72000D9B60C /* HemlockError.swift in Sources */,
 				D2BDA6C622D2A72000D9B60C /* XResultsViewController.swift in Sources */,
 				D2BDA6C722D2A72000D9B60C /* SearchViewController.swift in Sources */,
+				D2BB6691297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2BDA6C822D2A72000D9B60C /* CircService.swift in Sources */,
 				D2BDA6C922D2A72000D9B60C /* AFSessionManager+.swift in Sources */,
 				D2BDA6CA22D2A72000D9B60C /* HoldsViewController.swift in Sources */,

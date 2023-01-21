@@ -161,12 +161,12 @@ class ActorService {
         return promise
     }
     
-    static func createBookBag(authtoken: String, userId: Int, name: String) -> Promise<Void> {
+    static func createBookBag(authtoken: String, userID: Int, name: String) -> Promise<Void> {
         let obj = OSRFObject([
             "btype": API.containerTypeBookbag,
             "name": name,
             "pub": false,
-            "owner": userId,
+            "owner": userID,
         ], netClass: "cbreb")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let promise = req.gatewayResponse().done { resp in
@@ -210,5 +210,10 @@ class ActorService {
             }
         }
         return promise
+    }
+
+    static func fetchMessages(authtoken: String, userId: Int) -> Promise<([OSRFObject])> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userId], shouldCache: false)
+        return req.gatewayArrayResponse()
     }
 }

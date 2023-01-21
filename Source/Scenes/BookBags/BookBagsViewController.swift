@@ -126,7 +126,7 @@ class BookBagsViewController : UITableViewController {
             return
         }
         
-        ActorService.createBookBag(authtoken: authtoken, userId: userID, name: name).done {
+        ActorService.createBookBag(authtoken: authtoken, userID: userID, name: name).done {
             self.navigationController?.view.makeToast("List created")
             self.fetchData()
         }.catch { error in
