@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2029B4F297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B50297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B51297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B52297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B53297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B54297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B55297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B56297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B57297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B58297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B59297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */; };
+		D2029B5B297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B5C297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B5D297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B5E297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B5F297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B60297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B61297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B62297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B63297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B64297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
+		D2029B65297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
 		D2096E17244BACD800627FF5 /* cwmars-pro.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */; };
 		D20B2FE222CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
 		D20B2FE322CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
@@ -1509,6 +1531,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageDetails.storyboard; sourceTree = "<group>"; };
+		D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailsViewController.swift; sourceTree = "<group>"; };
 		D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "cwmars-pro.xcassets"; sourceTree = "<group>"; };
 		D20B2FE122CC309800F69848 /* MARCXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MARCXMLParser.swift; sourceTree = "<group>"; };
 		D20B2FE722CC359000F69848 /* MARCRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCRecord.swift; sourceTree = "<group>"; };
@@ -2452,9 +2476,11 @@
 		D2BB66AE297CA2A5007E19E7 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				D293EC12297CC33F00C9F1C4 /* Messages.storyboard */,
+				D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */,
 				D2BB66AF297CA2BE007E19E7 /* MessagesTableViewCell.swift */,
 				D2BB66B0297CA2BE007E19E7 /* MessagesViewController.swift */,
-				D293EC12297CC33F00C9F1C4 /* Messages.storyboard */,
+				D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -2861,6 +2887,7 @@
 				D210EC2D22B1EE55002FB5E0 /* Default-568h@2x.png in Resources */,
 				D210EC2E22B1EE55002FB5E0 /* Fines.storyboard in Resources */,
 				D210EC2F22B1EE55002FB5E0 /* SendEmail.storyboard in Resources */,
+				D2029B4F297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D29C95FC2599285E00CACDBD /* event_msg_map.json in Resources */,
 				D21090D124D726FA004FE532 /* fail_part_msg_map.json in Resources */,
 				D210EC3122B1EE55002FB5E0 /* Main.storyboard in Resources */,
@@ -2890,6 +2917,7 @@
 				D23E9FD423B9200A0030F5C1 /* Default-568h@2x.png in Resources */,
 				D23E9FD523B9200A0030F5C1 /* Fines.storyboard in Resources */,
 				D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */,
+				D2029B59297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D29C95F92599283A00CACDBD /* event_msg_map.json in Resources */,
 				D21090DD24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D23E9FD823B9200A0030F5C1 /* Main.storyboard in Resources */,
@@ -2919,6 +2947,7 @@
 				D2477C2224785A6B00FD4CF6 /* Default-568h@2x.png in Resources */,
 				D2477C2324785A6B00FD4CF6 /* Fines.storyboard in Resources */,
 				D2477C2424785A6B00FD4CF6 /* SendEmail.storyboard in Resources */,
+				D2029B53297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D29C95F62599283A00CACDBD /* event_msg_map.json in Resources */,
 				D21090D924D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2477C2624785A6B00FD4CF6 /* Main.storyboard in Resources */,
@@ -2941,6 +2970,7 @@
 				D2572B1124AD7755000BA698 /* Search.storyboard in Resources */,
 				D2572B1224AD7755000BA698 /* Documentation in Resources */,
 				D29C95FA2599283A00CACDBD /* event_msg_map.json in Resources */,
+				D2029B54297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2572B1324AD7755000BA698 /* ShowCard.storyboard in Resources */,
 				D28AE26B24FDD9B200960E9E /* strings.json in Resources */,
 				D2572B1424AD7755000BA698 /* Options.storyboard in Resources */,
@@ -2971,6 +3001,7 @@
 				D25EECDA28A1EB2E0090F108 /* owwl.xcassets in Resources */,
 				D25EECBC28A1E8310090F108 /* Search.storyboard in Resources */,
 				D25EECBD28A1E8310090F108 /* Documentation in Resources */,
+				D2029B57297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D25EECBE28A1E8310090F108 /* event_msg_map.json in Resources */,
 				D271862C28CEBFC90046E9BC /* ScanBarcode.storyboard in Resources */,
 				D25EECBF28A1E8310090F108 /* ShowCard.storyboard in Resources */,
@@ -3001,6 +3032,7 @@
 				D2F390322241E5950089D745 /* LICENSE.txt in Resources */,
 				D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */,
 				D29C95F32599283A00CACDBD /* event_msg_map.json in Resources */,
+				D2029B51297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
 				D276DAD821336B20007FAA31 /* Search.storyboard in Resources */,
 				D276DADA21336B20007FAA31 /* Documentation in Resources */,
@@ -3029,6 +3061,7 @@
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390302241E5950089D745 /* LICENSE.txt in Resources */,
 				D22D0C932243104600DBB31A /* SendEmail.storyboard in Resources */,
+				D2029B52297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2816CBF28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2616762220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D2AA9D4927383B75001E78DB /* BookBagDetails.storyboard in Resources */,
@@ -3066,6 +3099,7 @@
 				D28424A821D0358200C7171C /* Default-568h@2x.png in Resources */,
 				D28424A921D0358200C7171C /* Fines.storyboard in Resources */,
 				D22D0C962243104600DBB31A /* SendEmail.storyboard in Resources */,
+				D2029B50297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D29C95F22599283A00CACDBD /* event_msg_map.json in Resources */,
 				D21090D524D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D28424AB21D0358200C7171C /* Main.storyboard in Resources */,
@@ -3095,6 +3129,7 @@
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
 				D28AE26924FDD9B200960E9E /* strings.json in Resources */,
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
+				D2029B58297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D28AE26D24FDD9D400960E9E /* custom_strings.json in Resources */,
 				D29911E1248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
@@ -3128,6 +3163,7 @@
 				D2BDA67222D176BD00D9B60C /* Search.storyboard in Resources */,
 				D2BDA67322D176BD00D9B60C /* Documentation in Resources */,
 				D29C95F72599283A00CACDBD /* event_msg_map.json in Resources */,
+				D2029B55297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2BDA67422D176BD00D9B60C /* ShowCard.storyboard in Resources */,
 				D28AE26724FDD9B200960E9E /* strings.json in Resources */,
 				D2BDA67522D176BD00D9B60C /* Options.storyboard in Resources */,
@@ -3158,6 +3194,7 @@
 				D2BDA70922D2A72000D9B60C /* Search.storyboard in Resources */,
 				D2BDA70A22D2A72000D9B60C /* Documentation in Resources */,
 				D29C95F82599283A00CACDBD /* event_msg_map.json in Resources */,
+				D2029B56297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2BDA70B22D2A72000D9B60C /* ShowCard.storyboard in Resources */,
 				D28AE26824FDD9B200960E9E /* strings.json in Resources */,
 				D2BDA70C22D2A72000D9B60C /* Options.storyboard in Resources */,
@@ -3578,6 +3615,7 @@
 				D210EBDF22B1EE55002FB5E0 /* CopyStatus.swift in Sources */,
 				D210EBE122B1EE55002FB5E0 /* App.swift in Sources */,
 				D210EBE222B1EE55002FB5E0 /* Library.swift in Sources */,
+				D2029B5B297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931A9F272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D210EBE422B1EE55002FB5E0 /* GatewayResponse.swift in Sources */,
 				D2BB66B1297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
@@ -3685,6 +3723,7 @@
 				D23E9F8723B9200A0030F5C1 /* Library.swift in Sources */,
 				D23E9F8823B9200A0030F5C1 /* GatewayResponse.swift in Sources */,
 				D23E9F8923B9200A0030F5C1 /* SMSCarrier.swift in Sources */,
+				D2029B65297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA7272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D23E9F8A23B9200A0030F5C1 /* RingBuffer.swift in Sources */,
 				D2BB66BB297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
@@ -3792,6 +3831,7 @@
 				D2477C3424786CCF00FD4CF6 /* IndianaTheme.swift in Sources */,
 				D2477BD424785A6B00FD4CF6 /* GatewayResponse.swift in Sources */,
 				D2477BD524785A6B00FD4CF6 /* SMSCarrier.swift in Sources */,
+				D2029B5F297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA3272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2477BD624785A6B00FD4CF6 /* RingBuffer.swift in Sources */,
 				D2BB66B5297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
@@ -3899,6 +3939,7 @@
 				D2572AC324AD7755000BA698 /* Library.swift in Sources */,
 				D2572AC424AD7755000BA698 /* GatewayResponse.swift in Sources */,
 				D2572AC524AD7755000BA698 /* SMSCarrier.swift in Sources */,
+				D2029B60297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA8272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2572AC624AD7755000BA698 /* RingBuffer.swift in Sources */,
 				D2BB66B6297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
@@ -4006,6 +4047,7 @@
 				D25EEC6528A1E8310090F108 /* App.swift in Sources */,
 				D25EEC6628A1E8310090F108 /* Library.swift in Sources */,
 				D25EEC6728A1E8310090F108 /* GatewayResponse.swift in Sources */,
+				D2029B63297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D25EEC6828A1E8310090F108 /* SMSCarrier.swift in Sources */,
 				D25EEC6928A1E8310090F108 /* BookBagItem.swift in Sources */,
 				D2BB66B9297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
@@ -4180,6 +4222,7 @@
 				D276DAC421336B20007FAA31 /* SearchService.swift in Sources */,
 				D229CAF72471C099006BCC07 /* AuthService.swift in Sources */,
 				D276DAC521336B20007FAA31 /* Account.swift in Sources */,
+				D2029B5D297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4286,6 +4329,7 @@
 				D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */,
 				D229CAF82471C099006BCC07 /* AuthService.swift in Sources */,
 				D27990EF20DDD473003B451E /* Account.swift in Sources */,
+				D2029B5E297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4392,6 +4436,7 @@
 				D284248F21D0358200C7171C /* SearchService.swift in Sources */,
 				D229CAF62471C099006BCC07 /* AuthService.swift in Sources */,
 				D284249021D0358200C7171C /* Account.swift in Sources */,
+				D2029B5C297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4431,6 +4476,7 @@
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
+				D2029B64297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA6272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */,
 				D2BB66BA297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
@@ -4570,6 +4616,7 @@
 				D2BDA62822D176BD00D9B60C /* App.swift in Sources */,
 				D2BDA62922D176BD00D9B60C /* Library.swift in Sources */,
 				D2BDA62B22D176BD00D9B60C /* GatewayResponse.swift in Sources */,
+				D2029B61297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA4272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2BDA62C22D176BD00D9B60C /* SMSCarrier.swift in Sources */,
 				D2BB66B7297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
@@ -4677,6 +4724,7 @@
 				D2BDA6C022D2A72000D9B60C /* Library.swift in Sources */,
 				D2BDA6C222D2A72000D9B60C /* GatewayResponse.swift in Sources */,
 				D2BDA6C322D2A72000D9B60C /* SMSCarrier.swift in Sources */,
+				D2029B62297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA5272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2BDA6C422D2A72000D9B60C /* RingBuffer.swift in Sources */,
 				D2BB66B8297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,

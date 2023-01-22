@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Message Details-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController title="Message Details" id="Y6W-OH-hqX" customClass="MessageDetailsViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overdue Library Materials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3n4-eB-heo" userLabel="Title">
+                                <rect key="frame" x="8" y="55" width="374" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 2, 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56c-rB-5Kx" userLabel="Date">
+                                <rect key="frame" x="8" y="84" width="374" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTw-XT-Iyi" userLabel="Body Scroll">
+                                <rect key="frame" x="24" y="84" width="374" height="718"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-l7-thB" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="1285.3333333333333"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-86-1LW" userLabel="Body">
+                                                <rect key="frame" x="0.0" y="53" width="374" height="588.33333333333337"/>
+                                                <mutableString key="text">Our records indicate the following items are 10 days or more overdue.       Title:    Georgia adult literacy resources manual      Author:   State Bar of Georgia      Call No:  374.012 G      Checked Out At: Georgia Public Library Service - Professional Collection      Due Date: 12-20-2017    Items may be returned and fines paid at any PINES member library. Fines will continue to accrue until items are returned.  If you have any questions, please contact your home library at:       Athens Regional Library System      Athens-Clarke County Library      2025 BAXTER ST      ATHENS, GA 30606-6331      706-613-3650      contact_us@arlsmail.org
+      (Please have your library card available.) </mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="bKO-86-1LW" secondAttribute="bottom" constant="644" id="5RT-1Z-1an"/>
+                                            <constraint firstAttribute="trailing" secondItem="bKO-86-1LW" secondAttribute="trailing" id="Ijm-y6-6Gc"/>
+                                            <constraint firstItem="bKO-86-1LW" firstAttribute="top" secondItem="KCG-l7-thB" secondAttribute="top" constant="53" id="JFi-12-qOd"/>
+                                            <constraint firstItem="bKO-86-1LW" firstAttribute="leading" secondItem="KCG-l7-thB" secondAttribute="leading" id="Nea-jO-1Ee"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KCG-l7-thB" firstAttribute="top" secondItem="FTw-XT-Iyi" secondAttribute="top" id="TLc-a9-yVQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="KCG-l7-thB" secondAttribute="trailing" id="WJR-kk-zTh"/>
+                                    <constraint firstItem="KCG-l7-thB" firstAttribute="width" secondItem="FTw-XT-Iyi" secondAttribute="width" id="ZOZ-7n-LdE"/>
+                                    <constraint firstAttribute="bottom" secondItem="KCG-l7-thB" secondAttribute="bottom" id="f9a-VU-tRh"/>
+                                    <constraint firstItem="KCG-l7-thB" firstAttribute="leading" secondItem="FTw-XT-Iyi" secondAttribute="leading" id="gRH-4n-fRi"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="56c-rB-5Kx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="1mv-xi-6VF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="56c-rB-5Kx" secondAttribute="trailing" constant="8" id="FM2-9T-nNX"/>
+                            <constraint firstItem="3n4-eB-heo" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="JpA-dK-aur"/>
+                            <constraint firstItem="56c-rB-5Kx" firstAttribute="top" secondItem="3n4-eB-heo" secondAttribute="bottom" constant="8" id="KVv-TK-6Ov"/>
+                            <constraint firstItem="3n4-eB-heo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="O7n-fW-5iy"/>
+                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="top" secondItem="3n4-eB-heo" secondAttribute="bottom" constant="8" id="Qfn-Sf-Ehn"/>
+                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="8" id="UNh-ml-2Fy"/>
+                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="8" id="qhA-Js-y6B"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3n4-eB-heo" secondAttribute="trailing" constant="8" id="uAB-gh-3Yu"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="FTw-XT-Iyi" secondAttribute="bottom" constant="8" id="yA2-va-A28"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-72.307692307692307" y="-28.436018957345969"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

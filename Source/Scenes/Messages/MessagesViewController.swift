@@ -140,9 +140,9 @@ class MessagesViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
-//        if let vc = UIStoryboard(name: "BookBagDetails", bundle: nil).instantiateInitialViewController() as? BookBagDetailsViewController {
-//            vc.bookBag = item
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
+        if let vc = UIStoryboard(name: "MessageDetails", bundle: nil).instantiateInitialViewController() as? MessageDetailsViewController {
+            vc.message = item
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
