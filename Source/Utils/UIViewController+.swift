@@ -35,10 +35,10 @@ extension UIViewController {
     }
 
     func centerSubview(_ subview: UIView) {
-        os_log("centerSubview: ---", log: Utils.log, type: .info)
-        os_log("centerSubview: view.frame=%.0fx%.0f", log: Utils.log, type: .info, view.frame.width, view.frame.height)
-        os_log("centerSubview: subv.frame=%.0fx%.0f", log: Utils.log, type: .info, subview.frame.width, subview.frame.height)
-        os_log("centerSubview: view.center=[%.0f,%.0f]", log: Utils.log, type: .info, view.center.x, view.center.y)
+//        os_log("centerSubview: ---", log: Utils.log, type: .info)
+//        os_log("centerSubview: view.frame=%.0fx%.0f", log: Utils.log, type: .info, view.frame.width, view.frame.height)
+//        os_log("centerSubview: subv.frame=%.0fx%.0f", log: Utils.log, type: .info, subview.frame.width, subview.frame.height)
+//        os_log("centerSubview: view.center=[%.0f,%.0f]", log: Utils.log, type: .info, view.center.x, view.center.y)
 //        os_log("centerSubview: subv.center=[%f,%f]", log: Utils.log, type: .info, subview.center.x, subview.center.y)
         subview.center = view.center
     }

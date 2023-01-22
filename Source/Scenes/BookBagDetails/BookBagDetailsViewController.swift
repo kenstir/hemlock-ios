@@ -47,9 +47,6 @@ class BookBagDetailsViewController : UITableViewController {
         }
 
         self.fetchData()
-//        if let items = bookBag?.items {
-//            self.items = items
-//        }
     }
 
     //MARK: - Functions
@@ -66,12 +63,6 @@ class BookBagDetailsViewController : UITableViewController {
     }
     
     func fetchData() {
-//        guard let account = App.account else
-//        {
-//            presentGatewayAlert(forError: HemlockError.sessionExpired)
-//            return //TODO: add analytics
-//        }
-        
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 

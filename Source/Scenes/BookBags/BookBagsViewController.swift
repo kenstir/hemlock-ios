@@ -26,7 +26,7 @@ class BookBagsViewController : UITableViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
-    var items: [BookBag] = [] // TODO: replace with Account
+    var items: [BookBag] = []
     var didCompleteFetch = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
 
@@ -76,7 +76,6 @@ class BookBagsViewController : UITableViewController {
         // fetch the list of bookbags
         ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
             os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
-            //self.updateItems()
             self.fetchBookBagContents(account: account, authtoken: authtoken)
         }.catch { error in
             self.activityIndicator.stopAnimating()
@@ -149,11 +148,11 @@ class BookBagsViewController : UITableViewController {
             tableView.reloadData()
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if !didCompleteFetch {
             return ""
