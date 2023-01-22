@@ -33,6 +33,12 @@ class MessageDetailsViewController : UIViewController {
         setupViews()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.fetchData()
+    }
+
     //MARK: - Functions
 
     func setupViews() {
@@ -41,5 +47,22 @@ class MessageDetailsViewController : UIViewController {
         titleLabel.text = message?.title
         dateLabel.text = message?.createDateLabel
         bodyLabel.text = message?.message.trim()
+    }
+
+    func fetchData() {
+        guard let account = App.account,
+              let authtoken = account.authtoken else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return //TODO: add analytics
+        }
+        guard let messageID = message?.id else { return }
+
+        // mark message read
+        ActorService.markMessageRead(authtoken: authtoken, messageID: messageID).done {
+            // nada
+        }.catch { error in
+            self.presentGatewayAlert(forError: error, title: "Error marking message read")
+        }
     }
 }

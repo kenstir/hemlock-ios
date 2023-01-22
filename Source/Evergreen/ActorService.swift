@@ -216,4 +216,19 @@ class ActorService {
         let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userID], shouldCache: false)
         return req.gatewayArrayResponse()
     }
+
+    static private func messageActionURL(messageID: Int, action: String) -> String {
+        var url = App.library?.url ?? ""
+        url += "/eg/opac/myopac/messages?action=\(action)&message_id=\(messageID)"
+        return url
+    }
+
+    static func markMessageRead(authtoken: String, messageID: Int) -> Promise<Void> {
+        let url = messageActionURL(messageID: messageID, action: "mark_read")
+        let req = Gateway.makeOPACRequest(url: url, authtoken: authtoken, shouldCache: false)
+        let promise = req.responseData().done { data, pmkresponse in
+            // we ignore the response, the entire messages web page
+        }
+        return promise
+    }
 }

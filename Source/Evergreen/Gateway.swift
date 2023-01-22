@@ -96,12 +96,21 @@ class Gateway {
         return request
     }
     
-    /// assumes the url already contains cache-busting params
+    /// assumes the url already contains cache-busting params if needed
     static func makeRequest(url: String, shouldCache: Bool) -> Alamofire.DataRequest
     {
         return sessionManager.makeRequest(url, shouldCache: shouldCache)
     }
-    
+
+    /// make a request to an OPAC url that mimics a browser session with cookies.
+    /// We need this for managing patron messages because there is no OSRF API for it.
+    static func makeOPACRequest(url: String, authtoken: String, shouldCache: Bool) -> Alamofire.DataRequest
+    {
+        let cookie = "ses=\(authtoken); eg_loggedin=1"
+        let headers: HTTPHeaders = ["Cookie": cookie]
+        return sessionManager.makeRequest(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, shouldCache: shouldCache)
+    }
+
     /// encode params as needed by the gateway
     static func gatewayParams(_ args: [Any?]) -> [String]
     {
@@ -137,14 +146,14 @@ class Gateway {
         }
         return params
     }
-    
+
     static private func gatewayURL() -> String
     {
         var url = App.library?.url ?? ""
         url += "/osrf-gateway-v1"
         return url
     }
-    
+
     // NB: The URL returned includes the cache-busting params.
     static func idlURL() -> String {
         var url = App.library?.url ?? ""
@@ -153,10 +162,14 @@ class Gateway {
         for netClass in API.netClasses.split(separator: ",") {
             params.append("class=" + netClass)
         }
-        params.append("_ck=" + clientCacheKey)
-        params.append("_sk=" + serverCacheKey)
+        params.append(contentsOf: cacheParams())
         url += params.joined(separator: "&")
         return url
+    }
+
+    static func cacheParams() -> [String] {
+        return ["_ck=" + clientCacheKey,
+                "_sk=" + serverCacheKey]
     }
     
     static var totalElapsed = 0.0
