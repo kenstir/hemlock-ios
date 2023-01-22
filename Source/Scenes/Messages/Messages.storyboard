@@ -3,7 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21225"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,23 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="120" id="Fsb-7X-O74" customClass="MessagesTableViewCell" customModule="COOL" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messagesCell" rowHeight="120" id="Fsb-7X-O74" customClass="MessagesTableViewCell" customModule="COOL" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333332061767578" width="390" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fsb-7X-O74" id="yJ4-RP-5ce">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-eo-QMq" userLabel="Title HStack">
-                                            <rect key="frame" x="8" y="8" width="374" height="75"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-eo-QMq" userLabel="Title HStack">
+                                            <rect key="frame" x="8" y="8" width="374" height="18"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Overdue Library Materials" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sce-Dy-fwq" userLabel="Title">
-                                                    <rect key="frame" x="0.0" y="0.0" width="293.33333333333331" height="20.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="293.33333333333331" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 7, 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTa-qu-uG3" userLabel="Date">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Feb 7, 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTa-qu-uG3" userLabel="Date">
                                                     <rect key="frame" x="293.33333333333331" y="0.0" width="80.666666666666686" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -41,8 +41,12 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-Fd-0Xa" userLabel="Body">
-                                            <rect key="frame" x="8" y="91" width="374" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-Fd-0Xa" userLabel="Body">
+                                            <rect key="frame" x="8" y="34" width="374" height="78"/>
+                                            <string key="text">Our records indicate the following items are 10 days or more overdue.       Title:    Georgia adult literacy resources manual      Author:   State B
+ar of Georgia      Call No:  374.012 G      Checked Out At: Georgia Public Library Service - Professional Collection      Due Date: 12-20-2017    Items may be retur
+ned and fines paid at any PINES member library. Fines will continue to accrue until items are returned.  If you have any questions, please contact your home library at:       Athens Regional Library System      Athens-Clarke County Library      2025 BAXTER ST      ATHENS, GA 30606-6331      706-613-3650      contact_us@arlsmail.org
+      (Please have your library card available.) </string>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
@@ -52,13 +56,14 @@
                                         <constraint firstItem="Upo-eo-QMq" firstAttribute="trailing" secondItem="yJ4-RP-5ce" secondAttribute="trailing" constant="-8" id="9Fa-Cs-D2Y"/>
                                         <constraint firstItem="rdm-Fd-0Xa" firstAttribute="leading" secondItem="yJ4-RP-5ce" secondAttribute="leading" constant="8" id="Ekf-P1-on4"/>
                                         <constraint firstItem="Upo-eo-QMq" firstAttribute="leading" secondItem="yJ4-RP-5ce" secondAttribute="leading" constant="8" id="Gxl-nr-9zU"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="rdm-Fd-0Xa" secondAttribute="bottom" id="JTm-Gi-bWb"/>
+                                        <constraint firstAttribute="bottom" secondItem="rdm-Fd-0Xa" secondAttribute="bottom" constant="8" id="JTm-Gi-bWb"/>
                                         <constraint firstAttribute="trailing" secondItem="rdm-Fd-0Xa" secondAttribute="trailing" constant="8" id="YSW-db-9Xr"/>
                                         <constraint firstItem="rdm-Fd-0Xa" firstAttribute="top" secondItem="Upo-eo-QMq" secondAttribute="bottom" constant="8" id="w8E-be-qTQ"/>
                                         <constraint firstItem="Upo-eo-QMq" firstAttribute="top" secondItem="yJ4-RP-5ce" secondAttribute="top" constant="8" id="wQu-KG-pLR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="body" destination="rdm-Fd-0Xa" id="my0-dp-BTW"/>
                                     <outlet property="date" destination="xTa-qu-uG3" id="w37-wm-VSR"/>
                                     <outlet property="title" destination="sce-Dy-fwq" id="OIr-fT-oBf"/>
                                 </connections>

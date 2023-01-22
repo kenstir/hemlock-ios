@@ -128,10 +128,10 @@ class MainViewController: UIViewController {
     
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
-              let userid = App.account?.userID else { return }
+              let userID = App.account?.userID else { return }
 
         if App.config.enableMessages {
-            fetchMessages(authtoken: authtoken, userid: userid)
+            fetchMessages(authtoken: authtoken, userid: userID)
         }
         if App.config.enableEventsButton {
             fetchEventsURL()
@@ -161,8 +161,7 @@ class MainViewController: UIViewController {
     }
 
     func fetchMessages(authtoken: String, userid: Int) {
-        let promise = ActorService.fetchMessages(authtoken: authtoken, userId: userid)
-        promise.done { array in
+        ActorService.fetchMessages(authtoken: authtoken, userID: userid).done { array in
             self.updateMessagesBadge(messageList: array)
         }.catch { error in
             self.presentGatewayAlert(forError: error)
@@ -171,7 +170,7 @@ class MainViewController: UIViewController {
 
     func updateMessagesBadge(messageList: [OSRFObject]) {
         let messages = PatronMessage.makeArray(messageList)
-        let unreadCount = messages.filter { !$0.isRead && !$0.isDeleted && $0.isPatronVisible }.count
+        let unreadCount = messages.filter { $0.isPatronVisible && !$0.isDeleted && !$0.isRead }.count
         messagesButton.setBadge(text: (unreadCount > 0) ? String(unreadCount) : nil)
     }
     

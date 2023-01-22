@@ -212,8 +212,8 @@ class ActorService {
         return promise
     }
 
-    static func fetchMessages(authtoken: String, userId: Int) -> Promise<([OSRFObject])> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userId], shouldCache: false)
+    static func fetchMessages(authtoken: String, userID: Int) -> Promise<([OSRFObject])> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userID], shouldCache: false)
         return req.gatewayArrayResponse()
     }
 }

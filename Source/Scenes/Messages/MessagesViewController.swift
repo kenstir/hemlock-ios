@@ -21,7 +21,128 @@ import PromiseKit
 import os.log
 
 class MessagesViewController : UITableViewController {
- 
+
+    weak var activityIndicator: UIActivityIndicatorView!
     
+    var items: [PatronMessage] = []
+    var didCompleteFetch = false
+    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Messages")
     
+    //MARK: - UIViewController
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // deselect row when navigating back
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+
+        self.fetchData()
+    }
+
+    //MARK: - Functions
+    
+    func setupViews() {
+        // create and style the activity indicator
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
+        
+        self.setupHomeButton()
+        navigationItem.rightBarButtonItems?.append(editButtonItem)
+    }
+
+    func fetchData() {
+        guard let account = App.account,
+              let authtoken = account.authtoken,
+              let userID = account.userID else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return //TODO: add analytics
+        }
+
+        centerSubview(activityIndicator)
+        activityIndicator.startAnimating()
+
+        // fetch messages
+        ActorService.fetchMessages(authtoken: authtoken, userID: userID).done { array in
+            self.didCompleteFetch = true
+            self.updateItems(messageList: array)
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+        }.catch { error in
+            self.activityIndicator.stopAnimating()
+            self.presentGatewayAlert(forError: error, title: "Error retrieving messages")
+        }
+    }
+
+    func updateItems(messageList: [OSRFObject]) {
+        let messages = PatronMessage.makeArray(messageList)
+        items = messages.filter { $0.isPatronVisible && !$0.isDeleted }
+        tableView.reloadData()
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if !didCompleteFetch {
+            return ""
+        } else if items.count == 0 {
+            return "No messages"
+        } else {
+            return "\(items.count) messages"
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return Style.tableHeaderHeight
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        guard let account = App.account,
+              let authtoken = account.authtoken else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return
+        }
+
+        let item = items[indexPath.row]
+
+        // confirm action
+        let alertController = UIAlertController(title: "Delete list?", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
+//            self.deleteBookBag(authtoken: authtoken, bookBagId: item.id, indexPath: indexPath)
+        })
+        self.present(alertController, animated: true)
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "messagesCell", for: indexPath) as? MessagesTableViewCell else {
+            fatalError("dequeued cell of wrong class!")
+        }
+
+        let item = items[indexPath.row]
+        cell.title.text = item.title
+        cell.date.text = item.createDateLabel
+        cell.body.text = item.message
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+//        if let vc = UIStoryboard(name: "BookBagDetails", bundle: nil).instantiateInitialViewController() as? BookBagDetailsViewController {
+//            vc.bookBag = item
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+    }
 }

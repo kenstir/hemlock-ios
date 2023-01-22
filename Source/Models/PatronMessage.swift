@@ -25,6 +25,9 @@ class PatronMessage {
     var createDate: Date? {
         return obj.getDate("create_date")
     }
+    var createDateLabel: String? {
+        return obj.getDateLabel("create_date")
+    }
     var isRead: Bool {
         return obj.getDate("read_date") != nil
     }
