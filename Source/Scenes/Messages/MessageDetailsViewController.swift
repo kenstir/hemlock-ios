@@ -22,4 +22,24 @@ class MessageDetailsViewController : UIViewController {
 
     var message: PatronMessage?
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
+
+    //MARK: - UIViewController
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    //MARK: - Functions
+
+    func setupViews() {
+        self.setupHomeButton()
+
+        titleLabel.text = message?.title
+        dateLabel.text = message?.createDateLabel
+        bodyLabel.text = message?.message.trim()
+    }
 }

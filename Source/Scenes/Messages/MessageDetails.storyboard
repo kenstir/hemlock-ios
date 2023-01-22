@@ -18,28 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overdue Library Materials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3n4-eB-heo" userLabel="Title">
-                                <rect key="frame" x="8" y="55" width="374" height="21"/>
+                                <rect key="frame" x="8" y="63" width="374" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feb 2, 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56c-rB-5Kx" userLabel="Date">
-                                <rect key="frame" x="8" y="84" width="374" height="18"/>
+                                <rect key="frame" x="8" y="92" width="374" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTw-XT-Iyi" userLabel="Body Scroll">
-                                <rect key="frame" x="8" y="110" width="374" height="692"/>
+                                <rect key="frame" x="8" y="126" width="374" height="676"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-l7-thB" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="588.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="636.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-86-1LW" userLabel="Body">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="588.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="636.33333333333337"/>
                                                 <string key="text">Our records indicate the following items are 10 days or more overdue.       Title:    Georgia adult literacy resources manual      Author:   State Bar of Georgia      Call No:  374.012 G      Checked Out At: Georgia Public Library Service - Professional Collection      Due Date: 12-20-2017    Items may be returned and fines paid at any PINES member library. Fines will continue to accrue until items are returned.  If you have any questions, please contact your home library at:       Athens Regional Library System      Athens-Clarke County Library      2025 BAXTER ST      ATHENS, GA 30606-6331      706-613-3650      contact_us@arlsmail.org
       (Please have your library card available.) </string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -67,16 +67,21 @@
                         <constraints>
                             <constraint firstItem="56c-rB-5Kx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="1mv-xi-6VF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="56c-rB-5Kx" secondAttribute="trailing" constant="8" id="FM2-9T-nNX"/>
-                            <constraint firstItem="3n4-eB-heo" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="JpA-dK-aur"/>
+                            <constraint firstItem="3n4-eB-heo" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="JpA-dK-aur"/>
                             <constraint firstItem="56c-rB-5Kx" firstAttribute="top" secondItem="3n4-eB-heo" secondAttribute="bottom" constant="8" id="KVv-TK-6Ov"/>
                             <constraint firstItem="3n4-eB-heo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="O7n-fW-5iy"/>
-                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="top" secondItem="56c-rB-5Kx" secondAttribute="bottom" constant="8" id="Qfn-Sf-Ehn"/>
+                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="top" secondItem="56c-rB-5Kx" secondAttribute="bottom" constant="16" id="Qfn-Sf-Ehn"/>
                             <constraint firstItem="FTw-XT-Iyi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="UNh-ml-2Fy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FTw-XT-Iyi" secondAttribute="trailing" constant="8" id="qhA-Js-y6B"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3n4-eB-heo" secondAttribute="trailing" constant="8" id="uAB-gh-3Yu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FTw-XT-Iyi" secondAttribute="bottom" constant="8" id="yA2-va-A28"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bodyLabel" destination="bKO-86-1LW" id="8FN-6Q-a2y"/>
+                        <outlet property="dateLabel" destination="56c-rB-5Kx" id="vL9-sM-0bv"/>
+                        <outlet property="titleLabel" destination="3n4-eB-heo" id="VP6-dU-SuL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,6 +89,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
