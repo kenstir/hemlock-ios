@@ -87,6 +87,16 @@ class MessagesViewController : UITableViewController {
         tableView.reloadData()
     }
 
+    func markMessageDeleted(authtoken: String, message: PatronMessage) {
+        ActorService.markMessageDeleted(authtoken: authtoken, messageID: message.id).done {
+            self.fetchData()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error, title: "Error deleting message")
+        }
+    }
+
+    //MARK: - UITableViewController
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -117,10 +127,10 @@ class MessagesViewController : UITableViewController {
         let item = items[indexPath.row]
 
         // confirm action
-        let alertController = UIAlertController(title: "Delete list?", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Delete message?", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
-//            self.deleteBookBag(authtoken: authtoken, bookBagId: item.id, indexPath: indexPath)
+            self.markMessageDeleted(authtoken: authtoken, message: item)
         })
         self.present(alertController, animated: true)
     }

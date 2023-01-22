@@ -217,18 +217,25 @@ class ActorService {
         return req.gatewayArrayResponse()
     }
 
-    static private func messageActionURL(messageID: Int, action: String) -> String {
+    static private func markMessageAction(authtoken: String, messageID: Int, action: String) -> Promise<Void> {
         var url = App.library?.url ?? ""
         url += "/eg/opac/myopac/messages?action=\(action)&message_id=\(messageID)"
-        return url
-    }
-
-    static func markMessageRead(authtoken: String, messageID: Int) -> Promise<Void> {
-        let url = messageActionURL(messageID: messageID, action: "mark_read")
         let req = Gateway.makeOPACRequest(url: url, authtoken: authtoken, shouldCache: false)
         let promise = req.responseData().done { data, pmkresponse in
             // we ignore the response, the entire messages web page
         }
         return promise
+    }
+
+    static func markMessageDeleted(authtoken: String, messageID: Int) -> Promise<Void> {
+        return markMessageAction(authtoken: authtoken, messageID: messageID, action: "mark_deleted")
+    }
+
+    static func markMessageRead(authtoken: String, messageID: Int) -> Promise<Void> {
+        return markMessageAction(authtoken: authtoken, messageID: messageID, action: "mark_read")
+    }
+
+    static func markMessageUnread(authtoken: String, messageID: Int) -> Promise<Void> {
+        return markMessageAction(authtoken: authtoken, messageID: messageID, action: "mark_unread")
     }
 }
