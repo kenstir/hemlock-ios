@@ -133,7 +133,7 @@ class MessagesViewController : UITableViewController {
         let item = items[indexPath.row]
         cell.title.text = item.title
         cell.date.text = item.createDateLabel
-        cell.body.text = item.message
+        cell.body.text = item.message.trim()
 
         return cell
     }

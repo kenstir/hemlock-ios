@@ -30,15 +30,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTw-XT-Iyi" userLabel="Body Scroll">
-                                <rect key="frame" x="24" y="84" width="374" height="718"/>
+                                <rect key="frame" x="8" y="110" width="374" height="692"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-l7-thB" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="1285.3333333333333"/>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KCG-l7-thB" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="588.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-86-1LW" userLabel="Body">
-                                                <rect key="frame" x="0.0" y="53" width="374" height="588.33333333333337"/>
-                                                <mutableString key="text">Our records indicate the following items are 10 days or more overdue.       Title:    Georgia adult literacy resources manual      Author:   State Bar of Georgia      Call No:  374.012 G      Checked Out At: Georgia Public Library Service - Professional Collection      Due Date: 12-20-2017    Items may be returned and fines paid at any PINES member library. Fines will continue to accrue until items are returned.  If you have any questions, please contact your home library at:       Athens Regional Library System      Athens-Clarke County Library      2025 BAXTER ST      ATHENS, GA 30606-6331      706-613-3650      contact_us@arlsmail.org
-      (Please have your library card available.) </mutableString>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="588.33333333333337"/>
+                                                <string key="text">Our records indicate the following items are 10 days or more overdue.       Title:    Georgia adult literacy resources manual      Author:   State Bar of Georgia      Call No:  374.012 G      Checked Out At: Georgia Public Library Service - Professional Collection      Due Date: 12-20-2017    Items may be returned and fines paid at any PINES member library. Fines will continue to accrue until items are returned.  If you have any questions, please contact your home library at:       Athens Regional Library System      Athens-Clarke County Library      2025 BAXTER ST      ATHENS, GA 30606-6331      706-613-3650      contact_us@arlsmail.org
+      (Please have your library card available.) </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -46,9 +46,9 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="bKO-86-1LW" secondAttribute="bottom" constant="644" id="5RT-1Z-1an"/>
+                                            <constraint firstAttribute="bottom" secondItem="bKO-86-1LW" secondAttribute="bottom" id="5RT-1Z-1an" userLabel="bottom = Body.bottom"/>
                                             <constraint firstAttribute="trailing" secondItem="bKO-86-1LW" secondAttribute="trailing" id="Ijm-y6-6Gc"/>
-                                            <constraint firstItem="bKO-86-1LW" firstAttribute="top" secondItem="KCG-l7-thB" secondAttribute="top" constant="53" id="JFi-12-qOd"/>
+                                            <constraint firstItem="bKO-86-1LW" firstAttribute="top" secondItem="KCG-l7-thB" secondAttribute="top" id="JFi-12-qOd" userLabel="Body.top = top"/>
                                             <constraint firstItem="bKO-86-1LW" firstAttribute="leading" secondItem="KCG-l7-thB" secondAttribute="leading" id="Nea-jO-1Ee"/>
                                         </constraints>
                                     </view>
@@ -70,11 +70,11 @@
                             <constraint firstItem="3n4-eB-heo" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="JpA-dK-aur"/>
                             <constraint firstItem="56c-rB-5Kx" firstAttribute="top" secondItem="3n4-eB-heo" secondAttribute="bottom" constant="8" id="KVv-TK-6Ov"/>
                             <constraint firstItem="3n4-eB-heo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="O7n-fW-5iy"/>
-                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="top" secondItem="3n4-eB-heo" secondAttribute="bottom" constant="8" id="Qfn-Sf-Ehn"/>
-                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="8" id="UNh-ml-2Fy"/>
-                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="8" id="qhA-Js-y6B"/>
+                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="top" secondItem="56c-rB-5Kx" secondAttribute="bottom" constant="8" id="Qfn-Sf-Ehn"/>
+                            <constraint firstItem="FTw-XT-Iyi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="UNh-ml-2Fy"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FTw-XT-Iyi" secondAttribute="trailing" constant="8" id="qhA-Js-y6B"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3n4-eB-heo" secondAttribute="trailing" constant="8" id="uAB-gh-3Yu"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="FTw-XT-Iyi" secondAttribute="bottom" constant="8" id="yA2-va-A28"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FTw-XT-Iyi" secondAttribute="bottom" constant="8" id="yA2-va-A28"/>
                         </constraints>
                     </view>
                 </viewController>
