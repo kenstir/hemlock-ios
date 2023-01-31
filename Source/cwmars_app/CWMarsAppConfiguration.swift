@@ -40,7 +40,7 @@ class CWMarsAppConfiguration: AppConfiguration {
     let enableEventsButton = false
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = true
-    let needMARCRecord = false
+    let needMARCRecord = true
     let showOnlineAccessHostname = true
     let alwaysUseActionSheetForOnlineLinks = false
     let haveColorButtonImages = true

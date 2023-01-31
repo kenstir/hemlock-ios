@@ -157,6 +157,22 @@ class MiscTests: XCTestCase {
         range = phoneNumber.range(of: pattern, options: .regularExpression)
         XCTAssertFalse(range != nil)
     }
+
+    func testStringRegexReplace() {
+        let pattern = "^[^A-Z0-9]*"
+
+        let t = "[Diary]".uppercased()
+        let t2 = t.replace(regex: pattern, with: "")
+        XCTAssertEqual(t2, "DIARY]")
+
+        let u = "--but I still haven't found what I'm looking for".uppercased()
+        let u2 = u.replace(regex: pattern, with: "")
+        XCTAssertEqual(u2, "BUT I STILL HAVEN'T FOUND WHAT I'M LOOKING FOR")
+
+        let s = "123"
+        let substr = String(s.dropFirst(1))
+        XCTAssertEqual(substr, "23")
+    }
     
     func test_appName() {
         XCTAssertEqual("Hemlock", Bundle.appName)

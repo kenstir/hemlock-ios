@@ -54,6 +54,27 @@ class MBRecord {
 //    var searchFormat: String? {
 //        return attrs?["search_format"]
 //    }
+    var titleSortKey: String {
+        if marcRecord != nil {
+            let skip = nonFilingCharacters ?? 0
+            if skip > 0 {
+                let substr = title.uppercased().dropFirst(skip)
+                return String(substr).trim()
+            }
+            return title.uppercased().replace(regex: "^[^A-Z0-9]*", with: "")
+        }
+        return Utils.titleSortKey(title)
+    }
+    var nonFilingCharacters: Int? {
+        if let datafields = marcRecord?.datafields {
+            for df in datafields {
+                if df.isTitleStatement {
+                    return Int(df.ind2)
+                }
+            }
+        }
+        return nil
+    }
 
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id

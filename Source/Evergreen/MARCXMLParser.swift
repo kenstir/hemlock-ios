@@ -68,10 +68,13 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
                 let ind1 = attributes["ind1"],
                 let ind2 = attributes["ind2"]
             {
-                // We only care about certain 856 tags
+                // We only care about certain tags
                 // See also templates/opac/parts/misc_util.tt2
                 // See also https://www.loc.gov/marc/bibliographic/bd856.html
                 if (tag == "856" && ind1 == "4" && (ind2 == "0" || ind2 == "1")) {
+                    currentDatafield = MARCDatafield(tag: tag, ind1: ind1, ind2: ind2)
+                }
+                if (tag == "245") {
                     currentDatafield = MARCDatafield(tag: tag, ind1: ind1, ind2: ind2)
                 }
             }
