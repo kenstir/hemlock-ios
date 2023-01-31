@@ -43,6 +43,8 @@ class MessageDetailsViewController : UIViewController {
 
     func setupViews() {
         self.setupHomeButton()
+        let button = UIBarButtonItem(image: UIImage(named: "mark_email_unread"), style: .plain, target: self, action: #selector(markUnreadButtonPressed(sender:)))
+        navigationItem.rightBarButtonItems?.append(button)
 
         titleLabel.text = message?.title
         dateLabel.text = message?.createDateLabel
@@ -63,6 +65,23 @@ class MessageDetailsViewController : UIViewController {
             // nada
         }.catch { error in
             self.presentGatewayAlert(forError: error, title: "Error marking message read")
+        }
+    }
+
+    @objc func markUnreadButtonPressed(sender: UIBarButtonItem) {
+        guard let account = App.account,
+              let authtoken = account.authtoken else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return //TODO: add analytics
+        }
+        guard let messageID = message?.id else { return }
+
+        // mark message unread
+        ActorService.markMessageUnread(authtoken: authtoken, messageID: messageID).done {
+            self.navigationController?.popViewController(animated: true)
+        }.catch { error in
+            self.presentGatewayAlert(forError: error, title: "Error marking message unread")
         }
     }
 }
