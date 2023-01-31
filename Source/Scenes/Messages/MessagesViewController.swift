@@ -145,6 +145,14 @@ class MessagesViewController : UITableViewController {
         cell.date.text = item.createDateLabel
         cell.body.text = item.message.trim()
 
+        if item.isRead {
+            cell.title.font = UIFont.systemFont(ofSize: Style.headlineSize)
+            cell.title.textColor = Style.secondaryLabelColor
+        } else {
+            cell.title.font = UIFont.preferredFont(forTextStyle: .headline)
+            cell.title.textColor = Style.labelColor
+        }
+
         return cell
     }
 
