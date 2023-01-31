@@ -28,8 +28,11 @@ class BookBagDetailsViewController : UITableViewController {
 
     var bookBag: BookBag?
     var sortedItems: [BookBagItem] = []
-//    var didCompleteFetch = false
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
+    var sortBy: String = ""
+    var sortDescending = false
+    var sortOrderButton = UIBarButtonItem()
+
+    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
     
     //MARK: - UIViewController
     
@@ -47,9 +50,6 @@ class BookBagDetailsViewController : UITableViewController {
         }
 
         self.fetchData()
-//        if let items = bookBag?.items {
-//            self.items = items
-//        }
     }
 
     //MARK: - Functions
@@ -59,8 +59,14 @@ class BookBagDetailsViewController : UITableViewController {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
 
+        sortBy = App.valet.string(forKey: "sortBy") ?? "pubdate"
+        sortDescending = ((App.valet.string(forKey: "sortDesc") ?? "t") == "t")
+        let sortIcon = UIImage(named: (sortDescending ? "arrow_downward" : "arrow_upward"))
+
         self.setupHomeButton()
         navigationItem.rightBarButtonItems?.append(editButtonItem)
+        sortOrderButton = UIBarButtonItem(image: sortIcon, style: .plain, target: self, action: #selector(sortOrderButtonPressed(sender:)))
+        navigationItem.rightBarButtonItems?.append(sortOrderButton)
         let sortButton = UIBarButtonItem(image: UIImage(named: "sort"), style: .plain, target: self, action: #selector(sortButtonPressed(sender:)))
         navigationItem.rightBarButtonItems?.append(sortButton)
     }
@@ -97,12 +103,19 @@ class BookBagDetailsViewController : UITableViewController {
     
     func fetchTargetDetails(forItem item: BookBagItem) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [item.targetId], shouldCache: true)
-        let promise = req.gatewayObjectResponse().done { obj in
-            item.metabibRecord = MBRecord(id: item.targetId, mvrObj: obj)
+        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
+            let record = MBRecord(id: item.targetId, mvrObj: obj)
+            item.metabibRecord = record
+            if App.config.needMARCRecord {
+                return PCRUDService.fetchMARC(forRecord: record)
+            } else {
+                return Promise<Void>()
+            }
+        }.done {
         }
         return promise
     }
-    
+
     @objc func sortButtonPressed(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Sort by", message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
@@ -115,6 +128,7 @@ class BookBagDetailsViewController : UITableViewController {
         alertController.addAction(UIAlertAction(title: "Title", style: .default) { action in
             self.setPreferredSortOrder("titlesort")
         })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
         // iPad requires a popoverPresentationController
         if let popoverController = alertController.popoverPresentationController {
@@ -126,24 +140,59 @@ class BookBagDetailsViewController : UITableViewController {
     }
     
     func setPreferredSortOrder(_ sortBy: String) {
+        self.sortBy = sortBy
         App.valet.set(string: sortBy, forKey: "sortBy")
+        updateItems()
+    }
+
+    @objc func sortOrderButtonPressed(sender: UIBarButtonItem) {
+        sortDescending = !sortDescending
+        sortOrderButton.image = UIImage(named: (sortDescending ? "arrow_downward" : "arrow_upward"))
+        let val = (sortDescending ? "t" : "f")
+        App.valet.set(string: val, forKey: "sortDesc")
         updateItems()
     }
 
     func updateItems() {
         guard let items = bookBag?.items else { return }
-        let sortBy = App.valet.string(forKey: "sortBy") ?? "pubdate"
         if (sortBy == "authorsort") {
-            self.sortedItems = items.sorted(by: { $0.metabibRecord?.author ?? "" < $1.metabibRecord?.author ?? "" })
+            self.sortedItems = items.sorted(by: { authorSortComparator($0, $1, descending: sortDescending) })
         } else if (sortBy == "titlesort") {
-            self.sortedItems = items.sorted(by: {
-                Utils.titleSortKey($0.metabibRecord?.title) < Utils.titleSortKey($1.metabibRecord?.title) })
+            self.sortedItems = items.sorted(by: { titleSortComparator($0, $1, descending: sortDescending) })
         } else {
-            // pubdate
-            self.sortedItems = items.sorted(by: {
-                Utils.pubdateSortKey($0.metabibRecord?.pubdate) ?? 0 > Utils.pubdateSortKey($1.metabibRecord?.pubdate) ?? 0 })
+            self.sortedItems = items.sorted(by: { pubdateSortComparator($0, $1, descending: sortDescending) })
         }
+//        print("[sort] \(sortBy) \(sortDescending ? "desc" : "asc"):")
+//        for item in sortedItems {
+//            if let record = item.metabibRecord {
+//                print("[sort] \"\(record.titleSortKey)\" t \"\(record.title)\" id \(record.id)")
+//            }
+//        }
         tableView.reloadData()
+    }
+
+    func authorSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
+        if (descending) {
+            return a.metabibRecord?.author ?? "" > b.metabibRecord?.author ?? ""
+        } else {
+            return a.metabibRecord?.author ?? "" < b.metabibRecord?.author ?? ""
+        }
+    }
+
+    func titleSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
+        if (descending) {
+            return a.metabibRecord?.titleSortKey ?? "" > b.metabibRecord?.titleSortKey ?? ""
+        } else {
+            return a.metabibRecord?.titleSortKey ?? "" < b.metabibRecord?.titleSortKey ?? ""
+        }
+    }
+
+    func pubdateSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
+        if (descending) {
+            return Utils.pubdateSortKey(a.metabibRecord?.pubdate) ?? 0 > Utils.pubdateSortKey(b.metabibRecord?.pubdate) ?? 0
+        } else {
+            return Utils.pubdateSortKey(a.metabibRecord?.pubdate) ?? 0 < Utils.pubdateSortKey(b.metabibRecord?.pubdate) ?? 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

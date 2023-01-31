@@ -76,14 +76,18 @@ class Utils {
         return nil
     }
     
-    // Given a title, return a sort key, removing leading articles and lowercasing the string
+    // Given a title, return a sort key
     static func titleSortKey(_ title: String?) -> String {
-        guard let s = title else { return "" }
-        return s.lowercased()
-            .removePrefix("a ")
-            .removePrefix("an ")
-            .removePrefix("the ")
-            .replacingOccurrences(of: " : ", with: " ")
-            .replacingOccurrences(of: ": ", with: " ")
+        guard let t = title else { return "" }
+
+        // uppercase and remove leading articles
+        let t2 = t.uppercased()
+            .removePrefix("A ")
+            .removePrefix("AN ")
+            .removePrefix("THE ")
+
+        // filter out punctuation
+        // modeled afterr code in misc_util.tt2 block get_marc_attrs
+        return t2.replace(regex: "^[^A-Z0-9]*", with: "")
     }
 }

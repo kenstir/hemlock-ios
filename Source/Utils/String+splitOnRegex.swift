@@ -21,4 +21,11 @@ extension String {
             withTemplate: stop)
         return modifiedString.components(separatedBy: stop)
     }
+
+    func replace(regex pattern: String, with: String) -> String {
+        guard let re = try? NSRegularExpression(pattern: pattern, options: []) else { return self }
+
+        let nsString = self as NSString
+        return re.stringByReplacingMatches(in: self, range: NSRange(location: 0, length: nsString.length), withTemplate: with)
+    }
 }

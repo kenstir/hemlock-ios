@@ -42,6 +42,8 @@ struct MARCDatafield {
         return (tag == "856" && ind1 == "4" && (ind2 == "0" || ind2 == "1"))
     }
 
+    var isTitleStatement: Bool { tag == "245" }
+
     var uri: String? {
         return subfields.first(where: { $0.code == "u" })?.text
     }
