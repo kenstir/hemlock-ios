@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L5E-wb-4wF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L5E-wb-4wF">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Cgd-dF-q7D">
             <objects>
-                <navigationController storyboardIdentifier="LoginNavigation" interfaceStyle="light" toolbarHidden="NO" id="L5E-wb-4wF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavigation" toolbarHidden="NO" id="L5E-wb-4wF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SUJ-mx-Mca">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -207,7 +207,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="426"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="437.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="445.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="200" verticalCompressionResistancePriority="749" image="splash3" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-VS-ogx">
                                                 <rect key="frame" x="28" y="24" width="264" height="195.5"/>
@@ -225,7 +225,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-Nj-gGI">
-                                                <rect key="frame" x="64" y="355.5" width="192" height="29"/>
+                                                <rect key="frame" x="64" y="355.5" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
@@ -238,7 +238,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-oX-Cjw">
-                                                <rect key="frame" x="64" y="400.5" width="192" height="29"/>
+                                                <rect key="frame" x="64" y="404.5" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Forgot Password"/>
                                                 <connections>
@@ -312,9 +312,9 @@
         <!--Navigation Controller-->
         <scene sceneID="2SI-wU-38L">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigation" modalPresentationStyle="fullScreen" interfaceStyle="light" id="lJi-dZ-su3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigation" modalPresentationStyle="fullScreen" id="lJi-dZ-su3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ocF-Hd-bJC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="92.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -334,24 +334,24 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7BW-g6-5vc">
-                                <rect key="frame" x="0.0" y="44" width="320" height="432"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="427"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainTableViewCell" rowHeight="56" id="ZN6-Of-RMp" customClass="MainTableViewCell" customModule="COOL" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="32" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="38" width="320" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZN6-Of-RMp" id="1Fe-qD-bN9">
-                                            <rect key="frame" x="0.0" y="0.0" width="295.5" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="293.5" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-FV-8vg" userLabel="Bottom Button Stack">
-                                <rect key="frame" x="0.0" y="484" width="320" height="27"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-FV-8vg" userLabel="Bottom Button Stack">
+                                <rect key="frame" x="0.0" y="479" width="320" height="32"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToU-UP-BUF">
-                                        <rect key="frame" x="0.0" y="0.0" width="152" height="27"/>
+                                        <rect key="frame" x="0.0" y="1" width="90" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <state key="normal" title="Full Catalog"/>
                                         <connections>
@@ -359,11 +359,21 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-m5-77E">
-                                        <rect key="frame" x="168" y="0.0" width="152" height="27"/>
+                                        <rect key="frame" x="106" y="1" width="115.5" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <state key="normal" title="Library Locator"/>
                                         <connections>
                                             <action selector="libraryLocatorButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="L3A-4G-Hxz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mha-6o-Pdm" userLabel="Button3">
+                                        <rect key="frame" x="237.5" y="0.0" width="82.5" height="32"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Galileo">
+                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleSubhead"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="galileoButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="fBD-DL-rUa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -390,6 +400,7 @@
                         <outlet property="accountButton" destination="GJD-cg-1UD" id="Fq3-pw-ltt"/>
                         <outlet property="bottomButtonBar" destination="pXz-FV-8vg" id="X59-GT-uyB"/>
                         <outlet property="fullCatalogButton" destination="ToU-UP-BUF" id="KF1-nP-nnz"/>
+                        <outlet property="galileoButton" destination="Mha-6o-Pdm" id="UYh-wp-dSm"/>
                         <outlet property="libraryLocatorButton" destination="aQX-m5-77E" id="Yv4-qh-Btu"/>
                         <outlet property="messagesButton" destination="rpB-GJ-5W6" id="o1M-bz-TXl"/>
                         <outlet property="tableView" destination="7BW-g6-5vc" id="EI1-5W-5Jm"/>

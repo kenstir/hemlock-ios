@@ -35,6 +35,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var bottomButtonBar: UIStackView!
     @IBOutlet weak var fullCatalogButton: UIButton!
     @IBOutlet weak var libraryLocatorButton: UIButton!
+    @IBOutlet weak var galileoButton: UIButton!
+
 
     var buttons: [(String, String, (() -> Void)?)] = []
     var didFetchEventsURL = false
@@ -119,10 +121,12 @@ class MainViewController: UIViewController {
         if App.config.enableMainSceneBottomToolbar {
             Style.styleButton(asPlain: fullCatalogButton)
             Style.styleButton(asPlain: libraryLocatorButton)
+            Style.styleButton(asPlain: galileoButton)
         } else {
             bottomButtonBar.isHidden = true
             fullCatalogButton.isHidden = true
             libraryLocatorButton.isHidden = true
+            galileoButton.isHidden = true
         }
     }
     
@@ -232,27 +236,32 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func fullCatalogButtonPressed(_ sender: Any) {
-        //open catalog url
-        if let baseurl = App.library?.url,
-            let url = URL(string: baseurl) {
+        if let libraryURL = App.library?.url,
+            let url = URL(string: libraryURL) {
              UIApplication.shared.open(url)
         }
     }
     
     @IBAction func libraryLocatorButtonPressed(_ sender: Any) {
-        //open library location url
-        let urlbase = "http://pines.georgialibraries.org/pinesLocator/locator.html"
-        if let url = URL(string: urlbase) {
+        let uri = "http://pines.georgialibraries.org/pinesLocator/locator.html"
+        if let url = URL(string: uri) {
             UIApplication.shared.open(url)
         }
     }
-    
+
+    @IBAction func galileoButtonPressed(_ sender: Any) {
+        let uri = "https://www.galileo.usg.edu"
+        if let url = URL(string: uri) {
+            UIApplication.shared.open(url)
+        }
+    }
+
     @objc func messagesButtonPressed(sender: UIBarButtonItem) {
         if let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateInitialViewController() as? MessagesViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+
     @objc func applicationDidBecomeActive() {
         fetchData()
     }
