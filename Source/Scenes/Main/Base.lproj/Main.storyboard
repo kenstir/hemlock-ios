@@ -334,7 +334,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7BW-g6-5vc">
-                                <rect key="frame" x="0.0" y="44" width="320" height="427"/>
+                                <rect key="frame" x="0.0" y="92.5" width="320" height="380.5"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainTableViewCell" rowHeight="56" id="ZN6-Of-RMp" customClass="MainTableViewCell" customModule="COOL" customModuleProvider="target">
@@ -348,10 +348,10 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-FV-8vg" userLabel="Bottom Button Stack">
-                                <rect key="frame" x="0.0" y="479" width="320" height="32"/>
+                                <rect key="frame" x="0.0" y="481" width="320" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToU-UP-BUF">
-                                        <rect key="frame" x="0.0" y="1" width="85.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <state key="normal" title="Full Catalog"/>
                                         <connections>
@@ -359,7 +359,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-m5-77E">
-                                        <rect key="frame" x="101.5" y="1" width="110" height="30"/>
+                                        <rect key="frame" x="109" y="0.0" width="119" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <state key="normal" title="Library Locator"/>
                                         <connections>
@@ -367,7 +367,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mha-6o-Pdm">
-                                        <rect key="frame" x="227.5" y="0.0" width="92.5" height="32"/>
+                                        <rect key="frame" x="244" y="0.0" width="76" height="30"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <state key="normal" title="GALILEO"/>
                                         <connections>

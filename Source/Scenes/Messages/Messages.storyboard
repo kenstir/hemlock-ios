@@ -12,19 +12,19 @@
         <scene sceneID="EDJ-cq-1Y3">
             <objects>
                 <tableViewController title="Messages" id="3rI-j4-qQv" userLabel="Messages" customClass="MessagesViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="y6j-11-Mh0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="y6j-11-Mh0">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messagesCell" rowHeight="152" id="Fsb-7X-O74" customClass="MessagesTableViewCell" customModule="COOL" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.333332061767578" width="390" height="152"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messagesCell" rowHeight="150" id="Fsb-7X-O74" customClass="MessagesTableViewCell" customModule="COOL" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333332061767578" width="390" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fsb-7X-O74" id="yJ4-RP-5ce">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="152"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Overdue Library Materials" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sce-Dy-fwq" userLabel="Title">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Overdue Library Materials" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sce-Dy-fwq" userLabel="Title">
                                             <rect key="frame" x="8" y="7.9999999999999982" width="374" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
@@ -36,8 +36,8 @@
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-Fd-0Xa" userLabel="Body">
-                                            <rect key="frame" x="8" y="62.333333333333336" width="374" height="97.666666666666657"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-Fd-0Xa" userLabel="Body">
+                                            <rect key="frame" x="8" y="62.333333333333336" width="374" height="95.666666666666657"/>
                                             <string key="text">Our records indicate the following items are 10 days or more overdue.       Title:    Georgia adult literacy resources manual      Author:   State Bar of Georgia      Call No:  374.012 G      Checked Out At: Georgia Public Library Service - Professional Collection      Due Date: 12-20-2017    Items may be returned and fines paid at any PINES member library. Fines will continue to accrue until items are returned.  If you have any questions, please contact your home library at:       Athens Regional Library System      Athens-Clarke County Library      2025 BAXTER ST      ATHENS, GA 30606-6331      706-613-3650      contact_us@arlsmail.org
       (Please have your library card available.) </string>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
