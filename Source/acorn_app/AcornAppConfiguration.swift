@@ -30,13 +30,14 @@ class AcornAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = true
     let enableHoldPhoneNotification = true
+    let enableHoldUseOverride = false
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let enableHoursOfOperation = true
     let enableMessages = false
-    let enableEventsButton = false
+    let enableEventsButton = true
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = true
     let needMARCRecord = true
