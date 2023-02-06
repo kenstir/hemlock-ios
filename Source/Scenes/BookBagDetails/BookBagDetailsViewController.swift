@@ -174,11 +174,10 @@ class BookBagDetailsViewController : UITableViewController {
     }
 
     func titleSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
-        if (descending) {
-            return a.metabibRecord?.titleSortKey ?? "" > b.metabibRecord?.titleSortKey ?? ""
-        } else {
-            return a.metabibRecord?.titleSortKey ?? "" < b.metabibRecord?.titleSortKey ?? ""
-        }
+        let akey = a.metabibRecord?.titleSortKey ?? ""
+        let bkey = b.metabibRecord?.titleSortKey ?? ""
+        let order = descending ? ComparisonResult.orderedDescending : ComparisonResult.orderedAscending
+        return akey.compare(bkey, locale: .current) == order
     }
 
     func pubdateSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
