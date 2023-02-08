@@ -149,6 +149,15 @@ extension UIViewController {
         self.present(alertController, animated: true)
     }
 
+    /// helper function to ensure I don't forget to copy a new image to the app-specific asset bundle
+    func loadAssetImage(named: String) -> UIImage? {
+        let image = UIImage(named: named)
+        if image == nil && Bundle.isTestFlightOrDebug {
+            showAlert(title: "Missing Image", message: "App is missing image \"\(named)\"")
+        }
+        return image
+    }
+
     /// reset the VC stack to the Login VC (the initial VC on the Main storyboard)
     func popToLogin() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()

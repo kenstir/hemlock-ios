@@ -196,7 +196,7 @@ class MainViewController: UIViewController {
                     action.isEnabled = false
                     imageName = "Account with Checkmark"
                 }
-                if let icon = UIImage(named: imageName) {
+                if let icon = loadAssetImage(named: imageName) {
                     action.setValue(icon, forKey: "image")
                 }
                 alertController.addAction(action)

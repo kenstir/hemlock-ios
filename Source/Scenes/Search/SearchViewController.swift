@@ -160,15 +160,15 @@ class SearchViewController: UIViewController {
         // for now always use .done instead of .search.
         //if UIScreen.main.bounds.height < 667
         searchBar.returnKeyType = .done
-        
-        var image = UIImage(named: "barcode_scan")
+
+        var image = loadAssetImage(named: "barcode_scan")
         if #available(iOS 13.0, *) {
             image = image?.withTintColor(Style.secondaryLabelColor)
         }
         searchBar.showsBookmarkButton = true
         searchBar.setImage(image, for: .bookmark, state: .normal)
     }
-  
+
     func setupOptionsTable() {
         options = []
         options.append(OptionsEntry("Search by", value: searchClassLabels[0]))

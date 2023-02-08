@@ -43,7 +43,8 @@ class MessageDetailsViewController : UIViewController {
 
     func setupViews() {
         self.setupHomeButton()
-        let button = UIBarButtonItem(image: UIImage(named: "mark_email_unread"), style: .plain, target: self, action: #selector(markUnreadButtonPressed(sender:)))
+        let image = loadAssetImage(named: "mark_email_unread")
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(markUnreadButtonPressed(sender:)))
         navigationItem.rightBarButtonItems?.append(button)
 
         titleLabel.text = message?.title

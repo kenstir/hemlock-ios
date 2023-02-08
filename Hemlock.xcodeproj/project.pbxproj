@@ -2018,13 +2018,13 @@
 			isa = PBXGroup;
 			children = (
 				D29C95FB2599285E00CACDBD /* event_msg_map.json */,
+				D21090D024D726FA004FE532 /* fail_part_msg_map.json */,
 				D20B300122CFED2300F69848 /* AcornAppBehavior.swift */,
 				D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */,
 				D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */,
 				D210EC4322B1F23D002FB5E0 /* AppFactory.swift */,
 				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
 				D210EC4B22B1F331002FB5E0 /* acorn.xcassets */,
-				D21090D024D726FA004FE532 /* fail_part_msg_map.json */,
 			);
 			path = acorn_app;
 			sourceTree = "<group>";

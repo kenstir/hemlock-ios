@@ -61,13 +61,14 @@ class BookBagDetailsViewController : UITableViewController {
 
         sortBy = App.valet.string(forKey: "sortBy") ?? "pubdate"
         sortDescending = ((App.valet.string(forKey: "sortDesc") ?? "t") == "t")
-        let sortIcon = UIImage(named: (sortDescending ? "arrow_downward" : "arrow_upward"))
 
         self.setupHomeButton()
         navigationItem.rightBarButtonItems?.append(editButtonItem)
-        sortOrderButton = UIBarButtonItem(image: sortIcon, style: .plain, target: self, action: #selector(sortOrderButtonPressed(sender:)))
+        let sortDirectionImage = loadAssetImage(named: (sortDescending ? "arrow_downward" : "arrow_upward"))
+        sortOrderButton = UIBarButtonItem(image: sortDirectionImage, style: .plain, target: self, action: #selector(sortOrderButtonPressed(sender:)))
         navigationItem.rightBarButtonItems?.append(sortOrderButton)
-        let sortButton = UIBarButtonItem(image: UIImage(named: "sort"), style: .plain, target: self, action: #selector(sortButtonPressed(sender:)))
+        let sortByImage = loadAssetImage(named: "sort")
+        let sortButton = UIBarButtonItem(image: sortByImage, style: .plain, target: self, action: #selector(sortButtonPressed(sender:)))
         navigationItem.rightBarButtonItems?.append(sortButton)
     }
     
@@ -141,7 +142,8 @@ class BookBagDetailsViewController : UITableViewController {
 
     @objc func sortOrderButtonPressed(sender: UIBarButtonItem) {
         sortDescending = !sortDescending
-        sortOrderButton.image = UIImage(named: (sortDescending ? "arrow_downward" : "arrow_upward"))
+        let sortDirectionImage = loadAssetImage(named: (sortDescending ? "arrow_downward" : "arrow_upward"))
+        sortOrderButton.image = sortDirectionImage
         let val = (sortDescending ? "t" : "f")
         App.valet.set(string: val, forKey: "sortDesc")
         updateItems()

@@ -92,7 +92,7 @@ class ShowCardViewController: UIViewController {
             let cgimage = ZXImage(matrix: m).cgimage else
         {
             barcodeLabel.text = "Invalid barcode: \(barcode)"
-            barcodeImage.image = UIImage(named: "invalid_barcode")
+            barcodeImage.image = loadAssetImage(named: "invalid_barcode")
             return
         }
         barcodeLabel.text = BarcodeUtils.displayLabel(barcode, format: App.config.barcodeFormat)
