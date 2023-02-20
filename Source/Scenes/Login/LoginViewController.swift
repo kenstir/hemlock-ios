@@ -93,10 +93,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     func fetchData() {
         self.activityIndicator.startAnimating()
-        ActorService.fetchServerVersion().then { (resp: GatewayResponse) -> Promise<Void> in
-            if let versionString = resp.str {
-                Gateway.serverVersionString = versionString
-            }
+        var promises: [Promise<Void>] = []
+        promises.append(ActorService.fetchServerVersion())
+        promises.append(ActorService.fetchServerCacheKey())
+
+        firstly {
+            when(fulfilled: promises)
+        }.then {
             return App.fetchIDL()
         }.done {
             self.loginButton.isEnabled = true

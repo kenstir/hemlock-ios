@@ -50,6 +50,7 @@ struct API {
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let settingCreditPaymentsAllow = "credit.payments.allow"
+    static let settingHemlockCacheKey = "hemlock.cache_key"
     static let settingHemlockEventsURL = "hemlock.events_calendar_url"
     static let settingInfoURL = "lib.info_url"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"

@@ -429,12 +429,8 @@ class LiveServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
         
         let promise = ActorService.fetchServerVersion()
-        promise.done { resp in
-            XCTAssertFalse(resp.failed)
-            XCTAssertEqual(resp.str?.isEmpty, false)
-            if let ver = resp.str {
-                print("ver: \(ver)")
-            }
+        promise.done {
+            XCTAssertNotNil(Gateway.serverVersionString)
             expectation.fulfill()
         }.catch { error in
             XCTFail(error.localizedDescription)

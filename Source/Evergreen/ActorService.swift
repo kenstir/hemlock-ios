@@ -24,10 +24,25 @@ import os.log
 class ActorService {
     static var orgTypesLoaded = false
     static var orgTreeLoaded = false
-    
-    static func fetchServerVersion() -> Promise<GatewayResponse> {
+
+    static func fetchServerVersion() -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.actor, method: API.ilsVersion, args: [], shouldCache: false)
-        return req.gatewayResponse()
+        let promise = req.gatewayResponse().done { resp in
+            if let versionString = resp.str {
+                Gateway.serverVersionString = versionString
+            }
+        }
+        return promise
+    }
+
+    static func fetchServerCacheKey() -> Promise<Void> {
+        let settings = [API.settingHemlockCacheKey]
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [Organization.consortiumOrgID, settings, API.anonymousAuthToken], shouldCache: false)
+        let promise = req.gatewayObjectResponse().done { obj in
+            let val = Organization.ousGetString(obj, API.settingHemlockCacheKey)
+            Gateway.serverHemlockCacheKey = val
+        }
+        return promise
     }
 
     /// Fetch list of org types.
