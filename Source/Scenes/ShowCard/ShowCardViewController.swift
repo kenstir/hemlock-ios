@@ -86,18 +86,23 @@ class ShowCardViewController: UIViewController {
 
     }
 
-    func setupBarcode(_ barcode: String) {
-        guard let m = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39]),
+    func setupBarcode(_ account: Account) {
+        guard let barcode = account.barcode,
+            let m = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39]),
             m.width > 0 && m.height > 0,
             let cgimage = ZXImage(matrix: m).cgimage else
         {
-            barcodeLabel.text = "Invalid barcode: \(barcode)"
+            barcodeLabel.text = "Invalid barcode: \(account.barcode ?? "empty")"
             barcodeImage.image = loadAssetImage(named: "invalid_barcode")
             return
         }
         barcodeLabel.text = BarcodeUtils.displayLabel(barcode, format: App.config.barcodeFormat)
         barcodeImage.image = UIImage(cgImage: cgimage)
-        barcodeWarningLabel.text = R.string["barcode_warning_msg"]
+        if let date = account.expireDate {
+            let dateStr = OSRFObject.outputDateFormatter.string(from: date)
+            barcodeWarningLabel.text = "Expires: \(dateStr)"
+            barcodeWarningLabel.isHidden = false
+        }
     }
 
     func fetchData() {
@@ -109,10 +114,8 @@ class ShowCardViewController: UIViewController {
 
         let promise = ActorService.fetchUserSettings(account: account)
         promise.done {
-            if let barcode = account.barcode {
-                self.setupBarcode(barcode)
-                self.didCompleteFetch = true
-            }
+            self.setupBarcode(account)
+            self.didCompleteFetch = true
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }

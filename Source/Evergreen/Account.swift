@@ -28,6 +28,7 @@ class Account {
     var dayPhone: String?
     var firstGivenName: String?
     var familyName: String?
+    var expireDate: Date?
     var defaultNotifyEmail: Bool?
     var defaultNotifyPhone: Bool?
     var defaultNotifySMS: Bool?
@@ -80,6 +81,7 @@ class Account {
         dayPhone = obj.getString("day_phone")
         firstGivenName = obj.getString("pref_first_given_name") ?? obj.getString("first_given_name")
         familyName = obj.getString("pref_family_name") ?? obj.getString("family_name")
+        expireDate = obj.getDate("expire_date")
     }
     
     // Fix stupid setting that is returned with extra quotes, e.g. Int 52 in
