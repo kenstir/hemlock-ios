@@ -28,6 +28,7 @@ class MoAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = false
     let enableHoldPhoneNotification = true
+    let enableHoldUseOverride = false
     let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
