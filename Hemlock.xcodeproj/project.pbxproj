@@ -183,15 +183,6 @@
 		D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */; };
 		D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */; };
 		D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* acorn.xcassets */; };
-		D211DBB62484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
-		D211DBB72484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
-		D211DBB82484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
-		D211DBB92484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
-		D211DBBA2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
-		D211DBBB2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
-		D211DBBC2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
-		D211DBBD2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
-		D211DBBE2484133100E0992C /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
 		D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2720C5B90A00267503 /* PromiseKitTests.swift */; };
 		D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
 		D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
@@ -585,7 +576,6 @@
 		D2572ACE24AD7755000BA698 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
 		D2572ACF24AD7755000BA698 /* XDetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */; };
 		D2572AD024AD7755000BA698 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
-		D2572AD124AD7755000BA698 /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
 		D2572AD224AD7755000BA698 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D2572AD324AD7755000BA698 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D2572AD424AD7755000BA698 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
@@ -701,7 +691,6 @@
 		D25EEC7328A1E8310090F108 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
 		D25EEC7428A1E8310090F108 /* XDetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */; };
 		D25EEC7528A1E8310090F108 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
-		D25EEC7628A1E8310090F108 /* XOrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */; };
 		D25EEC7728A1E8310090F108 /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
 		D25EEC7828A1E8310090F108 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D25EEC7928A1E8310090F108 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
@@ -1556,7 +1545,6 @@
 		D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornAppConfiguration.swift; sourceTree = "<group>"; };
 		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D210EC4B22B1F331002FB5E0 /* acorn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acorn.xcassets; sourceTree = "<group>"; };
-		D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgDetailsViewController.swift; sourceTree = "<group>"; };
 		D212DB2720C5B90A00267503 /* PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKitTests.swift; sourceTree = "<group>"; };
 		D212DB2920C5C0D200267503 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
@@ -2035,7 +2023,6 @@
 				D29911D9248461C0007DB26C /* OrgDetails.storyboard */,
 				D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */,
 				D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */,
-				D211DBB52484133100E0992C /* XOrgDetailsViewController.swift */,
 			);
 			path = OrgDetails;
 			sourceTree = "<group>";
@@ -3631,7 +3618,6 @@
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
 				D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */,
-				D211DBB62484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2AA9D5E2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D210EBEE22B1EE55002FB5E0 /* XDetailsPagerViewController.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
@@ -3739,7 +3725,6 @@
 				D23E9F9223B9200A0030F5C1 /* AppBehavior.swift in Sources */,
 				D23E9F9323B9200A0030F5C1 /* XDetailsPagerViewController.swift in Sources */,
 				D23E9F9423B9200A0030F5C1 /* CopyInfoViewController.swift in Sources */,
-				D211DBBE2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2AA9D662738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D23E9F9523B9200A0030F5C1 /* ASDisplayNode+.swift in Sources */,
 				D23E9F9623B9200A0030F5C1 /* SendEmailViewController.swift in Sources */,
@@ -3847,7 +3832,6 @@
 				D2477BDE24785A6B00FD4CF6 /* AppBehavior.swift in Sources */,
 				D2477BDF24785A6B00FD4CF6 /* XDetailsPagerViewController.swift in Sources */,
 				D2477BE024785A6B00FD4CF6 /* CopyInfoViewController.swift in Sources */,
-				D211DBBA2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2AA9D622738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2477BE124785A6B00FD4CF6 /* ASDisplayNode+.swift in Sources */,
 				D2477BE224785A6B00FD4CF6 /* SendEmailViewController.swift in Sources */,
@@ -3955,7 +3939,6 @@
 				D2572ACE24AD7755000BA698 /* AppBehavior.swift in Sources */,
 				D2572ACF24AD7755000BA698 /* XDetailsPagerViewController.swift in Sources */,
 				D2572AD024AD7755000BA698 /* CopyInfoViewController.swift in Sources */,
-				D2572AD124AD7755000BA698 /* XOrgDetailsViewController.swift in Sources */,
 				D2AA9D672738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2572AD224AD7755000BA698 /* ASDisplayNode+.swift in Sources */,
 				D2572AD324AD7755000BA698 /* SendEmailViewController.swift in Sources */,
@@ -4064,7 +4047,6 @@
 				D25EEC7328A1E8310090F108 /* AppBehavior.swift in Sources */,
 				D25EEC7428A1E8310090F108 /* XDetailsPagerViewController.swift in Sources */,
 				D25EEC7528A1E8310090F108 /* CopyInfoViewController.swift in Sources */,
-				D25EEC7628A1E8310090F108 /* XOrgDetailsViewController.swift in Sources */,
 				D25EEC7728A1E8310090F108 /* BookBagDetailsTableViewCell.swift in Sources */,
 				D25EEC7828A1E8310090F108 /* ASDisplayNode+.swift in Sources */,
 				D25EEC7928A1E8310090F108 /* SendEmailViewController.swift in Sources */,
@@ -4200,7 +4182,6 @@
 				D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BB66BE297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D22D0C9022426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
-				D211DBB82484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
@@ -4307,7 +4288,6 @@
 				D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BB66BF297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D22D0C8E22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
-				D211DBB92484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
@@ -4414,7 +4394,6 @@
 				D24C3931254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BB66BD297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D22D0C9122426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
-				D211DBB72484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
 				D284248121D0358200C7171C /* BarcodeUtils.swift in Sources */,
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
@@ -4492,7 +4471,6 @@
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D20B2FF722CF976200F69848 /* AppBehavior.swift in Sources */,
-				D211DBBD2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2AA9D652738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
@@ -4632,7 +4610,6 @@
 				D2BDA63422D176BD00D9B60C /* CopyInfoTableViewCell.swift in Sources */,
 				D2BDA63522D176BD00D9B60C /* AppBehavior.swift in Sources */,
 				D2BDA63622D176BD00D9B60C /* XDetailsPagerViewController.swift in Sources */,
-				D211DBBB2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2AA9D632738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */,
 				D2BDA63822D176BD00D9B60C /* ASDisplayNode+.swift in Sources */,
@@ -4740,7 +4717,6 @@
 				D2BDA6CC22D2A72000D9B60C /* AppBehavior.swift in Sources */,
 				D2BDA6CD22D2A72000D9B60C /* XDetailsPagerViewController.swift in Sources */,
 				D2BDA6CE22D2A72000D9B60C /* CopyInfoViewController.swift in Sources */,
-				D211DBBC2484133100E0992C /* XOrgDetailsViewController.swift in Sources */,
 				D2AA9D642738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2BDA6CF22D2A72000D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA6D022D2A72000D9B60C /* SendEmailViewController.swift in Sources */,
