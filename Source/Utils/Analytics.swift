@@ -70,7 +70,8 @@ class Analytics {
             s = "\(tag): recv: ***"
         }
 
-        os_log("%s", log: log, type: .info, s)
+        // TODO: indicate if cached
+        os_log("%s", log: log, type: .info, s[0..<128])
         buf.write(s)
     }
     
