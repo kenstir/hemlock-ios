@@ -25,6 +25,7 @@ class XResultsTableNode: ASCellNode {
     //MARK: - Properties
     
     private let record: MBRecord
+    private let row: Int
     
     private let titleNode = ASTextNode()
     private let spacerNode = ASDisplayNode()
@@ -36,14 +37,25 @@ class XResultsTableNode: ASCellNode {
     
     //MARK: - Lifecycle
     
-    init(record: MBRecord) {
+    init(record: MBRecord, row: Int) {
         self.record = record
+        self.row = row
 
         super.init()
         self.setupNodes()
         self.buildNodeHierarchy()
     }
-    
+
+    override func didEnterVisibleState() {
+        os_log("[%s] row=%2d state=\\visible", log: Gateway.log, type: .info, Thread.current.tag(), row)
+    }
+    override func didEnterDisplayState() {
+        os_log("[%s] row=%2d state=-display", log: Gateway.log, type: .info, Thread.current.tag(), row)
+    }
+    override func didEnterPreloadState() {
+        os_log("[%s] row=%2d state=/preload", log: Gateway.log, type: .info, Thread.current.tag(), row)
+    }
+
     //MARK: - Setup
     
     private func setupNodes() {

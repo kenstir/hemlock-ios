@@ -199,11 +199,26 @@ extension XResultsViewController: ASTableDataSource {
     func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
-    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+
+//    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+//        guard items.count > indexPath.row else { return ASCellNode() }
+//        let record = items[indexPath.row]
+//        os_log("[table.nodeForRowAt] %d id=%d", log: Gateway.log, type: .info, indexPath.row, record.id)
+//        let node = XResultsTableNode(record: record)
+//        return node
+//    }
+
+    func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+        guard items.count > indexPath.row else { return { ASCellNode() } }
         let record = items[indexPath.row]
-        let node = XResultsTableNode(record: record)
-        return node
+
+        // this may be executed on a background thread - it is important to make sure it is thread safe
+        let cellNodeBlock = { () -> ASCellNode in
+            os_log("[%s] row=%2d id=%d nodeForRowAt", log: Gateway.log, type: .info, Thread.current.tag(), indexPath.row, record.id)
+            return XResultsTableNode(record: record, row: indexPath.row)
+        }
+
+        return cellNodeBlock
     }
 
     func titleForHeaderInSection() -> String {
