@@ -203,7 +203,7 @@ extension XResultsViewController: ASTableDataSource {
         guard items.count > indexPath.row else { return ASCellNode() }
         let record = items[indexPath.row]
 
-        os_log("[%s] row=%2d id=%d nodeForRowAt", log: Gateway.log, type: .info, Thread.current.tag(), indexPath.row, record.id)
+//        os_log("[%s] row=%2d id=%d nodeForRowAt", log: Gateway.log, type: .info, Thread.current.tag(), indexPath.row, record.id)
         let node = XResultsTableNode(record: record, row: indexPath.row)
         return node
     }
@@ -220,6 +220,23 @@ extension XResultsViewController: ASTableDataSource {
 //        }
 //
 //        return cellNodeBlock
+//    }
+
+    func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
+        guard let recordNode = node as? XResultsTableNode else { return }
+        os_log("[%s] row=%2d id=%d willDisplayRowWith", log: AsyncRecord.log, type: .info, Thread.current.tag(), recordNode.row, recordNode.record.id)
+        _ = recordNode.record.startPrefetchRecordDetails()
+    }
+
+//    func tableNode(_ tableNode: ASTableNode, didEndDisplayingRowWith node: ASCellNode) {
+//        guard let recordNode = node as? XResultsTableNode else { return }
+//        os_log("[%s] row=%2d id=%d didEndDisplayingRowWith", log: AsyncRecord.log, type: .info, Thread.current.tag(), recordNode.row, recordNode.record.id)
+//    }
+
+    // NB: if you use this you have to perform batch completion; see ASTableNode.h
+//    func tableNode(_ tableNode: ASTableNode, willBeginBatchFetchWith context: ASBatchContext) {
+////        guard let recordNode = node as? XResultsTableNode else { return }
+//        os_log("[%s] willBeginBatchFetchWith %@", log: AsyncRecord.log, type: .info, Thread.current.tag(), context)
 //    }
 
     func titleForHeaderInSection() -> String {

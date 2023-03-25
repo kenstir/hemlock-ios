@@ -19,14 +19,15 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import AsyncDisplayKit
+import PromiseKit
 
 class XResultsTableNode: ASCellNode {
     
     //MARK: - Properties
-    
-    private let record: MBRecord
-    private let row: Int
-    
+
+    let record: AsyncRecord
+    let row: Int
+
     private let titleNode = ASTextNode()
     private let spacerNode = ASDisplayNode()
     private let authorNode = ASTextNode()
@@ -34,10 +35,10 @@ class XResultsTableNode: ASCellNode {
     private let imageNode = ASNetworkImageNode()
     private var disclosureNode = XUtils.makeDisclosureNode()
     private let separatorNode = ASDisplayNode()
-    
+
     //MARK: - Lifecycle
-    
-    init(record: MBRecord, row: Int) {
+
+    init(record: AsyncRecord, row: Int) {
         self.record = record
         self.row = row
 
@@ -46,14 +47,25 @@ class XResultsTableNode: ASCellNode {
         self.buildNodeHierarchy()
     }
 
+    // didEnter*State functions are dispatched on the MAIN THREAD
     override func didEnterVisibleState() {
-        os_log("[%s] row=%2d state=\\visible", log: Gateway.log, type: .info, Thread.current.tag(), row)
+        os_log("[%s] row=%2d state=\\visible", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
+        let promises = record.promises
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            self.updateNode()
+        }.catch { error in
+            // what to do here?  maybe load it in VC instead
+        }
+
     }
-    override func didEnterDisplayState() {
-        os_log("[%s] row=%2d state=-display", log: Gateway.log, type: .info, Thread.current.tag(), row)
-    }
+//    override func didEnterDisplayState() {
+//        os_log("[%s] row=%2d state=-display", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
+//    }
     override func didEnterPreloadState() {
-        os_log("[%s] row=%2d state=/preload", log: Gateway.log, type: .info, Thread.current.tag(), row)
+        os_log("[%s] row=%2d state=/preload", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
+//        _ = record.startPrefetchRecordDetails()
     }
 
     //MARK: - Setup
@@ -65,6 +77,13 @@ class XResultsTableNode: ASCellNode {
         self.setupImageNode()
         self.setupSeparatorNode()
         self.setupSpacerNode()
+    }
+
+    private func updateNode() {
+        os_log("[%s] row=%2d state=loaded", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
+        self.setupTitleNode()
+        self.setupAuthorNode()
+        self.setupFormatNode()
     }
     
     private func setupTitleNode() {

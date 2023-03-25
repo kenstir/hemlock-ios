@@ -22,8 +22,8 @@ class AsyncRecord: MBRecord {
 
     //MARK: - Properties
 
+    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "AsyncRecord")
     private let row: Int
-
     private let lock = NSLock()
     var promises: [Promise<Void>] = []
     enum LoadState {
@@ -45,7 +45,7 @@ class AsyncRecord: MBRecord {
 
     /// free-threaded
     func startPrefetchRecordDetails() -> [Promise<Void>] {
-        os_log("[%s] row=%2d prefetch", log: Gateway.log, type: .info, Thread.current.tag(), row)
+        os_log("[%s] row=%2d prefetch", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
         lock.lock()
         defer { lock.unlock() }
 
@@ -53,6 +53,7 @@ class AsyncRecord: MBRecord {
         case .initial:
             promises.append(SearchService.fetchRecordMODS(forRecord: self))
             promises.append(PCRUDService.fetchMRA(forRecord: self))
+            state = .started
             return promises
         case .started:
             return promises
