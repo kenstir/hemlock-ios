@@ -1069,6 +1069,17 @@
 		D28AE26F24FDDD7700960E9E /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D28AE26E24FDDD7700960E9E /* custom_strings.json */; };
 		D28AE27224FDDE8300960E9E /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D28AE27024FDDD8800960E9E /* custom_strings.json */; };
 		D28AE27424FDE01900960E9E /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D28AE27324FDE01900960E9E /* custom_strings.json */; };
+		D28F5E6129CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6229CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6329CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6429CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6529CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6629CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6729CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6829CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6929CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6A29CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6B29CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D2931A9F272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA0272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
@@ -1689,6 +1700,7 @@
 		D28AE26E24FDDD7700960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27024FDDD8800960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27324FDE01900960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
+		D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+.swift"; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* ZBookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagsView.swift; sourceTree = "<group>"; };
 		D2931A93272DE25D00CBA5AA /* ZBookBagDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagDetailsView.swift; sourceTree = "<group>"; };
 		D2931A9E272DE56500CBA5AA /* BookBagItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagItem.swift; sourceTree = "<group>"; };
@@ -2142,6 +2154,7 @@
 				D24C392F254B9FA400ECAE64 /* URLRequest+.swift */,
 				D2CF924122471D210009C06A /* Utils.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
+				D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3618,6 +3631,7 @@
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
 				D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */,
+				D28F5E6129CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D5E2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D210EBEE22B1EE55002FB5E0 /* XDetailsPagerViewController.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
@@ -3725,6 +3739,7 @@
 				D23E9F9223B9200A0030F5C1 /* AppBehavior.swift in Sources */,
 				D23E9F9323B9200A0030F5C1 /* XDetailsPagerViewController.swift in Sources */,
 				D23E9F9423B9200A0030F5C1 /* CopyInfoViewController.swift in Sources */,
+				D28F5E6B29CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D662738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D23E9F9523B9200A0030F5C1 /* ASDisplayNode+.swift in Sources */,
 				D23E9F9623B9200A0030F5C1 /* SendEmailViewController.swift in Sources */,
@@ -3832,6 +3847,7 @@
 				D2477BDE24785A6B00FD4CF6 /* AppBehavior.swift in Sources */,
 				D2477BDF24785A6B00FD4CF6 /* XDetailsPagerViewController.swift in Sources */,
 				D2477BE024785A6B00FD4CF6 /* CopyInfoViewController.swift in Sources */,
+				D28F5E6529CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D622738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2477BE124785A6B00FD4CF6 /* ASDisplayNode+.swift in Sources */,
 				D2477BE224785A6B00FD4CF6 /* SendEmailViewController.swift in Sources */,
@@ -3939,6 +3955,7 @@
 				D2572ACE24AD7755000BA698 /* AppBehavior.swift in Sources */,
 				D2572ACF24AD7755000BA698 /* XDetailsPagerViewController.swift in Sources */,
 				D2572AD024AD7755000BA698 /* CopyInfoViewController.swift in Sources */,
+				D28F5E6629CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D672738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2572AD224AD7755000BA698 /* ASDisplayNode+.swift in Sources */,
 				D2572AD324AD7755000BA698 /* SendEmailViewController.swift in Sources */,
@@ -4046,6 +4063,7 @@
 				D25EEC7228A1E8310090F108 /* CopyInfoTableViewCell.swift in Sources */,
 				D25EEC7328A1E8310090F108 /* AppBehavior.swift in Sources */,
 				D25EEC7428A1E8310090F108 /* XDetailsPagerViewController.swift in Sources */,
+				D28F5E6929CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D25EEC7528A1E8310090F108 /* CopyInfoViewController.swift in Sources */,
 				D25EEC7728A1E8310090F108 /* BookBagDetailsTableViewCell.swift in Sources */,
 				D25EEC7828A1E8310090F108 /* ASDisplayNode+.swift in Sources */,
@@ -4132,6 +4150,7 @@
 				D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */,
 				D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */,
 				D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
+				D28F5E6329CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D276DA9721336B20007FAA31 /* API.swift in Sources */,
 				D246290F273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */,
@@ -4238,6 +4257,7 @@
 				D226B60A20ED519E00CA5B79 /* String+.swift in Sources */,
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
 				D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
+				D28F5E6429CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D2462910273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
@@ -4344,6 +4364,7 @@
 				D284245A21D0358200C7171C /* String+.swift in Sources */,
 				D284245B21D0358200C7171C /* AppConfiguration.swift in Sources */,
 				D29911E5248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
+				D28F5E6229CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D284245C21D0358200C7171C /* FinesViewController.swift in Sources */,
 				D246290E273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D284245D21D0358200C7171C /* API.swift in Sources */,
@@ -4471,6 +4492,7 @@
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D20B2FF722CF976200F69848 /* AppBehavior.swift in Sources */,
+				D28F5E6A29CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D652738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */,
 				D26210F0217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
@@ -4610,6 +4632,7 @@
 				D2BDA63422D176BD00D9B60C /* CopyInfoTableViewCell.swift in Sources */,
 				D2BDA63522D176BD00D9B60C /* AppBehavior.swift in Sources */,
 				D2BDA63622D176BD00D9B60C /* XDetailsPagerViewController.swift in Sources */,
+				D28F5E6729CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D632738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */,
 				D2BDA63822D176BD00D9B60C /* ASDisplayNode+.swift in Sources */,
@@ -4717,6 +4740,7 @@
 				D2BDA6CC22D2A72000D9B60C /* AppBehavior.swift in Sources */,
 				D2BDA6CD22D2A72000D9B60C /* XDetailsPagerViewController.swift in Sources */,
 				D2BDA6CE22D2A72000D9B60C /* CopyInfoViewController.swift in Sources */,
+				D28F5E6829CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D642738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2BDA6CF22D2A72000D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA6D022D2A72000D9B60C /* SendEmailViewController.swift in Sources */,
