@@ -84,41 +84,31 @@ class MBRecord {
     //MARK: - Functions
     
     // Create array of skeleton records from the multiclassQuery response object.
-    // The object has an "ids" field that is a list of lists and looks like one of:
-    //   [[32673,null,"0.0"],[886843,null,"0.0"]]      // integer id,?,?
-    //   [["503610",null,"0.0"],["502717",null,"0.0"]] // string id,?,?
-    //   [["1805532"],["2385399"]]                     // string id only
     static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord] {
         var records: [MBRecord] = []
-        
-        // early exit if there are no results
-        guard let obj = theobj,
-            let count = obj.getInt("count"),
-            count > 0 else {
-            return records
-        }
-        
-        // construct the list
-        if let ids = obj.getAny("ids") as? [[Any]]
-        {
-            for elem in ids {
-                if let id = elem.first as? Int {
-                    records.append(MBRecord(id: id))
-                } else if let str = elem.first as? String, let id = Int(str) {
-                    records.append(MBRecord(id: id))
-                } else {
-                    Analytics.logError(code: .shouldNotHappen, msg: "Unexpected element in ids list: \(elem))", file: #file, line: #line)
-                }
-            }
-        } else {
-            Analytics.logError(code: .shouldNotHappen, msg: "Unexpected format of ids list: \(String(describing: obj.getAny("ids")))", file: #file, line: #line)
+
+        for id in getIdsList(fromQueryObj: theobj) {
+            records.append(MBRecord(id: id))
         }
         return records
     }
 
-    static func getIdsList(fromQueryObj obj: OSRFObject) -> [Int] {
+    // Create array of ids from the multiclassQuery response object.
+    // The object has an "ids" field that is a list of lists and looks like one of:
+    //   [[32673,null,"0.0"],[886843,null,"0.0"]]      // integer id,?,?
+    //   [["503610",null,"0.0"],["502717",null,"0.0"]] // string id,?,?
+    //   [["1805532"],["2385399"]]                     // string id only
+    static func getIdsList(fromQueryObj theobj: OSRFObject?) -> [Int] {
         var ret: [Int] = []
 
+        // early exit if there are no results
+        guard let obj = theobj,
+            let count = obj.getInt("count"),
+            count > 0 else {
+            return ret
+        }
+
+        // construct the list
         if let ids = obj.getAny("ids") as? [[Any]] {
             for elem in ids {
                 if let id = elem.first as? Int {
