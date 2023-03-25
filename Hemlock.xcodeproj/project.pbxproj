@@ -1080,6 +1080,17 @@
 		D28F5E6929CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6A29CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6B29CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
+		D28F5E6D29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E6E29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E6F29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E7029CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E7129CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E7229CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E7329CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E7429CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E7529CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E7629CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E7729CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
 		D2931A9F272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA0272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
@@ -1701,6 +1712,7 @@
 		D28AE27024FDDD8800960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27324FDE01900960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+.swift"; sourceTree = "<group>"; };
+		D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRecord.swift; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* ZBookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagsView.swift; sourceTree = "<group>"; };
 		D2931A93272DE25D00CBA5AA /* ZBookBagDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagDetailsView.swift; sourceTree = "<group>"; };
 		D2931A9E272DE56500CBA5AA /* BookBagItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagItem.swift; sourceTree = "<group>"; };
@@ -2144,9 +2156,11 @@
 				D27DF20B21AB4B84002DCC47 /* String+subscript.swift */,
 				D28290F720E6F770008EBE4B /* Style.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
+				D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */,
 				D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */,
 				D24D76902234418F00AFE50C /* UIColor+.swift */,
 				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
+				D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */,
 				D28164B3213C7D99000B64B4 /* UIScrollView+.swift */,
 				D20BDB762214BCF200BB6A5F /* UIView+.swift */,
 				D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */,
@@ -2154,7 +2168,6 @@
 				D24C392F254B9FA400ECAE64 /* URLRequest+.swift */,
 				D2CF924122471D210009C06A /* Utils.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
-				D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3597,6 +3610,7 @@
 				D210EBD322B1EE55002FB5E0 /* String+splitOnRegex.swift in Sources */,
 				D2816CC728B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D210EBD422B1EE55002FB5E0 /* Organization.swift in Sources */,
+				D28F5E6D29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE24A24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D210EBD522B1EE55002FB5E0 /* MainTableViewCell.swift in Sources */,
 				D210EBD622B1EE55002FB5E0 /* HoldRecord.swift in Sources */,
@@ -3705,6 +3719,7 @@
 				D23E9F7623B9200A0030F5C1 /* Organization.swift in Sources */,
 				D2816CCF28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */,
+				D28F5E7729CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE25224F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D23E9F7723B9200A0030F5C1 /* MainTableViewCell.swift in Sources */,
 				D23E9F7823B9200A0030F5C1 /* HoldRecord.swift in Sources */,
@@ -3813,6 +3828,7 @@
 				D2477BC224785A6B00FD4CF6 /* Organization.swift in Sources */,
 				D2816CCB28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2477BC424785A6B00FD4CF6 /* MainTableViewCell.swift in Sources */,
+				D28F5E7129CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE24E24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2477BC524785A6B00FD4CF6 /* HoldRecord.swift in Sources */,
 				D2477BC624785A6B00FD4CF6 /* Bundle+.swift in Sources */,
@@ -3921,6 +3937,7 @@
 				D2572AB124AD7755000BA698 /* String+splitOnRegex.swift in Sources */,
 				D2816CD028B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2572AB224AD7755000BA698 /* Organization.swift in Sources */,
+				D28F5E7229CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE25324F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2572AB424AD7755000BA698 /* MainTableViewCell.swift in Sources */,
 				D2572AB524AD7755000BA698 /* HoldRecord.swift in Sources */,
@@ -4029,6 +4046,7 @@
 				D25EEC5528A1E8310090F108 /* String+splitOnRegex.swift in Sources */,
 				D271862B28CEBE7C0046E9BC /* ScanBarcodeViewController.swift in Sources */,
 				D25EECD928A1EB2E0090F108 /* OwwlTheme.swift in Sources */,
+				D28F5E7529CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D25EEC5628A1E8310090F108 /* Organization.swift in Sources */,
 				D25EEC5728A1E8310090F108 /* ServiceUtils.swift in Sources */,
 				D25EEC5828A1E8310090F108 /* MainTableViewCell.swift in Sources */,
@@ -4145,6 +4163,7 @@
 				D2BB66B3297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
 				D2A81798224699C700340074 /* Bundle+.swift in Sources */,
+				D28F5E6F29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D276DA9421336B20007FAA31 /* String+.swift in Sources */,
 				D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */,
@@ -4252,6 +4271,7 @@
 				D2BB66B4297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D2A81796224699C700340074 /* Bundle+.swift in Sources */,
+				D28F5E7029CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2CAFBC3246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D2C24A30210171290028180B /* PCRUDService.swift in Sources */,
 				D226B60A20ED519E00CA5B79 /* String+.swift in Sources */,
@@ -4359,6 +4379,7 @@
 				D2BB66B2297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D284245821D0358200C7171C /* HoldRecord.swift in Sources */,
 				D2A81799224699C700340074 /* Bundle+.swift in Sources */,
+				D28F5E6E29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D284245921D0358200C7171C /* PCRUDService.swift in Sources */,
 				D284245A21D0358200C7171C /* String+.swift in Sources */,
@@ -4458,6 +4479,7 @@
 				D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */,
 				D2816CCE28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
+				D28F5E7629CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE25124F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
@@ -4598,6 +4620,7 @@
 				D2BDA61622D176BD00D9B60C /* String+splitOnRegex.swift in Sources */,
 				D2816CCC28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA61722D176BD00D9B60C /* Organization.swift in Sources */,
+				D28F5E7329CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE24F24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2BDA61822D176BD00D9B60C /* MainTableViewCell.swift in Sources */,
 				D2BDA61922D176BD00D9B60C /* HoldRecord.swift in Sources */,
@@ -4706,6 +4729,7 @@
 				D2BDA6AF22D2A72000D9B60C /* Organization.swift in Sources */,
 				D2816CCD28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA6B022D2A72000D9B60C /* MainTableViewCell.swift in Sources */,
+				D28F5E7429CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE25024F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2BDA6B122D2A72000D9B60C /* HoldRecord.swift in Sources */,
 				D2BDA6B222D2A72000D9B60C /* Bundle+.swift in Sources */,

@@ -30,8 +30,8 @@ class XResultsViewController: ASDKViewController<ASTableNode> {
 
     let headerNode = ASTextNode()
     var searchParameters: SearchParameters?
-    var items: [MBRecord] = []
-    var selectedItem: MBRecord?
+    var items: [AsyncRecord] = []
+    var selectedItem: AsyncRecord?
     var startOfSearch = Date()
     var didCompleteSearch = false
 
@@ -111,10 +111,6 @@ class XResultsViewController: ASDKViewController<ASTableNode> {
         if didCompleteSearch {
             return
         }
-        guard let authtoken = App.account?.authtoken else {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return
-        }
         guard let query = getQueryString() else {
             return
         }
@@ -127,46 +123,49 @@ class XResultsViewController: ASDKViewController<ASTableNode> {
         let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1], shouldCache: true)
         req.gatewayOptionalObjectResponse().done { obj in
-            let records = MBRecord.makeArray(fromQueryResponse: obj)
-            self.fetchRecordDetails(authtoken: authtoken, records: records)
+            let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
+            self.updateItems(withRecords: records)
+            let elapsed = -self.startOfSearch.timeIntervalSinceNow
+            os_log("search.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
             return
         }.catch { error in
-            self.activityIndicator.stopAnimating()
             self.updateTableSectionHeader(onError: error)
             self.presentGatewayAlert(forError: error)
+        }.finally {
+            self.activityIndicator.stopAnimating()
         }
     }
     
-    func fetchRecordDetails(authtoken: String, records: [MBRecord]) {
-        var promises: [Promise<Void>] = []
-        for record in records {
-            promises.append(SearchService.fetchRecordMODS(forRecord: record))
-            promises.append(PCRUDService.fetchMRA(forRecord: record))
-        }
-        print("xxx \(promises.count) promises made")
-
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            print("xxx \(promises.count) promises fulfilled")
-            self.activityIndicator.stopAnimating()
-            self.didCompleteSearch = true
-            let elapsed = -self.startOfSearch.timeIntervalSinceNow
-            os_log("search.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
-            self.updateItems(withRecords: records)
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
-            self.updateTableSectionHeader(onError: error)
-            self.presentGatewayAlert(forError: error)
-        }
-    }
+//    func fetchRecordDetails(records: [MBRecord]) {
+//        var promises: [Promise<Void>] = []
+//        for record in records {
+//            promises.append(SearchService.fetchRecordMODS(forRecord: record))
+//            promises.append(PCRUDService.fetchMRA(forRecord: record))
+//        }
+//        print("xxx \(promises.count) promises made")
+//
+//        firstly {
+//            when(fulfilled: promises)
+//        }.done {
+//            print("xxx \(promises.count) promises fulfilled")
+//            self.activityIndicator.stopAnimating()
+//            self.didCompleteSearch = true
+//            let elapsed = -self.startOfSearch.timeIntervalSinceNow
+//            os_log("search.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+//            self.updateItems(withRecords: records)
+//        }.catch { error in
+//            self.activityIndicator.stopAnimating()
+//            self.updateTableSectionHeader(onError: error)
+//            self.presentGatewayAlert(forError: error)
+//        }
+//    }
     
     // Force update of status string in table section header
     func updateTableSectionHeader(onError error: Error) {
         tableNode.reloadData()
     }
 
-    func updateItems(withRecords records: [MBRecord]) {
+    func updateItems(withRecords records: [AsyncRecord]) {
         self.items = records
         print("xxx \(records.count) records now, time to reloadData")
         tableNode.reloadData()
@@ -200,26 +199,28 @@ extension XResultsViewController: ASTableDataSource {
         return items.count
     }
 
-//    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
-//        guard items.count > indexPath.row else { return ASCellNode() }
-//        let record = items[indexPath.row]
-//        os_log("[table.nodeForRowAt] %d id=%d", log: Gateway.log, type: .info, indexPath.row, record.id)
-//        let node = XResultsTableNode(record: record)
-//        return node
-//    }
-
-    func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-        guard items.count > indexPath.row else { return { ASCellNode() } }
+    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+        guard items.count > indexPath.row else { return ASCellNode() }
         let record = items[indexPath.row]
 
-        // this may be executed on a background thread - it is important to make sure it is thread safe
-        let cellNodeBlock = { () -> ASCellNode in
-            os_log("[%s] row=%2d id=%d nodeForRowAt", log: Gateway.log, type: .info, Thread.current.tag(), indexPath.row, record.id)
-            return XResultsTableNode(record: record, row: indexPath.row)
-        }
-
-        return cellNodeBlock
+        os_log("[%s] row=%2d id=%d nodeForRowAt", log: Gateway.log, type: .info, Thread.current.tag(), indexPath.row, record.id)
+        let node = XResultsTableNode(record: record, row: indexPath.row)
+        return node
     }
+
+    // TODO: evaluate whether this is faster
+//    func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+//        guard items.count > indexPath.row else { return { ASCellNode() } }
+//        let record = items[indexPath.row]
+//
+//        // this may be executed on a background thread - it is important to make sure it is thread safe
+//        let cellNodeBlock = { () -> ASCellNode in
+//            os_log("[%s] row=%2d id=%d nodeForRowAt", log: Gateway.log, type: .info, Thread.current.tag(), indexPath.row, record.id)
+//            return XResultsTableNode(record: record, row: indexPath.row)
+//        }
+//
+//        return cellNodeBlock
+//    }
 
     func titleForHeaderInSection() -> String {
         if activityIndicator?.isAnimating ?? false {
