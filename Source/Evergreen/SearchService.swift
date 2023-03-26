@@ -56,7 +56,6 @@ class SearchService {
     static func fetchRecordMODS(forRecord record: MBRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
         let promise = req.gatewayObjectResponse().done { obj in
-            print("xxx \(record.id) recordModsRetrieve done")
             record.mvrObj = obj
         }
         return promise
