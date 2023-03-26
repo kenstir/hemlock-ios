@@ -524,6 +524,39 @@
 		D24C3937254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
 		D24C3938254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
 		D24C3939254B9FA400ECAE64 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
+		D24D490729D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D490829D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D490929D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D490A29D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D490B29D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D490C29D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D490D29D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D490E29D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D490F29D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D491029D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D491129D0B09100EB9C8A /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24D490629D0B09100EB9C8A /* Results.storyboard */; };
+		D24D491329D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491429D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491529D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491629D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491729D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491829D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491929D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491A29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491B29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491C29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491D29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */; };
+		D24D491F29D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492029D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492129D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492229D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492329D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492429D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492529D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492629D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492729D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492829D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
+		D24D492929D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */; };
 		D24D76912234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D76922234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D76932234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
@@ -1633,6 +1666,9 @@
 		D248CBDE21211B050091D2E6 /* CopyInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CopyInfo.storyboard; sourceTree = "<group>"; };
 		D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D24C392F254B9FA400ECAE64 /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
+		D24D490629D0B09100EB9C8A /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
+		D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		D24D76902234418F00AFE50C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		D252DA2723F616C000D11662 /* CircRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecordTests.swift; sourceTree = "<group>"; };
 		D252DA2923F6382000D11662 /* HoldRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecordTests.swift; sourceTree = "<group>"; };
@@ -2594,6 +2630,9 @@
 				D29E87FC20D831540003EB27 /* SearchViewController.swift */,
 				D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */,
 				D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */,
+				D24D490629D0B09100EB9C8A /* Results.storyboard */,
+				D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */,
+				D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -2885,6 +2924,7 @@
 				D210EC2222B1EE55002FB5E0 /* Launch.storyboard in Resources */,
 				D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */,
 				D210EC2322B1EE55002FB5E0 /* Checkouts.storyboard in Resources */,
+				D24D490729D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D210EC2522B1EE55002FB5E0 /* LICENSE.txt in Resources */,
 				D210EC2722B1EE55002FB5E0 /* Holds.storyboard in Resources */,
 				D2816CBC28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
@@ -2915,6 +2955,7 @@
 				D23E9FCA23B9200A0030F5C1 /* Launch.storyboard in Resources */,
 				D23E9FCB23B9200A0030F5C1 /* Checkouts.storyboard in Resources */,
 				D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */,
+				D24D491129D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D23E9FCD23B9200A0030F5C1 /* Holds.storyboard in Resources */,
 				D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */,
 				D2816CC428B013C30060F688 /* ScanBarcode.storyboard in Resources */,
@@ -2945,6 +2986,7 @@
 				D2477C1824785A6B00FD4CF6 /* Launch.storyboard in Resources */,
 				D2477C1924785A6B00FD4CF6 /* Checkouts.storyboard in Resources */,
 				D2477C1A24785A6B00FD4CF6 /* LICENSE.txt in Resources */,
+				D24D490B29D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D2477C1B24785A6B00FD4CF6 /* Holds.storyboard in Resources */,
 				D2477C1D24785A6B00FD4CF6 /* CopyInfo.storyboard in Resources */,
 				D2816CC028B013C30060F688 /* ScanBarcode.storyboard in Resources */,
@@ -2983,6 +3025,7 @@
 				D2572B1124AD7755000BA698 /* Search.storyboard in Resources */,
 				D2572B1224AD7755000BA698 /* Documentation in Resources */,
 				D29C95FA2599283A00CACDBD /* event_msg_map.json in Resources */,
+				D24D490C29D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D2029B54297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2572B1324AD7755000BA698 /* ShowCard.storyboard in Resources */,
 				D28AE26B24FDD9B200960E9E /* strings.json in Resources */,
@@ -3014,6 +3057,7 @@
 				D25EECDA28A1EB2E0090F108 /* owwl.xcassets in Resources */,
 				D25EECBC28A1E8310090F108 /* Search.storyboard in Resources */,
 				D25EECBD28A1E8310090F108 /* Documentation in Resources */,
+				D24D490F29D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D2029B57297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D25EECBE28A1E8310090F108 /* event_msg_map.json in Resources */,
 				D271862C28CEBFC90046E9BC /* ScanBarcode.storyboard in Resources */,
@@ -3045,6 +3089,7 @@
 				D2F390322241E5950089D745 /* LICENSE.txt in Resources */,
 				D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */,
 				D29C95F32599283A00CACDBD /* event_msg_map.json in Resources */,
+				D24D490929D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D2029B51297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
 				D276DAD821336B20007FAA31 /* Search.storyboard in Resources */,
@@ -3069,6 +3114,7 @@
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				D29C95F42599283A00CACDBD /* event_msg_map.json in Resources */,
+				D24D490A29D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D21090D724D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
@@ -3097,6 +3143,7 @@
 				D284249E21D0358200C7171C /* Launch.storyboard in Resources */,
 				D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */,
 				D2F390332241E5950089D745 /* LICENSE.txt in Resources */,
+				D24D490829D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D21867A521D039CE0082358C /* cool.xcassets in Resources */,
 				D28424A321D0358200C7171C /* Holds.storyboard in Resources */,
 				D2816CBD28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
@@ -3127,6 +3174,7 @@
 				D287D506207AEF2C001AF644 /* Launch.storyboard in Resources */,
 				D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */,
 				D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
+				D24D491029D0B09100EB9C8A /* Results.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2816CC328B013C30060F688 /* ScanBarcode.storyboard in Resources */,
@@ -3176,6 +3224,7 @@
 				D2BDA67222D176BD00D9B60C /* Search.storyboard in Resources */,
 				D2BDA67322D176BD00D9B60C /* Documentation in Resources */,
 				D29C95F72599283A00CACDBD /* event_msg_map.json in Resources */,
+				D24D490D29D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D2029B55297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2BDA67422D176BD00D9B60C /* ShowCard.storyboard in Resources */,
 				D28AE26724FDD9B200960E9E /* strings.json in Resources */,
@@ -3207,6 +3256,7 @@
 				D2BDA70922D2A72000D9B60C /* Search.storyboard in Resources */,
 				D2BDA70A22D2A72000D9B60C /* Documentation in Resources */,
 				D29C95F82599283A00CACDBD /* event_msg_map.json in Resources */,
+				D24D490E29D0B09100EB9C8A /* Results.storyboard in Resources */,
 				D2029B56297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2BDA70B22D2A72000D9B60C /* ShowCard.storyboard in Resources */,
 				D28AE26824FDD9B200960E9E /* strings.json in Resources */,
@@ -3598,6 +3648,7 @@
 			files = (
 				D210EBC922B1EE55002FB5E0 /* OSRFCoder.swift in Sources */,
 				D2462902273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D24D491F29D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D210EBCA22B1EE55002FB5E0 /* LoginViewController.swift in Sources */,
 				D210EBCC22B1EE55002FB5E0 /* XDetailsNode.swift in Sources */,
 				D210EBCD22B1EE55002FB5E0 /* XResultsTableNode.swift in Sources */,
@@ -3667,6 +3718,7 @@
 				D21981F8235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D210EBFC22B1EE55002FB5E0 /* IDLParser.swift in Sources */,
 				D210EBFD22B1EE55002FB5E0 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
+				D24D491329D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D210EBFE22B1EE55002FB5E0 /* Gateway+PMK.swift in Sources */,
 				D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */,
 				D21090C624D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -3707,6 +3759,7 @@
 			files = (
 				D23E9F6B23B9200A0030F5C1 /* OSRFCoder.swift in Sources */,
 				D246290A273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D24D492929D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D23E9F6C23B9200A0030F5C1 /* LoginViewController.swift in Sources */,
 				D23E9F6E23B9200A0030F5C1 /* XDetailsNode.swift in Sources */,
 				D23E9F6F23B9200A0030F5C1 /* XResultsTableNode.swift in Sources */,
@@ -3776,6 +3829,7 @@
 				D23E9FA023B9200A0030F5C1 /* LocationPicker.swift in Sources */,
 				D23E9FA123B9200A0030F5C1 /* IDLParser.swift in Sources */,
 				D23E9FA223B9200A0030F5C1 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
+				D24D491D29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
 				D23E9FA423B9200A0030F5C1 /* Gateway+PMK.swift in Sources */,
 				D21090CE24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -3816,6 +3870,7 @@
 			files = (
 				D2477BB724785A6B00FD4CF6 /* OSRFCoder.swift in Sources */,
 				D2462906273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D24D492329D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2477BB824785A6B00FD4CF6 /* LoginViewController.swift in Sources */,
 				D2477BBA24785A6B00FD4CF6 /* XDetailsNode.swift in Sources */,
 				D2477BBB24785A6B00FD4CF6 /* XResultsTableNode.swift in Sources */,
@@ -3885,6 +3940,7 @@
 				D2477C3624786CCF00FD4CF6 /* IndianaAppBehavior.swift in Sources */,
 				D2477C3524786CCF00FD4CF6 /* IndianaAppConfiguration.swift in Sources */,
 				D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */,
+				D24D491729D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2477BF424785A6B00FD4CF6 /* Gateway+PMK.swift in Sources */,
 				D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */,
 				D21090CA24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -3925,6 +3981,7 @@
 			files = (
 				D2572AA724AD7755000BA698 /* OSRFCoder.swift in Sources */,
 				D246290B273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D24D492429D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2572AA824AD7755000BA698 /* LoginViewController.swift in Sources */,
 				D2572AAA24AD7755000BA698 /* XDetailsNode.swift in Sources */,
 				D2572AAB24AD7755000BA698 /* XResultsTableNode.swift in Sources */,
@@ -3994,6 +4051,7 @@
 				D2572AE324AD7755000BA698 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D2572AE424AD7755000BA698 /* CodedValueMap.swift in Sources */,
 				D2572AE524AD7755000BA698 /* Gateway+PMK.swift in Sources */,
+				D24D491829D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */,
 				D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */,
 				D21090CF24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4034,6 +4092,7 @@
 			files = (
 				D25EEC4A28A1E8310090F108 /* OSRFCoder.swift in Sources */,
 				D25EEC4B28A1E8310090F108 /* BookBagsTableViewCell.swift in Sources */,
+				D24D492729D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D25EEC4C28A1E8310090F108 /* LoginViewController.swift in Sources */,
 				D25EEC4D28A1E8310090F108 /* XDetailsNode.swift in Sources */,
 				D25EEC4E28A1E8310090F108 /* XResultsTableNode.swift in Sources */,
@@ -4103,6 +4162,7 @@
 				D25EEC8828A1E8310090F108 /* UIBarButtonItem+Badge.swift in Sources */,
 				D25EEC8928A1E8310090F108 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D25EEC8A28A1E8310090F108 /* CodedValueMap.swift in Sources */,
+				D24D491B29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D25EEC8B28A1E8310090F108 /* Gateway+PMK.swift in Sources */,
 				D25EEC8C28A1E8310090F108 /* CopyLocationCounts.swift in Sources */,
 				D25EEC8D28A1E8310090F108 /* MBRecord.swift in Sources */,
@@ -4182,6 +4242,7 @@
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
 				D2BB668C297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D276DAA021336B20007FAA31 /* SMSCarrier.swift in Sources */,
+				D24D491529D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D276DAA221336B20007FAA31 /* HemlockError.swift in Sources */,
 				D2F390362241E5950089D745 /* RingBuffer.swift in Sources */,
 				D296EE0C21338030009BDB12 /* CWMarsAppConfiguration.swift in Sources */,
@@ -4228,6 +4289,7 @@
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
 				D2462904273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D276DABC21336B20007FAA31 /* ActorService.swift in Sources */,
+				D24D492129D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D20B2FFE22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D276DABE21336B20007FAA31 /* Gateway.swift in Sources */,
 				D276DABF21336B20007FAA31 /* UIViewController+.swift in Sources */,
@@ -4290,6 +4352,7 @@
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
 				D2BB668D297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */,
+				D24D491629D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2A74B1921289F2E001D4B0F /* HemlockAppConfiguration.swift in Sources */,
 				D2F390342241E5950089D745 /* RingBuffer.swift in Sources */,
 				D27990DA20DDD473003B451E /* HemlockError.swift in Sources */,
@@ -4336,6 +4399,7 @@
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
 				D2462905273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */,
+				D24D492229D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D20B2FFC22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
 				D27990EC20DDD473003B451E /* UIViewController+.swift in Sources */,
@@ -4398,6 +4462,7 @@
 				D284246421D0358200C7171C /* Library.swift in Sources */,
 				D2BB668B297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D284246621D0358200C7171C /* GatewayResponse.swift in Sources */,
+				D24D491429D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D284246721D0358200C7171C /* SMSCarrier.swift in Sources */,
 				D2F390372241E5950089D745 /* RingBuffer.swift in Sources */,
 				D284246821D0358200C7171C /* HemlockError.swift in Sources */,
@@ -4444,6 +4509,7 @@
 				D284248421D0358200C7171C /* AppDelegate.swift in Sources */,
 				D2462903273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D284248521D0358200C7171C /* ActorService.swift in Sources */,
+				D24D492029D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D20B2FFF22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D284248721D0358200C7171C /* Gateway.swift in Sources */,
 				D284248821D0358200C7171C /* UIViewController+.swift in Sources */,
@@ -4467,6 +4533,7 @@
 			files = (
 				D2A74B1721289E8E001D4B0F /* PinesAppConfiguration.swift in Sources */,
 				D2462909273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D24D492829D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				FAA9E31A21962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
@@ -4536,6 +4603,7 @@
 				FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */,
 				FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D2A6C581221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
+				D24D491C29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				D21090CD24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4608,6 +4676,7 @@
 			files = (
 				D2BDA60B22D176BD00D9B60C /* OSRFCoder.swift in Sources */,
 				D2462907273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D24D492529D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2BDA60C22D176BD00D9B60C /* LoginViewController.swift in Sources */,
 				D2BDA60E22D176BD00D9B60C /* XDetailsNode.swift in Sources */,
 				D2BDA60F22D176BD00D9B60C /* XResultsTableNode.swift in Sources */,
@@ -4677,6 +4746,7 @@
 				D21981FC235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D2BDA64522D176BD00D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D2BDA64622D176BD00D9B60C /* Gateway+PMK.swift in Sources */,
+				D24D491929D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2BDA69F22D17A9100D9B60C /* AppFactory.swift in Sources */,
 				D2BDA64722D176BD00D9B60C /* CopyLocationCounts.swift in Sources */,
 				D21090CB24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4717,6 +4787,7 @@
 			files = (
 				D2BDA6A322D2A72000D9B60C /* OSRFCoder.swift in Sources */,
 				D2462908273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D24D492629D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2BDA6A422D2A72000D9B60C /* LoginViewController.swift in Sources */,
 				D2BDA6A622D2A72000D9B60C /* XDetailsNode.swift in Sources */,
 				D2BDA6A722D2A72000D9B60C /* XResultsTableNode.swift in Sources */,
@@ -4786,6 +4857,7 @@
 				D21981FD235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D2BDA6DD22D2A72000D9B60C /* Gateway+PMK.swift in Sources */,
 				D2BDA6DF22D2A72000D9B60C /* CopyLocationCounts.swift in Sources */,
+				D24D491A29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2BDA71F22D2A87E00D9B60C /* NTLCAppBehavior.swift in Sources */,
 				D2BDA6E022D2A72000D9B60C /* MBRecord.swift in Sources */,
 				D21090CC24D7243F004FE532 /* MessageMap.swift in Sources */,
