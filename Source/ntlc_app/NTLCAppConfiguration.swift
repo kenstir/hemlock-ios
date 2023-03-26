@@ -18,30 +18,31 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class NTLCAppConfiguration: AppConfiguration {
-    let title = "NTLC Catalog"
-    let url = "https://catalog.northtexaslibraries.org"
+    let title = "EG Indiana"
+    let url = "https://evergreen.lib.in.us"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    let sort: String? = nil
+    var sort: String? = nil
     let detailsExtraLinkText: String? = nil
     let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
-    let enableHoldShowExpiration = true
-    let enableHoldPhoneNotification = false
-    let enablePartHolds = false
+    let enableHoldShowExpiration = false
+    let enableHoldPhoneNotification = true
+    let enableHoldUseOverride = false
+    let enablePartHolds = true
     let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
-    let enablePayFines = false
+    let enablePayFines = true
     let enableHoursOfOperation = true
     let enableMessages = false
     let enableEventsButton = false
     let groupCopyInfoBySystem = false
-    let enableCopyInfoWebLinks = true
-    let needMARCRecord = false
-    let showOnlineAccessHostname = true
-    let alwaysUseActionSheetForOnlineLinks = false
+    let enableCopyInfoWebLinks = false
+    let needMARCRecord = true
+    let showOnlineAccessHostname = false
+    let alwaysUseActionSheetForOnlineLinks = true
     let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
