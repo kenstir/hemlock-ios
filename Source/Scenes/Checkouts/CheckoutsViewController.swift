@@ -236,11 +236,10 @@ extension CheckoutsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "CheckoutsTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CheckoutsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "checkoutsCell", for: indexPath) as? CheckoutsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
-        
+
         let item = items[indexPath.row]
 
         cell.title.text = item.title

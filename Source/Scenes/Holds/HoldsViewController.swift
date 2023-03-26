@@ -329,7 +329,7 @@ extension HoldsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HoldsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "holdsCell", for: indexPath) as? HoldsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
         
