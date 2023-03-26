@@ -1,6 +1,3 @@
-//
-//  SearchService.swift
-//
 //  Copyright (C) 2018 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -35,13 +32,13 @@ class SearchService {
         }
         return promise
     }
-    
+
     static func fetchCopyCount(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {
         let req = Gateway.makeRequest(service: API.search, method: API.copyCount, args: [orgID, recordID], shouldCache: false)
         let promise = req.gatewayArrayResponse()
         return promise
     }
-    
+
     static func fetchCopyLocationCounts(org: Organization?, recordID: Int) -> Promise<(GatewayResponse)> {
         var args: [Any] = [recordID]
         if let searchOrg = org {
@@ -52,7 +49,7 @@ class SearchService {
         let promise = req.gatewayResponse()
         return promise
     }
-    
+
     static func fetchRecordMODS(forRecord record: MBRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
         let promise = req.gatewayObjectResponse().done { obj in
@@ -60,7 +57,7 @@ class SearchService {
         }
         return promise
     }
-    
+
     static func fetchHoldParts(recordID: Int) -> Promise<([OSRFObject])> {
         let param: JSONDictionary = [
             "record": recordID
