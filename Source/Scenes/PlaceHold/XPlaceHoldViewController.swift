@@ -349,7 +349,7 @@ class XPlaceHoldViewController: ASDKViewController<ASDisplayNode> {
         
         // inset entire page
         let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 4), child: pageSpec)
-        print(spec.asciiArtString())
+//        print(spec.asciiArtString())
         return spec
     }
     

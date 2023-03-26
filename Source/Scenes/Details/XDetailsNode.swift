@@ -447,7 +447,7 @@ class XDetailsNode: ASCellNode {
             pageSpec.children?.append(extrasButton)
         }
         pageSpec.children?.append(contentsOf: [subject, isbn])
-        print(pageSpec.asciiArtString())
+//        print(pageSpec.asciiArtString())
         
         let page = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16), child: pageSpec)
         

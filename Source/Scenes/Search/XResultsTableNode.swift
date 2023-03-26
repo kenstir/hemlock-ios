@@ -175,7 +175,7 @@ class XResultsTableNode: ASCellNode {
                                         children: [lhsSpec, rhsSpec])
         
         let spec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 4.0), child: rowSpec)
-        //print(spec.asciiArtString())
+//        print(spec.asciiArtString())
         return spec
     }
 
