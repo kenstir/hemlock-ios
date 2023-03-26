@@ -16,6 +16,7 @@
 
 import PromiseKit
 import UIKit
+import os.log
 
 class ResultsViewController: UIViewController {
 
@@ -52,6 +53,7 @@ class ResultsViewController: UIViewController {
 
     func setupViews() {
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         tableView.delegate = self
 
         // create and style the activity indicator
@@ -63,12 +65,69 @@ class ResultsViewController: UIViewController {
 
     func fetchData() {
 
+        // spike some fake data
+        let ids = [
+            1338419,
+            2532415,
+            1323791,
+            4925739,
+            6184453,
+            2531937,
+            2531538,
+            2769194,
+            2288759,
+            2315122,
+            5759294,
+            2286966,
+            2411394,
+            4454010,
+            4453951,
+            2411409,
+            4454005,
+            1981694,
+            2391387,
+            1934220,
+        ]
+        var records: [AsyncRecord] = []
+        for (row, id) in ids.enumerated() {
+            records.append(AsyncRecord(id: id, row: row))
+        }
+        fetchRecordDetails(records: records)
+    }
+
+    func fetchRecordDetails(records: [AsyncRecord]) {
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        // spike
-        let x = after(seconds: 1.5)
-        self.activityIndicator.stopAnimating()
+        startOfSearch = Date()
+        var promises: [Promise<Void>] = []
+        for record in records {
+            promises.append(contentsOf: record.startPrefetch())
+        }
+        print("xxx \(promises.count) promises made")
+
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            print("xxx \(promises.count) promises fulfilled")
+            self.didCompleteSearch = true
+            for record in records {
+                record.markPrefetchDone()
+            }
+            self.updateItems(withRecords: records)
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+            let elapsed = -self.startOfSearch.timeIntervalSinceNow
+            os_log("search.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    func updateItems(withRecords records: [AsyncRecord]) {
+        self.items = records
+        print("xxx \(records.count) records now, time to reloadData")
+        tableView.reloadData()
     }
 }
 
@@ -97,10 +156,11 @@ extension ResultsViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as? ResultsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "xxxCell", for: indexPath) as? ResultsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
 
+        os_log("[%s] row=%02d cellForRowAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), indexPath.row)
         guard items.count > indexPath.row else { return cell }
         let record = items[indexPath.row]
 
@@ -112,9 +172,23 @@ extension ResultsViewController : UITableViewDataSource {
 
 }
 
+//MARK: - UITableViewDataSourcePrefetching
+
+extension ResultsViewController : UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if let first = indexPaths.first,
+           let last = indexPaths.last {
+            let firstRow = items[first.row].row
+            let lastRow = items[last.row].row
+            os_log("[%s] rows=%d..%d prefetchRowsAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), firstRow, lastRow)
+        }
+    }
+}
+
 //MARK: - UITableViewDelegate
 
 extension ResultsViewController : UITableViewDelegate {
+    // Some iOS update shrunk the default height of grouped tables, so we need this
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Style.tableHeaderHeight
     }

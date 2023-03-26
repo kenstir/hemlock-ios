@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultsCell" textLabel="TRn-gF-B2F" detailTextLabel="jO5-BH-Phb" style="IBUITableViewCellStyleValue1" id="N8q-AL-rwl">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="xxxCell" textLabel="TRn-gF-B2F" detailTextLabel="jO5-BH-Phb" style="IBUITableViewCellStyleValue1" id="N8q-AL-rwl" customClass="ResultsTableViewCell" customModule="COOL" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N8q-AL-rwl" id="jJm-su-YnP" customClass="ResultsTableViewCell" customModule="COOL" customModuleProvider="target">

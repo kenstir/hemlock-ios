@@ -23,7 +23,7 @@ class AsyncRecord: MBRecord {
     //MARK: - Properties
 
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "AsyncRecord")
-    private let row: Int
+    let row: Int
     private let lock = NSLock()
     var promises: [Promise<Void>] = []
     enum LoadState {
@@ -44,8 +44,9 @@ class AsyncRecord: MBRecord {
     //MARK: - Functions
 
     /// free-threaded
-    func startPrefetchRecordDetails() -> [Promise<Void>] {
-        os_log("[%s] row=%2d prefetch", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
+    // TODO: may not be necessary with MainActor UITableView
+    func startPrefetch() -> [Promise<Void>] {
+        os_log("[%s] row=%2d prefetch state=%s", log: AsyncRecord.log, type: .info, Thread.current.tag(), row, String(describing: state))
         lock.lock()
         defer { lock.unlock() }
 
@@ -60,6 +61,16 @@ class AsyncRecord: MBRecord {
         case .loaded:
             return promises
         }
+    }
+
+    /// free-threaded
+    // TODO: may not be necessary with MainActor UITableView
+    func markPrefetchDone() {
+        lock.lock()
+        defer { lock.unlock() }
+
+        promises = []
+        state = .loaded
     }
 
     static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [AsyncRecord] {

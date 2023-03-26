@@ -225,7 +225,7 @@ extension XResultsViewController: ASTableDataSource {
     func tableNode(_ tableNode: ASTableNode, willDisplayRowWith node: ASCellNode) {
         guard let recordNode = node as? XResultsTableNode else { return }
         os_log("[%s] row=%2d id=%d willDisplayRowWith", log: AsyncRecord.log, type: .info, Thread.current.tag(), recordNode.row, recordNode.record.id)
-        _ = recordNode.record.startPrefetchRecordDetails()
+        _ = recordNode.record.startPrefetch()
     }
 
 //    func tableNode(_ tableNode: ASTableNode, didEndDisplayingRowWith node: ASCellNode) {
