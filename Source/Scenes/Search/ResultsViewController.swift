@@ -156,7 +156,7 @@ extension ResultsViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "xxxCell", for: indexPath) as? ResultsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as? ResultsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
 
@@ -175,6 +175,7 @@ extension ResultsViewController : UITableViewDataSource {
 //MARK: - UITableViewDataSourcePrefetching
 
 extension ResultsViewController : UITableViewDataSourcePrefetching {
+    // TODO: if prefetching is necessary to prevent hitching do it here; if not save the extra network requests
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if let first = indexPaths.first,
            let last = indexPaths.last {

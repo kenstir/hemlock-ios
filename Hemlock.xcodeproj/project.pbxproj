@@ -2631,8 +2631,8 @@
 				D23E59FF20ED96E8005EB391 /* XResultsTableNode.swift */,
 				D23E5A0020ED96E9005EB391 /* XResultsViewController.swift */,
 				D24D490629D0B09100EB9C8A /* Results.storyboard */,
-				D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */,
 				D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */,
+				D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
