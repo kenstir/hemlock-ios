@@ -17,5 +17,8 @@
 import UIKit
 
 class ResultsTableViewCell: UITableViewCell {
-    
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var format: UILabel!
+    @IBOutlet weak var pubinfo: UILabel!
 }

@@ -22,7 +22,7 @@ class ResultsViewController: UIViewController {
 
     //MARK: - Properties
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     weak var activityIndicator: UIActivityIndicatorView!
 
     var searchParameters: SearchParameters?
@@ -70,23 +70,23 @@ class ResultsViewController: UIViewController {
             1338419,
             2532415,
             1323791,
-            4925739,
-            6184453,
-            2531937,
-            2531538,
-            2769194,
-            2288759,
-            2315122,
-            5759294,
-            2286966,
-            2411394,
-            4454010,
-            4453951,
-            2411409,
-            4454005,
-            1981694,
-            2391387,
-            1934220,
+//            4925739,
+//            6184453,
+//            2531937,
+//            2531538,
+//            2769194,
+//            2288759,
+//            2315122,
+//            5759294,
+//            2286966,
+//            2411394,
+//            4454010,
+//            4453951,
+//            2411409,
+//            4454005,
+//            1981694,
+//            2391387,
+//            1934220,
         ]
         var records: [AsyncRecord] = []
         for (row, id) in ids.enumerated() {
@@ -101,6 +101,7 @@ class ResultsViewController: UIViewController {
 
         startOfSearch = Date()
         var promises: [Promise<Void>] = []
+        promises.append(PCRUDService.fetchCodedValueMaps()) // TODO: needed only for spike
         for record in records {
             promises.append(contentsOf: record.startPrefetch())
         }
@@ -164,10 +165,16 @@ extension ResultsViewController : UITableViewDataSource {
         guard items.count > indexPath.row else { return cell }
         let record = items[indexPath.row]
 
-        cell.textLabel?.text = record.title
-        cell.detailTextLabel?.text = record.author
+        cell.title.text = record.title
+        cell.author.text = record.author
+        cell.format.text = record.iconFormatLabel
+        cell.pubinfo.text = record.pubinfo
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 
 }
@@ -192,5 +199,11 @@ extension ResultsViewController : UITableViewDelegate {
     // Some iOS update shrunk the default height of grouped tables, so we need this
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Style.tableHeaderHeight
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.organizationShortName)
+        let vc = XDetailsPagerViewController(items: items, selectedItem: indexPath.row, displayOptions: displayOptions)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
