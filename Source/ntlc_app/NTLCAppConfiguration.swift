@@ -18,16 +18,16 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class NTLCAppConfiguration: AppConfiguration {
-    let title = "EG Indiana"
-    let url = "https://evergreen.lib.in.us"
+    var title = "PINES"
+    let url = "https://gapines.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    var sort: String? = nil
+    let sort: String? = nil
     let detailsExtraLinkText: String? = nil
     let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = nil
 
     let enableHierarchicalOrgTree = true
-    let enableHoldShowQueuePosition = true
+    let enableHoldShowQueuePosition = false
     let enableHoldShowExpiration = false
     let enableHoldPhoneNotification = true
     let enableHoldUseOverride = false
@@ -39,7 +39,7 @@ class NTLCAppConfiguration: AppConfiguration {
     let enableMessages = false
     let enableEventsButton = false
     let groupCopyInfoBySystem = false
-    let enableCopyInfoWebLinks = false
+    let enableCopyInfoWebLinks = true
     let needMARCRecord = true
     let showOnlineAccessHostname = false
     let alwaysUseActionSheetForOnlineLinks = true
