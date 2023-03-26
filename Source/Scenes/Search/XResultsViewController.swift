@@ -38,7 +38,7 @@ class XResultsViewController: ASDKViewController<ASTableNode> {
     private var tableNode: ASTableNode {
         return node
     }
-    
+
     //MARK: - Lifecycle
 
     override init() {
