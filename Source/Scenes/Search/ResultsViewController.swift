@@ -14,8 +14,9 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-//import AlamofireImage
 import PromiseKit
+import PMKFoundation
+import PMKAlamofire
 import UIKit
 import os.log
 
@@ -170,25 +171,22 @@ extension ResultsViewController : UITableViewDataSource {
         cell.pubinfo.text = record.pubinfo
 
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
+
             print("\(url)")
-            //let fetchImage = URLSession.shared.dataTask(.promise, with: url).compactMap{ UIImage(data: $0.data) }
-//
+
+            let fetchImage = URLSession.shared.dataTask(.promise, with: url).compactMap{ UIImage(data: $0.data) }
+            print("\(fetchImage)")
+            print("stop here")
+
+//            let fetchImage = URLSession.shared.dataTask(.promise, with: url).compactMap{ UIImage(data: $0.data) }
 //            firstly {
-//                when(fulfilled: fetchImage)
+//                URLSession.shared.dataTask(with: url).compactMap{ UIImage(data: $0.data) }
 //            }.done { image in
 //                cell.coverImage.image = image
 //            }.catch { error in
 //                self.presentGatewayAlert(forError: error)
 //            }
         }
-
-//        cell.coverImage.contentMode = .scaleAspectFit
-//        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
-//            print("\(url)")
-//            cell.coverImage.af_setImage(withURL: url)
-//        } else {
-//            cell.coverImage = nil
-//        }
 
         return cell
     }
