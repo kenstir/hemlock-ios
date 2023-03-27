@@ -169,6 +169,19 @@ extension ResultsViewController : UITableViewDataSource {
         cell.format.text = record.iconFormatLabel
         cell.pubinfo.text = record.pubinfo
 
+        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
+            print("\(url)")
+            //let fetchImage = URLSession.shared.dataTask(.promise, with: url).compactMap{ UIImage(data: $0.data) }
+//
+//            firstly {
+//                when(fulfilled: fetchImage)
+//            }.done { image in
+//                cell.coverImage.image = image
+//            }.catch { error in
+//                self.presentGatewayAlert(forError: error)
+//            }
+        }
+
 //        cell.coverImage.contentMode = .scaleAspectFit
 //        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
 //            print("\(url)")
