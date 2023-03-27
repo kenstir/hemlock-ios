@@ -73,6 +73,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="author" destination="58f-dT-yN4" id="HlO-Wi-Xie"/>
+                                            <outlet property="coverImage" destination="qxc-WO-FJC" id="kk5-Qf-4Jd"/>
                                             <outlet property="format" destination="YkC-Ao-4HX" id="Zfk-0a-qOp"/>
                                             <outlet property="pubinfo" destination="6aM-GH-axe" id="KmW-17-w6O"/>
                                             <outlet property="title" destination="oFL-sf-Ghz" id="P8h-cI-1zY"/>

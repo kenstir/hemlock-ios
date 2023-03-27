@@ -14,6 +14,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+//import AlamofireImage
 import PromiseKit
 import UIKit
 import os.log
@@ -65,29 +66,27 @@ class ResultsViewController: UIViewController {
 
     func fetchData() {
 
-        // spike some fake data
         let ids = [
-            1338419,
-            2532415,
-            1323791,
-//            4925739,
-//            6184453,
-//            2531937,
-//            2531538,
-//            2769194,
-//            2288759,
-//            2315122,
-//            5759294,
-//            2286966,
-//            2411394,
-//            4454010,
-//            4453951,
-//            2411409,
-//            4454005,
-//            1981694,
-//            2391387,
-//            1934220,
+             2068649,
+             4291061,
+             4421405,
+             842868,
+             4435770,
+             3409397,
+             2282542,
+             2214529,
+             1218496,
+             4421408,
+             4421407,
+             2221651,
+             3078816,
+             2025727,
+             1240712,
+             4247050,
+             4160701,
+             4257515,
         ]
+
         var records: [AsyncRecord] = []
         for (row, id) in ids.enumerated() {
             records.append(AsyncRecord(id: id, row: row))
@@ -169,6 +168,14 @@ extension ResultsViewController : UITableViewDataSource {
         cell.author.text = record.author
         cell.format.text = record.iconFormatLabel
         cell.pubinfo.text = record.pubinfo
+
+//        cell.coverImage.contentMode = .scaleAspectFit
+//        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
+//            print("\(url)")
+//            cell.coverImage.af_setImage(withURL: url)
+//        } else {
+//            cell.coverImage = nil
+//        }
 
         return cell
     }

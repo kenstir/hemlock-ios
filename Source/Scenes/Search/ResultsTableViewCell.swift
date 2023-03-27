@@ -21,4 +21,5 @@ class ResultsTableViewCell: UITableViewCell {
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var format: UILabel!
     @IBOutlet weak var pubinfo: UILabel!
+    @IBOutlet weak var coverImage: UIImageView!
 }
