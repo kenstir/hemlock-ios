@@ -1,7 +1,7 @@
 github "Alamofire/Alamofire" == 4.8.2
 github "texturegroup/texture" == 3.1.0
 github "mxcl/PromiseKit" == 6.22.0
-github "PromiseKit/Alamofire-" == 3.2.3
+github "kenstir/PMKAlamofire" "fef3ae07939aef0cbc455fa54d392f0f5288d6e9"
 github "PromiseKit/Foundation" == 3.4.0
 github "Square/Valet" == 3.2.3
 github "scalessec/Toast-Swift" == 4.0.1
