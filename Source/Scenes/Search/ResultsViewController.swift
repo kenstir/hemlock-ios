@@ -74,19 +74,19 @@ class ResultsViewController: UIViewController {
              4421405,
              842868,
              4435770,
-             3409397,
-             2282542,
-             2214529,
-             1218496,
-             4421408,
-             4421407,
-             2221651,
-             3078816,
-             2025727,
-             1240712,
-             4247050,
-             4160701,
-             4257515,
+//             3409397,
+//             2282542,
+//             2214529,
+//             1218496,
+//             4421408,
+//             4421407,
+//             2221651,
+//             3078816,
+//             2025727,
+//             1240712,
+//             4247050,
+//             4160701,
+//             4257515,
         ]
 
         var records: [AsyncRecord] = []
@@ -173,7 +173,7 @@ extension ResultsViewController : UITableViewDataSource {
 
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(record.id)) {
 
-            cell.coverImage.contentMode = .scaleAspectFill
+//            cell.coverImage.contentMode = .scaleAspectFit
             cell.coverImage.pin_setImage(from: url)
         }
 

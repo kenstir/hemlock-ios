@@ -1543,18 +1543,7 @@
 		D2F390362241E5950089D745 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3902F2241E5950089D745 /* RingBuffer.swift */; };
 		D2F390372241E5950089D745 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3902F2241E5950089D745 /* RingBuffer.swift */; };
 		D2F390392241E6090089D745 /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F390382241E6090089D745 /* RingBufferTests.swift */; };
-		D2F9707629D255810004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9707929D2558C0004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9707C29D255980004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9707F29D255A60004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9708229D255B20004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9708529D255BD0004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9708829D255C60004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9708B29D255D20004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9708E29D255DC0004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
-		D2F9709129D255E80004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
 		D2F9709429D255F10004C645 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D2F9709729D256010004C645 /* PMKFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F9707529D255810004C645 /* PMKFoundation.framework */; };
 		FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
 		FA37C3F920FC2A09003C2003 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
@@ -1831,7 +1820,6 @@
 		D2F3902E2241E5950089D745 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D2F3902F2241E5950089D745 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		D2F390382241E6090089D745 /* RingBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
-		D2F9707529D255810004C645 /* PMKFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKFoundation.framework; path = Carthage/Build/iOS/PMKFoundation.framework; sourceTree = "<group>"; };
 		FA273D0420D884D8009B152F /* FinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesTableViewCell.swift; sourceTree = "<group>"; };
 		FA37C3F820FC2A09003C2003 /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
 		FA57B93720EECD3F00DE99DF /* HoldsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsTableViewCell.swift; sourceTree = "<group>"; };
@@ -1857,7 +1845,6 @@
 				D210EC1E22B1EE55002FB5E0 /* PromiseKit.framework in Frameworks */,
 				D2F9709429D255F10004C645 /* PMKAlamofire.framework in Frameworks */,
 				D210EC1F22B1EE55002FB5E0 /* PMKAlamofire.framework in Frameworks */,
-				D2F9709729D256010004C645 /* PMKFoundation.framework in Frameworks */,
 				D210EC2022B1EE55002FB5E0 /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1866,7 +1853,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9707629D255810004C645 /* PMKFoundation.framework in Frameworks */,
 				D23E9FBF23B9200A0030F5C1 /* Valet.framework in Frameworks */,
 				D23E9FC023B9200A0030F5C1 /* PINOperation.framework in Frameworks */,
 				D23E9FC123B9200A0030F5C1 /* Alamofire.framework in Frameworks */,
@@ -1884,7 +1870,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9708829D255C60004C645 /* PMKFoundation.framework in Frameworks */,
 				D2477C0D24785A6B00FD4CF6 /* Valet.framework in Frameworks */,
 				D2477C0E24785A6B00FD4CF6 /* PINOperation.framework in Frameworks */,
 				D2477C0F24785A6B00FD4CF6 /* Alamofire.framework in Frameworks */,
@@ -1902,7 +1887,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9708529D255BD0004C645 /* PMKFoundation.framework in Frameworks */,
 				D2572B0024AD7755000BA698 /* Valet.framework in Frameworks */,
 				D2572B0124AD7755000BA698 /* PINOperation.framework in Frameworks */,
 				D2572B0224AD7755000BA698 /* Alamofire.framework in Frameworks */,
@@ -1920,7 +1904,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9707C29D255980004C645 /* PMKFoundation.framework in Frameworks */,
 				D25EECAB28A1E8310090F108 /* Valet.framework in Frameworks */,
 				D25EECAC28A1E8310090F108 /* PINOperation.framework in Frameworks */,
 				D25EECAD28A1E8310090F108 /* Alamofire.framework in Frameworks */,
@@ -1938,7 +1921,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9708E29D255DC0004C645 /* PMKFoundation.framework in Frameworks */,
 				D276DAC821336B20007FAA31 /* Valet.framework in Frameworks */,
 				D276DAC921336B20007FAA31 /* PINOperation.framework in Frameworks */,
 				D276DACA21336B20007FAA31 /* Alamofire.framework in Frameworks */,
@@ -1956,7 +1938,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9708B29D255D20004C645 /* PMKFoundation.framework in Frameworks */,
 				D27990F220DDD473003B451E /* Valet.framework in Frameworks */,
 				D27990F320DDD473003B451E /* PINOperation.framework in Frameworks */,
 				D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */,
@@ -1974,7 +1955,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9709129D255E80004C645 /* PMKFoundation.framework in Frameworks */,
 				D284249321D0358200C7171C /* Valet.framework in Frameworks */,
 				D284249421D0358200C7171C /* PINOperation.framework in Frameworks */,
 				D284249521D0358200C7171C /* Alamofire.framework in Frameworks */,
@@ -1992,7 +1972,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9707929D2558C0004C645 /* PMKFoundation.framework in Frameworks */,
 				D2211B0620D0BA840043947B /* Valet.framework in Frameworks */,
 				D253344420C30A60008176B9 /* PINOperation.framework in Frameworks */,
 				D231B5292081628900478D25 /* Alamofire.framework in Frameworks */,
@@ -2017,7 +1996,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9708229D255B20004C645 /* PMKFoundation.framework in Frameworks */,
 				D2BDA66022D176BD00D9B60C /* Valet.framework in Frameworks */,
 				D2BDA66122D176BD00D9B60C /* PINOperation.framework in Frameworks */,
 				D2BDA66222D176BD00D9B60C /* Alamofire.framework in Frameworks */,
@@ -2035,7 +2013,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2F9707F29D255A60004C645 /* PMKFoundation.framework in Frameworks */,
 				D2BDA6F822D2A72000D9B60C /* Valet.framework in Frameworks */,
 				D2BDA6F922D2A72000D9B60C /* PINOperation.framework in Frameworks */,
 				D2BDA6FA22D2A72000D9B60C /* Alamofire.framework in Frameworks */,
@@ -2314,7 +2291,6 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2F9707529D255810004C645 /* PMKFoundation.framework */,
 				D29A3B292197C14900BBF192 /* ZXingObjC.framework */,
 				D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */,
 				D2211B0520D0BA840043947B /* Valet.framework */,
