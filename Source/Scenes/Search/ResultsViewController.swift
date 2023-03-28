@@ -174,18 +174,12 @@ extension ResultsViewController : UITableViewDataSource {
 
             print("\(url)")
 
-            let fetchImage = URLSession.shared.dataTask(.promise, with: url).compactMap{ UIImage(data: $0.data) }
-            print("\(fetchImage)")
-            print("stop here")
-
-//            let fetchImage = URLSession.shared.dataTask(.promise, with: url).compactMap{ UIImage(data: $0.data) }
-//            firstly {
-//                URLSession.shared.dataTask(with: url).compactMap{ UIImage(data: $0.data) }
-//            }.done { image in
-//                cell.coverImage.image = image
-//            }.catch { error in
-//                self.presentGatewayAlert(forError: error)
-//            }
+            let promise = URLSession.shared.dataTask(.promise, with: url).compactMap{ UIImage(data: $0.data) }
+            promise.done { image in
+                cell.coverImage.image = image
+            }.catch { error in
+                self.presentGatewayAlert(forError: error)
+            }
         }
 
         return cell
