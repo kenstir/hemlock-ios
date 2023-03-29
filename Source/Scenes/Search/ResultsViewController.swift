@@ -67,42 +67,37 @@ class ResultsViewController: UIViewController {
     }
 
     func fetchData() {
-
-        let ids = [
-             2068649,
-             4291061,
-             4421405,
-             842868,
-             4435770,
-             3409397,
-             2282542,
-             2214529,
-             1218496,
-             4421408,
-             4421407,
-             2221651,
-             3078816,
-             2025727,
-             1240712,
-             4247050,
-             4160701,
-             4257515,
-        ]
-
-        var records: [AsyncRecord] = []
-        for (row, id) in ids.enumerated() {
-            records.append(AsyncRecord(id: id, row: row))
+        if didCompleteSearch {
+            return
         }
-        fetchRecordDetails(records: records)
+        guard let query = getQueryString() else { return }
+
+        print("--- fetchData query:\(query)")
+        activityIndicator.startAnimating()
+        startOfSearch = Date()
+
+        // search
+        let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
+        let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1], shouldCache: true)
+        req.gatewayOptionalObjectResponse().done { obj in
+            let elapsed = -self.startOfSearch.timeIntervalSinceNow
+            os_log("search.query: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+            let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
+            self.fetchRecordDetails(records: records)
+        }.catch { error in
+            self.updateTableSectionHeader(onError: error)
+            self.presentGatewayAlert(forError: error)
+        }.finally {
+            self.activityIndicator.stopAnimating()
+        }
     }
 
     func fetchRecordDetails(records: [AsyncRecord]) {
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        startOfSearch = Date()
         var promises: [Promise<Void>] = []
-        promises.append(PCRUDService.fetchCodedValueMaps()) // TODO: needed only for spike
+        promises.append(PCRUDService.fetchCodedValueMaps())
         for record in records {
             promises.append(contentsOf: record.startPrefetch())
         }
@@ -120,16 +115,42 @@ class ResultsViewController: UIViewController {
         }.ensure {
             self.activityIndicator.stopAnimating()
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
-            os_log("search.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+            os_log("search.details: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
+    }
+
+    // Force update of status string in table section header
+    func updateTableSectionHeader(onError error: Error) {
+        tableView.reloadData()
     }
 
     func updateItems(withRecords records: [AsyncRecord]) {
         self.items = records
         print("xxx \(records.count) records now, time to reloadData")
         tableView.reloadData()
+    }
+
+    // Build query string, taken with a grain of salt from
+    // https://wiki.evergreen-ils.org/doku.php?id=documentation:technical:search_grammar
+    // e.g. "title:Harry Potter chamber of secrets search_format(book) site(MARLBORO)"
+    func getQueryString() -> String? {
+        guard let sp = searchParameters else {
+            showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing search parameters"))
+            return nil
+        }
+        var query = "\(sp.searchClass):\(sp.text)"
+        if let sf = sp.searchFormat, !sf.isEmpty {
+            query += " search_format(\(sf))"
+        }
+        if let org = sp.organizationShortName, !org.isEmpty {
+            query += " site(\(org))"
+        }
+        if let sort = sp.sort {
+            query += " sort(\(sort))"
+        }
+        return query
     }
 }
 

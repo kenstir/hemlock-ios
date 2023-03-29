@@ -245,10 +245,11 @@ class SearchViewController: UIViewController {
         let searchFormat = CodedValueMap.searchFormatCode(forLabel: searchFormatLabel)
         let searchOrg = Organization.visibleOrgs[searchOrgIndex]
         let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg.shortname, sort: App.config.sort)
-        let vc = XResultsViewController()
-        vc.searchParameters = params
-        print("--- searchParams \(String(describing: vc.searchParameters))")
-        self.navigationController?.pushViewController(vc, animated: true)
+
+        if let vc = UIStoryboard(name: "Results", bundle: nil).instantiateInitialViewController() as? ResultsViewController {
+            vc.searchParameters = params
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     func searchClass(forLabel label: String) -> String {
