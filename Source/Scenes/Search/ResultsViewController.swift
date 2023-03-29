@@ -73,6 +73,7 @@ class ResultsViewController: UIViewController {
         guard let query = getQueryString() else { return }
 
         print("--- fetchData query:\(query)")
+        //centerSubview(activityIndicator)
         activityIndicator.startAnimating()
         startOfSearch = Date()
 
@@ -84,6 +85,7 @@ class ResultsViewController: UIViewController {
             os_log("search.query: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
             let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
             self.fetchRecordDetails(records: records)
+            self.didCompleteSearch = true
         }.catch { error in
             self.updateTableSectionHeader(onError: error)
             self.presentGatewayAlert(forError: error)
@@ -93,12 +95,16 @@ class ResultsViewController: UIViewController {
     }
 
     func fetchRecordDetails(records: [AsyncRecord]) {
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         var promises: [Promise<Void>] = []
         promises.append(PCRUDService.fetchCodedValueMaps())
-        for record in records {
+
+        // Preload some records in a batch, or else they will get loaded
+        // individually on demand by cellForRowAt.
+        let maxRecordsToPreload = 6 // best estimate is 5 on screen + 1 partial
+        let preloadedRecords = records.prefix(maxRecordsToPreload)
+        for record in preloadedRecords {
             promises.append(contentsOf: record.startPrefetch())
         }
         print("xxx \(promises.count) promises made")
@@ -107,8 +113,7 @@ class ResultsViewController: UIViewController {
             when(fulfilled: promises)
         }.done {
             print("xxx \(promises.count) promises fulfilled")
-            self.didCompleteSearch = true
-            for record in records {
+            for record in preloadedRecords {
                 record.markPrefetchDone()
             }
             self.updateItems(withRecords: records)
@@ -179,19 +184,28 @@ extension ResultsViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as? ResultsTableViewCell else {
-            fatalError("dequeued cell of wrong class!")
-        }
-
         os_log("[%s] row=%02d cellForRowAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as! ResultsTableViewCell
         guard items.count > indexPath.row else { return cell }
         let record = items[indexPath.row]
 
-        cell.title.text = record.title
-        cell.author.text = record.author
-        cell.format.text = record.iconFormatLabel
-        cell.pubinfo.text = record.pubinfo
+        // load the data if not already loaded
+        let promises = record.startPrefetch()
+        firstly {
+            when(fulfilled: promises)
+        }.done {
+            record.markPrefetchDone()
+            cell.title.text = record.title
+            cell.author.text = record.author
+            cell.format.text = record.iconFormatLabel
+            cell.pubinfo.text = record.pubinfo
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
 
+        // set the coverimage
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(record.id)) {
             cell.coverImage.pin_setImage(from: url)
         }
