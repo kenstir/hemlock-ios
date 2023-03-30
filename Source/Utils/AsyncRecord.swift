@@ -45,8 +45,17 @@ class AsyncRecord: MBRecord {
 
     /// free-threaded
     // TODO: may not be necessary with MainActor UITableView
+    func getState() -> LoadState {
+        lock.lock()
+        defer { lock.unlock() }
+
+        return state
+    }
+
+    /// free-threaded
+    // TODO: may not be necessary with MainActor UITableView
     func startPrefetch() -> [Promise<Void>] {
-        os_log("[%s] row=%2d prefetch state=%s", log: AsyncRecord.log, type: .info, Thread.current.tag(), row, String(describing: state))
+        os_log("[%s] row=%02d prefetch state=%s", log: AsyncRecord.log, type: .info, Thread.current.tag(), row, String(describing: state))
         lock.lock()
         defer { lock.unlock() }
 
@@ -66,6 +75,7 @@ class AsyncRecord: MBRecord {
     /// free-threaded
     // TODO: may not be necessary with MainActor UITableView
     func markPrefetchDone() {
+        os_log("[%s] row=%02d done", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
         lock.lock()
         defer { lock.unlock() }
 

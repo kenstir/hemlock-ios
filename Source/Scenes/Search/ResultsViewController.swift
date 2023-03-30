@@ -72,7 +72,6 @@ class ResultsViewController: UIViewController {
         }
         guard let query = getQueryString() else { return }
 
-        print("--- fetchData query:\(query)")
         //centerSubview(activityIndicator)
         activityIndicator.startAnimating()
         startOfSearch = Date()
@@ -97,22 +96,22 @@ class ResultsViewController: UIViewController {
     func fetchRecordDetails(records: [AsyncRecord]) {
         activityIndicator.startAnimating()
 
-        var promises: [Promise<Void>] = []
-        promises.append(PCRUDService.fetchCodedValueMaps())
-
-        // Preload some records in a batch, or else they will get loaded
+        // Select subset of records to preload in a batch, or else they will get loaded
         // individually on demand by cellForRowAt.
         let maxRecordsToPreload = 6 // best estimate is 5 on screen + 1 partial
         let preloadedRecords = records.prefix(maxRecordsToPreload)
+        os_log("[%s] fetchRecordDetails first %d records", log: AsyncRecord.log, type: .info, Thread.current.tag(), preloadedRecords.count)
+
+        // Collect promises
+        var promises: [Promise<Void>] = []
+        promises.append(PCRUDService.fetchCodedValueMaps())
         for record in preloadedRecords {
             promises.append(contentsOf: record.startPrefetch())
         }
-        print("xxx \(promises.count) promises made")
 
         firstly {
             when(fulfilled: promises)
         }.done {
-            print("xxx \(promises.count) promises fulfilled")
             for record in preloadedRecords {
                 record.markPrefetchDone()
             }
@@ -190,19 +189,21 @@ extension ResultsViewController : UITableViewDataSource {
         let record = items[indexPath.row]
 
         // load the data if not already loaded
-        let promises = record.startPrefetch()
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            record.markPrefetchDone()
-            cell.title.text = record.title
-            cell.author.text = record.author
-            cell.format.text = record.iconFormatLabel
-            cell.pubinfo.text = record.pubinfo
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
+        if record.getState() == .loaded {
+            setCellMetadata(cell, forRecord: record)
+        } else {
+            setCellMetadata(cell, forRecord: nil)
+            let promises = record.startPrefetch()
+            firstly {
+                when(fulfilled: promises)
+            }.done {
+                record.markPrefetchDone()
+                self.setCellMetadata(cell, forRecord: record)
+            }.ensure {
+                self.activityIndicator.stopAnimating()
+            }.catch { error in
+                self.presentGatewayAlert(forError: error)
+            }
         }
 
         // set the coverimage
@@ -213,10 +214,12 @@ extension ResultsViewController : UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+    func setCellMetadata(_ cell: ResultsTableViewCell, forRecord record: AsyncRecord?) {
+        cell.title.text = record?.title
+        cell.author.text = record?.author
+        cell.format.text = record?.iconFormatLabel
+        cell.pubinfo.text = record?.pubinfo
     }
-
 }
 
 //MARK: - UITableViewDataSourcePrefetching
@@ -224,12 +227,11 @@ extension ResultsViewController : UITableViewDataSource {
 extension ResultsViewController : UITableViewDataSourcePrefetching {
     // TODO: if prefetching is necessary to prevent hitching do it here; if not save the extra network requests
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        if let first = indexPaths.first,
-           let last = indexPaths.last {
-            let firstRow = items[first.row].row
-            let lastRow = items[last.row].row
-            os_log("[%s] rows=%d..%d prefetchRowsAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), firstRow, lastRow)
-        }
+        guard let first = indexPaths.first,
+              let last = indexPaths.last else { return }
+        let firstRow = items[first.row].row
+        let lastRow = items[last.row].row
+        os_log("[%s] rows=%d..%d prefetchRowsAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), firstRow, lastRow)
     }
 }
 
