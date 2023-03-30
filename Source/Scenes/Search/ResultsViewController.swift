@@ -230,11 +230,20 @@ extension ResultsViewController : UITableViewDataSource {
 extension ResultsViewController : UITableViewDataSourcePrefetching {
     // TODO: if prefetching is necessary to prevent hitching do it here; if not save the extra network requests
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        guard let first = indexPaths.first,
-              let last = indexPaths.last else { return }
-        let firstRow = items[first.row].row
-        let lastRow = items[last.row].row
-        os_log("[%s] rows=%d..%d prefetchRowsAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), firstRow, lastRow)
+//        guard let first = indexPaths.first,
+//              let last = indexPaths.last else { return }
+//        let firstRow = items[first.row].row
+//        let lastRow = items[last.row].row
+//        os_log("[%s] rows=%d..%d prefetchRowsAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), firstRow, lastRow)
+        os_log("[%s] prefetchRowsAt %d rows", log: AsyncRecord.log, type: .info, Thread.current.tag(), indexPaths.count)
+        for indexPath in indexPaths {
+            guard items.count > indexPath.row else { return }
+            let record = items[indexPath.row]
+
+            if record.getState() == .initial {
+                _ = record.startPrefetch()
+            }
+        }
     }
 }
 
