@@ -46,5 +46,5 @@ class CWMarsAppConfiguration: AppConfiguration {
     let haveColorButtonImages = true
 
     let barcodeFormat: BarcodeFormat = .Codabar
-    let searchLimit = 200
+    let searchLimit = 100
 }
