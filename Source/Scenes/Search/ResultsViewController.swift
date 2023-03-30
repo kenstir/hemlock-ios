@@ -86,10 +86,9 @@ class ResultsViewController: UIViewController {
             self.fetchRecordDetails(records: records)
             self.didCompleteSearch = true
         }.catch { error in
+            self.activityIndicator.stopAnimating()
             self.updateTableSectionHeader(onError: error)
             self.presentGatewayAlert(forError: error)
-        }.finally {
-            self.activityIndicator.stopAnimating()
         }
     }
 
@@ -192,7 +191,11 @@ extension ResultsViewController : UITableViewDataSource {
         if record.getState() == .loaded {
             setCellMetadata(cell, forRecord: record)
         } else {
+            // Clear reused cells immediately or else it appears the titles
+            // change as you scroll fast
             setCellMetadata(cell, forRecord: nil)
+
+            // async load the metadata
             let promises = record.startPrefetch()
             firstly {
                 when(fulfilled: promises)
@@ -206,7 +209,7 @@ extension ResultsViewController : UITableViewDataSource {
             }
         }
 
-        // set the coverimage
+        // async load the image
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(record.id)) {
             cell.coverImage.pin_setImage(from: url)
         }
