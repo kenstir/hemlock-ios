@@ -165,7 +165,7 @@ extension ResultsViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if activityIndicator?.isAnimating ?? false {
+        if activityIndicator?.isAnimating ?? false && !didCompleteSearch {
             return "Searching..."
         } else if items.count == 0 {
             if let searchClass = searchParameters?.searchClass,
