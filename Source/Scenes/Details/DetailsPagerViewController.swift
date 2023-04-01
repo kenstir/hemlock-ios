@@ -69,13 +69,13 @@ class DetailsPagerViewController: UIViewController {
         // connect up the pager to our view hierarchy
         pageViewController.view.backgroundColor = .clear
         pageViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        addChild(pageViewController)
         view.addSubview(pageViewController.view)
+        addChild(pageViewController)
+        pageViewController.didMove(toParent: self)
 
+        // load the initial details VC
         let vc = DetailsViewController(row: currentIndex, record: pages[currentIndex].record)
-        pager?.setViewControllers([vc], direction: .forward, animated: true)
-
-        pager?.didMove(toParent: self)
+        pageViewController.setViewControllers([vc], direction: .forward, animated: true)
     }
 }
 
