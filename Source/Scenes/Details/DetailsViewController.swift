@@ -40,13 +40,12 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        pageHeaderVStack = UIStackView(frame: UIScreen.accessibilityFrame())
+//        pageHeaderVStack = UIStackView(frame: UIScreen.accessibilityFrame())
 
         titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 240, height: 24))
+        titleLabel?.center = CGPoint(x: 160, y: 250)
         titleLabel?.text = record.title
-
-        pageHeaderVStack?.addSubview(titleLabel!)
-        self.view.addSubview(pageHeaderVStack!)
+        self.view.addSubview(titleLabel!)
     }
 
     //MARK: - Functions

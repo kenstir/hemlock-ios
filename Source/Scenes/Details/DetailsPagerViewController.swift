@@ -55,13 +55,22 @@ class DetailsPagerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Item Details"
+        self.view.backgroundColor = Style.systemBackground
         setupPager()
     }
 
     func setupPager() {
-        pager = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        self.pager?.dataSource = self
-        self.pager?.delegate = self
+        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
+        self.pager = pageViewController
+
+        // connect up the pager to our view hierarchy
+        pageViewController.view.backgroundColor = .clear
+        pageViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        addChild(pageViewController)
+        view.addSubview(pageViewController.view)
 
         let vc = DetailsViewController(row: currentIndex, record: pages[currentIndex].record)
         pager?.setViewControllers([vc], direction: .forward, animated: true)
