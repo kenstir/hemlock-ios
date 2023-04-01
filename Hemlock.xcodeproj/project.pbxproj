@@ -1471,6 +1471,28 @@
 		D2C24A312101712E0028180B /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
+		D2C3EA2129D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2229D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2329D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2429D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2529D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2629D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2729D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2829D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2929D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2A29D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2B29D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
+		D2C3EA2D29D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA2E29D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA2F29D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3029D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3129D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3229D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3329D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3429D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3529D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3629D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3729D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
 		D2C7D6272484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D2C7D6282484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D2C7D6292484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
@@ -1782,6 +1804,8 @@
 		D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLCAppConfiguration.swift; sourceTree = "<group>"; };
 		D2C24A2F210171290028180B /* PCRUDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCRUDService.swift; sourceTree = "<group>"; };
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
+		D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagerViewController.swift; sourceTree = "<group>"; };
+		D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
@@ -2147,6 +2171,8 @@
 			children = (
 				D26210EC217E2369004E7ABE /* XDetailsNode.swift */,
 				D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */,
+				D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */,
+				D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -3631,6 +3657,7 @@
 				D20B2FE622CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D210EBD122B1EE55002FB5E0 /* OSRFObject.swift in Sources */,
 				D210EBD222B1EE55002FB5E0 /* UIView+.swift in Sources */,
+				D2C3EA2D29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D210EBD322B1EE55002FB5E0 /* String+splitOnRegex.swift in Sources */,
 				D2816CC728B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D210EBD422B1EE55002FB5E0 /* Organization.swift in Sources */,
@@ -3683,6 +3710,7 @@
 				D210EBF722B1EE55002FB5E0 /* XUtils.swift in Sources */,
 				D210EBF822B1EE55002FB5E0 /* Analytics.swift in Sources */,
 				D229CAF52471C099006BCC07 /* AuthService.swift in Sources */,
+				D2C3EA2129D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D210EBF922B1EE55002FB5E0 /* MD5.swift in Sources */,
 				D210EBFA22B1EE55002FB5E0 /* FinesTableViewCell.swift in Sources */,
 				D210EBFB22B1EE55002FB5E0 /* LocationPicker.swift in Sources */,
@@ -3740,6 +3768,7 @@
 				D23E9F7323B9200A0030F5C1 /* OSRFObject.swift in Sources */,
 				D23E9F7423B9200A0030F5C1 /* UIView+.swift in Sources */,
 				D23E9F7523B9200A0030F5C1 /* String+splitOnRegex.swift in Sources */,
+				D2C3EA3729D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D23E9F7623B9200A0030F5C1 /* Organization.swift in Sources */,
 				D2816CCF28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */,
@@ -3792,6 +3821,7 @@
 				D23E9F9C23B9200A0030F5C1 /* XUtils.swift in Sources */,
 				D23E9F9D23B9200A0030F5C1 /* Analytics.swift in Sources */,
 				D229CAFC2471C099006BCC07 /* AuthService.swift in Sources */,
+				D2C3EA2B29D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D23E9FED23B923B80030F5C1 /* SageCatAppBehavior.swift in Sources */,
 				D23E9F9E23B9200A0030F5C1 /* MD5.swift in Sources */,
 				D23E9F9F23B9200A0030F5C1 /* FinesTableViewCell.swift in Sources */,
@@ -3849,6 +3879,7 @@
 				D2477BBF24785A6B00FD4CF6 /* OSRFObject.swift in Sources */,
 				D2477BC024785A6B00FD4CF6 /* UIView+.swift in Sources */,
 				D2477BC124785A6B00FD4CF6 /* String+splitOnRegex.swift in Sources */,
+				D2C3EA3129D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2477BC224785A6B00FD4CF6 /* Organization.swift in Sources */,
 				D2816CCB28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2477BC424785A6B00FD4CF6 /* MainTableViewCell.swift in Sources */,
@@ -3901,6 +3932,7 @@
 				D2477BEC24785A6B00FD4CF6 /* AuthService.swift in Sources */,
 				D2477BEE24785A6B00FD4CF6 /* MD5.swift in Sources */,
 				D2477BEF24785A6B00FD4CF6 /* FinesTableViewCell.swift in Sources */,
+				D2C3EA2529D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2477BF024785A6B00FD4CF6 /* LocationPicker.swift in Sources */,
 				D2477BF124785A6B00FD4CF6 /* IDLParser.swift in Sources */,
 				D2477BF224785A6B00FD4CF6 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
@@ -3958,6 +3990,7 @@
 				D2572AAE24AD7755000BA698 /* MARCXMLParser.swift in Sources */,
 				D2572AAF24AD7755000BA698 /* OSRFObject.swift in Sources */,
 				D2572AB024AD7755000BA698 /* UIView+.swift in Sources */,
+				D2C3EA3229D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2572AB124AD7755000BA698 /* String+splitOnRegex.swift in Sources */,
 				D2816CD028B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2572AB224AD7755000BA698 /* Organization.swift in Sources */,
@@ -4010,6 +4043,7 @@
 				D2572ADC24AD7755000BA698 /* Analytics.swift in Sources */,
 				D2572ADD24AD7755000BA698 /* AuthService.swift in Sources */,
 				D2572ADF24AD7755000BA698 /* MD5.swift in Sources */,
+				D2C3EA2629D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2572AE024AD7755000BA698 /* FinesTableViewCell.swift in Sources */,
 				D2572AE124AD7755000BA698 /* LocationPicker.swift in Sources */,
 				D2572AE224AD7755000BA698 /* IDLParser.swift in Sources */,
@@ -4067,6 +4101,7 @@
 				D25EEC5328A1E8310090F108 /* OSRFObject.swift in Sources */,
 				D25EEC5428A1E8310090F108 /* UIView+.swift in Sources */,
 				D25EECDB28A1EB2E0090F108 /* OwwlAppConfiguration.swift in Sources */,
+				D2C3EA3529D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D25EEC5528A1E8310090F108 /* String+splitOnRegex.swift in Sources */,
 				D271862B28CEBE7C0046E9BC /* ScanBarcodeViewController.swift in Sources */,
 				D25EECD928A1EB2E0090F108 /* OwwlTheme.swift in Sources */,
@@ -4119,6 +4154,7 @@
 				D25EEC8228A1E8310090F108 /* Analytics.swift in Sources */,
 				D25EEC8328A1E8310090F108 /* AuthService.swift in Sources */,
 				D25EEC8428A1E8310090F108 /* MD5.swift in Sources */,
+				D2C3EA2929D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D25EECD728A1EB2E0090F108 /* OwwlAppBehavior.swift in Sources */,
 				D25EEC8528A1E8310090F108 /* FinesTableViewCell.swift in Sources */,
 				D25EEC8628A1E8310090F108 /* LocationPicker.swift in Sources */,
@@ -4167,6 +4203,7 @@
 			files = (
 				D276DA8921336B20007FAA31 /* OSRFCoder.swift in Sources */,
 				D276DA8A21336B20007FAA31 /* LoginViewController.swift in Sources */,
+				D2C3EA2329D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D26210F3217E3502004E7ABE /* XDetailsNode.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
 				D276DA8F21336B20007FAA31 /* String+splitOnRegex.swift in Sources */,
@@ -4217,6 +4254,7 @@
 				D2AA9D5327383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D20B2FF822CF976200F69848 /* AppBehavior.swift in Sources */,
 				D28AE24C24F355A500960E9E /* ServiceUtils.swift in Sources */,
+				D2C3EA2F29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D26210F1217E34FF004E7ABE /* XDetailsPagerViewController.swift in Sources */,
 				D276DAA821336B20007FAA31 /* CopyInfoViewController.swift in Sources */,
 				D2AA63C92282691900121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -4275,6 +4313,7 @@
 			files = (
 				FAA9E31921962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D26210EB217E130E004E7ABE /* XDetailsPagerViewController.swift in Sources */,
+				D2C3EA2429D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
 				D26210ED217E2369004E7ABE /* XDetailsNode.swift in Sources */,
@@ -4325,6 +4364,7 @@
 				D2AA9D5427383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D20B2FF622CF976200F69848 /* AppBehavior.swift in Sources */,
 				D28AE24D24F355A500960E9E /* ServiceUtils.swift in Sources */,
+				D2C3EA3029D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D28290F520E5CF48008EBE4B /* UIView+UYLExtensions.swift in Sources */,
 				D2AA63C72282691800121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -4383,6 +4423,7 @@
 			files = (
 				D21867A221D039BF0082358C /* CoolTheme.swift in Sources */,
 				D284244D21D0358200C7171C /* OSRFCoder.swift in Sources */,
+				D2C3EA2229D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D284244E21D0358200C7171C /* LoginViewController.swift in Sources */,
 				D284245021D0358200C7171C /* XDetailsNode.swift in Sources */,
 				D21867A321D039BF0082358C /* AppFactory.swift in Sources */,
@@ -4433,6 +4474,7 @@
 				D2AA9D5227383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D20B2FF922CF976200F69848 /* AppBehavior.swift in Sources */,
 				D28AE24B24F355A500960E9E /* ServiceUtils.swift in Sources */,
+				D2C3EA2E29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D284246F21D0358200C7171C /* XDetailsPagerViewController.swift in Sources */,
 				D284247021D0358200C7171C /* CopyInfoViewController.swift in Sources */,
 				D2AA63CA2282691900121CE8 /* ASDisplayNode+.swift in Sources */,
@@ -4500,6 +4542,7 @@
 				D24D76922234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBB2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
+				D2C3EA3629D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */,
 				D2816CCE28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
@@ -4552,6 +4595,7 @@
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */,
 				D229CAFB2471C099006BCC07 /* AuthService.swift in Sources */,
+				D2C3EA2A29D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2DF196820CEF68700085255 /* Analytics.swift in Sources */,
 				D23C304E20E5C6C800666A2B /* PinesTheme.swift in Sources */,
 				D22D02702084F53E00DC1F5B /* MD5.swift in Sources */,
@@ -4641,6 +4685,7 @@
 				D2BDA61322D176BD00D9B60C /* MARCXMLParser.swift in Sources */,
 				D2BDA61422D176BD00D9B60C /* OSRFObject.swift in Sources */,
 				D2BDA61522D176BD00D9B60C /* UIView+.swift in Sources */,
+				D2C3EA3329D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2BDA61622D176BD00D9B60C /* String+splitOnRegex.swift in Sources */,
 				D2816CCC28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA61722D176BD00D9B60C /* Organization.swift in Sources */,
@@ -4693,6 +4738,7 @@
 				D2BDA64022D176BD00D9B60C /* Analytics.swift in Sources */,
 				D2BDA64122D176BD00D9B60C /* MD5.swift in Sources */,
 				D229CAF92471C099006BCC07 /* AuthService.swift in Sources */,
+				D2C3EA2729D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2BDA64222D176BD00D9B60C /* FinesTableViewCell.swift in Sources */,
 				D2BDA64322D176BD00D9B60C /* LocationPicker.swift in Sources */,
 				D2BDA64422D176BD00D9B60C /* IDLParser.swift in Sources */,
@@ -4750,6 +4796,7 @@
 				D2BDA6AC22D2A72000D9B60C /* OSRFObject.swift in Sources */,
 				D2BDA6AD22D2A72000D9B60C /* UIView+.swift in Sources */,
 				D2BDA6AE22D2A72000D9B60C /* String+splitOnRegex.swift in Sources */,
+				D2C3EA3429D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2BDA6AF22D2A72000D9B60C /* Organization.swift in Sources */,
 				D2816CCD28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA6B022D2A72000D9B60C /* MainTableViewCell.swift in Sources */,
@@ -4802,6 +4849,7 @@
 				D2BDA6D822D2A72000D9B60C /* MD5.swift in Sources */,
 				D2BDA6D922D2A72000D9B60C /* FinesTableViewCell.swift in Sources */,
 				D229CAFA2471C099006BCC07 /* AuthService.swift in Sources */,
+				D2C3EA2829D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2BDA6DA22D2A72000D9B60C /* LocationPicker.swift in Sources */,
 				D2BDA6DB22D2A72000D9B60C /* IDLParser.swift in Sources */,
 				D2BDA6DC22D2A72000D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,

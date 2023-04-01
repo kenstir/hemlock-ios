@@ -57,7 +57,7 @@ class HoldsViewController: UIViewController {
         setupActivityIndicator()
         self.setupHomeButton()
     }
-    
+
     func setupActivityIndicator() {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
@@ -252,7 +252,7 @@ class HoldsViewController: UIViewController {
         guard let hold = getItem(indexPath) else { return }
         let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
         if let record = hold.metabibRecord {
-            let vc = XDetailsPagerViewController(items: [record], selectedItem: 0, displayOptions: displayOptions)
+            let vc = DetailsPagerViewController(items: [record], selectedItem: 0, displayOptions: displayOptions)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

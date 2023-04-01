@@ -257,7 +257,7 @@ extension ResultsViewController : UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.organizationShortName)
-        let vc = XDetailsPagerViewController(items: items, selectedItem: indexPath.row, displayOptions: displayOptions)
+        let vc = DetailsPagerViewController(items: items, selectedItem: indexPath.row, displayOptions: displayOptions)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

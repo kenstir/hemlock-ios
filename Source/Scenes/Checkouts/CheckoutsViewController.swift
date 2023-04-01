@@ -61,14 +61,15 @@ class CheckoutsViewController: UIViewController {
     func setupViews() {
         tableView.dataSource = self
         tableView.delegate = self
-        
-        // create and style the activity indicator
-        activityIndicator = addActivityIndicator()
-        Style.styleActivityIndicator(activityIndicator)
-
+        setupActivityIndicator()
         self.setupHomeButton()
     }
-    
+
+    func setupActivityIndicator() {
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
+    }
+
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
@@ -274,7 +275,7 @@ extension CheckoutsViewController: UITableViewDelegate {
 
         if records.count > 0 {
             let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
-            let vc = XDetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
+            let vc = DetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             // deselect row

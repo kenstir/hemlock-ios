@@ -243,7 +243,7 @@ class BookBagDetailsViewController : UITableViewController {
 
         if records.count > 0 {
             let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
-            let vc = XDetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
+            let vc = DetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             // deselect row
