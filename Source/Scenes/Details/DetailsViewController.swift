@@ -56,6 +56,6 @@ class DetailsViewController: UIViewController {
     //MARK: - Functions
 
     func setupViews() {
-
+        navigationController?.hidesBarsOnSwipe = true
     }
 }
