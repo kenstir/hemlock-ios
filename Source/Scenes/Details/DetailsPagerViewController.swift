@@ -74,8 +74,9 @@ class DetailsPagerViewController: UIViewController {
         pageViewController.didMove(toParent: self)
 
         // load the initial details VC
-        let vc = DetailsViewController(row: currentIndex, record: pages[currentIndex].record)
-        pageViewController.setViewControllers([vc], direction: .forward, animated: true)
+        if let vc = DetailsViewController.make(row: currentIndex, count: pages.count, record: pages[currentIndex].record) {
+            pageViewController.setViewControllers([vc], direction: .forward, animated: true)
+        }
     }
 }
 
@@ -86,7 +87,7 @@ extension DetailsPagerViewController: UIPageViewControllerDataSource {
         if row < 0 {
             return nil
         }
-        return DetailsViewController(row: row, record: pages[row].record)
+        return DetailsViewController.make(row: row, count: pages.count, record: pages[row].record)
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -95,7 +96,7 @@ extension DetailsPagerViewController: UIPageViewControllerDataSource {
         if row > pages.count - 1 {
             return nil
         }
-        return DetailsViewController(row: row, record: pages[row].record)
+        return DetailsViewController.make(row: row, count: pages.count, record: pages[row].record)
     }
 }
 

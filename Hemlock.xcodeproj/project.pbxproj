@@ -1493,6 +1493,17 @@
 		D2C3EA3529D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
 		D2C3EA3629D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
 		D2C3EA3729D89D6C00583A96 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */; };
+		D2C3EA3929D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA3A29D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA3B29D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA3C29D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA3D29D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA3E29D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA3F29D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA4029D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA4129D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA4229D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C3EA4329D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C7D6272484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D2C7D6282484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D2C7D6292484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
@@ -1806,6 +1817,7 @@
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
 		D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagerViewController.swift; sourceTree = "<group>"; };
 		D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		D2C3EA3829D905F100583A96 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
@@ -2173,6 +2185,7 @@
 				D26210EA217E130E004E7ABE /* XDetailsPagerViewController.swift */,
 				D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */,
 				D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */,
+				D2C3EA3829D905F100583A96 /* Details.storyboard */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -2930,6 +2943,7 @@
 				D210EC2822B1EE55002FB5E0 /* CopyInfo.storyboard in Resources */,
 				D210EC2922B1EE55002FB5E0 /* Search.storyboard in Resources */,
 				D210EC2A22B1EE55002FB5E0 /* Documentation in Resources */,
+				D2C3EA3929D905F100583A96 /* Details.storyboard in Resources */,
 				D28AE26224FDD9B200960E9E /* strings.json in Resources */,
 				D293EC13297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D210EC2B22B1EE55002FB5E0 /* ShowCard.storyboard in Resources */,
@@ -2961,6 +2975,7 @@
 				D23E9FCE23B9200A0030F5C1 /* CopyInfo.storyboard in Resources */,
 				D23E9FCF23B9200A0030F5C1 /* Search.storyboard in Resources */,
 				D23E9FD023B9200A0030F5C1 /* Documentation in Resources */,
+				D2C3EA4329D905F100583A96 /* Details.storyboard in Resources */,
 				D28AE26A24FDD9B200960E9E /* strings.json in Resources */,
 				D293EC1D297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D23E9FD123B9200A0030F5C1 /* ShowCard.storyboard in Resources */,
@@ -2992,6 +3007,7 @@
 				D2477C1E24785A6B00FD4CF6 /* Search.storyboard in Resources */,
 				D2477C1F24785A6B00FD4CF6 /* Documentation in Resources */,
 				D2477C2024785A6B00FD4CF6 /* ShowCard.storyboard in Resources */,
+				D2C3EA3D29D905F100583A96 /* Details.storyboard in Resources */,
 				D28AE26624FDD9B200960E9E /* strings.json in Resources */,
 				D293EC17297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D2477C3824786EC000FD4CF6 /* indiana.xcassets in Resources */,
@@ -3023,6 +3039,7 @@
 				D2AA9D4F27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2572B1024AD7755000BA698 /* CopyInfo.storyboard in Resources */,
 				D2572B1124AD7755000BA698 /* Search.storyboard in Resources */,
+				D2C3EA3E29D905F100583A96 /* Details.storyboard in Resources */,
 				D2572B1224AD7755000BA698 /* Documentation in Resources */,
 				D29C95FA2599283A00CACDBD /* event_msg_map.json in Resources */,
 				D2029B54297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
@@ -3055,6 +3072,7 @@
 				D2647872291708AA00B672AC /* custom_strings.json in Resources */,
 				D25EECBB28A1E8310090F108 /* CopyInfo.storyboard in Resources */,
 				D25EECDA28A1EB2E0090F108 /* owwl.xcassets in Resources */,
+				D2C3EA4129D905F100583A96 /* Details.storyboard in Resources */,
 				D25EECBC28A1E8310090F108 /* Search.storyboard in Resources */,
 				D25EECBD28A1E8310090F108 /* Documentation in Resources */,
 				D2029B57297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
@@ -3087,6 +3105,7 @@
 				D2AA9D4827383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */,
 				D2F390322241E5950089D745 /* LICENSE.txt in Resources */,
+				D2C3EA3B29D905F100583A96 /* Details.storyboard in Resources */,
 				D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */,
 				D29C95F32599283A00CACDBD /* event_msg_map.json in Resources */,
 				D2029B51297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
@@ -3115,6 +3134,7 @@
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				D29C95F42599283A00CACDBD /* event_msg_map.json in Resources */,
 				D21090D724D7275A004FE532 /* fail_part_msg_map.json in Resources */,
+				D2C3EA3C29D905F100583A96 /* Details.storyboard in Resources */,
 				D279910020DDD473003B451E /* Holds.storyboard in Resources */,
 				D248CBDF21211B050091D2E6 /* CopyInfo.storyboard in Resources */,
 				D2F390302241E5950089D745 /* LICENSE.txt in Resources */,
@@ -3149,6 +3169,7 @@
 				D28424A421D0358200C7171C /* CopyInfo.storyboard in Resources */,
 				D28424A521D0358200C7171C /* Search.storyboard in Resources */,
 				D28424A621D0358200C7171C /* Documentation in Resources */,
+				D2C3EA3A29D905F100583A96 /* Details.storyboard in Resources */,
 				D28AE26324FDD9B200960E9E /* strings.json in Resources */,
 				D293EC14297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D28424A721D0358200C7171C /* ShowCard.storyboard in Resources */,
@@ -3180,6 +3201,7 @@
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
 				D29C96002599288100CACDBD /* event_msg_map.json in Resources */,
 				D22D0C942243104600DBB31A /* SendEmail.storyboard in Resources */,
+				D2C3EA4229D905F100583A96 /* Details.storyboard in Resources */,
 				D2616763220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D293EC1C297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D29C95FF2599288100CACDBD /* fail_part_msg_map.json in Resources */,
@@ -3222,6 +3244,7 @@
 				D2AA9D4B27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2BDA67122D176BD00D9B60C /* CopyInfo.storyboard in Resources */,
 				D2BDA67222D176BD00D9B60C /* Search.storyboard in Resources */,
+				D2C3EA3F29D905F100583A96 /* Details.storyboard in Resources */,
 				D2BDA67322D176BD00D9B60C /* Documentation in Resources */,
 				D29C95F72599283A00CACDBD /* event_msg_map.json in Resources */,
 				D2029B55297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
@@ -3254,6 +3277,7 @@
 				D2AA9D4C27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2BDA70822D2A72000D9B60C /* CopyInfo.storyboard in Resources */,
 				D2BDA70922D2A72000D9B60C /* Search.storyboard in Resources */,
+				D2C3EA4029D905F100583A96 /* Details.storyboard in Resources */,
 				D2BDA70A22D2A72000D9B60C /* Documentation in Resources */,
 				D29C95F82599283A00CACDBD /* event_msg_map.json in Resources */,
 				D2029B56297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,

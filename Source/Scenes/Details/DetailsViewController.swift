@@ -22,31 +22,40 @@ class DetailsViewController: UIViewController {
 
     var pageHeaderVStack: UIStackView?
     var titleLabel: UILabel?
-    let row: Int
-    let record: MBRecord
+    var row: Int = 0
+    var count: Int = 0
+    var record: MBRecord?
 
-    init(row: Int, record: MBRecord) {
-        self.row = row
-        self.record = record
-        super.init(nibName: nil, bundle: nil)
+    static func make(row: Int, count: Int, record: MBRecord) -> DetailsViewController? {
+        if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController() as? DetailsViewController {
+            vc.row = row
+            vc.count = count
+            vc.record = record
+            return vc
+        }
+        return nil
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init(row: Int, record: MBRecord) {
+//        self.row = row
+//        self.record = record
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     //MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        pageHeaderVStack = UIStackView(frame: UIScreen.accessibilityFrame())
-
-        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 240, height: 24))
-        titleLabel?.center = CGPoint(x: 160, y: 250)
-        titleLabel?.text = record.title
-        self.view.addSubview(titleLabel!)
+        setupViews()
     }
 
     //MARK: - Functions
+
+    func setupViews() {
+
+    }
 }

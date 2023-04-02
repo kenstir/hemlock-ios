@@ -4,8 +4,11 @@ I had a lot of trouble handling the virtual keyboard, e.g. it would appear and o
 
 ## UIKit
 
+Adding scroll views is way harder than it should be.  Follow this guide: https://useyourloaf.com/blog/scroll-view-layouts-with-interface-builder/
+
 ### Create View Hierarchy
 * Create a ScrollView as the only child of the top View
+  - Uncheck 'Content Layout Guides' in the size inspector
 * Create a Content View as the only child of the ScrollView
 * Create all scrolled content as children of the Content View
 
@@ -20,7 +23,7 @@ In `setupViews()` (called from `viewDidLoad()`), call:
 * `setupTapToDismissKeyboard(onScrollView:)`
 * `scrollView.setupKeyboardAutoResizer()`
 
-## Texture (AsyncDisplayKit)
+## Texture (AsyncDisplayKit) -- DO NOT USE FOR NEW CODE
 
 See XPlaceHoldsViewController.swift
 
