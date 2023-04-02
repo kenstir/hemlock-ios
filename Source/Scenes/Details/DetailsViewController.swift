@@ -20,6 +20,7 @@ class DetailsViewController: UIViewController {
 
     //MARK: - Properties
 
+    @IBOutlet weak var headerLabel: UILabel!
     var pageHeaderVStack: UIStackView?
     var titleLabel: UILabel?
     var row: Int = 0
@@ -58,6 +59,14 @@ class DetailsViewController: UIViewController {
     //MARK: - Functions
 
     func setupViews() {
-//        navigationController?.hidesBarsOnSwipe = true
+        setupPageHeader()
+    }
+
+    private func setupPageHeader() {
+        let naturalNumber = row + 1
+        let str = "Showing Item \(naturalNumber) of \(count)"
+        headerLabel.attributedText = Style.makeTableHeaderString(str, size: Style.calloutSize)
+        headerLabel.backgroundColor = Style.systemGroupedBackground
+//        Style.styleLabel(asTableHeader: headerLabel)
     }
 }

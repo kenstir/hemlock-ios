@@ -33,7 +33,10 @@ class DetailsPagerViewController: UIPageViewController {
     var currentIndex = 0
     var displayOptions: RecordDisplayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
 
-//    private var pager: UIPageViewController?
+//    private var hasSetupPageControl = false
+    private var pageControl: UIPageControl? {
+        view.subviews.first { $0 is UIPageControl } as? UIPageControl
+    }
 
     //MARK: - Lifecycle
 
@@ -55,23 +58,24 @@ class DetailsPagerViewController: UIPageViewController {
         super.viewDidLoad()
 
         self.title = "Item Details"
-//        self.view.backgroundColor = Style.systemBackground
+
+        // Set our backgroundColor here the for the pageControl to inherit.
+        self.view.backgroundColor = App.theme.barBackgroundColor
         setupPager()
     }
 
+    override func viewDidLayoutSubviews() {
+//        if pageControl != nil && !hasSetupPageControl
+//        {
+//            pageControl?.backgroundColor = App.theme.barBackgroundColor
+//            hasSetupPageControl = true
+//        }
+    }
+
     func setupPager() {
-        //let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         let pageViewController = self
         pageViewController.dataSource = self
         pageViewController.delegate = self
-//        self.pager = pageViewController
-
-        // connect up the pager to our view hierarchy
-//        pageViewController.view.backgroundColor = .clear
-//        pageViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-//        view.addSubview(pageViewController.view)
-//        addChild(pageViewController)
-//        pageViewController.didMove(toParent: self)
 
         // load the initial details VC
         if let vc = DetailsViewController.make(row: currentIndex, count: pages.count, record: pages[currentIndex].record) {
