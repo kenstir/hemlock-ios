@@ -9,9 +9,7 @@
         <!--PVC-->
         <scene sceneID="oaF-oS-dj6">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" title="PVC" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="i4z-KV-naa" customClass="DetailsPagerViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                </pageViewController>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="PVC" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="i4z-KV-naa" customClass="DetailsPagerViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pT-5s-RR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="518" y="56"/>
