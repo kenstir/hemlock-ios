@@ -18,7 +18,7 @@
 
 import UIKit
 
-class MessageDetailsViewController : UIViewController {
+class MessageDetailsViewController: UIViewController {
 
     var message: PatronMessage?
 

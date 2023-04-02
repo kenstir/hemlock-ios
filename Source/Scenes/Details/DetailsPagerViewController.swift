@@ -25,29 +25,28 @@ class Page {
     }
 }
 
-class DetailsPagerViewController: UIViewController {
+class DetailsPagerViewController: UIPageViewController {
 
     //MARK: - Properties
 
     var pages: [Page] = []
     var currentIndex = 0
-    var displayOptions: RecordDisplayOptions
+    var displayOptions: RecordDisplayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
 
-    private var pager: UIPageViewController?
+//    private var pager: UIPageViewController?
 
     //MARK: - Lifecycle
 
-    init(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) {
-        for (row, item) in items.enumerated() {
-            self.pages.append(Page(row: row, record: item))
+    static func make(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> DetailsPagerViewController? {
+        if let vc = UIStoryboard(name: "DetailsPager", bundle: nil).instantiateInitialViewController() as? DetailsPagerViewController {
+            for (row, item) in items.enumerated() {
+                vc.pages.append(Page(row: row, record: item))
+            }
+            vc.currentIndex = selectedItem
+            vc.displayOptions = displayOptions
+            return vc
         }
-        self.currentIndex = selectedItem
-        self.displayOptions = displayOptions
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 
     //MARK: - UIViewController
@@ -56,22 +55,23 @@ class DetailsPagerViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Item Details"
-        self.view.backgroundColor = Style.systemBackground
+//        self.view.backgroundColor = Style.systemBackground
         setupPager()
     }
 
     func setupPager() {
-        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        //let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        let pageViewController = self
         pageViewController.dataSource = self
         pageViewController.delegate = self
-        self.pager = pageViewController
+//        self.pager = pageViewController
 
         // connect up the pager to our view hierarchy
-        pageViewController.view.backgroundColor = .clear
-        pageViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        view.addSubview(pageViewController.view)
-        addChild(pageViewController)
-        pageViewController.didMove(toParent: self)
+//        pageViewController.view.backgroundColor = .clear
+//        pageViewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+//        view.addSubview(pageViewController.view)
+//        addChild(pageViewController)
+//        pageViewController.didMove(toParent: self)
 
         // load the initial details VC
         if let vc = DetailsViewController.make(row: currentIndex, count: pages.count, record: pages[currentIndex].record) {

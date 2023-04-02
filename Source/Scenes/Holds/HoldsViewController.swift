@@ -40,7 +40,7 @@ class HoldsViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !didCompleteFetch {
@@ -49,7 +49,7 @@ class HoldsViewController: UIViewController {
     }
 
     //MARK: - Functions
-    
+
     func setupViews() {
         holdsTable.delegate = self
         holdsTable.dataSource = self
@@ -251,8 +251,8 @@ class HoldsViewController: UIViewController {
     func showDetails(_ indexPath: IndexPath) {
         guard let hold = getItem(indexPath) else { return }
         let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
-        if let record = hold.metabibRecord {
-            let vc = DetailsPagerViewController(items: [record], selectedItem: 0, displayOptions: displayOptions)
+        if let record = hold.metabibRecord,
+           let vc = DetailsPagerViewController.make(items: [record], selectedItem: 0, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

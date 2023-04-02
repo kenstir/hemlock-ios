@@ -26,6 +26,8 @@ class DetailsViewController: UIViewController {
     var count: Int = 0
     var record: MBRecord?
 
+    //MARK: - Lifecycle
+
     static func make(row: Int, count: Int, record: MBRecord) -> DetailsViewController? {
         if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController() as? DetailsViewController {
             vc.row = row
@@ -56,6 +58,6 @@ class DetailsViewController: UIViewController {
     //MARK: - Functions
 
     func setupViews() {
-        navigationController?.hidesBarsOnSwipe = true
+//        navigationController?.hidesBarsOnSwipe = true
     }
 }
