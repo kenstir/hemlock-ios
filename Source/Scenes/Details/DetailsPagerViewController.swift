@@ -17,10 +17,10 @@
 import UIKit
 
 class Page {
-    let row: Int
+    let index: Int
     let record: MBRecord
-    init(row: Int, record: MBRecord) {
-        self.row = row
+    init(index: Int, record: MBRecord) {
+        self.index = index
         self.record = record
     }
 }
@@ -40,7 +40,7 @@ class DetailsPagerViewController: UIPageViewController {
     static func make(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> DetailsPagerViewController? {
         if let vc = UIStoryboard(name: "DetailsPager", bundle: nil).instantiateInitialViewController() as? DetailsPagerViewController {
             for (row, item) in items.enumerated() {
-                vc.pages.append(Page(row: row, record: item))
+                vc.pages.append(Page(index: row, record: item))
             }
             vc.currentIndex = selectedItem
             vc.displayOptions = displayOptions
@@ -80,6 +80,8 @@ class DetailsPagerViewController: UIPageViewController {
     }
 }
 
+//MARK: - UIPageViewControllerDataSource
+
 extension DetailsPagerViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let currentVC = viewController as? DetailsViewController else { return nil }
@@ -99,6 +101,8 @@ extension DetailsPagerViewController: UIPageViewControllerDataSource {
         return DetailsViewController.make(row: row, count: pages.count, record: pages[row].record)
     }
 }
+
+//MARK: - UIPageViewControllerDelegate
 
 extension DetailsPagerViewController: UIPageViewControllerDelegate {
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
