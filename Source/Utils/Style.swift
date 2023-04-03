@@ -186,6 +186,7 @@ class Style {
 
     static func styleLabel(asTableHeader v: UILabel) {
         v.textColor = Style.secondaryLabelColor
+        v.backgroundColor = Style.systemGroupedBackground
         v.font = UIFont.systemFont(ofSize: calloutSize, weight: .light).withSmallCaps
     }
 

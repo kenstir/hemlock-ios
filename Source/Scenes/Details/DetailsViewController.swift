@@ -39,16 +39,6 @@ class DetailsViewController: UIViewController {
         return nil
     }
 
-//    init(row: Int, record: MBRecord) {
-//        self.row = row
-//        self.record = record
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-
     //MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -65,8 +55,8 @@ class DetailsViewController: UIViewController {
     private func setupPageHeader() {
         let naturalNumber = row + 1
         let str = "Showing Item \(naturalNumber) of \(count)"
-        headerLabel.attributedText = Style.makeTableHeaderString(str, size: Style.calloutSize)
-        headerLabel.backgroundColor = Style.systemGroupedBackground
-//        Style.styleLabel(asTableHeader: headerLabel)
+        headerLabel.text = str
+        Style.styleLabel(asTableHeader: headerLabel)
     }
+
 }
