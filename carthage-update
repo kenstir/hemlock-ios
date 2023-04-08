@@ -12,4 +12,4 @@ echo "ONLY_ACTIVE_ARCH = YES" >>$xcconfig
 export XCODE_XCCONFIG_FILE="$xcconfig"
 
 cat $xcconfig
-carthage update --platform ios $@
+carthage update --platform ios --log-path update.log $@

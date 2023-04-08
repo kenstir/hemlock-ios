@@ -4,7 +4,8 @@
 **/xcuserdata/
 
 # see also https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md
-Carthage
+/Carthage
+/update.log
 
 # exclude test data
 TestConfig/**
