@@ -20,9 +20,15 @@ class DetailsViewController: UIViewController {
 
     //MARK: - Properties
 
+    @IBOutlet weak var headerRow: UIView!
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var formatLabel: UILabel!
+    @IBOutlet weak var pubinfoLabel: UILabel!
+    
+
     var pageHeaderVStack: UIStackView?
-    var titleLabel: UILabel?
     var row: Int = 0
     var count: Int = 0
     var record: MBRecord?
@@ -50,6 +56,7 @@ class DetailsViewController: UIViewController {
 
     func setupViews() {
         setupPageHeader()
+        setupDetails()
     }
 
     private func setupPageHeader() {
@@ -57,6 +64,13 @@ class DetailsViewController: UIViewController {
         let str = "Showing Item \(naturalNumber) of \(count)"
         headerLabel.text = str
         Style.styleLabel(asTableHeader: headerLabel)
+        Style.styleView(asTableHeader: headerRow)
     }
 
+    private func setupDetails() {
+        titleLabel.text = record?.title
+        author.text = record?.author
+        formatLabel.text = record?.iconFormatLabel
+        pubinfoLabel.text = record?.pubinfo
+    }
 }

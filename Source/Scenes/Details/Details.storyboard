@@ -20,17 +20,28 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYz-BO-bO1">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="986.66666666666663"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1086.3333333333333"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="showing item 42 of 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHm-LY-ZHf">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-ue-s1z" userLabel="Header View">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="showing item 42 of 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHm-LY-ZHf">
+                                                        <rect key="frame" x="107.66666666666667" y="8" width="177.66666666666663" height="116"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="NHm-LY-ZHf" secondAttribute="bottom" constant="4" id="Adk-PG-lVS"/>
+                                                    <constraint firstItem="NHm-LY-ZHf" firstAttribute="top" secondItem="tWM-ue-s1z" secondAttribute="top" constant="8" id="S5f-uo-2Tj"/>
+                                                    <constraint firstItem="NHm-LY-ZHf" firstAttribute="centerX" secondItem="tWM-ue-s1z" secondAttribute="centerX" id="xwa-Yf-kBV"/>
+                                                </constraints>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bpq-UZ-ggW">
-                                                <rect key="frame" x="0.0" y="28.333333333333329" width="393" height="160"/>
+                                                <rect key="frame" x="0.0" y="132" width="393" height="160"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pan-qW-bff" userLabel="Info VStack">
                                                         <rect key="frame" x="0.0" y="0.0" width="293" height="160"/>
@@ -54,13 +65,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2002" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tx-CH-1QU" userLabel="Pub Info">
-                                                                <rect key="frame" x="0.0" y="56.333333333333321" width="293" height="15.666666666666664"/>
+                                                                <rect key="frame" x="0.0" y="56.333333333333336" width="293" height="15.666666666666664"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-ek-CIH" userLabel="Spacer">
-                                                                <rect key="frame" x="0.0" y="72.000000000000014" width="293" height="87.999999999999986"/>
+                                                                <rect key="frame" x="0.0" y="72" width="293" height="88"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -82,7 +93,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOP-li-8kW">
-                                                <rect key="frame" x="0.0" y="196.33333333333331" width="393" height="790.33333333333348"/>
+                                                <rect key="frame" x="0.0" y="296.00000000000006" width="393" height="790.33333333333348"/>
                                                 <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit sed ullamcorper morbi tincidunt ornare massa. Urna nec tincidunt praesent semper feugiat nibh sed. Vestibulum sed arcu non odio euismod lacinia at. Nibh cras pulvinar mattis nunc sed blandit. Quam quisque id diam vel quam elementum pulvinar etiam non. Eu feugiat pretium nibh ipsum consequat. Risus commodo viverra maecenas accumsan lacus. Quisque sagittis purus sit amet. In ante metus dictum at tempor commodo ullamcorper a lacus. Dui id ornare arcu odio ut sem. Pulvinar proin gravida hendrerit lectus. Hendrerit gravida rutrum quisque non tellus orci ac. Lacus vel facilisis volutpat est. Malesuada bibendum arcu vitae elementum curabitur vitae.
 
 Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis purus sit amet volutpat. Ultrices tincidunt arcu non sodales. Pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices. Mus mauris vitae ultricies leo integer malesuada nunc vel risus. Arcu risus quis varius quam quisque id diam vel quam. Aliquet enim tortor at auctor urna nunc id cursus metus. Sagittis purus sit amet volutpat consequat. In arcu cursus euismod quis. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Sed elementum tempus egestas sed sed risus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Dui sapien eget mi proin sed libero. Sit amet nulla facilisi morbi. Ut consequat semper viverra nam libero. Duis ultricies lacus sed turpis tincidunt. Odio ut enim blandit volutpat maecenas volutpat blandit. Non diam phasellus vestibulum lorem. Ipsum consequat nisl vel pretium lectus quam id leo in.</mutableString>
@@ -114,7 +125,12 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="author" destination="LTg-WS-dc0" id="JMX-c4-TTJ"/>
+                        <outlet property="formatLabel" destination="9yZ-zo-Jvu" id="r3a-X1-eln"/>
                         <outlet property="headerLabel" destination="NHm-LY-ZHf" id="Kaz-so-BsP"/>
+                        <outlet property="headerRow" destination="tWM-ue-s1z" id="KS1-kF-erc"/>
+                        <outlet property="pubinfoLabel" destination="7tx-CH-1QU" id="7fG-bM-aTa"/>
+                        <outlet property="titleLabel" destination="Obk-o5-m7w" id="7mr-vY-hrw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

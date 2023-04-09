@@ -190,6 +190,10 @@ class Style {
         v.font = UIFont.systemFont(ofSize: calloutSize, weight: .light).withSmallCaps
     }
 
+    static func styleView(asTableHeader v: UIView) {
+        v.backgroundColor = Style.systemGroupedBackground
+    }
+
     static func styleStackView(asTableHeader v: UIView) {
         let bgView = UIView()
         bgView.backgroundColor = Style.systemGroupedBackground
