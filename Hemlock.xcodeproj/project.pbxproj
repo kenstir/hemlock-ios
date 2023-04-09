@@ -2889,8 +2889,9 @@
 		D287D4F0207AEF2B001AF644 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Ken Cox";
 				TargetAttributes = {
 					D276DA8321336B20007FAA31 = {
