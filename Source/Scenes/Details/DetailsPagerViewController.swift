@@ -33,7 +33,6 @@ class DetailsPagerViewController: UIPageViewController {
     var currentIndex = 0
     var displayOptions: RecordDisplayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
 
-//    private var hasSetupPageControl = false
     private var pageControl: UIPageControl? {
         view.subviews.first { $0 is UIPageControl } as? UIPageControl
     }
@@ -62,14 +61,6 @@ class DetailsPagerViewController: UIPageViewController {
         // Set our backgroundColor here the for the pageControl to inherit.
         self.view.backgroundColor = App.theme.barBackgroundColor
         setupPager()
-    }
-
-    override func viewDidLayoutSubviews() {
-//        if pageControl != nil && !hasSetupPageControl
-//        {
-//            pageControl?.backgroundColor = App.theme.barBackgroundColor
-//            hasSetupPageControl = true
-//        }
     }
 
     func setupPager() {
