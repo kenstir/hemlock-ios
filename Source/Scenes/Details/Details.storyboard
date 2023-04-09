@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,8 +20,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYz-BO-bO1">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1807.6666666666667"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="986.66666666666663"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="showing item 42 of 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHm-LY-ZHf">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
@@ -29,18 +29,64 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOP-li-8kW">
-                                                <rect key="frame" x="0.0" y="22.333333333333371" width="393" height="1785.333333333333"/>
-                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit sed ullamcorper morbi tincidunt ornare massa. Urna nec tincidunt praesent semper feugiat nibh sed. Vestibulum sed arcu non odio euismod lacinia at. Nibh cras pulvinar mattis nunc sed blandit. Quam quisque id diam vel quam elementum pulvinar etiam non. Eu feugiat pretium nibh ipsum consequat. Risus commodo viverra maecenas accumsan lacus. Quisque sagittis purus sit amet. In ante metus dictum at tempor commodo ullamcorper a lacus. Dui id ornare arcu odio ut sem. Pulvinar proin gravida hendrerit lectus. Hendrerit gravida rutrum quisque non tellus orci ac. Lacus vel facilisis volutpat est. Malesuada bibendum arcu vitae elementum curabitur vitae.
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bpq-UZ-ggW">
+                                                <rect key="frame" x="0.0" y="28.333333333333329" width="393" height="160"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pan-qW-bff" userLabel="Info VStack">
+                                                        <rect key="frame" x="0.0" y="0.0" width="293" height="160"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Project Management" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-o5-m7w" userLabel="Title">
+                                                                <rect key="frame" x="0.0" y="0.0" width="293" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Stanley E. Portny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTg-WS-dc0" userLabel="Author">
+                                                                <rect key="frame" x="0.0" y="20.333333333333343" width="293" height="18"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-zo-Jvu" userLabel="Format">
+                                                                <rect key="frame" x="0.0" y="38.333333333333343" width="293" height="18"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2002" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tx-CH-1QU" userLabel="Pub Info">
+                                                                <rect key="frame" x="0.0" y="56.333333333333321" width="293" height="15.666666666666664"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-ek-CIH" userLabel="Spacer">
+                                                                <rect key="frame" x="0.0" y="72.000000000000014" width="293" height="87.999999999999986"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mi3-wV-obA" userLabel="Image VStack">
+                                                        <rect key="frame" x="293" y="0.0" width="100" height="160"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="a6q-PE-o9b">
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="160"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="100" id="YJJ-Pp-e2A"/>
+                                                                    <constraint firstAttribute="height" constant="160" id="dre-Lk-WHc"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOP-li-8kW">
+                                                <rect key="frame" x="0.0" y="196.33333333333331" width="393" height="790.33333333333348"/>
+                                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit sed ullamcorper morbi tincidunt ornare massa. Urna nec tincidunt praesent semper feugiat nibh sed. Vestibulum sed arcu non odio euismod lacinia at. Nibh cras pulvinar mattis nunc sed blandit. Quam quisque id diam vel quam elementum pulvinar etiam non. Eu feugiat pretium nibh ipsum consequat. Risus commodo viverra maecenas accumsan lacus. Quisque sagittis purus sit amet. In ante metus dictum at tempor commodo ullamcorper a lacus. Dui id ornare arcu odio ut sem. Pulvinar proin gravida hendrerit lectus. Hendrerit gravida rutrum quisque non tellus orci ac. Lacus vel facilisis volutpat est. Malesuada bibendum arcu vitae elementum curabitur vitae.
 
-Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis purus sit amet volutpat. Ultrices tincidunt arcu non sodales. Pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices. Mus mauris vitae ultricies leo integer malesuada nunc vel risus. Arcu risus quis varius quam quisque id diam vel quam. Aliquet enim tortor at auctor urna nunc id cursus metus. Sagittis purus sit amet volutpat consequat. In arcu cursus euismod quis. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Sed elementum tempus egestas sed sed risus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Dui sapien eget mi proin sed libero. Sit amet nulla facilisi morbi. Ut consequat semper viverra nam libero. Duis ultricies lacus sed turpis tincidunt. Odio ut enim blandit volutpat maecenas volutpat blandit. Non diam phasellus vestibulum lorem. Ipsum consequat nisl vel pretium lectus quam id leo in.
-
-Tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Hac habitasse platea dictumst vestibulum rhoncus. Lobortis feugiat vivamus at augue eget arcu. Arcu felis bibendum ut tristique et egestas quis ipsum. Condimentum vitae sapien pellentesque habitant morbi tristique. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. Tellus integer feugiat scelerisque varius morbi. Viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas. Feugiat scelerisque varius morbi enim. A cras semper auctor neque vitae tempus quam pellentesque. Nascetur ridiculus mus mauris vitae ultricies leo. Nam at lectus urna duis convallis convallis. Nibh tortor id aliquet lectus proin nibh nisl condimentum. Netus et malesuada fames ac turpis egestas maecenas pharetra convallis. Lectus vestibulum mattis ullamcorper velit.
-
-Non odio euismod lacinia at quis risus sed. Donec ac odio tempor orci dapibus. Odio facilisis mauris sit amet massa vitae tortor. Ultricies lacus sed turpis tincidunt id aliquet risus. Pellentesque nec nam aliquam sem et tortor. Ac odio tempor orci dapibus ultrices in iaculis nunc sed. Venenatis urna cursus eget nunc scelerisque. Pretium vulputate sapien nec sagittis aliquam malesuada. In iaculis nunc sed augue lacus viverra vitae congue. Enim nunc faucibus a pellentesque sit amet porttitor eget dolor. Adipiscing bibendum est ultricies integer quis. In dictum non consectetur a. Diam sollicitudin tempor id eu nisl.
-
-Curabitur gravida arcu ac tortor. Augue lacus viverra vitae congue. Risus quis varius quam quisque id diam. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Faucibus purus in massa tempor nec feugiat nisl pretium. Netus et malesuada fames ac turpis egestas. Molestie ac feugiat sed lectus vestibulum mattis. Purus ut faucibus pulvinar elementum integer. Condimentum vitae sapien pellentesque habitant. Vitae elementum curabitur vitae nunc sed velit. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Tellus integer feugiat scelerisque varius. Id volutpat lacus laoreet non curabitur gravida arcu ac tortor. Neque sodales ut etiam sit amet. Lacus sed viverra tellus in.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis purus sit amet volutpat. Ultrices tincidunt arcu non sodales. Pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices. Mus mauris vitae ultricies leo integer malesuada nunc vel risus. Arcu risus quis varius quam quisque id diam vel quam. Aliquet enim tortor at auctor urna nunc id cursus metus. Sagittis purus sit amet volutpat consequat. In arcu cursus euismod quis. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Sed elementum tempus egestas sed sed risus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Dui sapien eget mi proin sed libero. Sit amet nulla facilisi morbi. Ut consequat semper viverra nam libero. Duis ultricies lacus sed turpis tincidunt. Odio ut enim blandit volutpat maecenas volutpat blandit. Non diam phasellus vestibulum lorem. Ipsum consequat nisl vel pretium lectus quam id leo in.</mutableString>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -77,6 +123,9 @@ Curabitur gravida arcu ac tortor. Augue lacus viverra vitae congue. Risus quis v
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
