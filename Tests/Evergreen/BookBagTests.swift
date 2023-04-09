@@ -72,11 +72,11 @@ class BookBagTests: XCTestCase {
         let recordId = 2914107
         let queryPayload = OSRFObject([
             "count": 1,
-            "ids": [[recordId, "2", "4.0"]],
+            "ids": [[recordId, "2", "4.0"] as [Any]],
         ])
         let emptyQueryPayload = OSRFObject([
             "count": 1,
-            "ids": [],
+            "ids": [] as [Any],
         ])
 
         // case 1: recordId is visible
