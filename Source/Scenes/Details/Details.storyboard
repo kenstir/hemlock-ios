@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1086.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1218.3333333333333"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-ue-s1z" userLabel="Header View">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
@@ -92,8 +92,26 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auB-BB-58U" userLabel="Copy Summary View">
+                                                <rect key="frame" x="0.0" y="296" width="393" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35 of 35 copies available at All C/W MARS Libraries" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-G8-Vo6" userLabel="copySummaryLabel">
+                                                        <rect key="frame" x="8" y="8" width="369" height="116"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="WwZ-G8-Vo6" secondAttribute="bottom" constant="4" id="38m-iJ-Tgp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WwZ-G8-Vo6" secondAttribute="trailing" constant="16" id="5mx-G2-sgV"/>
+                                                    <constraint firstItem="WwZ-G8-Vo6" firstAttribute="leading" secondItem="auB-BB-58U" secondAttribute="leading" constant="8" id="DJA-pt-FFA"/>
+                                                    <constraint firstItem="WwZ-G8-Vo6" firstAttribute="top" secondItem="auB-BB-58U" secondAttribute="top" constant="8" id="jO6-sb-vSf"/>
+                                                </constraints>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOP-li-8kW">
-                                                <rect key="frame" x="0.0" y="296.00000000000006" width="393" height="790.33333333333348"/>
+                                                <rect key="frame" x="0.0" y="428.00000000000006" width="393" height="790.33333333333348"/>
                                                 <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit sed ullamcorper morbi tincidunt ornare massa. Urna nec tincidunt praesent semper feugiat nibh sed. Vestibulum sed arcu non odio euismod lacinia at. Nibh cras pulvinar mattis nunc sed blandit. Quam quisque id diam vel quam elementum pulvinar etiam non. Eu feugiat pretium nibh ipsum consequat. Risus commodo viverra maecenas accumsan lacus. Quisque sagittis purus sit amet. In ante metus dictum at tempor commodo ullamcorper a lacus. Dui id ornare arcu odio ut sem. Pulvinar proin gravida hendrerit lectus. Hendrerit gravida rutrum quisque non tellus orci ac. Lacus vel facilisis volutpat est. Malesuada bibendum arcu vitae elementum curabitur vitae.
 
 Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis purus sit amet volutpat. Ultrices tincidunt arcu non sodales. Pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices. Mus mauris vitae ultricies leo integer malesuada nunc vel risus. Arcu risus quis varius quam quisque id diam vel quam. Aliquet enim tortor at auctor urna nunc id cursus metus. Sagittis purus sit amet volutpat consequat. In arcu cursus euismod quis. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Sed elementum tempus egestas sed sed risus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Dui sapien eget mi proin sed libero. Sit amet nulla facilisi morbi. Ut consequat semper viverra nam libero. Duis ultricies lacus sed turpis tincidunt. Odio ut enim blandit volutpat maecenas volutpat blandit. Non diam phasellus vestibulum lorem. Ipsum consequat nisl vel pretium lectus quam id leo in.</mutableString>
@@ -126,6 +144,7 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                     </view>
                     <connections>
                         <outlet property="author" destination="LTg-WS-dc0" id="JMX-c4-TTJ"/>
+                        <outlet property="copySummaryLabel" destination="WwZ-G8-Vo6" id="gWm-a2-xv8"/>
                         <outlet property="formatLabel" destination="9yZ-zo-Jvu" id="r3a-X1-eln"/>
                         <outlet property="headerLabel" destination="NHm-LY-ZHf" id="Kaz-so-BsP"/>
                         <outlet property="headerRow" destination="tWM-ue-s1z" id="KS1-kF-erc"/>
