@@ -28,8 +28,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var formatLabel: UILabel!
     @IBOutlet weak var pubinfoLabel: UILabel!
     @IBOutlet weak var copySummaryLabel: UILabel!
-
     @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var synopsisLabel: UILabel!
 
     var record = MBRecord(id: -1)
     var row: Int = 0
@@ -87,6 +87,7 @@ class DetailsViewController: UIViewController {
         author.text = record.author
         formatLabel.text = record.iconFormatLabel
         pubinfoLabel.text = record.pubinfo
+        synopsisLabel.text = record.synopsis
 
         // async load the image
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
