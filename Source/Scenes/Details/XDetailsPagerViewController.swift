@@ -53,7 +53,11 @@ class XDetailsPagerViewController: ASDKViewController<ASPagerNode> {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    static func make(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> XDetailsPagerViewController? {
+        return XDetailsPagerViewController(items: items, selectedItem: selectedItem, displayOptions: displayOptions)
+    }
+
     //MARK: - ViewController
     
     override func viewDidLoad() {
