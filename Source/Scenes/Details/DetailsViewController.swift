@@ -29,6 +29,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var pubinfoLabel: UILabel!
     @IBOutlet weak var copySummaryLabel: UILabel!
 
+    @IBOutlet weak var coverImage: UIImageView!
+
     var record = MBRecord(id: -1)
     var row: Int = 0
     var count: Int = 0
@@ -68,6 +70,7 @@ class DetailsViewController: UIViewController {
     }
 
     func setupAsyncViews() {
+        setupDetails()
         setupCopySummary()
     }
 
@@ -84,6 +87,11 @@ class DetailsViewController: UIViewController {
         author.text = record.author
         formatLabel.text = record.iconFormatLabel
         pubinfoLabel.text = record.pubinfo
+
+        // async load the image
+        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
+            coverImage.pin_setImage(from: url)
+        }
     }
 
     private func setupCopySummary() {
