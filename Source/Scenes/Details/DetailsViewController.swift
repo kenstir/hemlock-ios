@@ -65,12 +65,13 @@ class DetailsViewController: UIViewController {
 
     func setupViews() {
         setupPageHeader()
-        setupDetails()
+        setupInfoVStack()
+        setupImage()
         setupCopySummary()
     }
 
     func setupAsyncViews() {
-        setupDetails()
+        setupInfoVStack()
         setupCopySummary()
     }
 
@@ -82,13 +83,15 @@ class DetailsViewController: UIViewController {
         Style.styleView(asTableHeader: headerRow)
     }
 
-    private func setupDetails() {
+    private func setupInfoVStack() {
         titleLabel.text = record.title
         author.text = record.author
         formatLabel.text = record.iconFormatLabel
         pubinfoLabel.text = record.pubinfo
         synopsisLabel.text = record.synopsis
+    }
 
+    private func setupImage() {
         // async load the image
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
             coverImage.pin_setImage(from: url)
