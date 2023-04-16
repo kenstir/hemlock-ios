@@ -275,8 +275,9 @@ extension CheckoutsViewController: UITableViewDelegate {
 
         if records.count > 0 {
             let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
-            let vc = XDetailsPagerViewController.make(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
-            self.navigationController?.pushViewController(vc!, animated: true)
+            if let vc = XUtils.makeDetailsPager(items: records, selectedItem: indexPath.row, displayOptions: displayOptions) {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         } else {
             // deselect row
             tableView.deselectRow(at: indexPath, animated: true)

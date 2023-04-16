@@ -252,7 +252,7 @@ class HoldsViewController: UIViewController {
         guard let hold = getItem(indexPath) else { return }
         let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
         if let record = hold.metabibRecord,
-           let vc = XDetailsPagerViewController.make(items: [record], selectedItem: 0, displayOptions: displayOptions) {
+           let vc = XUtils.makeDetailsPager(items: [record], selectedItem: 0, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
