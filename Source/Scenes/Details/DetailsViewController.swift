@@ -35,6 +35,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var extrasRow: UIView!
     @IBOutlet weak var extrasButton: UIButton!
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var isbnLabel: UILabel!
 
     var record = MBRecord(id: -1)
     var row: Int = 0
@@ -77,6 +79,7 @@ class DetailsViewController: UIViewController {
         setupCopySummary()
         setupActionButtons()
         setupExtrasButton()
+        setupOtherRecordLabels()
     }
 
     func setupAsyncViews() {
@@ -98,7 +101,12 @@ class DetailsViewController: UIViewController {
         author.text = record.author
         formatLabel.text = record.iconFormatLabel
         pubinfoLabel.text = record.pubinfo
+    }
+
+    private func setupOtherRecordLabels() {
         synopsisLabel.text = record.synopsis
+        subjectLabel.text = record.subject
+        isbnLabel.text = record.isbn
     }
 
     private func setupImage() {

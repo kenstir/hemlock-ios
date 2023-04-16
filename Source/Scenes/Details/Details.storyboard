@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1546.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1810.3333333333333"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-ue-s1z" userLabel="Header Row">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
@@ -47,31 +47,31 @@
                                                         <rect key="frame" x="8" y="8" width="277" height="152"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Project Management" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-o5-m7w" userLabel="Title">
-                                                                <rect key="frame" x="0.0" y="0.0" width="277" height="20.333333333333332"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="277" height="26.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Stanley E. Portny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTg-WS-dc0" userLabel="Author">
-                                                                <rect key="frame" x="0.0" y="24.333333333333343" width="277" height="18"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <rect key="frame" x="0.0" y="30.333333333333343" width="277" height="24"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-zo-Jvu" userLabel="Format">
-                                                                <rect key="frame" x="0.0" y="46.333333333333343" width="277" height="18"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                <rect key="frame" x="0.0" y="58.333333333333321" width="277" height="19.333333333333336"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2002" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tx-CH-1QU" userLabel="Pub Info">
-                                                                <rect key="frame" x="0.0" y="68.333333333333314" width="277" height="15.666666666666671"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                <rect key="frame" x="0.0" y="81.666666666666686" width="277" height="18"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-ek-CIH" userLabel="Spacer">
-                                                                <rect key="frame" x="0.0" y="88" width="277" height="64"/>
+                                                                <rect key="frame" x="0.0" y="103.66666666666669" width="277" height="48.333333333333343"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -195,7 +195,64 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                                     <constraint firstItem="Gb7-D6-PDd" firstAttribute="leading" secondItem="ANV-7z-h9O" secondAttribute="leading" constant="8" id="c28-IE-jz8"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53N-CU-k5U" userLabel="Subject Row">
+                                                <rect key="frame" x="0.0" y="1550.3333333333333" width="393" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eP-Zz-NOM" userLabel="Subject">
+                                                        <rect key="frame" x="7.9999999999999964" y="4" width="56.666666666666657" height="120"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-IA-xQI" userLabel="subjectLabel">
+                                                        <rect key="frame" x="68.666666666666657" y="4" width="316.33333333333337" height="120"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="2eP-Zz-NOM" firstAttribute="top" secondItem="53N-CU-k5U" secondAttribute="top" constant="4" id="8Tr-pO-fw9"/>
+                                                    <constraint firstItem="2eP-Zz-NOM" firstAttribute="leading" secondItem="53N-CU-k5U" secondAttribute="leading" constant="8" id="G0B-Tu-Rw1"/>
+                                                    <constraint firstItem="jnX-IA-xQI" firstAttribute="leading" secondItem="2eP-Zz-NOM" secondAttribute="trailing" constant="4" id="G4L-KK-4bT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jnX-IA-xQI" secondAttribute="trailing" constant="8" id="GWk-bm-n4o"/>
+                                                    <constraint firstItem="jnX-IA-xQI" firstAttribute="top" secondItem="53N-CU-k5U" secondAttribute="top" constant="4" id="QRq-ao-Fie"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2eP-Zz-NOM" secondAttribute="bottom" constant="4" id="hfb-m7-Hse"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jnX-IA-xQI" secondAttribute="bottom" constant="4" id="nie-Jl-mNR"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDh-Vt-SVz" userLabel="ISBN Row">
+                                                <rect key="frame" x="0.0" y="1682.3333333333333" width="393" height="128"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISBN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg4-dc-h5h" userLabel="ISBN">
+                                                        <rect key="frame" x="7.9999999999999964" y="4" width="56.666666666666657" height="120"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-Pi-T0L" userLabel="ISBNLabel">
+                                                        <rect key="frame" x="68.666666666666657" y="4" width="316.33333333333337" height="120"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Z4g-Pi-T0L" secondAttribute="bottom" constant="4" id="67N-a4-V4v"/>
+                                                    <constraint firstItem="Gg4-dc-h5h" firstAttribute="leading" secondItem="IDh-Vt-SVz" secondAttribute="leading" constant="8" id="GMV-a6-dD4"/>
+                                                    <constraint firstItem="Gg4-dc-h5h" firstAttribute="top" secondItem="IDh-Vt-SVz" secondAttribute="top" constant="4" id="Knu-bl-Kmx"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Gg4-dc-h5h" secondAttribute="bottom" constant="4" id="MyD-Wq-f6S"/>
+                                                    <constraint firstItem="Z4g-Pi-T0L" firstAttribute="leading" secondItem="Gg4-dc-h5h" secondAttribute="trailing" constant="4" id="ZhH-27-Lmr"/>
+                                                    <constraint firstItem="Z4g-Pi-T0L" firstAttribute="top" secondItem="IDh-Vt-SVz" secondAttribute="top" constant="4" id="a5O-WO-iZ3"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Z4g-Pi-T0L" secondAttribute="trailing" constant="8" id="tnw-TY-eT4"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Gg4-dc-h5h" firstAttribute="width" secondItem="2eP-Zz-NOM" secondAttribute="width" id="fr8-yU-KAm"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -230,7 +287,9 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                         <outlet property="formatLabel" destination="9yZ-zo-Jvu" id="r3a-X1-eln"/>
                         <outlet property="headerLabel" destination="NHm-LY-ZHf" id="Kaz-so-BsP"/>
                         <outlet property="headerRow" destination="tWM-ue-s1z" id="KS1-kF-erc"/>
+                        <outlet property="isbnLabel" destination="Z4g-Pi-T0L" id="5Rq-V7-KIH"/>
                         <outlet property="pubinfoLabel" destination="7tx-CH-1QU" id="7fG-bM-aTa"/>
+                        <outlet property="subjectLabel" destination="jnX-IA-xQI" id="Fu1-Ce-Oyz"/>
                         <outlet property="synopsisLabel" destination="gOP-li-8kW" id="uLd-7c-KFm"/>
                         <outlet property="titleLabel" destination="Obk-o5-m7w" id="7mr-vY-hrw"/>
                     </connections>
