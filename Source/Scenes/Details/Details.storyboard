@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1414.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1546.3333333333333"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-ue-s1z" userLabel="Header Row">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
@@ -173,6 +173,28 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                                     <constraint firstAttribute="trailing" secondItem="gOP-li-8kW" secondAttribute="trailing" constant="8" id="eDZ-XB-BMI"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANV-7z-h9O" userLabel="Extras Row">
+                                                <rect key="frame" x="0.0" y="1418.3333333333333" width="393" height="128"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb7-D6-PDd">
+                                                        <rect key="frame" x="8" y="4" width="377" height="120"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15p-mJ-jvC" userLabel="extrasButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="377" height="120"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Gb7-D6-PDd" secondAttribute="bottom" constant="4" id="AQe-F2-bOG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Gb7-D6-PDd" secondAttribute="trailing" constant="8" id="Md6-xf-KTz"/>
+                                                    <constraint firstItem="Gb7-D6-PDd" firstAttribute="top" secondItem="ANV-7z-h9O" secondAttribute="top" constant="4" id="bFl-lh-vl0"/>
+                                                    <constraint firstItem="Gb7-D6-PDd" firstAttribute="leading" secondItem="ANV-7z-h9O" secondAttribute="leading" constant="8" id="c28-IE-jz8"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -203,6 +225,8 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                         <outlet property="copyInfoButton" destination="DdB-UD-NMk" id="Nba-9L-qrm"/>
                         <outlet property="copySummaryLabel" destination="WwZ-G8-Vo6" id="gWm-a2-xv8"/>
                         <outlet property="coverImage" destination="QDi-I0-XXM" id="eDa-mS-DlA"/>
+                        <outlet property="extrasButton" destination="15p-mJ-jvC" id="HvE-4V-lH2"/>
+                        <outlet property="extrasRow" destination="ANV-7z-h9O" id="eWh-yO-5BP"/>
                         <outlet property="formatLabel" destination="9yZ-zo-Jvu" id="r3a-X1-eln"/>
                         <outlet property="headerLabel" destination="NHm-LY-ZHf" id="Kaz-so-BsP"/>
                         <outlet property="headerRow" destination="tWM-ue-s1z" id="KS1-kF-erc"/>

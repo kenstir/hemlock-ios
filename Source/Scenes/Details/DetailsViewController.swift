@@ -33,11 +33,15 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var copyInfoButton: UIButton!
     @IBOutlet weak var addToListButton: UIButton!
     @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var extrasRow: UIView!
+    @IBOutlet weak var extrasButton: UIButton!
 
     var record = MBRecord(id: -1)
     var row: Int = 0
     var count: Int = 0
     var displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
+
+    private var showExtrasButton: Bool { return App.config.detailsExtraLinkText != nil }
 
     //MARK: - Lifecycle
 
@@ -71,13 +75,14 @@ class DetailsViewController: UIViewController {
         setupInfoVStack()
         setupImage()
         setupCopySummary()
-        setupButtons()
+        setupActionButtons()
+        setupExtrasButton()
     }
 
     func setupAsyncViews() {
         setupInfoVStack()
         setupCopySummary()
-        setupButtons()
+        setupActionButtons()
     }
 
     private func setupPageHeader() {
@@ -123,7 +128,7 @@ class DetailsViewController: UIViewController {
         copySummaryLabel.attributedText = Style.makeString(str, ofSize: Style.calloutSize)
     }
 
-    private func setupButtons() {
+    private func setupActionButtons() {
         var actionButtonText: String
         let isOnlineResource = App.behavior.isOnlineResource(record: record)
 
@@ -156,14 +161,21 @@ class DetailsViewController: UIViewController {
         Style.styleButton(asOutline: addToListButton)
         addToListButton.setTitle("Add to List", for: .normal)
         addToListButton.addTarget(self, action: #selector(addToListPressed(sender:)), for: .touchUpInside)
+    }
 
-//        if let title = App.config.detailsExtraLinkText,
-//           let _ = App.config.detailsExtraLinkFragment
-//        {
-//            Style.styleButton(asPlain: extrasButton)
-//            extrasButton.setTitle(title, for: .normal)
-//            extrasButton.addTarget(self, action: #selector(extrasPressed(sender:)), for: .touchUpInside)
-//        }
+    func setupExtrasButton() {
+        if !showExtrasButton {
+            extrasRow.isHidden = true
+            return
+        }
+
+        if let title = App.config.detailsExtraLinkText,
+           let _ = App.config.detailsExtraLinkFragment
+        {
+            Style.styleButton(asPlain: extrasButton)
+            extrasButton.setTitle(title, for: .normal)
+            extrasButton.addTarget(self, action: #selector(extrasPressed(sender:)), for: .touchUpInside)
+        }
     }
 
     func fetchData() {
