@@ -29,6 +29,9 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var pubinfoLabel: UILabel!
     @IBOutlet weak var copySummaryLabel: UILabel!
     @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var copyInfoButton: UIButton!
+    @IBOutlet weak var addToListButton: UIButton!
     @IBOutlet weak var synopsisLabel: UILabel!
 
     var record = MBRecord(id: -1)
@@ -68,11 +71,13 @@ class DetailsViewController: UIViewController {
         setupInfoVStack()
         setupImage()
         setupCopySummary()
+        setupButtons()
     }
 
     func setupAsyncViews() {
         setupInfoVStack()
         setupCopySummary()
+        setupButtons()
     }
 
     private func setupPageHeader() {
@@ -118,6 +123,49 @@ class DetailsViewController: UIViewController {
         copySummaryLabel.attributedText = Style.makeString(str, ofSize: Style.calloutSize)
     }
 
+    private func setupButtons() {
+        var actionButtonText: String
+        let isOnlineResource = App.behavior.isOnlineResource(record: record)
+
+        // This function will be called more than once, clear targets first
+        actionButton.removeTarget(self, action: nil, for: .allEvents)
+        copyInfoButton.removeTarget(self, action: nil, for: .allEvents)
+        addToListButton.removeTarget(self, action: nil, for: .allEvents)
+
+        if isOnlineResource {
+            actionButtonText = "Online Access"
+            actionButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), for: .touchUpInside)
+            actionButton.isEnabled = (App.behavior.onlineLocations(record: record, forSearchOrg: displayOptions.orgShortName).count > 0)
+        } else {
+            actionButtonText = "Place Hold"
+            actionButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
+            actionButton.isEnabled = displayOptions.enablePlaceHold
+        }
+        Style.styleButton(asInverse: actionButton)
+        actionButton.setTitle(actionButtonText, for: .normal)
+
+        if isOnlineResource {
+            copyInfoButton.isEnabled = false
+            copyInfoButton.isHidden = true
+        } else {
+            Style.styleButton(asOutline: copyInfoButton)
+            copyInfoButton.setTitle("Copy Info", for: .normal)
+            copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), for: .touchUpInside)
+        }
+
+        Style.styleButton(asOutline: addToListButton)
+        addToListButton.setTitle("Add to List", for: .normal)
+        addToListButton.addTarget(self, action: #selector(addToListPressed(sender:)), for: .touchUpInside)
+
+//        if let title = App.config.detailsExtraLinkText,
+//           let _ = App.config.detailsExtraLinkFragment
+//        {
+//            Style.styleButton(asPlain: extrasButton)
+//            extrasButton.setTitle(title, for: .normal)
+//            extrasButton.addTarget(self, action: #selector(extrasPressed(sender:)), for: .touchUpInside)
+//        }
+    }
+
     func fetchData() {
         // Fetch orgs and copy statuses
         var promises: [Promise<Void>] = []
@@ -153,5 +201,22 @@ class DetailsViewController: UIViewController {
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
+    }
+
+    //MARK: - Actions
+
+    @objc func onlineAccessPressed(sender: Any) {
+    }
+
+    @objc func placeHoldPressed(sender: Any) {
+    }
+
+    @objc func copyInfoPressed(sender: Any) {
+    }
+
+    @objc func addToListPressed(sender: Any) {
+    }
+
+    @objc func extrasPressed(sender: Any) {
     }
 }

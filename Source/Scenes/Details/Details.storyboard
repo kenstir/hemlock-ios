@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1282.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1414.3333333333333"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-ue-s1z" userLabel="Header Row">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
@@ -120,8 +120,40 @@
                                                     <constraint firstItem="WwZ-G8-Vo6" firstAttribute="top" secondItem="auB-BB-58U" secondAttribute="top" constant="8" id="jO6-sb-vSf"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn7-it-hY2" userLabel="Button Row">
+                                                <rect key="frame" x="0.0" y="436" width="393" height="128"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-vc-nQc">
+                                                        <rect key="frame" x="8" y="4" width="377" height="120"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-Bu-drf" userLabel="actionButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="123" height="120"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Place Hold"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdB-UD-NMk" userLabel="copyInfoButton">
+                                                                <rect key="frame" x="127" y="0.0" width="123" height="120"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Copy Info"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-k6-feX" userLabel="addToListButton">
+                                                                <rect key="frame" x="254" y="0.0" width="123" height="120"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Add to List"/>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="2v2-vc-nQc" firstAttribute="leading" secondItem="dn7-it-hY2" secondAttribute="leading" constant="8" id="3uS-DH-CdN"/>
+                                                    <constraint firstItem="2v2-vc-nQc" firstAttribute="top" secondItem="dn7-it-hY2" secondAttribute="top" constant="4" id="Ct0-Qd-bwp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2v2-vc-nQc" secondAttribute="trailing" constant="8" id="Shb-Lx-M5b"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2v2-vc-nQc" secondAttribute="bottom" constant="4" id="a3u-b8-Hpg"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKc-mX-5cJ" userLabel="Synopsis Row">
-                                                <rect key="frame" x="0.0" y="436.00000000000006" width="393" height="846.33333333333348"/>
+                                                <rect key="frame" x="0.0" y="568" width="393" height="846.33333333333348"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOP-li-8kW" userLabel="synopsisLabel">
                                                         <rect key="frame" x="8" y="4" width="377" height="834.33333333333337"/>
@@ -165,7 +197,10 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="cIB-Bu-drf" id="ICk-st-33T"/>
+                        <outlet property="addToListButton" destination="Cm4-k6-feX" id="Hb6-dc-ykF"/>
                         <outlet property="author" destination="LTg-WS-dc0" id="JMX-c4-TTJ"/>
+                        <outlet property="copyInfoButton" destination="DdB-UD-NMk" id="Nba-9L-qrm"/>
                         <outlet property="copySummaryLabel" destination="WwZ-G8-Vo6" id="gWm-a2-xv8"/>
                         <outlet property="coverImage" destination="QDi-I0-XXM" id="eDa-mS-DlA"/>
                         <outlet property="formatLabel" destination="9yZ-zo-Jvu" id="r3a-X1-eln"/>
