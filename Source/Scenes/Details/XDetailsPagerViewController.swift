@@ -47,7 +47,7 @@ class XDetailsPagerViewController: ASDKViewController<ASPagerNode> {
         self.selectedItem = selectedItem
         self.displayOptions = displayOptions
         super.init(node: ASPagerNode())
-        self.title = "Item Details"
+        self.title = "OG Item Details"
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -198,60 +198,64 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53N-CU-k5U" userLabel="Subject Row">
                                                 <rect key="frame" x="0.0" y="1550.3333333333333" width="393" height="128"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eP-Zz-NOM" userLabel="Subject">
-                                                        <rect key="frame" x="7.9999999999999964" y="4" width="56.666666666666657" height="120"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-IA-xQI" userLabel="subjectLabel">
-                                                        <rect key="frame" x="68.666666666666657" y="4" width="316.33333333333337" height="120"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="us2-Cp-1qY" userLabel="Subject HStack">
+                                                        <rect key="frame" x="8" y="4" width="377" height="120"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eP-Zz-NOM" userLabel="Subject">
+                                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="United States History / United States / General Biography &amp; Autobiography" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-IA-xQI" userLabel="subjectLabel">
+                                                                <rect key="frame" x="63.666666666666657" y="0.0" width="313.33333333333337" height="61.333333333333336"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="2eP-Zz-NOM" firstAttribute="top" secondItem="53N-CU-k5U" secondAttribute="top" constant="4" id="8Tr-pO-fw9"/>
-                                                    <constraint firstItem="2eP-Zz-NOM" firstAttribute="leading" secondItem="53N-CU-k5U" secondAttribute="leading" constant="8" id="G0B-Tu-Rw1"/>
-                                                    <constraint firstItem="jnX-IA-xQI" firstAttribute="leading" secondItem="2eP-Zz-NOM" secondAttribute="trailing" constant="4" id="G4L-KK-4bT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="jnX-IA-xQI" secondAttribute="trailing" constant="8" id="GWk-bm-n4o"/>
-                                                    <constraint firstItem="jnX-IA-xQI" firstAttribute="top" secondItem="53N-CU-k5U" secondAttribute="top" constant="4" id="QRq-ao-Fie"/>
-                                                    <constraint firstAttribute="bottom" secondItem="2eP-Zz-NOM" secondAttribute="bottom" constant="4" id="hfb-m7-Hse"/>
-                                                    <constraint firstAttribute="bottom" secondItem="jnX-IA-xQI" secondAttribute="bottom" constant="4" id="nie-Jl-mNR"/>
+                                                    <constraint firstItem="us2-Cp-1qY" firstAttribute="leading" secondItem="53N-CU-k5U" secondAttribute="leading" constant="8" id="A3L-52-gVx"/>
+                                                    <constraint firstItem="us2-Cp-1qY" firstAttribute="top" secondItem="53N-CU-k5U" secondAttribute="top" constant="4" id="Fwh-R4-4Fn"/>
+                                                    <constraint firstAttribute="trailing" secondItem="us2-Cp-1qY" secondAttribute="trailing" constant="8" id="Ny7-bg-RbY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="us2-Cp-1qY" secondAttribute="bottom" constant="4" id="Ufa-Dj-lt3"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDh-Vt-SVz" userLabel="ISBN Row">
                                                 <rect key="frame" x="0.0" y="1682.3333333333333" width="393" height="128"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISBN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg4-dc-h5h" userLabel="ISBN">
-                                                        <rect key="frame" x="7.9999999999999964" y="4" width="56.666666666666657" height="120"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-Pi-T0L" userLabel="ISBNLabel">
-                                                        <rect key="frame" x="68.666666666666657" y="4" width="316.33333333333337" height="120"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hAY-nG-UD7" userLabel="ISBN HStack">
+                                                        <rect key="frame" x="8" y="4" width="377" height="120"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISBN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg4-dc-h5h" userLabel="ISBN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="9780812993547" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-Pi-T0L" userLabel="ISBNLabel">
+                                                                <rect key="frame" x="63.666666666666657" y="0.0" width="313.33333333333337" height="19.333333333333332"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="Z4g-Pi-T0L" secondAttribute="bottom" constant="4" id="67N-a4-V4v"/>
-                                                    <constraint firstItem="Gg4-dc-h5h" firstAttribute="leading" secondItem="IDh-Vt-SVz" secondAttribute="leading" constant="8" id="GMV-a6-dD4"/>
-                                                    <constraint firstItem="Gg4-dc-h5h" firstAttribute="top" secondItem="IDh-Vt-SVz" secondAttribute="top" constant="4" id="Knu-bl-Kmx"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Gg4-dc-h5h" secondAttribute="bottom" constant="4" id="MyD-Wq-f6S"/>
-                                                    <constraint firstItem="Z4g-Pi-T0L" firstAttribute="leading" secondItem="Gg4-dc-h5h" secondAttribute="trailing" constant="4" id="ZhH-27-Lmr"/>
-                                                    <constraint firstItem="Z4g-Pi-T0L" firstAttribute="top" secondItem="IDh-Vt-SVz" secondAttribute="top" constant="4" id="a5O-WO-iZ3"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Z4g-Pi-T0L" secondAttribute="trailing" constant="8" id="tnw-TY-eT4"/>
+                                                    <constraint firstItem="hAY-nG-UD7" firstAttribute="top" secondItem="IDh-Vt-SVz" secondAttribute="top" constant="4" id="0Mj-3B-t6i"/>
+                                                    <constraint firstItem="hAY-nG-UD7" firstAttribute="leading" secondItem="IDh-Vt-SVz" secondAttribute="leading" constant="8" id="7Zk-62-gnd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hAY-nG-UD7" secondAttribute="trailing" constant="8" id="9EB-q5-Jpo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="hAY-nG-UD7" secondAttribute="bottom" constant="4" id="fJg-d6-aA3"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Gg4-dc-h5h" firstAttribute="width" secondItem="2eP-Zz-NOM" secondAttribute="width" id="fr8-yU-KAm"/>
+                                            <constraint firstItem="Gg4-dc-h5h" firstAttribute="width" secondItem="2eP-Zz-NOM" secondAttribute="width" id="kdo-r8-3hn"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
