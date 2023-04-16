@@ -225,18 +225,127 @@ class DetailsViewController: UIViewController {
 
     //MARK: - Actions
 
-    @objc func onlineAccessPressed(sender: Any) {
+    @objc func onlineAccessPressed(sender: UIButton) {
+        let links = App.behavior.onlineLocations(record: record, forSearchOrg: displayOptions.orgShortName)
+        guard links.count > 0 else { return }
+
+        // If there's only one link, open it without ceremony
+        if links.count == 1 && !App.config.alwaysUseActionSheetForOnlineLinks {
+            openOnlineLocation(vc: self, href: links[0].href)
+            return
+        }
+
+        // Build an action sheet to present the links
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        for link in links {
+            alertController.addAction(UIAlertAction(title: link.text, style: .default) { action in
+                self.openOnlineLocation(vc: self, href: link.href)
+            })
+        }
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        // iPad requires a popoverPresentationController
+        if let popoverController = alertController.popoverPresentationController {
+            let view: UIView = sender.value(forKey: "view") as? UIView ?? self.view
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
+        self.present(alertController, animated: true)
     }
 
     @objc func placeHoldPressed(sender: Any) {
+        let vc = XPlaceHoldViewController(record: record)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func copyInfoPressed(sender: Any) {
+        let org = Organization.find(byShortName: self.displayOptions.orgShortName) ?? Organization.consortium()
+        guard let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController() as? CopyInfoViewController else { return }
+
+        vc.org = org
+        vc.record = record
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func addToListPressed(sender: Any) {
+        if App.account?.bookBagsEverLoaded == true {
+            addToList()
+            return
+        }
+
+        guard let account = App.account,
+              let authtoken = account.authtoken,
+              let userID = account.userID else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return
+        }
+
+        // fetch the list of bookbags
+        ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
+            self.addToList()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
+        }
     }
 
+    func addToList() {
+        guard let bookBags = App.account?.bookBags,
+              bookBags.count > 0 else
+        {
+            navigationController?.view.makeToast("No lists")
+            return
+        }
+
+        // Build an action sheet to display the options
+        let alertController = UIAlertController(title: "Add to List", message: nil, preferredStyle: .actionSheet)
+        Style.styleAlertController(alertController)
+        for bookBag in bookBags {
+            alertController.addAction(UIAlertAction(title: bookBag.name, style: .default) { action in
+                self.addItem(toBookBag: bookBag)
+            })
+        }
+//        alertController.addAction(UIAlertAction(title: "Add to New List", style: .default) { action in
+//            showAlert(title: "TODO", message: "create new")
+//        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        if let popoverController = alertController.popoverPresentationController {
+            let view: UIView = self.view
+            popoverController.sourceView = view
+            popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+        }
+        self.present(alertController, animated: true)
+    }
+
+    func addItem(toBookBag bookBag: BookBag) {
+        guard let authtoken = App.account?.authtoken else { return }
+
+        ActorService.addItemToBookBag(authtoken: authtoken, bookBagId: bookBag.id, recordId: record.id).done {
+            self.navigationController?.view.makeToast("Item added to list")
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
+
     @objc func extrasPressed(sender: Any) {
+        var url = App.config.url + "/eg/opac/record/" + String(record.id)
+        if let q = App.config.detailsExtraLinkQuery {
+            url += "?" + q
+        }
+        if let fragment = App.config.detailsExtraLinkFragment {
+            url += "#" + fragment
+        }
+        self.openOnlineLocation(vc: self, href: url)
+    }
+
+    func openOnlineLocation(vc: UIViewController, href: String) {
+        guard let url = URL(string: href) else {
+            vc.showAlert(title: "Error parsing URL", message: "Unable to parse online location \(href)")
+            return
+        }
+        UIApplication.shared.open(url)
     }
 }
