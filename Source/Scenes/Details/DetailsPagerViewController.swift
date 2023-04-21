@@ -16,6 +16,13 @@
 
 import UIKit
 
+/// Display options related to an MBRecord
+struct RecordDisplayOptions {
+    let enablePlaceHold: Bool
+    let orgShortName: String?
+}
+
+/// A page displaying an MBRecord that knows its place in the list
 class Page {
     let index: Int
     let record: MBRecord

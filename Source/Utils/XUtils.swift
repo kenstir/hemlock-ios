@@ -61,7 +61,6 @@ class XUtils {
     }
 
     static func makeDetailsPager(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> UIViewController? {
-//        return XDetailsPagerViewController.make(items: items, selectedItem: selectedItem, displayOptions: displayOptions)
         return DetailsPagerViewController.make(items: items, selectedItem: selectedItem, displayOptions: displayOptions)
     }
 }
