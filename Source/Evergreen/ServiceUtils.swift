@@ -34,10 +34,10 @@ class ServiceUtils {
         return emptyPromise
     }
 
-    static func makeEmptyOptionalObjectPromise() -> Promise<(OSRFObject?)> {
-        let emptyPromise = Promise<(OSRFObject?)>() { seal in
-            seal.fulfill(nil)
-        }
-        return emptyPromise
-    }
+//    static func makeEmptyOptionalObjectPromise() -> Promise<(OSRFObject?)> {
+//        let emptyPromise = Promise<(OSRFObject?)>() { seal in
+//            seal.fulfill(nil)
+//        }
+//        return emptyPromise
+//    }
 }

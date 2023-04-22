@@ -217,12 +217,12 @@ class Organization {
         }
     }
 
-    static func getShortName(forName name: String?) -> String? {
-        if let org = orgs.first(where: { $0.name == name }) {
-            return org.shortname
-        }
-        return nil
-    }
+//    static func getShortName(forName name: String?) -> String? {
+//        if let org = orgs.first(where: { $0.name == name }) {
+//            return org.shortname
+//        }
+//        return nil
+//    }
     
     static func loadOrganizations(fromObj obj: OSRFObject) throws -> Void {
         orgs = []

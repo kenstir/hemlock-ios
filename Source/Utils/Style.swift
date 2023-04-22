@@ -178,9 +178,9 @@ class Style {
     
     //MARK: - SegmentedControl
     
-    static func styleSegmentedControl(_ v: UISegmentedControl) {
-        v.tintColor = App.theme.buttonTintColor
-    }
+//    static func styleSegmentedControl(_ v: UISegmentedControl) {
+//        v.tintColor = App.theme.buttonTintColor
+//    }
     
     //MARK: - Table Header
 
@@ -204,12 +204,12 @@ class Style {
     
     //MARK: - Attributed Strings
     
-    static func makeTableHeaderString(_ str: String, size: CGFloat = 16) -> NSAttributedString {
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: Style.secondaryLabelColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .light).withSmallCaps]
-        return NSAttributedString(string: str, attributes: attrs)
-    }
+//    static func makeTableHeaderString(_ str: String, size: CGFloat = 16) -> NSAttributedString {
+//        let attrs = [
+//            NSAttributedString.Key.foregroundColor: Style.secondaryLabelColor,
+//            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .light).withSmallCaps]
+//        return NSAttributedString(string: str, attributes: attrs)
+//    }
     
     static func makeTitleString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
@@ -253,13 +253,13 @@ class Style {
         textNode.truncationMode = .byTruncatingTail
     }
 
-    static func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = makeSubtitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 0
-    }
+//    static func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
+//        textNode.attributedText = makeSubtitleString(str, ofSize: size)
+//        textNode.maximumNumberOfLines = 0
+//    }
 
-    static func setupSynopsisText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = makeMultilineString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 0
-    }
+//    static func setupSynopsisText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
+//        textNode.attributedText = makeMultilineString(str, ofSize: size)
+//        textNode.maximumNumberOfLines = 0
+//    }
 }

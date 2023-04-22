@@ -234,9 +234,9 @@ struct GatewayResponse {
         return nil
     }
 
-    static func makeError(_ reason: String) -> GatewayResponse {
-        var resp = GatewayResponse()
-        resp.error = .failure(reason)
-        return resp
-    }
+//    static func makeError(_ reason: String) -> GatewayResponse {
+//        var resp = GatewayResponse()
+//        resp.error = .failure(reason)
+//        return resp
+//    }
 }
