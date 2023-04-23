@@ -158,28 +158,6 @@ class Style {
         button.setTitle(title, with: font, with: .gray, for: .highlighted)
     }
 
-    static func styleButton(asOutline button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.buttonTintColor) {
-        button.borderColor = color.cgColor
-        button.borderWidth = 1.0
-        button.tintColor = color
-        button.cornerRadius = buttonCornerRadius
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let font = UIFont.systemFont(ofSize: size)
-        button.setTitle(title, with: font, with: color, for: .normal)
-        button.setTitle(title, with: font, with: .gray, for: .disabled)
-        button.setTitle(title, with: font, with: .gray, for: .highlighted)
-    }
-
-    static func styleButton(asPlain button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.buttonTintColor) {
-        button.tintColor = color
-        button.cornerRadius = buttonCornerRadius
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let font = UIFont.systemFont(ofSize: size)
-        button.setTitle(title, with: font, with: color, for: .normal)
-        button.setTitle(title, with: font, with: .gray, for: .disabled)
-        button.setTitle(title, with: font, with: .gray, for: .highlighted)
-    }
-    
     //MARK: - SearchBar
 
     static func styleSearchBar(_ searchBar: UISearchBar) {
@@ -214,14 +192,7 @@ class Style {
     }
     
     //MARK: - Attributed Strings
-    
-//    static func makeTableHeaderString(_ str: String, size: CGFloat = 16) -> NSAttributedString {
-//        let attrs = [
-//            NSAttributedString.Key.foregroundColor: Style.secondaryLabelColor,
-//            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .light).withSmallCaps]
-//        return NSAttributedString(string: str, attributes: attrs)
-//    }
-    
+
     static func makeTitleString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
             NSAttributedString.Key.foregroundColor: Style.labelColor,
@@ -235,14 +206,7 @@ class Style {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-    
-    static func makeMultilineString(_ str: String, ofSize size: CGFloat = 14) -> NSAttributedString {
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: Style.labelColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)]
-        return NSAttributedString(string: str, attributes: attrs)
-    }
-    
+
     static func makeString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
             NSAttributedString.Key.foregroundColor: Style.labelColor,
@@ -263,14 +227,4 @@ class Style {
         textNode.maximumNumberOfLines = 1
         textNode.truncationMode = .byTruncatingTail
     }
-
-//    static func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-//        textNode.attributedText = makeSubtitleString(str, ofSize: size)
-//        textNode.maximumNumberOfLines = 0
-//    }
-
-//    static func setupSynopsisText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-//        textNode.attributedText = makeMultilineString(str, ofSize: size)
-//        textNode.maximumNumberOfLines = 0
-//    }
 }
