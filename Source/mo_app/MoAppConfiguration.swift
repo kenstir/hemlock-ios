@@ -34,8 +34,8 @@ class MoAppConfiguration: AppConfiguration {
     let enableMainSceneBottomToolbar = false
     let enablePayFines = true
     let enableHoursOfOperation = true
-    let enableMessages = false
-    let enableEventsButton = false
+    let enableMessages = true
+    let enableEventsButton = true
     let groupCopyInfoBySystem = false
     let enableCopyInfoWebLinks = false
     let needMARCRecord = true
