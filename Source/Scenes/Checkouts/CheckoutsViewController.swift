@@ -209,6 +209,8 @@ class CheckoutsViewController: UIViewController {
         if item.isOverdue {
             return "Due \(item.dueDateLabel) (overdue)"
         }
+        // These are commented out for now because they cause the text
+        // to bleed under the Renew button.
 //        if item.isDue && item.autoRenewals > 0 {
 //            return "Due \(item.dueDateLabel) (but may auto-renew)"
 //        }

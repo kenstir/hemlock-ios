@@ -36,7 +36,7 @@ class Style {
 
     static var tableHeaderHeight = 55.0
     static let buttonCornerRadius = 6.0
-    
+
     //MARK: - Colors
     
     class var systemBackground: UIColor {
@@ -115,10 +115,19 @@ class Style {
 
     //MARK: - Button
 
+    static private func setButtonInsets(_ button: UIButton) {
+        if #available(iOS 15.0, *) {
+            button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        } else {
+            button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        }
+    }
+
     static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.inverseButtonColor) {
         button.backgroundColor = color
         button.tintColor = .white
         button.layer.cornerRadius = buttonCornerRadius
+        Style.setButtonInsets(button)
     }
     
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.buttonTintColor) {
@@ -128,11 +137,13 @@ class Style {
         button.layer.borderColor = button.currentTitleColor.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = buttonCornerRadius
+        Style.setButtonInsets(button)
     }
     
     static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.buttonTintColor) {
         button.tintColor = color
         button.layer.cornerRadius = buttonCornerRadius
+        Style.setButtonInsets(button)
     }
     
     // styleButton for an ASButtonNode includes setting the title, because that involves colors
