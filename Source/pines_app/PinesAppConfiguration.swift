@@ -46,5 +46,5 @@ class PinesAppConfiguration: AppConfiguration {
     let haveColorButtonImages = false
 
     let barcodeFormat: BarcodeFormat = .Codabar
-    let searchLimit = 200
+    let searchLimit = 100
 }

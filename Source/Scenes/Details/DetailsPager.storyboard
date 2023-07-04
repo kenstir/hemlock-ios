@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i4z-KV-naa">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+    </dependencies>
+    <scenes>
+        <!--PVC-->
+        <scene sceneID="oaF-oS-dj6">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="PVC" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="i4z-KV-naa" customClass="DetailsPagerViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pT-5s-RR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="518" y="56"/>
+        </scene>
+    </scenes>
+</document>

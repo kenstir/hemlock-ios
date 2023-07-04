@@ -36,7 +36,7 @@ class Style {
 
     static var tableHeaderHeight = 55.0
     static let buttonCornerRadius = 6.0
-    
+
     //MARK: - Colors
     
     class var systemBackground: UIColor {
@@ -115,10 +115,19 @@ class Style {
 
     //MARK: - Button
 
+    static private func setButtonInsets(_ button: UIButton) {
+        if #available(iOS 15.0, *) {
+            button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        } else {
+            button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        }
+    }
+
     static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.inverseButtonColor) {
         button.backgroundColor = color
         button.tintColor = .white
         button.layer.cornerRadius = buttonCornerRadius
+        Style.setButtonInsets(button)
     }
     
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.buttonTintColor) {
@@ -128,11 +137,13 @@ class Style {
         button.layer.borderColor = button.currentTitleColor.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = buttonCornerRadius
+        Style.setButtonInsets(button)
     }
     
     static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.buttonTintColor) {
         button.tintColor = color
         button.layer.cornerRadius = buttonCornerRadius
+        Style.setButtonInsets(button)
     }
     
     // styleButton for an ASButtonNode includes setting the title, because that involves colors
@@ -147,28 +158,6 @@ class Style {
         button.setTitle(title, with: font, with: .gray, for: .highlighted)
     }
 
-    static func styleButton(asOutline button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.buttonTintColor) {
-        button.borderColor = color.cgColor
-        button.borderWidth = 1.0
-        button.tintColor = color
-        button.cornerRadius = buttonCornerRadius
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let font = UIFont.systemFont(ofSize: size)
-        button.setTitle(title, with: font, with: color, for: .normal)
-        button.setTitle(title, with: font, with: .gray, for: .disabled)
-        button.setTitle(title, with: font, with: .gray, for: .highlighted)
-    }
-
-    static func styleButton(asPlain button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.buttonTintColor) {
-        button.tintColor = color
-        button.cornerRadius = buttonCornerRadius
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let font = UIFont.systemFont(ofSize: size)
-        button.setTitle(title, with: font, with: color, for: .normal)
-        button.setTitle(title, with: font, with: .gray, for: .disabled)
-        button.setTitle(title, with: font, with: .gray, for: .highlighted)
-    }
-    
     //MARK: - SearchBar
 
     static func styleSearchBar(_ searchBar: UISearchBar) {
@@ -178,15 +167,20 @@ class Style {
     
     //MARK: - SegmentedControl
     
-    static func styleSegmentedControl(_ v: UISegmentedControl) {
-        v.tintColor = App.theme.buttonTintColor
-    }
+//    static func styleSegmentedControl(_ v: UISegmentedControl) {
+//        v.tintColor = App.theme.buttonTintColor
+//    }
     
     //MARK: - Table Header
 
     static func styleLabel(asTableHeader v: UILabel) {
         v.textColor = Style.secondaryLabelColor
+        v.backgroundColor = Style.systemGroupedBackground
         v.font = UIFont.systemFont(ofSize: calloutSize, weight: .light).withSmallCaps
+    }
+
+    static func styleView(asTableHeader v: UIView) {
+        v.backgroundColor = Style.systemGroupedBackground
     }
 
     static func styleStackView(asTableHeader v: UIView) {
@@ -198,14 +192,7 @@ class Style {
     }
     
     //MARK: - Attributed Strings
-    
-    static func makeTableHeaderString(_ str: String, size: CGFloat = 16) -> NSAttributedString {
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: Style.secondaryLabelColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .light).withSmallCaps]
-        return NSAttributedString(string: str, attributes: attrs)
-    }
-    
+
     static func makeTitleString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
             NSAttributedString.Key.foregroundColor: Style.labelColor,
@@ -219,14 +206,7 @@ class Style {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)]
         return NSAttributedString(string: str, attributes: attrs)
     }
-    
-    static func makeMultilineString(_ str: String, ofSize size: CGFloat = 14) -> NSAttributedString {
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: Style.labelColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)]
-        return NSAttributedString(string: str, attributes: attrs)
-    }
-    
+
     static func makeString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
         let attrs = [
             NSAttributedString.Key.foregroundColor: Style.labelColor,
@@ -246,15 +226,5 @@ class Style {
         textNode.attributedText = makeSubtitleString(str, ofSize: size)
         textNode.maximumNumberOfLines = 1
         textNode.truncationMode = .byTruncatingTail
-    }
-
-    static func setupMultilineText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = makeSubtitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 0
-    }
-
-    static func setupSynopsisText(_ textNode: ASTextNode, str: String, ofSize size: CGFloat) {
-        textNode.attributedText = makeMultilineString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 0
     }
 }

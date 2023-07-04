@@ -53,11 +53,11 @@ class PCRUDService {
     }
 
     static func fetchMRA(forRecord record: MBRecord) -> Promise<Void> {
-        os_log("fetchMRA id=%d start", log: PCRUDService.log, type: .info, record.id)
+//        os_log("fetchMRA id=%d start", log: PCRUDService.log, type: .info, record.id)
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id], shouldCache: true)
         let promise = req.gatewayObjectResponse().done { obj in
             record.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
-            os_log("fetchMRA id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.iconFormatLabel, record.title)
+//            os_log("fetchMRA id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.iconFormatLabel, record.title)
         }
         return promise
     }

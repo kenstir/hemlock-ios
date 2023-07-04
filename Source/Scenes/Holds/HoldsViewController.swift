@@ -40,7 +40,7 @@ class HoldsViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !didCompleteFetch {
@@ -49,7 +49,7 @@ class HoldsViewController: UIViewController {
     }
 
     //MARK: - Functions
-    
+
     func setupViews() {
         holdsTable.delegate = self
         holdsTable.dataSource = self
@@ -57,7 +57,7 @@ class HoldsViewController: UIViewController {
         setupActivityIndicator()
         self.setupHomeButton()
     }
-    
+
     func setupActivityIndicator() {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
@@ -251,8 +251,8 @@ class HoldsViewController: UIViewController {
     func showDetails(_ indexPath: IndexPath) {
         guard let hold = getItem(indexPath) else { return }
         let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
-        if let record = hold.metabibRecord {
-            let vc = XDetailsPagerViewController(items: [record], selectedItem: 0, displayOptions: displayOptions)
+        if let record = hold.metabibRecord,
+           let vc = XUtils.makeDetailsPager(items: [record], selectedItem: 0, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -329,7 +329,7 @@ extension HoldsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HoldsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "holdsCell", for: indexPath) as? HoldsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
         

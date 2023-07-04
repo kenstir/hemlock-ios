@@ -61,14 +61,15 @@ class CheckoutsViewController: UIViewController {
     func setupViews() {
         tableView.dataSource = self
         tableView.delegate = self
-        
-        // create and style the activity indicator
-        activityIndicator = addActivityIndicator()
-        Style.styleActivityIndicator(activityIndicator)
-
+        setupActivityIndicator()
         self.setupHomeButton()
     }
-    
+
+    func setupActivityIndicator() {
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
+    }
+
     func fetchData() {
         guard let authtoken = App.account?.authtoken,
             let userid = App.account?.userID else
@@ -208,6 +209,8 @@ class CheckoutsViewController: UIViewController {
         if item.isOverdue {
             return "Due \(item.dueDateLabel) (overdue)"
         }
+        // These are commented out for now because they cause the text
+        // to bleed under the Renew button.
 //        if item.isDue && item.autoRenewals > 0 {
 //            return "Due \(item.dueDateLabel) (but may auto-renew)"
 //        }
@@ -236,11 +239,10 @@ extension CheckoutsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "CheckoutsTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CheckoutsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "checkoutsCell", for: indexPath) as? CheckoutsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
-        
+
         let item = items[indexPath.row]
 
         cell.title.text = item.title
@@ -275,8 +277,9 @@ extension CheckoutsViewController: UITableViewDelegate {
 
         if records.count > 0 {
             let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
-            let vc = XDetailsPagerViewController(items: records, selectedItem: indexPath.row, displayOptions: displayOptions)
-            self.navigationController?.pushViewController(vc, animated: true)
+            if let vc = XUtils.makeDetailsPager(items: records, selectedItem: indexPath.row, displayOptions: displayOptions) {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         } else {
             // deselect row
             tableView.deselectRow(at: indexPath, animated: true)

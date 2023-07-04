@@ -34,6 +34,7 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
     //MARK: - initializers
     
     init(contentsOf: URL) {
+        // ignore Xcode warning; this method is used only by MARCXMLParserTests
         parser = XMLParser(contentsOf: contentsOf)
     }
     

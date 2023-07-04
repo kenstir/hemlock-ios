@@ -37,16 +37,16 @@ class BarcodeUtils {
     }
 
     /// return default barcode value for the given format
-    static public func defaultValue(format: BarcodeFormat) -> String {
-        switch format {
-        case .Disabled:
-            return ""
-        case .Codabar:
-            return "00000000000000"
-        case .Code39:
-            return "D000000000"
-        }
-    }
+//    static public func defaultValue(format: BarcodeFormat) -> String {
+//        switch format {
+//        case .Disabled:
+//            return ""
+//        case .Codabar:
+//            return "00000000000000"
+//        case .Code39:
+//            return "D000000000"
+//        }
+//    }
 
     /// format label in the usual way for the given format
     static public func displayLabel(_ str: String, format: BarcodeFormat) -> String {

@@ -17,16 +17,16 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import UIKit
-
-extension UIView {
-    // courtesy of https://stackoverflow.com/questions/13836606/use-table-view-disclosure-indicator-style-for-uibutton-ios
-    func addDisclosureIndicator() {
-        let disclosure = UITableViewCell()
-        disclosure.frame = self.bounds
-        disclosure.accessoryType = .disclosureIndicator
-        disclosure.isUserInteractionEnabled = false
-        disclosure.selectionStyle = .gray
-        addSubview(disclosure)
-    }
-}
+//import UIKit
+//
+//extension UIView {
+//    // courtesy of https://stackoverflow.com/questions/13836606/use-table-view-disclosure-indicator-style-for-uibutton-ios
+//    func addDisclosureIndicator() {
+//        let disclosure = UITableViewCell()
+//        disclosure.frame = self.bounds
+//        disclosure.accessoryType = .disclosureIndicator
+//        disclosure.isUserInteractionEnabled = false
+//        disclosure.selectionStyle = .gray
+//        addSubview(disclosure)
+//    }
+//}

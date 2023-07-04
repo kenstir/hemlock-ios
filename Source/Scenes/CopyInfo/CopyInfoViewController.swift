@@ -99,7 +99,7 @@ extension CopyInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CopyInfoTableViewCell", for: indexPath) as? CopyInfoTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "copyInfoCell", for: indexPath) as? CopyInfoTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
         

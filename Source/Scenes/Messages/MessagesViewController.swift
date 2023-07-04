@@ -20,7 +20,7 @@ import UIKit
 import PromiseKit
 import os.log
 
-class MessagesViewController : UITableViewController {
+class MessagesViewController: UITableViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
     

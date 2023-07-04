@@ -59,4 +59,8 @@ class XUtils {
         spec.style.flexShrink = 1
         return spec
     }
+
+    static func makeDetailsPager(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> UIViewController? {
+        return DetailsPagerViewController.make(items: items, selectedItem: selectedItem, displayOptions: displayOptions)
+    }
 }

@@ -78,6 +78,7 @@ class MainViewController: UIViewController {
             ("My Lists", "ShowBookBagsSegue", nil),
             ("Library Info", "ShowOrgDetailsSegue", nil),
         ]
+// This was part of a failed experiment to integrate SwiftUI
 //        if #available(iOS 14.0, *) {
 //            buttons.append(("My Lists", "", {
 //                guard let account = App.account else { return }
@@ -92,15 +93,12 @@ class MainViewController: UIViewController {
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
-//        buttons.append(("Potter Search Now", "", {
-//            let vc = XResultsViewController()
-//            vc.searchParameters = SearchParameters(text: "Harry Potter goblet", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
-//            self.navigationController?.pushViewController(vc, animated: true)
+//        buttons.append(("Prepared query", "", {
+//            if let vc = UIStoryboard(name: "Results", bundle: nil).instantiateInitialViewController() as? ResultsViewController {
+//                vc.searchParameters = SearchParameters(text: "Goblet of fire", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
 //        }))
-    }
-    
-    func showMyLists() {
-        
     }
 
     func setupViews() {
@@ -274,14 +272,13 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return buttons.count
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return App.account?.displayName
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "MainTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MainTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as? MainTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
         

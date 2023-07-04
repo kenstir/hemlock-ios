@@ -45,12 +45,10 @@ class AuthService {
         return req.gatewayObjectResponse()
     }
 
-    /*
-    static func makeStringPromise(_ str: String) -> Promise<(String)> {
-        let promise = Promise<(String)>() { seal in
-            seal.fulfill(str)
-        }
-        return promise
-    }
-    */
+//    static func makeStringPromise(_ str: String) -> Promise<(String)> {
+//        let promise = Promise<(String)>() { seal in
+//            seal.fulfill(str)
+//        }
+//        return promise
+//    }
 }
