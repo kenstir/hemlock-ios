@@ -38,12 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.backgroundColor = App.theme.barBackgroundColor
         appearance.isTranslucent = false
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        if #available(iOS 11.0, *) {
-            appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        }
+        appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
         return true
     }
-    
 }
-
