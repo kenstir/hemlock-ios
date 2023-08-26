@@ -24,7 +24,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var headerRow: UIView!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var authorButton: UIButton!
     @IBOutlet weak var formatLabel: UILabel!
     @IBOutlet weak var pubinfoLabel: UILabel!
     @IBOutlet weak var copySummaryLabel: UILabel!
@@ -98,9 +98,15 @@ class DetailsViewController: UIViewController {
 
     private func setupInfoVStack() {
         titleLabel.text = record.title
-        author.text = record.author
         formatLabel.text = record.iconFormatLabel
         pubinfoLabel.text = record.pubinfo
+
+        Style.styleButton(asPlain: authorButton)
+        authorButton.setTitle(record.author, for: .normal)
+        authorButton.addTarget(self, action: #selector(authorPressed(sender:)), for: .touchUpInside)
+
+        // Reduce button padding so that author text aligns with title & format
+        authorButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.1, bottom: 0, right: 0.1)
     }
 
     private func setupOtherRecordLabels() {
@@ -329,6 +335,9 @@ class DetailsViewController: UIViewController {
         }
     }
 
+    @objc func authorPressed(sender: Any) {
+        showAlert(title: "you pressed", message: record.author)
+    }
 
     @objc func extrasPressed(sender: Any) {
         var url = App.config.url + "/eg/opac/record/" + String(record.id)
