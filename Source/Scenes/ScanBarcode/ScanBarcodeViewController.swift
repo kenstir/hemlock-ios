@@ -124,6 +124,7 @@ class ScanBarcodeViewController: UIViewController {
 
                     // navigate back
                     self.navigationController?.popViewController(animated: true)
+                    return
                 }
             }
         }
