@@ -67,7 +67,7 @@ class SearchViewController: UIViewController {
     let searchFormatIndex = 1
     let searchLocationIndex = 2
 
-    var scannedBarcode: String? = nil
+    var barcodeToSearchFor: String? = nil
     var authorToSearchFor: String? = nil
 
     //MARK: - UIViewController
@@ -214,9 +214,9 @@ class SearchViewController: UIViewController {
 
     func doSearchOnStartup() {
         // handle barcode when navigating back
-        if let barcode = scannedBarcode, didCompleteFetch {
+        if let barcode = barcodeToSearchFor, didCompleteFetch {
             searchBar.textField?.text = barcode
-            scannedBarcode = nil
+            barcodeToSearchFor = nil
             DispatchQueue.main.async {
                 self.doSearch(byBarcode: barcode)
             }
@@ -334,7 +334,7 @@ extension SearchViewController: UISearchBarDelegate {
     func showScanBarcodeVC() {
         guard let vc = UIStoryboard(name: "ScanBarcode", bundle: nil).instantiateInitialViewController() as? ScanBarcodeViewController else { return }
         vc.barcodeScannedHandler = { barcode in
-            self.scannedBarcode = barcode
+            self.barcodeToSearchFor = barcode
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }

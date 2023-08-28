@@ -336,41 +336,10 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func authorPressed(sender: Any) {
-        print("kcxxx: authorPressed: \(record.author)")
-        // take 1: fail
-//        self.navigationController?.popToRootViewController(animated: false) {
-//            print("kcxxx: authorPressed: popped to root")
-//            if let vc = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as? SearchViewController {
-//                print("kcxxx: authorPressed: got vc \(vc)")
-//                vc.authorToSearchFor = self.record.author
-//                self.navigationController?.pushViewController(vc, animated: true)
-//                print("kcxxx: authorPressed: pushed vc")
-//            }
-//        }
-//        // take 2: fail
-//        self.navigationController?.popToRootViewController(animated: false)
-//        print("kcxxx: authorPressed: popped to root")
-//        DispatchQueue.main.async {
-//            if let vc = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as? SearchViewController {
-//                print("kcxxx: authorPressed: got vc \(vc)")
-//                vc.authorToSearchFor = self.record.author
-//                self.navigationController?.pushViewController(vc, animated: true)
-//                print("kcxxx: authorPressed: pushed vc")
-//            }
-//        }
-
-        // take 3:
-        if var vcs = self.navigationController?.viewControllers,
-           let firstVC = vcs.first {
-            vcs.removeAll()
-            vcs.append(firstVC)
-            if let vc = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as? SearchViewController {
-                vc.authorToSearchFor = self.record.author
-                vcs.append(vc)
-                print("kcxxx: authorPressed: pushed vc")
-            }
-            self.navigationController?.viewControllers = vcs
-            print("kcxxx: authorPressed: popped to root")
+        if let mainVC = self.navigationController?.viewControllers.first,
+           let searchVC = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as? SearchViewController {
+            searchVC.authorToSearchFor = self.record.author
+            self.navigationController?.viewControllers = [mainVC, searchVC]
         }
     }
 
