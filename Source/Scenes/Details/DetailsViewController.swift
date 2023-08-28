@@ -336,7 +336,11 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func authorPressed(sender: Any) {
-        showAlert(title: "you pressed", message: record.author)
+        if let mainVC = self.navigationController?.viewControllers.first,
+           let searchVC = UIStoryboard(name: "Search", bundle: nil).instantiateInitialViewController() as? SearchViewController {
+            searchVC.authorToSearchFor = self.record.author
+            self.navigationController?.viewControllers = [mainVC, searchVC]
+        }
     }
 
     @objc func extrasPressed(sender: Any) {
