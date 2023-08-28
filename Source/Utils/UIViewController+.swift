@@ -51,7 +51,13 @@ extension UIViewController {
     @objc func popToRootVC(sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
+
+    /// reset the VC stack to the Login VC (the initial VC on the Main storyboard)
+    func popToLogin() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        UIApplication.shared.keyWindow?.rootViewController = vc
+    }
+
     /// Set up a tap recognizer on a scrollView that dismisses the keyboard
     func setupTapToDismissKeyboard(onScrollView scrollView: UIScrollView) {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
@@ -156,11 +162,5 @@ extension UIViewController {
             showAlert(title: "Missing Image", message: "App is missing image \"\(named)\"")
         }
         return image
-    }
-
-    /// reset the VC stack to the Login VC (the initial VC on the Main storyboard)
-    func popToLogin() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-        UIApplication.shared.keyWindow?.rootViewController = vc
     }
 }
