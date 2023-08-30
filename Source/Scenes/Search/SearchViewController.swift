@@ -54,8 +54,9 @@ class SearchViewController: UIViewController {
     
     static let searchKeywordKeyword = "keyword"
     static let searchKeywordIdentifier = "identifier"
+    static let searchKeywordAuthor = "author"
     let searchClassLabels = ["Keyword","Title","Author","Subject","Series","ISBN or UPC"]
-    let searchClassKeywords = [searchKeywordKeyword,"title","author","subject","series",searchKeywordIdentifier]
+    let searchClassKeywords = [searchKeywordKeyword,"title",searchKeywordAuthor,"subject","series",searchKeywordIdentifier]
     var selectedSearchClassIndex = 0
     var formatLabels: [String] = []
     var orgLabels: [String] = []
@@ -65,8 +66,9 @@ class SearchViewController: UIViewController {
     let searchClassIndex = 0
     let searchFormatIndex = 1
     let searchLocationIndex = 2
-    
-    var scannedBarcode: String? = nil
+
+    var barcodeToSearchFor: String? = nil
+    var authorToSearchFor: String? = nil
 
     //MARK: - UIViewController
     
@@ -84,29 +86,23 @@ class SearchViewController: UIViewController {
         if let indexPath = optionsTable.indexPathForSelectedRow {
             optionsTable.deselectRow(at: indexPath, animated: true)
         }
-        
-        // handle barcode when navigating back
-        if let barcode = scannedBarcode {
-            searchBar.textField?.text = barcode
-            scannedBarcode = nil
-            DispatchQueue.main.async {
-                self.doSearch(byBarcode: barcode)
-            }
-        }
 
-        if !didCompleteFetch {
+        if didCompleteFetch {
+            doSearchOnStartup()
+        } else {
             fetchData()
         }
     }
-    
+
     //MARK: - Functions
-    
+
     func fetchData() {
         guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
+        let start = Date()
 
         var promises: [Promise<Void>] = []        
         promises.append(ActorService.fetchOrgTypes())
@@ -121,11 +117,14 @@ class SearchViewController: UIViewController {
         firstly {
             when(fulfilled: promises)
         }.done {
+            let elapsed = -start.timeIntervalSinceNow
+            os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             self.setupFormatPicker()
             self.setupLocationPicker()
             self.searchButton.isEnabled = true
             self.optionsTable.isUserInteractionEnabled = true
             self.didCompleteFetch = true
+            self.doSearchOnStartup()
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
@@ -212,10 +211,40 @@ class SearchViewController: UIViewController {
         searchButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asInverse: searchButton)
     }
-    
+
+    func doSearchOnStartup() {
+        // handle barcode when navigating back
+        if let barcode = barcodeToSearchFor, didCompleteFetch {
+            searchBar.textField?.text = barcode
+            barcodeToSearchFor = nil
+            DispatchQueue.main.async {
+                self.doSearch(byBarcode: barcode)
+            }
+            return
+        }
+
+        // handle author when navigating
+        if let author = authorToSearchFor, didCompleteFetch {
+            searchBar.textField?.text = author
+            authorToSearchFor = nil
+            DispatchQueue.main.async {
+                self.doSearch(byAuthor: author)
+            }
+            return
+        }
+    }
+
     func doSearch(byBarcode barcode: String) {
         let entry = options[searchClassIndex]
         entry.index = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordIdentifier)
+        entry.value = searchClassLabels[entry.index ?? 0]
+        self.optionsTable.reloadData()
+        doSearch()
+    }
+
+    func doSearch(byAuthor author: String) {
+        let entry = options[searchClassIndex]
+        entry.index = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordAuthor)
         entry.value = searchClassLabels[entry.index ?? 0]
         self.optionsTable.reloadData()
         doSearch()
@@ -301,11 +330,11 @@ extension SearchViewController: UISearchBarDelegate {
             showScanBarcodeVC()
         }
     }
-    
+
     func showScanBarcodeVC() {
         guard let vc = UIStoryboard(name: "ScanBarcode", bundle: nil).instantiateInitialViewController() as? ScanBarcodeViewController else { return }
         vc.barcodeScannedHandler = { barcode in
-            self.scannedBarcode = barcode
+            self.barcodeToSearchFor = barcode
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
