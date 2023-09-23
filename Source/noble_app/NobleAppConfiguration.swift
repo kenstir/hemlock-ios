@@ -30,6 +30,7 @@ class NobleAppConfiguration: AppConfiguration {
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = true
     let enableHoldPhoneNotification = false
+    let enableHoldUseOverride = false
     let enablePartHolds = false
     let enableTitleHoldOnItemWithParts = false
     let enableMainSceneBottomToolbar = false
