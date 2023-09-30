@@ -17,34 +17,18 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class SageCatAppConfiguration: AppConfiguration {
-    let title = "SageCat"
-    let url = "https://catalog.sage.eou.edu"
-    let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    let sort: String? = nil
-    let detailsExtraLinkText: String? = nil
-    let detailsExtraLinkQuery: String? = nil
-    let detailsExtraLinkFragment: String? = nil
+class SageCatAppConfiguration: BaseAppConfiguration {
+    override var title: String { return "SageCat" }
+    override var url: String { return "https://catalog.sage.eou.edu" }
+    override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
-    let enableHierarchicalOrgTree = true
-    let enableHoldShowQueuePosition = true
-    let enableHoldShowExpiration = false
-    let enableHoldPhoneNotification = true
-    let enableHoldUseOverride = false
-    let enablePartHolds = true
-    let enableTitleHoldOnItemWithParts = false
-    let enableMainSceneBottomToolbar = false
-    let enablePayFines = false
-    let enableHoursOfOperation = true
-    let enableMessages = false
-    let enableEventsButton = false
-    let groupCopyInfoBySystem = false
-    let enableCopyInfoWebLinks = false
-    let needMARCRecord = false
-    let showOnlineAccessHostname = true
-    let alwaysUseActionSheetForOnlineLinks = true
-    let haveColorButtonImages = false
+    override var enableHoldShowExpiration: Bool { return false }
+    override var enableHoldPhoneNotification: Bool { return true }
+    override var enablePartHolds: Bool { return true }
+    override var enablePayFines: Bool { return false }
+    override var enableHoursOfOperation: Bool { return true }
+    override var showOnlineAccessHostname: Bool { return true }
+    override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
 
-    let barcodeFormat: BarcodeFormat = .Codabar
-    let searchLimit = 100
+    override var searchLimit: Int { return 100 }
 }

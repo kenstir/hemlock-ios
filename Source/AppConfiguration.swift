@@ -62,10 +62,10 @@ class BaseAppConfiguration: AppConfiguration {
     var detailsExtraLinkFragment: String? { return nil }
 
     var enableHierarchicalOrgTree: Bool { return true }
-    var enableHoldUseOverride: Bool { return false }
     var enableHoldShowQueuePosition: Bool { return true }
     var enableHoldShowExpiration: Bool { return true }
     var enableHoldPhoneNotification: Bool { return false }
+    var enableHoldUseOverride: Bool { return false }
     var enablePartHolds: Bool { return false }
     var enableTitleHoldOnItemWithParts: Bool { return false }
     var enableMainSceneBottomToolbar: Bool { return false }
