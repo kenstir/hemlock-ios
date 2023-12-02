@@ -23,7 +23,7 @@ class FineRecord {
 
     //MARK: - Properties
 
-    var transaction: OSRFObject //mbts obj
+    var mbtsObj: OSRFObject
     var circObj: OSRFObject?
     var mvrObj: OSRFObject?
     
@@ -31,7 +31,7 @@ class FineRecord {
         if let title = mvrObj?.getString("title") {
             return title
         }
-        if let type = transaction.getString("last_billing_type") {
+        if let type = mbtsObj.getString("last_billing_type") {
             return type
         }
         return "Miscellaneous"
@@ -40,13 +40,13 @@ class FineRecord {
         if let author = mvrObj?.getString("author") {
             return author
         }
-        if let note = transaction.getString("last_billing_note") {
+        if let note = mbtsObj.getString("last_billing_note") {
             return note
         }
         return ""
     }
     var balance: Double? {
-        return transaction.getDouble("balance_owed")
+        return mbtsObj.getDouble("balance_owed")
     }
     var status: String {
         guard let _ = self.mvrObj else {
@@ -66,7 +66,7 @@ class FineRecord {
     //MARK: - Functions
 
     init(transaction: OSRFObject) {
-        self.transaction = transaction
+        self.mbtsObj = transaction
     }
     
     static func makeArray(_ objects: [OSRFObject]) -> [FineRecord] {
