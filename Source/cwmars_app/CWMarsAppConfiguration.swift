@@ -19,7 +19,7 @@
 
 class CWMarsAppConfiguration: AppConfiguration {
     let title = "CW MARS"
-    let url = "https://catalog.cwmars.org"
+    let url = "https://bark.cwmars.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
     let detailsExtraLinkText: String? = nil

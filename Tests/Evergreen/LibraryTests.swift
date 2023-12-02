@@ -40,7 +40,7 @@ class LibraryTests: XCTestCase {
         var sut = Library("https://gapines.org")
         XCTAssertEqual(sut.url, "https://gapines.org")
         XCTAssertEqual(sut.name, "")
-        sut = Library("https://catalog.cwmars.org", name: "C/W MARS")
+        sut = Library("https://bark.cwmars.org", name: "C/W MARS")
         XCTAssertEqual(sut.name, "C/W MARS")
     }
 
