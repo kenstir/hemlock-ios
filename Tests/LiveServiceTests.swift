@@ -439,4 +439,32 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 20.0)
     }
+
+    //MARK: - WIP API Test Playground
+
+    func test_checkoutHistory() throws {
+        //throw XCTSkip("WIP")
+
+        XCTAssertTrue(loadIDL())
+
+        let expectation = XCTestExpectation(description: "async response")
+
+        let credential = Credential(username: account!.username, password: account!.password)
+        let promise = AuthService.fetchAuthToken(credential: credential)
+        promise.then { (authtoken: String) -> Promise<[OSRFObject]> in
+            XCTAssertFalse(authtoken.isEmpty)
+            self.authtoken = authtoken
+            return ActorService.fetchCheckoutHistory(authtoken: authtoken)
+        }.done { obj in
+            XCTAssertNotNil(obj)
+            print("obj = \(obj)")
+            expectation.fulfill()
+            print("stop here")
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 20.0)
+    }
 }

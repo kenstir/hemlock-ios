@@ -30,6 +30,7 @@ struct API {
 
     static let actor = "open-ils.actor"
     static let actorCheckedOut = "open-ils.actor.user.checked_out"
+    static let checkoutHistory = "open-ils.actor.history.circ"
     static let containerClassBiblio = "biblio"
     static let containerCreate = "open-ils.actor.container.create"
     static let containerDelete = "open-ils.actor.container.full_delete"
