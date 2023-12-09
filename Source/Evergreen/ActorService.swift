@@ -254,8 +254,8 @@ class ActorService {
         return markMessageAction(authtoken: authtoken, messageID: messageID, action: "mark_unread")
     }
 
-    static func fetchCheckoutHistory(authtoken: String) -> Promise<GatewayResponse> {
+    static func fetchCheckoutHistory(authtoken: String) -> Promise<[OSRFObject]> {
         let req = Gateway.makeRequest(service: API.actor, method: API.checkoutHistory, args: [authtoken], shouldCache: true)
-        return req.gatewayResponse()
+        return req.gatewayMaybeEmptyArrayResponse()
     }
 }
