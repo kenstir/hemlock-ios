@@ -149,6 +149,32 @@ struct GatewayResponse {
         self.payload = payload
         if payload.count == 0 {
             type = .empty
+        } else if payload.count > 1, let val = payload as? [JSONDictionary] {
+            do {
+                try arrayResult = decodeArray(val)
+            } catch {
+                self.error = .failure("Error decoding OSRF array: " + error.localizedDescription)
+                return
+            }
+            if let obj = arrayResult?.first,
+                let eventError = parseEvent(fromObj: obj) {
+                self.error = eventError
+                return
+            }
+            type = .array
+        } else if let val = payload.first as? [JSONDictionary] {
+            do {
+                try arrayResult = decodeArray(val)
+            } catch {
+                self.error = .failure("Error decoding OSRF array: " + error.localizedDescription)
+                return
+            }
+            if let obj = arrayResult?.first,
+                let eventError = parseEvent(fromObj: obj) {
+                self.error = eventError
+                return
+            }
+            type = .array
         } else if let val = payload.first as? JSONDictionary {
             var obj: OSRFObject?
             do {
@@ -163,19 +189,6 @@ struct GatewayResponse {
             }
             type = .object
             objectResult = obj
-        } else if let val = payload.first as? [JSONDictionary] {
-            do {
-                try arrayResult = decodeArray(val)
-            } catch {
-                self.error = .failure("Error decoding OSRF array: " + error.localizedDescription)
-                return
-            }
-            if let obj = arrayResult?.first,
-                let eventError = parseEvent(fromObj: obj) {
-                self.error = eventError
-                return
-            }
-            type = .array
         } else if let val = payload.first as? String {
             type = .string
             stringResult = val
