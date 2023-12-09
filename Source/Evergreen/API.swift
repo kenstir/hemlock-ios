@@ -24,7 +24,7 @@ struct API {
     //MARK: - misc
 
     static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some requests
-    static let netClasses = "ac,acn,acp,ahr,ahrn,ahtc,aoa,aou,aouhoo,aout,au,aua,auact,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+    static let netClasses = "ac,acn,acp,ahr,ahrn,ahtc,aoa,aou,aouhoo,aout,au,aua,auact,auch,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
