@@ -242,9 +242,9 @@ class OSRFCoderTests: XCTestCase {
             XCTFail(String(describing: error))
         }
     }
-    
-    // Case: decoding a recursive object from wire protocol
-    func test_decoding_orgTree() {
+
+    // Case: decode a recursive object from wire protocol
+    func test_decode_orgTree() {
         let fields = ["children", "billing_address", "holds_address", "id", "ill_address", "mailing_address", "name", "ou_type", "parent_ou", "shortname", "email", "phone", "opac_visible", "fiscal_calendar", "users", "closed_dates", "circulations", "settings", "addresses", "checkins", "workstations", "fund_alloc_pcts", "copy_location_orders", "atc_prev_dests", "resv_requests", "resv_pickups", "rsrc_types", "resources", "rsrc_attrs", "attr_vals", "hours_of_operation"]
         OSRFCoder.registerClass("aou", fields: fields)
         let wireProtocol = """

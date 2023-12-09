@@ -443,7 +443,7 @@ class LiveServiceTests: XCTestCase {
     //MARK: - WIP API Test Playground
 
     func test_checkoutHistory() throws {
-        //throw XCTSkip("WIP")
+        throw XCTSkip("manual test")
 
         XCTAssertTrue(loadIDL())
 
@@ -451,13 +451,13 @@ class LiveServiceTests: XCTestCase {
 
         let credential = Credential(username: account!.username, password: account!.password)
         let promise = AuthService.fetchAuthToken(credential: credential)
-        promise.then { (authtoken: String) -> Promise<[OSRFObject]> in
+        promise.then { (authtoken: String) -> Promise<GatewayResponse> in
             XCTAssertFalse(authtoken.isEmpty)
             self.authtoken = authtoken
             return ActorService.fetchCheckoutHistory(authtoken: authtoken)
-        }.done { obj in
-            XCTAssertNotNil(obj)
-            print("obj = \(obj)")
+        }.done { resp in
+            XCTAssertNotNil(resp)
+            print("resp = \(resp)")
             expectation.fulfill()
             print("stop here")
         }.catch { error in
@@ -465,6 +465,6 @@ class LiveServiceTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 20.0)
+        wait(for: [expectation], timeout: 2000.0)
     }
 }

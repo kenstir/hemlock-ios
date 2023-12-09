@@ -137,8 +137,10 @@ struct GatewayResponse {
             return
         }
 
-        // payload is always an array,
-        // usually an array of one json object,
+        // payload is always an array:           "payload": []
+        // usually an array of one json object:  "payload": [{}]
+        // sometimes an array of one json array: "payload": [[{}]]
+        // rarely an arrayof json objects:       "payload": [{},{},...]
         // but in the cases of authInit it is an array of one string
         guard let payload = json["payload"] as? [Any] else {
             error = .failure("Internal Server Error: response is missing payload")
