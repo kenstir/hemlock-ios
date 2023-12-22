@@ -20,15 +20,13 @@ import PromiseKit
 import PMKAlamofire
 @testable import Hemlock
 
+/// the test account config, so we don't have to load it for every test
 class TestConfig {
     let url: String
     let username: String
     let password: String
     let homeOrgID: Int
     let sampleRecordID: Int
-
-    var authtoken: String?
-    var userID = 0
 
     init(url: String, username: String, password: String, homeOrgID: Int, sampleRecordID: Int) {
         self.url = url
@@ -39,6 +37,16 @@ class TestConfig {
     }
 }
 
+/// the test account server state, so we don't have to login for every test
+class TestState {
+    var account: Account
+    var sessionObj: OSRFObject? = nil
+
+    init(username: String, password: String) {
+        self.account = Account(username, password: password)
+    }
+}
+
 /// These tests run against the live service configured in TestUserData/testAccount.json.
 /// Don't do anything crazy here.
 class LiveServiceTests: XCTestCase {
@@ -46,6 +54,7 @@ class LiveServiceTests: XCTestCase {
     //MARK: - properties
 
     static var config: TestConfig?
+    static var state: TestState?
     static var idlLoaded = false
 
     let configFile = "TestUserData/testAccount" // .json
@@ -55,25 +64,24 @@ class LiveServiceTests: XCTestCase {
     var password: String { return LiveServiceTests.config!.password }
     var homeOrgID: Int { return LiveServiceTests.config!.homeOrgID }
     var sampleRecordID: Int { return LiveServiceTests.config!.sampleRecordID }
-    var authtoken: String? { return LiveServiceTests.config!.authtoken }
-    var userID: Int? { return LiveServiceTests.config!.userID }
-    var account: Account?
+    var authtoken: String? { return LiveServiceTests.state!.account.authtoken }
+    var userID: Int? { return LiveServiceTests.state!.account.userID }
 
     //MARK: - functions
 
     override func setUp() {
         super.setUp()
 
-        loadConfigFile()
+        initTestConfig()
+        initTestState()
 
         App.library = Library(LiveServiceTests.config!.url)
-        account = Account(username, password: password)
     }
 
-    func loadConfigFile() {
+    func initTestConfig() {
         guard LiveServiceTests.config == nil else { return }
 
-        print("kcxxx: LOADING TEST CONFIG")
+        print("kcxxx: INITIALIZING TEST CONFIG")
 
         // read configFile as json
         let testBundle = Bundle(for: type(of: self))
@@ -95,6 +103,14 @@ class LiveServiceTests: XCTestCase {
         LiveServiceTests.config = TestConfig(url: url, username: username, password: password, homeOrgID: homeOrgID, sampleRecordID: sampleRecordID)
     }
 
+    func initTestState() {
+        guard LiveServiceTests.state == nil else { return }
+
+        print("kcxxx: INITIALIZING TEST STATE")
+
+        LiveServiceTests.state = TestState(username: username, password: password)
+    }
+
     func loadIDL() -> Bool {
         guard !LiveServiceTests.idlLoaded else { return true }
         print("kcxxx: LOADING IDL")
@@ -106,20 +122,27 @@ class LiveServiceTests: XCTestCase {
 
     /// return a promise of an authtoken for the test user, but calling the server only once
     func makeAuthtokenPromise() -> Promise<(String)> {
-        if let authtoken = LiveServiceTests.config!.authtoken {
+        if let authtoken = LiveServiceTests.state!.account.authtoken {
             let promise = Promise<(String)>() { seal in
                 seal.fulfill(authtoken)
             }
             return promise
         } else {
-            let credential = Credential(username: account!.username, password: account!.password)
+            let credential = Credential(username: username, password: password)
             let promise = AuthService.fetchAuthToken(credential: credential)
             return promise.then { (authtoken: String) -> Promise<(String)> in
-                LiveServiceTests.config!.authtoken = authtoken
+                LiveServiceTests.state!.account.authtoken = authtoken
                 return Promise<(String)>() { seal in
                     seal.fulfill(authtoken)
                 }
             }
+        }
+    }
+
+    func makeSessionPromise() -> Promise<(OSRFObject)> {
+        let promise = makeAuthtokenPromise()
+        return promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
+            return AuthService.fetchSession(authtoken: authtoken)
         }
     }
 
@@ -135,7 +158,7 @@ class LiveServiceTests: XCTestCase {
         req.responseJSON().then { (json: Any, response: PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> in
             print("then: \(json)")
             let objectParam = ["type": "opac",
-                               "username": self.account!.username,
+                               "username": "hemlock_app_bogus_user",
                                "password": "badbeef"]
             return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam], shouldCache: false).responseJSON()
         }.done { (json,response) in
@@ -190,18 +213,14 @@ class LiveServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "async response")
 
-        let promise = makeAuthtokenPromise()
-        promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
-            XCTAssertFalse(authtoken.isEmpty)
-            return AuthService.fetchSession(authtoken: authtoken)
-        }.done { obj in
+        let promise = makeSessionPromise()
+        promise.done { obj in
             print("session obj: \(obj)")
             let userID = obj.getInt("id")
             XCTAssertNotNil(userID)
             let homeOrgID = obj.getInt("home_ou")
             XCTAssertNotNil(homeOrgID)
             expectation.fulfill()
-            print("stop here")
         }.catch { error in
             XCTFail(error.localizedDescription)
             expectation.fulfill()
@@ -426,7 +445,6 @@ class LiveServiceTests: XCTestCase {
         let promise = makeAuthtokenPromise()
         promise.then { (authtoken: String) -> Promise<(OSRFObject?)> in
             XCTAssertFalse(authtoken.isEmpty)
-            LiveServiceTests.config!.authtoken = authtoken
             return ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: self.homeOrgID)
         }.done { obj in
             XCTAssertNotNil(obj)
@@ -498,7 +516,6 @@ class LiveServiceTests: XCTestCase {
         let promise = makeAuthtokenPromise()
         promise.then { (authtoken: String) -> Promise<[OSRFObject]> in
             XCTAssertFalse(authtoken.isEmpty)
-            LiveServiceTests.config!.authtoken = authtoken
             return ActorService.fetchCheckoutHistory(authtoken: authtoken)
         }.done { arr in
             XCTAssertNotNil(arr)
