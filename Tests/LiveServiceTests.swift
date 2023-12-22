@@ -20,26 +20,61 @@ import PromiseKit
 import PMKAlamofire
 @testable import Hemlock
 
+class TestConfig {
+    let url: String
+    let username: String
+    let password: String
+    let homeOrgID: Int
+    let sampleRecordID: Int
+
+    var authtoken: String?
+    var userID = 0
+
+    init(url: String, username: String, password: String, homeOrgID: Int, sampleRecordID: Int) {
+        self.url = url
+        self.username = username
+        self.password = password
+        self.homeOrgID = homeOrgID
+        self.sampleRecordID = sampleRecordID
+    }
+}
+
 /// These tests run against the live service configured in TestUserData/testAccount.json.
 /// Don't do anything crazy here.
 class LiveServiceTests: XCTestCase {
     
     //MARK: - properties
-    
+
+    static var config: TestConfig?
+
     let configFile = "TestUserData/testAccount" // .json
+    let consortiumOrgID = 1
+
+    var username: String { return LiveServiceTests.config!.username }
+    var password: String { return LiveServiceTests.config!.password }
+    var homeOrgID: Int { return LiveServiceTests.config!.homeOrgID }
+    var sampleRecordID: Int { return LiveServiceTests.config!.sampleRecordID }
+    var authtoken: String? { return LiveServiceTests.config!.authtoken }
+    var userID: Int? { return LiveServiceTests.config!.userID }
     var account: Account?
-    var username = "" //read from testAccount.json
-    var password = "" //read from testAccount.json
-    var homeOrgID = 1 //read from testAccount.json
-    var sampleRecordID: Int? //read from testAccount.json
-    var authtoken: String?
-    let consortiumOrgID = 1 // assumption
-    
+
     //MARK: - functions
-    
+
     override func setUp() {
         super.setUp()
-        
+
+        loadConfigFile()
+
+        print("kcxxx: username=\(username)")
+        App.library = Library(LiveServiceTests.config!.url)
+        account = Account(username, password: password)
+    }
+
+    func loadConfigFile() {
+        guard LiveServiceTests.config == nil else { return }
+
+        print("kcxxx: LOADING TEST CONFIG")
+
         // read configFile as json
         let testBundle = Bundle(for: type(of: self))
         guard
@@ -57,14 +92,9 @@ class LiveServiceTests: XCTestCase {
             return
         }
 
-        App.library = Library(url)
-        self.username = username
-        self.password = password
-        self.homeOrgID = homeOrgID
-        self.sampleRecordID = sampleRecordID
-        account = Account(username, password: password)
+        LiveServiceTests.config = TestConfig(url: url, username: username, password: password, homeOrgID: homeOrgID, sampleRecordID: sampleRecordID)
     }
-    
+
     //MARK: - Promise tests
     
     // Test a basic promise chain, it does not actually login
@@ -72,7 +102,7 @@ class LiveServiceTests: XCTestCase {
     func test_promiseBasic() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let args: [Any] = [account!.username]
+        let args: [Any] = [username]
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args, shouldCache: false)
         req.responseJSON().then { (json: Any, response: PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> in
             print("then: \(json)")
@@ -309,7 +339,7 @@ class LiveServiceTests: XCTestCase {
     func test_copyCounts() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let promise = SearchService.fetchCopyCount(orgID: self.consortiumOrgID, recordID: self.sampleRecordID!)
+        let promise = SearchService.fetchCopyCount(orgID: self.consortiumOrgID, recordID: self.sampleRecordID)
         promise.done { array in
             let copyCounts = CopyCount.makeArray(fromArray: array)
             XCTAssertGreaterThan(copyCounts.count, 0)
@@ -326,7 +356,7 @@ class LiveServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "async response")
         
         let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", ouType: 0, opacVisible: true, aouObj: OSRFObject())
-        let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: self.sampleRecordID!)
+        let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: sampleRecordID)
         promise.done { resp in
             XCTAssertNotNil(resp.payload)
             let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload!)
@@ -379,7 +409,7 @@ class LiveServiceTests: XCTestCase {
         let promise = AuthService.fetchAuthToken(credential: credential)
         promise.then { (authtoken: String) -> Promise<(OSRFObject?)> in
             XCTAssertFalse(authtoken.isEmpty)
-            self.authtoken = authtoken
+            LiveServiceTests.config!.authtoken = authtoken
             return ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: self.homeOrgID)
         }.done { obj in
             XCTAssertNotNil(obj)
@@ -443,7 +473,7 @@ class LiveServiceTests: XCTestCase {
     //MARK: - WIP API Test Playground
 
     func test_checkoutHistory() throws {
-        //throw XCTSkip("manual test")
+        throw XCTSkip("manual test")
 
         XCTAssertTrue(loadIDL())
 
@@ -453,7 +483,7 @@ class LiveServiceTests: XCTestCase {
         let promise = AuthService.fetchAuthToken(credential: credential)
         promise.then { (authtoken: String) -> Promise<[OSRFObject]> in
             XCTAssertFalse(authtoken.isEmpty)
-            self.authtoken = authtoken
+            LiveServiceTests.config!.authtoken = authtoken
             return ActorService.fetchCheckoutHistory(authtoken: authtoken)
         }.done { arr in
             XCTAssertNotNil(arr)
@@ -470,4 +500,37 @@ class LiveServiceTests: XCTestCase {
 
         wait(for: [expectation], timeout: 2000.0)
     }
+
+//    func test_patronSettingsRetrieve() throws {
+//        throw XCTSkip("manual test")
+//
+//        XCTAssertTrue(loadIDL())
+//
+//        let expectation = XCTestExpectation(description: "async response")
+//
+//        let credential = Credential(username: account!.username, password: account!.password)
+//        let promise = AuthService.fetchAuthToken(credential: credential)
+//        promise.then { (authtoken: String) -> Promise<GatewayResponse> in
+//            XCTAssertFalse(authtoken.isEmpty)
+//            LiveServiceTests.config!.authtoken = authtoken
+//            //TODO------------------------------------------
+//            return ActorService.fetchPatronSetting(authtoken: authtoken, userID: self.userID, name: API.userSettingKeepCheckoutHistory)
+//        }.done { resp in
+//            XCTAssertNotNil(resp)
+//            expectation.fulfill()
+//            print("resp = \(resp)")
+//            if let val = resp.obj {
+//                print("val = \(val)")
+//            } else if let val = resp.str {
+//                print("val = \(val)")
+//            } else {
+//                print("wtf")
+//            }
+//        }.catch { error in
+//            XCTFail(error.localizedDescription)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 2000.0)
+//    }
 }
