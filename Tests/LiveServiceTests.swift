@@ -81,7 +81,7 @@ class LiveServiceTests: XCTestCase {
     func initTestConfig() {
         guard LiveServiceTests.config == nil else { return }
 
-        print("kcxxx: INITIALIZING TEST CONFIG")
+        print("LiveServiceTests: INITIALIZING TEST CONFIG")
 
         // read configFile as json
         let testBundle = Bundle(for: type(of: self))
@@ -106,14 +106,13 @@ class LiveServiceTests: XCTestCase {
     func initTestState() {
         guard LiveServiceTests.state == nil else { return }
 
-        print("kcxxx: INITIALIZING TEST STATE")
-
         LiveServiceTests.state = TestState(username: username, password: password)
     }
 
     func loadIDL() -> Bool {
         guard !LiveServiceTests.idlLoaded else { return true }
-        print("kcxxx: LOADING IDL")
+
+        print("LiveServiceTests: LOADING IDL")
         let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
         let ok = parser.parse()
         LiveServiceTests.idlLoaded = ok
@@ -128,6 +127,7 @@ class LiveServiceTests: XCTestCase {
             }
             return promise
         } else {
+            print("LiveServiceTests: FETCHING AUTHTOKEN")
             let credential = Credential(username: username, password: password)
             let promise = AuthService.fetchAuthToken(credential: credential)
             return promise.then { (authtoken: String) -> Promise<(String)> in
@@ -149,6 +149,7 @@ class LiveServiceTests: XCTestCase {
         } else {
             let promise = makeAuthtokenPromise()
             return promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
+                print("LiveServiceTests: FETCHING SESSION")
                 return AuthService.fetchSession(authtoken: authtoken)
             }.then { (obj: OSRFObject) -> Promise<Void> in
                 LiveServiceTests.state?.sessionObj = obj
@@ -520,7 +521,7 @@ class LiveServiceTests: XCTestCase {
     }
 
     func test_patronSettingUpdate() throws {
-//        throw XCTSkip("manual test")
+        throw XCTSkip("manual test")
 
         XCTAssertTrue(loadIDL())
 
