@@ -120,7 +120,7 @@ class LiveServiceTests: XCTestCase {
         return ok
     }
 
-    /// return a promise of an authtoken for the test user, but calling the server only once
+    /// return a promise for an authtoken for the test user, but calling the server only once
     func makeAuthtokenPromise() -> Promise<(String)> {
         if let authtoken = LiveServiceTests.state!.account.authtoken {
             let promise = Promise<(String)>() { seal in
@@ -139,10 +139,21 @@ class LiveServiceTests: XCTestCase {
         }
     }
 
-    func makeSessionPromise() -> Promise<(OSRFObject)> {
-        let promise = makeAuthtokenPromise()
-        return promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
-            return AuthService.fetchSession(authtoken: authtoken)
+    /// return a promise for a session obj, but calling the server only once
+    func makeFetchSessionPromise() -> Promise<Void> {
+        if let obj = LiveServiceTests.state?.sessionObj {
+            let promise = Promise<Void>() { seal in
+                seal.fulfill(Void())
+            }
+            return promise
+        } else {
+            let promise = makeAuthtokenPromise()
+            return promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
+                return AuthService.fetchSession(authtoken: authtoken)
+            }.then { (obj: OSRFObject) -> Promise<Void> in
+                LiveServiceTests.state?.sessionObj = obj
+                return Promise<Void>()
+            }
         }
     }
 
@@ -213,12 +224,13 @@ class LiveServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "async response")
 
-        let promise = makeSessionPromise()
-        promise.done { obj in
-            print("session obj: \(obj)")
-            let userID = obj.getInt("id")
+        let promise = makeFetchSessionPromise()
+        promise.done {
+            let obj = LiveServiceTests.state!.sessionObj
+            XCTAssertNotNil(obj)
+            let userID = obj?.getInt("id")
             XCTAssertNotNil(userID)
-            let homeOrgID = obj.getInt("home_ou")
+            let homeOrgID = obj?.getInt("home_ou")
             XCTAssertNotNil(homeOrgID)
             expectation.fulfill()
         }.catch { error in
@@ -460,32 +472,6 @@ class LiveServiceTests: XCTestCase {
 
         wait(for: [expectation], timeout: 20.0)
     }
-    
-//    func fetchExists(authtoken: String) -> Promise<(GatewayResponse)> {
-//        let req = Gateway.makeRequest(service: API.mobile, method: API.exists, args: [], shouldCache: false)
-//        return req.gatewayResponse()
-//    }
-//
-//    func test_exists() {
-//        XCTAssertTrue(loadIDL())
-//
-//        let expectation = XCTestExpectation(description: "async response")
-//
-//        let promise = makeAuthtokenPromise()
-//        promise.then { (authtoken: String) -> Promise<(GatewayResponse)> in
-//            XCTAssertFalse(authtoken.isEmpty)
-//            self.authtoken = authtoken
-//            return self.fetchExists(authtoken: authtoken)
-//        }.done { resp in
-//            XCTAssertNotNil(resp)
-//            expectation.fulfill()
-//        }.catch { error in
-//            XCTFail(error.localizedDescription)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 20.0)
-//    }
 
     //MARK: - serverVersion
 
@@ -504,7 +490,7 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
 
-    //MARK: - WIP API Test Playground
+    //MARK: - API Test Playground
 
     func test_checkoutHistory() throws {
         throw XCTSkip("manual test")
@@ -533,35 +519,35 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 2000.0)
     }
 
-//    func test_patronSettingsRetrieve() throws {
-////        throw XCTSkip("manual test")
-//
-//        XCTAssertTrue(loadIDL())
-//
-//        let expectation = XCTestExpectation(description: "async response")
-//
-//        let promise = makeAuthtokenPromise()
-//        promise.then { (authtoken: String) -> Promise<GatewayResponse> in
-//            XCTAssertFalse(authtoken.isEmpty)
-//            LiveServiceTests.config!.authtoken = authtoken
-//            //TODO------------------------------------------
-//            return ActorService.fetchPatronSetting(authtoken: authtoken, userID: self.userID, name: API.userSettingKeepCheckoutHistory)
-//        }.done { resp in
-//            XCTAssertNotNil(resp)
-//            expectation.fulfill()
-//            print("resp = \(resp)")
-//            if let val = resp.obj {
-//                print("val = \(val)")
-//            } else if let val = resp.str {
-//                print("val = \(val)")
-//            } else {
-//                print("wtf")
-//            }
-//        }.catch { error in
-//            XCTFail(error.localizedDescription)
-//            expectation.fulfill()
-//        }
-//
-//        wait(for: [expectation], timeout: 2000.0)
-//    }
+    func test_patronSettingUpdate() throws {
+//        throw XCTSkip("manual test")
+
+        XCTAssertTrue(loadIDL())
+
+        let expectation = XCTestExpectation(description: "async response")
+
+        let promise = makeFetchSessionPromise()
+        promise.then {
+            let account = LiveServiceTests.state!.account
+            let obj = LiveServiceTests.state!.sessionObj
+            account.loadSession(fromObject: obj!)
+            return ActorService.updatePatronSetting(authtoken: self.authtoken!, userID: self.userID!, name: API.userSettingCircHistoryStart, value: "2023-12-22")
+        }.done { resp in
+            XCTAssertNotNil(resp)
+            expectation.fulfill()
+            print("resp = \(resp)")
+            if let val = resp.obj {
+                print("val = \(val)")
+            } else if let val = resp.str {
+                print("val = \(val)")
+            } else {
+                print("wtf")
+            }
+        }.catch { error in
+            XCTFail(error.localizedDescription)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 2000.0)
+    }
 }

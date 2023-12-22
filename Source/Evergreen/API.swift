@@ -49,7 +49,6 @@ struct API {
     static let orgUnitSettingBatch = "open-ils.actor.ou_setting.ancestor_default.batch"
     static let orgUnitHoursOfOperationRetrieve = "open-ils.actor.org_unit.hours_of_operation.retrieve"
     static let orgUnitAddressRetrieve = "open-ils.actor.org_unit.address.retrieve"
-//    static let patronSettingsRetrieve = "open-ils.actor.patron.settings.retrieve"
     static let patronSettingsUpdate = "open-ils.actor.patron.settings.update"
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"

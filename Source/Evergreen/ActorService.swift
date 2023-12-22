@@ -260,8 +260,10 @@ class ActorService {
     }
 
     static func updatePatronSetting(authtoken: String, userID: Int, name: String, value: String) -> Promise<GatewayResponse> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, name, value], shouldCache: false)
+        let param: JSONDictionary = [
+            name: value
+        ]
+        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, param], shouldCache: false)
         return req.gatewayResponse()
-//        return req.gatewayMaybeEmptyArrayResponse()
     }
 }
