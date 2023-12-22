@@ -201,6 +201,7 @@ class LiveServiceTests: XCTestCase {
             let homeOrgID = obj.getInt("home_ou")
             XCTAssertNotNil(homeOrgID)
             expectation.fulfill()
+            print("stop here")
         }.catch { error in
             XCTFail(error.localizedDescription)
             expectation.fulfill()
