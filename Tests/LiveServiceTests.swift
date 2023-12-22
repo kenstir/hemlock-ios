@@ -46,6 +46,7 @@ class LiveServiceTests: XCTestCase {
     //MARK: - properties
 
     static var config: TestConfig?
+    static var idlLoaded = false
 
     let configFile = "TestUserData/testAccount" // .json
     let consortiumOrgID = 1
@@ -65,7 +66,6 @@ class LiveServiceTests: XCTestCase {
 
         loadConfigFile()
 
-        print("kcxxx: username=\(username)")
         App.library = Library(LiveServiceTests.config!.url)
         account = Account(username, password: password)
     }
@@ -93,6 +93,21 @@ class LiveServiceTests: XCTestCase {
         }
 
         LiveServiceTests.config = TestConfig(url: url, username: username, password: password, homeOrgID: homeOrgID, sampleRecordID: sampleRecordID)
+    }
+
+    func loadIDL() -> Bool {
+        guard !LiveServiceTests.idlLoaded else { return true }
+        print("kcxxx: LOADING IDL")
+        let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
+        let ok = parser.parse()
+        LiveServiceTests.idlLoaded = ok
+        return ok
+    }
+
+    func makeAuthtokenPromise() -> Promise<(String)> {
+        let credential = Credential(username: account!.username, password: account!.password)
+        let promise = AuthService.fetchAuthToken(credential: credential)
+        return promise
     }
 
     //MARK: - Promise tests
@@ -184,23 +199,14 @@ class LiveServiceTests: XCTestCase {
     }
 
     //MARK: - IDL
-    
-    func loadIDL() -> Bool {
-        let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
-        let ok = parser.parse()
-        return ok
+
+    // Test that parseIDL registers exactly as many netClasses as we asked for
+    func test_parseIDL_subset() {
+        XCTAssertTrue(loadIDL())
+        let expected = API.netClasses.split(separator: ",").count
+        XCTAssertEqual(OSRFCoder.registryCount(), expected)
     }
 
-    func test_parseIDL_subset() {
-        self.measure {
-            let url = Gateway.idlURL()
-            let parser = IDLParser(contentsOf: URL(string: url)!)
-            let ok = parser.parse()
-            XCTAssertTrue(ok)
-            XCTAssertGreaterThan(OSRFCoder.registryCount(), 1)
-        }
-    }
-    
     //MARK: - orgTypesRetrieve
     
     func test_orgTypesRetrieve() {
@@ -479,8 +485,7 @@ class LiveServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "async response")
 
-        let credential = Credential(username: account!.username, password: account!.password)
-        let promise = AuthService.fetchAuthToken(credential: credential)
+        let promise = makeAuthtokenPromise()
         promise.then { (authtoken: String) -> Promise<[OSRFObject]> in
             XCTAssertFalse(authtoken.isEmpty)
             LiveServiceTests.config!.authtoken = authtoken
@@ -502,12 +507,13 @@ class LiveServiceTests: XCTestCase {
     }
 
 //    func test_patronSettingsRetrieve() throws {
-//        throw XCTSkip("manual test")
+////        throw XCTSkip("manual test")
 //
 //        XCTAssertTrue(loadIDL())
 //
 //        let expectation = XCTestExpectation(description: "async response")
 //
+//        let promise = makeAuthtokenPromise()
 //        let credential = Credential(username: account!.username, password: account!.password)
 //        let promise = AuthService.fetchAuthToken(credential: credential)
 //        promise.then { (authtoken: String) -> Promise<GatewayResponse> in
