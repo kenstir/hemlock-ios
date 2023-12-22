@@ -104,10 +104,23 @@ class LiveServiceTests: XCTestCase {
         return ok
     }
 
+    /// return a promise of an authtoken for the test user, but calling the server only once
     func makeAuthtokenPromise() -> Promise<(String)> {
-        let credential = Credential(username: account!.username, password: account!.password)
-        let promise = AuthService.fetchAuthToken(credential: credential)
-        return promise
+        if let authtoken = LiveServiceTests.config!.authtoken {
+            let promise = Promise<(String)>() { seal in
+                seal.fulfill(authtoken)
+            }
+            return promise
+        } else {
+            let credential = Credential(username: account!.username, password: account!.password)
+            let promise = AuthService.fetchAuthToken(credential: credential)
+            return promise.then { (authtoken: String) -> Promise<(String)> in
+                LiveServiceTests.config!.authtoken = authtoken
+                return Promise<(String)>() { seal in
+                    seal.fulfill(authtoken)
+                }
+            }
+        }
     }
 
     //MARK: - Promise tests
@@ -143,8 +156,7 @@ class LiveServiceTests: XCTestCase {
     func test_fetchAuthToken_ok() {
         let expectation = XCTestExpectation(description: "async response")
 
-        let credential = Credential(username: account!.username, password: account!.password)
-        let promise = AuthService.fetchAuthToken(credential: credential)
+        let promise = makeAuthtokenPromise()
         promise.done { authtoken in
             XCTAssertFalse(authtoken.isEmpty)
             print("authtoken: \(authtoken)")
@@ -178,8 +190,7 @@ class LiveServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "async response")
 
-        let credential = Credential(username: account!.username, password: account!.password)
-        let promise = AuthService.fetchAuthToken(credential: credential)
+        let promise = makeAuthtokenPromise()
         promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
             XCTAssertFalse(authtoken.isEmpty)
             return AuthService.fetchSession(authtoken: authtoken)
@@ -411,8 +422,7 @@ class LiveServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "async response")
 
-        let credential = Credential(username: account!.username, password: account!.password)
-        let promise = AuthService.fetchAuthToken(credential: credential)
+        let promise = makeAuthtokenPromise()
         promise.then { (authtoken: String) -> Promise<(OSRFObject?)> in
             XCTAssertFalse(authtoken.isEmpty)
             LiveServiceTests.config!.authtoken = authtoken
@@ -442,8 +452,7 @@ class LiveServiceTests: XCTestCase {
 //
 //        let expectation = XCTestExpectation(description: "async response")
 //
-//        let credential = Credential(username: account!.username, password: account!.password)
-//        let promise = AuthService.fetchAuthToken(credential: credential)
+//        let promise = makeAuthtokenPromise()
 //        promise.then { (authtoken: String) -> Promise<(GatewayResponse)> in
 //            XCTAssertFalse(authtoken.isEmpty)
 //            self.authtoken = authtoken
@@ -514,8 +523,6 @@ class LiveServiceTests: XCTestCase {
 //        let expectation = XCTestExpectation(description: "async response")
 //
 //        let promise = makeAuthtokenPromise()
-//        let credential = Credential(username: account!.username, password: account!.password)
-//        let promise = AuthService.fetchAuthToken(credential: credential)
 //        promise.then { (authtoken: String) -> Promise<GatewayResponse> in
 //            XCTAssertFalse(authtoken.isEmpty)
 //            LiveServiceTests.config!.authtoken = authtoken
