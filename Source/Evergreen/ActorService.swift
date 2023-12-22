@@ -258,4 +258,10 @@ class ActorService {
         let req = Gateway.makeRequest(service: API.actor, method: API.checkoutHistory, args: [authtoken], shouldCache: true)
         return req.gatewayMaybeEmptyArrayResponse()
     }
+
+    static func fetchPatronSetting(authtoken: String, userID: Int, name: String) -> Promise<GatewayResponse> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsRetrieve, args: [authtoken, userID, name], shouldCache: false)
+        return req.gatewayResponse()
+//        return req.gatewayMaybeEmptyArrayResponse()
+    }
 }
