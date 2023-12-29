@@ -70,8 +70,9 @@ class Analytics {
             s = "\(tag): recv: ***"
         }
 
+        // log the first bytes of the response
         // TODO: indicate if cached
-        os_log("%s", log: log, type: .info, s[0..<128])
+        os_log("%s", log: log, type: .info, s[0..<256])
         buf.write(s)
     }
     

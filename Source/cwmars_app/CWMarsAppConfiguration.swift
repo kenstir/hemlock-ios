@@ -26,6 +26,7 @@ class CWMarsAppConfiguration: AppConfiguration {
     let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = nil
 
+    let enableCheckoutHistory = true
     let enableHierarchicalOrgTree = false
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = true

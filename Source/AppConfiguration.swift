@@ -28,6 +28,7 @@ protocol AppConfiguration {
     var detailsExtraLinkQuery: String? { get }
     var detailsExtraLinkFragment: String? { get }
 
+    var enableCheckoutHistory: Bool { get }
     var enableHierarchicalOrgTree: Bool { get }
     var enableHoldShowQueuePosition: Bool { get }
     var enableHoldShowExpiration: Bool { get }
@@ -61,6 +62,7 @@ class BaseAppConfiguration: AppConfiguration {
     var detailsExtraLinkQuery: String? { return nil }
     var detailsExtraLinkFragment: String? { return nil }
 
+    var enableCheckoutHistory: Bool { return true }
     var enableHierarchicalOrgTree: Bool { return true }
     var enableHoldShowQueuePosition: Bool { return true }
     var enableHoldShowExpiration: Bool { return true }

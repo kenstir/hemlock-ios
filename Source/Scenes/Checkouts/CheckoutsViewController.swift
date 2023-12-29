@@ -63,6 +63,11 @@ class CheckoutsViewController: UIViewController {
         tableView.delegate = self
         setupActivityIndicator()
         self.setupHomeButton()
+        if App.config.enableCheckoutHistory {
+            let image = loadAssetImage(named: "arrow_downward")
+            let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(historyButtonPressed(sender:)))
+            navigationItem.rightBarButtonItems?.append(button)
+        }
     }
 
     func setupActivityIndicator() {
@@ -218,6 +223,12 @@ class CheckoutsViewController: UIViewController {
 //            return "Due \(item.dueDateLabel) (item was auto-renewed)"
 //        }
         return "Due \(item.dueDateLabel)"
+    }
+
+    @objc func historyButtonPressed(sender: Any) {
+        if let vc = UIStoryboard(name: "History", bundle: nil).instantiateInitialViewController() as? HistoryViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

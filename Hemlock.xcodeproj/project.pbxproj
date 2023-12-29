@@ -1545,6 +1545,39 @@
 		D2EA310F2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
 		D2EA31102B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
 		D2EA31122B3F3C20004CEF6E /* HistoryRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31112B3F3C20004CEF6E /* HistoryRecordTests.swift */; };
+		D2EA31152B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA31162B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA31172B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA31182B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA31192B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA311A2B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA311B2B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA311C2B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA311D2B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA311E2B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA311F2B3F50FE004CEF6E /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA31142B3F50FE004CEF6E /* History.storyboard */; };
+		D2EA31212B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA31222B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA31232B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA31242B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA31252B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA31262B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA31272B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA31282B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA31292B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA312A2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA312B2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */; };
+		D2EA312D2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA312E2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA312F2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA31302B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA31312B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA31322B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA31332B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA31342B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA31352B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA31362B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
+		D2EA31372B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */; };
 		D2F3537229D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
 		D2F3537329D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
 		D2F3537429D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
@@ -1841,6 +1874,9 @@
 		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecord.swift; sourceTree = "<group>"; };
 		D2EA31112B3F3C20004CEF6E /* HistoryRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordTests.swift; sourceTree = "<group>"; };
+		D2EA31142B3F50FE004CEF6E /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		D2F3537129D0F09800494763 /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		D2F3902E2241E5950089D745 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D2F3902F2241E5950089D745 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
@@ -2138,6 +2174,7 @@
 				D248CBDA2120E9D70091D2E6 /* CopyInfo */,
 				D21F683520D803F900D953C1 /* Details */,
 				FACD141920CDA97E008F02D3 /* Fines */,
+				D2EA31132B3F50D0004CEF6E /* History */,
 				FACD141F20CDAFFD008F02D3 /* Holds */,
 				D212DB1620C37B2600267503 /* Login */,
 				D212DB1520C37B0600267503 /* Main */,
@@ -2609,6 +2646,16 @@
 			path = pines_app;
 			sourceTree = "<group>";
 		};
+		D2EA31132B3F50D0004CEF6E /* History */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA31142B3F50FE004CEF6E /* History.storyboard */,
+				D2EA31202B3F59BD004CEF6E /* HistoryViewController.swift */,
+				D2EA312C2B3F59EE004CEF6E /* HistoryTableViewCell.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		D2F3902C2241E5950089D745 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -2974,6 +3021,7 @@
 				D210EC2F22B1EE55002FB5E0 /* SendEmail.storyboard in Resources */,
 				D2029B4F297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D29C95FC2599285E00CACDBD /* event_msg_map.json in Resources */,
+				D2EA31152B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D21090D124D726FA004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537229D0F09800494763 /* Results.storyboard in Resources */,
 				D210EC3122B1EE55002FB5E0 /* Main.storyboard in Resources */,
@@ -3008,6 +3056,7 @@
 				D23E9FD623B9200A0030F5C1 /* SendEmail.storyboard in Resources */,
 				D2029B59297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D29C95F92599283A00CACDBD /* event_msg_map.json in Resources */,
+				D2EA311F2B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D21090DD24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537C29D0F09800494763 /* Results.storyboard in Resources */,
 				D23E9FD823B9200A0030F5C1 /* Main.storyboard in Resources */,
@@ -3042,6 +3091,7 @@
 				D2477C2424785A6B00FD4CF6 /* SendEmail.storyboard in Resources */,
 				D2029B53297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D29C95F62599283A00CACDBD /* event_msg_map.json in Resources */,
+				D2EA31192B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D21090D924D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537629D0F09800494763 /* Results.storyboard in Resources */,
 				D2477C2624785A6B00FD4CF6 /* Main.storyboard in Resources */,
@@ -3059,6 +3109,7 @@
 				D2572B0D24AD7755000BA698 /* LICENSE.txt in Resources */,
 				D2572B0E24AD7755000BA698 /* Holds.storyboard in Resources */,
 				D293EC18297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2EA311A2B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D2AA9D4F27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2572B1024AD7755000BA698 /* CopyInfo.storyboard in Resources */,
 				D22894FE29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3094,6 +3145,7 @@
 				D25EECB928A1E8310090F108 /* Holds.storyboard in Resources */,
 				D25EECBA28A1E8310090F108 /* BookBagDetails.storyboard in Resources */,
 				D293EC1B297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2EA311D2B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D2647872291708AA00B672AC /* custom_strings.json in Resources */,
 				D25EECBB28A1E8310090F108 /* CopyInfo.storyboard in Resources */,
 				D228950129D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3129,6 +3181,7 @@
 				D21090D624D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */,
 				D293EC15297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2EA31172B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D2AA9D4827383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */,
 				D22894FB29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3175,6 +3228,7 @@
 				D2AA9D4927383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D279910120DDD473003B451E /* Search.storyboard in Resources */,
 				D279910F20DDD760003B451E /* hemlock.xcassets in Resources */,
+				D2EA31182B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D279910220DDD473003B451E /* Documentation in Resources */,
 				D28AE26524FDD9B200960E9E /* strings.json in Resources */,
 				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
@@ -3214,6 +3268,7 @@
 				D22D0C962243104600DBB31A /* SendEmail.storyboard in Resources */,
 				D2029B50297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D29C95F22599283A00CACDBD /* event_msg_map.json in Resources */,
+				D2EA31162B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D21090D524D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537329D0F09800494763 /* Results.storyboard in Resources */,
 				D28424AB21D0358200C7171C /* Main.storyboard in Resources */,
@@ -3248,6 +3303,7 @@
 				FACD141D20CDACFF008F02D3 /* Fines.storyboard in Resources */,
 				D2029B58297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D28AE26D24FDD9D400960E9E /* custom_strings.json in Resources */,
+				D2EA311E2B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D29911E1248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2F3537B29D0F09800494763 /* Results.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
@@ -3276,6 +3332,7 @@
 				D2BDA66F22D176BD00D9B60C /* LICENSE.txt in Resources */,
 				D2BDA67022D176BD00D9B60C /* Holds.storyboard in Resources */,
 				D293EC19297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2EA311B2B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D2AA9D4B27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2BDA67122D176BD00D9B60C /* CopyInfo.storyboard in Resources */,
 				D22894FF29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3311,6 +3368,7 @@
 				D2BDA70622D2A72000D9B60C /* LICENSE.txt in Resources */,
 				D2BDA70722D2A72000D9B60C /* Holds.storyboard in Resources */,
 				D293EC1A297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2EA311C2B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D2AA9D4C27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2BDA70822D2A72000D9B60C /* CopyInfo.storyboard in Resources */,
 				D228950029D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3718,6 +3776,7 @@
 				D210EBD022B1EE55002FB5E0 /* OptionsViewController.swift in Sources */,
 				D20B2FE622CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D210EBD122B1EE55002FB5E0 /* OSRFObject.swift in Sources */,
+				D2EA312D2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D210EBD222B1EE55002FB5E0 /* UIView+.swift in Sources */,
 				D2C3EA2D29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D210EBD322B1EE55002FB5E0 /* String+splitOnRegex.swift in Sources */,
@@ -3804,6 +3863,7 @@
 				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66BC297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D2AA9D5127383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2EA31212B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
 				D2C7D6272484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainViewController.swift in Sources */,
@@ -3828,6 +3888,7 @@
 				D23E9F7223B9200A0030F5C1 /* MARCXMLParser.swift in Sources */,
 				D23E9F7323B9200A0030F5C1 /* OSRFObject.swift in Sources */,
 				D23E9F7423B9200A0030F5C1 /* UIView+.swift in Sources */,
+				D2EA31372B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D23E9F7523B9200A0030F5C1 /* String+splitOnRegex.swift in Sources */,
 				D2C3EA3729D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D23E9F7623B9200A0030F5C1 /* Organization.swift in Sources */,
@@ -3914,6 +3975,7 @@
 				D2A73B26246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C6297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D2AA9D5927383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2EA312B2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
 				D2C7D62F2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainViewController.swift in Sources */,
@@ -3938,6 +4000,7 @@
 				D2477BBE24785A6B00FD4CF6 /* MARCXMLParser.swift in Sources */,
 				D2477BBF24785A6B00FD4CF6 /* OSRFObject.swift in Sources */,
 				D2477BC024785A6B00FD4CF6 /* UIView+.swift in Sources */,
+				D2EA31312B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D2477BC124785A6B00FD4CF6 /* String+splitOnRegex.swift in Sources */,
 				D2C3EA3129D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2477BC224785A6B00FD4CF6 /* Organization.swift in Sources */,
@@ -4024,6 +4087,7 @@
 				D2477C0524785A6B00FD4CF6 /* JSONUtils.swift in Sources */,
 				D2BB66C0297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D2AA9D5527383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2EA31252B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */,
 				D2C7D62B2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2477C0724785A6B00FD4CF6 /* MainViewController.swift in Sources */,
@@ -4048,6 +4112,7 @@
 				D2572AAD24AD7755000BA698 /* OptionsViewController.swift in Sources */,
 				D2572AAE24AD7755000BA698 /* MARCXMLParser.swift in Sources */,
 				D2572AAF24AD7755000BA698 /* OSRFObject.swift in Sources */,
+				D2EA31322B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D2572AB024AD7755000BA698 /* UIView+.swift in Sources */,
 				D2C3EA3229D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2572AB124AD7755000BA698 /* String+splitOnRegex.swift in Sources */,
@@ -4134,6 +4199,7 @@
 				D2572B2924AD7A13000BA698 /* MoAppBehavior.swift in Sources */,
 				D2BB66C1297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D2AA9D5A27383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2EA31262B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2572AF724AD7755000BA698 /* Style.swift in Sources */,
 				D2572AF824AD7755000BA698 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2572AF924AD7755000BA698 /* MainViewController.swift in Sources */,
@@ -4158,6 +4224,7 @@
 				D25EEC5228A1E8310090F108 /* MARCXMLParser.swift in Sources */,
 				D25EEC5328A1E8310090F108 /* OSRFObject.swift in Sources */,
 				D25EEC5428A1E8310090F108 /* UIView+.swift in Sources */,
+				D2EA31352B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D25EECDB28A1EB2E0090F108 /* OwwlAppConfiguration.swift in Sources */,
 				D2C3EA3529D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D25EEC5528A1E8310090F108 /* String+splitOnRegex.swift in Sources */,
@@ -4244,6 +4311,7 @@
 				D25EECA128A1E8310090F108 /* BookBagDetailsViewController.swift in Sources */,
 				D2BB66C4297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D25EECA228A1E8310090F108 /* Style.swift in Sources */,
+				D2EA31292B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D25EECA328A1E8310090F108 /* OrgDetailsTableViewCell.swift in Sources */,
 				D25EECA428A1E8310090F108 /* MainViewController.swift in Sources */,
 				D25EECA528A1E8310090F108 /* OrgDetailsViewController.swift in Sources */,
@@ -4261,6 +4329,7 @@
 			files = (
 				D276DA8921336B20007FAA31 /* OSRFCoder.swift in Sources */,
 				D276DA8A21336B20007FAA31 /* LoginViewController.swift in Sources */,
+				D2EA312F2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D2C3EA2329D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2EA31082B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
@@ -4296,6 +4365,7 @@
 				D276DA9921336B20007FAA31 /* CopyStatus.swift in Sources */,
 				D276DA9C21336B20007FAA31 /* App.swift in Sources */,
 				D2AA9D602738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
+				D2EA31232B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
 				D2BB668C297C813A007E19E7 /* PatronMessage.swift in Sources */,
@@ -4370,6 +4440,7 @@
 			files = (
 				FAA9E31921962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D2C3EA2429D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
+				D2EA31302B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
 				D2EA31092B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
@@ -4405,6 +4476,7 @@
 				D27990D720DDD473003B451E /* App.swift in Sources */,
 				D2AA9D612738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
+				D2EA31242B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
 				D2BB668D297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */,
@@ -4479,6 +4551,7 @@
 			files = (
 				D21867A221D039BF0082358C /* CoolTheme.swift in Sources */,
 				D284244D21D0358200C7171C /* OSRFCoder.swift in Sources */,
+				D2EA312E2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D2C3EA2229D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2EA31072B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D284244E21D0358200C7171C /* LoginViewController.swift in Sources */,
@@ -4514,6 +4587,7 @@
 				D284245F21D0358200C7171C /* HoldsTableViewCell.swift in Sources */,
 				D284246021D0358200C7171C /* CopyStatus.swift in Sources */,
 				D2AA9D5F2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
+				D2EA31222B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D284246321D0358200C7171C /* App.swift in Sources */,
 				D284246421D0358200C7171C /* Library.swift in Sources */,
 				D2BB668B297C813A007E19E7 /* PatronMessage.swift in Sources */,
@@ -4595,6 +4669,7 @@
 				D20B2FE322CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D24D76922234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBB2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
+				D2EA31362B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D2C3EA3629D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */,
@@ -4681,6 +4756,7 @@
 				D2A73B25246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C5297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D2AA9D5827383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2EA312A2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D2C7D62E2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
@@ -4738,6 +4814,7 @@
 				D2BDA69E22D17A9100D9B60C /* NobleAppBehavior.swift in Sources */,
 				D2BDA61322D176BD00D9B60C /* MARCXMLParser.swift in Sources */,
 				D2BDA61422D176BD00D9B60C /* OSRFObject.swift in Sources */,
+				D2EA31332B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D2BDA61522D176BD00D9B60C /* UIView+.swift in Sources */,
 				D2C3EA3329D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2BDA61622D176BD00D9B60C /* String+splitOnRegex.swift in Sources */,
@@ -4824,6 +4901,7 @@
 				D2A73B23246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C2297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D2AA9D5627383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2EA31272B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
 				D2C7D62C2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainViewController.swift in Sources */,
@@ -4848,6 +4926,7 @@
 				D2BDA6AB22D2A72000D9B60C /* MARCXMLParser.swift in Sources */,
 				D2BDA6AC22D2A72000D9B60C /* OSRFObject.swift in Sources */,
 				D2BDA6AD22D2A72000D9B60C /* UIView+.swift in Sources */,
+				D2EA31342B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D2BDA6AE22D2A72000D9B60C /* String+splitOnRegex.swift in Sources */,
 				D2C3EA3429D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2BDA6AF22D2A72000D9B60C /* Organization.swift in Sources */,
@@ -4934,6 +5013,7 @@
 				D2A73B24246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C3297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D2AA9D5727383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2EA31282B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA6F222D2A72000D9B60C /* CopyCount.swift in Sources */,
 				D2C7D62D2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */,

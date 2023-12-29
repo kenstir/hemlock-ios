@@ -1,6 +1,4 @@
 //
-//  HistoryRecord.swift
-//
 //  Copyright (C) 2023 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
