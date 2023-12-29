@@ -1533,6 +1533,17 @@
 		D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D2DF196820CEF68700085255 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
+		D2EA31062B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA31072B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA31082B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA31092B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA310A2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA310B2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA310C2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA310D2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA310E2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA310F2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA31102B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
 		D2F3537229D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
 		D2F3537329D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
 		D2F3537429D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
@@ -1827,6 +1838,7 @@
 		D2DE83EB20F5AC280027FAA1 /* XUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XUtils.swift; sourceTree = "<group>"; };
 		D2DF196520CEEE1200085255 /* FineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineRecord.swift; sourceTree = "<group>"; };
 		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
+		D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecord.swift; sourceTree = "<group>"; };
 		D2F3537129D0F09800494763 /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		D2F3902E2241E5950089D745 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D2F3902F2241E5950089D745 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
@@ -2105,6 +2117,7 @@
 				D2931AA9272DE83200CBA5AA /* BookBag.swift */,
 				D2931A9E272DE56500CBA5AA /* BookBagItem.swift */,
 				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
+				D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
 				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
@@ -3724,6 +3737,7 @@
 				D210EBDE22B1EE55002FB5E0 /* HoldsTableViewCell.swift in Sources */,
 				D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */,
 				D210EBDF22B1EE55002FB5E0 /* CopyStatus.swift in Sources */,
+				D2EA31062B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D210EBE122B1EE55002FB5E0 /* App.swift in Sources */,
 				D210EBE222B1EE55002FB5E0 /* Library.swift in Sources */,
 				D2029B5B297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
@@ -3833,6 +3847,7 @@
 				D23E9F8423B9200A0030F5C1 /* CopyStatus.swift in Sources */,
 				D23E9F8623B9200A0030F5C1 /* App.swift in Sources */,
 				D23E9F8723B9200A0030F5C1 /* Library.swift in Sources */,
+				D2EA31102B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D23E9F8823B9200A0030F5C1 /* GatewayResponse.swift in Sources */,
 				D23E9F8923B9200A0030F5C1 /* SMSCarrier.swift in Sources */,
 				D2029B65297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
@@ -3942,6 +3957,7 @@
 				D2477BD224785A6B00FD4CF6 /* App.swift in Sources */,
 				D2477BD324785A6B00FD4CF6 /* Library.swift in Sources */,
 				D2477C3424786CCF00FD4CF6 /* IndianaTheme.swift in Sources */,
+				D2EA310A2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2477BD424785A6B00FD4CF6 /* GatewayResponse.swift in Sources */,
 				D2477BD524785A6B00FD4CF6 /* SMSCarrier.swift in Sources */,
 				D2029B5F297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
@@ -4051,6 +4067,7 @@
 				D2572AC024AD7755000BA698 /* CopyStatus.swift in Sources */,
 				D2572AC224AD7755000BA698 /* App.swift in Sources */,
 				D2572AC324AD7755000BA698 /* Library.swift in Sources */,
+				D2EA310B2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2572AC424AD7755000BA698 /* GatewayResponse.swift in Sources */,
 				D2572AC524AD7755000BA698 /* SMSCarrier.swift in Sources */,
 				D2029B60297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
@@ -4160,6 +4177,7 @@
 				D25EEC6328A1E8310090F108 /* HoldsTableViewCell.swift in Sources */,
 				D25EEC6428A1E8310090F108 /* CopyStatus.swift in Sources */,
 				D25EEC6528A1E8310090F108 /* App.swift in Sources */,
+				D2EA310E2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D25EEC6628A1E8310090F108 /* Library.swift in Sources */,
 				D25EEC6728A1E8310090F108 /* GatewayResponse.swift in Sources */,
 				D2029B63297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
@@ -4241,6 +4259,7 @@
 				D276DA8921336B20007FAA31 /* OSRFCoder.swift in Sources */,
 				D276DA8A21336B20007FAA31 /* LoginViewController.swift in Sources */,
 				D2C3EA2329D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
+				D2EA31082B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
 				D276DA8F21336B20007FAA31 /* String+splitOnRegex.swift in Sources */,
 				D20B2FE422CC309800F69848 /* MARCXMLParser.swift in Sources */,
@@ -4349,6 +4368,7 @@
 				FAA9E31921962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D2C3EA2429D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
+				D2EA31092B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
 				D20B2FE222CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D24D76912234418F00AFE50C /* UIColor+.swift in Sources */,
@@ -4457,6 +4477,7 @@
 				D21867A221D039BF0082358C /* CoolTheme.swift in Sources */,
 				D284244D21D0358200C7171C /* OSRFCoder.swift in Sources */,
 				D2C3EA2229D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
+				D2EA31072B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D284244E21D0358200C7171C /* LoginViewController.swift in Sources */,
 				D21867A321D039BF0082358C /* AppFactory.swift in Sources */,
 				D20B2FE522CC309800F69848 /* MARCXMLParser.swift in Sources */,
@@ -4593,6 +4614,7 @@
 				FA57B93920EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
 				D2D93CF6210AB6F1004306D8 /* CopyStatus.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
+				D2EA310F2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D2029B64297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
@@ -4734,6 +4756,7 @@
 				D2BDA62622D176BD00D9B60C /* CopyStatus.swift in Sources */,
 				D2BDA69D22D17A9100D9B60C /* NobleAppConfiguration.swift in Sources */,
 				D2BDA62822D176BD00D9B60C /* App.swift in Sources */,
+				D2EA310C2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2BDA62922D176BD00D9B60C /* Library.swift in Sources */,
 				D2BDA62B22D176BD00D9B60C /* GatewayResponse.swift in Sources */,
 				D2029B61297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
@@ -4843,6 +4866,7 @@
 				D2BDA6BC22D2A72000D9B60C /* CopyStatus.swift in Sources */,
 				D2BDA6BF22D2A72000D9B60C /* App.swift in Sources */,
 				D2BDA6C022D2A72000D9B60C /* Library.swift in Sources */,
+				D2EA310D2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2BDA6C222D2A72000D9B60C /* GatewayResponse.swift in Sources */,
 				D2BDA6C322D2A72000D9B60C /* SMSCarrier.swift in Sources */,
 				D2029B62297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,

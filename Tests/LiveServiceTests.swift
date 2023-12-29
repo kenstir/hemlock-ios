@@ -141,7 +141,7 @@ class LiveServiceTests: XCTestCase {
 
     /// return a promise for a session obj, but calling the server only once
     func makeFetchSessionPromise() -> Promise<Void> {
-        if let obj = LiveServiceTests.state?.sessionObj {
+        if (LiveServiceTests.state?.sessionObj) != nil {
             let promise = Promise<Void>() { seal in
                 seal.fulfill(Void())
             }
@@ -507,11 +507,16 @@ class LiveServiceTests: XCTestCase {
         }.done { arr in
             XCTAssertNotNil(arr)
             expectation.fulfill()
-            print("arr = \(arr)")
-            if let val = arr.first {
-                print("val = \(val)")
-                print("stop here")
+            //print("arr = \(arr)")
+            if arr.count > 0 {
+                let item = arr[0]
+                print("arr[0] = \(item)")
             }
+            if arr.count > 1 {
+                let item = arr[1]
+                print("arr[1] = \(item)")
+            }
+            print("stop here")
         }.catch { error in
             XCTFail(error.localizedDescription)
             expectation.fulfill()
