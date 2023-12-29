@@ -41,6 +41,7 @@ class TestConfig {
 class TestState {
     var account: Account
     var sessionObj: OSRFObject? = nil
+    var executionCount = 0
 
     init(username: String, password: String) {
         self.account = Account(username, password: password)
@@ -60,6 +61,9 @@ class LiveServiceTests: XCTestCase {
     let configFile = "TestUserData/testAccount" // .json
     let consortiumOrgID = 1
 
+    let manualTestsEnabled = true
+    let updateTestsEnabled = false // only run update tests manually
+
     var username: String { return LiveServiceTests.config!.username }
     var password: String { return LiveServiceTests.config!.password }
     var homeOrgID: Int { return LiveServiceTests.config!.homeOrgID }
@@ -76,6 +80,12 @@ class LiveServiceTests: XCTestCase {
         initTestState()
 
         App.library = Library(LiveServiceTests.config!.url)
+
+        LiveServiceTests.state?.executionCount += 1
+        print("setUp: executionCount  = \(LiveServiceTests.state?.executionCount ?? 0)")
+    }
+
+    override func tearDown() {
     }
 
     func initTestConfig() {
@@ -491,10 +501,13 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
 
-    //MARK: - API Test Playground
+    //MARK: - API Manual Test Playground
+    // these tests are skipped unless run manually
 
     func test_checkoutHistory() throws {
-        throw XCTSkip("manual test")
+        if !manualTestsEnabled {
+            throw XCTSkip("manual test")
+        }
 
         XCTAssertTrue(loadIDL())
 
@@ -507,7 +520,7 @@ class LiveServiceTests: XCTestCase {
         }.done { arr in
             XCTAssertNotNil(arr)
             expectation.fulfill()
-            //print("arr = \(arr)")
+            let objs = HistoryRecord.makeArray(arr)
             if arr.count > 0 {
                 let item = arr[0]
                 print("arr[0] = \(item)")
@@ -526,7 +539,9 @@ class LiveServiceTests: XCTestCase {
     }
 
     func test_patronSettingUpdate() throws {
-        throw XCTSkip("manual test")
+        if !updateTestsEnabled {
+            throw XCTSkip("update tests not enabled")
+        }
 
         XCTAssertTrue(loadIDL())
 

@@ -41,9 +41,19 @@ class HistoryRecord {
     var dueDateLabel: String { return auchObj.getDateLabel("due_date") ?? "Unknown" }
     var targetCopy: Int { return auchObj.getInt("target_copy") ?? -1 }
 
-    init(id: Int, auchObj: OSRFObject, metabibRecord: MBRecord? = nil) {
+    init(id: Int, obj: OSRFObject, metabibRecord: MBRecord? = nil) {
         self.id = id
-        self.auchObj = auchObj
+        self.auchObj = obj
         self.metabibRecord = metabibRecord
+    }
+
+    static func makeArray(_ objects: [OSRFObject]) -> [HistoryRecord] {
+        var ret: [HistoryRecord] = []
+        for obj in objects {
+            if let id = obj.getInt("id") {
+                ret.append(HistoryRecord(id: id, obj: obj))
+            }
+        }
+        return ret
     }
 }

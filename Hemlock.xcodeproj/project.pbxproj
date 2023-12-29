@@ -1544,6 +1544,7 @@
 		D2EA310E2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
 		D2EA310F2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
 		D2EA31102B3F2C67004CEF6E /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */; };
+		D2EA31122B3F3C20004CEF6E /* HistoryRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31112B3F3C20004CEF6E /* HistoryRecordTests.swift */; };
 		D2F3537229D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
 		D2F3537329D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
 		D2F3537429D0F09800494763 /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2F3537129D0F09800494763 /* Results.storyboard */; };
@@ -1839,6 +1840,7 @@
 		D2DF196520CEEE1200085255 /* FineRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineRecord.swift; sourceTree = "<group>"; };
 		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecord.swift; sourceTree = "<group>"; };
+		D2EA31112B3F3C20004CEF6E /* HistoryRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordTests.swift; sourceTree = "<group>"; };
 		D2F3537129D0F09800494763 /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		D2F3902E2241E5950089D745 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D2F3902F2241E5950089D745 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
@@ -2291,6 +2293,7 @@
 				D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */,
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
 				D22D02682083EA7600DC1F5B /* GatewayTests.swift */,
+				D2EA31112B3F3C20004CEF6E /* HistoryRecordTests.swift */,
 				D252DA2923F6382000D11662 /* HoldRecordTests.swift */,
 				D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */,
 				D231B52D2083C1E500478D25 /* LibraryTests.swift */,
@@ -4702,6 +4705,7 @@
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
+				D2EA31122B3F3C20004CEF6E /* HistoryRecordTests.swift in Sources */,
 				D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */,
 				D20B2FEE22CD726900F69848 /* MARCXMLParserTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
