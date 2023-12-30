@@ -137,7 +137,10 @@ class HistoryViewController: UITableViewController {
         }
 
         let item = items[indexPath.row]
-        cell.title.text = String(item.id)
+        cell.title.text = "hist.id \(item.id)"
+        cell.author.text = "target_copy \(item.targetCopy)"
+        cell.checkoutDate.text = "Checkout Date: \(item.checkoutDateLabel)"
+        cell.returnDate.text = "Returned Date: \(item.returnedDateLabel)"
 
         return cell
     }

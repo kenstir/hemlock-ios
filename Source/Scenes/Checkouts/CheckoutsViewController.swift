@@ -122,8 +122,8 @@ class CheckoutsViewController: UIViewController {
     func fetchCircDetails(authtoken: String, forCircRecord circRecord: CircRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circRecord.id], shouldCache: false)
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            print("xxx \(circRecord.id) circRetrieve done")
             circRecord.circObj = obj
+            os_log("id=%d t=%d circ done", log: self.log, type: .info, circRecord.id, circRecord.targetCopy)
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [circRecord.targetCopy], shouldCache: true)
             return req.gatewayObjectResponse()
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
@@ -140,7 +140,7 @@ class CheckoutsViewController: UIViewController {
                 return ServiceUtils.makeEmptyObjectPromise()
             }
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            print("xxx \(circRecord.id) MRA done")
+            os_log("id=%d t=%d mra done (%@)", log: self.log, type: .info, circRecord.id, circRecord.targetCopy, circRecord.title)
             if (obj.dict.count > 0) {
                 circRecord.metabibRecord?.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
                 return ServiceUtils.makeEmptyObjectPromise()

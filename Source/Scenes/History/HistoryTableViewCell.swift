@@ -19,13 +19,10 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
+
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var author: UILabel!
-    @IBOutlet weak var body: UILabel!
-
-//    @IBOutlet weak var title: UILabel!
-//    @IBOutlet weak var author: UILabel!
-//    @IBOutlet weak var format: UILabel!
-//    @IBOutlet weak var pubinfo: UILabel!
-//    @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var checkoutDate: UILabel!
+    @IBOutlet weak var returnDate: UILabel!
+    @IBOutlet weak var coverImage: UIImageView!
 }

@@ -12,56 +12,88 @@
         <scene sceneID="FgG-y9-0uW">
             <objects>
                 <tableViewController title="Checkout History" id="sYb-2S-UVg" userLabel="History" customClass="HistoryViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="dul-Hg-ijA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="120" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="dul-Hg-ijA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="150" id="saK-Ib-JQl" userLabel="historyCell" customClass="HistoryTableViewCell" customModule="COOL" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="150"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" id="saK-Ib-JQl" userLabel="historyCell" customClass="HistoryTableViewCell" customModule="COOL" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="151.33332824707031"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="saK-Ib-JQl" id="Tba-T9-izD">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="151.33332824707031"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Overdue Library Materials" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo7-yj-71R" userLabel="Title">
-                                            <rect key="frame" x="8" y="7.9999999999999982" width="377" height="20.333333333333329"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Feb 7, 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eha-gv-qOY" userLabel="Author">
-                                            <rect key="frame" x="8" y="36.333333333333336" width="377" height="18"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SO9-4N-HbA" userLabel="Body">
-                                            <rect key="frame" x="8" y="62.333333333333336" width="377" height="95.666666666666657"/>
-                                            <string key="text">Our records indicate the following items are 10 days or more overdue.       Title:    Georgia adult literacy resources manual      Author:   State Bar of Georgia      Call No:  374.012 G      Checked Out At: Georgia Public Library Service - Professional Collection      Due Date: 12-20-2017    Items may be returned and fines paid at any PINES member library. Fines will continue to accrue until items are returned.  If you have any questions, please contact your home library at:       Athens Regional Library System      Athens-Clarke County Library      2025 BAXTER ST      ATHENS, GA 30606-6331      706-613-3650      contact_us@arlsmail.org
-      (Please have your library card available.) </string>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="teC-WR-RjT" userLabel="Info VStack">
+                                            <rect key="frame" x="12" y="8" width="327" height="139.33333333333334"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Project Management Again" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo7-yj-71R" userLabel="Title">
+                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="20.333333333333332"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Stanley E. Portny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eha-gv-qOY" userLabel="Author">
+                                                    <rect key="frame" x="0.0" y="20.333333333333332" width="327" height="17.999999999999996"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I49-EX-Chw" userLabel="Due Date">
+                                                    <rect key="frame" x="0.0" y="38.333333333333336" width="327" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2002" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVx-vm-gmg" userLabel="Return Date">
+                                                    <rect key="frame" x="0.0" y="54" width="327" height="15.666666666666671"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDh-ce-QvL" userLabel="Spacer">
+                                                    <rect key="frame" x="0.0" y="69.666666666666657" width="327" height="69.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ROZ-ay-kAN" userLabel="Image VStack">
+                                            <rect key="frame" x="339" y="8" width="50" height="139.33333333333334"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="750" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="80" translatesAutoresizingMaskIntoConstraints="NO" id="Ws9-vt-7C2" userLabel="Cover Image">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="LHD-1m-wZQ"/>
+                                                        <constraint firstAttribute="height" constant="80" id="a7z-MB-73d"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlB-Ij-NDZ" userLabel="Spacer">
+                                                    <rect key="frame" x="0.0" y="80" width="50" height="59.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="eha-gv-qOY" firstAttribute="top" secondItem="jo7-yj-71R" secondAttribute="bottom" constant="8" id="0Es-7n-UiM"/>
-                                        <constraint firstItem="eha-gv-qOY" firstAttribute="leading" secondItem="Tba-T9-izD" secondAttribute="leading" constant="8" id="0sT-IK-ZRH"/>
-                                        <constraint firstAttribute="trailing" secondItem="eha-gv-qOY" secondAttribute="trailing" constant="8" id="CU9-U9-LJR"/>
-                                        <constraint firstItem="jo7-yj-71R" firstAttribute="leading" secondItem="Tba-T9-izD" secondAttribute="leading" constant="8" id="CUh-vc-6In"/>
-                                        <constraint firstAttribute="bottom" secondItem="SO9-4N-HbA" secondAttribute="bottom" constant="-8" id="D3t-kx-BJy"/>
-                                        <constraint firstItem="SO9-4N-HbA" firstAttribute="leading" secondItem="Tba-T9-izD" secondAttribute="leading" constant="8" id="GEb-pJ-XtU"/>
-                                        <constraint firstItem="jo7-yj-71R" firstAttribute="top" secondItem="Tba-T9-izD" secondAttribute="top" constant="8" id="KR7-Kz-XMk"/>
-                                        <constraint firstItem="SO9-4N-HbA" firstAttribute="top" secondItem="eha-gv-qOY" secondAttribute="bottom" constant="8" id="L0p-aN-7fm"/>
-                                        <constraint firstAttribute="trailing" secondItem="jo7-yj-71R" secondAttribute="trailing" constant="8" id="MfV-3P-Wc7"/>
-                                        <constraint firstAttribute="trailing" secondItem="SO9-4N-HbA" secondAttribute="trailing" constant="8" id="unA-S2-qAM"/>
+                                        <constraint firstItem="teC-WR-RjT" firstAttribute="trailing" secondItem="ROZ-ay-kAN" secondAttribute="leading" id="LJH-cw-WhH"/>
+                                        <constraint firstAttribute="trailing" secondItem="ROZ-ay-kAN" secondAttribute="trailing" constant="4" id="aWV-U7-wUB"/>
+                                        <constraint firstItem="teC-WR-RjT" firstAttribute="leading" secondItem="Tba-T9-izD" secondAttribute="leading" constant="12" id="cUL-QT-Uit"/>
+                                        <constraint firstItem="ROZ-ay-kAN" firstAttribute="top" secondItem="Tba-T9-izD" secondAttribute="top" constant="8" id="hvv-na-KWm"/>
+                                        <constraint firstItem="teC-WR-RjT" firstAttribute="top" secondItem="Tba-T9-izD" secondAttribute="top" constant="8" id="lEc-3v-ui8"/>
+                                        <constraint firstAttribute="bottom" secondItem="teC-WR-RjT" secondAttribute="bottom" constant="4" id="nwp-pI-Ies"/>
+                                        <constraint firstAttribute="bottom" secondItem="ROZ-ay-kAN" secondAttribute="bottom" constant="4" id="xMA-lC-Kmx"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="author" destination="eha-gv-qOY" id="oVN-Vd-oeA"/>
-                                    <outlet property="body" destination="SO9-4N-HbA" id="hHJ-gN-3Th"/>
-                                    <outlet property="title" destination="jo7-yj-71R" id="Ws0-aV-8BJ"/>
+                                    <outlet property="author" destination="eha-gv-qOY" id="9UN-7I-eli"/>
+                                    <outlet property="checkoutDate" destination="I49-EX-Chw" id="U9f-ON-xMe"/>
+                                    <outlet property="coverImage" destination="Ws9-vt-7C2" id="lAl-E2-oeA"/>
+                                    <outlet property="returnDate" destination="sVx-vm-gmg" id="SE5-E6-lOl"/>
+                                    <outlet property="title" destination="jo7-yj-71R" id="KYe-tI-FFx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

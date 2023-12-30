@@ -37,6 +37,10 @@ class HistoryRecord {
     var format: String { return metabibRecord?.iconFormatLabel ?? "" }
     var dueDate: Date? { return auchObj.getDate("due_date") }
     var dueDateLabel: String { return auchObj.getDateLabel("due_date") ?? "Unknown" }
+    var checkoutDate: Date? { return auchObj.getDate("xact_start") }
+    var checkoutDateLabel: String { return auchObj.getDateLabel("xact_start") ?? "Unknown" }
+    var returnedDate: Date? { return auchObj.getDate("checkin_time") }
+    var returnedDateLabel: String { return auchObj.getDateLabel("checkin_time") ?? "Not Returned" }
     var targetCopy: Int { return auchObj.getInt("target_copy") ?? -1 }
 
     init(id: Int, obj: OSRFObject, metabibRecord: MBRecord? = nil) {
