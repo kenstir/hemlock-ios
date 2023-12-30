@@ -125,8 +125,11 @@ class HistoryViewController: UITableViewController {
         if !didCompleteFetch {
             return ""
         } else if items.count == 0 {
-            let str = OSRFObject.getDateLabel(fromString: App.account?.userSettingCircHistoryStart)
-            return "No checkout history since \(str)"
+            if let start = App.account?.userSettingCircHistoryStart {
+                return "No checkout history since \(start)"
+            } else {
+                return "No checkout history"
+            }
         } else {
             return "\(items.count) items"
         }

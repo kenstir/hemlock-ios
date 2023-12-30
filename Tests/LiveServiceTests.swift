@@ -521,13 +521,13 @@ class LiveServiceTests: XCTestCase {
             XCTAssertNotNil(arr)
             expectation.fulfill()
             let objs = HistoryRecord.makeArray(arr)
-            if arr.count > 0 {
-                let item = arr[0]
-                print("arr[0] = \(item)")
+            if objs.count > 0 {
+                let item = objs[0]
+                print("objs[0] = \(item)")
             }
-            if arr.count > 1 {
-                let item = arr[1]
-                print("arr[1] = \(item)")
+            if objs.count > 1 {
+                let item = objs[1]
+                print("objs[1] = \(item)")
             }
             print("stop here")
         }.catch { error in
@@ -553,17 +553,10 @@ class LiveServiceTests: XCTestCase {
             let obj = LiveServiceTests.state!.sessionObj
             account.loadSession(fromObject: obj!)
             return ActorService.updatePatronSetting(authtoken: self.authtoken!, userID: self.userID!, name: API.userSettingCircHistoryStart, value: "2023-12-22")
-        }.done { resp in
-            XCTAssertNotNil(resp)
+        }.done { str in
+            XCTAssertNotNil(str)
             expectation.fulfill()
-            print("resp = \(resp)")
-            if let val = resp.obj {
-                print("obj = \(val)")
-            } else if let val = resp.str {
-                print("str = \(val)")
-            } else {
-                print("wtf")
-            }
+            print("resp = \(str)")
         }.catch { error in
             XCTFail(error.localizedDescription)
             expectation.fulfill()

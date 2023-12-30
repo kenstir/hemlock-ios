@@ -26,6 +26,7 @@ class PinesAppConfiguration: AppConfiguration {
     let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = "awards"
 
+    let enableCheckoutHistory = true
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = false
     let enableHoldShowExpiration = false

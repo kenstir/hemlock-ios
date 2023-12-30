@@ -226,9 +226,7 @@ class CheckoutsViewController: UIViewController {
     }
 
     @objc func historyButtonPressed(sender: Any) {
-        guard let account = App.account,
-              let authtoken = account.authtoken,
-              let userID = account.userID else
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
@@ -243,16 +241,15 @@ class CheckoutsViewController: UIViewController {
         let alertController = UIAlertController(title: "Checkout history is not enabled.", message: "Your account does not have checkout history enabled.  If you enable checkout history, then items you check out from now on will appear in your history.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Enable checkout history", style: .default) { action in
-            self.enableCheckoutHistory(authtoken: authtoken, userID: userID)
+            self.enableCheckoutHistory(account: account)
         })
         self.present(alertController, animated: true)
     }
 
-    func enableCheckoutHistory(authtoken: String, userID: Int) {
-        let promise = ActorService.enableCheckoutHistory(authtoken: authtoken, userID: userID)
-        promise.done { resp in
-            // resp is not important, it worked if it did not error
-            self.showAlert(title: "Success", message: "Any items you checkout from now on will appear in your history.")
+    func enableCheckoutHistory(account: Account) {
+        let promise = ActorService.enableCheckoutHistory(account: account)
+        promise.done {
+            self.showAlert(title: "Success", message: "Any items you check out from now on will appear in your history.")
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }

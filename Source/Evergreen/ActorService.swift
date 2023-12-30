@@ -260,17 +260,27 @@ class ActorService {
     }
 
     /// returns "1" or an error
-    static func updatePatronSetting(authtoken: String, userID: Int, name: String, value: String) -> Promise<GatewayResponse> {
-//        let param: JSONDictionary = [
-//            name: value
-//        ]
-        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, 1], shouldCache: false)
-//        return req.gatewayResponse()
-        return req.gatewayResponse()
+    static func updatePatronSetting(authtoken: String, userID: Int, name: String, value: String) -> Promise<String> {
+        let param: JSONDictionary = [
+            name: value
+        ]
+        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, param], shouldCache: false)
+        return req.gatewayStringResponse()
     }
 
-    static func enableCheckoutHistory(authtoken: String, userID: Int) -> Promise<GatewayResponse> {
+    /// returns new value of userSettingCircHistoryStart
+    static func enableCheckoutHistory(account: Account) -> Promise<Void> {
+        guard let authtoken = account.authtoken,
+            let userID = account.userID else {
+            //TODO: analytics
+            return Promise<Void>()
+        }
         let dateString = OSRFObject.apiDayOnlyFormatter.string(from: Date())
-        return updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString)
+        let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString).then { (str: String) -> Promise<Void> in
+            // `str` doesn't matter, it either worked or it errored.
+            account.userSettingCircHistoryStart = dateString
+            return Promise<Void>()
+        }
+        return promise
     }
 }
