@@ -558,9 +558,9 @@ class LiveServiceTests: XCTestCase {
             expectation.fulfill()
             print("resp = \(resp)")
             if let val = resp.obj {
-                print("val = \(val)")
+                print("obj = \(val)")
             } else if let val = resp.str {
-                print("val = \(val)")
+                print("str = \(val)")
             } else {
                 print("wtf")
             }

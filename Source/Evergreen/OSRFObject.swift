@@ -52,6 +52,11 @@ struct OSRFObject: Equatable {
         df.locale = Locale(identifier: "en_US")
         return df
     }()
+    static var apiDayOnlyFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        return df
+    }()
 
     init(_ dict: [String: Any?] = [:], netClass: String? = nil) {
         self.dict = dict

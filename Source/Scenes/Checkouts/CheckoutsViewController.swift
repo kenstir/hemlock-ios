@@ -226,6 +226,39 @@ class CheckoutsViewController: UIViewController {
     }
 
     @objc func historyButtonPressed(sender: Any) {
+        guard let account = App.account,
+              let authtoken = account.authtoken,
+              let userID = account.userID else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return //TODO: add analytics
+        }
+
+        if account.userSettingCircHistoryStart != nil {
+            showHistoryVC()
+            return
+        }
+
+        // prompt to enable history
+        let alertController = UIAlertController(title: "Checkout history is not enabled.", message: "Your account does not have checkout history enabled.  If you enable checkout history, then items you check out from now on will appear in your history.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Enable checkout history", style: .default) { action in
+            self.enableCheckoutHistory(authtoken: authtoken, userID: userID)
+        })
+        self.present(alertController, animated: true)
+    }
+
+    func enableCheckoutHistory(authtoken: String, userID: Int) {
+        let promise = ActorService.enableCheckoutHistory(authtoken: authtoken, userID: userID)
+        promise.done { resp in
+            // resp is not important, it worked if it did not error
+            self.showAlert(title: "Success", message: "Any items you checkout from now on will appear in your history.")
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    func showHistoryVC() {
         if let vc = UIStoryboard(name: "History", bundle: nil).instantiateInitialViewController() as? HistoryViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }

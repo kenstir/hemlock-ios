@@ -259,11 +259,18 @@ class ActorService {
         return req.gatewayMaybeEmptyArrayResponse()
     }
 
+    /// returns "1" or an error
     static func updatePatronSetting(authtoken: String, userID: Int, name: String, value: String) -> Promise<GatewayResponse> {
-        let param: JSONDictionary = [
-            name: value
-        ]
-        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, param], shouldCache: false)
+//        let param: JSONDictionary = [
+//            name: value
+//        ]
+        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, 1], shouldCache: false)
+//        return req.gatewayResponse()
         return req.gatewayResponse()
+    }
+
+    static func enableCheckoutHistory(authtoken: String, userID: Int) -> Promise<GatewayResponse> {
+        let dateString = OSRFObject.apiDayOnlyFormatter.string(from: Date())
+        return updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString)
     }
 }
