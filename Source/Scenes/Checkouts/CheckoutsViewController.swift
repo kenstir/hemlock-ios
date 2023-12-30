@@ -64,7 +64,7 @@ class CheckoutsViewController: UIViewController {
         setupActivityIndicator()
         self.setupHomeButton()
         if App.config.enableCheckoutHistory {
-            let image = loadAssetImage(named: "arrow_downward")
+            let image = loadAssetImage(named: "history")
             let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(historyButtonPressed(sender:)))
             navigationItem.rightBarButtonItems?.append(button)
         }
