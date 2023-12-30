@@ -141,6 +141,14 @@ struct OSRFObject: Equatable {
         return nil
     }
 
+    static func getDateLabel(fromString strval: String?) -> String {
+        if let val = strval,
+           let date = OSRFObject.apiDateFormatter.date(from: val) {
+            return OSRFObject.outputDateFormatter.string(from: date)
+        }
+        return ""
+    }
+
     func getObject(_ key: String) -> OSRFObject? {
         if let val = dict[key] as? OSRFObject {
             return val

@@ -51,7 +51,7 @@ class Account {
     fileprivate var userSettingDefaultSearchLocation: Int?
     fileprivate var userSettingDefaultSMSCarrier: Int?
     fileprivate var userSettingDefaultSMSNotify: String?
-    fileprivate var userSettingCircHistoryStart: String?
+    var userSettingCircHistoryStart: String?
 
     var notifyPhone: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }
     var pickupOrgID: Int? { return userSettingDefaultPickupLocation ?? homeOrgID }

@@ -125,7 +125,8 @@ class HistoryViewController: UITableViewController {
         if !didCompleteFetch {
             return ""
         } else if items.count == 0 {
-            return "No items in checkout history"
+            let str = OSRFObject.getDateLabel(fromString: App.account?.userSettingCircHistoryStart)
+            return "No checkout history since \(str)"
         } else {
             return "\(items.count) items"
         }
@@ -161,11 +162,18 @@ class HistoryViewController: UITableViewController {
             fatalError("dequeued cell of wrong class!")
         }
 
+        //TODO: async loading a la ResultsViewController
+
         let item = items[indexPath.row]
         cell.title.text = item.title
         cell.author.text = item.author
         cell.checkoutDate.text = "Checkout Date: \(item.checkoutDateLabel)"
         cell.returnDate.text = "Returned Date: \(item.returnedDateLabel)"
+
+        // async load the image
+        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(item.metabibRecord?.id ?? 0)) {
+            cell.coverImage.pin_setImage(from: url)
+        }
 
         return cell
     }
