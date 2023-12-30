@@ -70,19 +70,44 @@ class HistoryViewController: UITableViewController {
         activityIndicator.startAnimating()
 
         // fetch history
-        ActorService.fetchCheckoutHistory(authtoken: authtoken).done { array in
-            self.didCompleteFetch = true
-            self.updateItems(objList: array)
-        }.ensure {
-            self.activityIndicator.stopAnimating()
+        ActorService.fetchCheckoutHistory(authtoken: authtoken).done { objList in
+            self.items = HistoryRecord.makeArray(objList)
+            self.fetchCircDetails(authtoken: authtoken)
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error, title: "Error retrieving messages")
         }
     }
 
-    func updateItems(objList: [OSRFObject]) {
-        items = HistoryRecord.makeArray(objList)
+    func fetchCircDetails(authtoken: String) {
+        var promises: [Promise<Void>] = []
+        for item in items {
+            let targetCopy = item.targetCopy
+            assert(targetCopy != -1, "no target copy")
+            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [targetCopy], shouldCache: true)
+            let promise = req.gatewayObjectResponse().done { obj in
+                let id = obj.getInt("doc_id") ?? -1
+                item.metabibRecord = MBRecord(id: id, mvrObj: obj)
+                os_log("id=%d t=%d mods done (%@)", log: self.log, type: .info, item.id, item.targetCopy, item.title)
+            }
+            promises.append(promise)
+        }
+        let start = Date()
+        os_log("%d promises made", log: self.log, type: .info, promises.count)
+
+        firstly {
+            when(resolved: promises)
+        }.done { results in
+            let elapsed = -start.timeIntervalSinceNow
+            os_log("%d promises done, elapsed: %.3f", log: self.log, type: .info, promises.count, elapsed)
+            self.activityIndicator.stopAnimating()
+            self.presentGatewayAlert(forResults: results)
+            self.didCompleteFetch = true
+            self.reloadData()
+        }
+    }
+
+    func reloadData() {
         tableView.reloadData()
     }
 
@@ -100,7 +125,7 @@ class HistoryViewController: UITableViewController {
         if !didCompleteFetch {
             return ""
         } else if items.count == 0 {
-            return "No history"
+            return "No items in checkout history"
         } else {
             return "\(items.count) items"
         }
@@ -137,8 +162,8 @@ class HistoryViewController: UITableViewController {
         }
 
         let item = items[indexPath.row]
-        cell.title.text = "hist.id \(item.id)"
-        cell.author.text = "target_copy \(item.targetCopy)"
+        cell.title.text = item.title
+        cell.author.text = item.author
         cell.checkoutDate.text = "Checkout Date: \(item.checkoutDateLabel)"
         cell.returnDate.text = "Returned Date: \(item.returnedDateLabel)"
 
