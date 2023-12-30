@@ -35,9 +35,9 @@ class PromiseKitTests: XCTestCase {
     
     func test_basicPromiseChain() {
         let expectation = XCTestExpectation(description: "async response")
-        
+
         var savedResult: Any?
-        
+
         let req = Alamofire.request("https://httpbin.org/get")
         req.responseJSON().done { json in
             print("done: \(json)")
@@ -49,12 +49,33 @@ class PromiseKitTests: XCTestCase {
             print("error")
             self.showAlert(error)
         }
-        
+
         wait(for: [expectation], timeout: 5.0)
-        
+
         XCTAssertNotNil(savedResult)
     }
-    
+
+    func test_promiseChainDoneDone() {
+        let expectation = XCTestExpectation(description: "async response")
+
+        var doneCount = 0
+
+        let promise = after(seconds: 0.1)
+        promise.done {
+            doneCount += 1
+        }.done {
+            doneCount += 1
+        }.ensure {
+            expectation.fulfill()
+        }.catch { error in
+            self.showAlert(error)
+        }
+
+        wait(for: [expectation], timeout: 5.0)
+
+        XCTAssertEqual(2, doneCount)
+    }
+
     // Test to make sure I understood how to exit a promise chain early.
     // If you throw your own error, you can handle it in 'catch',
     // if you throw PMKError.cancelled then 'catch' does not fire.
