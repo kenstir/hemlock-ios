@@ -17,34 +17,18 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class AcornAppConfiguration: AppConfiguration {
-    let title = "Acorn Catalog"
-    let url = "https://opac.biblio.org"
-    let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    let sort: String? = nil
-    let detailsExtraLinkText: String? = nil
-    let detailsExtraLinkQuery: String? = nil
-    let detailsExtraLinkFragment: String? = nil
+class AcornAppConfiguration: BaseAppConfiguration {
+    override var title: String { return "Acorn Catalog" }
+    override var url: String { return "https://opac.biblio.org" }
+    override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
-    let enableHierarchicalOrgTree = true
-    let enableHoldShowQueuePosition = true
-    let enableHoldShowExpiration = true
-    let enableHoldPhoneNotification = true
-    let enableHoldUseOverride = false
-    let enablePartHolds = true
-    let enableTitleHoldOnItemWithParts = false
-    let enableMainSceneBottomToolbar = false
-    let enablePayFines = true
-    let enableHoursOfOperation = true
-    let enableMessages = false
-    let enableEventsButton = true
-    let groupCopyInfoBySystem = false
-    let enableCopyInfoWebLinks = true
-    let needMARCRecord = true
-    let showOnlineAccessHostname = true
-    let alwaysUseActionSheetForOnlineLinks = false
-    let haveColorButtonImages = false
+    override var enableHoldPhoneNotification: Bool { return true }
+    override var enablePartHolds: Bool { return true }
+    override var enableTitleHoldOnItemWithParts: Bool { return false }
+    override var enableEventsButton: Bool { return true }
+    override var enableCopyInfoWebLinks: Bool { return true }
+    override var needMARCRecord: Bool { return true }
+    override var showOnlineAccessHostname: Bool { return true }
 
-    let barcodeFormat: BarcodeFormat = .Codabar
-    let searchLimit = 100
+    override var searchLimit: Int { return 100 }
 }
