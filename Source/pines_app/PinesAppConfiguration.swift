@@ -22,7 +22,7 @@ class PinesAppConfiguration: AppConfiguration {
     let url = "https://gapines.org"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
-    let detailsExtraLinkText: String? = "Recommended Reads"
+    let detailsExtraLinkText: String? = "More Information"
     let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = "awards"
 
