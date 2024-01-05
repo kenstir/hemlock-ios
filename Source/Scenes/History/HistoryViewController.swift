@@ -181,8 +181,16 @@ class HistoryViewController: UITableViewController {
         return cell
     }
 
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let item = items[indexPath.row]
-//        //TODO
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
+        var records: [MBRecord] = []
+        for item in items {
+            if let record = item.metabibRecord {
+                records.append(record)
+            }
+        }
+        if let vc = XUtils.makeDetailsPager(items: records, selectedItem: indexPath.row, displayOptions: displayOptions) {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
