@@ -84,7 +84,6 @@ class GatewayResponseTests: XCTestCase {
 
     // Checkout history has a plain array of objects - "payload":[obj,obj]
     func test_arrayResponseForCheckoutHistory() throws {
-        //throw XCTSkip("not passing yet")
         OSRFCoder.registerClass("test1", fields: ["id","str"])
         let json = """
             {"payload":[{"__c":"test1","__p":[1,"Johnny"]},{"__c":"test1","__p":[2,"rat"]}],"status":200}
