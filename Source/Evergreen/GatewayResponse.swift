@@ -20,7 +20,7 @@
 import Foundation
 import os.log
 
-//TODO: fold GatewayError into HemlockError
+//TODO: Unify GatewayError and HemlockError
 public enum GatewayError: Error {
     case event(ilsevent: Int, textcode: String, desc: String, failpart: String?)
     case failure(String)
@@ -57,7 +57,7 @@ struct GatewayResponse {
     var type: GatewayResponseType
     var error: GatewayError?
 
-    // a field for each GatewayResultType; I'm sure there's a better way
+    // a field for each GatewayResponseType; I'm sure there's a better way
     var stringResult: String?
     var objectResult: OSRFObject?
     var arrayResult: [OSRFObject]?
