@@ -72,14 +72,14 @@ class HistoryViewController: UITableViewController {
         // fetch history
         ActorService.fetchCheckoutHistory(authtoken: authtoken).done { objList in
             self.items = HistoryRecord.makeArray(objList)
-            self.fetchCircDetails(authtoken: authtoken)
+            self.fetchCircDetails()
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error, title: "Error retrieving messages")
         }
     }
 
-    func fetchCircDetails(authtoken: String) {
+    func fetchCircDetails() {
         var promises: [Promise<Void>] = []
         for item in items {
             let targetCopy = item.targetCopy
