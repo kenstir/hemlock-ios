@@ -124,15 +124,17 @@ class HistoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if !didCompleteFetch {
             return ""
-        } else if items.count == 0 {
-            if let start = App.account?.userSettingCircHistoryStart {
-                return "No checkout history since \(start)"
-            } else {
-                return "No checkout history"
-            }
-        } else {
-            return "\(items.count) items"
         }
+        var message = ""
+        if items.count == 0 {
+            message = "No items checked out"
+        } else {
+            message = "\(items.count) items checked out"
+        }
+        if let start = App.account?.userSettingCircHistoryStart {
+            message += " since \(start)"
+        }
+        return message
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

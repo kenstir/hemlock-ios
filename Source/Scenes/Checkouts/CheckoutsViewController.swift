@@ -238,7 +238,7 @@ class CheckoutsViewController: UIViewController {
         }
 
         // prompt to enable history
-        let alertController = UIAlertController(title: "Checkout history is not enabled.", message: "Your account does not have checkout history enabled.  If you enable checkout history, then items you check out from now on will appear in your history.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Checkout history is not enabled.", message: "Your account does not have checkout history enabled.  If you enable it, items you check out from now on will appear in your history.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Enable checkout history", style: .default) { action in
             self.enableCheckoutHistory(account: account)
@@ -249,7 +249,7 @@ class CheckoutsViewController: UIViewController {
     func enableCheckoutHistory(account: Account) {
         let promise = ActorService.enableCheckoutHistory(account: account)
         promise.done {
-            self.showAlert(title: "Success", message: "Any items you check out from now on will appear in your history.")
+            self.showAlert(title: "Success", message: "Items you check out from now on will appear in your history.")
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
@@ -275,7 +275,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         } else if items.count == 0 {
             return "No items checked out"
         } else {
-            return "Items checked out: \(items.count)"
+            return "\(items.count) items checked out"
         }
     }
 
