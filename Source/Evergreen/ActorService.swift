@@ -260,7 +260,7 @@ class ActorService {
     }
 
     /// returns "1" or an error
-    static func updatePatronSetting(authtoken: String, userID: Int, name: String, value: String) -> Promise<String> {
+    static func updatePatronSetting(authtoken: String, userID: Int, name: String, value: String?) -> Promise<String> {
         let param: JSONDictionary = [
             name: value
         ]
@@ -268,14 +268,26 @@ class ActorService {
         return req.gatewayStringResponse()
     }
 
-    /// returns new value of userSettingCircHistoryStart
     static func enableCheckoutHistory(account: Account) -> Promise<Void> {
         guard let authtoken = account.authtoken,
             let userID = account.userID else {
-            //TODO: analytics
             return Promise<Void>()
         }
         let dateString = OSRFObject.apiDayOnlyFormatter.string(from: Date())
+        let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString).then { (str: String) -> Promise<Void> in
+            // `str` doesn't matter, it either worked or it errored.
+            account.userSettingCircHistoryStart = dateString
+            return Promise<Void>()
+        }
+        return promise
+    }
+
+    static func disableCheckoutHistory(account: Account) -> Promise<Void> {
+        guard let authtoken = account.authtoken,
+            let userID = account.userID else {
+            return Promise<Void>()
+        }
+        let dateString: String? = nil
         let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString).then { (str: String) -> Promise<Void> in
             // `str` doesn't matter, it either worked or it errored.
             account.userSettingCircHistoryStart = dateString

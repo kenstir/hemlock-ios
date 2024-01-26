@@ -24,7 +24,7 @@ import ToastSwiftFramework
 import os.log
 
 class CheckoutsViewController: UIViewController {
-    
+
     //MARK: - Properties
 
     @IBOutlet weak var tableView: UITableView!
@@ -247,9 +247,14 @@ class CheckoutsViewController: UIViewController {
     }
 
     func enableCheckoutHistory(account: Account) {
+        centerSubview(activityIndicator)
+        activityIndicator.startAnimating()
+
         let promise = ActorService.enableCheckoutHistory(account: account)
         promise.done {
             self.showAlert(title: "Success", message: "Items you check out from now on will appear in your history.")
+        }.ensure {
+            self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }

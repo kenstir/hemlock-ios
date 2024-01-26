@@ -21,6 +21,8 @@ import os.log
 
 class HistoryViewController: UITableViewController {
 
+    //MARK: - Properties
+
     weak var activityIndicator: UIActivityIndicatorView!
 
     var items: [HistoryRecord] = []
@@ -55,7 +57,10 @@ class HistoryViewController: UITableViewController {
         Style.styleActivityIndicator(activityIndicator)
 
         self.setupHomeButton()
-        //navigationItem.rightBarButtonItems?.append(editButtonItem)
+
+        let image = loadAssetImage(named: "baseline_history_toggle_off_white_24pt")
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(historyButtonPressed(sender:)))
+        navigationItem.rightBarButtonItems?.append(button)
     }
 
     func fetchData() {
@@ -113,6 +118,31 @@ class HistoryViewController: UITableViewController {
 
     func deleteHistoryItem(authtoken: String, userID: Int, id: Int) {
         self.showAlert(title: "WIP", message: "not implemented")
+    }
+
+    @objc func historyButtonPressed(sender: Any) {
+        guard let account = App.account else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return //TODO: add analytics
+        }
+
+        // prompt to disable history
+        let alertController = UIAlertController(title: "Disable checkout history?", message: "Disabling checkout history will permanently remove all items from your history.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Disable history", style: .destructive) { action in
+            self.disableCheckoutHistory(account: account)
+        })
+        self.present(alertController, animated: true)
+    }
+
+    func disableCheckoutHistory(account: Account) {
+        let promise = ActorService.disableCheckoutHistory(account: account)
+        promise.done {
+            self.navigationController?.popViewController(animated: true)
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
     }
 
     //MARK: - UITableViewController
