@@ -74,14 +74,31 @@ class HistoryViewController: UITableViewController {
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        // fetch history
+        let cwmarsDeletedCopyObj = OSRFObject([
+            "target_copy": 16959993,
+            "xact_start": "2023-07-05T18:20:39-0400",
+            "due_date": "2023-07-26T23:59:59-0400",
+            "source_circ": 119438804,
+            "id": 8912637,
+            "checkin_time": "2023-07-20T12:19:54-0400"
+        ], netClass: "auch")
         ActorService.fetchCheckoutHistory(authtoken: authtoken).done { objList in
-            self.items = HistoryRecord.makeArray(objList)
+            let firstObj = objList.first!
+            self.items = HistoryRecord.makeArray([cwmarsDeletedCopyObj, firstObj])
             self.fetchCircDetails()
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forError: error, title: "Error retrieving messages")
         }
+
+//        // fetch history
+//        ActorService.fetchCheckoutHistory(authtoken: authtoken).done { objList in
+//            self.items = HistoryRecord.makeArray(objList)
+//            self.fetchCircDetails()
+//        }.catch { error in
+//            self.activityIndicator.stopAnimating()
+//            self.presentGatewayAlert(forError: error, title: "Error retrieving messages")
+//        }
     }
 
     func fetchCircDetails() {
