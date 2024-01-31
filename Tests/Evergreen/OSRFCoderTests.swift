@@ -286,8 +286,11 @@ class OSRFCoderTests: XCTestCase {
                               "opt": nil],
                              netClass: "test")
 
-        let expected = """
+        let expected1 = """
             {"__c":"test","__p":["t",1,"Hormel",null]}
+            """.trim()
+        let expected2 = """
+            {"__p":["t",1,"Hormel",null],"__c":"test"}
             """.trim()
         let jsonEncoder = JSONEncoder()
         guard let data = try? jsonEncoder.encode(obj) else {
@@ -295,6 +298,6 @@ class OSRFCoderTests: XCTestCase {
             return
         }
         let str = String(data: data, encoding: .utf8)
-        XCTAssertEqual(str, expected)
+        XCTAssertTrue(str == expected1 || str == expected2)
     }
 }
