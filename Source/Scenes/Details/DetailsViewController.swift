@@ -155,9 +155,10 @@ class DetailsViewController: UIViewController {
         addToListButton.removeTarget(self, action: nil, for: .allEvents)
 
         if record.isDeleted ?? false {
-            actionButton.isHidden = true
-            copyInfoButton.isHidden = true
-            addToListButton.isHidden = true
+            Style.styleButton(asOutline: actionButton)
+            actionButton.isEnabled = false
+            copyInfoButton.isEnabled = false
+            addToListButton.isEnabled = false
             return
         }
 
@@ -170,7 +171,11 @@ class DetailsViewController: UIViewController {
             actionButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
             actionButton.isEnabled = displayOptions.enablePlaceHold
         }
-        Style.styleButton(asInverse: actionButton)
+        if actionButton.isEnabled {
+            Style.styleButton(asInverse: actionButton)
+        } else {
+            Style.styleButton(asOutline: actionButton)
+        }
         actionButton.setTitle(actionButtonText, for: .normal)
 
         if isOnlineResource {

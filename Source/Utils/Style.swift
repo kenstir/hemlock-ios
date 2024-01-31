@@ -131,6 +131,7 @@ class Style {
     }
     
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.buttonTintColor) {
+        button.backgroundColor = nil
         button.tintColor = color
         // Setting the borderColor to the currentTitleColor handles the case
         // where the button is disabled.
@@ -141,6 +142,7 @@ class Style {
     }
     
     static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.buttonTintColor) {
+        button.backgroundColor = nil
         button.tintColor = color
         button.layer.cornerRadius = buttonCornerRadius
         Style.setButtonInsets(button)
