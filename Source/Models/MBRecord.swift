@@ -25,6 +25,7 @@ class MBRecord {
     var mvrObj: OSRFObject?
     var attrs: [String: String]? // from MRA object
     var marcRecord: MARCRecord?
+    var marcIsDeleted: Bool?
     var copyCounts: [CopyCount]?
 
     var title: String { return mvrObj?.getString("title") ?? "" }
@@ -72,6 +73,12 @@ class MBRecord {
                     return Int(df.ind2)
                 }
             }
+        }
+        return nil
+    }
+    var isDeleted: Bool? {
+        if let val = marcIsDeleted {
+            return val
         }
         return nil
     }

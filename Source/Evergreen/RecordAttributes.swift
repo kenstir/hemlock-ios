@@ -31,8 +31,8 @@ class RecordAttributes {
     // For searchFormat we use "icon_format" because it is more specific
     // than search_format; here it is "lpbook" (Large Print Book) vs. "book" (Book).
     //
-    static func parseAttributes(fromMRAObject obj: OSRFObject) -> [String: String] {
-        guard let attrsDump = obj.getString("attrs") else { return [:] }
+    static func parseAttributes(fromMRAObject obj: OSRFObject?) -> [String: String] {
+        guard let attrsDump = obj?.getString("attrs") else { return [:] }
         return parseAttributes(fromMRAString: attrsDump)
     }
 

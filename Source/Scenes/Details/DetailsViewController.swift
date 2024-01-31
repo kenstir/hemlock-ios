@@ -125,7 +125,9 @@ class DetailsViewController: UIViewController {
 
     private func setupCopySummary() {
         var str = ""
-        if App.behavior.isOnlineResource(record: record) {
+        if record.isDeleted ?? false {
+            str = "[ item is marked deleted in the database ]"
+        } else if App.behavior.isOnlineResource(record: record) {
             if let onlineLocation = record.firstOnlineLocationInMVR,
                 let host = URL(string: onlineLocation)?.host,
                 App.config.showOnlineAccessHostname
@@ -151,6 +153,13 @@ class DetailsViewController: UIViewController {
         actionButton.removeTarget(self, action: nil, for: .allEvents)
         copyInfoButton.removeTarget(self, action: nil, for: .allEvents)
         addToListButton.removeTarget(self, action: nil, for: .allEvents)
+
+        if record.isDeleted ?? false {
+            actionButton.isHidden = true
+            copyInfoButton.isHidden = true
+            addToListButton.isHidden = true
+            return
+        }
 
         if isOnlineResource {
             actionButtonText = "Online Access"
