@@ -74,14 +74,14 @@ class DetailsViewController: UIViewController {
 
     func setupViews() {
         setupPageHeader()
-        setupInfoVStack()
         setupImage()
-        setupCopySummary()
-        setupActionButtons()
+        setupAsyncViews()
         setupExtrasButton()
         setupOtherRecordLabels()
     }
 
+    // these views get setup twice: once during viewDidLoad,
+    // and again after the record metadata is fully loaded
     func setupAsyncViews() {
         setupInfoVStack()
         setupCopySummary()
