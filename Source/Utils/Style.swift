@@ -126,6 +126,10 @@ class Style {
     static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.inverseButtonColor) {
         button.backgroundColor = color
         button.tintColor = .white
+        // Setting borderColor here improves an edge case where we style the Place Hold button
+        // asOutline when disabling it.
+        button.layer.borderColor = button.currentTitleColor.cgColor
+        button.layer.borderWidth = 1
         button.layer.cornerRadius = buttonCornerRadius
         Style.setButtonInsets(button)
     }
