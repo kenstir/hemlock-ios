@@ -24,12 +24,14 @@ struct API {
     //MARK: - misc
 
     static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some requests
-    static let netClasses = "ac,acn,acp,ahr,ahrn,ahtc,aoa,aou,aouhoo,aout,au,aua,auact,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+    static let netClasses = "ac,acn,acp,ahr,ahrn,ahtc,aoa,aou,aouhoo,aout,au,aua,auact,auch,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
     static let actor = "open-ils.actor"
     static let actorCheckedOut = "open-ils.actor.user.checked_out"
+    static let checkoutHistory = "open-ils.actor.history.circ"
+    static let clearCheckoutHistory = "open-ils.actor.history.circ.clear"
     static let containerClassBiblio = "biblio"
     static let containerCreate = "open-ils.actor.container.create"
     static let containerDelete = "open-ils.actor.container.full_delete"
@@ -47,6 +49,7 @@ struct API {
     static let orgUnitSettingBatch = "open-ils.actor.ou_setting.ancestor_default.batch"
     static let orgUnitHoursOfOperationRetrieve = "open-ils.actor.org_unit.hours_of_operation.retrieve"
     static let orgUnitAddressRetrieve = "open-ils.actor.org_unit.address.retrieve"
+    static let patronSettingsUpdate = "open-ils.actor.patron.settings.update"
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let settingCreditPaymentsAllow = "credit.payments.allow"
@@ -55,6 +58,7 @@ struct API {
     static let settingInfoURL = "lib.info_url"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"
     static let userFleshedRetrieve = "open-ils.actor.user.fleshed.retrieve"
+    static let userSettingCircHistoryStart = "history.circ.retention_start"
     static let userSettingHoldNotify = "opac.hold_notify" // e.g. "email|sms"
     static let userSettingDefaultPhone = "opac.default_phone"
     static let userSettingDefaultPickupLocation = "opac.default_pickup_location"

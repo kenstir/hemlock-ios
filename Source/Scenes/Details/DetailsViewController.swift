@@ -74,14 +74,14 @@ class DetailsViewController: UIViewController {
 
     func setupViews() {
         setupPageHeader()
-        setupInfoVStack()
         setupImage()
-        setupCopySummary()
-        setupActionButtons()
+        setupAsyncViews()
         setupExtrasButton()
         setupOtherRecordLabels()
     }
 
+    // these views get setup twice: once during viewDidLoad,
+    // and again after the record metadata is fully loaded
     func setupAsyncViews() {
         setupInfoVStack()
         setupCopySummary()
@@ -125,7 +125,9 @@ class DetailsViewController: UIViewController {
 
     private func setupCopySummary() {
         var str = ""
-        if App.behavior.isOnlineResource(record: record) {
+        if record.isDeleted ?? false {
+            str = "[ item is marked deleted in the database ]"
+        } else if App.behavior.isOnlineResource(record: record) {
             if let onlineLocation = record.firstOnlineLocationInMVR,
                 let host = URL(string: onlineLocation)?.host,
                 App.config.showOnlineAccessHostname
@@ -152,6 +154,14 @@ class DetailsViewController: UIViewController {
         copyInfoButton.removeTarget(self, action: nil, for: .allEvents)
         addToListButton.removeTarget(self, action: nil, for: .allEvents)
 
+        if record.isDeleted ?? false {
+            Style.styleButton(asOutline: actionButton)
+            actionButton.isEnabled = false
+            copyInfoButton.isEnabled = false
+            addToListButton.isEnabled = false
+            return
+        }
+
         if isOnlineResource {
             actionButtonText = "Online Access"
             actionButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), for: .touchUpInside)
@@ -161,7 +171,11 @@ class DetailsViewController: UIViewController {
             actionButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
             actionButton.isEnabled = displayOptions.enablePlaceHold
         }
-        Style.styleButton(asInverse: actionButton)
+        if actionButton.isEnabled {
+            Style.styleButton(asInverse: actionButton)
+        } else {
+            Style.styleButton(asOutline: actionButton)
+        }
         actionButton.setTitle(actionButtonText, for: .normal)
 
         if isOnlineResource {

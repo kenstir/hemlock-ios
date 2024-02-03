@@ -55,13 +55,13 @@ class PCRUDService {
     static func fetchMRA(forRecord record: MBRecord) -> Promise<Void> {
 //        os_log("fetchMRA id=%d start", log: PCRUDService.log, type: .info, record.id)
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id], shouldCache: true)
-        let promise = req.gatewayObjectResponse().done { obj in
+        let promise = req.gatewayOptionalObjectResponse().done { obj in
             record.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
 //            os_log("fetchMRA id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.iconFormatLabel, record.title)
         }
         return promise
     }
-    
+
     static func fetchMARC(forRecord record: MBRecord) -> Promise<Void> {
         os_log("fetchMARC id=%d start", log: PCRUDService.log, type: .info, record.id)
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, record.id], shouldCache: true)
@@ -72,11 +72,9 @@ class PCRUDService {
             guard let data = marcXML.data(using: .utf8) else {
                 throw HemlockError.unexpectedNetworkResponse("failed to parse marc for record \(record.id)")
             }
-//            if let deleted = obj.getBool("deleted") {
-//                os_log("fetchMARC id=%d deleted=%@", log: PCRUDService.log, type: .info, record.id, deleted ? "t" : "f")
-//            }
             let parser = MARCXMLParser(data: data)
             record.marcRecord = try parser.parse()
+            record.marcIsDeleted = obj.getBoolOrFalse("deleted")
             os_log("fetchMARC id=%d done", log: PCRUDService.log, type: .info, record.id)
         }
         return promise

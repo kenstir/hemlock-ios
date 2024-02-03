@@ -52,6 +52,11 @@ struct OSRFObject: Equatable {
         df.locale = Locale(identifier: "en_US")
         return df
     }()
+    static var apiDayOnlyFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd"
+        return df
+    }()
 
     init(_ dict: [String: Any?] = [:], netClass: String? = nil) {
         self.dict = dict
@@ -139,6 +144,14 @@ struct OSRFObject: Equatable {
             return OSRFObject.outputDateFormatter.string(from: date)
         }
         return nil
+    }
+
+    static func getDateLabel(fromString strval: String?) -> String {
+        if let val = strval,
+           let date = OSRFObject.apiDateFormatter.date(from: val) {
+            return OSRFObject.outputDateFormatter.string(from: date)
+        }
+        return ""
     }
 
     func getObject(_ key: String) -> OSRFObject? {

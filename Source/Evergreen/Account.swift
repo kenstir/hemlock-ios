@@ -51,6 +51,7 @@ class Account {
     fileprivate var userSettingDefaultSearchLocation: Int?
     fileprivate var userSettingDefaultSMSCarrier: Int?
     fileprivate var userSettingDefaultSMSNotify: String?
+    var userSettingCircHistoryStart: String?
 
     var notifyPhone: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }
     var pickupOrgID: Int? { return userSettingDefaultPickupLocation ?? homeOrgID }
@@ -111,7 +112,7 @@ class Account {
                 if let name = setting.getString("name"),
                     let strvalue = removeStupidExtraQuotes(setting.getString("value"))
                 {
-                    print("name=\(name) value=\(strvalue)")
+                    print("name=\(name) value=\(strvalue) was=\(setting.getString("value") ?? "nil")")
                     if name == API.userSettingDefaultPickupLocation, let value = Int(strvalue) {
                         userSettingDefaultPickupLocation = value
                     } else if name == API.userSettingDefaultPhone {
@@ -124,6 +125,8 @@ class Account {
                         userSettingDefaultSMSNotify = strvalue
                     } else if name == API.userSettingHoldNotify {
                         holdNotifySetting = strvalue
+                    } else if name == API.userSettingCircHistoryStart {
+                        userSettingCircHistoryStart = strvalue
                     }
                 }
             }

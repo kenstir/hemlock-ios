@@ -253,4 +253,46 @@ class ActorService {
     static func markMessageUnread(authtoken: String, messageID: Int) -> Promise<Void> {
         return markMessageAction(authtoken: authtoken, messageID: messageID, action: "mark_unread")
     }
+
+    static func fetchCheckoutHistory(authtoken: String) -> Promise<[OSRFObject]> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.checkoutHistory, args: [authtoken], shouldCache: true)
+        return req.gatewayMaybeEmptyArrayResponse()
+    }
+
+    /// returns "1" or an error
+    static func updatePatronSetting(authtoken: String, userID: Int, name: String, value: String?) -> Promise<String> {
+        let param: JSONDictionary = [
+            name: value
+        ]
+        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, param], shouldCache: false)
+        return req.gatewayStringResponse()
+    }
+
+    static func enableCheckoutHistory(account: Account) -> Promise<Void> {
+        guard let authtoken = account.authtoken,
+            let userID = account.userID else {
+            return Promise<Void>()
+        }
+        let dateString = OSRFObject.apiDayOnlyFormatter.string(from: Date())
+        let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString).then { (str: String) -> Promise<Void> in
+            // `str` doesn't matter, it either worked or it errored.
+            account.userSettingCircHistoryStart = dateString
+            return Promise<Void>()
+        }
+        return promise
+    }
+
+    static func disableCheckoutHistory(account: Account) -> Promise<Void> {
+        guard let authtoken = account.authtoken,
+            let userID = account.userID else {
+            return Promise<Void>()
+        }
+        let dateString: String? = nil
+        let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString).then { (str: String) -> Promise<Void> in
+            // `str` doesn't matter, it either worked or it errored.
+            account.userSettingCircHistoryStart = dateString
+            return Promise<Void>()
+        }
+        return promise
+    }
 }

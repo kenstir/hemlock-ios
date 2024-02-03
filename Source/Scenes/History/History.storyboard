@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sYb-2S-UVg">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--History-->
+        <scene sceneID="FgG-y9-0uW">
+            <objects>
+                <tableViewController title="Checkout History" id="sYb-2S-UVg" userLabel="History" customClass="HistoryViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="120" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="dul-Hg-ijA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" id="saK-Ib-JQl" userLabel="historyCell" customClass="HistoryTableViewCell" customModule="COOL" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="169.66667175292969"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="saK-Ib-JQl" id="Tba-T9-izD">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="169.66667175292969"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="teC-WR-RjT" userLabel="Info VStack">
+                                            <rect key="frame" x="12" y="8" width="327" height="157.66666666666666"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Project Management Again" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo7-yj-71R" userLabel="Title">
+                                                    <rect key="frame" x="0.0" y="0.0" width="327" height="20.333333333333332"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Stanley E. Portny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eha-gv-qOY" userLabel="Author">
+                                                    <rect key="frame" x="0.0" y="24.333333333333336" width="327" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Checkout Date: January 2, 2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I49-EX-Chw" userLabel="Due Date">
+                                                    <rect key="frame" x="0.0" y="46.333333333333336" width="327" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Returned Date: Not Returned" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVx-vm-gmg" userLabel="Return Date">
+                                                    <rect key="frame" x="0.0" y="66" width="327" height="15.666666666666671"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDh-ce-QvL" userLabel="Spacer">
+                                                    <rect key="frame" x="0.0" y="85.666666666666671" width="327" height="72.000000000000014"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ROZ-ay-kAN" userLabel="Image VStack">
+                                            <rect key="frame" x="339" y="8" width="50" height="157.66666666666666"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="750" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="80" translatesAutoresizingMaskIntoConstraints="NO" id="Ws9-vt-7C2" userLabel="Cover Image">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="LHD-1m-wZQ"/>
+                                                        <constraint firstAttribute="height" constant="80" id="a7z-MB-73d"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlB-Ij-NDZ" userLabel="Spacer">
+                                                    <rect key="frame" x="0.0" y="80" width="50" height="77.666666666666686"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="teC-WR-RjT" firstAttribute="trailing" secondItem="ROZ-ay-kAN" secondAttribute="leading" id="LJH-cw-WhH"/>
+                                        <constraint firstAttribute="trailing" secondItem="ROZ-ay-kAN" secondAttribute="trailing" constant="4" id="aWV-U7-wUB"/>
+                                        <constraint firstItem="teC-WR-RjT" firstAttribute="leading" secondItem="Tba-T9-izD" secondAttribute="leading" constant="12" id="cUL-QT-Uit"/>
+                                        <constraint firstItem="ROZ-ay-kAN" firstAttribute="top" secondItem="Tba-T9-izD" secondAttribute="top" constant="8" id="hvv-na-KWm"/>
+                                        <constraint firstItem="teC-WR-RjT" firstAttribute="top" secondItem="Tba-T9-izD" secondAttribute="top" constant="8" id="lEc-3v-ui8"/>
+                                        <constraint firstAttribute="bottom" secondItem="teC-WR-RjT" secondAttribute="bottom" constant="4" id="nwp-pI-Ies"/>
+                                        <constraint firstAttribute="bottom" secondItem="ROZ-ay-kAN" secondAttribute="bottom" constant="4" id="xMA-lC-Kmx"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="author" destination="eha-gv-qOY" id="9UN-7I-eli"/>
+                                    <outlet property="checkoutDate" destination="I49-EX-Chw" id="U9f-ON-xMe"/>
+                                    <outlet property="coverImage" destination="Ws9-vt-7C2" id="lAl-E2-oeA"/>
+                                    <outlet property="returnDate" destination="sVx-vm-gmg" id="SE5-E6-lOl"/>
+                                    <outlet property="title" destination="jo7-yj-71R" id="KYe-tI-FFx"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sYb-2S-UVg" id="Lsz-gK-A5t"/>
+                            <outlet property="delegate" destination="sYb-2S-UVg" id="We6-zN-sgN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fN-nH-tvH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="142" y="-81"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

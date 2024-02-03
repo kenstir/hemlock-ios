@@ -26,7 +26,7 @@ class AuthService {
     static func fetchAuthToken(credential: Credential) -> Promise<(String)> {
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [credential.username], shouldCache: false)
         let promise = req.gatewayResponse().then { (resp: GatewayResponse) -> Promise<(String)> in
-            print("resp: \(resp)")
+            //print("resp: \(resp)")
             guard let nonce = resp.str else {
                 throw HemlockError.serverError("expected string")
             }

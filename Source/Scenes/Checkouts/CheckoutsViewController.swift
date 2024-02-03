@@ -24,7 +24,7 @@ import ToastSwiftFramework
 import os.log
 
 class CheckoutsViewController: UIViewController {
-    
+
     //MARK: - Properties
 
     @IBOutlet weak var tableView: UITableView!
@@ -63,6 +63,11 @@ class CheckoutsViewController: UIViewController {
         tableView.delegate = self
         setupActivityIndicator()
         self.setupHomeButton()
+        if App.config.enableCheckoutHistory {
+            let image = loadAssetImage(named: "history")
+            let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(historyButtonPressed(sender:)))
+            navigationItem.rightBarButtonItems?.append(button)
+        }
     }
 
     func setupActivityIndicator() {
@@ -117,8 +122,8 @@ class CheckoutsViewController: UIViewController {
     func fetchCircDetails(authtoken: String, forCircRecord circRecord: CircRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [authtoken, circRecord.id], shouldCache: false)
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            print("xxx \(circRecord.id) circRetrieve done")
             circRecord.circObj = obj
+            os_log("id=%d t=%d circ done", log: self.log, type: .info, circRecord.id, circRecord.targetCopy)
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [circRecord.targetCopy], shouldCache: true)
             return req.gatewayObjectResponse()
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
@@ -135,7 +140,7 @@ class CheckoutsViewController: UIViewController {
                 return ServiceUtils.makeEmptyObjectPromise()
             }
         }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-            print("xxx \(circRecord.id) MRA done")
+            os_log("id=%d t=%d mra done (%@)", log: self.log, type: .info, circRecord.id, circRecord.targetCopy, circRecord.title)
             if (obj.dict.count > 0) {
                 circRecord.metabibRecord?.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
                 return ServiceUtils.makeEmptyObjectPromise()
@@ -219,6 +224,47 @@ class CheckoutsViewController: UIViewController {
 //        }
         return "Due \(item.dueDateLabel)"
     }
+
+    @objc func historyButtonPressed(sender: Any) {
+        guard let account = App.account else
+        {
+            presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return //TODO: add analytics
+        }
+
+        if account.userSettingCircHistoryStart != nil {
+            showHistoryVC()
+            return
+        }
+
+        // prompt to enable history
+        let alertController = UIAlertController(title: "Checkout history is not enabled.", message: "Your account does not have checkout history enabled.  If you enable it, items you check out from now on will appear in your history.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Enable checkout history", style: .default) { action in
+            self.enableCheckoutHistory(account: account)
+        })
+        self.present(alertController, animated: true)
+    }
+
+    func enableCheckoutHistory(account: Account) {
+        centerSubview(activityIndicator)
+        activityIndicator.startAnimating()
+
+        let promise = ActorService.enableCheckoutHistory(account: account)
+        promise.done {
+            self.showAlert(title: "Success", message: "Items you check out from now on will appear in your history.")
+        }.ensure {
+            self.activityIndicator.stopAnimating()
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    func showHistoryVC() {
+        if let vc = UIStoryboard(name: "History", bundle: nil).instantiateInitialViewController() as? HistoryViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -234,7 +280,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         } else if items.count == 0 {
             return "No items checked out"
         } else {
-            return "Items checked out: \(items.count)"
+            return "\(items.count) items checked out"
         }
     }
 

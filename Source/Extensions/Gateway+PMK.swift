@@ -74,6 +74,37 @@ extension Alamofire.DataRequest {
         }
     }
 
+    func gatewayMaybeEmptyArrayResponse(queue: DispatchQueue? = nil) -> Promise<([OSRFObject])>
+    {
+        return Promise { seal in
+            responseData(queue: queue) { response in
+                let tag = response.request?.debugTag ?? Analytics.nullTag
+                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                Analytics.logResponse(tag: tag, data: response.result.value)
+                if response.result.isSuccess,
+                    let data = response.result.value
+                {
+                    let resp = GatewayResponse(data)
+                    if let error = resp.error {
+                        seal.reject(error)
+                    } else if resp.type == .empty {
+                        seal.fulfill([])
+                    } else if let array = resp.array {
+                        seal.fulfill(array)
+                    } else {
+                        let extra = Bundle.isTestFlightOrDebug ? " (\(tag))" : ""
+                        seal.reject(HemlockError.serverError("expected array, received \(resp.description)\(extra)"))
+                    }
+                } else if response.result.isFailure,
+                    let error = response.error {
+                    seal.reject(error)
+                } else {
+                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
+                }
+            }
+        }
+    }
+
     func gatewayObjectResponse(queue: DispatchQueue? = nil) -> Promise<(OSRFObject)>
     {
         return Promise { seal in
@@ -127,7 +158,38 @@ extension Alamofire.DataRequest {
             }
         }
     }
-    
+
+    /// for APIs like patronSettingsUpdate, that return "1" or an event on error
+    func gatewayStringResponse(queue: DispatchQueue? = nil) -> Promise<(String)>
+    {
+        return Promise { seal in
+            responseData(queue: queue) { response in
+                let tag = response.request?.debugTag ?? Analytics.nullTag
+                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                Analytics.logResponse(tag: tag, data: response.result.value)
+                if response.result.isSuccess,
+                    let data = response.result.value
+                {
+                    let resp = GatewayResponse(data)
+                    if let error = resp.error {
+                        seal.reject(error)
+                    } else if resp.obj != nil {
+                        seal.fulfill("1")
+                    } else if let str = resp.str {
+                        seal.fulfill(str)
+                    } else {
+                        seal.reject(HemlockError.unexpectedNetworkResponse("expected auth response"))
+                    }
+                } else if response.result.isFailure,
+                    let error = response.error {
+                    seal.reject(error)
+                } else {
+                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
+                }
+            }
+        }
+    }
+
     func gatewayAuthtokenResponse(queue: DispatchQueue? = nil) -> Promise<(String)>
     {
         return Promise { seal in

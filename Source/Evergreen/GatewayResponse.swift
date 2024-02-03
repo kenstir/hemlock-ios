@@ -20,7 +20,7 @@
 import Foundation
 import os.log
 
-//TODO: fold GatewayError into HemlockError
+//TODO: Unify GatewayError and HemlockError
 public enum GatewayError: Error {
     case event(ilsevent: Int, textcode: String, desc: String, failpart: String?)
     case failure(String)
@@ -57,7 +57,7 @@ struct GatewayResponse {
     var type: GatewayResponseType
     var error: GatewayError?
 
-    // a field for each GatewayResultType; I'm sure there's a better way
+    // a field for each GatewayResponseType; I'm sure there's a better way
     var stringResult: String?
     var objectResult: OSRFObject?
     var arrayResult: [OSRFObject]?
@@ -137,8 +137,10 @@ struct GatewayResponse {
             return
         }
 
-        // payload is always an array,
-        // usually an array of one json object,
+        // payload is always an array:           "payload": []
+        // usually an array of one json object:  "payload": [{}]
+        // sometimes an array of one json array: "payload": [[{}]]
+        // rarely an arrayof json objects:       "payload": [{},{},...]
         // but in the cases of authInit it is an array of one string
         guard let payload = json["payload"] as? [Any] else {
             error = .failure("Internal Server Error: response is missing payload")
@@ -147,6 +149,32 @@ struct GatewayResponse {
         self.payload = payload
         if payload.count == 0 {
             type = .empty
+        } else if payload.count > 1, let val = payload as? [JSONDictionary] {
+            do {
+                try arrayResult = decodeArray(val)
+            } catch {
+                self.error = .failure("Error decoding OSRF array: " + error.localizedDescription)
+                return
+            }
+            if let obj = arrayResult?.first,
+                let eventError = parseEvent(fromObj: obj) {
+                self.error = eventError
+                return
+            }
+            type = .array
+        } else if let val = payload.first as? [JSONDictionary] {
+            do {
+                try arrayResult = decodeArray(val)
+            } catch {
+                self.error = .failure("Error decoding OSRF array: " + error.localizedDescription)
+                return
+            }
+            if let obj = arrayResult?.first,
+                let eventError = parseEvent(fromObj: obj) {
+                self.error = eventError
+                return
+            }
+            type = .array
         } else if let val = payload.first as? JSONDictionary {
             var obj: OSRFObject?
             do {
@@ -161,19 +189,6 @@ struct GatewayResponse {
             }
             type = .object
             objectResult = obj
-        } else if let val = payload.first as? [JSONDictionary] {
-            do {
-                try arrayResult = decodeArray(val)
-            } catch {
-                self.error = .failure("Error decoding OSRF array: " + error.localizedDescription)
-                return
-            }
-            if let obj = arrayResult?.first,
-                let eventError = parseEvent(fromObj: obj) {
-                self.error = eventError
-                return
-            }
-            type = .array
         } else if let val = payload.first as? String {
             type = .string
             stringResult = val

@@ -24,6 +24,7 @@ class MoAppConfiguration: AppConfiguration {
     let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = nil
 
+    let enableCheckoutHistory = true
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = false

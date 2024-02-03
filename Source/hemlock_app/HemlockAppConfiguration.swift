@@ -19,13 +19,14 @@
 
 class HemlockAppConfiguration: AppConfiguration {
     let title = "Hemlock"
-    let url = "http://192.168.1.4"
+    let url = "http://192.168.1.8"
     let bugReportEmailAddress = "kenstir.apps@gmail.com"
     let sort: String? = nil
     let detailsExtraLinkText: String? = nil
     let detailsExtraLinkQuery: String? = nil
     let detailsExtraLinkFragment: String? = nil
 
+    let enableCheckoutHistory = true
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = true
