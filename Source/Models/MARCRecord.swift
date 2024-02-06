@@ -39,10 +39,12 @@ struct MARCDatafield {
     }
     
     var isOnlineLocation: Bool {
-        return (tag == "856" && ind1 == "4" && (ind2 == "0" || ind2 == "1"))
+        return MARCRecord.isOnlineLocation(tag: tag, ind1: ind1, ind2: ind2)
     }
 
-    var isTitleStatement: Bool { tag == "245" }
+    var isTitleStatement: Bool {
+        return MARCRecord.isTitleStatement(tag: tag)
+    }
 
     var uri: String? {
         return subfields.first(where: { $0.code == "u" })?.text
@@ -61,4 +63,19 @@ struct MARCDatafield {
 
 struct MARCRecord {
     var datafields: [MARCDatafield] = []
+
+    static func isOnlineLocation(tag: String, ind1: String, ind2: String) -> Bool {
+        return (tag == "856"
+                && ind1 == "4"
+                && (ind2 == "0" || ind2 == "1" || ind2 == "2"))
+    }
+
+    static func isTitleStatement(tag: String) -> Bool {
+        return tag == "245"
+    }
+
+    static func isDatafieldUseful(tag: String, ind1: String, ind2: String) -> Bool {
+        return (isOnlineLocation(tag: tag, ind1: ind1, ind2: ind2)
+                || isTitleStatement(tag: tag))
+    }
 }
