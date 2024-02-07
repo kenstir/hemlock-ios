@@ -555,6 +555,7 @@
 		D24D76922234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D76932234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D76942234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
+		D24D87A32B730D2200F1B77E /* AppBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D87A22B730D2200F1B77E /* AppBehaviorTests.swift */; };
 		D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2723F616C000D11662 /* CircRecordTests.swift */; };
 		D252DA2A23F6382000D11662 /* HoldRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2923F6382000D11662 /* HoldRecordTests.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
@@ -1725,6 +1726,7 @@
 		D24D491229D0B3E200EB9C8A /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		D24D491E29D0B7AA00EB9C8A /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
 		D24D76902234418F00AFE50C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		D24D87A22B730D2200F1B77E /* AppBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBehaviorTests.swift; sourceTree = "<group>"; };
 		D252DA2723F616C000D11662 /* CircRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecordTests.swift; sourceTree = "<group>"; };
 		D252DA2923F6382000D11662 /* HoldRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecordTests.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -2323,9 +2325,10 @@
 		D22D027B208588A100DC1F5B /* Evergreen */ = {
 			isa = PBXGroup;
 			children = (
-				D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */,
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
+				D24D87A22B730D2200F1B77E /* AppBehaviorTests.swift */,
 				D2806A9021B33F6000F308F4 /* BarcodeTests.swift */,
+				D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */,
 				D252DA2723F616C000D11662 /* CircRecordTests.swift */,
 				D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */,
 				D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */,
@@ -4777,6 +4780,7 @@
 				D20B300422CFF8BA00F69848 /* RecordAttributesTests.swift in Sources */,
 				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
 				D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */,
+				D24D87A32B730D2200F1B77E /* AppBehaviorTests.swift in Sources */,
 				D2806A9121B33F6000F308F4 /* BarcodeTests.swift in Sources */,
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,

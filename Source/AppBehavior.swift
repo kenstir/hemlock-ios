@@ -72,23 +72,32 @@ class BaseAppBehavior: AppBehavior {
     }
 
     func getOnlineLocationsFromMARC(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+        if let marcRecord = record.marcRecord {
+            return getLinks(fromMarcRecord: marcRecord, forSearchOrg: orgShortName)
+        }
+        return []
+    }
+
+    func getLinks(fromMarcRecord marcRecord: MARCRecord, forSearchOrg orgShortName: String?) -> [Link] {
         var links: [Link] = []
-        if let datafields = record.marcRecord?.datafields {
-            for datafield in datafields {
-                if datafield.isOnlineLocation,
-                    let href = datafield.uri,
-                    isVisibleToOrg(datafield, orgShortName: orgShortName)
-                {
-                    let text = datafield.linkText ?? href
-                    // Filter duplicate links
-                    let link = Link(href: href.trim(), text: trimLinkText(text))
-                    if !links.contains(link) {
-                        links.append(link)
-                    }
+        for datafield in marcRecord.datafields {
+            if datafield.isOnlineLocation,
+                let href = datafield.uri,
+                isVisibleToOrg(datafield, orgShortName: orgShortName)
+            {
+                let text = datafield.linkText ?? href
+                // Filter duplicate links
+                let link = Link(href: href.trim(), text: trimLinkText(text))
+                if !links.contains(link) {
+                    links.append(link)
                 }
             }
         }
-        return links.sorted()
+
+        // I don't know where I got the notion to sort these;
+        // I don't see that done in the OPAC.
+        //return links.sorted()
+        return links
     }
 
     func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {

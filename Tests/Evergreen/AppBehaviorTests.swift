@@ -1,7 +1,5 @@
 //
-//  MARCXMLParserTests.swift
-//
-//  Copyright (C) 2019 Kenneth H. Cox
+//  Copyright (C) 2024 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -21,7 +19,7 @@ import XCTest
 import Foundation
 @testable import Hemlock
 
-class MARCXMLParserTests: XCTestCase {
+class AppBehaviorTests: XCTestCase {
 
     let marcXMLFile = "TestData/marcxml_partial_3185816" // .xml
     var marcRecord = MARCRecord()
@@ -47,33 +45,20 @@ class MARCXMLParserTests: XCTestCase {
         self.marcRecord = marcRecord
     }
 
-    func test_marcXML_basic() {
-        for df in marcRecord.datafields {
-            print("tag \(df.tag) ind1 \(df.ind1) ind2 \(df.ind2)")
-            for sf in df.subfields {
-                if sf.code != "x" {
-                    print("... code \(sf.code) text \(sf.text ?? "")")
-                }
-            }
-        }
-
-        // only a subset of 856 tags are kept, see MARCXMLParser
+    /*
+    func test_getLinks() {
+        let appBehavior = BaseAppBehavior()
         let datafields = marcRecord.datafields
-        XCTAssertEqual(4, datafields.count)
-        let online_locations = datafields.filter { $0.ind1 == "4" }
-        XCTAssertEqual(4, online_locations.count)
-        
+
         // subfield 9 is used for located URIs;
         // NORFLK appears in 2, NEWTWN in 4
+        // But to really test appBehavior.getLinks, we need an org tree
         var libShortCode = "NORFLK"
-        var matching_links = datafields.filter { datafield in
-            return datafield.subfields.contains(where: { $0.code == "9" && $0.text == libShortCode })
-        }
-        XCTAssertEqual(2, matching_links.count)
+        var links = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: libShortCode)
+        XCTAssertEqual(2, links.count)
         libShortCode = "NEWTWN"
-        matching_links = datafields.filter { datafield in
-            return datafield.subfields.contains(where: { $0.code == "9" && $0.text == libShortCode })
-        }
-        XCTAssertEqual(4, matching_links.count)
+        links = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: libShortCode)
+        XCTAssertEqual(4, links.count)
     }
+     */
 }
