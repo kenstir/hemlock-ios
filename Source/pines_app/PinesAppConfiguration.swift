@@ -42,7 +42,7 @@ class PinesAppConfiguration: AppConfiguration {
     let groupCopyInfoBySystem = true
     let enableCopyInfoWebLinks = true
     let needMARCRecord = true
-    let showOnlineAccessHostname = true
+    let showOnlineAccessHostname = false
     let alwaysUseActionSheetForOnlineLinks = true
     let haveColorButtonImages = false
 

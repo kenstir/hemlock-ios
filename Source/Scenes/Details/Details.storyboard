@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,20 +14,20 @@
             <objects>
                 <viewController title="Item Details" id="Y6W-OH-hqX" customClass="DetailsViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYz-BO-bO1">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2080.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2080.6666666666665"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-ue-s1z" userLabel="Header Row">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="showing item 42 of 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHm-LY-ZHf">
-                                                        <rect key="frame" x="71.5" y="8" width="177.5" height="116"/>
+                                                        <rect key="frame" x="118.33333333333333" y="8" width="177.66666666666669" height="116"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -41,36 +41,36 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-qv-0Sd" userLabel="Details Row">
-                                                <rect key="frame" x="0.0" y="132" width="320" height="218"/>
+                                                <rect key="frame" x="0.0" y="132" width="414" height="218"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pan-qW-bff" userLabel="Info VStack">
-                                                        <rect key="frame" x="8" y="8" width="204" height="202"/>
+                                                        <rect key="frame" x="8" y="8" width="298" height="202"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Project Management" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-o5-m7w" userLabel="Title">
-                                                                <rect key="frame" x="0.0" y="0.0" width="204" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="298" height="26.333333333333332"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qri-OI-tiU" userLabel="Author">
-                                                                <rect key="frame" x="0.0" y="30.5" width="204" height="34.5"/>
+                                                                <rect key="frame" x="0.0" y="30.333333333333346" width="298" height="34.333333333333343"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Button" titleAlignment="leading"/>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-zo-Jvu" userLabel="Format">
-                                                                <rect key="frame" x="0.0" y="69" width="204" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="68.666666666666657" width="298" height="19.333333333333329"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2002" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tx-CH-1QU" userLabel="Pub Info">
-                                                                <rect key="frame" x="0.0" y="92.5" width="204" height="18"/>
+                                                                <rect key="frame" x="0.0" y="92" width="298" height="18"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-ek-CIH" userLabel="Spacer">
-                                                                <rect key="frame" x="0.0" y="114.5" width="204" height="87.5"/>
+                                                                <rect key="frame" x="0.0" y="114" width="298" height="88"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gWi-pz-Kbb" userLabel="Image VStack">
-                                                        <rect key="frame" x="212" y="4" width="100" height="210"/>
+                                                        <rect key="frame" x="306" y="4" width="100" height="210"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="fake_jacket_cover" translatesAutoresizingMaskIntoConstraints="NO" id="QDi-I0-XXM" userLabel="coverImage">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="160"/>
@@ -108,10 +108,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auB-BB-58U" userLabel="Copy Summary Row">
-                                                <rect key="frame" x="0.0" y="354" width="320" height="128"/>
+                                                <rect key="frame" x="0.0" y="354" width="414" height="128"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35 of 35 copies available at All C/W MARS Libraries" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-G8-Vo6" userLabel="copySummaryLabel">
-                                                        <rect key="frame" x="8" y="8" width="296" height="116"/>
+                                                        <rect key="frame" x="8" y="8" width="390" height="116"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -126,23 +126,23 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn7-it-hY2" userLabel="Button Row">
-                                                <rect key="frame" x="0.0" y="486" width="320" height="128"/>
+                                                <rect key="frame" x="0.0" y="486" width="414" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-vc-nQc">
-                                                        <rect key="frame" x="8" y="4" width="304" height="120"/>
+                                                        <rect key="frame" x="8" y="4" width="398" height="120"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-Bu-drf" userLabel="actionButton">
-                                                                <rect key="frame" x="0.0" y="33" width="98.5" height="54.5"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-Bu-drf" userLabel="placeHoldButton">
+                                                                <rect key="frame" x="0.0" y="43" width="130" height="34.333333333333343"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Place Hold"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdB-UD-NMk" userLabel="copyInfoButton">
-                                                                <rect key="frame" x="102.5" y="43" width="99" height="34.5"/>
+                                                                <rect key="frame" x="134" y="43" width="130" height="34.333333333333343"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Copy Info"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-k6-feX" userLabel="addToListButton">
-                                                                <rect key="frame" x="205.5" y="33" width="98.5" height="54.5"/>
+                                                                <rect key="frame" x="268" y="43" width="130" height="34.333333333333343"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Add to List"/>
                                                             </button>
@@ -158,10 +158,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKc-mX-5cJ" userLabel="Synopsis Row">
-                                                <rect key="frame" x="0.0" y="618" width="320" height="1066.5"/>
+                                                <rect key="frame" x="0.0" y="618.00000000000011" width="414" height="1066.666666666667"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOP-li-8kW" userLabel="synopsisLabel">
-                                                        <rect key="frame" x="8" y="4" width="304" height="1054.5"/>
+                                                        <rect key="frame" x="8" y="4" width="398" height="1054.6666666666667"/>
                                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit sed ullamcorper morbi tincidunt ornare massa. Urna nec tincidunt praesent semper feugiat nibh sed. Vestibulum sed arcu non odio euismod lacinia at. Nibh cras pulvinar mattis nunc sed blandit. Quam quisque id diam vel quam elementum pulvinar etiam non. Eu feugiat pretium nibh ipsum consequat. Risus commodo viverra maecenas accumsan lacus. Quisque sagittis purus sit amet. In ante metus dictum at tempor commodo ullamcorper a lacus. Dui id ornare arcu odio ut sem. Pulvinar proin gravida hendrerit lectus. Hendrerit gravida rutrum quisque non tellus orci ac. Lacus vel facilisis volutpat est. Malesuada bibendum arcu vitae elementum curabitur vitae.
 
 Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis purus sit amet volutpat. Ultrices tincidunt arcu non sodales. Pretium aenean pharetra magna ac placerat vestibulum lectus mauris ultrices. Mus mauris vitae ultricies leo integer malesuada nunc vel risus. Arcu risus quis varius quam quisque id diam vel quam. Aliquet enim tortor at auctor urna nunc id cursus metus. Sagittis purus sit amet volutpat consequat. In arcu cursus euismod quis. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Sed elementum tempus egestas sed sed risus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Dui sapien eget mi proin sed libero. Sit amet nulla facilisi morbi. Ut consequat semper viverra nam libero. Duis ultricies lacus sed turpis tincidunt. Odio ut enim blandit volutpat maecenas volutpat blandit. Non diam phasellus vestibulum lorem. Ipsum consequat nisl vel pretium lectus quam id leo in.</string>
@@ -179,15 +179,20 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANV-7z-h9O" userLabel="Extras Row">
-                                                <rect key="frame" x="0.0" y="1688.5" width="320" height="128"/>
+                                                <rect key="frame" x="0.0" y="1688.6666666666667" width="414" height="128"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb7-D6-PDd">
-                                                        <rect key="frame" x="8" y="4" width="304" height="120"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gb7-D6-PDd">
+                                                        <rect key="frame" x="8" y="4" width="398" height="120"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15p-mJ-jvC" userLabel="extrasButton">
-                                                                <rect key="frame" x="0.0" y="0.0" width="304" height="120"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOX-gB-FRh" userLabel="onlineAccessButton">
+                                                                <rect key="frame" x="0.0" y="43" width="197" height="34.333333333333343"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Electronic Resources"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15p-mJ-jvC" userLabel="extrasButton">
+                                                                <rect key="frame" x="201" y="43" width="197" height="34.333333333333343"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="Extras"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -201,19 +206,19 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53N-CU-k5U" userLabel="Subject Row">
-                                                <rect key="frame" x="0.0" y="1820.5" width="320" height="128"/>
+                                                <rect key="frame" x="0.0" y="1820.6666666666667" width="414" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="us2-Cp-1qY" userLabel="Subject HStack">
-                                                        <rect key="frame" x="8" y="4" width="304" height="120"/>
+                                                        <rect key="frame" x="8" y="4" width="398" height="120"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Subject:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eP-Zz-NOM" userLabel="Subject">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="19.333333333333332"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="United States History / United States / General Biography &amp; Autobiography" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnX-IA-xQI" userLabel="subjectLabel">
-                                                                <rect key="frame" x="64" y="0.0" width="240" height="61.5"/>
+                                                                <rect key="frame" x="63.666666666666657" y="0.0" width="334.33333333333337" height="61.333333333333336"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -230,19 +235,19 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDh-Vt-SVz" userLabel="ISBN Row">
-                                                <rect key="frame" x="0.0" y="1952.5" width="320" height="128"/>
+                                                <rect key="frame" x="0.0" y="1952.6666666666667" width="414" height="128.00000000000023"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hAY-nG-UD7" userLabel="ISBN HStack">
-                                                        <rect key="frame" x="8" y="4" width="304" height="120"/>
+                                                        <rect key="frame" x="8" y="4" width="398" height="120"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="ISBN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gg4-dc-h5h" userLabel="ISBN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="19.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="19.333333333333332"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="9780812993547" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-Pi-T0L" userLabel="ISBNLabel">
-                                                                <rect key="frame" x="64" y="0.0" width="240" height="19.5"/>
+                                                                <rect key="frame" x="63.666666666666657" y="0.0" width="334.33333333333337" height="19.333333333333332"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -285,7 +290,6 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="actionButton" destination="cIB-Bu-drf" id="ICk-st-33T"/>
                         <outlet property="addToListButton" destination="Cm4-k6-feX" id="Hb6-dc-ykF"/>
                         <outlet property="authorButton" destination="qri-OI-tiU" id="sal-nS-8Ce"/>
                         <outlet property="copyInfoButton" destination="DdB-UD-NMk" id="Nba-9L-qrm"/>
@@ -297,6 +301,8 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                         <outlet property="headerLabel" destination="NHm-LY-ZHf" id="Kaz-so-BsP"/>
                         <outlet property="headerRow" destination="tWM-ue-s1z" id="KS1-kF-erc"/>
                         <outlet property="isbnLabel" destination="Z4g-Pi-T0L" id="5Rq-V7-KIH"/>
+                        <outlet property="onlineAccessButton" destination="OOX-gB-FRh" id="zMC-rk-il8"/>
+                        <outlet property="placeHoldButton" destination="cIB-Bu-drf" id="ICk-st-33T"/>
                         <outlet property="pubinfoLabel" destination="7tx-CH-1QU" id="7fG-bM-aTa"/>
                         <outlet property="subjectLabel" destination="jnX-IA-xQI" id="Fu1-Ce-Oyz"/>
                         <outlet property="synopsisLabel" destination="gOP-li-8kW" id="uLd-7c-KFm"/>

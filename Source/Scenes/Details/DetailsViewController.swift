@@ -29,9 +29,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var pubinfoLabel: UILabel!
     @IBOutlet weak var copySummaryLabel: UILabel!
     @IBOutlet weak var coverImage: UIImageView!
-    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var placeHoldButton: UIButton!
     @IBOutlet weak var copyInfoButton: UIButton!
     @IBOutlet weak var addToListButton: UIButton!
+    @IBOutlet weak var onlineAccessButton: UIButton!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var extrasRow: UIView!
     @IBOutlet weak var extrasButton: UIButton!
@@ -75,6 +76,7 @@ class DetailsViewController: UIViewController {
     func setupViews() {
         setupPageHeader()
         setupImage()
+        setupButtons()
         setupAsyncViews()
         setupExtrasButton()
         setupOtherRecordLabels()
@@ -85,7 +87,7 @@ class DetailsViewController: UIViewController {
     func setupAsyncViews() {
         setupInfoVStack()
         setupCopySummary()
-        setupActionButtons()
+        updateButtonViews()
     }
 
     private func setupPageHeader() {
@@ -145,66 +147,59 @@ class DetailsViewController: UIViewController {
         copySummaryLabel.attributedText = Style.makeString(str, ofSize: Style.calloutSize)
     }
 
-    private func setupActionButtons() {
-        var actionButtonText: String
-        let isOnlineResource = App.behavior.isOnlineResource(record: record)
+    private func setupButtons() {
+        placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
+        copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), for: .touchUpInside)
+        addToListButton.addTarget(self, action: #selector(addToListPressed(sender:)), for: .touchUpInside)
+        onlineAccessButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), for: .touchUpInside)
 
-        // This function will be called more than once, clear targets first
-        actionButton.removeTarget(self, action: nil, for: .allEvents)
-        copyInfoButton.removeTarget(self, action: nil, for: .allEvents)
-        addToListButton.removeTarget(self, action: nil, for: .allEvents)
+        Style.styleButton(asInverse: placeHoldButton)
+        Style.styleButton(asOutline: copyInfoButton)
+        Style.styleButton(asOutline: addToListButton)
+        Style.styleButton(asPlain: onlineAccessButton)
+    }
 
+    private func updateButtonViews() {
+        print("updateButtonViews: title:\(record.title)")
         if record.isDeleted ?? false {
-            Style.styleButton(asOutline: actionButton)
-            actionButton.isEnabled = false
+            Style.styleButton(asOutline: placeHoldButton)
+            placeHoldButton.isEnabled = false
             copyInfoButton.isEnabled = false
             addToListButton.isEnabled = false
             return
         }
 
-        if isOnlineResource {
-            actionButtonText = "Online Access"
-            actionButton.addTarget(self, action: #selector(onlineAccessPressed(sender:)), for: .touchUpInside)
-            actionButton.isEnabled = (App.behavior.onlineLocations(record: record, forSearchOrg: displayOptions.orgShortName).count > 0)
-        } else {
-            actionButtonText = "Place Hold"
-            actionButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
-            actionButton.isEnabled = displayOptions.enablePlaceHold
-        }
-        if actionButton.isEnabled {
-            Style.styleButton(asInverse: actionButton)
-        } else {
-            Style.styleButton(asOutline: actionButton)
-        }
-        actionButton.setTitle(actionButtonText, for: .normal)
+        let org = Organization.find(byShortName: displayOptions.orgShortName)
+        let links = App.behavior.onlineLocations(record: record, forSearchOrg: org?.shortname)
+        let numCopies = record.totalCopies(atOrgID: org?.id)
+        print("updateButtonViews: title:\(record.title) links:\(links.count) copies:\(numCopies)")
 
-        if isOnlineResource {
+        if numCopies > 0 {
+            placeHoldButton.isEnabled = displayOptions.enablePlaceHold
+            copyInfoButton.isEnabled = true
+        } else {
+            placeHoldButton.isEnabled = false
             copyInfoButton.isEnabled = false
-            copyInfoButton.isHidden = true
+        }
+        if placeHoldButton.isEnabled {
+            Style.styleButton(asInverse: placeHoldButton)
         } else {
-            Style.styleButton(asOutline: copyInfoButton)
-            copyInfoButton.setTitle("Copy Info", for: .normal)
-            copyInfoButton.addTarget(self, action: #selector(copyInfoPressed(sender:)), for: .touchUpInside)
+            Style.styleButton(asOutline: placeHoldButton)
         }
 
-        Style.styleButton(asOutline: addToListButton)
-        addToListButton.setTitle("Add to List", for: .normal)
-        addToListButton.addTarget(self, action: #selector(addToListPressed(sender:)), for: .touchUpInside)
+        onlineAccessButton.isHidden = !(links.count > 0)
+        onlineAccessButton.isEnabled = (links.count > 0)
     }
 
     func setupExtrasButton() {
         if !showExtrasButton {
-            extrasRow.isHidden = true
+            extrasButton.isHidden = true
             return
         }
 
-        if let title = App.config.detailsExtraLinkText,
-           let _ = App.config.detailsExtraLinkFragment
-        {
-            Style.styleButton(asPlain: extrasButton)
-            extrasButton.setTitle(title, for: .normal)
-            extrasButton.addTarget(self, action: #selector(extrasPressed(sender:)), for: .touchUpInside)
-        }
+        extrasButton.setTitle(App.config.detailsExtraLinkText, for: .normal)
+        extrasButton.addTarget(self, action: #selector(extrasPressed(sender:)), for: .touchUpInside)
+        Style.styleButton(asPlain: extrasButton)
     }
 
     func fetchData() {
@@ -215,15 +210,13 @@ class DetailsViewController: UIViewController {
         promises.append(PCRUDService.fetchCodedValueMaps())
         promises.append(SearchService.fetchCopyStatusAll())
 
-        // Fetch copy counts if not online resource
-        if !App.behavior.isOnlineResource(record: record) {
-            let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
-            let promise = SearchService.fetchCopyCount(orgID: orgID, recordID: record.id)
-            let done_promise = promise.done { array in
-                self.record.copyCounts = CopyCount.makeArray(fromArray: array)
-            }
-            promises.append(done_promise)
+        // Fetch copy counts
+        let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
+        let promise = SearchService.fetchCopyCount(orgID: orgID, recordID: record.id)
+        let done_promise = promise.done { array in
+            self.record.copyCounts = CopyCount.makeArray(fromArray: array)
         }
+        promises.append(done_promise)
 
         // Fetch MARCXML record if needed
         if App.config.needMARCRecord {

@@ -87,9 +87,16 @@ class MBRecord {
         self.id = id
         self.mvrObj = mvrObj        
     }
-    
+
     //MARK: - Functions
-    
+
+    func totalCopies(atOrgID orgID: Int?) -> Int {
+        if let copyCount = copyCounts?.last {
+            return copyCount.count
+        }
+        return 0
+    }
+
     // Create array of skeleton records from the multiclassQuery response object.
     static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord] {
         var records: [MBRecord] = []
