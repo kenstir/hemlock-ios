@@ -21,44 +21,80 @@ import Foundation
 
 class AppBehaviorTests: XCTestCase {
 
-    let marcXMLFile = "TestData/marcxml_partial_3185816" // .xml
-    var marcRecord = MARCRecord()
+    var testBundle = Bundle()
 
     override func setUp() {
         super.setUp()
 
-        loadMARCRecord()
+        testBundle = Bundle(for: type(of: self))
+
+        TestUtils.loadExampleOrgs()
     }
 
-    func loadMARCRecord() {
-        let testBundle = Bundle(for: type(of: self))
-        guard let path = testBundle.path(forResource: marcXMLFile, ofType: "xml") else
-        {
-            XCTFail("unable to open xml resource")
-            return
+    func printLinks(_ links: [Link]) {
+        print("\(links.count) links:")
+        for link in links {
+            print("  [\(link.text)] (\(link.href))")
         }
-        let parser = MARCXMLParser(contentsOf: URL(fileURLWithPath: path))
-        guard let marcRecord = try? parser.parse() else {
-            XCTFail(parser.error?.localizedDescription ?? "??")
-            return
-        }
-        self.marcRecord = marcRecord
     }
 
-    /*
-    func test_getLinks() {
-        let appBehavior = BaseAppBehavior()
+    func test_getLinksFromRecordWithConsortiumInSubfield9s() {
+        let appBehavior = TestAppBehavior()
+        let marcRecord = TestUtils.loadMARCRecord(fromBundle: testBundle, fileBaseName: "TestData/marcxml_ebook_1_cons")
         let datafields = marcRecord.datafields
 
-        // subfield 9 is used for located URIs;
-        // NORFLK appears in 2, NEWTWN in 4
-        // But to really test appBehavior.getLinks, we need an org tree
-        var libShortCode = "NORFLK"
-        var links = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: libShortCode)
-        XCTAssertEqual(2, links.count)
-        libShortCode = "NEWTWN"
-        links = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: libShortCode)
-        XCTAssertEqual(4, links.count)
+        // subfield 9 has CONS which is an ancestor of everything
+        let linksForBR1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "BR1")
+        printLinks(linksForBR1)
+        XCTAssertEqual(1, linksForBR1.count)
+        XCTAssertEqual("Click to access online", linksForBR1.first?.text)
+        XCTAssertEqual("http://example.com/ebookapi/t/001", linksForBR1.first?.href)
+        let linksForSYS1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "SYS1")
+        printLinks(linksForSYS1)
+        XCTAssertEqual(1, linksForSYS1.count)
+        XCTAssertEqual("Click to access online", linksForSYS1.first?.text)
+        XCTAssertEqual("http://example.com/ebookapi/t/001", linksForSYS1.first?.href)
     }
-     */
+
+    func test_getLinksFromRecordWithTwo856Tags() {
+        let appBehavior = TestAppBehavior()
+        let marcRecord = TestUtils.loadMARCRecord(fromBundle: testBundle, fileBaseName: "TestData/marcxml_ebook_2_two_856_tags")
+        let datafields = marcRecord.datafields
+
+        // this record has 2 856 tags, one with BR1 and one with BR2
+        let linksForBR1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "BR1")
+        printLinks(linksForBR1)
+        XCTAssertEqual(1, linksForBR1.count)
+        XCTAssertEqual("Access for Branch 1 patrons only", linksForBR1.first?.text)
+        XCTAssertEqual("http://example.com/ebookapi/t/002", linksForBR1.first?.href)
+        let linksForBR2 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "BR2")
+        printLinks(linksForBR2)
+        XCTAssertEqual(1, linksForBR2.count)
+        XCTAssertEqual("Access for Branch 2 patrons only", linksForBR2.first?.text)
+        XCTAssertEqual("http://example.com/ebookapi/t/002", linksForBR2.first?.href)
+        let linksForSYS1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "SYS1")
+        printLinks(linksForSYS1)
+        XCTAssertEqual(0, linksForSYS1.count)
+    }
+
+    func test_getLinksFromRecordWithTwoSubfield9s() {
+        let appBehavior = TestAppBehavior()
+        let marcRecord = TestUtils.loadMARCRecord(fromBundle: testBundle, fileBaseName: "TestData/marcxml_ebook_2_two_subfield_9s")
+        let datafields = marcRecord.datafields
+
+        // this record has 2 subfield 9s, with BR1 and BR2
+        let linksForBR1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "BR1")
+        printLinks(linksForBR1)
+        XCTAssertEqual(1, linksForBR1.count)
+        XCTAssertEqual("Access for Branch 1 or Branch 2 patrons", linksForBR1.first?.text)
+        XCTAssertEqual("http://example.com/ebookapi/t/002", linksForBR1.first?.href)
+        let linksForBR2 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "BR2")
+        printLinks(linksForBR2)
+        XCTAssertEqual(1, linksForBR2.count)
+        XCTAssertEqual("Access for Branch 1 or Branch 2 patrons", linksForBR2.first?.text)
+        XCTAssertEqual("http://example.com/ebookapi/t/002", linksForBR2.first?.href)
+        let linksForSYS1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "SYS1")
+        printLinks(linksForSYS1)
+        XCTAssertEqual(0, linksForSYS1.count)
+    }
 }
