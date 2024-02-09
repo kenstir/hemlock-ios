@@ -41,7 +41,6 @@ class AppBehaviorTests: XCTestCase {
     func test_getLinksFromRecordWithConsortiumInSubfield9s() {
         let appBehavior = TestAppBehavior()
         let marcRecord = TestUtils.loadMARCRecord(fromBundle: testBundle, fileBaseName: "TestData/marcxml_ebook_1_cons")
-        let datafields = marcRecord.datafields
 
         // subfield 9 has CONS which is an ancestor of everything
         let linksForBR1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "BR1")
@@ -59,7 +58,6 @@ class AppBehaviorTests: XCTestCase {
     func test_getLinksFromRecordWithTwo856Tags() {
         let appBehavior = TestAppBehavior()
         let marcRecord = TestUtils.loadMARCRecord(fromBundle: testBundle, fileBaseName: "TestData/marcxml_ebook_2_two_856_tags")
-        let datafields = marcRecord.datafields
 
         // this record has 2 856 tags, one with BR1 and one with BR2
         let linksForBR1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "BR1")
@@ -80,7 +78,6 @@ class AppBehaviorTests: XCTestCase {
     func test_getLinksFromRecordWithTwoSubfield9s() {
         let appBehavior = TestAppBehavior()
         let marcRecord = TestUtils.loadMARCRecord(fromBundle: testBundle, fileBaseName: "TestData/marcxml_ebook_2_two_subfield_9s")
-        let datafields = marcRecord.datafields
 
         // this record has 2 subfield 9s, with BR1 and BR2
         let linksForBR1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "BR1")
@@ -96,5 +93,15 @@ class AppBehaviorTests: XCTestCase {
         let linksForSYS1 = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "SYS1")
         printLinks(linksForSYS1)
         XCTAssertEqual(0, linksForSYS1.count)
+    }
+
+    func test_getLinksFromRecordWithRelatedResource() {
+        let appBehavior = TestAppBehavior()
+        let marcRecord = TestUtils.loadMARCRecord(fromBundle: testBundle, fileBaseName: "TestData/marcxml_item_with_eresource")
+
+        let linksForCONS = appBehavior.getLinks(fromMarcRecord: marcRecord, forSearchOrg: "CONS")
+        printLinks(linksForCONS)
+        XCTAssertEqual(1, linksForCONS.count)
+        XCTAssertEqual("user manual:", linksForCONS.first?.text)
     }
 }

@@ -58,9 +58,13 @@ class BaseAppBehavior: AppBehavior {
         return true;
     }
     
-    // Implements the above interface for catalogs that use Located URIs
+    // Implements the isVisibleToOrg interface for catalogs that use Located URIs
     func isVisibleViaLocatedURI(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
         let ancestors = Organization.ancestors(byShortName: orgShortName)
+        let subfield9s = datafield.subfields.filter({ $0.code == "9" })
+        if subfield9s.count == 0 {
+            return true
+        }
         for subfield in datafield.subfields {
             if subfield.code == "9",
                 let shortname = subfield.text,
