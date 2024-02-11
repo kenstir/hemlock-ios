@@ -30,6 +30,7 @@ class HemlockAppConfiguration: AppConfiguration {
     let enableHierarchicalOrgTree = true
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = true
+    let enableHoldShowPickupLib = false
     let enableHoldPhoneNotification = true
     let enableHoldUseOverride = false
     let enablePartHolds = false

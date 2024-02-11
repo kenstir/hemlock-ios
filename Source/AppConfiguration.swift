@@ -32,6 +32,7 @@ protocol AppConfiguration {
     var enableHierarchicalOrgTree: Bool { get }
     var enableHoldShowQueuePosition: Bool { get }
     var enableHoldShowExpiration: Bool { get }
+    var enableHoldShowPickupLib: Bool { get }
     var enableHoldPhoneNotification: Bool { get }
     var enableHoldUseOverride: Bool { get }
     var enablePartHolds: Bool { get }
@@ -66,6 +67,7 @@ class BaseAppConfiguration: AppConfiguration {
     var enableHierarchicalOrgTree: Bool { return true }
     var enableHoldShowQueuePosition: Bool { return true }
     var enableHoldShowExpiration: Bool { return true }
+    var enableHoldShowPickupLib: Bool { return false }
     var enableHoldPhoneNotification: Bool { return false }
     var enableHoldUseOverride: Bool { return false }
     var enablePartHolds: Bool { return false }

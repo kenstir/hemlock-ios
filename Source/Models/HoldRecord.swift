@@ -77,12 +77,17 @@ class HoldRecord {
     var status: String {
         let s = qstatsObj?.getInt("status") ?? -1
         if s == 4 {
+            var str = "Available"
+            if App.config.enableHoldShowPickupLib,
+               let name = pickupOrgName {
+                str = "\(str) at \(name)"
+            }
             if App.config.enableHoldShowExpiration,
                let date = shelfExpireDate {
                 let dateStr = OSRFObject.outputDateFormatter.string(from: date)
-                return "Available\nExpires \(dateStr)"
+                str = "\(str)\nExpires \(dateStr)"
             }
-            return "Available"
+            return str
         } else if s == 7 {
             return "Suspended"
         } else if s == 3 || s == 8 {
@@ -94,6 +99,9 @@ class HoldRecord {
         } else {
             return ""
         }
+    }
+    var pickupOrgName: String? {
+        return Organization.find(byId: pickupOrgId)?.name
     }
     var transitFrom: String {
         if let transit = ahrObj.getObject("transit"),
