@@ -65,9 +65,8 @@ class BaseAppBehavior: AppBehavior {
         if subfield9s.count == 0 {
             return true
         }
-        for subfield in datafield.subfields {
-            if subfield.code == "9",
-                let shortname = subfield.text,
+        for subfield in subfield9s {
+            if let shortname = subfield.text,
                 ancestors.contains(shortname) {
                 return true
             }
