@@ -77,7 +77,7 @@ class HoldRecord {
     var status: String {
         let s = qstatsObj?.getInt("status") ?? -1
         if s == 4 {
-            var str = "Available"
+            var str = "Ready for pickup"
             if App.config.enableHoldShowPickupLib,
                let name = pickupOrgName {
                 str = "\(str) at \(name)"
