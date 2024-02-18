@@ -24,7 +24,7 @@ struct API {
     //MARK: - misc
 
     static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some requests
-    static let netClasses = "ac,acn,acp,ahr,ahrn,ahtc,aoa,aou,aouhoo,aout,au,aua,auact,auch,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+    static let netClasses = "ac,acn,acp,aec,aecs,ahr,ahrn,ahtc,aoa,aou,aoucd,aouhoo,aout,au,aua,auact,auch,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
@@ -48,6 +48,7 @@ struct API {
     static let orgUnitSetting = "open-ils.actor.ou_setting.ancestor_default"
     static let orgUnitSettingBatch = "open-ils.actor.ou_setting.ancestor_default.batch"
     static let orgUnitHoursOfOperationRetrieve = "open-ils.actor.org_unit.hours_of_operation.retrieve"
+    static let orgUnitHoursClosedRetrieve = "open-ils.actor.org_unit.closed.retrieve.all"
     static let orgUnitAddressRetrieve = "open-ils.actor.org_unit.address.retrieve"
     static let patronSettingsUpdate = "open-ils.actor.patron.settings.update"
     static let settingSMSEnable = "sms.enable"

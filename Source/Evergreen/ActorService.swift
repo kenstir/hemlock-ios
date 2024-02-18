@@ -125,11 +125,17 @@ class ActorService {
         return promise
     }
 
-    static func fetchOrgUnitHours(authtoken: String, forOrgID orgID: Int) -> Promise<(OSRFObject?)> {
+    static func fetchOrgHours(authtoken: String, forOrgID orgID: Int) -> Promise<(OSRFObject?)> {
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID], shouldCache: false)
         return req.gatewayOptionalObjectResponse()
     }
-    
+
+    static func fetchOrgClosures(authtoken: String, forOrgID orgID: Int) -> Promise<([OSRFObject])> {
+        let param: JSONDictionary = ["orgid": orgID]
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursClosedRetrieve, args: [authtoken, param], shouldCache: false)
+        return req.gatewayMaybeEmptyArrayResponse()
+    }
+
     static func fetchOrgAddress(addressID: Int) -> Promise<(OSRFObject?)> {
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [addressID], shouldCache: true)
         return req.gatewayOptionalObjectResponse()

@@ -106,7 +106,7 @@ class OrgDetailsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken,
             let orgID = self.orgID else { return }
         
-        ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: orgID).done { obj in
+        ActorService.fetchOrgHours(authtoken: authtoken, forOrgID: orgID).done { obj in
             self.onHoursLoaded(obj)
         }.catch { error in
             self.presentGatewayAlert(forError: error)
