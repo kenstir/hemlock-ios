@@ -1,7 +1,5 @@
 //
-//  OrgDetailsTableViewCell.swift
-//
-//  Copyright (C) 2020 Kenneth H. Cox
+//  Copyright (C) 2024 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -20,4 +18,6 @@
 import UIKit
 
 class OrgDetailsTableViewCell: UITableViewCell {
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var reasonLabel: UILabel!
 }
