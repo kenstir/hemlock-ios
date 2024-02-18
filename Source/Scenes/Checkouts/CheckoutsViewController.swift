@@ -311,8 +311,6 @@ extension CheckoutsViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension CheckoutsViewController: UITableViewDelegate {
 
-    //MARK: - UITableViewDelegate
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var records: [MBRecord] = []
         for item in items {
