@@ -41,6 +41,8 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var day5Hours: UILabel!
     @IBOutlet weak var day6Stack: UIStackView!
     @IBOutlet weak var day6Hours: UILabel!
+    @IBOutlet weak var closureHeaderStack: UIStackView!
+    @IBOutlet weak var noClosuresMessageStack: UIStackView!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var webSiteButton: UIButton!
