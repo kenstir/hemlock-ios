@@ -1,6 +1,4 @@
 //
-//  OrgDetailsViewController.swift
-//
 //  Copyright (C) 2020 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
