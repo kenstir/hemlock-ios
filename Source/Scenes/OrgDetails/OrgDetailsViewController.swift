@@ -128,6 +128,9 @@ class OrgDetailsViewController: UIViewController {
 
     func setupViews() {
         closureTable.dataSource = self
+        closureTable.estimatedRowHeight = 60.0;
+        closureTable.rowHeight = UITableView.automaticDimension;
+
         setupActivityIndicator()
         self.setupHomeButton()
         self.setupActionButtons()
