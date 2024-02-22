@@ -39,7 +39,10 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var day5Hours: UILabel!
     @IBOutlet weak var day6Stack: UIStackView!
     @IBOutlet weak var day6Hours: UILabel!
-    @IBOutlet weak var closureTable: UITableView!
+    @IBOutlet weak var closuresStack: UIStackView!
+    @IBOutlet weak var closuresFirstRowStack: UIStackView!
+    @IBOutlet weak var closuresFirstRowColumn1: UILabel!
+    @IBOutlet weak var closuresFirstRowColumn2: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var webSiteButton: UIButton!
@@ -333,26 +336,4 @@ class OrgDetailsViewController: UIViewController {
 
         orgLabels = Organization.getSpinnerLabels()
     }
-}
-
-//MARK: - UITableViewDataSource
-extension OrgDetailsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "closuresCell", for: indexPath) as? OrgDetailsTableViewCell else {
-            fatalError("dequeued cell of wrong class!")
-        }
-
-//        cell.dateLabel.text = "item #\(indexPath.row)"
-//        cell.reasonLabel.text = "reason #\(indexPath.row)"
-        return cell
-    }
-
 }
