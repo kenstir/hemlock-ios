@@ -28,6 +28,7 @@ class CWMarsAppConfiguration: AppConfiguration {
 
     let enableCheckoutHistory = true
     let enableHierarchicalOrgTree = false
+    let enableHoldShowPickupLib = false
     let enableHoldShowQueuePosition = true
     let enableHoldShowExpiration = true
     let enableHoldPhoneNotification = false
