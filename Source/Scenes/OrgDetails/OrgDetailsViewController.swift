@@ -85,6 +85,7 @@ class OrgDetailsViewController: UIViewController {
         }.done {
             self.refetchThisOrg()
             self.fetchHours()
+            self.fetchClosures()
             self.fetchAddress()
             self.onOrgsLoaded()
         }.ensure {
@@ -114,7 +115,18 @@ class OrgDetailsViewController: UIViewController {
             self.presentGatewayAlert(forError: error)
         }
     }
-    
+
+    func fetchClosures() {
+        guard let authtoken = App.account?.authtoken,
+            let orgID = self.orgID else { return }
+
+        ActorService.fetchOrgClosures(authtoken: authtoken, forOrgID: orgID).done { objList in
+            self.onClosuresLoaded(objList)
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
     func fetchAddress() {
         guard let org = Organization.find(byId: orgID),
             let addressID = org.addressID else { return }
@@ -130,10 +142,6 @@ class OrgDetailsViewController: UIViewController {
     }
 
     func setupViews() {
-//        closureTable.dataSource = self
-//        closureTable.estimatedRowHeight = 60.0;
-//        closureTable.rowHeight = UITableView.automaticDimension;
-
         setupActivityIndicator()
         self.setupHomeButton()
         self.setupActionButtons()
@@ -283,7 +291,17 @@ class OrgDetailsViewController: UIViewController {
         day5Hours.text = hoursOfOperation(obj: obj, day: 5)
         day6Hours.text = hoursOfOperation(obj: obj, day: 6)
     }
-    
+
+    func onClosuresLoaded(_ objs: [OSRFObject]) {
+        if objs.count == 0 {
+            closuresFirstRowColumn1.text = "No closures scheduled"
+            closuresFirstRowColumn2.text = nil
+        } else {
+            closuresFirstRowColumn1.text = "\(objs.count)"
+            closuresFirstRowColumn2.text = "upcoming closures"
+        }
+    }
+
     func getAddressLine1(_ obj: OSRFObject) -> String {
         var line1 = ""
         if let s = obj.getString("street1") {
