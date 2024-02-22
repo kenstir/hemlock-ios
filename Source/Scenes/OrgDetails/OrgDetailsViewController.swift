@@ -127,9 +127,9 @@ class OrgDetailsViewController: UIViewController {
     }
 
     func setupViews() {
-        closureTable.dataSource = self
-        closureTable.estimatedRowHeight = 60.0;
-        closureTable.rowHeight = UITableView.automaticDimension;
+//        closureTable.dataSource = self
+//        closureTable.estimatedRowHeight = 60.0;
+//        closureTable.rowHeight = UITableView.automaticDimension;
 
         setupActivityIndicator()
         self.setupHomeButton()
@@ -350,8 +350,8 @@ extension OrgDetailsViewController: UITableViewDataSource {
             fatalError("dequeued cell of wrong class!")
         }
 
-        cell.dateLabel.text = "item #\(indexPath.row)"
-        cell.reasonLabel.text = "reason #\(indexPath.row)"
+//        cell.dateLabel.text = "item #\(indexPath.row)"
+//        cell.reasonLabel.text = "reason #\(indexPath.row)"
         return cell
     }
 
