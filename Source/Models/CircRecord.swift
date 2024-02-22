@@ -52,14 +52,14 @@ class CircRecord {
         let now = Date()
         return now > dueDate
     }
-    var isDue: Bool {
+    var isDueSoon: Bool {
         guard let dueDate = dueDate,
-              let warningDate = Calendar.current.date(byAdding: .day, value: -3, to: dueDate) else
+              let thresholdDate = Calendar.current.date(byAdding: .day, value: -7, to: dueDate) else
         {
             return false
         }
         let now = Date()
-        return now > warningDate
+        return now > thresholdDate
     }
     
     init(id: Int) {

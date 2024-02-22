@@ -216,10 +216,10 @@ class CheckoutsViewController: UIViewController {
         }
         // These are commented out for now because they cause the text
         // to bleed under the Renew button.
-//        if item.isDue && item.autoRenewals > 0 {
+//        if item.isDueSoon && item.autoRenewals > 0 {
 //            return "Due \(item.dueDateLabel) (but may auto-renew)"
 //        }
-//        if item.wasAutoRenewed && !item.isDue {
+//        if item.wasAutoRenewed {
 //            return "Due \(item.dueDateLabel) (item was auto-renewed)"
 //        }
         return "Due \(item.dueDateLabel)"
@@ -296,7 +296,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         cell.format.text = item.format
         cell.renewals.text = "Renewals left: " + String(item.renewalsRemaining)
         cell.dueDate.text = dueDateText(item)
-        cell.dueDate.textColor = item.isDue ? App.theme.alertTextColor : Style.secondaryLabelColor
+        cell.dueDate.textColor = item.isOverdue ? App.theme.alertTextColor : Style.secondaryLabelColor
 
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row
