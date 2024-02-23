@@ -1,6 +1,4 @@
 //
-//  OrgDetailsViewController.swift
-//
 //  Copyright (C) 2020 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -41,6 +39,7 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var day5Hours: UILabel!
     @IBOutlet weak var day6Stack: UIStackView!
     @IBOutlet weak var day6Hours: UILabel!
+    @IBOutlet weak var closuresStack: UIStackView!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var webSiteButton: UIButton!
@@ -49,12 +48,11 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var addressLine2: UILabel!
 
     weak var activityIndicator: UIActivityIndicatorView!
-    
+
     var orgID: Int? = App.account?.homeOrgID
 
     var orgLabels: [String] = []
-    var didCompleteFetch = false
-    
+
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -83,6 +81,7 @@ class OrgDetailsViewController: UIViewController {
         }.done {
             self.refetchThisOrg()
             self.fetchHours()
+            self.fetchClosures()
             self.fetchAddress()
             self.onOrgsLoaded()
         }.ensure {
@@ -112,7 +111,18 @@ class OrgDetailsViewController: UIViewController {
             self.presentGatewayAlert(forError: error)
         }
     }
-    
+
+    func fetchClosures() {
+        guard let authtoken = App.account?.authtoken,
+            let orgID = self.orgID else { return }
+
+        ActorService.fetchOrgClosures(authtoken: authtoken, forOrgID: orgID).done { objList in
+            self.onClosuresLoaded(objList)
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
     func fetchAddress() {
         guard let org = Organization.find(byId: orgID),
             let addressID = org.addressID else { return }
@@ -277,7 +287,108 @@ class OrgDetailsViewController: UIViewController {
         day5Hours.text = hoursOfOperation(obj: obj, day: 5)
         day6Hours.text = hoursOfOperation(obj: obj, day: 6)
     }
-    
+
+    func onClosuresLoaded(_ objs: [OSRFObject]) {
+        let now = Date()
+        let upcomingClosures = objs.filter {
+            if let date = $0.getDate("close_end"), date > now {
+                true
+            } else {
+                false
+            }
+        }
+        addClosureRows(upcomingClosures)
+    }
+
+    func addClosureRows(_ closures: [OSRFObject]) {
+        // clear all existing rows
+        while let view = closuresStack.arrangedSubviews.first {
+            view.removeFromSuperview()
+        }
+
+        // add message if none
+        if closures.isEmpty {
+            closuresStack.addArrangedSubview(makeClosureRow(firstString: "No closures scheduled"))
+            return
+        }
+
+        // find out if any closures have date ranges; if so we need extra room
+        let anyClosuresWithDateRange = closures.contains {
+            let isMultiDay = $0.getBoolOrFalse("multi_day")
+            let isFullDay = $0.getBoolOrFalse("full_day")
+            return isMultiDay || !isFullDay
+        }
+
+        // add a row per closure
+        for closure in closures {
+            closuresStack.addArrangedSubview(makeClosureRow(closure, useWideDateColumn: anyClosuresWithDateRange))
+        }
+    }
+
+    func makeClosureRow(_ closure: OSRFObject, useWideDateColumn wide: Bool) -> UIView {
+
+        let dateLabel = getClosureDateLabel(closure)
+        let reason = closure.getString("reason") ?? nil
+        return makeClosureRow(firstString: dateLabel, secondString: reason, useWideDateColumn: wide)
+    }
+
+    func makeClosureRow(firstString: String, secondString: String? = nil, useWideDateColumn wide: Bool = false) -> UIView {
+
+        // create hstack to hold row
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.horizontal
+        stackView.distribution = UIStackView.Distribution.fill
+        stackView.alignment = UIStackView.Alignment.top
+        stackView.spacing = 8.0
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        // add leading space
+        let spacerLabel = UILabel()
+        spacerLabel.widthAnchor.constraint(equalToConstant: 16.0).isActive = true
+        stackView.addArrangedSubview(spacerLabel)
+
+        // add first label
+        let firstLabel = UILabel()
+        firstLabel.text = firstString
+        stackView.addArrangedSubview(firstLabel)
+
+        if secondString != nil {
+            // set constraints on first label only if we have a second
+            let width = (wide) ? 0.45 : 0.28
+            firstLabel.numberOfLines = (wide) ? 2 : 1
+            firstLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: width).isActive = true
+
+            // add second label
+            let secondLabel = UILabel()
+            //secondLabel.backgroundColor = UIColor.lightGray // hack to visualize layout
+            secondLabel.text = secondString
+            secondLabel.numberOfLines = (wide) ? 2 : 1
+            stackView.addArrangedSubview(secondLabel)
+        }
+
+        return stackView
+    }
+
+    func getClosureDateLabel(_ closure: OSRFObject) -> String {
+        guard let startDate = closure.getDate("close_start"),
+              let endDate = closure.getDate("close_end") else {
+            return "???"
+        }
+        let isFullDay = closure.getBoolOrFalse("full_day")
+        let isMultiDay = closure.getBoolOrFalse("multi_day")
+        if isMultiDay {
+            let start = OSRFObject.outputDayOnlyFormatter.string(from: startDate)
+            let end = OSRFObject.outputDayOnlyFormatter.string(from: endDate)
+            return "\(start) - \(end)"
+        } else if isFullDay {
+            return OSRFObject.outputDayOnlyFormatter.string(from: startDate)
+        } else {
+            let start = OSRFObject.getDateTimeLabel(from: startDate)
+            let end = OSRFObject.getDateTimeLabel(from: endDate)
+            return "\(start) - \(end)"
+        }
+    }
+
     func getAddressLine1(_ obj: OSRFObject) -> String {
         var line1 = ""
         if let s = obj.getString("street1") {

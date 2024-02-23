@@ -636,7 +636,6 @@
 		D2572AF524AD7755000BA698 /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164B3213C7D99000B64B4 /* UIScrollView+.swift */; };
 		D2572AF624AD7755000BA698 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
 		D2572AF724AD7755000BA698 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
-		D2572AF824AD7755000BA698 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D2572AF924AD7755000BA698 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D2572AFA24AD7755000BA698 /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
 		D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
@@ -753,7 +752,6 @@
 		D25EEC9E28A1E8310090F108 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A73B1E246CB54000874620 /* JSONUtils.swift */; };
 		D25EECA128A1E8310090F108 /* BookBagDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */; };
 		D25EECA228A1E8310090F108 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
-		D25EECA328A1E8310090F108 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D25EECA428A1E8310090F108 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D25EECA528A1E8310090F108 /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
 		D25EECA628A1E8310090F108 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
@@ -1506,15 +1504,6 @@
 		D2C3EA4129D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C3EA4229D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C3EA4329D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
-		D2C7D6272484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
-		D2C7D6282484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
-		D2C7D6292484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
-		D2C7D62A2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
-		D2C7D62B2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
-		D2C7D62C2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
-		D2C7D62D2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
-		D2C7D62E2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
-		D2C7D62F2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */; };
 		D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
@@ -1867,7 +1856,6 @@
 		D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagerViewController.swift; sourceTree = "<group>"; };
 		D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2C3EA3829D905F100583A96 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
-		D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -2147,7 +2135,6 @@
 			isa = PBXGroup;
 			children = (
 				D29911D9248461C0007DB26C /* OrgDetails.storyboard */,
-				D2C7D6262484854D00D33678 /* OrgDetailsTableViewCell.swift */,
 				D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */,
 			);
 			path = OrgDetails;
@@ -2947,7 +2934,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "Ken Cox";
 				TargetAttributes = {
 					D276DA8321336B20007FAA31 = {
@@ -3871,7 +3858,6 @@
 				D2AA9D5127383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31212B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
-				D2C7D6272484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainViewController.swift in Sources */,
 				D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D210EC1122B1EE55002FB5E0 /* CopyCount.swift in Sources */,
@@ -3983,7 +3969,6 @@
 				D2AA9D5927383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA312B2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
-				D2C7D62F2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainViewController.swift in Sources */,
 				D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D23E9FB723B9200A0030F5C1 /* CopyCount.swift in Sources */,
@@ -4095,7 +4080,6 @@
 				D2AA9D5527383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31252B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */,
-				D2C7D62B2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2477C0724785A6B00FD4CF6 /* MainViewController.swift in Sources */,
 				D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2477C0824785A6B00FD4CF6 /* CopyCount.swift in Sources */,
@@ -4207,7 +4191,6 @@
 				D2AA9D5A27383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31262B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2572AF724AD7755000BA698 /* Style.swift in Sources */,
-				D2572AF824AD7755000BA698 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2572AF924AD7755000BA698 /* MainViewController.swift in Sources */,
 				D2572AFA24AD7755000BA698 /* OrgDetailsViewController.swift in Sources */,
 				D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */,
@@ -4318,7 +4301,6 @@
 				D2BB66C4297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D25EECA228A1E8310090F108 /* Style.swift in Sources */,
 				D2EA31292B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
-				D25EECA328A1E8310090F108 /* OrgDetailsTableViewCell.swift in Sources */,
 				D25EECA428A1E8310090F108 /* MainViewController.swift in Sources */,
 				D25EECA528A1E8310090F108 /* OrgDetailsViewController.swift in Sources */,
 				D25EECA628A1E8310090F108 /* CopyCount.swift in Sources */,
@@ -4351,7 +4333,6 @@
 				D21981FA235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF222CE7BF500F69848 /* Link.swift in Sources */,
 				D2931AAC272DE83200CBA5AA /* BookBag.swift in Sources */,
-				D2C7D6292484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D2BB66B3297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
@@ -4461,7 +4442,6 @@
 				D21981FB235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF022CE7BF500F69848 /* Link.swift in Sources */,
 				D2931AAD272DE83200CBA5AA /* BookBag.swift in Sources */,
-				D2C7D62A2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FE822CC359000F69848 /* MARCRecord.swift in Sources */,
 				D2BB66B4297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
@@ -4573,7 +4553,6 @@
 				D21981F9235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF322CE7BF500F69848 /* Link.swift in Sources */,
 				D2931AAB272DE83200CBA5AA /* BookBag.swift in Sources */,
-				D2C7D6282484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D20B2FEB22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D2BB66B2297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D284245821D0358200C7171C /* HoldRecord.swift in Sources */,
@@ -4764,7 +4743,6 @@
 				D2AA9D5827383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA312A2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
-				D2C7D62E2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainViewController.swift in Sources */,
 				D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */,
@@ -4911,7 +4889,6 @@
 				D2AA9D5627383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31272B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
-				D2C7D62C2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainViewController.swift in Sources */,
 				D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA65A22D176BD00D9B60C /* CopyCount.swift in Sources */,
@@ -5023,7 +5000,6 @@
 				D2AA9D5727383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31282B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA6F222D2A72000D9B60C /* CopyCount.swift in Sources */,
-				D2C7D62D2484854D00D33678 /* OrgDetailsTableViewCell.swift in Sources */,
 				D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */,
 				D29911EA248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA6F422D2A72000D9B60C /* SearchService.swift in Sources */,

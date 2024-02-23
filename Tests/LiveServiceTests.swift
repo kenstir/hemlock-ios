@@ -468,7 +468,7 @@ class LiveServiceTests: XCTestCase {
         let promise = makeAuthtokenPromise()
         promise.then { (authtoken: String) -> Promise<(OSRFObject?)> in
             XCTAssertFalse(authtoken.isEmpty)
-            return ActorService.fetchOrgUnitHours(authtoken: authtoken, forOrgID: self.homeOrgID)
+            return ActorService.fetchOrgHours(authtoken: authtoken, forOrgID: self.homeOrgID)
         }.done { obj in
             XCTAssertNotNil(obj)
             let mondayOpen = obj?.getString("dow_0_open")
