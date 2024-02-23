@@ -316,7 +316,11 @@ class OrgDetailsViewController: UIViewController {
         }
 
         // find out if any closures have date ranges; if so we need extra room
-        let anyClosuresWithDateRange = closures.contains { $0.getBoolOrFalse("full_day") ? false : true }
+        let anyClosuresWithDateRange = closures.contains {
+            let isMultiDay = $0.getBoolOrFalse("multi_day")
+            let isFullDay = $0.getBoolOrFalse("full_day")
+            return isMultiDay || !isFullDay
+        }
 
         // add a row per closure
         for closure in closures {
@@ -353,7 +357,7 @@ class OrgDetailsViewController: UIViewController {
 
         if secondString != nil {
             // set constraints on first label only if we have a second
-            let width = (wide) ? 0.45 : 0.25
+            let width = (wide) ? 0.45 : 0.28
             firstLabel.numberOfLines = (wide) ? 2 : 1
             firstLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: width).isActive = true
 
