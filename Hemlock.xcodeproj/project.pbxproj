@@ -29,17 +29,6 @@
 		D2029B63297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
 		D2029B64297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
 		D2029B65297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */; };
-		D2087BD52B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BD62B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BD72B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BD82B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BD92B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BDA2B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BDB2B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BDC2B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BDD2B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BDE2B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
-		D2087BDF2B82E618004AA733 /* NonScrollingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */; };
 		D2096E17244BACD800627FF5 /* cwmars-pro.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */; };
 		D20B2FE222CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
 		D20B2FE322CC309800F69848 /* MARCXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE122CC309800F69848 /* MARCXMLParser.swift */; };
@@ -1635,7 +1624,6 @@
 /* Begin PBXFileReference section */
 		D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageDetails.storyboard; sourceTree = "<group>"; };
 		D2029B5A297DBF89000FF4C1 /* MessageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailsViewController.swift; sourceTree = "<group>"; };
-		D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonScrollingTableView.swift; sourceTree = "<group>"; };
 		D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "cwmars-pro.xcassets"; sourceTree = "<group>"; };
 		D20B2FE122CC309800F69848 /* MARCXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MARCXMLParser.swift; sourceTree = "<group>"; };
 		D20B2FE722CC359000F69848 /* MARCRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARCRecord.swift; sourceTree = "<group>"; };
@@ -2258,7 +2246,6 @@
 				D2A73B1E246CB54000874620 /* JSONUtils.swift */,
 				FA37C3F820FC2A09003C2003 /* LocationPicker.swift */,
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
-				D2087BD42B82E618004AA733 /* NonScrollingTableView.swift */,
 				D226B60920ED519E00CA5B79 /* String+.swift */,
 				D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */,
 				D27DF20B21AB4B84002DCC47 /* String+subscript.swift */,
@@ -3786,7 +3773,6 @@
 				D210EBD222B1EE55002FB5E0 /* UIView+.swift in Sources */,
 				D2C3EA2D29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D210EBD322B1EE55002FB5E0 /* String+splitOnRegex.swift in Sources */,
-				D2087BD52B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D2816CC728B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D210EBD422B1EE55002FB5E0 /* Organization.swift in Sources */,
 				D28F5E6D29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
@@ -3898,7 +3884,6 @@
 				D23E9F7523B9200A0030F5C1 /* String+splitOnRegex.swift in Sources */,
 				D2C3EA3729D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D23E9F7623B9200A0030F5C1 /* Organization.swift in Sources */,
-				D2087BDF2B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D2816CCF28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */,
 				D28F5E7729CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
@@ -4010,7 +3995,6 @@
 				D2477BC124785A6B00FD4CF6 /* String+splitOnRegex.swift in Sources */,
 				D2C3EA3129D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2477BC224785A6B00FD4CF6 /* Organization.swift in Sources */,
-				D2087BD92B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D2816CCB28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2477BC424785A6B00FD4CF6 /* MainTableViewCell.swift in Sources */,
 				D28F5E7129CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
@@ -4122,7 +4106,6 @@
 				D2572AB024AD7755000BA698 /* UIView+.swift in Sources */,
 				D2C3EA3229D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2572AB124AD7755000BA698 /* String+splitOnRegex.swift in Sources */,
-				D2087BDA2B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D2816CD028B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2572AB224AD7755000BA698 /* Organization.swift in Sources */,
 				D28F5E7229CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
@@ -4234,7 +4217,6 @@
 				D25EECDB28A1EB2E0090F108 /* OwwlAppConfiguration.swift in Sources */,
 				D2C3EA3529D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D25EEC5528A1E8310090F108 /* String+splitOnRegex.swift in Sources */,
-				D2087BDD2B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D271862B28CEBE7C0046E9BC /* ScanBarcodeViewController.swift in Sources */,
 				D25EECD928A1EB2E0090F108 /* OwwlTheme.swift in Sources */,
 				D28F5E7529CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
@@ -4347,7 +4329,6 @@
 				D20BDB792214BCF300BB6A5F /* UIView+.swift in Sources */,
 				D276DA9121336B20007FAA31 /* MainTableViewCell.swift in Sources */,
 				D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */,
-				D2087BD72B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D276DA9221336B20007FAA31 /* HoldRecord.swift in Sources */,
 				D21981FA235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF222CE7BF500F69848 /* Link.swift in Sources */,
@@ -4458,7 +4439,6 @@
 				D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D260755820E0860300795124 /* Organization.swift in Sources */,
 				D27990D020DDD473003B451E /* MainTableViewCell.swift in Sources */,
-				D2087BD82B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D21981FB235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF022CE7BF500F69848 /* Link.swift in Sources */,
 				D2931AAD272DE83200CBA5AA /* BookBag.swift in Sources */,
@@ -4569,7 +4549,6 @@
 				D20BDB7A2214BCF300BB6A5F /* UIView+.swift in Sources */,
 				D284245421D0358200C7171C /* String+splitOnRegex.swift in Sources */,
 				D284245521D0358200C7171C /* Organization.swift in Sources */,
-				D2087BD62B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D284245621D0358200C7171C /* MainTableViewCell.swift in Sources */,
 				D21981F9235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D20B2FF322CE7BF500F69848 /* Link.swift in Sources */,
@@ -4679,7 +4658,6 @@
 				D29C72162093A2C000E90952 /* OSRFObject.swift in Sources */,
 				D2C3EA3629D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D20BDB782214BCF300BB6A5F /* UIView+.swift in Sources */,
-				D2087BDE2B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D2816CCE28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D28F5E7629CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
@@ -4826,7 +4804,6 @@
 				D2BDA61522D176BD00D9B60C /* UIView+.swift in Sources */,
 				D2C3EA3329D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2BDA61622D176BD00D9B60C /* String+splitOnRegex.swift in Sources */,
-				D2087BDB2B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D2816CCC28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA61722D176BD00D9B60C /* Organization.swift in Sources */,
 				D28F5E7329CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
@@ -4938,7 +4915,6 @@
 				D2BDA6AE22D2A72000D9B60C /* String+splitOnRegex.swift in Sources */,
 				D2C3EA3429D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2BDA6AF22D2A72000D9B60C /* Organization.swift in Sources */,
-				D2087BDC2B82E618004AA733 /* NonScrollingTableView.swift in Sources */,
 				D2816CCD28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA6B022D2A72000D9B60C /* MainTableViewCell.swift in Sources */,
 				D28F5E7429CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
