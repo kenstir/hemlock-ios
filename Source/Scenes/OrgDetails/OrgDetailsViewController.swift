@@ -51,12 +51,11 @@ class OrgDetailsViewController: UIViewController {
     @IBOutlet weak var addressLine2: UILabel!
 
     weak var activityIndicator: UIActivityIndicatorView!
-    
+
     var orgID: Int? = App.account?.homeOrgID
 
     var orgLabels: [String] = []
-    var didCompleteFetch = false
-    
+
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -293,13 +292,77 @@ class OrgDetailsViewController: UIViewController {
     }
 
     func onClosuresLoaded(_ objs: [OSRFObject]) {
-        if objs.count == 0 {
-            closuresFirstRowColumn1.text = "No closures scheduled"
-            closuresFirstRowColumn2.text = nil
-        } else {
-            closuresFirstRowColumn1.text = "\(objs.count)"
-            closuresFirstRowColumn2.text = "upcoming closures"
+        let now = Date()
+        let upcomingClosures = objs.filter {
+            if let date = $0.getDate("close_end"), date > now {
+                true
+            } else {
+                false
+            }
         }
+        addClosureRows(upcomingClosures)
+    }
+
+    func addClosureRows(_ closures: [OSRFObject]) {
+        // clear all existing rows
+        while let view = closuresStack.arrangedSubviews.first {
+            view.removeFromSuperview()
+        }
+
+        // add message if none
+        if closures.isEmpty {
+            let row = makeClosureRow(nil, wide: true)
+            closuresStack.addArrangedSubview(row)
+            return
+        }
+
+        // find out if any closures have date ranges; if so we need extra room
+        //TODO
+
+        // add a row per closure
+        for closure in closures {
+            let row = makeClosureRow(closure, wide: false)
+            closuresStack.addArrangedSubview(row)
+        }
+    }
+
+    func makeClosureRow(_ closure: OSRFObject?, wide: Bool) -> UIView {
+
+        let firstString = closure?.getDateDayOnlyLabel("close_start") ?? "No closures scheduled"
+        let secondString = closure?.getString("reason") ?? nil
+
+        // create hstack to hold row
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.horizontal
+        stackView.distribution = UIStackView.Distribution.fill
+        stackView.alignment = UIStackView.Alignment.fill
+        stackView.spacing = 8.0
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        // add leading space
+        let spacerLabel = UILabel()
+        spacerLabel.widthAnchor.constraint(equalToConstant: 16.0).isActive = true
+        stackView.addArrangedSubview(spacerLabel)
+
+        // add first label
+        let firstLabel = UILabel()
+        firstLabel.text = firstString
+        stackView.addArrangedSubview(firstLabel)
+
+        if let str = secondString {
+            // set constraints on first label only if we have a second
+            let width = (wide) ? 0.5 : 0.25
+            if wide { firstLabel.numberOfLines = 2 }
+            firstLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: width).isActive = true
+
+            // add second label
+            let secondLabel = UILabel()
+            //secondLabel.backgroundColor = UIColor.lightGray // hack to visualize layout
+            secondLabel.text = str
+            stackView.addArrangedSubview(secondLabel)
+        }
+
+        return stackView
     }
 
     func getAddressLine1(_ obj: OSRFObject) -> String {
