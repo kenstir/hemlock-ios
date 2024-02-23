@@ -473,9 +473,6 @@
                     <connections>
                         <outlet property="addressLine1" destination="JSh-PC-iJO" id="7LV-VG-gmS"/>
                         <outlet property="addressLine2" destination="6h9-LL-79e" id="kom-8Z-8nw"/>
-                        <outlet property="closuresFirstRowColumn1" destination="RWq-DL-z2n" id="LAL-rJ-83L"/>
-                        <outlet property="closuresFirstRowColumn2" destination="ouf-hG-7td" id="qzb-Gq-QiV"/>
-                        <outlet property="closuresFirstRowStack" destination="kyw-Io-Eyx" id="ve0-mr-EVc"/>
                         <outlet property="closuresStack" destination="GDo-B1-dO1" id="taS-aE-VtE"/>
                         <outlet property="day0Hours" destination="lfq-LC-Vqh" id="ygc-eJ-2qI"/>
                         <outlet property="day0Stack" destination="bxZ-Sa-qfM" id="N0B-g0-W82"/>
