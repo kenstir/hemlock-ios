@@ -311,31 +311,33 @@ class OrgDetailsViewController: UIViewController {
 
         // add message if none
         if closures.isEmpty {
-            let row = makeClosureRow(nil, wide: true)
-            closuresStack.addArrangedSubview(row)
+            closuresStack.addArrangedSubview(makeClosureRow(firstString: "No closures scheduled"))
             return
         }
 
         // find out if any closures have date ranges; if so we need extra room
-        //TODO
+        let anyClosuresWithDateRange = closures.contains { $0.getBoolOrFalse("full_day") ? false : true }
 
         // add a row per closure
         for closure in closures {
-            let row = makeClosureRow(closure, wide: false)
-            closuresStack.addArrangedSubview(row)
+            closuresStack.addArrangedSubview(makeClosureRow(closure, useWideDateColumn: anyClosuresWithDateRange))
         }
     }
 
-    func makeClosureRow(_ closure: OSRFObject?, wide: Bool) -> UIView {
+    func makeClosureRow(_ closure: OSRFObject, useWideDateColumn wide: Bool) -> UIView {
 
-        let firstString = closure?.getDateDayOnlyLabel("close_start") ?? "No closures scheduled"
-        let secondString = closure?.getString("reason") ?? nil
+        let dateLabel = getClosureDateLabel(closure)
+        let reason = closure.getString("reason") ?? nil
+        return makeClosureRow(firstString: dateLabel, secondString: reason, useWideDateColumn: wide)
+    }
+
+    func makeClosureRow(firstString: String, secondString: String? = nil, useWideDateColumn wide: Bool = false) -> UIView {
 
         // create hstack to hold row
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.horizontal
         stackView.distribution = UIStackView.Distribution.fill
-        stackView.alignment = UIStackView.Alignment.fill
+        stackView.alignment = UIStackView.Alignment.top
         stackView.spacing = 8.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -349,20 +351,41 @@ class OrgDetailsViewController: UIViewController {
         firstLabel.text = firstString
         stackView.addArrangedSubview(firstLabel)
 
-        if let str = secondString {
+        if secondString != nil {
             // set constraints on first label only if we have a second
-            let width = (wide) ? 0.5 : 0.25
-            if wide { firstLabel.numberOfLines = 2 }
+            let width = (wide) ? 0.45 : 0.25
+            firstLabel.numberOfLines = (wide) ? 2 : 1
             firstLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: width).isActive = true
 
             // add second label
             let secondLabel = UILabel()
             //secondLabel.backgroundColor = UIColor.lightGray // hack to visualize layout
-            secondLabel.text = str
+            secondLabel.text = secondString
+            secondLabel.numberOfLines = (wide) ? 2 : 1
             stackView.addArrangedSubview(secondLabel)
         }
 
         return stackView
+    }
+
+    func getClosureDateLabel(_ closure: OSRFObject) -> String {
+        guard let startDate = closure.getDate("close_start"),
+              let endDate = closure.getDate("close_end") else {
+            return "???"
+        }
+        let isFullDay = closure.getBoolOrFalse("full_day")
+        let isMultiDay = closure.getBoolOrFalse("multi_day")
+        if isMultiDay {
+            let start = OSRFObject.outputDayOnlyFormatter.string(from: startDate)
+            let end = OSRFObject.outputDayOnlyFormatter.string(from: endDate)
+            return "\(start) - \(end)"
+        } else if isFullDay {
+            return OSRFObject.outputDayOnlyFormatter.string(from: startDate)
+        } else {
+            let start = OSRFObject.getDateTimeLabel(from: startDate)
+            let end = OSRFObject.getDateTimeLabel(from: endDate)
+            return "\(start) - \(end)"
+        }
     }
 
     func getAddressLine1(_ obj: OSRFObject) -> String {

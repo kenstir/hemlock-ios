@@ -167,6 +167,12 @@ struct OSRFObject: Equatable {
         return nil
     }
 
+    static func getDateTimeLabel(from date: Date) -> String {
+        let datePart = OSRFObject.outputDayOnlyFormatter.string(from: date)
+        let hoursPart = OSRFObject.outputHoursFormatter.string(from: date)
+        return "\(datePart) \(hoursPart)"
+    }
+
     func getObject(_ key: String) -> OSRFObject? {
         if let val = dict[key] as? OSRFObject {
             return val
