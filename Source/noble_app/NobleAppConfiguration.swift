@@ -23,24 +23,9 @@ class NobleAppConfiguration: BaseAppConfiguration {
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var sort: String? { return "poprel" }
 
-    override var enableHierarchicalOrgTree: Bool { return true }
-    override var enableHoldShowQueuePosition: Bool { return true }
-    override var enableHoldShowExpiration: Bool { return true }
-    override var enableHoldPhoneNotification: Bool { return false }
-    override var enableHoldUseOverride: Bool { return false }
-    override var enablePartHolds: Bool { return false }
-    override var enableTitleHoldOnItemWithParts: Bool { return false }
-    override var enableMainSceneBottomToolbar: Bool { return false }
-    override var enablePayFines: Bool { return true }
     override var enableHoursOfOperation: Bool { return false }
-    override var enableMessages: Bool { return false }
-    override var enableEventsButton: Bool { return false }
-    override var groupCopyInfoBySystem: Bool { return false }
-    override var enableCopyInfoWebLinks: Bool { return false }
     override var needMARCRecord: Bool { return true }
-    override var showOnlineAccessHostname: Bool { return false }
     override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
-    override var haveColorButtonImages: Bool { return false }
 
     override var searchLimit: Int { return 100 }
 }

@@ -22,24 +22,11 @@ class IndianaAppConfiguration: BaseAppConfiguration {
     override var url: String { return "https://evergreen.lib.in.us" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
-    override var enableHierarchicalOrgTree: Bool { return true }
-    override var enableHoldShowQueuePosition: Bool { return true }
     override var enableHoldShowExpiration: Bool { return false }
     override var enableHoldPhoneNotification: Bool { return true }
-    override var enableHoldUseOverride: Bool { return false }
     override var enablePartHolds: Bool { return true }
-    override var enableTitleHoldOnItemWithParts: Bool { return false }
-    override var enableMainSceneBottomToolbar: Bool { return false }
-    override var enablePayFines: Bool { return true }
-    override var enableHoursOfOperation: Bool { return true }
-    override var enableMessages: Bool { return false }
-    override var enableEventsButton: Bool { return false }
-    override var groupCopyInfoBySystem: Bool { return false }
-    override var enableCopyInfoWebLinks: Bool { return false }
     override var needMARCRecord: Bool { return true }
-    override var showOnlineAccessHostname: Bool { return false }
     override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
-    override var haveColorButtonImages: Bool { return false }
 
     override var searchLimit: Int { return 100 }
 }

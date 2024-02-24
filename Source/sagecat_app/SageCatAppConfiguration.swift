@@ -26,7 +26,6 @@ class SageCatAppConfiguration: BaseAppConfiguration {
     override var enableHoldPhoneNotification: Bool { return true }
     override var enablePartHolds: Bool { return true }
     override var enablePayFines: Bool { return false }
-    override var enableHoursOfOperation: Bool { return true }
     override var showOnlineAccessHostname: Bool { return true }
     override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
 

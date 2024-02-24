@@ -24,7 +24,6 @@ class AcornAppConfiguration: BaseAppConfiguration {
 
     override var enableHoldPhoneNotification: Bool { return true }
     override var enablePartHolds: Bool { return true }
-    override var enableTitleHoldOnItemWithParts: Bool { return false }
     override var enableEventsButton: Bool { return true }
     override var enableCopyInfoWebLinks: Bool { return true }
     override var needMARCRecord: Bool { return true }

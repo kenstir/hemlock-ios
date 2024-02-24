@@ -22,26 +22,10 @@ class HemlockAppConfiguration: BaseAppConfiguration {
     override var url: String { return "http://192.168.1.8" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
-    override var enableCheckoutHistory: Bool { return true }
-    override var enableHierarchicalOrgTree: Bool { return true }
-    override var enableHoldShowQueuePosition: Bool { return true }
-    override var enableHoldShowExpiration: Bool { return true }
-    override var enableHoldShowPickupLib: Bool { return false }
     override var enableHoldPhoneNotification: Bool { return true }
-    override var enableHoldUseOverride: Bool { return false }
-    override var enablePartHolds: Bool { return false }
-    override var enableTitleHoldOnItemWithParts: Bool { return false }
-    override var enableMainSceneBottomToolbar: Bool { return false }
-    override var enablePayFines: Bool { return true }
-    override var enableHoursOfOperation: Bool { return true }
-    override var enableMessages: Bool { return false }
-    override var enableEventsButton: Bool { return false }
-    override var groupCopyInfoBySystem: Bool { return false }
     override var enableCopyInfoWebLinks: Bool { return true }
     override var needMARCRecord: Bool { return true }
     override var showOnlineAccessHostname: Bool { return true }
-    override var alwaysUseActionSheetForOnlineLinks: Bool { return false }
-    override var haveColorButtonImages: Bool { return false }
 
     override var barcodeFormat: BarcodeFormat { return .Disabled }
     override var searchLimit: Int { return 100 }
