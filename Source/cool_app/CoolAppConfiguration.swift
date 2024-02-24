@@ -29,6 +29,7 @@ class CoolAppConfiguration: BaseAppConfiguration {
     override var enablePayFines: Bool { return false }
     override var enableEventsButton: Bool { return true }
     override var enableCopyInfoWebLinks: Bool { return true }
+    override var needMARCRecord: Bool { return true }
     override var showOnlineAccessHostname: Bool { return true }
 
     override var searchLimit: Int { return 100 }
