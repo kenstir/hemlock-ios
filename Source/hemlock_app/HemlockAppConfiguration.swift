@@ -17,36 +17,32 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class HemlockAppConfiguration: AppConfiguration {
-    let title = "Hemlock"
-    let url = "http://192.168.1.8"
-    let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    let sort: String? = nil
-    let detailsExtraLinkText: String? = nil
-    let detailsExtraLinkQuery: String? = nil
-    let detailsExtraLinkFragment: String? = nil
+class HemlockAppConfiguration: BaseAppConfiguration {
+    override var title: String { return "Hemlock" }
+    override var url: String { return "http://192.168.1.8" }
+    override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
-    let enableCheckoutHistory = true
-    let enableHierarchicalOrgTree = true
-    let enableHoldShowQueuePosition = true
-    let enableHoldShowExpiration = true
-    let enableHoldShowPickupLib = false
-    let enableHoldPhoneNotification = true
-    let enableHoldUseOverride = false
-    let enablePartHolds = false
-    let enableTitleHoldOnItemWithParts = false
-    let enableMainSceneBottomToolbar = false
-    let enablePayFines = true
-    let enableHoursOfOperation = true
-    let enableMessages = false
-    let enableEventsButton = false
-    let groupCopyInfoBySystem = false
-    let enableCopyInfoWebLinks = true
-    let needMARCRecord = true
-    let showOnlineAccessHostname = true
-    let alwaysUseActionSheetForOnlineLinks = false
-    let haveColorButtonImages = false
+    override var enableCheckoutHistory: Bool { return true }
+    override var enableHierarchicalOrgTree: Bool { return true }
+    override var enableHoldShowQueuePosition: Bool { return true }
+    override var enableHoldShowExpiration: Bool { return true }
+    override var enableHoldShowPickupLib: Bool { return false }
+    override var enableHoldPhoneNotification: Bool { return true }
+    override var enableHoldUseOverride: Bool { return false }
+    override var enablePartHolds: Bool { return false }
+    override var enableTitleHoldOnItemWithParts: Bool { return false }
+    override var enableMainSceneBottomToolbar: Bool { return false }
+    override var enablePayFines: Bool { return true }
+    override var enableHoursOfOperation: Bool { return true }
+    override var enableMessages: Bool { return false }
+    override var enableEventsButton: Bool { return false }
+    override var groupCopyInfoBySystem: Bool { return false }
+    override var enableCopyInfoWebLinks: Bool { return true }
+    override var needMARCRecord: Bool { return true }
+    override var showOnlineAccessHostname: Bool { return true }
+    override var alwaysUseActionSheetForOnlineLinks: Bool { return false }
+    override var haveColorButtonImages: Bool { return false }
 
-    let barcodeFormat: BarcodeFormat = .Disabled
-    let searchLimit = 100
+    override var barcodeFormat: BarcodeFormat { return .Disabled }
+    override var searchLimit: Int { return 100 }
 }

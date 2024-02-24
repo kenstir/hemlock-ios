@@ -17,36 +17,32 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class PinesAppConfiguration: AppConfiguration {
-    var title = "PINES"
-    let url = "https://gapines.org"
-    let bugReportEmailAddress = "kenstir.apps@gmail.com"
-    let sort: String? = nil
-    let detailsExtraLinkText: String? = "More Information"
-    let detailsExtraLinkQuery: String? = nil
-    let detailsExtraLinkFragment: String? = "awards"
+class PinesAppConfiguration: BaseAppConfiguration {
+    override var title: String { return "PINES" }
+    override var url: String { return "https://gapines.org" }
+    override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
+    override var detailsExtraLinkText: String? { return "More Information" }
+    override var detailsExtraLinkQuery: String? { return nil }
+    override var detailsExtraLinkFragment: String? { return "awards" }
 
-    let enableCheckoutHistory = true
-    let enableHierarchicalOrgTree = true
-    let enableHoldShowQueuePosition = false
-    let enableHoldShowExpiration = false
-    let enableHoldPhoneNotification = true
-    let enableHoldShowPickupLib = true
-    let enableHoldUseOverride = false
-    let enablePartHolds = true
-    let enableTitleHoldOnItemWithParts = true
-    let enableMainSceneBottomToolbar = true
-    let enablePayFines = true
-    let enableHoursOfOperation = true
-    let enableMessages = true
-    let enableEventsButton = false
-    let groupCopyInfoBySystem = true
-    let enableCopyInfoWebLinks = true
-    let needMARCRecord = true
-    let showOnlineAccessHostname = false
-    let alwaysUseActionSheetForOnlineLinks = true
-    let haveColorButtonImages = false
+    override var enableHoldShowQueuePosition: Bool { return false }
+    override var enableHoldShowExpiration: Bool { return false }
+    override var enableHoldPhoneNotification: Bool { return true }
+    override var enableHoldShowPickupLib: Bool { return true }
+    override var enableHoldUseOverride: Bool { return false }
+    override var enablePartHolds: Bool { return true }
+    override var enableTitleHoldOnItemWithParts: Bool { return true }
+    override var enableMainSceneBottomToolbar: Bool { return true }
+    override var enablePayFines: Bool { return true }
+    override var enableHoursOfOperation: Bool { return true }
+    override var enableMessages: Bool { return true }
+    override var enableEventsButton: Bool { return false }
+    override var groupCopyInfoBySystem: Bool { return true }
+    override var enableCopyInfoWebLinks: Bool { return true }
+    override var needMARCRecord: Bool { return true }
+    override var showOnlineAccessHostname: Bool { return false }
+    override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
+    override var haveColorButtonImages: Bool { return false }
 
-    let barcodeFormat: BarcodeFormat = .Codabar
-    let searchLimit = 100
+    override var searchLimit: Int { return 100 }
 }
