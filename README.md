@@ -10,13 +10,13 @@ With the Hemlock app, you can:
 
 Quick Start for Developers
 --------------------------
-Before opening the project in Xcode, install the prerequisites using Carthage.
+Before opening the project in Xcode, checkout and build the prerequisites using Carthage.
 
 ```
  brew update
  brew install carthage
  brew upgrade carthage
- ./carthage-update
+ ./update
 ```
 
 Read [the Developer Documentation](Documentation/README.md)

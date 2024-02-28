@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# run carthage update
+
+set -e
+
+# THE CONTINUING SAGA OF IPHONEOS_DEPLOYMENT_TARGET
+#
+# Every Xcode release increases the minimum IPHONEOS_DEPLOYMENT_TARGET;
+# Xcode 15 has a new minimum of 12.0.  This means I need to update all
+# the dependencies and retag them.
+#
+# If you see this error:
+#   A shell task (/usr/bin/env git checkout --quiet --force 3.0.5-kenstir.3 (launched in /Users/kenstir/Library/Caches/org.carthage.CarthageKit/dependencies/PINRemoteImage)) failed with exit code 128:
+#   fatal: Unable to create '/Users/kenstir/Library/Caches/org.carthage.CarthageKit/dependencies/PINRemoteImage/./index.lock': File exists.
+#
+# it probably means that a transitive dependency is not updated, e.g.
+# Texture requires a different PINRemoteImage than the one you just updated.
+
+carthage update --platform ios --use-xcframeworks --log-path update.log $@
