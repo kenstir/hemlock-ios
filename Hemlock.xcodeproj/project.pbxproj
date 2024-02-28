@@ -152,15 +152,6 @@
 		D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D210EC1422B1EE55002FB5E0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D210EC1722B1EE55002FB5E0 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D210EC1822B1EE55002FB5E0 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D210EC1922B1EE55002FB5E0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D210EC1A22B1EE55002FB5E0 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D210EC1B22B1EE55002FB5E0 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D210EC1C22B1EE55002FB5E0 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D210EC1D22B1EE55002FB5E0 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D210EC1E22B1EE55002FB5E0 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D210EC2022B1EE55002FB5E0 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D210EC2222B1EE55002FB5E0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D210EC2322B1EE55002FB5E0 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D210EC2522B1EE55002FB5E0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
@@ -179,8 +170,6 @@
 		D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */; };
 		D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* acorn.xcassets */; };
 		D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2720C5B90A00267503 /* PromiseKitTests.swift */; };
-		D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679E21D039BF0082358C /* CoolAppConfiguration.swift */; };
 		D21867A221D039BF0082358C /* CoolTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679F21D039BF0082358C /* CoolTheme.swift */; };
@@ -199,7 +188,6 @@
 		D21FF6DD225A6FF000D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D21FF6DE225A6FF100D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
-		D2211B0620D0BA840043947B /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
 		D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
 		D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */; };
@@ -250,7 +238,6 @@
 		D22D0C9B2243107600DBB31A /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D231B52220804DF900478D25 /* AlamoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52120804DF900478D25 /* AlamoTests.swift */; };
-		D231B5292081628900478D25 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
 		D231B52C2083C08000478D25 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52B2083C08000478D25 /* Library.swift */; };
 		D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D231B52D2083C1E500478D25 /* LibraryTests.swift */; };
 		D233710E2A6C78830080294F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D233710D2A6C78830080294F /* Login.storyboard */; };
@@ -350,16 +337,6 @@
 		D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D23E9FBF23B9200A0030F5C1 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D23E9FC023B9200A0030F5C1 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D23E9FC123B9200A0030F5C1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D23E9FC223B9200A0030F5C1 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D23E9FC323B9200A0030F5C1 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D23E9FC423B9200A0030F5C1 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D23E9FC523B9200A0030F5C1 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D23E9FC623B9200A0030F5C1 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D23E9FC723B9200A0030F5C1 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D23E9FC823B9200A0030F5C1 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D23E9FCA23B9200A0030F5C1 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D23E9FCB23B9200A0030F5C1 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
@@ -485,16 +462,6 @@
 		D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2477C0B24785A6B00FD4CF6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D2477C0D24785A6B00FD4CF6 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D2477C0E24785A6B00FD4CF6 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D2477C0F24785A6B00FD4CF6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D2477C1024785A6B00FD4CF6 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D2477C1124785A6B00FD4CF6 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D2477C1224785A6B00FD4CF6 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D2477C1324785A6B00FD4CF6 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D2477C1424785A6B00FD4CF6 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D2477C1524785A6B00FD4CF6 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D2477C1624785A6B00FD4CF6 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D2477C1824785A6B00FD4CF6 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2477C1924785A6B00FD4CF6 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2477C1A24785A6B00FD4CF6 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
@@ -560,10 +527,6 @@
 		D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2723F616C000D11662 /* CircRecordTests.swift */; };
 		D252DA2A23F6382000D11662 /* HoldRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2923F6382000D11662 /* HoldRecordTests.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
-		D253343E20C3076D008176B9 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D253344220C3078F008176B9 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D253344420C30A60008176B9 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
 		D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
 		D2572AA724AD7755000BA698 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -642,16 +605,6 @@
 		D2572AFC24AD7755000BA698 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2572AFD24AD7755000BA698 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2572AFE24AD7755000BA698 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D2572B0024AD7755000BA698 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D2572B0124AD7755000BA698 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D2572B0224AD7755000BA698 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D2572B0324AD7755000BA698 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D2572B0424AD7755000BA698 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D2572B0524AD7755000BA698 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D2572B0624AD7755000BA698 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D2572B0724AD7755000BA698 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D2572B0824AD7755000BA698 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D2572B0924AD7755000BA698 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D2572B0B24AD7755000BA698 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2572B0C24AD7755000BA698 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2572B0D24AD7755000BA698 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
@@ -758,16 +711,6 @@
 		D25EECA728A1E8310090F108 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D25EECA828A1E8310090F108 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D25EECA928A1E8310090F108 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D25EECAB28A1E8310090F108 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D25EECAC28A1E8310090F108 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D25EECAD28A1E8310090F108 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D25EECAE28A1E8310090F108 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D25EECAF28A1E8310090F108 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D25EECB028A1E8310090F108 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D25EECB128A1E8310090F108 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D25EECB228A1E8310090F108 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D25EECB328A1E8310090F108 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D25EECB428A1E8310090F108 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D25EECB628A1E8310090F108 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D25EECB728A1E8310090F108 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D25EECB828A1E8310090F108 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
@@ -858,15 +801,6 @@
 		D276DAC321336B20007FAA31 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D276DAC421336B20007FAA31 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D276DAC521336B20007FAA31 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D276DAC821336B20007FAA31 /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D276DAC921336B20007FAA31 /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D276DACA21336B20007FAA31 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D276DACB21336B20007FAA31 /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D276DACC21336B20007FAA31 /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D276DACD21336B20007FAA31 /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D276DACE21336B20007FAA31 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D276DACF21336B20007FAA31 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D276DAD021336B20007FAA31 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D276DAD221336B20007FAA31 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
@@ -905,14 +839,6 @@
 		D27990ED20DDD473003B451E /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
 		D27990EE20DDD473003B451E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainViewController.swift */; };
 		D27990EF20DDD473003B451E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D27990F220DDD473003B451E /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D27990F320DDD473003B451E /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D27990F520DDD473003B451E /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D27990F620DDD473003B451E /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D27990F720DDD473003B451E /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D27990F820DDD473003B451E /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		D27990FB20DDD473003B451E /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D279910020DDD473003B451E /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
@@ -1020,16 +946,6 @@
 		D284248E21D0358200C7171C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D284248F21D0358200C7171C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D284249021D0358200C7171C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D284249321D0358200C7171C /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D284249421D0358200C7171C /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D284249521D0358200C7171C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D284249621D0358200C7171C /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D284249721D0358200C7171C /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D284249821D0358200C7171C /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D284249921D0358200C7171C /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D284249A21D0358200C7171C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D284249B21D0358200C7171C /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D284249C21D0358200C7171C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D284249E21D0358200C7171C /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D28424A321D0358200C7171C /* Holds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD142020CDB01C008F02D3 /* Holds.storyboard */; };
@@ -1042,8 +958,6 @@
 		D28424AB21D0358200C7171C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
 		D28725AE20E86F30002A4C42 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
 		D28725AF20E88063002A4C42 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
-		D28725B420E95AB0002A4C42 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
-		D28725B520E95B01002A4C42 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
 		D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D287D501207AEF2B001AF644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* Main.storyboard */; };
@@ -1130,6 +1044,226 @@
 		D293EC1B297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
 		D293EC1C297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
 		D293EC1D297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
+		D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DDE2B8FBFF900193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951DDF2B8FBFF900193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DE02B8FBFF900193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951DE12B8FBFF900193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951DE32B8FBFF900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DE42B8FBFF900193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951DE52B8FBFF900193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DE62B8FBFF900193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951DE72B8FBFF900193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DEA2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DEE2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951DEF2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DF12B8FC1D600193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951DF22B8FC1D600193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DF32B8FC1D600193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951DF42B8FC1D600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DFB2B8FC1D600193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951DFC2B8FC1D600193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DFD2B8FC1D600193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951DFE2B8FC1D600193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951DFF2B8FC1D600193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951E002B8FC1D600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E012B8FC1D600193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951E022B8FC1D600193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E062B8FC23400193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951E072B8FC23400193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E082B8FC23400193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951E092B8FC23400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E0A2B8FC23400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951E0B2B8FC23400193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E0C2B8FC23500193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951E0D2B8FC23500193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E0E2B8FC23500193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951E0F2B8FC23500193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E102B8FC23500193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951E112B8FC23500193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E122B8FC23500193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951E132B8FC23500193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E142B8FC23500193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951E152B8FC23500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E162B8FC23500193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951E172B8FC23500193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E182B8FC23500193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951E192B8FC23500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E1B2B8FC25800193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951E1C2B8FC25800193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E1D2B8FC25800193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951E1E2B8FC25800193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E252B8FC25900193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951E262B8FC25900193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E272B8FC25900193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951E282B8FC25900193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E292B8FC25900193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951E2A2B8FC25900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E2B2B8FC25900193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951E2C2B8FC25900193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E302B8FC27500193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951E312B8FC27500193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E322B8FC27600193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951E332B8FC27600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E3A2B8FC27600193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951E3B2B8FC27600193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E3C2B8FC27600193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951E3D2B8FC27600193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E3E2B8FC27600193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951E3F2B8FC27600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E402B8FC27600193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951E412B8FC27600193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E452B8FC28E00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951E462B8FC28E00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E472B8FC28E00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951E482B8FC28E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E4F2B8FC28E00193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951E502B8FC28E00193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E512B8FC28F00193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951E522B8FC28F00193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E532B8FC28F00193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951E542B8FC28F00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E552B8FC28F00193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951E562B8FC28F00193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E5A2B8FC29E00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951E5B2B8FC29E00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E5C2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951E5D2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E642B8FC29E00193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951E652B8FC29E00193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E662B8FC29E00193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951E672B8FC29E00193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E682B8FC29E00193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951E692B8FC29E00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E6A2B8FC29E00193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951E6B2B8FC29E00193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E6F2B8FC2AB00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951E702B8FC2AB00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E712B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951E722B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E732B8FC2AB00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951E742B8FC2AB00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E752B8FC2AB00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951E762B8FC2AB00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E772B8FC2AB00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951E782B8FC2AB00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E792B8FC2AB00193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951E7A2B8FC2AB00193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E7B2B8FC2AC00193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951E7C2B8FC2AC00193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E7D2B8FC2AC00193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951E7E2B8FC2AC00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E7F2B8FC2AC00193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951E802B8FC2AC00193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E812B8FC2AC00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951E822B8FC2AC00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E842B8FC2B700193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951E852B8FC2B700193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E862B8FC2B700193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951E872B8FC2B700193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E8E2B8FC2B700193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951E8F2B8FC2B800193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E902B8FC2B800193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951E912B8FC2B800193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E922B8FC2B800193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951E932B8FC2B800193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E942B8FC2B800193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951E952B8FC2B800193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E992B8FC2C400193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951E9A2B8FC2C400193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E9B2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951E9C2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EA32B8FC2C500193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951EA42B8FC2C500193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EA52B8FC2C500193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951EA62B8FC2C500193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EA72B8FC2C500193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951EA82B8FC2C500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EA92B8FC2C500193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951EAA2B8FC2C500193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EAE2B8FC2D300193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
+		D2951EAF2B8FC2D300193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EB02B8FC2D300193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
+		D2951EB12B8FC2D300193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
+		D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
+		D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
+		D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EB82B8FC2D400193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
+		D2951EB92B8FC2D400193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EBA2B8FC2D400193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
+		D2951EBB2B8FC2D400193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EBC2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
+		D2951EBD2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EBE2B8FC2D400193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
+		D2951EBF2B8FC2D400193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
+		D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D296EE0C21338030009BDB12 /* CWMarsAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */; };
 		D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppFactory.swift */; };
 		D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CWMarsTheme.swift */; };
@@ -1152,9 +1286,6 @@
 		D29911EA248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
 		D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
 		D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
-		D29A3B2A2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D29A3B2B2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D29A3B2C2197C14900BBF192 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
 		D29C720E209245E200E90952 /* TestUserData in Resources */ = {isa = PBXBuildFile; fileRef = D29C720D209245E200E90952 /* TestUserData */; };
 		D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D29C721220924CF000E90952 /* OSRFCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C721120924CF000E90952 /* OSRFCoderTests.swift */; };
@@ -1341,16 +1472,6 @@
 		D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2BDA65D22D176BD00D9B60C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D2BDA66022D176BD00D9B60C /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D2BDA66122D176BD00D9B60C /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D2BDA66222D176BD00D9B60C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D2BDA66322D176BD00D9B60C /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D2BDA66422D176BD00D9B60C /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D2BDA66522D176BD00D9B60C /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D2BDA66622D176BD00D9B60C /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D2BDA66722D176BD00D9B60C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D2BDA66822D176BD00D9B60C /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D2BDA66922D176BD00D9B60C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D2BDA66B22D176BD00D9B60C /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2BDA66D22D176BD00D9B60C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2BDA66F22D176BD00D9B60C /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
@@ -1440,16 +1561,6 @@
 		D2BDA6F322D2A72000D9B60C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D2BDA6F422D2A72000D9B60C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2BDA6F522D2A72000D9B60C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
-		D2BDA6F822D2A72000D9B60C /* Valet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2211B0520D0BA840043947B /* Valet.framework */; };
-		D2BDA6F922D2A72000D9B60C /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344320C30A60008176B9 /* PINOperation.framework */; };
-		D2BDA6FA22D2A72000D9B60C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D231B5282081628900478D25 /* Alamofire.framework */; };
-		D2BDA6FB22D2A72000D9B60C /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */; };
-		D2BDA6FC22D2A72000D9B60C /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253343F20C30789008176B9 /* PINRemoteImage.framework */; };
-		D2BDA6FD22D2A72000D9B60C /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29A3B292197C14900BBF192 /* ZXingObjC.framework */; };
-		D2BDA6FE22D2A72000D9B60C /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D253344120C3078F008176B9 /* PINCache.framework */; };
-		D2BDA6FF22D2A72000D9B60C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2920C5C0D200267503 /* PromiseKit.framework */; };
-		D2BDA70022D2A72000D9B60C /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
-		D2BDA70122D2A72000D9B60C /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */; };
 		D2BDA70322D2A72000D9B60C /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2BDA70422D2A72000D9B60C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D2BDA70622D2A72000D9B60C /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2F3902E2241E5950089D745 /* LICENSE.txt */; };
@@ -1589,7 +1700,6 @@
 		D2F390362241E5950089D745 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3902F2241E5950089D745 /* RingBuffer.swift */; };
 		D2F390372241E5950089D745 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3902F2241E5950089D745 /* RingBuffer.swift */; };
 		D2F390392241E6090089D745 /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F390382241E6090089D745 /* RingBufferTests.swift */; };
-		D2F9709429D255F10004C645 /* PMKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */; };
 		FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
 		FA37C3F920FC2A09003C2003 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
@@ -1620,6 +1730,229 @@
 			remoteInfo = Hemlock;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2951DF02B8FBFF900193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951DDF2B8FBFF900193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951DEF2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951DE72B8FBFF900193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */,
+				D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951DE32B8FBFF900193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951DE52B8FBFF900193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951DE12B8FBFF900193695 /* Valet.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951E052B8FC1D700193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951DF42B8FC1D600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951DFE2B8FC1D600193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951E002B8FC1D600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951E022B8FC1D600193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951DFC2B8FC1D600193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951DF22B8FC1D600193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951E1A2B8FC23500193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951E192B8FC23500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951E092B8FC23400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951E132B8FC23500193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951E0B2B8FC23400193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951E0F2B8FC23500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951E152B8FC23500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951E172B8FC23500193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951E112B8FC23500193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951E072B8FC23400193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951E0D2B8FC23500193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951E2F2B8FC25A00193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951E1E2B8FC25800193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951E282B8FC25900193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951E2A2B8FC25900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951E2C2B8FC25900193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951E262B8FC25900193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951E1C2B8FC25800193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951E442B8FC27700193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951E332B8FC27600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951E3D2B8FC27600193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951E3F2B8FC27600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951E412B8FC27600193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951E3B2B8FC27600193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951E312B8FC27500193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951E592B8FC28F00193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951E482B8FC28E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951E522B8FC28F00193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951E542B8FC28F00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951E562B8FC28F00193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951E502B8FC28E00193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951E462B8FC28E00193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951E6E2B8FC29F00193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951E5D2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951E672B8FC29E00193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951E692B8FC29E00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951E6B2B8FC29E00193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951E652B8FC29E00193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951E5B2B8FC29E00193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951E832B8FC2AC00193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951E822B8FC2AC00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951E722B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951E7C2B8FC2AC00193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951E742B8FC2AB00193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951E782B8FC2AB00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951E7E2B8FC2AC00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951E802B8FC2AC00193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951E7A2B8FC2AB00193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951E702B8FC2AB00193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951E762B8FC2AB00193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951E982B8FC2B800193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951E872B8FC2B700193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951E912B8FC2B800193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951E932B8FC2B800193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951E952B8FC2B800193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951E8F2B8FC2B800193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951E852B8FC2B700193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951EAD2B8FC2C500193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951E9C2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951EA62B8FC2C500193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951EA82B8FC2C500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951EAA2B8FC2C500193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951EA42B8FC2C500193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951E9A2B8FC2C400193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2951EC22B8FC2D400193695 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */,
+				D2951EB12B8FC2D300193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
+				D2951EBB2B8FC2D400193695 /* PromiseKit.xcframework in Embed Frameworks */,
+				D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */,
+				D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
+				D2951EBD2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
+				D2951EBF2B8FC2D400193695 /* Valet.xcframework in Embed Frameworks */,
+				D2951EB92B8FC2D400193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
+				D2951EAF2B8FC2D300193695 /* Alamofire.xcframework in Embed Frameworks */,
+				D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageDetails.storyboard; sourceTree = "<group>"; };
@@ -1801,6 +2134,16 @@
 		D2931AA9272DE83200CBA5AA /* BookBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBag.swift; sourceTree = "<group>"; };
 		D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagTests.swift; sourceTree = "<group>"; };
 		D293EC12297CC33F00C9F1C4 /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINRemoteImage.xcframework; path = Carthage/Build/PINRemoteImage.xcframework; sourceTree = "<group>"; };
+		D2951DD32B8FBFF800193695 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
+		D2951DD42B8FBFF800193695 /* Valet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Valet.xcframework; path = Carthage/Build/Valet.xcframework; sourceTree = "<group>"; };
+		D2951DD52B8FBFF800193695 /* PINCache.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINCache.xcframework; path = Carthage/Build/PINCache.xcframework; sourceTree = "<group>"; };
+		D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PMKAlamofire.xcframework; path = Carthage/Build/PMKAlamofire.xcframework; sourceTree = "<group>"; };
+		D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromiseKit.xcframework; path = Carthage/Build/PromiseKit.xcframework; sourceTree = "<group>"; };
+		D2951DD82B8FBFF800193695 /* PINOperation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINOperation.xcframework; path = Carthage/Build/PINOperation.xcframework; sourceTree = "<group>"; };
+		D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ToastSwiftFramework.xcframework; path = Carthage/Build/ToastSwiftFramework.xcframework; sourceTree = "<group>"; };
+		D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZXingObjC.xcframework; path = Carthage/Build/ZXingObjC.xcframework; sourceTree = "<group>"; };
+		D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AsyncDisplayKit.xcframework; path = Carthage/Build/AsyncDisplayKit.xcframework; sourceTree = "<group>"; };
 		D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsAppConfiguration.swift; sourceTree = "<group>"; };
 		D296EE0A2133802F009BDB12 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
@@ -1888,16 +2231,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D210EC1722B1EE55002FB5E0 /* Valet.framework in Frameworks */,
-				D210EC1822B1EE55002FB5E0 /* PINOperation.framework in Frameworks */,
-				D210EC1922B1EE55002FB5E0 /* Alamofire.framework in Frameworks */,
-				D210EC1A22B1EE55002FB5E0 /* AsyncDisplayKit.framework in Frameworks */,
-				D210EC1B22B1EE55002FB5E0 /* PINRemoteImage.framework in Frameworks */,
-				D210EC1C22B1EE55002FB5E0 /* ZXingObjC.framework in Frameworks */,
-				D210EC1D22B1EE55002FB5E0 /* PINCache.framework in Frameworks */,
-				D210EC1E22B1EE55002FB5E0 /* PromiseKit.framework in Frameworks */,
-				D2F9709429D255F10004C645 /* PMKAlamofire.framework in Frameworks */,
-				D210EC2022B1EE55002FB5E0 /* ToastSwiftFramework.framework in Frameworks */,
+				D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951DF32B8FC1D600193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951DFD2B8FC1D600193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */,
+				D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951DFF2B8FC1D600193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951E012B8FC1D600193695 /* Valet.xcframework in Frameworks */,
+				D2951DFB2B8FC1D600193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951DF12B8FC1D600193695 /* Alamofire.xcframework in Frameworks */,
+				D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1905,16 +2248,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D23E9FBF23B9200A0030F5C1 /* Valet.framework in Frameworks */,
-				D23E9FC023B9200A0030F5C1 /* PINOperation.framework in Frameworks */,
-				D23E9FC123B9200A0030F5C1 /* Alamofire.framework in Frameworks */,
-				D23E9FC223B9200A0030F5C1 /* AsyncDisplayKit.framework in Frameworks */,
-				D23E9FC323B9200A0030F5C1 /* PINRemoteImage.framework in Frameworks */,
-				D23E9FC423B9200A0030F5C1 /* ZXingObjC.framework in Frameworks */,
-				D23E9FC523B9200A0030F5C1 /* PINCache.framework in Frameworks */,
-				D23E9FC623B9200A0030F5C1 /* PromiseKit.framework in Frameworks */,
-				D23E9FC723B9200A0030F5C1 /* PMKAlamofire.framework in Frameworks */,
-				D23E9FC823B9200A0030F5C1 /* ToastSwiftFramework.framework in Frameworks */,
+				D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951EB02B8FC2D300193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951EBA2B8FC2D400193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */,
+				D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951EBC2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951EBE2B8FC2D400193695 /* Valet.xcframework in Frameworks */,
+				D2951EB82B8FC2D400193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951EAE2B8FC2D300193695 /* Alamofire.xcframework in Frameworks */,
+				D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1922,16 +2265,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2477C0D24785A6B00FD4CF6 /* Valet.framework in Frameworks */,
-				D2477C0E24785A6B00FD4CF6 /* PINOperation.framework in Frameworks */,
-				D2477C0F24785A6B00FD4CF6 /* Alamofire.framework in Frameworks */,
-				D2477C1024785A6B00FD4CF6 /* AsyncDisplayKit.framework in Frameworks */,
-				D2477C1124785A6B00FD4CF6 /* PINRemoteImage.framework in Frameworks */,
-				D2477C1224785A6B00FD4CF6 /* ZXingObjC.framework in Frameworks */,
-				D2477C1324785A6B00FD4CF6 /* PINCache.framework in Frameworks */,
-				D2477C1424785A6B00FD4CF6 /* PromiseKit.framework in Frameworks */,
-				D2477C1524785A6B00FD4CF6 /* PMKAlamofire.framework in Frameworks */,
-				D2477C1624785A6B00FD4CF6 /* ToastSwiftFramework.framework in Frameworks */,
+				D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951E322B8FC27600193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951E3C2B8FC27600193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */,
+				D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951E3E2B8FC27600193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951E402B8FC27600193695 /* Valet.xcframework in Frameworks */,
+				D2951E3A2B8FC27600193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951E302B8FC27500193695 /* Alamofire.xcframework in Frameworks */,
+				D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1939,16 +2282,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2572B0024AD7755000BA698 /* Valet.framework in Frameworks */,
-				D2572B0124AD7755000BA698 /* PINOperation.framework in Frameworks */,
-				D2572B0224AD7755000BA698 /* Alamofire.framework in Frameworks */,
-				D2572B0324AD7755000BA698 /* AsyncDisplayKit.framework in Frameworks */,
-				D2572B0424AD7755000BA698 /* PINRemoteImage.framework in Frameworks */,
-				D2572B0524AD7755000BA698 /* ZXingObjC.framework in Frameworks */,
-				D2572B0624AD7755000BA698 /* PINCache.framework in Frameworks */,
-				D2572B0724AD7755000BA698 /* PromiseKit.framework in Frameworks */,
-				D2572B0824AD7755000BA698 /* PMKAlamofire.framework in Frameworks */,
-				D2572B0924AD7755000BA698 /* ToastSwiftFramework.framework in Frameworks */,
+				D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951E472B8FC28E00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951E512B8FC28F00193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */,
+				D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951E532B8FC28F00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951E552B8FC28F00193695 /* Valet.xcframework in Frameworks */,
+				D2951E4F2B8FC28E00193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951E452B8FC28E00193695 /* Alamofire.xcframework in Frameworks */,
+				D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1956,16 +2299,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D25EECAB28A1E8310090F108 /* Valet.framework in Frameworks */,
-				D25EECAC28A1E8310090F108 /* PINOperation.framework in Frameworks */,
-				D25EECAD28A1E8310090F108 /* Alamofire.framework in Frameworks */,
-				D25EECAE28A1E8310090F108 /* AsyncDisplayKit.framework in Frameworks */,
-				D25EECAF28A1E8310090F108 /* PINRemoteImage.framework in Frameworks */,
-				D25EECB028A1E8310090F108 /* ZXingObjC.framework in Frameworks */,
-				D25EECB128A1E8310090F108 /* PINCache.framework in Frameworks */,
-				D25EECB228A1E8310090F108 /* PromiseKit.framework in Frameworks */,
-				D25EECB328A1E8310090F108 /* PMKAlamofire.framework in Frameworks */,
-				D25EECB428A1E8310090F108 /* ToastSwiftFramework.framework in Frameworks */,
+				D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951E862B8FC2B700193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951E902B8FC2B800193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */,
+				D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951E922B8FC2B800193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951E942B8FC2B800193695 /* Valet.xcframework in Frameworks */,
+				D2951E8E2B8FC2B700193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951E842B8FC2B700193695 /* Alamofire.xcframework in Frameworks */,
+				D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1973,16 +2316,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D276DAC821336B20007FAA31 /* Valet.framework in Frameworks */,
-				D276DAC921336B20007FAA31 /* PINOperation.framework in Frameworks */,
-				D276DACA21336B20007FAA31 /* Alamofire.framework in Frameworks */,
-				D276DACB21336B20007FAA31 /* AsyncDisplayKit.framework in Frameworks */,
-				D276DACC21336B20007FAA31 /* PINRemoteImage.framework in Frameworks */,
-				D29A3B2C2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
-				D276DACD21336B20007FAA31 /* PINCache.framework in Frameworks */,
-				D276DACE21336B20007FAA31 /* PromiseKit.framework in Frameworks */,
-				D276DACF21336B20007FAA31 /* PMKAlamofire.framework in Frameworks */,
-				D276DAD021336B20007FAA31 /* ToastSwiftFramework.framework in Frameworks */,
+				D2951DDE2B8FBFF900193695 /* Alamofire.xcframework in Frameworks */,
+				D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951DEE2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951DE62B8FBFF900193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */,
+				D2951DEA2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */,
+				D2951DE42B8FBFF900193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951DE02B8FBFF900193695 /* Valet.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1990,16 +2333,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D27990F220DDD473003B451E /* Valet.framework in Frameworks */,
-				D27990F320DDD473003B451E /* PINOperation.framework in Frameworks */,
-				D27990F420DDD473003B451E /* Alamofire.framework in Frameworks */,
-				D27990F520DDD473003B451E /* AsyncDisplayKit.framework in Frameworks */,
-				D27990F620DDD473003B451E /* PINRemoteImage.framework in Frameworks */,
-				D29A3B2A2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
-				D27990F720DDD473003B451E /* PINCache.framework in Frameworks */,
-				D27990F820DDD473003B451E /* PromiseKit.framework in Frameworks */,
-				D27990F920DDD473003B451E /* PMKAlamofire.framework in Frameworks */,
-				D28725B420E95AB0002A4C42 /* ToastSwiftFramework.framework in Frameworks */,
+				D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951E1D2B8FC25800193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951E272B8FC25900193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */,
+				D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951E292B8FC25900193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951E2B2B8FC25900193695 /* Valet.xcframework in Frameworks */,
+				D2951E252B8FC25900193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951E1B2B8FC25800193695 /* Alamofire.xcframework in Frameworks */,
+				D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2007,16 +2350,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D284249321D0358200C7171C /* Valet.framework in Frameworks */,
-				D284249421D0358200C7171C /* PINOperation.framework in Frameworks */,
-				D284249521D0358200C7171C /* Alamofire.framework in Frameworks */,
-				D284249621D0358200C7171C /* AsyncDisplayKit.framework in Frameworks */,
-				D284249721D0358200C7171C /* PINRemoteImage.framework in Frameworks */,
-				D284249821D0358200C7171C /* ZXingObjC.framework in Frameworks */,
-				D284249921D0358200C7171C /* PINCache.framework in Frameworks */,
-				D284249A21D0358200C7171C /* PromiseKit.framework in Frameworks */,
-				D284249B21D0358200C7171C /* PMKAlamofire.framework in Frameworks */,
-				D284249C21D0358200C7171C /* ToastSwiftFramework.framework in Frameworks */,
+				D2951E182B8FC23500193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951E082B8FC23400193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951E122B8FC23500193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951E0A2B8FC23400193695 /* PINCache.xcframework in Frameworks */,
+				D2951E0E2B8FC23500193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951E142B8FC23500193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951E162B8FC23500193695 /* Valet.xcframework in Frameworks */,
+				D2951E102B8FC23500193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951E062B8FC23400193695 /* Alamofire.xcframework in Frameworks */,
+				D2951E0C2B8FC23500193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2024,16 +2367,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2211B0620D0BA840043947B /* Valet.framework in Frameworks */,
-				D253344420C30A60008176B9 /* PINOperation.framework in Frameworks */,
-				D231B5292081628900478D25 /* Alamofire.framework in Frameworks */,
-				D253343E20C3076D008176B9 /* AsyncDisplayKit.framework in Frameworks */,
-				D253344020C30789008176B9 /* PINRemoteImage.framework in Frameworks */,
-				D29A3B2B2197C14900BBF192 /* ZXingObjC.framework in Frameworks */,
-				D253344220C3078F008176B9 /* PINCache.framework in Frameworks */,
-				D212DB2A20C5C0D200267503 /* PromiseKit.framework in Frameworks */,
-				D212DB2C20C5C0D500267503 /* PMKAlamofire.framework in Frameworks */,
-				D28725B520E95B01002A4C42 /* ToastSwiftFramework.framework in Frameworks */,
+				D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951E9B2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951EA52B8FC2C500193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */,
+				D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951EA72B8FC2C500193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951EA92B8FC2C500193695 /* Valet.xcframework in Frameworks */,
+				D2951EA32B8FC2C500193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951E992B8FC2C400193695 /* Alamofire.xcframework in Frameworks */,
+				D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2048,16 +2391,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BDA66022D176BD00D9B60C /* Valet.framework in Frameworks */,
-				D2BDA66122D176BD00D9B60C /* PINOperation.framework in Frameworks */,
-				D2BDA66222D176BD00D9B60C /* Alamofire.framework in Frameworks */,
-				D2BDA66322D176BD00D9B60C /* AsyncDisplayKit.framework in Frameworks */,
-				D2BDA66422D176BD00D9B60C /* PINRemoteImage.framework in Frameworks */,
-				D2BDA66522D176BD00D9B60C /* ZXingObjC.framework in Frameworks */,
-				D2BDA66622D176BD00D9B60C /* PINCache.framework in Frameworks */,
-				D2BDA66722D176BD00D9B60C /* PromiseKit.framework in Frameworks */,
-				D2BDA66822D176BD00D9B60C /* PMKAlamofire.framework in Frameworks */,
-				D2BDA66922D176BD00D9B60C /* ToastSwiftFramework.framework in Frameworks */,
+				D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951E5C2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951E662B8FC29E00193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */,
+				D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951E682B8FC29E00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951E6A2B8FC29E00193695 /* Valet.xcframework in Frameworks */,
+				D2951E642B8FC29E00193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951E5A2B8FC29E00193695 /* Alamofire.xcframework in Frameworks */,
+				D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2065,16 +2408,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BDA6F822D2A72000D9B60C /* Valet.framework in Frameworks */,
-				D2BDA6F922D2A72000D9B60C /* PINOperation.framework in Frameworks */,
-				D2BDA6FA22D2A72000D9B60C /* Alamofire.framework in Frameworks */,
-				D2BDA6FB22D2A72000D9B60C /* AsyncDisplayKit.framework in Frameworks */,
-				D2BDA6FC22D2A72000D9B60C /* PINRemoteImage.framework in Frameworks */,
-				D2BDA6FD22D2A72000D9B60C /* ZXingObjC.framework in Frameworks */,
-				D2BDA6FE22D2A72000D9B60C /* PINCache.framework in Frameworks */,
-				D2BDA6FF22D2A72000D9B60C /* PromiseKit.framework in Frameworks */,
-				D2BDA70022D2A72000D9B60C /* PMKAlamofire.framework in Frameworks */,
-				D2BDA70122D2A72000D9B60C /* ToastSwiftFramework.framework in Frameworks */,
+				D2951E812B8FC2AC00193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2951E712B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
+				D2951E7B2B8FC2AC00193695 /* PromiseKit.xcframework in Frameworks */,
+				D2951E732B8FC2AB00193695 /* PINCache.xcframework in Frameworks */,
+				D2951E772B8FC2AB00193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2951E7D2B8FC2AC00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
+				D2951E7F2B8FC2AC00193695 /* Valet.xcframework in Frameworks */,
+				D2951E792B8FC2AB00193695 /* PMKAlamofire.xcframework in Frameworks */,
+				D2951E6F2B8FC2AB00193695 /* Alamofire.xcframework in Frameworks */,
+				D2951E752B8FC2AB00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2350,6 +2693,16 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2951DD32B8FBFF800193695 /* Alamofire.xcframework */,
+				D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */,
+				D2951DD52B8FBFF800193695 /* PINCache.xcframework */,
+				D2951DD82B8FBFF800193695 /* PINOperation.xcframework */,
+				D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */,
+				D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */,
+				D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */,
+				D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */,
+				D2951DD42B8FBFF800193695 /* Valet.xcframework */,
+				D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */,
 				D29A3B292197C14900BBF192 /* ZXingObjC.framework */,
 				D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */,
 				D2211B0520D0BA840043947B /* Valet.framework */,
@@ -2716,7 +3069,7 @@
 				D210EBC722B1EE55002FB5E0 /* Sources */,
 				D210EC1622B1EE55002FB5E0 /* Frameworks */,
 				D210EC2122B1EE55002FB5E0 /* Resources */,
-				D210EC3222B1EE55002FB5E0 /* ShellScript */,
+				D2951E052B8FC1D700193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2734,7 +3087,7 @@
 				D23E9F6A23B9200A0030F5C1 /* Sources */,
 				D23E9FBE23B9200A0030F5C1 /* Frameworks */,
 				D23E9FC923B9200A0030F5C1 /* Resources */,
-				D23E9FD923B9200A0030F5C1 /* ShellScript */,
+				D2951EC22B8FC2D400193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2752,7 +3105,7 @@
 				D2477BB624785A6B00FD4CF6 /* Sources */,
 				D2477C0C24785A6B00FD4CF6 /* Frameworks */,
 				D2477C1724785A6B00FD4CF6 /* Resources */,
-				D2477C2724785A6B00FD4CF6 /* ShellScript */,
+				D2951E442B8FC27700193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2770,7 +3123,7 @@
 				D2572AA624AD7755000BA698 /* Sources */,
 				D2572AFF24AD7755000BA698 /* Frameworks */,
 				D2572B0A24AD7755000BA698 /* Resources */,
-				D2572B1B24AD7755000BA698 /* ShellScript */,
+				D2951E592B8FC28F00193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2788,7 +3141,7 @@
 				D25EEC4928A1E8310090F108 /* Sources */,
 				D25EECAA28A1E8310090F108 /* Frameworks */,
 				D25EECB528A1E8310090F108 /* Resources */,
-				D25EECCB28A1E8310090F108 /* ShellScript */,
+				D2951E982B8FC2B800193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2806,7 +3159,7 @@
 				D276DA8421336B20007FAA31 /* Sources */,
 				D276DAC721336B20007FAA31 /* Frameworks */,
 				D276DAD121336B20007FAA31 /* Resources */,
-				D276DADE21336B20007FAA31 /* ShellScript */,
+				D2951DF02B8FBFF900193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2824,7 +3177,7 @@
 				D27990CB20DDD473003B451E /* Sources */,
 				D27990F120DDD473003B451E /* Frameworks */,
 				D27990FA20DDD473003B451E /* Resources */,
-				D279910620DDD473003B451E /* ShellScript */,
+				D2951E2F2B8FC25A00193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2842,7 +3195,7 @@
 				D284244821D0358200C7171C /* Sources */,
 				D284249221D0358200C7171C /* Frameworks */,
 				D284249D21D0358200C7171C /* Resources */,
-				D28424AC21D0358200C7171C /* ShellScript */,
+				D2951E1A2B8FC23500193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2860,7 +3213,7 @@
 				D287D4F4207AEF2B001AF644 /* Sources */,
 				D287D4F5207AEF2B001AF644 /* Frameworks */,
 				D287D4F6207AEF2B001AF644 /* Resources */,
-				D231B52A208162F100478D25 /* ShellScript */,
+				D2951EAD2B8FC2C500193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2897,7 +3250,7 @@
 				D2BDA60A22D176BD00D9B60C /* Sources */,
 				D2BDA65F22D176BD00D9B60C /* Frameworks */,
 				D2BDA66A22D176BD00D9B60C /* Resources */,
-				D2BDA67B22D176BD00D9B60C /* ShellScript */,
+				D2951E6E2B8FC29F00193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2915,7 +3268,7 @@
 				D2BDA6A222D2A72000D9B60C /* Sources */,
 				D2BDA6F722D2A72000D9B60C /* Frameworks */,
 				D2BDA70222D2A72000D9B60C /* Resources */,
-				D2BDA71322D2A72000D9B60C /* ShellScript */,
+				D2951E832B8FC2AC00193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3388,372 +3741,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D210EC3222B1EE55002FB5E0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		D231B52A208162F100478D25 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		D23E9FD923B9200A0030F5C1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		D2477C2724785A6B00FD4CF6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		D2572B1B24AD7755000BA698 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		D25EECCB28A1E8310090F108 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		D276DADE21336B20007FAA31 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		D279910620DDD473003B451E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		D28424AC21D0358200C7171C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		D2BDA67B22D176BD00D9B60C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		D2BDA71322D2A72000D9B60C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AsyncDisplayKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINRemoteImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINCache.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PINOperation.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PMKAlamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ToastSwiftFramework.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Valet.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AsyncDisplayKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINRemoteImage.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINCache.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PINOperation.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PMKAlamofire.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ToastSwiftFramework.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Valet.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZXingObjC.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D210EBC722B1EE55002FB5E0 /* Sources */ = {
@@ -5060,10 +5047,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H23XR6LSB9;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/acorn_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5088,10 +5071,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H23XR6LSB9;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/acorn_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5115,10 +5094,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/sagecat_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5143,10 +5118,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/sagecat_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5170,10 +5141,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/indiana_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5198,10 +5165,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/indiana_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5225,10 +5188,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/mo_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5253,10 +5212,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/mo_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5280,10 +5235,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/owwl_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5308,10 +5259,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/owwl_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5335,10 +5282,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5363,10 +5306,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5390,10 +5329,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/HemlockInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5418,10 +5353,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/HemlockInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5445,10 +5376,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cool_app/CoolInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5473,10 +5400,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cool_app/CoolInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5617,10 +5540,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/PINESInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5647,10 +5566,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/PINESInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5674,10 +5589,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5699,10 +5610,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5725,10 +5632,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/noble_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5753,10 +5656,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/noble_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5780,10 +5679,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/ntlc_app/NTLCInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5808,10 +5703,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Source/ntlc_app/NTLCInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
