@@ -1268,6 +1268,28 @@
 		D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppFactory.swift */; };
 		D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CWMarsTheme.swift */; };
 		D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D296EE0F213381FE009BDB12 /* Default-568h@2x.png */; };
+		D29838542B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D29838552B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D29838562B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D29838572B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D29838582B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D29838592B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D298385A2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D298385B2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D298385C2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D298385D2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D298385E2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29838532B91065E0060C3A6 /* PlaceHold.storyboard */; };
+		D29838602B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838612B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838622B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838632B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838642B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838652B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838662B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838672B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838682B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29838692B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D298386A2B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
 		D29911DA248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
 		D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
 		D29911DC248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
@@ -2148,6 +2170,8 @@
 		D296EE0A2133802F009BDB12 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
 		D296EE0F213381FE009BDB12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D29838532B91065E0060C3A6 /* PlaceHold.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaceHold.storyboard; sourceTree = "<group>"; };
+		D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldViewController.swift; sourceTree = "<group>"; };
 		D29911D9248461C0007DB26C /* OrgDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrgDetails.storyboard; sourceTree = "<group>"; };
 		D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsViewController.swift; sourceTree = "<group>"; };
 		D29A3B292197C14900BBF192 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
@@ -3022,7 +3046,9 @@
 		FA88B4C420FC1AF9000F211F /* PlaceHold */ = {
 			isa = PBXGroup;
 			children = (
+				D29838532B91065E0060C3A6 /* PlaceHold.storyboard */,
 				D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */,
+				D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */,
 			);
 			path = PlaceHold;
 			sourceTree = "<group>";
@@ -3371,6 +3397,7 @@
 				D21090D124D726FA004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537229D0F09800494763 /* Results.storyboard in Resources */,
 				D210EC3122B1EE55002FB5E0 /* Main.storyboard in Resources */,
+				D29838542B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D2AA9D4627383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3406,6 +3433,7 @@
 				D21090DD24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537C29D0F09800494763 /* Results.storyboard in Resources */,
 				D23E9FD823B9200A0030F5C1 /* Main.storyboard in Resources */,
+				D298385E2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D2AA9D4E27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3441,6 +3469,7 @@
 				D21090D924D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537629D0F09800494763 /* Results.storyboard in Resources */,
 				D2477C2624785A6B00FD4CF6 /* Main.storyboard in Resources */,
+				D29838582B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D2AA9D4A27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3466,6 +3495,7 @@
 				D2029B54297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2F3537729D0F09800494763 /* Results.storyboard in Resources */,
 				D2572B1324AD7755000BA698 /* ShowCard.storyboard in Resources */,
+				D29838592B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D23371132A6C78830080294F /* Login.storyboard in Resources */,
 				D28AE26B24FDD9B200960E9E /* strings.json in Resources */,
 				D2572B1424AD7755000BA698 /* Options.storyboard in Resources */,
@@ -3502,6 +3532,7 @@
 				D2029B57297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2F3537A29D0F09800494763 /* Results.storyboard in Resources */,
 				D25EECBE28A1E8310090F108 /* event_msg_map.json in Resources */,
+				D298385C2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D23371162A6C78830080294F /* Login.storyboard in Resources */,
 				D271862C28CEBFC90046E9BC /* ScanBarcode.storyboard in Resources */,
 				D25EECBF28A1E8310090F108 /* ShowCard.storyboard in Resources */,
@@ -3538,6 +3569,7 @@
 				D2029B51297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2F3537429D0F09800494763 /* Results.storyboard in Resources */,
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
+				D29838562B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D23371102A6C78830080294F /* Login.storyboard in Resources */,
 				D276DAD821336B20007FAA31 /* Search.storyboard in Resources */,
 				D276DADA21336B20007FAA31 /* Documentation in Resources */,
@@ -3580,6 +3612,7 @@
 				D279910320DDD473003B451E /* Fines.storyboard in Resources */,
 				D2F3537529D0F09800494763 /* Results.storyboard in Resources */,
 				D29911DD248461C0007DB26C /* OrgDetails.storyboard in Resources */,
+				D29838572B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D293EC16297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D24628FA273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D22894FC29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3618,6 +3651,7 @@
 				D21090D524D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537329D0F09800494763 /* Results.storyboard in Resources */,
 				D28424AB21D0358200C7171C /* Main.storyboard in Resources */,
+				D29838552B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D2AA9D4727383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3653,6 +3687,7 @@
 				D29911E1248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D2F3537B29D0F09800494763 /* Results.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* Main.storyboard in Resources */,
+				D298385D2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D2AA9D4D27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3689,6 +3724,7 @@
 				D2029B55297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2F3537829D0F09800494763 /* Results.storyboard in Resources */,
 				D2BDA67422D176BD00D9B60C /* ShowCard.storyboard in Resources */,
+				D298385A2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D23371142A6C78830080294F /* Login.storyboard in Resources */,
 				D28AE26724FDD9B200960E9E /* strings.json in Resources */,
 				D2BDA67522D176BD00D9B60C /* Options.storyboard in Resources */,
@@ -3725,6 +3761,7 @@
 				D2029B56297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2F3537929D0F09800494763 /* Results.storyboard in Resources */,
 				D2BDA70B22D2A72000D9B60C /* ShowCard.storyboard in Resources */,
+				D298385B2B91065E0060C3A6 /* PlaceHold.storyboard in Resources */,
 				D23371152A6C78830080294F /* Login.storyboard in Resources */,
 				D28AE26824FDD9B200960E9E /* strings.json in Resources */,
 				D2BDA70C22D2A72000D9B60C /* Options.storyboard in Resources */,
@@ -3842,6 +3879,7 @@
 				D210EC0E22B1EE55002FB5E0 /* UIScrollView+.swift in Sources */,
 				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66BC297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
+				D29838602B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5127383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31212B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
@@ -3953,6 +3991,7 @@
 				D23E9FB423B9200A0030F5C1 /* UIScrollView+.swift in Sources */,
 				D2A73B26246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C6297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
+				D298386A2B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5927383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA312B2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
@@ -4064,6 +4103,7 @@
 				D2477C0424785A6B00FD4CF6 /* UIScrollView+.swift in Sources */,
 				D2477C0524785A6B00FD4CF6 /* JSONUtils.swift in Sources */,
 				D2BB66C0297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
+				D29838642B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5527383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31252B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */,
@@ -4175,6 +4215,7 @@
 				D2572B2824AD7A13000BA698 /* MoTheme.swift in Sources */,
 				D2572B2924AD7A13000BA698 /* MoAppBehavior.swift in Sources */,
 				D2BB66C1297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
+				D29838652B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5A27383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31262B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2572AF724AD7755000BA698 /* Style.swift in Sources */,
@@ -4286,6 +4327,7 @@
 				D25EEC9E28A1E8310090F108 /* JSONUtils.swift in Sources */,
 				D25EECA128A1E8310090F108 /* BookBagDetailsViewController.swift in Sources */,
 				D2BB66C4297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
+				D29838682B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D25EECA228A1E8310090F108 /* Style.swift in Sources */,
 				D2EA31292B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D25EECA428A1E8310090F108 /* MainViewController.swift in Sources */,
@@ -4353,6 +4395,7 @@
 				D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
+				D29838622B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5327383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D20B2FF822CF976200F69848 /* AppBehavior.swift in Sources */,
 				D28AE24C24F355A500960E9E /* ServiceUtils.swift in Sources */,
@@ -4463,6 +4506,7 @@
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D2AA9D5427383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D29838632B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D20B2FF622CF976200F69848 /* AppBehavior.swift in Sources */,
 				D28AE24D24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2C3EA3029D89D6C00583A96 /* DetailsViewController.swift in Sources */,
@@ -4573,6 +4617,7 @@
 				D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */,
 				D284246D21D0358200C7171C /* HoldsViewController.swift in Sources */,
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
+				D29838612B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5227383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D20B2FF922CF976200F69848 /* AppBehavior.swift in Sources */,
 				D28AE24B24F355A500960E9E /* ServiceUtils.swift in Sources */,
@@ -4727,6 +4772,7 @@
 				D28164B5213C7D99000B64B4 /* UIScrollView+.swift in Sources */,
 				D2A73B25246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C5297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
+				D29838692B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5827383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA312A2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
@@ -4873,6 +4919,7 @@
 				D2BDA65822D176BD00D9B60C /* Style.swift in Sources */,
 				D2A73B23246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C2297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
+				D29838662B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5627383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31272B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
@@ -4984,6 +5031,7 @@
 				D2BDA6F122D2A72000D9B60C /* MainViewController.swift in Sources */,
 				D2A73B24246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C3297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
+				D29838672B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5727383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31282B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA6F222D2A72000D9B60C /* CopyCount.swift in Sources */,
