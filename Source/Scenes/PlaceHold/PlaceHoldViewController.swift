@@ -21,4 +21,80 @@ import os.log
 
 class PlaceHoldViewController: UIViewController {
 
+    //MARK: - Properties
+
+    @IBOutlet weak var partSelectStack: UIStackView!
+    @IBOutlet weak var phoneNotifyStack: UIStackView!
+    @IBOutlet weak var expirationStack: UIStackView!
+    @IBOutlet weak var suspendStack: UIStackView!
+    @IBOutlet weak var thawStack: UIStackView!
+
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var formatLabel: UILabel!
+
+    @IBOutlet weak var actionButton: UIButton!
+
+    var record = MBRecord.dummyRecord
+    var holdRecord: HoldRecord?
+    var parts: [OSRFObject] = []
+    var valueChangedHandler: (() -> Void)?
+
+    var isEditHold: Bool { return holdRecord != nil }
+    var hasParts: Bool { return !parts.isEmpty }
+    var titleHoldIsPossible: Bool? = nil
+    var partRequired: Bool { return hasParts && titleHoldIsPossible != true }
+
+    //MARK: - Lifecycle
+
+    static func make(record: MBRecord, holdRecord: HoldRecord? = nil, valueChangedHandler: (() -> Void)? = nil) -> PlaceHoldViewController? {
+        if let vc = UIStoryboard(name: "PlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController {
+            vc.record = record
+            vc.holdRecord = holdRecord
+            vc.valueChangedHandler = valueChangedHandler
+            return vc
+        }
+        return nil
+    }
+
+    //MARK: - UIViewController
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetchData()
+    }
+
+    //MARK: - Functions
+
+    func setupViews() {
+        titleLabel.text = record.title
+        authorLabel.text = record.author
+        formatLabel.text = record.iconFormatLabel
+
+        actionButton.setTitle(isEditHold ? "Update Hold" : "Place Hold", for: .normal)
+        actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), for: .touchUpInside)
+        Style.styleButton(asInverse: actionButton)
+    }
+
+    func fetchData() {
+    }
+
+    @objc func holdButtonPressed(sender: Any) {
+        placeOrUpdateHold()
+    }
+
+    func placeOrUpdateHold() {
+        guard let authtoken = App.account?.authtoken,
+              let userID = App.account?.userID else
+        {
+            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
+            return
+        }
+        self.showAlert(title: "not impl", message: "not ready yet")
+    }
 }

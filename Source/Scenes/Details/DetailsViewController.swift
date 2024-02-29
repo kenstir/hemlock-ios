@@ -39,7 +39,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
 
-    var record = MBRecord(id: -1)
+    var record = MBRecord.dummyRecord
     var row: Int = 0
     var count: Int = 0
     var displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
