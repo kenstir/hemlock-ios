@@ -83,6 +83,8 @@ class MBRecord {
         return nil
     }
 
+    static let dummyRecord = MBRecord(id: -1)
+
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id
         self.mvrObj = mvrObj        
