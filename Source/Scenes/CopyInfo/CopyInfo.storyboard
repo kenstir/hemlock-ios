@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="APr-QO-Gc7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="APr-QO-Gc7">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izW-bL-Z5Y" userLabel="Place Hold Button">
-                                <rect key="frame" x="63" y="603" width="247" height="33"/>
+                                <rect key="frame" x="64" y="603" width="247" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Place Hold"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="j5M-zQ-ez2" userLabel="Copy Info Table">
-                                <rect key="frame" x="-1" y="-1" width="377" height="597"/>
+                                <rect key="frame" x="-1" y="19" width="377" height="577"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="copyInfoCell" id="f83-m4-dJV" userLabel="Copy Info View Cell" customClass="CopyInfoTableViewCell" customModule="COOL" customModuleProvider="target">
@@ -110,9 +110,9 @@
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="j5M-zQ-ez2" firstAttribute="top" secondItem="gz2-tD-rMa" secondAttribute="top" constant="-1" id="8Nw-qo-REQ"/>
-                            <constraint firstItem="izW-bL-Z5Y" firstAttribute="trailing" secondItem="gz2-tD-rMa" secondAttribute="trailing" constant="-65" id="Fax-n0-zCH"/>
+                            <constraint firstItem="izW-bL-Z5Y" firstAttribute="trailing" secondItem="gz2-tD-rMa" secondAttribute="trailing" constant="-64" id="Fax-n0-zCH"/>
                             <constraint firstItem="izW-bL-Z5Y" firstAttribute="top" secondItem="j5M-zQ-ez2" secondAttribute="bottom" constant="7" id="OBb-eg-g2V"/>
-                            <constraint firstItem="izW-bL-Z5Y" firstAttribute="leading" secondItem="gz2-tD-rMa" secondAttribute="leading" constant="63" id="esO-W2-Kx0"/>
+                            <constraint firstItem="izW-bL-Z5Y" firstAttribute="leading" secondItem="gz2-tD-rMa" secondAttribute="leading" constant="64" id="esO-W2-Kx0"/>
                             <constraint firstItem="j5M-zQ-ez2" firstAttribute="leading" secondItem="gz2-tD-rMa" secondAttribute="leading" constant="-1" id="fIp-hA-gOe"/>
                             <constraint firstItem="gz2-tD-rMa" firstAttribute="trailing" secondItem="j5M-zQ-ez2" secondAttribute="trailing" constant="-1" id="kDj-IH-bTJ"/>
                             <constraint firstItem="gz2-tD-rMa" firstAttribute="bottom" secondItem="izW-bL-Z5Y" secondAttribute="bottom" constant="31" id="osq-bM-oWw"/>
