@@ -90,8 +90,17 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func setupFormLabels() {
+        partSelectStack.isHidden = true
         for label in labels {
-            print("label: \(label.text ?? "")")
+            let w = label.widthAnchor
+            let pmax = label.preferredMaxLayoutWidth
+            let x = label.frame.width
+            print("label: \(label.text ?? "") widthAnchor: \(w) pref: \(pmax) frame.width: \(x)")
+        }
+        for label in labels {
+            print("label: \(label.text ?? "") \(label.isHidden ? "(hidden)" : "")")
+            let width = 0.33
+            label.widthAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: width).isActive = true
         }
         print("stop here")
     }
