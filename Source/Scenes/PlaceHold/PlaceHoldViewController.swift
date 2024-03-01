@@ -23,6 +23,7 @@ class PlaceHoldViewController: UIViewController {
 
     //MARK: - Properties
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var partSelectStack: UIStackView!
     @IBOutlet weak var phoneNotifyStack: UIStackView!
     @IBOutlet weak var expirationStack: UIStackView!
@@ -62,8 +63,19 @@ class PlaceHoldViewController: UIViewController {
     //MARK: - UIViewController
 
     override func viewDidLoad() {
+        print("=============================== viewDidLoad")
         super.viewDidLoad()
+        for label in labels {
+            print("label: \(label.text ?? "") \(label.frame.width)")
+        }
         setupViews()
+    }
+
+    override func viewDidLayoutSubviews() {
+        print("=============================== viewDidLayoutSubviews")
+        for label in labels {
+            print("label: \(label.text ?? "") \(label.frame.width)")
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -91,18 +103,19 @@ class PlaceHoldViewController: UIViewController {
 
     func setupFormLabels() {
         partSelectStack.isHidden = true
+        phoneNotifyStack.isHidden = true
+
+        // find the widest label whose superview (Hstack) is visible
+        guard let widestLabel = labels.max(by: { ($1.superview?.isHidden == false) && $1.frame.width > $0.frame.width }) else { return }
+        print("widest: \(widestLabel.text ?? "") \(widestLabel.frame.width)")
+
+        // Set a minimum width constraint to *slightly bigger* than the widest label wants to be.
+        // Setting an equalTo constraint resulted in all the labels being too thin and ellipsized.
+        let minWidth = widestLabel.frame.width + 8.0
         for label in labels {
-            let w = label.widthAnchor
-            let pmax = label.preferredMaxLayoutWidth
-            let x = label.frame.width
-            print("label: \(label.text ?? "") widthAnchor: \(w) pref: \(pmax) frame.width: \(x)")
+            print("label: \(label.text ?? "") new min width \(minWidth)")
+            label.widthAnchor.constraint(greaterThanOrEqualToConstant: minWidth).isActive = true
         }
-        for label in labels {
-            print("label: \(label.text ?? "") \(label.isHidden ? "(hidden)" : "")")
-            let width = 0.33
-            label.widthAnchor.constraint(equalTo: titleLabel.widthAnchor, multiplier: width).isActive = true
-        }
-        print("stop here")
     }
 
     //MARK: - Functions
