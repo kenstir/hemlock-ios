@@ -35,6 +35,8 @@ class PlaceHoldViewController: UIViewController {
 
     @IBOutlet weak var actionButton: UIButton!
 
+    @IBOutlet var labels: [UILabel]!
+
     var record = MBRecord.dummyRecord
     var holdRecord: HoldRecord?
     var parts: [OSRFObject] = []
@@ -69,17 +71,32 @@ class PlaceHoldViewController: UIViewController {
         self.fetchData()
     }
 
-    //MARK: - Functions
+    //MARK: - Setup Functions
 
     func setupViews() {
-        titleLabel.text = record.title
-        authorLabel.text = record.author
-        formatLabel.text = record.iconFormatLabel
+        setupMetadataLabels()
+
+        setupFormLabels()
 
         actionButton.setTitle(isEditHold ? "Update Hold" : "Place Hold", for: .normal)
         actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asInverse: actionButton)
     }
+
+    func setupMetadataLabels() {
+        titleLabel.text = record.title
+        authorLabel.text = record.author
+        formatLabel.text = record.iconFormatLabel
+    }
+
+    func setupFormLabels() {
+        for label in labels {
+            print("label: \(label.text ?? "")")
+        }
+        print("stop here")
+    }
+
+    //MARK: - Functions
 
     func fetchData() {
     }
@@ -89,12 +106,12 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func placeOrUpdateHold() {
-        guard let authtoken = App.account?.authtoken,
-              let userID = App.account?.userID else
-        {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return
-        }
+//        guard let authtoken = App.account?.authtoken,
+//              let userID = App.account?.userID else
+//        {
+//            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
+//            return
+//        }
         self.showAlert(title: "not impl", message: "not ready yet")
     }
 }
