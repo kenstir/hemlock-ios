@@ -224,6 +224,14 @@
                         <outlet property="thawStack" destination="TpI-FG-v2M" id="pWA-53-iBh"/>
                         <outlet property="titleLabel" destination="bbn-2M-9CG" id="Szo-6U-MtD"/>
                         <outletCollection property="labels" destination="EOs-lM-Z4V" collectionClass="NSMutableArray" id="MSn-Vg-HOE"/>
+                        <outletCollection property="labels" destination="BZS-Jm-7Q7" collectionClass="NSMutableArray" id="CsW-eD-3aa"/>
+                        <outletCollection property="labels" destination="n1c-QI-JlT" collectionClass="NSMutableArray" id="sRK-li-8pf"/>
+                        <outletCollection property="labels" destination="CS3-FY-C9k" collectionClass="NSMutableArray" id="FHW-vC-kYj"/>
+                        <outletCollection property="labels" destination="S7H-Xv-Ha6" collectionClass="NSMutableArray" id="rXU-Bu-cG6"/>
+                        <outletCollection property="labels" destination="QDD-nf-2d2" collectionClass="NSMutableArray" id="Iqy-Fq-gIC"/>
+                        <outletCollection property="labels" destination="ut2-rd-D4Q" collectionClass="NSMutableArray" id="6au-9V-mg8"/>
+                        <outletCollection property="labels" destination="MtU-vr-DSG" collectionClass="NSMutableArray" id="SMF-GV-WGt"/>
+                        <outletCollection property="labels" destination="aRO-pR-ZGJ" collectionClass="NSMutableArray" id="gtY-LC-Va8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
