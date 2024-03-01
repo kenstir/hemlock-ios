@@ -50,7 +50,7 @@ class PlaceHoldViewController: UIViewController {
     //MARK: - Lifecycle
 
     static func make(record: MBRecord, holdRecord: HoldRecord? = nil, valueChangedHandler: (() -> Void)? = nil) -> PlaceHoldViewController? {
-        if let vc = UIStoryboard(name: "PlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController {
+        if let vc = UIStoryboard(name: "NewPlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController {
             vc.record = record
             vc.holdRecord = holdRecord
             vc.valueChangedHandler = valueChangedHandler

@@ -12,7 +12,7 @@
         <!--Item Details-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController title="Item Details" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController title="Item Details" id="Y6W-OH-hqX" customClass="PlaceHoldViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,6 +213,18 @@
                             <constraint firstItem="EYz-BO-bO1" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="gsT-M5-azv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="j5e-Fd-tzX" id="lnq-1b-nJv"/>
+                        <outlet property="authorLabel" destination="VPr-Hj-E1H" id="iSV-bh-5WX"/>
+                        <outlet property="expirationStack" destination="ZMb-WE-SXs" id="9Ff-9K-h8b"/>
+                        <outlet property="formatLabel" destination="BAW-lX-hQX" id="ay9-gh-z7z"/>
+                        <outlet property="partSelectStack" destination="mF8-7v-r6B" id="KFW-td-sie"/>
+                        <outlet property="phoneNotifyStack" destination="ZNd-t8-jsg" id="0q3-Hq-PBV"/>
+                        <outlet property="suspendStack" destination="x3s-WA-fv9" id="Fxa-cI-lMO"/>
+                        <outlet property="thawStack" destination="TpI-FG-v2M" id="pWA-53-iBh"/>
+                        <outlet property="titleLabel" destination="bbn-2M-9CG" id="Szo-6U-MtD"/>
+                        <outletCollection property="labels" destination="EOs-lM-Z4V" collectionClass="NSMutableArray" id="MSn-Vg-HOE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
