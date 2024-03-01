@@ -66,6 +66,17 @@
 		D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D20D14D620B78CD8008F66B0 /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
 		D20EE9D82094BC9100AF261D /* MiscTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20EE9D72094BC9100AF261D /* MiscTests.swift */; };
+		D20F1A512B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A522B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A532B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A542B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A552B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A562B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A572B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A582B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A592B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A5A2B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
+		D20F1A5B2B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */; };
 		D21090C624D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
 		D21090C724D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
 		D21090C824D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
@@ -1993,6 +2004,7 @@
 		D20D14D020B783C1008F66B0 /* CircRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecord.swift; sourceTree = "<group>"; };
 		D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutsTableViewCell.swift; sourceTree = "<group>"; };
 		D20EE9D72094BC9100AF261D /* MiscTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscTests.swift; sourceTree = "<group>"; };
+		D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NewPlaceHold.storyboard; path = Source/Scenes/PlaceHold/NewPlaceHold.storyboard; sourceTree = SOURCE_ROOT; };
 		D21090C524D7243F004FE532 /* MessageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMap.swift; sourceTree = "<group>"; };
 		D21090D024D726FA004FE532 /* fail_part_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail_part_msg_map.json; sourceTree = "<group>"; };
 		D21090D324D7275A004FE532 /* fail_part_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail_part_msg_map.json; sourceTree = "<group>"; };
@@ -2593,6 +2605,7 @@
 			isa = PBXGroup;
 			children = (
 				D2C3EA3829D905F100583A96 /* Details.storyboard */,
+				D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */,
 				D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */,
 				D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */,
 				D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */,
@@ -3386,6 +3399,7 @@
 				D210EC2B22B1EE55002FB5E0 /* ShowCard.storyboard in Resources */,
 				D210EC2C22B1EE55002FB5E0 /* Options.storyboard in Resources */,
 				D24628F7273722E0000DC659 /* BookBags.storyboard in Resources */,
+				D20F1A512B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D29911DA248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D233710E2A6C78830080294F /* Login.storyboard in Resources */,
 				D210EC2D22B1EE55002FB5E0 /* Default-568h@2x.png in Resources */,
@@ -3422,6 +3436,7 @@
 				D23E9FD123B9200A0030F5C1 /* ShowCard.storyboard in Resources */,
 				D23E9FD223B9200A0030F5C1 /* Options.storyboard in Resources */,
 				D24628FF273722E0000DC659 /* BookBags.storyboard in Resources */,
+				D20F1A5B2B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D29911E2248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D23371182A6C78830080294F /* Login.storyboard in Resources */,
 				D23E9FD423B9200A0030F5C1 /* Default-568h@2x.png in Resources */,
@@ -3458,6 +3473,7 @@
 				D2477C3824786EC000FD4CF6 /* indiana.xcassets in Resources */,
 				D2477C2124785A6B00FD4CF6 /* Options.storyboard in Resources */,
 				D24628FB273722E0000DC659 /* BookBags.storyboard in Resources */,
+				D20F1A552B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D29911DE248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D23371122A6C78830080294F /* Login.storyboard in Resources */,
 				D2477C2224785A6B00FD4CF6 /* Default-568h@2x.png in Resources */,
@@ -3485,6 +3501,7 @@
 				D2572B0E24AD7755000BA698 /* Holds.storyboard in Resources */,
 				D293EC18297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D2EA311A2B3F50FE004CEF6E /* History.storyboard in Resources */,
+				D20F1A562B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2AA9D4F27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2572B1024AD7755000BA698 /* CopyInfo.storyboard in Resources */,
 				D22894FE29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3522,6 +3539,7 @@
 				D25EECBA28A1E8310090F108 /* BookBagDetails.storyboard in Resources */,
 				D293EC1B297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D2EA311D2B3F50FE004CEF6E /* History.storyboard in Resources */,
+				D20F1A592B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2647872291708AA00B672AC /* custom_strings.json in Resources */,
 				D25EECBB28A1E8310090F108 /* CopyInfo.storyboard in Resources */,
 				D228950129D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3559,6 +3577,7 @@
 				D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */,
 				D293EC15297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D2EA31172B3F50FE004CEF6E /* History.storyboard in Resources */,
+				D20F1A532B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2AA9D4827383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */,
 				D22894FB29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3589,6 +3608,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20F1A542B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D27990FB20DDD473003B451E /* Launch.storyboard in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
@@ -3640,6 +3660,7 @@
 				D28424A721D0358200C7171C /* ShowCard.storyboard in Resources */,
 				D2616765220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D24628F8273722E0000DC659 /* BookBags.storyboard in Resources */,
+				D20F1A522B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D233710F2A6C78830080294F /* Login.storyboard in Resources */,
 				D28424A821D0358200C7171C /* Default-568h@2x.png in Resources */,
@@ -3676,6 +3697,7 @@
 				D29C95FF2599288100CACDBD /* fail_part_msg_map.json in Resources */,
 				D279911120DDD77F003B451E /* pines.xcassets in Resources */,
 				D24628FE273722E0000DC659 /* BookBags.storyboard in Resources */,
+				D20F1A5A2B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D23371172A6C78830080294F /* Login.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
@@ -3714,6 +3736,7 @@
 				D2BDA67022D176BD00D9B60C /* Holds.storyboard in Resources */,
 				D293EC19297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D2EA311B2B3F50FE004CEF6E /* History.storyboard in Resources */,
+				D20F1A572B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2AA9D4B27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2BDA67122D176BD00D9B60C /* CopyInfo.storyboard in Resources */,
 				D22894FF29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3751,6 +3774,7 @@
 				D2BDA70722D2A72000D9B60C /* Holds.storyboard in Resources */,
 				D293EC1A297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D2EA311C2B3F50FE004CEF6E /* History.storyboard in Resources */,
+				D20F1A582B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2AA9D4C27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2BDA70822D2A72000D9B60C /* CopyInfo.storyboard in Resources */,
 				D228950029D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
