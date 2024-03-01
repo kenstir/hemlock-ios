@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="461.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="489.66666666666669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vaf-ps-4nt" userLabel="Summary Stack">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="97.666666666666671"/>
@@ -179,8 +179,15 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdT-X0-l28" userLabel="Spacer">
+                                                <rect key="frame" x="0.0" y="431.66666666666669" width="414" height="24"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="kw5-Hh-3b8"/>
+                                                </constraints>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="zfW-Jt-MVq" userLabel="Action Stack">
-                                                <rect key="frame" x="0.0" y="431.66666666666669" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="459.66666666666669" width="414" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5e-Fd-tzX">
                                                         <rect key="frame" x="122" y="0.0" width="170" height="30"/>
