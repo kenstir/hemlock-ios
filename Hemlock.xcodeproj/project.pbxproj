@@ -2605,7 +2605,6 @@
 			isa = PBXGroup;
 			children = (
 				D2C3EA3829D905F100583A96 /* Details.storyboard */,
-				D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */,
 				D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */,
 				D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */,
 				D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */,
@@ -3060,6 +3059,7 @@
 			isa = PBXGroup;
 			children = (
 				D29838532B91065E0060C3A6 /* PlaceHold.storyboard */,
+				D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */,
 				D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */,
 				D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */,
 			);
