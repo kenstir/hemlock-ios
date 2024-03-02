@@ -269,9 +269,8 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func placeHoldPressed(sender: Any) {
-        if let vc = PlaceHoldViewController.make(record: record) {
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        guard let vc = PlaceHoldViewController.make(record: record) else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func copyInfoPressed(sender: Any) {

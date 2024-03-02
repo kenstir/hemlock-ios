@@ -259,12 +259,9 @@ class HoldsViewController: UIViewController {
 
     func editHold(_ indexPath: IndexPath) {
         guard let hold = getItem(indexPath) else { return }
-        if let record = hold.metabibRecord {
-            let vc = XPlaceHoldViewController(record: record, holdRecord: hold) {
-                self.didCompleteFetch = false
-            }
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        guard let record = hold.metabibRecord else { return }
+        guard let vc = PlaceHoldViewController.make(record: record, holdRecord: hold, valueChangedHandler: { self.didCompleteFetch = false }) else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func cancelHoldPressed(_ indexPath: IndexPath) {
