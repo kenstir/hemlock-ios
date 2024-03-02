@@ -30,6 +30,18 @@ class PlaceHoldViewController: UIViewController {
     @IBOutlet weak var suspendStack: UIStackView!
     @IBOutlet weak var thawStack: UIStackView!
 
+    @IBOutlet weak var partTextField: UITextField!
+    @IBOutlet weak var pickupTextField: UITextField!
+    @IBOutlet weak var pickupButton: UIButton!
+    @IBOutlet weak var carrierTextField: UITextField!
+    @IBOutlet weak var expirationDatePicker: UIDatePicker!
+    @IBOutlet weak var thawDatePicker: UIDatePicker!
+
+    @IBOutlet weak var emailSwitch: UISwitch!
+    @IBOutlet weak var phoneSwitch: UISwitch!
+    @IBOutlet weak var smsSwitch: UISwitch!
+    @IBOutlet weak var suspendSwitch: UISwitch!
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var formatLabel: UILabel!
@@ -76,6 +88,8 @@ class PlaceHoldViewController: UIViewController {
         for label in labels {
             print("label: \(label.text ?? "") \(label.frame.width)")
         }
+        print("expirePicker: \(expirationDatePicker.frame.width)")
+        print("thawPicker:   \(thawDatePicker.frame.width)")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -87,8 +101,9 @@ class PlaceHoldViewController: UIViewController {
 
     func setupViews() {
         setupMetadataLabels()
-
         setupFormLabels()
+        setupTextViews()
+        setupPickers()
 
         actionButton.setTitle(isEditHold ? "Update Hold" : "Place Hold", for: .normal)
         actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), for: .touchUpInside)
@@ -116,6 +131,36 @@ class PlaceHoldViewController: UIViewController {
             print("label: \(label.text ?? "") new min width \(minWidth)")
             label.widthAnchor.constraint(greaterThanOrEqualToConstant: minWidth).isActive = true
         }
+    }
+
+    var iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        if #available(iOS 13.0, *) {
+            let configuration = UIImage.SymbolConfiguration(pointSize: 13, weight: .medium)
+            imageView.image = UIImage(systemName: "chevron.right", withConfiguration: configuration)
+            imageView.tintColor = .lightGray
+            imageView.contentMode = .scaleAspectFit
+            NSLayoutConstraint(item: imageView,
+                                         attribute: .height,
+                                         relatedBy: .equal,
+                                         toItem: imageView,
+                                         attribute: .width,
+                               multiplier: 17.0/10.0,
+                                         constant: 0).isActive = true
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+        }
+        return imageView
+    }()
+
+    func setupTextViews() {
+        partTextField.addDisclosureIndicator()
+        pickupTextField.addDisclosureIndicator()
+        carrierTextField.addDisclosureIndicator()
+    }
+
+    func setupPickers() {
+        expirationDatePicker.contentHorizontalAlignment = .left
+        thawDatePicker.contentHorizontalAlignment = .left
     }
 
     //MARK: - Functions
