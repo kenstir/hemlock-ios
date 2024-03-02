@@ -89,13 +89,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="F7d-8p-lun" userLabel="Email Stack">
                                                 <rect key="frame" x="0.0" y="225.66666666666669" width="398" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Email notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1c-QI-JlT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Email notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1c-QI-JlT" userLabel="email label">
                                                         <rect key="frame" x="0.0" y="6.6666666666666288" width="117.33333333333333" height="18"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoI-3N-U0x">
+                                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoI-3N-U0x" userLabel="email switch">
                                                         <rect key="frame" x="125.33333333333334" y="0.0" width="274.66666666666663" height="31"/>
                                                     </switch>
                                                 </subviews>
@@ -103,35 +103,45 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZNd-t8-jsg" userLabel="Phone Stack">
                                                 <rect key="frame" x="0.0" y="260.66666666666669" width="398" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Phone notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-FY-C9k">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Phone notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS3-FY-C9k" userLabel="phone label">
                                                         <rect key="frame" x="0.0" y="0.0" width="124" height="31"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xB0-pe-nDh">
-                                                        <rect key="frame" x="132" y="0.0" width="268" height="31"/>
+                                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xB0-pe-nDh" userLabel="phone switch">
+                                                        <rect key="frame" x="132" y="0.0" width="51" height="31"/>
                                                     </switch>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rFw-N0-emp" userLabel="phone text">
+                                                        <rect key="frame" x="189" y="0.0" width="209" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8AZ-XD-FlF" userLabel="SMS Stack">
                                                 <rect key="frame" x="0.0" y="295.66666666666669" width="398" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="SMS notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7H-Xv-Ha6">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="SMS notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7H-Xv-Ha6" userLabel="sms label">
                                                         <rect key="frame" x="0.0" y="0.0" width="112.33333333333333" height="31"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wL-vV-KO9">
-                                                        <rect key="frame" x="120.33333333333334" y="0.0" width="279.66666666666663" height="31"/>
+                                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wL-vV-KO9" userLabel="sms switch">
+                                                        <rect key="frame" x="120.33333333333334" y="0.0" width="51" height="31"/>
                                                     </switch>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dSh-lD-vEk" userLabel="sms number text">
+                                                        <rect key="frame" x="177.33333333333337" y="0.0" width="220.66666666666663" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bk0-hW-Nwa" userLabel="SMS Carrier Stack">
                                                 <rect key="frame" x="0.0" y="330.66666666666669" width="398" height="34"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="SMS carrier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDD-nf-2d2">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="SMS carrier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDD-nf-2d2" userLabel="sms carrier label">
                                                         <rect key="frame" x="0.0" y="0.0" width="80.333333333333329" height="34"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
@@ -147,27 +157,27 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZMb-WE-SXs" userLabel="Expiration Stack">
                                                 <rect key="frame" x="0.0" y="368.66666666666669" width="398" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Expiration date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut2-rd-D4Q">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Expiration date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut2-rd-D4Q" userLabel="expiration label">
                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="50"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <datePicker contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="9rn-4r-Qyf" userLabel="Expiration Date Picker">
-                                                        <rect key="frame" x="111" y="0.0" width="287" height="50"/>
+                                                    <datePicker contentMode="left" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="9rn-4r-Qyf" userLabel="expiration picker">
+                                                        <rect key="frame" x="110.66666666666666" y="0.0" width="287.33333333333337" height="50"/>
                                                     </datePicker>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="x3s-WA-fv9" userLabel="Suspend Stack">
                                                 <rect key="frame" x="0.0" y="422.66666666666669" width="398" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Suspend hold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-vr-DSG">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Suspend hold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-vr-DSG" userLabel="suspend label">
                                                         <rect key="frame" x="0.0" y="0.0" width="94" height="31"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-JI-8pF">
+                                                    <switch opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqg-JI-8pF" userLabel="suspend switch">
                                                         <rect key="frame" x="102" y="0.0" width="298" height="31"/>
                                                     </switch>
                                                 </subviews>
@@ -175,14 +185,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TpI-FG-v2M" userLabel="Thaw Stack">
                                                 <rect key="frame" x="0.0" y="457.66666666666669" width="398" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Activate hold on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRO-pR-ZGJ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Activate hold on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRO-pR-ZGJ" userLabel="thaw label">
                                                         <rect key="frame" x="0.0" y="0.0" width="110.66666666666667" height="50"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <datePicker contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="lh8-c1-3WX" userLabel="Thaw Date Picker">
-                                                        <rect key="frame" x="119" y="0.0" width="279" height="50"/>
+                                                    <datePicker contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="lh8-c1-3WX" userLabel="thaw picker">
+                                                        <rect key="frame" x="118.66666666666666" y="0.0" width="279.33333333333337" height="50"/>
                                                     </datePicker>
                                                 </subviews>
                                             </stackView>
@@ -239,8 +249,10 @@
                         <outlet property="partTextField" destination="nNl-IA-n8S" id="Ha6-jf-6NT"/>
                         <outlet property="phoneNotifyStack" destination="ZNd-t8-jsg" id="0q3-Hq-PBV"/>
                         <outlet property="phoneSwitch" destination="xB0-pe-nDh" id="8q0-K6-uX2"/>
+                        <outlet property="phoneTextField" destination="rFw-N0-emp" id="6Vx-cE-tcj"/>
                         <outlet property="pickupTextField" destination="o1l-Z2-7el" id="OgF-g1-WpD"/>
                         <outlet property="scrollView" destination="EYz-BO-bO1" id="nUY-gF-br8"/>
+                        <outlet property="smsNumberTextField" destination="dSh-lD-vEk" id="ddb-dm-1l2"/>
                         <outlet property="smsSwitch" destination="5wL-vV-KO9" id="6T9-E7-JUh"/>
                         <outlet property="suspendStack" destination="x3s-WA-fv9" id="Fxa-cI-lMO"/>
                         <outlet property="suspendSwitch" destination="xqg-JI-8pF" id="Fzo-6Z-wRw"/>

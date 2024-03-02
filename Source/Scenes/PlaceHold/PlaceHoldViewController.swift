@@ -32,7 +32,8 @@ class PlaceHoldViewController: UIViewController {
 
     @IBOutlet weak var partTextField: UITextField!
     @IBOutlet weak var pickupTextField: UITextField!
-    @IBOutlet weak var pickupButton: UIButton!
+    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var smsNumberTextField: UITextField!
     @IBOutlet weak var carrierTextField: UITextField!
     @IBOutlet weak var expirationDatePicker: UIDatePicker!
     @IBOutlet weak var thawDatePicker: UIDatePicker!
@@ -55,6 +56,20 @@ class PlaceHoldViewController: UIViewController {
     var parts: [OSRFObject] = []
     var valueChangedHandler: (() -> Void)?
 
+    var partLabels: [String] = []
+    var orgLabels: [String] = []
+    var orgIsPickupLocation: [Bool] = []
+    var orgIsPrimary: [Bool] = []
+    var carrierLabels: [String] = []
+    var selectedPartLabel = ""
+    var selectedOrgIndex = 0
+    var selectedCarrierName = ""
+    var didCompleteFetch = false
+    var expirationDate: Date? = nil
+    var thawDate: Date? = nil
+
+    var activityIndicator: UIActivityIndicatorView!
+
     var isEditHold: Bool { return holdRecord != nil }
     var hasParts: Bool { return !parts.isEmpty }
     var titleHoldIsPossible: Bool? = nil
@@ -75,21 +90,9 @@ class PlaceHoldViewController: UIViewController {
     //MARK: - UIViewController
 
     override func viewDidLoad() {
-        print("=============================== viewDidLoad")
         super.viewDidLoad()
-        for label in labels {
-            print("label: \(label.text ?? "") \(label.frame.width)")
-        }
+        self.title = isEditHold ? "Edit Hold" : "Place Hold"
         setupViews()
-    }
-
-    override func viewDidLayoutSubviews() {
-        print("=============================== viewDidLayoutSubviews")
-        for label in labels {
-            print("label: \(label.text ?? "") \(label.frame.width)")
-        }
-        print("expirePicker: \(expirationDatePicker.frame.width)")
-        print("thawPicker:   \(thawDatePicker.frame.width)")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -101,13 +104,21 @@ class PlaceHoldViewController: UIViewController {
 
     func setupViews() {
         setupMetadataLabels()
-        setupFormLabels()
-        setupTextViews()
-        setupPickers()
+        setupLabelAlignment()
 
-        actionButton.setTitle(isEditHold ? "Update Hold" : "Place Hold", for: .normal)
-        actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), for: .touchUpInside)
-        Style.styleButton(asInverse: actionButton)
+        setupPartRow()
+        setupPickupRow()
+        setupPhoneRow()
+        setupSmsRow()
+        setupCarrierRow()
+        setupExpirationRow()
+        setupSuspendRow()
+        setupThawRow()
+        setupButtonRow()
+
+        setupActivityIndicator()
+
+        enableViewsWhenReady()
     }
 
     func setupMetadataLabels() {
@@ -116,10 +127,71 @@ class PlaceHoldViewController: UIViewController {
         formatLabel.text = record.iconFormatLabel
     }
 
-    func setupFormLabels() {
-        partSelectStack.isHidden = true
-        phoneNotifyStack.isHidden = true
+    func setupPartRow() {
+        partTextField.addDisclosureIndicator()
+        partTextField.delegate = self
+    }
 
+    func setupPickupRow() {
+        pickupTextField.addDisclosureIndicator()
+        pickupTextField.delegate = self
+    }
+
+    func setupCarrierRow() {
+        carrierTextField.addDisclosureIndicator()
+        carrierTextField.delegate = self
+    }
+
+    func setupPhoneRow() {
+        phoneSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+        phoneTextField.keyboardType = .phonePad
+        phoneTextField.delegate = self
+    }
+
+    func setupSmsRow() {
+        smsSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+        smsNumberTextField.keyboardType = .phonePad
+        smsNumberTextField.delegate = self
+    }
+
+    func setupSuspendRow() {
+        suspendSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+    }
+
+    func setupExpirationRow() {
+        expirationDatePicker.addTarget(self, action: #selector(expirationChanged(sender:)), for: .valueChanged)
+        expirationDatePicker.contentHorizontalAlignment = .left
+    }
+
+    func setupThawRow() {
+        thawDatePicker.addTarget(self, action: #selector(thawChanged(sender:)), for: .valueChanged)
+        thawDatePicker.contentHorizontalAlignment = .left
+    }
+
+    func setupButtonRow() {
+        actionButton.setTitle(isEditHold ? "Update Hold" : "Place Hold", for: .normal)
+        actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), for: .touchUpInside)
+        Style.styleButton(asInverse: actionButton)
+    }
+
+    func setupActivityIndicator() {
+        activityIndicator = addActivityIndicator()
+        Style.styleActivityIndicator(activityIndicator)
+    }
+
+    func enableViewsWhenReady() {
+        partSelectStack.isHidden = !hasParts
+//        partTextField.isEnabled = hasParts
+        pickupTextField.isEnabled = didCompleteFetch
+        phoneNotifyStack.isHidden = !App.config.enableHoldPhoneNotification
+//        phoneTextField.isEnabled = App.config.enableHoldPhoneNotification
+        smsNumberTextField.isEnabled = smsSwitch.isOn
+        carrierTextField.isEnabled = didCompleteFetch
+        thawDatePicker.isEnabled = suspendSwitch.isOn
+        actionButton.isEnabled = didCompleteFetch
+    }
+
+    func setupLabelAlignment() {
         // find the widest label whose superview (Hstack) is visible
         guard let widestLabel = labels.max(by: { ($1.superview?.isHidden == false) && $1.frame.width > $0.frame.width }) else { return }
         print("widest: \(widestLabel.text ?? "") \(widestLabel.frame.width)")
@@ -133,39 +205,31 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    var iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        if #available(iOS 13.0, *) {
-            let configuration = UIImage.SymbolConfiguration(pointSize: 13, weight: .medium)
-            imageView.image = UIImage(systemName: "chevron.right", withConfiguration: configuration)
-            imageView.tintColor = .lightGray
-            imageView.contentMode = .scaleAspectFit
-            NSLayoutConstraint(item: imageView,
-                                         attribute: .height,
-                                         relatedBy: .equal,
-                                         toItem: imageView,
-                                         attribute: .width,
-                               multiplier: 17.0/10.0,
-                                         constant: 0).isActive = true
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-        }
-        return imageView
-    }()
-
-    func setupTextViews() {
-        partTextField.addDisclosureIndicator()
-        pickupTextField.addDisclosureIndicator()
-        carrierTextField.addDisclosureIndicator()
-    }
-
-    func setupPickers() {
-        expirationDatePicker.contentHorizontalAlignment = .left
-        thawDatePicker.contentHorizontalAlignment = .left
-    }
-
     //MARK: - Functions
 
     func fetchData() {
+    }
+
+    @objc func expirationChanged(sender: UIDatePicker) {
+        updateExpirationDate(sender.date)
+    }
+
+    func updateExpirationDate(_ date: Date) {
+        expirationDate = date
+//        expirationDatePicker.date = date
+    }
+
+    @objc func thawChanged(sender: UIDatePicker) {
+        updateThawDate(sender.date)
+    }
+
+    func updateThawDate(_ date: Date) {
+        thawDate = date
+//        thawDatePicker.date = date
+    }
+
+    @objc func switchChanged(sender: Any) {
+        enableViewsWhenReady()
     }
 
     @objc func holdButtonPressed(sender: Any) {
@@ -180,5 +244,46 @@ class PlaceHoldViewController: UIViewController {
 //            return
 //        }
         self.showAlert(title: "not impl", message: "not ready yet")
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension PlaceHoldViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        switch textField {
+        case pickupTextField:
+//            guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedIndex: selectedOrgIndex) else { return true }
+//            vc.selectionChangedHandler = { index, trimmedLabel in
+//                self.selectedOrgIndex = index
+//                self.pickupNode.textField?.text = trimmedLabel
+//            }
+//            vc.optionIsEnabled = self.orgIsPickupLocation
+//            vc.optionIsPrimary = self.orgIsPrimary
+//            self.navigationController?.pushViewController(vc, animated: true)
+            return false
+        case carrierTextField:
+//            guard let vc = makeVC(title: "SMS Carrier", options: carrierLabels, selectedOption: selectedCarrierName) else { return true }
+//            vc.selectionChangedHandler = { index, trimmedLabel in
+//                self.selectedCarrierName = trimmedLabel
+//                self.carrierNode.textField?.text = trimmedLabel
+//            }
+//            self.navigationController?.pushViewController(vc, animated: true)
+            return false
+        case partTextField:
+//            guard let vc = makeVC(title: "Select a part", options: partLabels, selectedOption: selectedPartLabel) else { return true }
+//            vc.selectionChangedHandler = { index, trimmedLabel in
+//                self.selectedPartLabel = trimmedLabel
+//                self.partNode.textField?.text = trimmedLabel
+//            }
+//            self.navigationController?.pushViewController(vc, animated: true)
+            return false
+        default:
+            return true
+        }
     }
 }
