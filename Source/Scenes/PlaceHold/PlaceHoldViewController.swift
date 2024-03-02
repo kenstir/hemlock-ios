@@ -97,6 +97,10 @@ class PlaceHoldViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        self.setupTapToDismissKeyboard(onScrollView: scrollView)
+        scrollView.setupKeyboardAutoResizer()
+
         self.fetchData()
     }
 

@@ -760,6 +760,8 @@
 		D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
+		D26CE81C2B93D84A002FE33E /* BurnDownASDK.txt in Sources */ = {isa = PBXBuildFile; fileRef = D26CE81B2B93D84A002FE33E /* BurnDownASDK.txt */; };
+		D26CE81D2B93D84A002FE33E /* BurnDownASDK.txt in Sources */ = {isa = PBXBuildFile; fileRef = D26CE81B2B93D84A002FE33E /* BurnDownASDK.txt */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D271862B28CEBE7C0046E9BC /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
 		D271862C28CEBFC90046E9BC /* ScanBarcode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */; };
@@ -2105,6 +2107,7 @@
 		D267E4E3210CDE4700C56047 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		D267E4E6210D17F900C56047 /* CopyCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCount.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
+		D26CE81B2B93D84A002FE33E /* BurnDownASDK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BurnDownASDK.txt; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D276DAE221336B20007FAA31 /* cwmars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cwmars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D276DAE321336B20007FAA31 /* CWMARSInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CWMARSInfo.plist; sourceTree = "<group>"; };
@@ -3048,6 +3051,7 @@
 			children = (
 				D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */,
 				D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */,
+				D26CE81B2B93D84A002FE33E /* BurnDownASDK.txt */,
 				D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */,
 			);
 			path = PlaceHold;
@@ -4025,6 +4029,7 @@
 				D2477BC424785A6B00FD4CF6 /* MainTableViewCell.swift in Sources */,
 				D28F5E7129CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE24E24F355A500960E9E /* ServiceUtils.swift in Sources */,
+				D26CE81C2B93D84A002FE33E /* BurnDownASDK.txt in Sources */,
 				D2477BC524785A6B00FD4CF6 /* HoldRecord.swift in Sources */,
 				D2477BC624785A6B00FD4CF6 /* Bundle+.swift in Sources */,
 				D2477BC724785A6B00FD4CF6 /* Link.swift in Sources */,
@@ -4137,6 +4142,7 @@
 				D2572AB224AD7755000BA698 /* Organization.swift in Sources */,
 				D28F5E7229CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D28AE25324F355A500960E9E /* ServiceUtils.swift in Sources */,
+				D26CE81D2B93D84A002FE33E /* BurnDownASDK.txt in Sources */,
 				D2572AB424AD7755000BA698 /* MainTableViewCell.swift in Sources */,
 				D2572AB524AD7755000BA698 /* HoldRecord.swift in Sources */,
 				D2572AB624AD7755000BA698 /* Bundle+.swift in Sources */,
