@@ -133,7 +133,6 @@
 		D210EBF222B1EE55002FB5E0 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D210EBF322B1EE55002FB5E0 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D210EBF422B1EE55002FB5E0 /* CheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */; };
-		D210EBF522B1EE55002FB5E0 /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D210EBF622B1EE55002FB5E0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D210EBF722B1EE55002FB5E0 /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D210EBF822B1EE55002FB5E0 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -194,10 +193,6 @@
 		D21981FD235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
 		D21981FE235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
 		D2198200235BCE45003AE531 /* CodedValueMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */; };
-		D21FF6DB225A6FEA00D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
-		D21FF6DC225A6FEF00D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
-		D21FF6DD225A6FF000D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
-		D21FF6DE225A6FF100D889DD /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
@@ -316,7 +311,6 @@
 		D23E9F9723B9200A0030F5C1 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D23E9F9823B9200A0030F5C1 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D23E9F9923B9200A0030F5C1 /* CheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */; };
-		D23E9F9A23B9200A0030F5C1 /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D23E9F9B23B9200A0030F5C1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D23E9F9C23B9200A0030F5C1 /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D23E9F9D23B9200A0030F5C1 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -438,7 +432,6 @@
 		D2477BE324785A6B00FD4CF6 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D2477BE424785A6B00FD4CF6 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D2477BE624785A6B00FD4CF6 /* CheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */; };
-		D2477BE724785A6B00FD4CF6 /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D2477BE924785A6B00FD4CF6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D2477BEA24785A6B00FD4CF6 /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D2477BEB24785A6B00FD4CF6 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -580,7 +573,6 @@
 		D2572AD424AD7755000BA698 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D2572AD524AD7755000BA698 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D2572AD724AD7755000BA698 /* CheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */; };
-		D2572AD824AD7755000BA698 /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D2572ADA24AD7755000BA698 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D2572ADB24AD7755000BA698 /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D2572ADC24AD7755000BA698 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -682,7 +674,6 @@
 		D25EEC7B28A1E8310090F108 /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
 		D25EEC7C28A1E8310090F108 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D25EEC7D28A1E8310090F108 /* CheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */; };
-		D25EEC7E28A1E8310090F108 /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D25EEC7F28A1E8310090F108 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D25EEC8028A1E8310090F108 /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D25EEC8228A1E8310090F108 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -1463,7 +1454,6 @@
 		D2BDA63A22D176BD00D9B60C /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D2BDA63B22D176BD00D9B60C /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D2BDA63C22D176BD00D9B60C /* CheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */; };
-		D2BDA63D22D176BD00D9B60C /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D2BDA63E22D176BD00D9B60C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D2BDA63F22D176BD00D9B60C /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D2BDA64022D176BD00D9B60C /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -1552,7 +1542,6 @@
 		D2BDA6D122D2A72000D9B60C /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D2BDA6D222D2A72000D9B60C /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
 		D2BDA6D322D2A72000D9B60C /* CheckoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14CE20B7804C008F66B0 /* CheckoutsViewController.swift */; };
-		D2BDA6D422D2A72000D9B60C /* XPlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */; };
 		D2BDA6D522D2A72000D9B60C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D2BDA6D622D2A72000D9B60C /* XUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DE83EB20F5AC280027FAA1 /* XUtils.swift */; };
 		D2BDA6D722D2A72000D9B60C /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
@@ -2013,7 +2002,6 @@
 		D21867A421D039CE0082358C /* cool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cool.xcassets; sourceTree = "<group>"; };
 		D21981F7235BC7BC003AE531 /* CodedValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CodedValueMap.swift; path = Source/Evergreen/CodedValueMap.swift; sourceTree = SOURCE_ROOT; };
 		D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedValueMapTests.swift; sourceTree = "<group>"; };
-		D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPlaceHoldViewController.swift; sourceTree = "<group>"; };
 		D2211B0320CF68590043947B /* Checkouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkouts.storyboard; sourceTree = "<group>"; };
 		D2211B0520D0BA840043947B /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
 		D22438AB20D357E900D098D0 /* HoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsViewController.swift; sourceTree = "<group>"; };
@@ -2105,7 +2093,6 @@
 		D267E4E3210CDE4700C56047 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		D267E4E6210D17F900C56047 /* CopyCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCount.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
-		D26CE81B2B93D84A002FE33E /* BurnDownASDK.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BurnDownASDK.txt; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
 		D276DAE221336B20007FAA31 /* cwmars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cwmars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D276DAE321336B20007FAA31 /* CWMARSInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CWMARSInfo.plist; sourceTree = "<group>"; };
@@ -3048,8 +3035,6 @@
 			isa = PBXGroup;
 			children = (
 				D20F1A502B924B7300C76FC0 /* NewPlaceHold.storyboard */,
-				D21FF6DA225A6FEA00D889DD /* XPlaceHoldViewController.swift */,
-				D26CE81B2B93D84A002FE33E /* BurnDownASDK.txt */,
 				D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */,
 			);
 			path = PlaceHold;
@@ -3845,7 +3830,6 @@
 				D210EBF222B1EE55002FB5E0 /* UIView+UYLExtensions.swift in Sources */,
 				D210EBF322B1EE55002FB5E0 /* CircRecord.swift in Sources */,
 				D210EBF422B1EE55002FB5E0 /* CheckoutsViewController.swift in Sources */,
-				D210EBF522B1EE55002FB5E0 /* XPlaceHoldViewController.swift in Sources */,
 				D210EBF622B1EE55002FB5E0 /* Theme.swift in Sources */,
 				D210EBF722B1EE55002FB5E0 /* XUtils.swift in Sources */,
 				D210EBF822B1EE55002FB5E0 /* Analytics.swift in Sources */,
@@ -3956,7 +3940,6 @@
 				D23E9F9823B9200A0030F5C1 /* CircRecord.swift in Sources */,
 				D23E9FEE23B923B80030F5C1 /* SageCatAppConfiguration.swift in Sources */,
 				D23E9F9923B9200A0030F5C1 /* CheckoutsViewController.swift in Sources */,
-				D23E9F9A23B9200A0030F5C1 /* XPlaceHoldViewController.swift in Sources */,
 				D23E9FEF23B923B80030F5C1 /* SageCatTheme.swift in Sources */,
 				D23E9F9B23B9200A0030F5C1 /* Theme.swift in Sources */,
 				D23E9F9C23B9200A0030F5C1 /* XUtils.swift in Sources */,
@@ -4067,7 +4050,6 @@
 				D2931AAE272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2477BE424785A6B00FD4CF6 /* CircRecord.swift in Sources */,
 				D2477BE624785A6B00FD4CF6 /* CheckoutsViewController.swift in Sources */,
-				D2477BE724785A6B00FD4CF6 /* XPlaceHoldViewController.swift in Sources */,
 				D2477BE924785A6B00FD4CF6 /* Theme.swift in Sources */,
 				D2477BEA24785A6B00FD4CF6 /* XUtils.swift in Sources */,
 				D2477BEB24785A6B00FD4CF6 /* Analytics.swift in Sources */,
@@ -4179,7 +4161,6 @@
 				D2931AB3272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2572AD524AD7755000BA698 /* CircRecord.swift in Sources */,
 				D2572AD724AD7755000BA698 /* CheckoutsViewController.swift in Sources */,
-				D2572AD824AD7755000BA698 /* XPlaceHoldViewController.swift in Sources */,
 				D2572ADA24AD7755000BA698 /* Theme.swift in Sources */,
 				D2572ADB24AD7755000BA698 /* XUtils.swift in Sources */,
 				D2572B2724AD7A13000BA698 /* AppFactory.swift in Sources */,
@@ -4292,7 +4273,6 @@
 				D25EEC7B28A1E8310090F108 /* BookBag.swift in Sources */,
 				D25EEC7C28A1E8310090F108 /* CircRecord.swift in Sources */,
 				D25EEC7D28A1E8310090F108 /* CheckoutsViewController.swift in Sources */,
-				D25EEC7E28A1E8310090F108 /* XPlaceHoldViewController.swift in Sources */,
 				D25EEC7F28A1E8310090F108 /* Theme.swift in Sources */,
 				D25EEC8028A1E8310090F108 /* XUtils.swift in Sources */,
 				D25EEC8228A1E8310090F108 /* Analytics.swift in Sources */,
@@ -4409,7 +4389,6 @@
 				D276DAAA21336B20007FAA31 /* CircRecord.swift in Sources */,
 				D2A73B21246CB54000874620 /* JSONUtils.swift in Sources */,
 				D276DAAB21336B20007FAA31 /* CheckoutsViewController.swift in Sources */,
-				D21FF6DD225A6FF000D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */,
 				D276DAAC21336B20007FAA31 /* Theme.swift in Sources */,
 				D276DAAE21336B20007FAA31 /* XUtils.swift in Sources */,
@@ -4520,7 +4499,6 @@
 				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
 				D2A73B22246CB54000874620 /* JSONUtils.swift in Sources */,
 				D27990DF20DDD473003B451E /* Theme.swift in Sources */,
-				D21FF6DB225A6FEA00D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D279911820DDE11E003B451E /* AppFactory.swift in Sources */,
 				D2DE83EC20F5AC280027FAA1 /* XUtils.swift in Sources */,
 				D27990E020DDD473003B451E /* Analytics.swift in Sources */,
@@ -4631,7 +4609,6 @@
 				D284247221D0358200C7171C /* CircRecord.swift in Sources */,
 				D2A73B20246CB54000874620 /* JSONUtils.swift in Sources */,
 				D284247321D0358200C7171C /* CheckoutsViewController.swift in Sources */,
-				D21FF6DE225A6FF100D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D284247521D0358200C7171C /* Theme.swift in Sources */,
 				D284247621D0358200C7171C /* XUtils.swift in Sources */,
 				D284247721D0358200C7171C /* Analytics.swift in Sources */,
@@ -4739,7 +4716,6 @@
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
-				D21FF6DC225A6FEF00D889DD /* XPlaceHoldViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */,
 				D229CAFB2471C099006BCC07 /* AuthService.swift in Sources */,
@@ -4884,7 +4860,6 @@
 				D2BDA63A22D176BD00D9B60C /* UIView+UYLExtensions.swift in Sources */,
 				D2BDA63B22D176BD00D9B60C /* CircRecord.swift in Sources */,
 				D2BDA63C22D176BD00D9B60C /* CheckoutsViewController.swift in Sources */,
-				D2BDA63D22D176BD00D9B60C /* XPlaceHoldViewController.swift in Sources */,
 				D2BDA63E22D176BD00D9B60C /* Theme.swift in Sources */,
 				D2BDA63F22D176BD00D9B60C /* XUtils.swift in Sources */,
 				D2BDA64022D176BD00D9B60C /* Analytics.swift in Sources */,
@@ -4995,7 +4970,6 @@
 				D2931AB0272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2BDA6D222D2A72000D9B60C /* CircRecord.swift in Sources */,
 				D2BDA6D322D2A72000D9B60C /* CheckoutsViewController.swift in Sources */,
-				D2BDA6D422D2A72000D9B60C /* XPlaceHoldViewController.swift in Sources */,
 				D2BDA6D522D2A72000D9B60C /* Theme.swift in Sources */,
 				D2BDA6D622D2A72000D9B60C /* XUtils.swift in Sources */,
 				D2BDA6D722D2A72000D9B60C /* Analytics.swift in Sources */,
