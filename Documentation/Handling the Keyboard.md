@@ -1,6 +1,6 @@
 # Handling the Virtual Keyboard
 
-I had a lot of trouble handling the virtual keyboard, e.g. it would appear and occlude the fields you were trying to edit.  Here is the implentation pattern, for UIKit and Texture ViewControllers.
+I had a lot of trouble handling the virtual keyboard, e.g. it would appear and occlude the fields you were trying to edit.
 
 ## UIKit
 

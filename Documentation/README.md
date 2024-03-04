@@ -21,7 +21,3 @@ Non-obvious code that gets repeated may have a reference like
 ### Footnote #1 - handling the keyboard
 
 See [Handling the Virtual Keyboard](Handling the Keyboard.md)
-
-### Footnote #2 - nav bar isTranslucent
-
-In a Texture VC, set isTranslucent=false on the navigationBar, or else scrollNode allows text to scroll underneath the nav bar.
