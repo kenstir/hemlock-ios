@@ -93,19 +93,18 @@ class MainViewController: UIViewController {
         if App.config.barcodeFormat != .Disabled {
             buttons.append(("Show Card", "ShowCardSegue", nil))
         }
-        // Shortcut for testing
-        buttons.append(("Place Hold", "", {
-            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
-                "doc_id": 4674474,
-                "tcn": 4674474,
-                "title": "Discipline is destiny : the power of self-control",
-                "author": "Holiday, Ryan"
-            ]))
-            record.attrs = ["icon_format": "book"]
-            if let vc = PlaceHoldViewController.make(record: record) {
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-        }))
+//        buttons.append(("Place Hold", "", {
+//            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
+//                "doc_id": 4674474,
+//                "tcn": 4674474,
+//                "title": "Discipline is destiny : the power of self-control",
+//                "author": "Holiday, Ryan"
+//            ]))
+//            record.attrs = ["icon_format": "book"]
+//            if let vc = PlaceHoldViewController.make(record: record) {
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+//        }))
 //        buttons.append(("Prepared query", "", {
 //            if let vc = UIStoryboard(name: "Results", bundle: nil).instantiateInitialViewController() as? ResultsViewController {
 //                vc.searchParameters = SearchParameters(text: "Goblet of fire", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
