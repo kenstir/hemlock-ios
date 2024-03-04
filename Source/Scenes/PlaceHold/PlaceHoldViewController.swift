@@ -159,7 +159,7 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func setupSuspendRow() {
-        suspendSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+        suspendSwitch.addTarget(self, action: #selector(suspendSwitchChanged(sender:)), for: .valueChanged)
     }
 
     func setupExpirationRow() {
@@ -185,17 +185,29 @@ class PlaceHoldViewController: UIViewController {
 
     func enableViewsWhenReady() {
         partSelectStack.isHidden = !hasParts
-//        partTextField.isEnabled = hasParts
+
+        // these fields aren't available until we fetch
         pickupTextField.isEnabled = didCompleteFetch
-        phoneNotifyStack.isHidden = !App.config.enableHoldPhoneNotification
-//        phoneTextField.isEnabled = App.config.enableHoldPhoneNotification
-        smsNumberTextField.isEnabled = smsSwitch.isOn
         carrierTextField.isEnabled = didCompleteFetch
+        actionButton.isEnabled = didCompleteFetch
+
+        // phone number is shown only when requested
+        phoneNotifyStack.isHidden = !App.config.enableHoldPhoneNotification
+
+        // for a simpler UX, suspend/thaw are hidden when placing a hold
         expirationStack.isHidden = !isEditHold
         suspendStack.isHidden = !isEditHold
         thawStack.isHidden = !isEditHold
+
+        smsNumberTextField.isEnabled = smsSwitch.isOn
+
+        // The suspend switch has a bunch of effects.
+        // When disabling a date picker, we also set the alpha because it doesn't allow
+        // a nil or empty date and showing the current date in full alpha is confusing.
+        expirationDatePicker.isEnabled = !suspendSwitch.isOn
+        expirationDatePicker.alpha = suspendSwitch.isOn ? 0.25 : 1.0
         thawDatePicker.isEnabled = suspendSwitch.isOn
-        actionButton.isEnabled = didCompleteFetch
+        thawDatePicker.alpha = suspendSwitch.isOn ? 1.0 : 0.25
     }
 
     func setupLabelAlignment() {
@@ -380,20 +392,30 @@ class PlaceHoldViewController: UIViewController {
         partTextField.isUserInteractionEnabled = true
     }
 
+    func defaultExpirationDate() -> Date {
+        return Calendar.current.date(byAdding: .year, value: 1, to: Date()) ?? Date()
+    }
+
+    func defaultThawDate() -> Date {
+        return Calendar.current.date(byAdding: .year, value: 1, to: Date()) ?? Date()
+    }
+
     func loadExpirationData() {
         // Unlike the other load* methods, this does not need to wait for fetchData to complete.
         // Leaving it hear for now for consistency.
-//        holdRecord?.ahrObj.dump()
-        if let val = holdRecord?.isSuspended {
-            suspendSwitch.isOn = val
-        }
+        holdRecord?.ahrObj.dump()
+        suspendSwitch.isOn = holdRecord?.isSuspended ?? false
         if let date = holdRecord?.expireDate {
             expirationDate = date
             expirationDatePicker.date = date
+        } else {
+            expirationDatePicker.date = defaultExpirationDate()
         }
         if let date = holdRecord?.thawDate {
             thawDate = date
             thawDatePicker.date = date
+        } else {
+            thawDatePicker.date = defaultThawDate()
         }
     }
 
@@ -407,6 +429,15 @@ class PlaceHoldViewController: UIViewController {
 
     @objc func holdButtonPressed(sender: Any) {
         placeOrUpdateHold()
+    }
+
+    @objc func suspendSwitchChanged(sender: UISwitch) {
+        enableViewsWhenReady()
+        // Hold objects can have null dates, but date pickers can't.
+        // Since thawDate is displayed, make sure it's not null.
+        if suspendSwitch.isOn {
+            thawDate = thawDatePicker.date
+        }
     }
 
     @objc func switchChanged(sender: Any) {
