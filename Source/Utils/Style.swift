@@ -18,7 +18,6 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
-import AsyncDisplayKit
 
 class Style {
     
@@ -151,18 +150,6 @@ class Style {
         button.layer.cornerRadius = buttonCornerRadius
         Style.setButtonInsets(button)
     }
-    
-    // styleButton for an ASButtonNode includes setting the title, because that involves colors
-    static func styleButton(asInverse button: ASButtonNode, title: String, fontSize size: CGFloat = Style.bodySize, color: UIColor = App.theme.inverseButtonColor) {
-        button.backgroundColor = color
-        button.tintColor = .white
-        button.cornerRadius = buttonCornerRadius
-        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        let font = UIFont.systemFont(ofSize: size)
-        button.setTitle(title, with: font, with: .white, for: .normal)
-        button.setTitle(title, with: font, with: .gray, for: .disabled)
-        button.setTitle(title, with: font, with: .gray, for: .highlighted)
-    }
 
     //MARK: - SearchBar
 
@@ -218,19 +205,5 @@ class Style {
             NSAttributedString.Key.foregroundColor: Style.labelColor,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .regular)]
         return NSAttributedString(string: str, attributes: attrs)
-    }
-    
-    //MARK: - ASTextNode
-    
-    static func setupTitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = titleSize, maxNumLines: UInt = 2) {
-        textNode.attributedText = makeTitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = maxNumLines
-        textNode.truncationMode = .byWordWrapping
-    }
-    
-    static func setupSubtitle(_ textNode: ASTextNode, str: String, ofSize size: CGFloat = subtitleSize) {
-        textNode.attributedText = makeSubtitleString(str, ofSize: size)
-        textNode.maximumNumberOfLines = 1
-        textNode.truncationMode = .byTruncatingTail
     }
 }

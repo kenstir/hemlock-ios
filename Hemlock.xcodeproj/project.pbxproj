@@ -128,7 +128,6 @@
 		D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
-		D210EBF022B1EE55002FB5E0 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D210EBF122B1EE55002FB5E0 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D210EBF222B1EE55002FB5E0 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D210EBF322B1EE55002FB5E0 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
@@ -146,7 +145,6 @@
 		D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
-		D210EC0422B1EE55002FB5E0 /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
@@ -230,10 +228,6 @@
 		D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D027720857E4C00DC1F5B /* GatewayResponse.swift */; };
 		D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */; };
 		D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */; };
-		D22D0C8E22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
-		D22D0C8F22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
-		D22D0C9022426B6B00DBB31A /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
-		D22D0C9122426B6B00DBB31A /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D22D0C932243104600DBB31A /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
 		D22D0C942243104600DBB31A /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
 		D22D0C952243104600DBB31A /* SendEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22D0C922243104600DBB31A /* SendEmail.storyboard */; };
@@ -306,7 +300,6 @@
 		D23E9F9123B9200A0030F5C1 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D23E9F9223B9200A0030F5C1 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
 		D23E9F9423B9200A0030F5C1 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
-		D23E9F9523B9200A0030F5C1 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D23E9F9623B9200A0030F5C1 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D23E9F9723B9200A0030F5C1 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D23E9F9823B9200A0030F5C1 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
@@ -325,7 +318,6 @@
 		D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D23E9FA923B9200A0030F5C1 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
-		D23E9FAA23B9200A0030F5C1 /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D23E9FAB23B9200A0030F5C1 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D23E9FAC23B9200A0030F5C1 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D23E9FAD23B9200A0030F5C1 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
@@ -427,7 +419,6 @@
 		D2477BDD24785A6B00FD4CF6 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D2477BDE24785A6B00FD4CF6 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
 		D2477BE024785A6B00FD4CF6 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
-		D2477BE124785A6B00FD4CF6 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D2477BE224785A6B00FD4CF6 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D2477BE324785A6B00FD4CF6 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D2477BE424785A6B00FD4CF6 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
@@ -447,7 +438,6 @@
 		D2477BF624785A6B00FD4CF6 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2477BF724785A6B00FD4CF6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2477BF824785A6B00FD4CF6 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
-		D2477BF924785A6B00FD4CF6 /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D2477BFA24785A6B00FD4CF6 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D2477BFB24785A6B00FD4CF6 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D2477BFC24785A6B00FD4CF6 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
@@ -568,7 +558,6 @@
 		D2572ACD24AD7755000BA698 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D2572ACE24AD7755000BA698 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
 		D2572AD024AD7755000BA698 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
-		D2572AD224AD7755000BA698 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D2572AD324AD7755000BA698 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D2572AD424AD7755000BA698 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D2572AD524AD7755000BA698 /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
@@ -588,7 +577,6 @@
 		D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2572AE824AD7755000BA698 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2572AE924AD7755000BA698 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
-		D2572AEA24AD7755000BA698 /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D2572AEB24AD7755000BA698 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D2572AEC24AD7755000BA698 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D2572AED24AD7755000BA698 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
@@ -668,7 +656,6 @@
 		D25EEC7328A1E8310090F108 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
 		D25EEC7528A1E8310090F108 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
 		D25EEC7728A1E8310090F108 /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
-		D25EEC7828A1E8310090F108 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D25EEC7928A1E8310090F108 /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D25EEC7A28A1E8310090F108 /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D25EEC7B28A1E8310090F108 /* BookBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931AA9272DE83200CBA5AA /* BookBag.swift */; };
@@ -691,7 +678,6 @@
 		D25EEC8E28A1E8310090F108 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
 		D25EEC8F28A1E8310090F108 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D25EEC9028A1E8310090F108 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
-		D25EEC9128A1E8310090F108 /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D25EEC9228A1E8310090F108 /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C392F254B9FA400ECAE64 /* URLRequest+.swift */; };
 		D25EEC9328A1E8310090F108 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D25EEC9428A1E8310090F108 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
@@ -1064,12 +1050,8 @@
 		D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DEE2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951DEF2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF12B8FC1D600193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951DF22B8FC1D600193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DF32B8FC1D600193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951DF42B8FC1D600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1088,8 +1070,6 @@
 		D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E062B8FC23400193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E072B8FC23400193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E082B8FC23400193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E092B8FC23400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E0A2B8FC23400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E0B2B8FC23400193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E0C2B8FC23500193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1108,8 +1088,6 @@
 		D2951E192B8FC23500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E1B2B8FC25800193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E1C2B8FC25800193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E1D2B8FC25800193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E1E2B8FC25800193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1128,8 +1106,6 @@
 		D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E302B8FC27500193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E312B8FC27500193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E322B8FC27600193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E332B8FC27600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1148,8 +1124,6 @@
 		D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E452B8FC28E00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E462B8FC28E00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E472B8FC28E00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E482B8FC28E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1168,8 +1142,6 @@
 		D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E5A2B8FC29E00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E5B2B8FC29E00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E5C2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E5D2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1188,8 +1160,6 @@
 		D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E6F2B8FC2AB00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E702B8FC2AB00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E712B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E722B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E732B8FC2AB00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E742B8FC2AB00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E752B8FC2AB00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1208,8 +1178,6 @@
 		D2951E822B8FC2AC00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E842B8FC2B700193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E852B8FC2B700193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E862B8FC2B700193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E872B8FC2B700193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1228,8 +1196,6 @@
 		D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E992B8FC2C400193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E9A2B8FC2C400193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E9B2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E9C2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1248,8 +1214,6 @@
 		D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EAE2B8FC2D300193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951EAF2B8FC2D300193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EB02B8FC2D300193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951EB12B8FC2D300193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1339,10 +1303,6 @@
 		D2A81797224699C700340074 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
 		D2A81798224699C700340074 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
 		D2A81799224699C700340074 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
-		D2AA63C72282691800121CE8 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
-		D2AA63C82282691900121CE8 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
-		D2AA63C92282691900121CE8 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
-		D2AA63CA2282691900121CE8 /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D2AA9D4627383B75001E78DB /* BookBagDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AA9D4527383B75001E78DB /* BookBagDetails.storyboard */; };
 		D2AA9D4727383B75001E78DB /* BookBagDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AA9D4527383B75001E78DB /* BookBagDetails.storyboard */; };
 		D2AA9D4827383B75001E78DB /* BookBagDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AA9D4527383B75001E78DB /* BookBagDetails.storyboard */; };
@@ -1449,7 +1409,6 @@
 		D2BDA63422D176BD00D9B60C /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D2BDA63522D176BD00D9B60C /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
 		D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
-		D2BDA63822D176BD00D9B60C /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D2BDA63922D176BD00D9B60C /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D2BDA63A22D176BD00D9B60C /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D2BDA63B22D176BD00D9B60C /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
@@ -1467,7 +1426,6 @@
 		D2BDA64822D176BD00D9B60C /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2BDA64922D176BD00D9B60C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2BDA64A22D176BD00D9B60C /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
-		D2BDA64B22D176BD00D9B60C /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D2BDA64C22D176BD00D9B60C /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D2BDA64D22D176BD00D9B60C /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D2BDA64F22D176BD00D9B60C /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
@@ -1537,7 +1495,6 @@
 		D2BDA6CB22D2A72000D9B60C /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D2BDA6CC22D2A72000D9B60C /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
 		D2BDA6CE22D2A72000D9B60C /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
-		D2BDA6CF22D2A72000D9B60C /* ASDisplayNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */; };
 		D2BDA6D022D2A72000D9B60C /* SendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C972243107600DBB31A /* SendEmailViewController.swift */; };
 		D2BDA6D122D2A72000D9B60C /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D2BDA6D222D2A72000D9B60C /* CircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D020B783C1008F66B0 /* CircRecord.swift */; };
@@ -1555,7 +1512,6 @@
 		D2BDA6E022D2A72000D9B60C /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2BDA6E122D2A72000D9B60C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2BDA6E222D2A72000D9B60C /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
-		D2BDA6E322D2A72000D9B60C /* XSendEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */; };
 		D2BDA6E422D2A72000D9B60C /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D2BDA6E522D2A72000D9B60C /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D2BDA6E622D2A72000D9B60C /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
@@ -1751,7 +1707,6 @@
 			files = (
 				D2951DDF2B8FBFF900193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951DEF2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951DE72B8FBFF900193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */,
 				D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
@@ -1770,7 +1725,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951DF42B8FC1D600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951DFE2B8FC1D600193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1790,7 +1744,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E192B8FC23500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E092B8FC23400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E132B8FC23500193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E0B2B8FC23400193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E0F2B8FC23500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1810,7 +1763,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E1E2B8FC25800193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E282B8FC25900193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1830,7 +1782,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E332B8FC27600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E3D2B8FC27600193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1850,7 +1801,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E482B8FC28E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E522B8FC28F00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1870,7 +1820,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E5D2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E672B8FC29E00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1890,7 +1839,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E822B8FC2AC00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E722B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E7C2B8FC2AC00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E742B8FC2AB00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E782B8FC2AB00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1910,7 +1858,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E872B8FC2B700193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E912B8FC2B800193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1930,7 +1877,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E9C2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951EA62B8FC2C500193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1950,7 +1896,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951EB12B8FC2D300193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951EBB2B8FC2D400193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -2020,7 +1965,6 @@
 		D22D027720857E4C00DC1F5B /* GatewayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponse.swift; sourceTree = "<group>"; };
 		D22D02792085889A00DC1F5B /* GatewayResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayResponseTests.swift; sourceTree = "<group>"; };
 		D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTests.swift; sourceTree = "<group>"; };
-		D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XSendEmailViewController.swift; sourceTree = "<group>"; };
 		D22D0C922243104600DBB31A /* SendEmail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SendEmail.storyboard; sourceTree = "<group>"; };
 		D22D0C972243107600DBB31A /* SendEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewController.swift; sourceTree = "<group>"; };
 		D2318BD720CC44FA00A027EE /* HemlockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockError.swift; sourceTree = "<group>"; };
@@ -2182,7 +2126,6 @@
 		D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesAppConfiguration.swift; sourceTree = "<group>"; };
 		D2A74B1821289F2E001D4B0F /* HemlockAppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockAppConfiguration.swift; sourceTree = "<group>"; };
 		D2A81795224699C700340074 /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
-		D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASDisplayNode+.swift"; sourceTree = "<group>"; };
 		D2AA9D4527383B75001E78DB /* BookBagDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookBagDetails.storyboard; sourceTree = "<group>"; };
 		D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagDetailsViewController.swift; sourceTree = "<group>"; };
 		D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagDetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -2244,7 +2187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951DF32B8FC1D600193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951DFD2B8FC1D600193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */,
 				D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2261,7 +2203,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951EB02B8FC2D300193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951EBA2B8FC2D400193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */,
 				D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2278,7 +2219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E322B8FC27600193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E3C2B8FC27600193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */,
 				D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2295,7 +2235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E472B8FC28E00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E512B8FC28F00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2312,7 +2251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E862B8FC2B700193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E902B8FC2B800193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */,
 				D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2330,7 +2268,6 @@
 			files = (
 				D2951DDE2B8FBFF900193695 /* Alamofire.xcframework in Frameworks */,
 				D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */,
-				D2951DEE2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951DE62B8FBFF900193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */,
 				D2951DEA2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Frameworks */,
@@ -2346,7 +2283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E1D2B8FC25800193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E272B8FC25900193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */,
 				D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2363,7 +2299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E182B8FC23500193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E082B8FC23400193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E122B8FC23500193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E0A2B8FC23400193695 /* PINCache.xcframework in Frameworks */,
 				D2951E0E2B8FC23500193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2380,7 +2315,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E9B2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951EA52B8FC2C500193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */,
 				D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2404,7 +2338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E5C2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E662B8FC29E00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2421,7 +2354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E812B8FC2AC00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E712B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E7B2B8FC2AC00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E732B8FC2AB00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E772B8FC2AB00193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2593,7 +2525,6 @@
 			children = (
 				D22AE118221B75FC0089C196 /* AFSessionManager+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
-				D2AA63C62282691800121CE8 /* ASDisplayNode+.swift */,
 				D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
 				D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */,
@@ -2697,7 +2628,6 @@
 			children = (
 				D22D0C922243104600DBB31A /* SendEmail.storyboard */,
 				D22D0C972243107600DBB31A /* SendEmailViewController.swift */,
-				D22D0C8D22426B6B00DBB31A /* XSendEmailViewController.swift */,
 			);
 			path = SendEmail;
 			sourceTree = "<group>";
@@ -3824,7 +3754,6 @@
 				D28F5E6129CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D5E2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
-				D210EBF022B1EE55002FB5E0 /* ASDisplayNode+.swift in Sources */,
 				D2931AAA272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D210EBF122B1EE55002FB5E0 /* SendEmailViewController.swift in Sources */,
 				D210EBF222B1EE55002FB5E0 /* UIView+UYLExtensions.swift in Sources */,
@@ -3850,7 +3779,6 @@
 				D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */,
 				D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */,
 				D24C3930254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
-				D210EC0422B1EE55002FB5E0 /* XSendEmailViewController.swift in Sources */,
 				D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */,
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
 				D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */,
@@ -3933,7 +3861,6 @@
 				D23E9F9423B9200A0030F5C1 /* CopyInfoViewController.swift in Sources */,
 				D28F5E6B29CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D662738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
-				D23E9F9523B9200A0030F5C1 /* ASDisplayNode+.swift in Sources */,
 				D23E9F9623B9200A0030F5C1 /* SendEmailViewController.swift in Sources */,
 				D23E9F9723B9200A0030F5C1 /* UIView+UYLExtensions.swift in Sources */,
 				D2931AB2272DE83200CBA5AA /* BookBag.swift in Sources */,
@@ -3962,7 +3889,6 @@
 				D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */,
 				D24C3938254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D23E9FA923B9200A0030F5C1 /* OSRFClass.swift in Sources */,
-				D23E9FAA23B9200A0030F5C1 /* XSendEmailViewController.swift in Sources */,
 				D23E9FAB23B9200A0030F5C1 /* UIFont+smallCaps.swift in Sources */,
 				D23E9FAC23B9200A0030F5C1 /* BarcodeUtils.swift in Sources */,
 				D23E9FAD23B9200A0030F5C1 /* FineRecord.swift in Sources */,
@@ -4044,7 +3970,6 @@
 				D2477BE024785A6B00FD4CF6 /* CopyInfoViewController.swift in Sources */,
 				D28F5E6529CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D622738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
-				D2477BE124785A6B00FD4CF6 /* ASDisplayNode+.swift in Sources */,
 				D2477BE224785A6B00FD4CF6 /* SendEmailViewController.swift in Sources */,
 				D2477BE324785A6B00FD4CF6 /* UIView+UYLExtensions.swift in Sources */,
 				D2931AAE272DE83200CBA5AA /* BookBag.swift in Sources */,
@@ -4072,7 +3997,6 @@
 				D2477BF724785A6B00FD4CF6 /* Utils.swift in Sources */,
 				D2477BF824785A6B00FD4CF6 /* OSRFClass.swift in Sources */,
 				D24C3934254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
-				D2477BF924785A6B00FD4CF6 /* XSendEmailViewController.swift in Sources */,
 				D2477BFA24785A6B00FD4CF6 /* UIFont+smallCaps.swift in Sources */,
 				D2477C3324786CCF00FD4CF6 /* AppFactory.swift in Sources */,
 				D2477BFB24785A6B00FD4CF6 /* BarcodeUtils.swift in Sources */,
@@ -4155,7 +4079,6 @@
 				D2572AD024AD7755000BA698 /* CopyInfoViewController.swift in Sources */,
 				D28F5E6629CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D672738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
-				D2572AD224AD7755000BA698 /* ASDisplayNode+.swift in Sources */,
 				D2572AD324AD7755000BA698 /* SendEmailViewController.swift in Sources */,
 				D2572AD424AD7755000BA698 /* UIView+UYLExtensions.swift in Sources */,
 				D2931AB3272DE83200CBA5AA /* BookBag.swift in Sources */,
@@ -4181,7 +4104,6 @@
 				D21090CF24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2572AE824AD7755000BA698 /* Utils.swift in Sources */,
 				D2572AE924AD7755000BA698 /* OSRFClass.swift in Sources */,
-				D2572AEA24AD7755000BA698 /* XSendEmailViewController.swift in Sources */,
 				D24C3939254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2572AEB24AD7755000BA698 /* UIFont+smallCaps.swift in Sources */,
 				D2572AEC24AD7755000BA698 /* BarcodeUtils.swift in Sources */,
@@ -4267,7 +4189,6 @@
 				D28F5E6929CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D25EEC7528A1E8310090F108 /* CopyInfoViewController.swift in Sources */,
 				D25EEC7728A1E8310090F108 /* BookBagDetailsTableViewCell.swift in Sources */,
-				D25EEC7828A1E8310090F108 /* ASDisplayNode+.swift in Sources */,
 				D25EEC7928A1E8310090F108 /* SendEmailViewController.swift in Sources */,
 				D25EEC7A28A1E8310090F108 /* UIView+UYLExtensions.swift in Sources */,
 				D25EEC7B28A1E8310090F108 /* BookBag.swift in Sources */,
@@ -4293,7 +4214,6 @@
 				D25EEC8E28A1E8310090F108 /* MessageMap.swift in Sources */,
 				D25EEC8F28A1E8310090F108 /* Utils.swift in Sources */,
 				D25EEC9028A1E8310090F108 /* OSRFClass.swift in Sources */,
-				D25EEC9128A1E8310090F108 /* XSendEmailViewController.swift in Sources */,
 				D25EEC9228A1E8310090F108 /* URLRequest+.swift in Sources */,
 				D25EEC9328A1E8310090F108 /* UIFont+smallCaps.swift in Sources */,
 				D25EEC9428A1E8310090F108 /* BarcodeUtils.swift in Sources */,
@@ -4383,7 +4303,6 @@
 				D28AE24C24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2C3EA2F29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D276DAA821336B20007FAA31 /* CopyInfoViewController.swift in Sources */,
-				D2AA63C92282691900121CE8 /* ASDisplayNode+.swift in Sources */,
 				D22D0C9A2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D276DAA921336B20007FAA31 /* UIView+UYLExtensions.swift in Sources */,
 				D276DAAA21336B20007FAA31 /* CircRecord.swift in Sources */,
@@ -4405,7 +4324,6 @@
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
 				D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BB66BE297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
-				D22D0C9022426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
@@ -4493,7 +4411,6 @@
 				D2C3EA3029D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D28290F520E5CF48008EBE4B /* UIView+UYLExtensions.swift in Sources */,
-				D2AA63C72282691800121CE8 /* ASDisplayNode+.swift in Sources */,
 				D22D0C982243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
 				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
@@ -4515,7 +4432,6 @@
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BB66BF297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
-				D22D0C8E22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
@@ -4603,7 +4519,6 @@
 				D28AE24B24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2C3EA2E29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D284247021D0358200C7171C /* CopyInfoViewController.swift in Sources */,
-				D2AA63CA2282691900121CE8 /* ASDisplayNode+.swift in Sources */,
 				D22D0C9B2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D284247121D0358200C7171C /* UIView+UYLExtensions.swift in Sources */,
 				D284247221D0358200C7171C /* CircRecord.swift in Sources */,
@@ -4625,7 +4540,6 @@
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
 				D24C3931254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BB66BD297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
-				D22D0C9122426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
 				D284248121D0358200C7171C /* BarcodeUtils.swift in Sources */,
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
@@ -4711,7 +4625,6 @@
 				D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */,
 				D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */,
 				D2931AB1272DE83200CBA5AA /* BookBag.swift in Sources */,
-				D2AA63C82282691900121CE8 /* ASDisplayNode+.swift in Sources */,
 				D22D0C992243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
@@ -4736,7 +4649,6 @@
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
 				D24C3937254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D29C72142092691A00E90952 /* OSRFClass.swift in Sources */,
-				D22D0C8F22426B6B00DBB31A /* XSendEmailViewController.swift in Sources */,
 				D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20921AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
@@ -4854,7 +4766,6 @@
 				D28F5E6729CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D632738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */,
-				D2BDA63822D176BD00D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA63922D176BD00D9B60C /* SendEmailViewController.swift in Sources */,
 				D2931AAF272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2BDA63A22D176BD00D9B60C /* UIView+UYLExtensions.swift in Sources */,
@@ -4881,7 +4792,6 @@
 				D2BDA64922D176BD00D9B60C /* Utils.swift in Sources */,
 				D2BDA64A22D176BD00D9B60C /* OSRFClass.swift in Sources */,
 				D24C3935254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
-				D2BDA64B22D176BD00D9B60C /* XSendEmailViewController.swift in Sources */,
 				D2BDA64C22D176BD00D9B60C /* UIFont+smallCaps.swift in Sources */,
 				D2BDA64D22D176BD00D9B60C /* BarcodeUtils.swift in Sources */,
 				D2BDA64F22D176BD00D9B60C /* FineRecord.swift in Sources */,
@@ -4964,7 +4874,6 @@
 				D2BDA6CE22D2A72000D9B60C /* CopyInfoViewController.swift in Sources */,
 				D28F5E6829CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D642738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
-				D2BDA6CF22D2A72000D9B60C /* ASDisplayNode+.swift in Sources */,
 				D2BDA6D022D2A72000D9B60C /* SendEmailViewController.swift in Sources */,
 				D2BDA6D122D2A72000D9B60C /* UIView+UYLExtensions.swift in Sources */,
 				D2931AB0272DE83200CBA5AA /* BookBag.swift in Sources */,
@@ -4990,7 +4899,6 @@
 				D21090CC24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2BDA6E122D2A72000D9B60C /* Utils.swift in Sources */,
 				D2BDA6E222D2A72000D9B60C /* OSRFClass.swift in Sources */,
-				D2BDA6E322D2A72000D9B60C /* XSendEmailViewController.swift in Sources */,
 				D24C3936254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BDA6E422D2A72000D9B60C /* UIFont+smallCaps.swift in Sources */,
 				D2BDA6E522D2A72000D9B60C /* BarcodeUtils.swift in Sources */,
