@@ -81,7 +81,7 @@ class CopyInfoViewController: UIViewController {
 
     @objc func placeHoldPressed(sender: UIButton) {
         guard let record = self.record else { return }
-        let vc = XPlaceHoldViewController(record: record)
+        guard let vc = PlaceHoldViewController.make(record: record) else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

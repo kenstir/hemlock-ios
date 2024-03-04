@@ -39,7 +39,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
 
-    var record = MBRecord(id: -1)
+    var record = MBRecord.dummyRecord
     var row: Int = 0
     var count: Int = 0
     var displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
@@ -269,7 +269,7 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func placeHoldPressed(sender: Any) {
-        let vc = XPlaceHoldViewController(record: record)
+        guard let vc = PlaceHoldViewController.make(record: record) else { return }
         navigationController?.pushViewController(vc, animated: true)
     }
 

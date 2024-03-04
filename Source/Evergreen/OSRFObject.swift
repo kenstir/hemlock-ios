@@ -231,6 +231,13 @@ struct OSRFObject: Equatable {
     }
  */
 
+    //MARK: - Debug
+
+    func dump() {
+        print("\(netClass ?? "unknown class") OSRFObject:")
+        Utils.dump(dict: dict)
+    }
+
     //MARK: - Equatable
 
     // It seems like there should be an easier way to implement this
