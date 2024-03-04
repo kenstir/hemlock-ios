@@ -1050,12 +1050,8 @@
 		D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DEE2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951DEF2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF12B8FC1D600193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951DF22B8FC1D600193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DF32B8FC1D600193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951DF42B8FC1D600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1074,8 +1070,6 @@
 		D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E062B8FC23400193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E072B8FC23400193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E082B8FC23400193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E092B8FC23400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E0A2B8FC23400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E0B2B8FC23400193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E0C2B8FC23500193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1094,8 +1088,6 @@
 		D2951E192B8FC23500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E1B2B8FC25800193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E1C2B8FC25800193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E1D2B8FC25800193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E1E2B8FC25800193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1114,8 +1106,6 @@
 		D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E302B8FC27500193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E312B8FC27500193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E322B8FC27600193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E332B8FC27600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1134,8 +1124,6 @@
 		D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E452B8FC28E00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E462B8FC28E00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E472B8FC28E00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E482B8FC28E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1154,8 +1142,6 @@
 		D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E5A2B8FC29E00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E5B2B8FC29E00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E5C2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E5D2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1174,8 +1160,6 @@
 		D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E6F2B8FC2AB00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E702B8FC2AB00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E712B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E722B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E732B8FC2AB00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E742B8FC2AB00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E752B8FC2AB00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1194,8 +1178,6 @@
 		D2951E822B8FC2AC00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E842B8FC2B700193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E852B8FC2B700193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E862B8FC2B700193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E872B8FC2B700193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1214,8 +1196,6 @@
 		D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E992B8FC2C400193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951E9A2B8FC2C400193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E9B2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951E9C2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1234,8 +1214,6 @@
 		D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EAE2B8FC2D300193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
 		D2951EAF2B8FC2D300193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EB02B8FC2D300193695 /* AsyncDisplayKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; };
-		D2951EB12B8FC2D300193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1729,7 +1707,6 @@
 			files = (
 				D2951DDF2B8FBFF900193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951DEF2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951DE72B8FBFF900193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */,
 				D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
@@ -1748,7 +1725,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951DF42B8FC1D600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951DFE2B8FC1D600193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1768,7 +1744,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E192B8FC23500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E092B8FC23400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E132B8FC23500193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E0B2B8FC23400193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E0F2B8FC23500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1788,7 +1763,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E1E2B8FC25800193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E282B8FC25900193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1808,7 +1782,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E332B8FC27600193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E3D2B8FC27600193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1828,7 +1801,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E482B8FC28E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E522B8FC28F00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1848,7 +1820,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E5D2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E672B8FC29E00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1868,7 +1839,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E822B8FC2AC00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E722B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E7C2B8FC2AC00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E742B8FC2AB00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E782B8FC2AB00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1888,7 +1858,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E872B8FC2B700193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951E912B8FC2B800193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1908,7 +1877,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E9C2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951EA62B8FC2C500193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -1928,7 +1896,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951EB12B8FC2D300193695 /* AsyncDisplayKit.xcframework in Embed Frameworks */,
 				D2951EBB2B8FC2D400193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
@@ -2220,7 +2187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951DF32B8FC1D600193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951DFD2B8FC1D600193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */,
 				D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2237,7 +2203,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951EB02B8FC2D300193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951EBA2B8FC2D400193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */,
 				D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2254,7 +2219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E322B8FC27600193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E3C2B8FC27600193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */,
 				D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2271,7 +2235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E472B8FC28E00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E512B8FC28F00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2288,7 +2251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E862B8FC2B700193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E902B8FC2B800193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */,
 				D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2306,7 +2268,6 @@
 			files = (
 				D2951DDE2B8FBFF900193695 /* Alamofire.xcframework in Frameworks */,
 				D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */,
-				D2951DEE2B8FBFF900193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951DE62B8FBFF900193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */,
 				D2951DEA2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Frameworks */,
@@ -2322,7 +2283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E1D2B8FC25800193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E272B8FC25900193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */,
 				D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2339,7 +2299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E182B8FC23500193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E082B8FC23400193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E122B8FC23500193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E0A2B8FC23400193695 /* PINCache.xcframework in Frameworks */,
 				D2951E0E2B8FC23500193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2356,7 +2315,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E9B2B8FC2C400193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951EA52B8FC2C500193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */,
 				D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2380,7 +2338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E5C2B8FC29E00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E662B8FC29E00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2397,7 +2354,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E812B8FC2AC00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E712B8FC2AB00193695 /* AsyncDisplayKit.xcframework in Frameworks */,
 				D2951E7B2B8FC2AC00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E732B8FC2AB00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E772B8FC2AB00193695 /* PINRemoteImage.xcframework in Frameworks */,
