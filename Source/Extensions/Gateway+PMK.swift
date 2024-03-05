@@ -24,13 +24,14 @@ import PMKAlamofire
 import os.log
 
 extension Alamofire.DataRequest {
-    func gatewayResponse(queue: DispatchQueue? = nil) -> Promise<(GatewayResponse)>
+    func gatewayResponse(queue: DispatchQueue = .main) -> Promise<(GatewayResponse)>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-                Analytics.logResponse(tag: tag, data: response.result.value)
+                //AF5 TODO: fix request logging
+//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+//                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -45,16 +46,16 @@ extension Alamofire.DataRequest {
         }
     }
 
-    func gatewayArrayResponse(queue: DispatchQueue? = nil) -> Promise<([OSRFObject])>
+    func gatewayArrayResponse(queue: DispatchQueue = .main) -> Promise<([OSRFObject])>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-                Analytics.logResponse(tag: tag, data: response.result.value)
+                //AF5 TODO: fix request logging
+//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+//                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
-                    let data = response.result.value
-                {
+                    let data = response.result.value                {
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -74,13 +75,14 @@ extension Alamofire.DataRequest {
         }
     }
 
-    func gatewayMaybeEmptyArrayResponse(queue: DispatchQueue? = nil) -> Promise<([OSRFObject])>
+    func gatewayMaybeEmptyArrayResponse(queue: DispatchQueue = .main) -> Promise<([OSRFObject])>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-                Analytics.logResponse(tag: tag, data: response.result.value)
+                //AF5 TODO: fix request logging
+//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+//                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -105,13 +107,14 @@ extension Alamofire.DataRequest {
         }
     }
 
-    func gatewayObjectResponse(queue: DispatchQueue? = nil) -> Promise<(OSRFObject)>
+    func gatewayObjectResponse(queue: DispatchQueue = .main) -> Promise<(OSRFObject)>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-                Analytics.logResponse(tag: tag, data: response.result.value)
+                //AF5 TODO: fix request logging
+//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+//                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -134,13 +137,14 @@ extension Alamofire.DataRequest {
         }
     }
 
-    func gatewayOptionalObjectResponse(queue: DispatchQueue? = nil) -> Promise<(OSRFObject?)>
+    func gatewayOptionalObjectResponse(queue: DispatchQueue = .main) -> Promise<(OSRFObject?)>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-                Analytics.logResponse(tag: tag, data: response.result.value)
+                //AF5 TODO: fix request logging
+//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+//                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -160,13 +164,14 @@ extension Alamofire.DataRequest {
     }
 
     /// for APIs like patronSettingsUpdate, that return "1" or an event on error
-    func gatewayStringResponse(queue: DispatchQueue? = nil) -> Promise<(String)>
+    func gatewayStringResponse(queue: DispatchQueue = .main) -> Promise<(String)>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-                Analytics.logResponse(tag: tag, data: response.result.value)
+                //AF5 TODO: fix request logging
+//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+//                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
@@ -190,13 +195,14 @@ extension Alamofire.DataRequest {
         }
     }
 
-    func gatewayAuthtokenResponse(queue: DispatchQueue? = nil) -> Promise<(String)>
+    func gatewayAuthtokenResponse(queue: DispatchQueue = .main) -> Promise<(String)>
     {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-                Analytics.logResponse(tag: tag, data: response.result.value)
+                //AF5 TODO: fix request logging
+//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+//                Analytics.logResponse(tag: tag, data: response.result.value)
                 if response.result.isSuccess,
                     let data = response.result.value
                 {
