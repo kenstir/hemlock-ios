@@ -28,7 +28,7 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                let tag = response.request?.debugTag ?? Analytics.nullTag
+//                let tag = response.request?.debugTag ?? Analytics.nullTag
                 //AF5 TODO: fix request logging
 //                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
 //                Analytics.logResponse(tag: tag, data: response.result.value)
@@ -50,8 +50,8 @@ extension Alamofire.DataRequest {
                 //AF5 TODO: fix request logging
 //                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
 //                Analytics.logResponse(tag: tag, data: response.result.value)
-                if response.result.isSuccess,
-                    let data = response.result.value                {
+				switch response.result {
+				case .success(let data):
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -61,12 +61,9 @@ extension Alamofire.DataRequest {
                         let extra = Bundle.isTestFlightOrDebug ? " (\(tag))" : ""
                         seal.reject(HemlockError.serverError("expected array, received \(resp.description)\(extra)"))
                     }
-                } else if response.result.isFailure,
-                    let error = response.error {
-                    seal.reject(error)
-                } else {
-                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
-                }
+				case .failure(let error):
+					seal.reject(error)
+				}
             }
         }
     }
@@ -79,9 +76,8 @@ extension Alamofire.DataRequest {
                 //AF5 TODO: fix request logging
 //                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
 //                Analytics.logResponse(tag: tag, data: response.result.value)
-                if response.result.isSuccess,
-                    let data = response.result.value
-                {
+				switch response.result {
+				case .success(let data):
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -93,12 +89,9 @@ extension Alamofire.DataRequest {
                         let extra = Bundle.isTestFlightOrDebug ? " (\(tag))" : ""
                         seal.reject(HemlockError.serverError("expected array, received \(resp.description)\(extra)"))
                     }
-                } else if response.result.isFailure,
-                    let error = response.error {
-                    seal.reject(error)
-                } else {
-                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
-                }
+				case .failure(let error):
+					seal.reject(error)
+				}
             }
         }
     }
@@ -111,9 +104,8 @@ extension Alamofire.DataRequest {
                 //AF5 TODO: fix request logging
 //                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
 //                Analytics.logResponse(tag: tag, data: response.result.value)
-                if response.result.isSuccess,
-                    let data = response.result.value
-                {
+				switch response.result {
+				case .success(let data):
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -123,12 +115,9 @@ extension Alamofire.DataRequest {
                         let extra = Bundle.isTestFlightOrDebug ? " (\(tag))" : ""
                         seal.reject(HemlockError.serverError("expected object, received \(resp.description)\(extra)"))
                     }
-                } else if response.result.isFailure,
-                    let error = response.error {
-                    seal.reject(error)
-                } else {
-                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
-                }
+				case .failure(let error):
+					seal.reject(error)
+				}
             }
         }
     }
@@ -137,24 +126,20 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                let tag = response.request?.debugTag ?? Analytics.nullTag
+//                let tag = response.request?.debugTag ?? Analytics.nullTag
                 //AF5 TODO: fix request logging
 //                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
 //                Analytics.logResponse(tag: tag, data: response.result.value)
-                if response.result.isSuccess,
-                    let data = response.result.value
-                {
+				switch response.result {
+				case .success(let data):
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
                     }
                     seal.fulfill(resp.obj)
-                } else if response.result.isFailure,
-                    let error = response.error {
-                    seal.reject(error)
-                } else {
-                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
-                }
+				case .failure(let error):
+					seal.reject(error)
+				}
             }
         }
     }
@@ -164,13 +149,12 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                let tag = response.request?.debugTag ?? Analytics.nullTag
+//                let tag = response.request?.debugTag ?? Analytics.nullTag
                 //AF5 TODO: fix request logging
 //                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
 //                Analytics.logResponse(tag: tag, data: response.result.value)
-                if response.result.isSuccess,
-                    let data = response.result.value
-                {
+				switch response.result {
+				case .success(let data):
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -181,12 +165,9 @@ extension Alamofire.DataRequest {
                     } else {
                         seal.reject(HemlockError.unexpectedNetworkResponse("expected auth response"))
                     }
-                } else if response.result.isFailure,
-                    let error = response.error {
-                    seal.reject(error)
-                } else {
-                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
-                }
+				case .failure(let error):
+					seal.reject(error)
+				}
             }
         }
     }
@@ -195,13 +176,12 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-                let tag = response.request?.debugTag ?? Analytics.nullTag
+//                let tag = response.request?.debugTag ?? Analytics.nullTag
                 //AF5 TODO: fix request logging
 //                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
 //                Analytics.logResponse(tag: tag, data: response.result.value)
-                if response.result.isSuccess,
-                    let data = response.result.value
-                {
+				switch response.result {
+				case .success(let data):
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -212,12 +192,9 @@ extension Alamofire.DataRequest {
                     } else {
                         seal.reject(HemlockError.unexpectedNetworkResponse("expected auth response"))
                     }
-                } else if response.result.isFailure,
-                    let error = response.error {
-                    seal.reject(error)
-                } else {
-                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
-                }
+				case .failure(let error):
+					seal.reject(error)
+				}
             }
         }
     }

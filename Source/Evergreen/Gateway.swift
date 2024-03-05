@@ -59,6 +59,7 @@ class Gateway {
         //AF5 TODO: do not cache empty responses
         return AF
     }()
+    // AF4 impl for reference:
 //    static let sessionManager: Session = {
 //        let configuration = URLSessionConfiguration.default
 //        configuration.httpAdditionalHeaders = Session.defaultHTTPHeaders
