@@ -6,7 +6,7 @@
 
 import Alamofire
 
-extension Alamofire.SessionManager{
+extension Alamofire.Session {
     @discardableResult
     public func makeRequest(
         _ url: URLConvertible,
