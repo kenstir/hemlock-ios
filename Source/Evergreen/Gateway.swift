@@ -55,38 +55,28 @@ class Gateway {
     /// an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
     
-    static let sessionManager: SessionManager = {
-        let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        
-        let sm = SessionManager(configuration: configuration)
-        let delegate = sm.delegate
-        delegate.dataTaskWillCacheResponse = { session, dataTask, proposedResponse in
-//            var exp: String? = nil
-//            // TODO (maybe): implement max TTL for cache
-//            if let response = dataTask.response as? HTTPURLResponse,
-//                let headers = response.allHeaderFields as? [String:String],
-//                let expires = headers["Expires"] {
-//                print("Expires: \(expires)")
-//                exp = expires
-//                print("response: \(response)")
-//                //if response.result.isSuccess,
-//                //    let data = response.result.value
-//                print("stop here")
-//            }
-//            let size = proposedResponse.data.count
-//            print("data: \(proposedResponse.data)")
-            if let str = String(data: proposedResponse.data, encoding: .utf8),
-                str.contains("\"payload\":[]") {
-                // do not cache empty gateway response
-                // see also: http://list.evergreen-ils.org/pipermail/evergreen-dev/2021-January/000083.html
-                return nil
-            }
-            //print("willCache: expires:\(exp ?? "") -> \(size) bytes")
-            return proposedResponse
-        }
-        return sm
+    static let sessionManager: Session = {
+        //AF5 TODO: do not cache empty responses
+        return AF
     }()
+//    static let sessionManager: Session = {
+//        let configuration = URLSessionConfiguration.default
+//        configuration.httpAdditionalHeaders = Session.defaultHTTPHeaders
+//
+//        let sm = SessionManager(configuration: configuration)
+//        let delegate = sm.delegate
+//        delegate.dataTaskWillCacheResponse = { session, dataTask, proposedResponse in
+//            if let str = String(data: proposedResponse.data, encoding: .utf8),
+//                str.contains("\"payload\":[]") {
+//                // do not cache empty gateway response
+//                // see also: http://list.evergreen-ils.org/pipermail/evergreen-dev/2021-January/000083.html
+//                return nil
+//            }
+//            //print("willCache: expires:\(exp ?? "") -> \(size) bytes")
+//            return proposedResponse
+//        }
+//        return sm
+//    }()
 
     //MARK: - static methods
 
