@@ -32,15 +32,11 @@ extension Alamofire.DataRequest {
                 //AF5 TODO: fix request logging
 //                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
 //                Analytics.logResponse(tag: tag, data: response.result.value)
-                if response.result.isSuccess,
-                    let data = response.result.value
-                {
+                switch response.result {
+                case .success(let data):
                     seal.fulfill((GatewayResponse(data)))
-                } else if response.result.isFailure,
-                    let error = response.error {
+                case .failure(let error):
                     seal.reject(error)
-                } else {
-                    seal.reject(GatewayError.failure("unknown error")) //todo: add analytics
                 }
             }
         }
