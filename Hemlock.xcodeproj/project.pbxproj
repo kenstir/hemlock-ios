@@ -1938,8 +1938,6 @@
 		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D210EC4B22B1F331002FB5E0 /* acorn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acorn.xcassets; sourceTree = "<group>"; };
 		D212DB2720C5B90A00267503 /* PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKitTests.swift; sourceTree = "<group>"; };
-		D212DB2920C5C0D200267503 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
-		D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PMKAlamofire.framework; path = Carthage/Build/iOS/PMKAlamofire.framework; sourceTree = "<group>"; };
 		D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Gateway+PMK.swift"; path = "Source/Extensions/Gateway+PMK.swift"; sourceTree = SOURCE_ROOT; };
 		D218679E21D039BF0082358C /* CoolAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolAppConfiguration.swift; sourceTree = "<group>"; };
 		D218679F21D039BF0082358C /* CoolTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolTheme.swift; sourceTree = "<group>"; };
@@ -1948,7 +1946,6 @@
 		D21981F7235BC7BC003AE531 /* CodedValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CodedValueMap.swift; path = Source/Evergreen/CodedValueMap.swift; sourceTree = SOURCE_ROOT; };
 		D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedValueMapTests.swift; sourceTree = "<group>"; };
 		D2211B0320CF68590043947B /* Checkouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkouts.storyboard; sourceTree = "<group>"; };
-		D2211B0520D0BA840043947B /* Valet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Valet.framework; path = Carthage/Build/iOS/Valet.framework; sourceTree = "<group>"; };
 		D22438AB20D357E900D098D0 /* HoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsViewController.swift; sourceTree = "<group>"; };
 		D22438AD20D35CC000D098D0 /* HoldRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecord.swift; sourceTree = "<group>"; };
 		D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+splitOnRegex.swift"; sourceTree = "<group>"; };
@@ -1969,7 +1966,6 @@
 		D22D0C972243107600DBB31A /* SendEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEmailViewController.swift; sourceTree = "<group>"; };
 		D2318BD720CC44FA00A027EE /* HemlockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemlockError.swift; sourceTree = "<group>"; };
 		D231B52120804DF900478D25 /* AlamoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoTests.swift; sourceTree = "<group>"; };
-		D231B5282081628900478D25 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D231B52B2083C08000478D25 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		D231B52D2083C1E500478D25 /* LibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTests.swift; sourceTree = "<group>"; };
 		D233710D2A6C78830080294F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -2009,10 +2005,6 @@
 		D252DA2723F616C000D11662 /* CircRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecordTests.swift; sourceTree = "<group>"; };
 		D252DA2923F6382000D11662 /* HoldRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecordTests.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
-		D253343F20C30789008176B9 /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
-		D253344120C3078F008176B9 /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
-		D253344320C30A60008176B9 /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
 		D2562FB020CDD3080072F750 /* FinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesViewController.swift; sourceTree = "<group>"; };
 		D2562FB220CDE9CE0072F750 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		D2572B1F24AD7755000BA698 /* Missouri Evergreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Missouri Evergreen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2062,7 +2054,6 @@
 		D28424B021D0358200C7171C /* COOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28424B121D0358300C7171C /* CoolInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoolInfo.plist; sourceTree = "<group>"; };
 		D28725AD20E86F30002A4C42 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
-		D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -2098,7 +2089,6 @@
 		D2951DD82B8FBFF800193695 /* PINOperation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINOperation.xcframework; path = Carthage/Build/PINOperation.xcframework; sourceTree = "<group>"; };
 		D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ToastSwiftFramework.xcframework; path = Carthage/Build/ToastSwiftFramework.xcframework; sourceTree = "<group>"; };
 		D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZXingObjC.xcframework; path = Carthage/Build/ZXingObjC.xcframework; sourceTree = "<group>"; };
-		D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AsyncDisplayKit.xcframework; path = Carthage/Build/AsyncDisplayKit.xcframework; sourceTree = "<group>"; };
 		D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsAppConfiguration.swift; sourceTree = "<group>"; };
 		D296EE0A2133802F009BDB12 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
@@ -2106,7 +2096,6 @@
 		D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldViewController.swift; sourceTree = "<group>"; };
 		D29911D9248461C0007DB26C /* OrgDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrgDetails.storyboard; sourceTree = "<group>"; };
 		D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsViewController.swift; sourceTree = "<group>"; };
-		D29A3B292197C14900BBF192 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = "<group>"; };
 		D29C720D209245E200E90952 /* TestUserData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUserData; sourceTree = SOURCE_ROOT; };
 		D29C720F209248F500E90952 /* OSRFCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoder.swift; sourceTree = "<group>"; };
 		D29C721120924CF000E90952 /* OSRFCoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSRFCoderTests.swift; sourceTree = "<group>"; };
@@ -2636,7 +2625,6 @@
 			isa = PBXGroup;
 			children = (
 				D2951DD32B8FBFF800193695 /* Alamofire.xcframework */,
-				D2951DDB2B8FBFF900193695 /* AsyncDisplayKit.xcframework */,
 				D2951DD52B8FBFF800193695 /* PINCache.xcframework */,
 				D2951DD82B8FBFF800193695 /* PINOperation.xcframework */,
 				D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */,
@@ -2645,16 +2633,6 @@
 				D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */,
 				D2951DD42B8FBFF800193695 /* Valet.xcframework */,
 				D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */,
-				D29A3B292197C14900BBF192 /* ZXingObjC.framework */,
-				D28725B320E95AB0002A4C42 /* ToastSwiftFramework.framework */,
-				D2211B0520D0BA840043947B /* Valet.framework */,
-				D253344320C30A60008176B9 /* PINOperation.framework */,
-				D253344120C3078F008176B9 /* PINCache.framework */,
-				D253343F20C30789008176B9 /* PINRemoteImage.framework */,
-				D253343D20C3076D008176B9 /* AsyncDisplayKit.framework */,
-				D212DB2B20C5C0D500267503 /* PMKAlamofire.framework */,
-				D212DB2920C5C0D200267503 /* PromiseKit.framework */,
-				D231B5282081628900478D25 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
