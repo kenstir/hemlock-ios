@@ -18,6 +18,19 @@
 
 import Foundation
 
+// NOTES about handling null in JSON
+//
+// Here we use 'as? JSONDictionary' aka '[String: Any?]' because
+// that is necessary to handle null values like {"a":null}.  If
+// we insteead used [String:Any] then we would get the NSNull object, not nil.
+//
+// But subscripting a JSONDictionary can be awkward, because in this code
+// the type of 'val' is 'Any??':
+//
+//    let obj = parseObject(fromData: data)
+//    let val = obj["a"]
+//
+// So for this reason we have getStr.
 class JSONUtils {
     static func parseObject(fromStr str: String) -> JSONDictionary? {
         if let data = str.data(using: .utf8) {
@@ -25,7 +38,7 @@ class JSONUtils {
         }
         return nil
     }
-    
+
     static func parseObject(fromData data: Data) -> JSONDictionary? {
         if
             let json = try? JSONSerialization.jsonObject(with: data),
@@ -35,5 +48,12 @@ class JSONUtils {
         } else {
             return nil
         }
+    }
+
+    static func getString(_ dict: JSONDictionary, key: String) -> String? {
+        if let val = dict[key] as? String {
+            return val
+        }
+        return nil
     }
 }

@@ -1582,6 +1582,7 @@
 		D2C3EA4129D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C3EA4229D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C3EA4329D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C7150B2B98CAC000A1F585 /* JSONUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */; };
 		D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
@@ -2143,6 +2144,7 @@
 		D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagerViewController.swift; sourceTree = "<group>"; };
 		D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2C3EA3829D905F100583A96 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtilsTests.swift; sourceTree = "<group>"; };
 		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -2548,6 +2550,7 @@
 				D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */,
 				D22D0272208506C500DC1F5B /* MD5Tests.swift */,
 				D259671824511CA90076267D /* UtilsTests.swift */,
+				D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -4683,6 +4686,7 @@
 				D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */,
 				D2931AB7272DF49A00CBA5AA /* BookBagTests.swift in Sources */,
 				D252DA2A23F6382000D11662 /* HoldRecordTests.swift in Sources */,
+				D2C7150B2B98CAC000A1F585 /* JSONUtilsTests.swift in Sources */,
 				D28AE26024FDD6F000960E9E /* MessageMapTests.swift in Sources */,
 				D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */,
 			);

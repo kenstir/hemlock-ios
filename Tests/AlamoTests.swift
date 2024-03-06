@@ -80,7 +80,7 @@ class AlamoTests: XCTestCase {
         
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
     // test using gatewayEncoding to encode as param=1&param=2
     func test_gatewayEncoding() {
         let url = URL(string: "https://httpbin.org/get")!
@@ -95,7 +95,7 @@ class AlamoTests: XCTestCase {
             XCTFail("getting httpBody as string")
         }
     }
-    
+
     // make a request using gatewayEncoding
     func test_gatewayEncodingResponse() {
         let expectation = XCTestExpectation(description: "async response")
