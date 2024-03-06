@@ -21,7 +21,7 @@ extension Alamofire.Session {
             var urlRequest = try URLRequest(url: url, method: method, headers: headers)
             if (shouldCache == false) {
                 // NB: by default POST responses are not cached anyway
-                urlRequest.cachePolicy = .reloadIgnoringCacheData
+                urlRequest.cachePolicy = .reloadIgnoringLocalCacheData
             }
             let encodedURLRequest = try encoding.encode(urlRequest, with: parameters)
             return request(encodedURLRequest)

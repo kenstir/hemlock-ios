@@ -21,6 +21,28 @@ import Foundation
 import Alamofire
 import os.log
 
+final class DebugEventMonitor: EventMonitor {
+    func requestDidResume(_ request: Request) {
+        let tag = request.request?.debugTag ?? Analytics.nullTag
+        print("AF5: [\(tag)]: send:  \(request.description)")
+    }
+
+    func request(_ request: DataRequest, didParseResponse response: DataResponse<Data?, AFError>) {
+        let tag = request.request?.debugTag ?? Analytics.nullTag
+        print("AF5: [\(tag)]: recv1: \(response.debugDescription)")
+    }
+
+    func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value, AFError>) {
+        let tag = request.request?.debugTag ?? Analytics.nullTag
+        print("AF5: [\(tag)]: recv2: \(response.debugDescription)")
+    }
+
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse) {
+        let resp = proposedResponse.response
+        print("AF5: cache: \(resp.debugDescription)")
+    }
+}
+
 /// `Gateway` represents the endpoint or catalog OSRF server.
 class Gateway {
 
@@ -57,7 +79,9 @@ class Gateway {
     
     static let sessionManager: Session = {
         //AF5 TODO: do not cache empty responses
-        return AF
+        let session = Session(eventMonitors: [DebugEventMonitor()])
+        return session
+        //return AF
     }()
     // AF4 impl for reference:
 //    static let sessionManager: Session = {
@@ -88,7 +112,7 @@ class Gateway {
         let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args),
                                          "_ck": clientCacheKey, "_sk": serverCacheKey]
         let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
-        let tag = request.request?.debugTag ?? Analytics.nullTag
+        let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
 //        os_log("%@: req.params: %@", log: log, type: .info, tag, parameters.description)
         Analytics.logRequest(tag: tag, method: method, args: gatewayParams(args))
         return request

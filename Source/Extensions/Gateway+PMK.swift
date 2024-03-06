@@ -28,13 +28,12 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-//                let tag = response.request?.debugTag ?? Analytics.nullTag
-                //AF5 TODO: fix request logging
-//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-//                Analytics.logResponse(tag: tag, data: response.result.value)
+                let tag = response.request?.debugTag ?? Analytics.nullTag
                 switch response.result {
                 case .success(let data):
-                    seal.fulfill((GatewayResponse(data)))
+                    //os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                    Analytics.logResponse(tag: tag, data: data)
+                    seal.fulfill(GatewayResponse(data))
                 case .failure(let error):
                     seal.reject(error)
                 }
@@ -47,11 +46,10 @@ extension Alamofire.DataRequest {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                //AF5 TODO: fix request logging
-//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-//                Analytics.logResponse(tag: tag, data: response.result.value)
 				switch response.result {
 				case .success(let data):
+//                    os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                    Analytics.logResponse(tag: tag, data: data)
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -73,11 +71,10 @@ extension Alamofire.DataRequest {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                //AF5 TODO: fix request logging
-//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-//                Analytics.logResponse(tag: tag, data: response.result.value)
 				switch response.result {
 				case .success(let data):
+//                    os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                    Analytics.logResponse(tag: tag, data: data)
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -101,11 +98,10 @@ extension Alamofire.DataRequest {
         return Promise { seal in
             responseData(queue: queue) { response in
                 let tag = response.request?.debugTag ?? Analytics.nullTag
-                //AF5 TODO: fix request logging
-//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-//                Analytics.logResponse(tag: tag, data: response.result.value)
 				switch response.result {
 				case .success(let data):
+//                    os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                    Analytics.logResponse(tag: tag, data: data)
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)
@@ -126,12 +122,11 @@ extension Alamofire.DataRequest {
     {
         return Promise { seal in
             responseData(queue: queue) { response in
-//                let tag = response.request?.debugTag ?? Analytics.nullTag
-                //AF5 TODO: fix request logging
-//                os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
-//                Analytics.logResponse(tag: tag, data: response.result.value)
+                let tag = response.request?.debugTag ?? Analytics.nullTag
 				switch response.result {
 				case .success(let data):
+//                    os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
+                    Analytics.logResponse(tag: tag, data: data)
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)

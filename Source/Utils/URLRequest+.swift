@@ -24,11 +24,11 @@ extension URLRequest {
         if httpMethod == "POST",
             let body = httpBody,
             let query = String(data: body, encoding: .utf8) {
-            return String(format: "%x", query.hashValue, query)
+            return String(format: "%08x", query.hashValue, query)
         }
         if httpMethod == "GET",
             let query = self.url?.query {
-            return String(format: "%x", query.hashValue, query)
+            return String(format: "%08x", query.hashValue, query)
         }
         return nil
     }
