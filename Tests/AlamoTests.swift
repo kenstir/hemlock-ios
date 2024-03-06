@@ -27,73 +27,54 @@ class AlamoTests: XCTestCase {
 
     func test_basicGet() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = Alamofire.request("https://httpbin.org/get")
+        let request = AF.request("https://httpbin.org/get")
         print("request:  \(request.description)")
         request.responseData { response in
-            XCTAssertTrue(response.result.isSuccess)
             print("response: \(response.description)")
+            switch response.result {
+            case .success(let data):
+                XCTAssertNotNil(data)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
             expectation.fulfill()
         }
  
         wait(for: [expectation], timeout: 10.0)
     }
 
-    // use responseJSON to get response as decoded JSON
-    func test_responseJSON() {
-        let expectation = XCTestExpectation(description: "async response")
-        let request = Alamofire.request(App.directoryURL)
-        print("request:  \(request.description)")
-        request.responseJSON { response in
-            print("response: \(response.description)")
-            XCTAssertTrue(response.result.isSuccess)
-            XCTAssertTrue(response.result.value != nil, "result has value")
-            if let json = response.result.value {
-                XCTAssertTrue(json is [Any], "is array");
-                XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
-                XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
-                if let libraries = json as? [[String: Any]] {
-                    for library in libraries {
-                        let lib: [String: Any] = library
-                        debugPrint(lib)
-                    }
-                }
-            }
-
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 10.0)
-    }
-
     // use responseData to get response as Data then decode it as JSON
     func test_responseData() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = Alamofire.request(App.directoryURL)
+        let request = AF.request(App.directoryURL)
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
-            XCTAssertTrue(response.result.isSuccess)
-            XCTAssertTrue(response.result.value != nil, "result has value")
-            if let data = response.result.value,
-                let json = try? JSONSerialization.jsonObject(with: data)
-            {
-                debugPrint(json)
-                XCTAssertTrue(json is [Any], "is array");
-                XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
-                XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
-                if let libraries = json as? [[String: Any]] {
-                    for library in libraries {
-                        let lib: [String: Any] = library
-                        debugPrint(lib)
-                        if let lat = lib["latitude"] as? Double, let longitude = lib["longitude"] as? Double {
-                            debugPrint((lat,longitude))
+            switch response.result {
+            case .success(let data):
+                XCTAssertNotNil(data)
+                if let json = try? JSONSerialization.jsonObject(with: data)
+                {
+                    debugPrint(json)
+                    XCTAssertTrue(json is [Any], "is array");
+                    XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
+                    XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
+                    if let libraries = json as? [[String: Any]] {
+                        for library in libraries {
+                            let lib: [String: Any] = library
+                            debugPrint(lib)
+                            if let lat = lib["latitude"] as? Double, let longitude = lib["longitude"] as? Double {
+                                debugPrint((lat,longitude))
+                            }
                         }
                     }
+                } else {
+                    XCTFail()
                 }
-            } else {
-                XCTFail()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
-            
+
             expectation.fulfill()
         }
         
@@ -119,25 +100,28 @@ class AlamoTests: XCTestCase {
     func test_gatewayEncodingResponse() {
         let expectation = XCTestExpectation(description: "async response")
         let parameters = ["param": ["\"stringish\"", "{\"objish\":1}"]]
-        let request = Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: gatewayEncoding)
+        let request = AF.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: gatewayEncoding)
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
-            XCTAssertTrue(response.result.isSuccess)
-            XCTAssertTrue(response.result.value != nil, "result has value")
-            if let data = response.result.value,
-                let json = try? JSONSerialization.jsonObject(with: data),
-                let jsonObj = json as? [String: Any],
-                let form = jsonObj["form"] as? [String: Any],
-                let params = form["param"] as? [String]
-            {
-                print(json)
-                print(form)
-                XCTAssertEqual(params[0], "\"stringish\"")
-                XCTAssertEqual(params[1], "{\"objish\":1}")
-                expectation.fulfill()
-            } else {
-                XCTFail("validating form in json response")
+            switch response.result {
+            case .success(let data):
+                XCTAssertNotNil(data)
+                if let json = try? JSONSerialization.jsonObject(with: data),
+                   let jsonObj = json as? [String: Any],
+                   let form = jsonObj["form"] as? [String: Any],
+                   let params = form["param"] as? [String]
+                {
+                    print(json)
+                    print(form)
+                    XCTAssertEqual(params[0], "\"stringish\"")
+                    XCTAssertEqual(params[1], "{\"objish\":1}")
+                    expectation.fulfill()
+                } else {
+                    XCTFail("validating form in json response")
+                }
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
         }
 
@@ -150,23 +134,33 @@ class AlamoTests: XCTestCase {
             let request = Gateway.makeRequest(url: "https://httpbin.org/ip", shouldCache: true)
             print("request:  \(request.description)")
             request.responseData { response in
-                XCTAssertTrue(response.result.isSuccess)
                 print("response: \(response.description)")
+                switch response.result {
+                case .success(let data):
+                    XCTAssertNotNil(data)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
                 expectation.fulfill()
             }
             
             wait(for: [expectation], timeout: 20.0)
         }
     }
-    
+
     func test_requestWithoutCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
             let request = Gateway.makeRequest(url: "https://httpbin.org/headers", shouldCache: false)
             print("request:  \(request.description)")
             request.responseData { response in
-                XCTAssertTrue(response.result.isSuccess)
                 print("response: \(response.description)")
+                switch response.result {
+                case .success(let data):
+                    XCTAssertNotNil(data)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
                 expectation.fulfill()
             }
             
