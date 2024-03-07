@@ -127,23 +127,48 @@ class AlamoTests: XCTestCase {
 
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
+    func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+
+    // Send 2 requests with anything?rand=x, and expect both responses to echo the same 'rand' arg,
+    // and to have the same X-Amzn-Trace-Id, meaning that only one actual request made it to the server
+    // and the other was cached.
     func test_requestWithCache() {
-        self.measure {
+        let randomArg = randomString(length: 8)
+        var expectedTraceID: String? = nil
+        for i in 1...2 {
             let expectation = XCTestExpectation(description: "async response")
-            let request = Gateway.makeRequest(url: "https://httpbin.org/ip", shouldCache: true)
-            print("request:  \(request.description)")
+            let url = "https://httpbin.org/anything?rand=\(randomArg)"
+            let request = Gateway.makeRequest(url: url, shouldCache: true)
             request.responseData { response in
                 print("response: \(response.description)")
                 switch response.result {
                 case .success(let data):
-                    XCTAssertNotNil(data)
+                    if let dict = JSONUtils.parseObject(fromData: data),
+                       let args = JSONUtils.getObj(dict, key: "args"),
+                       let responseRandArg = JSONUtils.getString(args, key: "rand"),
+                       let headers = JSONUtils.getObj(dict, key: "headers"),
+                       let responseTraceID = JSONUtils.getString(headers, key: "X-Amzn-Trace-Id")
+                    {
+                        XCTAssertEqual(randomArg, responseRandArg)
+                        print("traceID: \(responseTraceID)")
+                        if expectedTraceID == nil {
+                            expectedTraceID = responseTraceID
+                        } else {
+                            XCTAssertEqual(expectedTraceID, responseTraceID)
+                        }
+                    } else {
+                        XCTFail()
+                    }
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
                 expectation.fulfill()
             }
-            
+
             wait(for: [expectation], timeout: 20.0)
         }
     }

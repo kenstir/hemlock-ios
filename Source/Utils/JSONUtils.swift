@@ -1,5 +1,4 @@
 //
-//  JSONUtils.swift
 //  Copyright (C) 2020 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -52,6 +51,13 @@ class JSONUtils {
 
     static func getString(_ dict: JSONDictionary, key: String) -> String? {
         if let val = dict[key] as? String {
+            return val
+        }
+        return nil
+    }
+
+    static func getObj(_ dict: JSONDictionary, key: String) -> JSONDictionary? {
+        if let val = dict[key] as? JSONDictionary {
             return val
         }
         return nil
