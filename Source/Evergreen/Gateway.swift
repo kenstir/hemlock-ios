@@ -60,7 +60,7 @@ final class GatewayResponseHandler: CachedResponseHandler {
 //        return true
 //    }
     func dataTask(_ task: URLSessionDataTask, willCacheResponse response: CachedURLResponse, completion: @escaping (CachedURLResponse?) -> Void) {
-        let tag = task.originalRequest?.debugTag ?? Analytics.nullTag
+//        let tag = task.originalRequest?.debugTag ?? Analytics.nullTag
         if let str = String(data: response.data, encoding: .utf8),
 //           debugPrint(tag, str),
            str.contains("\"payload\":[]") {
