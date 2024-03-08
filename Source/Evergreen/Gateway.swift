@@ -21,55 +21,15 @@ import Foundation
 import Alamofire
 import os.log
 
-// Discarded attempt to log request/response/cache.  Discarded because it isn't as good as the existing logging.
-//final class GatewayEventMonitor: EventMonitor {
-//    func requestDidResume(_ request: Request) {
-//        let tag = request.request?.debugTag ?? Analytics.nullTag
-//        if let r = request.request {
-//            let url = r.url?.absoluteString[0..<64] ?? ""
-//            print("AF5: [\(tag)]: send:  \(r.httpMethod ?? "") \(url)")
-//        } else {
-//            print("AF5: [\(tag)]: send:  ???")
-//        }
-//    }
-//
-//    func request(_ request: DataRequest, didParseResponse response: DataResponse<Data?, AFError>) {
-//        let tag = request.request?.debugTag ?? Analytics.nullTag
-//        print("AF5: [\(tag)]: recv1: \(response.debugDescription)")
-//    }
-//
-//    func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value, AFError>) {
-//        let tag = request.request?.debugTag ?? Analytics.nullTag
-//        print("AF5: [\(tag)]: recv2: \(response.debugDescription)")
-//    }
-//
-//    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse) {
-//        let tag = dataTask.originalRequest?.debugTag ?? Analytics.nullTag
-//        let requestPolicy = dataTask.originalRequest?.cachePolicy as? Int ?? -1
-//        if let s = String(data: proposedResponse.data, encoding: .utf8) {
-//            print("AF5: [\(tag)]: cache ev: policy=\(requestPolicy) data=\(s[0..<64])")
-//        } else {
-//            print("AF5: [\(tag)]: cache ev : policy=\(requestPolicy) data=???")
-//        }
-//    }
-//}
-
 final class GatewayResponseHandler: CachedResponseHandler {
-//    private func debugPrint(_ tag: String, _ str: String) -> Bool {
-//        print("AF5: [\(tag)]: willCache: \(str[0..<64])")
-//        return true
-//    }
     func dataTask(_ task: URLSessionDataTask, willCacheResponse response: CachedURLResponse, completion: @escaping (CachedURLResponse?) -> Void) {
-//        let tag = task.originalRequest?.debugTag ?? Analytics.nullTag
         if let str = String(data: response.data, encoding: .utf8),
-//           debugPrint(tag, str),
            str.contains("\"payload\":[]") {
             // do not cache empty gateway response
             // see also: http://list.evergreen-ils.org/pipermail/evergreen-dev/2021-January/000083.html
             completion(nil)
             return
         }
-        //print("willCache: expires:\(exp ?? "") -> \(size) bytes")
         completion(response)
     }
 }
@@ -114,7 +74,6 @@ class Gateway {
             configuration.headers = HTTPHeaders.default
             return configuration
         }()
-//        let sm = Session(configuration: configuration, cachedResponseHandler: GatewayResponseHandler(), eventMonitors: [GatewayEventMonitor()])
         let sm = Session(configuration: configuration, cachedResponseHandler: GatewayResponseHandler())
         return sm
     }()
