@@ -21,6 +21,19 @@ import Foundation
 import Alamofire
 import os.log
 
+final class GatewayResponseHandler: CachedResponseHandler {
+    func dataTask(_ task: URLSessionDataTask, willCacheResponse response: CachedURLResponse, completion: @escaping (CachedURLResponse?) -> Void) {
+        if let str = String(data: response.data, encoding: .utf8),
+           str.contains("\"payload\":[]") {
+            // do not cache empty gateway response
+            // see also: http://list.evergreen-ils.org/pipermail/evergreen-dev/2021-January/000083.html
+            completion(nil)
+            return
+        }
+        completion(response)
+    }
+}
+
 /// `Gateway` represents the endpoint or catalog OSRF server.
 class Gateway {
 
@@ -54,37 +67,14 @@ class Gateway {
 
     /// an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
-    
-    static let sessionManager: SessionManager = {
-        let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        
-        let sm = SessionManager(configuration: configuration)
-        let delegate = sm.delegate
-        delegate.dataTaskWillCacheResponse = { session, dataTask, proposedResponse in
-//            var exp: String? = nil
-//            // TODO (maybe): implement max TTL for cache
-//            if let response = dataTask.response as? HTTPURLResponse,
-//                let headers = response.allHeaderFields as? [String:String],
-//                let expires = headers["Expires"] {
-//                print("Expires: \(expires)")
-//                exp = expires
-//                print("response: \(response)")
-//                //if response.result.isSuccess,
-//                //    let data = response.result.value
-//                print("stop here")
-//            }
-//            let size = proposedResponse.data.count
-//            print("data: \(proposedResponse.data)")
-            if let str = String(data: proposedResponse.data, encoding: .utf8),
-                str.contains("\"payload\":[]") {
-                // do not cache empty gateway response
-                // see also: http://list.evergreen-ils.org/pipermail/evergreen-dev/2021-January/000083.html
-                return nil
-            }
-            //print("willCache: expires:\(exp ?? "") -> \(size) bytes")
-            return proposedResponse
-        }
+
+    static let sessionManager: Session = {
+        let configuration: URLSessionConfiguration = {
+            let configuration = URLSessionConfiguration.default
+            configuration.headers = HTTPHeaders.default
+            return configuration
+        }()
+        let sm = Session(configuration: configuration, cachedResponseHandler: GatewayResponseHandler())
         return sm
     }()
 
@@ -97,7 +87,7 @@ class Gateway {
         let parameters: [String: Any] = ["service": service, "method": method, "param": gatewayParams(args),
                                          "_ck": clientCacheKey, "_sk": serverCacheKey]
         let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
-        let tag = request.request?.debugTag ?? Analytics.nullTag
+        let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
 //        os_log("%@: req.params: %@", log: log, type: .info, tag, parameters.description)
         Analytics.logRequest(tag: tag, method: method, args: gatewayParams(args))
         return request

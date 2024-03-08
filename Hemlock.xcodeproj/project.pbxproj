@@ -124,7 +124,7 @@
 		D210EBE722B1EE55002FB5E0 /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D210EBE922B1EE55002FB5E0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D210EBEA22B1EE55002FB5E0 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
-		D210EBEB22B1EE55002FB5E0 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D210EBEB22B1EE55002FB5E0 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
 		D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBDB2120EA1A0091D2E6 /* CopyInfoViewController.swift */; };
@@ -218,10 +218,10 @@
 		D229CAFA2471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
 		D229CAFB2471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
 		D229CAFC2471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
-		D22AE119221B75FC0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
-		D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
-		D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
-		D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D22AE119221B75FC0089C196 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
+		D22AE11A221B82B90089C196 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
+		D22AE11B221B82BA0089C196 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
+		D22AE11C221B82BB0089C196 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
 		D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D02682083EA7600DC1F5B /* GatewayTests.swift */; };
 		D22D02702084F53E00DC1F5B /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D0272208506C500DC1F5B /* MD5Tests.swift */; };
@@ -295,7 +295,7 @@
 		D23E9F8B23B9200A0030F5C1 /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D23E9F8D23B9200A0030F5C1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D23E9F8E23B9200A0030F5C1 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
-		D23E9F8F23B9200A0030F5C1 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D23E9F8F23B9200A0030F5C1 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
 		D23E9F9023B9200A0030F5C1 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D23E9F9123B9200A0030F5C1 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D23E9F9223B9200A0030F5C1 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
@@ -414,7 +414,7 @@
 		D2477BD724785A6B00FD4CF6 /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D2477BD924785A6B00FD4CF6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D2477BDA24785A6B00FD4CF6 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
-		D2477BDB24785A6B00FD4CF6 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D2477BDB24785A6B00FD4CF6 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
 		D2477BDC24785A6B00FD4CF6 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D2477BDD24785A6B00FD4CF6 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D2477BDE24785A6B00FD4CF6 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
@@ -553,7 +553,7 @@
 		D2572AC724AD7755000BA698 /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D2572AC924AD7755000BA698 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D2572ACA24AD7755000BA698 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
-		D2572ACB24AD7755000BA698 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D2572ACB24AD7755000BA698 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
 		D2572ACC24AD7755000BA698 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D2572ACD24AD7755000BA698 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D2572ACE24AD7755000BA698 /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
@@ -649,7 +649,7 @@
 		D25EEC6B28A1E8310090F108 /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D25EEC6D28A1E8310090F108 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D25EEC6E28A1E8310090F108 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
-		D25EEC6F28A1E8310090F108 /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D25EEC6F28A1E8310090F108 /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
 		D25EEC7028A1E8310090F108 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D25EEC7128A1E8310090F108 /* BookBagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246290C273732DC000DC659 /* BookBagsViewController.swift */; };
 		D25EEC7228A1E8310090F108 /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
@@ -1404,7 +1404,7 @@
 		D2BDA62E22D176BD00D9B60C /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D2BDA63022D176BD00D9B60C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D2BDA63122D176BD00D9B60C /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
-		D2BDA63222D176BD00D9B60C /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D2BDA63222D176BD00D9B60C /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
 		D2BDA63322D176BD00D9B60C /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D2BDA63422D176BD00D9B60C /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D2BDA63522D176BD00D9B60C /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
@@ -1490,7 +1490,7 @@
 		D2BDA6C522D2A72000D9B60C /* HemlockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2318BD720CC44FA00A027EE /* HemlockError.swift */; };
 		D2BDA6C722D2A72000D9B60C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
 		D2BDA6C822D2A72000D9B60C /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
-		D2BDA6C922D2A72000D9B60C /* AFSessionManager+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSessionManager+.swift */; };
+		D2BDA6C922D2A72000D9B60C /* AFSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22AE118221B75FC0089C196 /* AFSession+.swift */; };
 		D2BDA6CA22D2A72000D9B60C /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D2BDA6CB22D2A72000D9B60C /* CopyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D248CBE121211E510091D2E6 /* CopyInfoTableViewCell.swift */; };
 		D2BDA6CC22D2A72000D9B60C /* AppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FF522CF976200F69848 /* AppBehavior.swift */; };
@@ -1582,6 +1582,7 @@
 		D2C3EA4129D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C3EA4229D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C3EA4329D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
+		D2C7150B2B98CAC000A1F585 /* JSONUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */; };
 		D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
@@ -1953,7 +1954,7 @@
 		D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsPager.storyboard; sourceTree = "<group>"; };
 		D228FB6420D33402001A7E31 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		D229CAF42471C099006BCC07 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		D22AE118221B75FC0089C196 /* AFSessionManager+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFSessionManager+.swift"; sourceTree = "<group>"; };
+		D22AE118221B75FC0089C196 /* AFSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFSession+.swift"; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02682083EA7600DC1F5B /* GatewayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayTests.swift; sourceTree = "<group>"; };
 		D22D026F2084F53E00DC1F5B /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -2143,6 +2144,7 @@
 		D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagerViewController.swift; sourceTree = "<group>"; };
 		D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2C3EA3829D905F100583A96 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
+		D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtilsTests.swift; sourceTree = "<group>"; };
 		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -2512,7 +2514,7 @@
 		D22D026E2084F52300DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D22AE118221B75FC0089C196 /* AFSessionManager+.swift */,
+				D22AE118221B75FC0089C196 /* AFSession+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
@@ -2548,6 +2550,7 @@
 				D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */,
 				D22D0272208506C500DC1F5B /* MD5Tests.swift */,
 				D259671824511CA90076267D /* UtilsTests.swift */,
+				D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3725,7 +3728,7 @@
 				D210EBE922B1EE55002FB5E0 /* SearchViewController.swift in Sources */,
 				D210EBEA22B1EE55002FB5E0 /* CircService.swift in Sources */,
 				D246290D273732DC000DC659 /* BookBagsViewController.swift in Sources */,
-				D210EBEB22B1EE55002FB5E0 /* AFSessionManager+.swift in Sources */,
+				D210EBEB22B1EE55002FB5E0 /* AFSession+.swift in Sources */,
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
 				D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */,
@@ -3831,7 +3834,7 @@
 				D23E9F8D23B9200A0030F5C1 /* SearchViewController.swift in Sources */,
 				D2BB6694297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D23E9F8E23B9200A0030F5C1 /* CircService.swift in Sources */,
-				D23E9F8F23B9200A0030F5C1 /* AFSessionManager+.swift in Sources */,
+				D23E9F8F23B9200A0030F5C1 /* AFSession+.swift in Sources */,
 				D23E9F9023B9200A0030F5C1 /* HoldsViewController.swift in Sources */,
 				D2462915273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D23E9F9123B9200A0030F5C1 /* CopyInfoTableViewCell.swift in Sources */,
@@ -3940,7 +3943,7 @@
 				D2477BD924785A6B00FD4CF6 /* SearchViewController.swift in Sources */,
 				D2BB668E297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2477BDA24785A6B00FD4CF6 /* CircService.swift in Sources */,
-				D2477BDB24785A6B00FD4CF6 /* AFSessionManager+.swift in Sources */,
+				D2477BDB24785A6B00FD4CF6 /* AFSession+.swift in Sources */,
 				D2477BDC24785A6B00FD4CF6 /* HoldsViewController.swift in Sources */,
 				D2462911273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2477BDD24785A6B00FD4CF6 /* CopyInfoTableViewCell.swift in Sources */,
@@ -4049,7 +4052,7 @@
 				D2572AC924AD7755000BA698 /* SearchViewController.swift in Sources */,
 				D2BB668F297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2572ACA24AD7755000BA698 /* CircService.swift in Sources */,
-				D2572ACB24AD7755000BA698 /* AFSessionManager+.swift in Sources */,
+				D2572ACB24AD7755000BA698 /* AFSession+.swift in Sources */,
 				D2572ACC24AD7755000BA698 /* HoldsViewController.swift in Sources */,
 				D2462916273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2572ACD24AD7755000BA698 /* CopyInfoTableViewCell.swift in Sources */,
@@ -4159,7 +4162,7 @@
 				D2BB6692297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D25EEC6D28A1E8310090F108 /* SearchViewController.swift in Sources */,
 				D25EEC6E28A1E8310090F108 /* CircService.swift in Sources */,
-				D25EEC6F28A1E8310090F108 /* AFSessionManager+.swift in Sources */,
+				D25EEC6F28A1E8310090F108 /* AFSession+.swift in Sources */,
 				D25EEC7028A1E8310090F108 /* HoldsViewController.swift in Sources */,
 				D25EEC7128A1E8310090F108 /* BookBagsViewController.swift in Sources */,
 				D25EEC7228A1E8310090F108 /* CopyInfoTableViewCell.swift in Sources */,
@@ -4272,7 +4275,7 @@
 				D296EE0C21338030009BDB12 /* CWMarsAppConfiguration.swift in Sources */,
 				D276DAA421336B20007FAA31 /* SearchViewController.swift in Sources */,
 				D276DAA521336B20007FAA31 /* CircService.swift in Sources */,
-				D22AE11B221B82BA0089C196 /* AFSessionManager+.swift in Sources */,
+				D22AE11B221B82BA0089C196 /* AFSession+.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
 				D29838622B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
@@ -4379,7 +4382,7 @@
 				D27990DA20DDD473003B451E /* HemlockError.swift in Sources */,
 				D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */,
 				D28725AE20E86F30002A4C42 /* CircService.swift in Sources */,
-				D22AE119221B75FC0089C196 /* AFSessionManager+.swift in Sources */,
+				D22AE119221B75FC0089C196 /* AFSession+.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D2AA9D5427383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
@@ -4488,7 +4491,7 @@
 				D284246821D0358200C7171C /* HemlockError.swift in Sources */,
 				D284246B21D0358200C7171C /* SearchViewController.swift in Sources */,
 				D284246C21D0358200C7171C /* CircService.swift in Sources */,
-				D22AE11C221B82BB0089C196 /* AFSessionManager+.swift in Sources */,
+				D22AE11C221B82BB0089C196 /* AFSession+.swift in Sources */,
 				D284246D21D0358200C7171C /* HoldsViewController.swift in Sources */,
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
 				D29838612B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
@@ -4594,7 +4597,7 @@
 				D28725AF20E88063002A4C42 /* CircService.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
 				D2462914273732DC000DC659 /* BookBagsViewController.swift in Sources */,
-				D22AE11A221B82B90089C196 /* AFSessionManager+.swift in Sources */,
+				D22AE11A221B82B90089C196 /* AFSession+.swift in Sources */,
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
 				D248CBDD2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D20B2FF722CF976200F69848 /* AppBehavior.swift in Sources */,
@@ -4683,6 +4686,7 @@
 				D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */,
 				D2931AB7272DF49A00CBA5AA /* BookBagTests.swift in Sources */,
 				D252DA2A23F6382000D11662 /* HoldRecordTests.swift in Sources */,
+				D2C7150B2B98CAC000A1F585 /* JSONUtilsTests.swift in Sources */,
 				D28AE26024FDD6F000960E9E /* MessageMapTests.swift in Sources */,
 				D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */,
 			);
@@ -4736,7 +4740,7 @@
 				D2BB6690297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2BDA63022D176BD00D9B60C /* SearchViewController.swift in Sources */,
 				D2BDA63122D176BD00D9B60C /* CircService.swift in Sources */,
-				D2BDA63222D176BD00D9B60C /* AFSessionManager+.swift in Sources */,
+				D2BDA63222D176BD00D9B60C /* AFSession+.swift in Sources */,
 				D2462912273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2BDA63322D176BD00D9B60C /* HoldsViewController.swift in Sources */,
 				D2BDA63422D176BD00D9B60C /* CopyInfoTableViewCell.swift in Sources */,
@@ -4844,7 +4848,7 @@
 				D2BDA6C722D2A72000D9B60C /* SearchViewController.swift in Sources */,
 				D2BB6691297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2BDA6C822D2A72000D9B60C /* CircService.swift in Sources */,
-				D2BDA6C922D2A72000D9B60C /* AFSessionManager+.swift in Sources */,
+				D2BDA6C922D2A72000D9B60C /* AFSession+.swift in Sources */,
 				D2BDA6CA22D2A72000D9B60C /* HoldsViewController.swift in Sources */,
 				D2462913273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2BDA6CB22D2A72000D9B60C /* CopyInfoTableViewCell.swift in Sources */,

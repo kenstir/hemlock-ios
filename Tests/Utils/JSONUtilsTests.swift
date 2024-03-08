@@ -1,7 +1,5 @@
 //
-//  URLRequest+.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (C) 2024 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -17,19 +15,23 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+import XCTest
 import Foundation
+@testable import Hemlock
 
-extension URLRequest {
-    var debugTag: String? {
-        if httpMethod == "POST",
-            let body = httpBody,
-            let query = String(data: body, encoding: .utf8) {
-            return String(format: "%08x", query.hashValue, query)
+class JSONUtilsTests: XCTestCase {
+
+    func test_parseObject_withNull() {
+        let json = """
+            {"chances":null,"status":200}
+            """
+        guard let obj = JSONUtils.parseObject(fromStr: json) else {
+            XCTFail()
+            return
         }
-        if httpMethod == "GET",
-            let query = self.url?.query {
-            return String(format: "%08x", query.hashValue, query)
-        }
-        return nil
+
+        let chances = JSONUtils.getString(obj, key: "chances")
+        XCTAssertNil(chances)
+        XCTAssertEqual(200, obj["status"] as? Int)
     }
 }

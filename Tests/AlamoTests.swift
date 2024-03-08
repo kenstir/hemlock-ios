@@ -27,79 +27,54 @@ class AlamoTests: XCTestCase {
 
     func test_basicGet() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = Alamofire.request("https://httpbin.org/get")
+        let request = AF.request("https://httpbin.org/get")
         print("request:  \(request.description)")
         request.responseData { response in
-            XCTAssertTrue(response.result.isSuccess)
             print("response: \(response.description)")
+            switch response.result {
+            case .success(let data):
+                XCTAssertNotNil(data)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
             expectation.fulfill()
         }
  
         wait(for: [expectation], timeout: 10.0)
     }
 
-    // use responseJSON to get response as decoded JSON
-    func test_responseJSON() {
-        let expectation = XCTestExpectation(description: "async response")
-        let request = Alamofire.request(App.directoryURL)
-        print("request:  \(request.description)")
-        request.responseJSON { response in
-            print("response: \(response.description)")
-            XCTAssertTrue(response.result.isSuccess)
-            XCTAssertTrue(response.result.value != nil, "result has value")
-            if let json = response.result.value {
-                XCTAssertTrue(json is [Any], "is array");
-                XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
-                XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
-                if let libraries = json as? [[String: Any]] {
-                    for library in libraries {
-                        let lib: [String: Any] = library
-                        debugPrint(lib)
-                    }
-                }
-            }
-
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 10.0)
-    }
-
-    // use responseData to get response as Data then decode it as JSON
+    // fetch the libraries.json file from evergreen-ils.org and decode it
     func test_responseData() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = Alamofire.request(App.directoryURL)
+        let request = AF.request(App.directoryURL)
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
-            XCTAssertTrue(response.result.isSuccess)
-            XCTAssertTrue(response.result.value != nil, "result has value")
-            if let data = response.result.value,
-                let json = try? JSONSerialization.jsonObject(with: data)
-            {
-                debugPrint(json)
-                XCTAssertTrue(json is [Any], "is array");
-                XCTAssertTrue(json is Array<Dictionary<String,Any>>, "is array of dictionaries");
-                XCTAssertTrue(json is [[String: Any]], "is array of dictionaries"); //shorthand
-                if let libraries = json as? [[String: Any]] {
+            switch response.result {
+            case .success(let data):
+                if let json = try? JSONSerialization.jsonObject(with: data),
+                    let libraries = json as? [JSONDictionary] {
+                    //debugPrint(json)
                     for library in libraries {
-                        let lib: [String: Any] = library
-                        debugPrint(lib)
-                        if let lat = lib["latitude"] as? Double, let longitude = lib["longitude"] as? Double {
-                            debugPrint((lat,longitude))
-                        }
+                        let name = JSONUtils.getString(library, key: "directory_name")
+                        XCTAssertNotNil(name)
+                        let url = JSONUtils.getString(library, key: "url")
+                        XCTAssertNotNil(url)
+                        print("name = \(name ?? ""), url = \(url ?? "")")
                     }
+                } else {
+                    XCTFail("unable to decode response as array of dict")
                 }
-            } else {
-                XCTFail()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
-            
+
             expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
     // test using gatewayEncoding to encode as param=1&param=2
     func test_gatewayEncoding() {
         let url = URL(string: "https://httpbin.org/get")!
@@ -114,63 +89,129 @@ class AlamoTests: XCTestCase {
             XCTFail("getting httpBody as string")
         }
     }
-    
+
     // make a request using gatewayEncoding
     func test_gatewayEncodingResponse() {
         let expectation = XCTestExpectation(description: "async response")
         let parameters = ["param": ["\"stringish\"", "{\"objish\":1}"]]
-        let request = Alamofire.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: gatewayEncoding)
+        let request = AF.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: gatewayEncoding)
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
-            XCTAssertTrue(response.result.isSuccess)
-            XCTAssertTrue(response.result.value != nil, "result has value")
-            if let data = response.result.value,
-                let json = try? JSONSerialization.jsonObject(with: data),
-                let jsonObj = json as? [String: Any],
-                let form = jsonObj["form"] as? [String: Any],
-                let params = form["param"] as? [String]
-            {
-                print(json)
-                print(form)
-                XCTAssertEqual(params[0], "\"stringish\"")
-                XCTAssertEqual(params[1], "{\"objish\":1}")
-                expectation.fulfill()
-            } else {
-                XCTFail("validating form in json response")
+            switch response.result {
+            case .success(let data):
+                XCTAssertNotNil(data)
+                if let json = try? JSONSerialization.jsonObject(with: data),
+                   let jsonObj = json as? [String: Any],
+                   let form = jsonObj["form"] as? [String: Any],
+                   let params = form["param"] as? [String]
+                {
+                    print(json)
+                    print(form)
+                    XCTAssertEqual(params[0], "\"stringish\"")
+                    XCTAssertEqual(params[1], "{\"objish\":1}")
+                    expectation.fulfill()
+                } else {
+                    XCTFail("validating form in json response")
+                }
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
         }
 
         wait(for: [expectation], timeout: 10.0)
     }
-    
+
     func test_requestWithCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
-            let request = Gateway.makeRequest(url: "https://httpbin.org/ip", shouldCache: true)
+//            let url = "https://httpbin.org/ip"
+            let url = "http://192.168.1.8/osrf-gateway-v1?service=open-ils.actor&method=opensrf.open-ils.system.ils_version"
+            let request = Gateway.makeRequest(url: url, shouldCache: true)
             print("request:  \(request.description)")
             request.responseData { response in
-                XCTAssertTrue(response.result.isSuccess)
                 print("response: \(response.description)")
+                switch response.result {
+                case .success(let data):
+                    XCTAssertNotNil(data)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
                 expectation.fulfill()
             }
-            
+
             wait(for: [expectation], timeout: 20.0)
         }
     }
-    
+
     func test_requestWithoutCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
-            let request = Gateway.makeRequest(url: "https://httpbin.org/headers", shouldCache: false)
+//            let url = "https://httpbin.org/headers"
+            let url = "http://192.168.1.8/osrf-gateway-v1?service=open-ils.actor&method=opensrf.open-ils.system.ils_version"
+            let request = Gateway.makeRequest(url: url, shouldCache: false)
             print("request:  \(request.description)")
             request.responseData { response in
-                XCTAssertTrue(response.result.isSuccess)
                 print("response: \(response.description)")
+                switch response.result {
+                case .success(let data):
+                    XCTAssertNotNil(data)
+                case .failure(let error):
+                    XCTFail(error.localizedDescription)
+                }
                 expectation.fulfill()
             }
-            
+
             wait(for: [expectation], timeout: 20.0)
         }
     }
+
+    // FAILED ATTEMPT TO VALIDATE CACHING
+    //
+    // So for now I validated caching by watching the request log on a local server.
+    //
+//    func randomString(length: Int) -> String {
+//        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+//        return String((0..<length).map{ _ in letters.randomElement()! })
+//    }
+//
+//    // Send 2 requests with anything?rand=x, and expect both responses to echo the same 'rand' arg,
+//    // and to have the same X-Amzn-Trace-Id, meaning that only one actual request made it to the server
+//    // and the other was cached.
+//    func test_requestWithCache() {
+//        let randomArg = randomString(length: 8)
+//        var expectedTraceID: String? = nil
+//        for i in 1...2 {
+//            let expectation = XCTestExpectation(description: "async response")
+//            let url = "https://httpbin.org/anything?rand=\(randomArg)"
+//            let request = Gateway.makeRequest(url: url, shouldCache: true)
+//            request.responseData { response in
+//                print("response: \(response.description)")
+//                switch response.result {
+//                case .success(let data):
+//                    if let dict = JSONUtils.parseObject(fromData: data),
+//                       let args = JSONUtils.getObj(dict, key: "args"),
+//                       let responseRandArg = JSONUtils.getString(args, key: "rand"),
+//                       let headers = JSONUtils.getObj(dict, key: "headers"),
+//                       let responseTraceID = JSONUtils.getString(headers, key: "X-Amzn-Trace-Id")
+//                    {
+//                        XCTAssertEqual(randomArg, responseRandArg)
+//                        print("traceID: \(responseTraceID)")
+//                        if expectedTraceID == nil {
+//                            expectedTraceID = responseTraceID
+//                        } else {
+//                            XCTAssertEqual(expectedTraceID, responseTraceID)
+//                        }
+//                    } else {
+//                        XCTFail()
+//                    }
+//                case .failure(let error):
+//                    XCTFail(error.localizedDescription)
+//                }
+//                expectation.fulfill()
+//            }
+//
+//            wait(for: [expectation], timeout: 20.0)
+//        }
+//    }
 }
