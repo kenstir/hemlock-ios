@@ -28,9 +28,9 @@ to be so well maintained.  The relationships are:
 
 ```mermaid
 flowchart TD
-    PINRemoteImage -> PINCache;
-    PINRemoteImage -> PINOperation;
-    PINCache -> PINOperation;
+    PINRemoteImage --> PINCache;
+    PINRemoteImage --> PINOperation;
+    PINCache --> PINOperation;
 ```
 
 This dependency chain is a giant pain to deal with when new Xcode releases
