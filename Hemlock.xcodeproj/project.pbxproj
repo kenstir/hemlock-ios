@@ -521,6 +521,7 @@
 		D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2723F616C000D11662 /* CircRecordTests.swift */; };
 		D252DA2A23F6382000D11662 /* HoldRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2923F6382000D11662 /* HoldRecordTests.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
+		D2540DF22B9F8F3B0063B0C5 /* acorn-pro.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2540DF12B9F8F3B0063B0C5 /* acorn-pro.xcassets */; };
 		D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
 		D2572AA724AD7755000BA698 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -2006,6 +2007,7 @@
 		D252DA2723F616C000D11662 /* CircRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecordTests.swift; sourceTree = "<group>"; };
 		D252DA2923F6382000D11662 /* HoldRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecordTests.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D2540DF12B9F8F3B0063B0C5 /* acorn-pro.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "acorn-pro.xcassets"; sourceTree = "<group>"; };
 		D2562FB020CDD3080072F750 /* FinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesViewController.swift; sourceTree = "<group>"; };
 		D2562FB220CDE9CE0072F750 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		D2572B1F24AD7755000BA698 /* Missouri Evergreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Missouri Evergreen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2363,6 +2365,7 @@
 			isa = PBXGroup;
 			children = (
 				D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */,
+				D2540DF12B9F8F3B0063B0C5 /* acorn-pro.xcassets */,
 			);
 			path = "hemlock-pro-assets";
 			sourceTree = "<group>";
@@ -3281,6 +3284,7 @@
 				D2C3EA3929D905F100583A96 /* Details.storyboard in Resources */,
 				D28AE26224FDD9B200960E9E /* strings.json in Resources */,
 				D293EC13297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2540DF22B9F8F3B0063B0C5 /* acorn-pro.xcassets in Resources */,
 				D210EC2B22B1EE55002FB5E0 /* ShowCard.storyboard in Resources */,
 				D210EC2C22B1EE55002FB5E0 /* Options.storyboard in Resources */,
 				D24628F7273722E0000DC659 /* BookBags.storyboard in Resources */,
