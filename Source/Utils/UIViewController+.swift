@@ -58,6 +58,13 @@ extension UIViewController {
         UIApplication.shared.keyWindow?.rootViewController = vc
     }
 
+    /// push the VC from the named Storyboard
+    func pushVC(fromStoryboard name: String) {
+        if let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
     /// Set up a tap recognizer on a scrollView that dismisses the keyboard
     func setupTapToDismissKeyboard(onScrollView scrollView: UIScrollView) {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
