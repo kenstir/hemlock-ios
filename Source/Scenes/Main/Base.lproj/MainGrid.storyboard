@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lJi-dZ-su3">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Grid Navigation Controller-->
+        <scene sceneID="2SI-wU-38L">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigation" modalPresentationStyle="fullScreen" id="lJi-dZ-su3" userLabel="Main Grid Navigation Controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ocF-Hd-bJC">
+                        <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xqe-Fu-Ne1" kind="relationship" relationship="rootViewController" id="9IL-Ie-eT1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxo-F2-JPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-471" y="91"/>
+        </scene>
+        <!--Main Grid-->
+        <scene sceneID="pOa-oD-aH5">
+            <objects>
+                <viewController storyboardIdentifier="Main" id="Xqe-Fu-Ne1" userLabel="Main Grid" customClass="MainGridViewController" customModule="acorn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IXu-ol-nV9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7BW-g6-5vc">
+                                <rect key="frame" x="0.0" y="64" width="320" height="458"/>
+                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="56" id="ZN6-Of-RMp" customClass="MainTableViewCell" customModule="acorn" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="38" width="320" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZN6-Of-RMp" id="1Fe-qD-bN9">
+                                            <rect key="frame" x="0.0" y="0.0" width="293.5" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-FV-8vg" userLabel="Bottom Button Stack">
+                                <rect key="frame" x="0.0" y="530" width="320" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ToU-UP-BUF">
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <state key="normal" title="Full Catalog"/>
+                                        <connections>
+                                            <action selector="fullCatalogButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="kEN-uG-bCd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-m5-77E">
+                                        <rect key="frame" x="109" y="0.0" width="119" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <state key="normal" title="Library Locator"/>
+                                        <connections>
+                                            <action selector="libraryLocatorButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="L3A-4G-Hxz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mha-6o-Pdm">
+                                        <rect key="frame" x="244" y="0.0" width="76" height="30"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <state key="normal" title="GALILEO"/>
+                                        <connections>
+                                            <action selector="galileoButtonPressed:" destination="Xqe-Fu-Ne1" eventType="touchUpInside" id="fBD-DL-rUa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="02a-ah-iys"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pXz-FV-8vg" firstAttribute="top" secondItem="7BW-g6-5vc" secondAttribute="bottom" constant="8" id="LVF-FL-z5a"/>
+                            <constraint firstItem="pXz-FV-8vg" firstAttribute="bottom" secondItem="02a-ah-iys" secondAttribute="bottom" constant="-8" id="N91-ee-5UW"/>
+                            <constraint firstItem="pXz-FV-8vg" firstAttribute="leading" secondItem="02a-ah-iys" secondAttribute="leading" id="V3j-nq-IDW"/>
+                            <constraint firstItem="7BW-g6-5vc" firstAttribute="top" secondItem="02a-ah-iys" secondAttribute="top" id="Wce-5b-mV1"/>
+                            <constraint firstItem="7BW-g6-5vc" firstAttribute="leading" secondItem="02a-ah-iys" secondAttribute="leading" id="YxP-dR-njQ"/>
+                            <constraint firstItem="02a-ah-iys" firstAttribute="trailing" secondItem="pXz-FV-8vg" secondAttribute="trailing" id="mcP-I8-abT"/>
+                            <constraint firstItem="7BW-g6-5vc" firstAttribute="trailing" secondItem="02a-ah-iys" secondAttribute="trailing" id="oO2-1g-zoO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Hemlock" id="xUo-oL-WrT">
+                        <barButtonItem key="leftBarButtonItem" image="Mail" id="rpB-GJ-5W6" userLabel="Messages Button"/>
+                        <barButtonItem key="rightBarButtonItem" image="Account" id="GJD-cg-1UD" userLabel="Account Button"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="accountButton" destination="GJD-cg-1UD" id="bMF-Gw-IEi"/>
+                        <outlet property="bottomButtonBar" destination="pXz-FV-8vg" id="BOM-n1-cEX"/>
+                        <outlet property="fullCatalogButton" destination="ToU-UP-BUF" id="LHk-fl-NyK"/>
+                        <outlet property="galileoButton" destination="Mha-6o-Pdm" id="rzj-kk-aH3"/>
+                        <outlet property="libraryLocatorButton" destination="aQX-m5-77E" id="Jfy-Wl-knP"/>
+                        <outlet property="messagesButton" destination="rpB-GJ-5W6" id="x3Y-fC-jNt"/>
+                        <outlet property="tableView" destination="7BW-g6-5vc" id="vQO-nU-hhM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="347" y="91"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Account" width="29.5" height="24"/>
+        <image name="Mail" width="24" height="24"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
