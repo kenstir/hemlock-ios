@@ -21,5 +21,4 @@ import UIKit
 
 class MainTableViewCell: UITableViewCell {
     var title: String?
-    var segue: String?
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L5E-wb-4wF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L5E-wb-4wF">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
             <objects>
                 <navigationController storyboardIdentifier="LoginNavigation" toolbarHidden="NO" id="L5E-wb-4wF" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SUJ-mx-Mca">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -118,79 +118,12 @@
                         <outlet property="libraryLocatorButton" destination="aQX-m5-77E" id="Yv4-qh-Btu"/>
                         <outlet property="messagesButton" destination="rpB-GJ-5W6" id="o1M-bz-TXl"/>
                         <outlet property="tableView" destination="7BW-g6-5vc" id="EI1-5W-5Jm"/>
-                        <segue destination="Rgl-GN-9cy" kind="show" identifier="ShowSearchSegue" id="D4c-MQ-pOI"/>
-                        <segue destination="aSn-Ob-ZbE" kind="show" identifier="ShowHoldsSegue" id="QLz-GT-rH2"/>
-                        <segue destination="RCs-ov-Y8N" kind="show" identifier="ShowFinesSegue" id="wFi-22-ZaK"/>
                         <segue destination="L5E-wb-4wF" kind="show" identifier="ShowLoginSegue" id="zgh-oQ-owQ"/>
-                        <segue destination="WoH-Us-ADe" kind="show" identifier="ShowCheckoutsSegue" id="lgg-cF-pgT"/>
-                        <segue destination="F1d-4Q-gY1" kind="show" identifier="ShowCardSegue" id="TFl-Q7-5No"/>
-                        <segue destination="je8-xt-n1w" kind="show" identifier="ShowOrgDetailsSegue" id="Xrd-57-VZ1"/>
-                        <segue destination="d8T-7C-gtm" kind="show" identifier="ShowBookBagsSegue" id="snH-Wb-ph4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="347" y="91"/>
-        </scene>
-        <!--Checkouts-->
-        <scene sceneID="aTK-ho-xBV">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Checkouts" id="WoH-Us-ADe" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VNJ-gf-fC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1046" y="-55"/>
-        </scene>
-        <!--Fines-->
-        <scene sceneID="Kq4-zb-RuZ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Fines" id="RCs-ov-Y8N" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HNY-I9-YrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1023" y="213"/>
-        </scene>
-        <!--BookBags-->
-        <scene sceneID="utM-QO-CcJ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BookBags" id="d8T-7C-gtm" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="4si-c8-rj6"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6NJ-p2-r4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1049" y="330"/>
-        </scene>
-        <!--Holds-->
-        <scene sceneID="6Lk-6H-wk1">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Holds" id="aSn-Ob-ZbE" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12k-ED-7ln" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1022" y="91"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="qrm-lx-Zg1">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="Rgl-GN-9cy" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ppl-xk-L7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1028" y="-197"/>
-        </scene>
-        <!--ShowCard-->
-        <scene sceneID="nOP-Jd-QRP">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ShowCard" id="F1d-4Q-gY1" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yJU-z0-KTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1050" y="792"/>
-        </scene>
-        <!--OrgDetails-->
-        <scene sceneID="ETU-0G-Yzr">
-            <objects>
-                <viewControllerPlaceholder storyboardName="OrgDetails" id="je8-xt-n1w" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="FAW-IJ-zlk"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QCE-pn-KPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1053" y="503"/>
         </scene>
         <!--Login-->
         <scene sceneID="ORy-sj-wdU">
@@ -200,7 +133,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIx-q6-TR6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="950"/>
+            <point key="canvasLocation" x="348" y="911"/>
         </scene>
     </scenes>
     <resources>

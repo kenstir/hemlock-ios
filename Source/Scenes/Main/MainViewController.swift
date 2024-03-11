@@ -24,6 +24,12 @@ import PromiseKit
 import PMKAlamofire
 import SwiftUI
 
+struct ButtonAction {
+    let title: String
+    let iconName: String
+    let handler: (() -> Void)
+}
+
 class MainViewController: UIViewController {
     
     //MARK: - fields
@@ -37,8 +43,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var libraryLocatorButton: UIButton!
     @IBOutlet weak var galileoButton: UIButton!
 
-
-    var buttons: [(String, String, (() -> Void)?)] = []
+    var buttons: [ButtonAction] = []
     var didFetchEventsURL = false
     
     //MARK: - UIViewController
@@ -70,17 +75,32 @@ class MainViewController: UIViewController {
     //MARK: - Functions
     
     func setupButtons() {
-        buttons = [
-            ("Search", "ShowSearchSegue", nil),
-            ("Items Checked Out", "ShowCheckoutsSegue", nil),
-            ("Holds", "ShowHoldsSegue", nil),
-            ("Fines", "ShowFinesSegue", nil),
-            ("My Lists", "ShowBookBagsSegue", nil),
-            ("Library Info", "ShowOrgDetailsSegue", nil),
-        ]
-// This was part of a failed experiment to integrate SwiftUI
+        buttons.append(ButtonAction(title: "Search", iconName: "Search", handler: {
+            self.pushVC(fromStoryboard: "Search")
+        }))
+        buttons.append(ButtonAction(title: "Items Checked Out", iconName: "Items Checked Out", handler: {
+            self.pushVC(fromStoryboard: "Checkouts")
+        }))
+        buttons.append(ButtonAction(title: "Holds", iconName: "Holds", handler: {
+            self.pushVC(fromStoryboard: "Holds")
+        }))
+        buttons.append(ButtonAction(title: "Fines", iconName: "Fines", handler: {
+            self.pushVC(fromStoryboard: "Fines")
+        }))
+        buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
+            self.pushVC(fromStoryboard: "BookBags")
+        }))
+        buttons.append(ButtonAction(title: "Library Info", iconName: "Library Info", handler: {
+            self.pushVC(fromStoryboard: "OrgDetails")
+        }))
+        if App.config.barcodeFormat != .Disabled {
+            buttons.append(ButtonAction(title: "Show Card", iconName: "Show Card") {
+                self.pushVC(fromStoryboard: "ShowCard")
+            })
+        }
+        // This was part of a failed experiment to integrate SwiftUI
 //        if #available(iOS 14.0, *) {
-//            buttons.append(("My Lists", "", {
+//            buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
 //                guard let account = App.account else { return }
 //                ActorService.fetchBookBags(account: account).done {
 //                    let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
@@ -90,10 +110,8 @@ class MainViewController: UIViewController {
 //                }
 //            }))
 //        }
-        if App.config.barcodeFormat != .Disabled {
-            buttons.append(("Show Card", "ShowCardSegue", nil))
-        }
-//        buttons.append(("Place Hold", "", {
+        // Shortcut to Place Hold
+//        buttons.append(ButtonAction("Place Hold", "Place Hold", {
 //            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
 //                "doc_id": 4674474,
 //                "tcn": 4674474,
@@ -105,6 +123,7 @@ class MainViewController: UIViewController {
 //                self.navigationController?.pushViewController(vc, animated: true)
 //            }
 //        }))
+        // Shortcut to Search Results
 //        buttons.append(("Prepared query", "", {
 //            if let vc = UIStoryboard(name: "Results", bundle: nil).instantiateInitialViewController() as? ResultsViewController {
 //                vc.searchParameters = SearchParameters(text: "Goblet of fire", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
@@ -164,7 +183,7 @@ class MainViewController: UIViewController {
                let url = URL(string: eventsURL)
             {
                 let index = self.buttons.index(before: self.buttons.endIndex)
-                self.buttons.insert(("Events", "", {
+                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
                     UIApplication.shared.open(url)
                 }), at: index)
                 self.tableView.reloadData()
@@ -293,38 +312,29 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as? MainTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
-        
-        let tuple = buttons[indexPath.row]
-        let label = tuple.0
-        let segue = tuple.1
-        
+
+        let action = buttons[indexPath.row]
         var image: UIImage?
         if App.config.haveColorButtonImages {
-            image = UIImage(named: label)?.withRenderingMode(.automatic)
+            image = UIImage(named: action.iconName)?.withRenderingMode(.automatic)
         } else {
-            image = UIImage(named: label)?.withRenderingMode(.alwaysTemplate)
+            image = UIImage(named: action.iconName)?.withRenderingMode(.alwaysTemplate)
             cell.tintColor = App.theme.mainButtonTintColor
         }
         cell.imageView?.image = image
-        cell.textLabel?.text = R.getString(label)
+        cell.textLabel?.text = R.getString(action.title)
 
-        cell.title = label
-        cell.segue = segue
-        
+        cell.title = action.title
+
         return cell
     }
 }
 
 //MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tuple = buttons[indexPath.row]
-        let segue = tuple.1
-        if let actionFunc = tuple.2 {
-            actionFunc()
-        } else {
-            self.performSegue(withIdentifier: segue, sender: nil)
-        }
+        let action = buttons[indexPath.row]
+        action.handler()
     }
 }
