@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Li9-Ql-8lS">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -190,17 +191,17 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="406"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="426.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="445.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="200" verticalCompressionResistancePriority="749" image="splash3" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-VS-ogx">
-                                                <rect key="frame" x="28" y="24" width="264" height="176.5"/>
+                                                <rect key="frame" x="28" y="24" width="264" height="195.5"/>
                                                 <accessibility key="accessibilityConfiguration" label="library logo">
                                                     <bool key="isElement" value="YES"/>
                                                 </accessibility>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Number or Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ky-33-NgZ">
-                                                <rect key="frame" x="28" y="224.5" width="264" height="34"/>
+                                                <rect key="frame" x="28" y="243.5" width="264" height="34"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
                                                 <connections>
@@ -208,7 +209,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-Nj-gGI">
-                                                <rect key="frame" x="64" y="336.5" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="355.5" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
@@ -216,12 +217,12 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fV-yF-Bl6">
-                                                <rect key="frame" x="28" y="274.5" width="264" height="34"/>
+                                                <rect key="frame" x="28" y="293.5" width="264" height="34"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-oX-Cjw">
-                                                <rect key="frame" x="64" y="385.5" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="404.5" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Forgot Password"/>
                                                 <connections>
@@ -229,7 +230,7 @@
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-va-eUu" userLabel="Spinner">
-                                                <rect key="frame" x="141.5" y="244.5" width="37" height="37"/>
+                                                <rect key="frame" x="141.5" y="263.5" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -284,7 +285,6 @@
                         <outlet property="passwordField" destination="2fV-yF-Bl6" id="z1k-CK-gCv"/>
                         <outlet property="scrollView" destination="APz-Q5-Aod" id="R2V-4b-HXF"/>
                         <outlet property="usernameField" destination="2Ky-33-NgZ" id="eQo-jX-g9D"/>
-                        <segue destination="xHg-8S-rSk" kind="show" identifier="ShowMainSegue" id="wNI-Je-fQ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xr1-h5-oNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -292,18 +292,26 @@
             </objects>
             <point key="canvasLocation" x="-1260" y="87.5"/>
         </scene>
-        <!--MainNavigation-->
-        <scene sceneID="qMx-YA-f0p">
+        <!--Login Navigation Controller-->
+        <scene sceneID="vjh-t1-Grw">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MainNavigation" storyboardName="Main" referencedIdentifier="MainNavigation" id="xHg-8S-rSk" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uno-u9-flS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="LoginNavigation" toolbarHidden="NO" id="Li9-Ql-8lS" userLabel="Login Navigation Controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Prg-fw-j8z">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pCn-5I-KnN" kind="relationship" relationship="rootViewController" id="HkI-M4-zHy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lHh-do-1hD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-471" y="91"/>
+            <point key="canvasLocation" x="-2181" y="87"/>
         </scene>
     </scenes>
     <resources>
         <image name="Jason" width="698" height="1200"/>
-        <image name="splash3" width="361.5" height="176.5"/>
+        <image name="splash3" width="403.5" height="195.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

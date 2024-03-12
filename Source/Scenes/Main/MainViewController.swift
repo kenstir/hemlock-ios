@@ -256,6 +256,7 @@ class MainViewController: UIViewController {
     
     func doAddAccount() {
         App.switchCredential(credential: nil)
+        //TODO: provide some way to cancel / restart with existing login
         self.popToLogin()
     }
     

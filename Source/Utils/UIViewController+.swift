@@ -54,6 +54,11 @@ extension UIViewController {
 
     /// reset the VC stack to the Login VC (the initial VC on the Main storyboard)
     func popToLogin() {
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
+        UIApplication.shared.keyWindow?.rootViewController = vc
+    }
+
+    func popToMain() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
         UIApplication.shared.keyWindow?.rootViewController = vc
     }

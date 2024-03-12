@@ -180,6 +180,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alreadyLoggedIn = true
         App.account = account
         App.credentialManager.add(credential: credential)
-        self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
+//        self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
+        self.popToMain()
     }
 }
