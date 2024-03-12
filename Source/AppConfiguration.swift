@@ -38,6 +38,7 @@ protocol AppConfiguration {
     var enablePartHolds: Bool { get }
     var enableTitleHoldOnItemWithParts: Bool { get }
     var enableMainSceneBottomToolbar: Bool { get }
+    var enableMainGridScene: Bool { get }
     var enablePayFines: Bool { get }
     var enableHoursOfOperation: Bool { get }
     var enableMessages: Bool { get }
@@ -73,6 +74,7 @@ class BaseAppConfiguration: AppConfiguration {
     var enablePartHolds: Bool { return false }
     var enableTitleHoldOnItemWithParts: Bool { return false }
     var enableMainSceneBottomToolbar: Bool { return false }
+    var enableMainGridScene: Bool { return false }
     var enablePayFines: Bool { return true }
     var enableHoursOfOperation: Bool { return true }
     var enableMessages: Bool { return false }
