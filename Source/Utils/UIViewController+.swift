@@ -52,15 +52,34 @@ extension UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
 
-    /// reset the VC stack to the Login VC (the initial VC on the Main storyboard)
-    func popToLogin() {
-        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController()
-        UIApplication.shared.keyWindow?.rootViewController = vc
+    /// reset the VC stack to the Login VC
+    func popToLogin(forAddingCredential: Bool = false) {
+        guard let vc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() else { return }
+        if let loginNav = vc as? UINavigationController,
+        let loginVC = loginNav.topViewController as? LoginViewController {
+            loginVC.isAddingAccount = forAddingCredential
+        }
+        swapRootVC(vc, duration: 0.5)
     }
 
+    /// reset the VC stack to the Main VC
     func popToMain() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-        UIApplication.shared.keyWindow?.rootViewController = vc
+        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else { return }
+        swapRootVC(vc)
+    }
+
+    // adapted with gratitude from https://stackoverflow.com/questions/41144523/swap-rootviewcontroller-with-animation
+    func swapRootVC(_ vc: UIViewController, duration: TimeInterval = 0.75, completion: ((Bool) -> Void)? = nil) {
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+
+        // Calling "UIView.transition" below will animate the swap.
+        window.rootViewController = vc
+
+        // Creates a transition animation.
+        // Though `animations` is optional, the documentation tells us that it must not be nil. ¯\_(ツ)_/¯
+        UIView.transition(with: window, duration: duration, options: .transitionCrossDissolve, animations: {}, completion: completion)
     }
 
     /// push the VC from the named Storyboard

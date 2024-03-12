@@ -32,51 +32,43 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    var initWithCredential: Credential? = nil
+
     var didCompleteFetch = false
-    
+
+    // TODO: provide some way to cancel back to the lastUsedCredential if adding
+    // e.g. by popToLogin()
+    var isAddingAccount = false
+
     /// prevent LoginVC from attempting auto-login as it is being destructed during account switching
     var alreadyLoggedIn = false
 
     override func viewDidLoad() {
-        os_log("login creds:%x:%d: VC viewDidLoad", self, didCompleteFetch)
+        os_log("login: viewDidLoad:   adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
         super.viewDidLoad()
         setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        os_log("login creds:%x:%d: VC viewWillAppear", self, didCompleteFetch)
         super.viewWillAppear(animated)
 
         self.fetchData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        os_log("login creds:%x:%d: VC viewDidAppear", self, didCompleteFetch)
+        os_log("login: viewDidAppear: adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
         super.viewDidAppear(animated)
-        
+
         // auto login
-        if let credential = Utils.coalesce(initWithCredential, App.credentialManager.lastUsedCredential) {
+        if !isAddingAccount,
+           let credential = App.credentialManager.lastUsedCredential
+        {
             usernameField.text = credential.username
             passwordField.text = credential.password
             doLogin()
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        os_log("login creds:%x:%d: VC viewWillDisappear", self, didCompleteFetch)
-        super.viewWillDisappear(animated)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        os_log("login creds:%x:%d: VC viewDidDisappear", self, didCompleteFetch)
-        super.viewDidDisappear(animated)
-    }
 
     func setupViews() {
-        os_log("login creds:%x:%d: VC setupViews", self, didCompleteFetch)
-
         // handle Return in the text fields
         usernameField.delegate = self
         passwordField.delegate = self
@@ -154,7 +146,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         {
             return
         }
-        os_log("login creds:%x:%d: VC doLogin username=%@", self, didCompleteFetch, username)
+        os_log("login: doLogin: username=%@", username)
 
         activityIndicator.startAnimating()
 
