@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7BW-g6-5vc">
-                                <rect key="frame" x="0.0" y="112.5" width="320" height="409.5"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="458"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="56" id="ZN6-Of-RMp" customClass="MainTableViewCell" customModule="COOL" customModuleProvider="target">
@@ -107,16 +107,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="347" y="91"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="ORy-sj-wdU">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Login" storyboardName="Login" referencedIdentifier="Login" id="vtO-mq-qAf" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="MVa-lg-2a6"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mIx-q6-TR6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="348" y="911"/>
         </scene>
     </scenes>
     <resources>
