@@ -103,12 +103,11 @@ extension TestGridViewController: UICollectionViewDataSource {
             fatalError("dequeued cell of wrong class!")
         }
 
-        // TODO: Configure the cell
         let item = buttonItems[indexPath.section][indexPath.row]
-        cell.backgroundColor = (indexPath.section == 0) ? Style.systemGroupedBackground : Style.secondarySystemGroupedBackground
+        cell.backgroundColor = Style.secondarySystemGroupedBackground
+        cell.layer.cornerRadius = 5
         cell.title.text = item.title
         cell.image.image = loadAssetImage(named: item.iconName)
-        cell.configureWithRoundedCorners()
 
         return cell
     }
