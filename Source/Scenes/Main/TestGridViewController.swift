@@ -105,9 +105,10 @@ extension TestGridViewController: UICollectionViewDataSource {
 
         // TODO: Configure the cell
         let item = buttonItems[indexPath.section][indexPath.row]
-        cell.backgroundColor = (indexPath.section == 0) ? .systemGreen : .systemGray
-        cell.button.setTitle(item.title, for: .normal)
-        cell.button.setImage(loadAssetImage(named: item.iconName), for: .normal)
+        cell.backgroundColor = (indexPath.section == 0) ? Style.systemGroupedBackground : Style.secondarySystemGroupedBackground
+        cell.title.text = item.title
+        cell.image.image = loadAssetImage(named: item.iconName)
+        cell.configureWithRoundedCorners()
 
         return cell
     }
