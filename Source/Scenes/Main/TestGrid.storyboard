@@ -21,29 +21,38 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-Fm-JLb">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uko-mG-x8g">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uko-mG-x8g">
                                     <size key="itemSize" width="192" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mainGridCell" id="Gqm-P5-Nal">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mainGridCell" id="Gqm-P5-Nal" customClass="TestGridViewCell" customModule="acorn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BAP-KI-VbO">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eir-AD-ebC">
-                                                    <rect key="frame" x="63" y="63" width="75" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eir-AD-ebC" userLabel="button">
+                                                    <rect key="frame" x="8" y="8" width="184" height="144"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Events" image="events"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="events" imagePlacement="top" title="Events"/>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eir-AD-ebC" firstAttribute="top" secondItem="BAP-KI-VbO" secondAttribute="top" constant="8" id="1oX-es-qDv"/>
+                                                <constraint firstAttribute="trailing" secondItem="eir-AD-ebC" secondAttribute="trailing" constant="8" id="NeS-ao-7yg"/>
+                                                <constraint firstItem="eir-AD-ebC" firstAttribute="leading" secondItem="BAP-KI-VbO" secondAttribute="leading" constant="8" id="ha2-sE-n04"/>
+                                                <constraint firstAttribute="bottom" secondItem="eir-AD-ebC" secondAttribute="bottom" constant="8" id="qol-cP-mv3"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="200" height="160"/>
+                                        <connections>
+                                            <outlet property="button" destination="eir-AD-ebC" id="f57-G8-SwT"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -67,6 +76,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="events" width="51.333332061767578" height="41"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

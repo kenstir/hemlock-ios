@@ -26,6 +26,7 @@ class TestGridViewController: UIViewController {
 
     var mainButtons: [ButtonAction] = []
     var bottomButtons: [ButtonAction] = []
+    var buttonItems: [[ButtonAction]] = []
 
     private let reuseIdentifier = "mainGridCell"
     private let mainSectionInsets = UIEdgeInsets(top: 32.0, left: 16.0, bottom: 32.0, right: 16.0)
@@ -49,19 +50,41 @@ class TestGridViewController: UIViewController {
 
     func setupButtons() {
         mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
+            print("stop here")
         }))
         mainButtons.append(ButtonAction(title: "Search Catalog", iconName: "search", handler: {
+            print("stop here")
         }))
-        mainButtons.append(ButtonAction(title: "Library Hours & Info", iconName: "info", handler: {}))
-        mainButtons.append(ButtonAction(title: "Items Checked Out", iconName: "checkouts", handler: {}))
-        mainButtons.append(ButtonAction(title: "Fines", iconName: "fines", handler: {}))
-        mainButtons.append(ButtonAction(title: "Holds", iconName: "holds", handler: {}))
-        mainButtons.append(ButtonAction(title: "My Lists", iconName: "lists", handler: {}))
-        mainButtons.append(ButtonAction(title: "Events", iconName: "events", handler: {}))
+        mainButtons.append(ButtonAction(title: "Library Hours & Info", iconName: "info", handler: {
+            print("stop here")
+        }))
+        mainButtons.append(ButtonAction(title: "Items Checked Out", iconName: "checkouts", handler: {
+            print("stop here")
+        }))
+        mainButtons.append(ButtonAction(title: "Fines", iconName: "fines", handler: {
+            print("stop here")
+        }))
+        mainButtons.append(ButtonAction(title: "Holds", iconName: "holds", handler: {
+            print("stop here")
+        }))
+        mainButtons.append(ButtonAction(title: "My Lists", iconName: "lists", handler: {
+            print("stop here")
+        }))
+        mainButtons.append(ButtonAction(title: "Events", iconName: "events", handler: {
+            print("stop here")
+        }))
 
-        bottomButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {}))
-        bottomButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {}))
-        bottomButtons.append(ButtonAction(title: "Museum Passes", iconName: "museum passes", handler: {}))
+        bottomButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
+            print("stop here")
+        }))
+        bottomButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {
+            print("stop here")
+        }))
+        bottomButtons.append(ButtonAction(title: "Museum Passes", iconName: "museum passes", handler: {
+            print("stop here")
+        }))
+
+        buttonItems = [mainButtons, bottomButtons]
     }
 }
 
@@ -76,10 +99,15 @@ extension TestGridViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TestGridViewCell else {
+            fatalError("dequeued cell of wrong class!")
+        }
 
         // TODO: Configure the cell
+        let item = buttonItems[indexPath.section][indexPath.row]
         cell.backgroundColor = (indexPath.section == 0) ? .systemGreen : .systemGray
+        cell.button.setTitle(item.title, for: .normal)
+        cell.button.setImage(loadAssetImage(named: item.iconName), for: .normal)
 
         return cell
     }
@@ -90,12 +118,17 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemsPerRow: CGFloat = (indexPath.section == 0) ? 2.0 : CGFloat(bottomButtons.count)
         let sectionInsets = (indexPath.section == 0) ? mainSectionInsets : bottomSectionInsets
+        let aspectRatio: CGFloat = 1.6 / 1.0
 
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
+        if (indexPath.section == 0) {
+            let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+            let availableWidth = view.frame.width - paddingSpace
+            let widthPerItem = availableWidth / itemsPerRow
 
-        return CGSize(width: widthPerItem, height: widthPerItem)
+            return CGSize(width: widthPerItem, height: widthPerItem / aspectRatio)
+        } else {
+            return CGSize(width: 100, height: 80)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -111,5 +144,9 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK: - UICollectionViewDelegate
 extension TestGridViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = buttonItems[indexPath.section][indexPath.row]
+        print("item \(item.title) selected")
+        item.handler()
+    }
 }
