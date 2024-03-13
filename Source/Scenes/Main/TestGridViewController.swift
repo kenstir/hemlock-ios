@@ -28,6 +28,8 @@ class TestGridViewController: UIViewController {
     var bottomButtons: [ButtonAction] = []
 
     private let reuseIdentifier = "mainGridCell"
+    private let sectionInsets = UIEdgeInsets(top: 32.0, left: 16.0, bottom: 32.0, right: 16.0)
+    private let mainButtonsPerRow: CGFloat = 2
 
     //MARK: - UIViewController
 
@@ -79,6 +81,25 @@ extension TestGridViewController: UICollectionViewDataSource {
         cell.backgroundColor = (indexPath.section == 0) ? .systemGreen : .systemGray
 
         return cell
+    }
+}
+
+//MARK: - UICollectionViewDelegateFlowLayout
+extension TestGridViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let paddingSpace = sectionInsets.left * (mainButtonsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / mainButtonsPerRow
+
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
     }
 }
 
