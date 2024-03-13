@@ -91,17 +91,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Hemlock" id="xUo-oL-WrT">
-                        <barButtonItem key="leftBarButtonItem" image="Mail" id="rpB-GJ-5W6"/>
+                        <barButtonItem key="leftBarButtonItem" image="Mail" id="rpB-GJ-5W6" userLabel="Messages Button"/>
                         <barButtonItem key="rightBarButtonItem" image="Account" id="GJD-cg-1UD" userLabel="Account Button"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="accountButton" destination="GJD-cg-1UD" id="Fq3-pw-ltt"/>
-                        <outlet property="bottomButtonBar" destination="pXz-FV-8vg" id="X59-GT-uyB"/>
-                        <outlet property="fullCatalogButton" destination="ToU-UP-BUF" id="KF1-nP-nnz"/>
-                        <outlet property="galileoButton" destination="Mha-6o-Pdm" id="UYh-wp-dSm"/>
-                        <outlet property="libraryLocatorButton" destination="aQX-m5-77E" id="Yv4-qh-Btu"/>
-                        <outlet property="messagesButton" destination="rpB-GJ-5W6" id="o1M-bz-TXl"/>
-                        <outlet property="tableView" destination="7BW-g6-5vc" id="EI1-5W-5Jm"/>
+                        <outlet property="accountButton" destination="GJD-cg-1UD" id="bMF-Gw-IEi"/>
+                        <outlet property="bottomButtonBar" destination="pXz-FV-8vg" id="BOM-n1-cEX"/>
+                        <outlet property="fullCatalogButton" destination="ToU-UP-BUF" id="LHk-fl-NyK"/>
+                        <outlet property="galileoButton" destination="Mha-6o-Pdm" id="rzj-kk-aH3"/>
+                        <outlet property="libraryLocatorButton" destination="aQX-m5-77E" id="Jfy-Wl-knP"/>
+                        <outlet property="messagesButton" destination="rpB-GJ-5W6" id="x3Y-fC-jNt"/>
+                        <outlet property="tableView" destination="7BW-g6-5vc" id="vQO-nU-hhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="In2-u9-4pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
