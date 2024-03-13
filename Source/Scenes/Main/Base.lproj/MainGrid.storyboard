@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Navigation Controller-->
+        <!--Main Grid Navigation Controller-->
         <scene sceneID="2SI-wU-38L">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigation" modalPresentationStyle="fullScreen" id="lJi-dZ-su3" userLabel="Main Navigation Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigation" modalPresentationStyle="fullScreen" id="lJi-dZ-su3" userLabel="Main Grid Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ocF-Hd-bJC">
                         <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-471" y="91"/>
         </scene>
-        <!--Main-->
+        <!--Main Grid-->
         <scene sceneID="pOa-oD-aH5">
             <objects>
-                <viewController storyboardIdentifier="Main" id="Xqe-Fu-Ne1" userLabel="Main" customClass="MainViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="Xqe-Fu-Ne1" userLabel="Main Grid" customClass="MainGridViewController" customModule="acorn" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IXu-ol-nV9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="458"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="56" id="ZN6-Of-RMp" customClass="MainTableViewCell" customModule="COOL" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="56" id="ZN6-Of-RMp" customClass="MainTableViewCell" customModule="acorn" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="38" width="320" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZN6-Of-RMp" id="1Fe-qD-bN9">

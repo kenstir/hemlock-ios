@@ -980,6 +980,7 @@
 		D28AE27224FDDE8300960E9E /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D28AE27024FDDD8800960E9E /* custom_strings.json */; };
 		D28AE27424FDE01900960E9E /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D28AE27324FDE01900960E9E /* custom_strings.json */; };
 		D28E04412BA1079B001850C5 /* MainGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E043F2BA1079B001850C5 /* MainGrid.storyboard */; };
+		D28E04432BA1232C001850C5 /* MainGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04422BA1232C001850C5 /* MainGridViewController.swift */; };
 		D28F5E6129CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6229CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6329CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
@@ -2077,6 +2078,7 @@
 		D28AE27024FDDD8800960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27324FDE01900960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28E04402BA1079B001850C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainGrid.storyboard; sourceTree = "<group>"; };
+		D28E04422BA1232C001850C5 /* MainGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGridViewController.swift; sourceTree = "<group>"; };
 		D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+.swift"; sourceTree = "<group>"; };
 		D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRecord.swift; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* ZBookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagsView.swift; sourceTree = "<group>"; };
@@ -2481,6 +2483,7 @@
 				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
 				D246990520AA5C620006DFF9 /* MainTableViewCell.swift */,
 				D246990320A9D80E0006DFF9 /* MainViewController.swift */,
+				D28E04422BA1232C001850C5 /* MainGridViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -3740,6 +3743,7 @@
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
 				D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */,
+				D28E04432BA1232C001850C5 /* MainGridViewController.swift in Sources */,
 				D28F5E6129CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D5E2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
