@@ -67,6 +67,9 @@ class MainGridViewController: UIViewController {
     //MARK: - Functions
     
     func setupButtons() {
+        buttons.append(ButtonAction(title: "GRID ME", iconName: "museum passes", handler: {
+            self.pushVC(fromStoryboard: "TestGrid")
+        }))
         buttons.append(ButtonAction(title: "Search", iconName: "Search", handler: {
             self.pushVC(fromStoryboard: "Search")
         }))
