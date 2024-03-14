@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dcn-Fm-JLb">
-                                <rect key="frame" x="0.0" y="116" width="414" height="620"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uko-mG-x8g">
                                     <size key="itemSize" width="192" height="100"/>
@@ -75,8 +75,11 @@
                             <constraint firstItem="dcn-Fm-JLb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="n9Q-aF-EUr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="u5w-Gm-QgA"/>
+                    <navigationItem key="navigationItem" id="u5w-Gm-QgA">
+                        <barButtonItem key="rightBarButtonItem" title="Account" image="Account" id="C90-vy-E5Q" userLabel="Account Button"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="accountButton" destination="C90-vy-E5Q" id="GDl-Nf-1n0"/>
                         <outlet property="collectionView" destination="dcn-Fm-JLb" id="Z3B-Hr-gDx"/>
                     </connections>
                 </viewController>
@@ -102,6 +105,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Account" width="29.666666030883789" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

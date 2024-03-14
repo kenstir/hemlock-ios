@@ -23,6 +23,7 @@ class TestGridViewController: UIViewController {
 
     //MARK: - fields
 
+    @IBOutlet weak var accountButton: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
 
     var mainButtons: [ButtonAction] = []
@@ -63,10 +64,9 @@ class TestGridViewController: UIViewController {
         navigationItem.title = App.config.title
         collectionView.dataSource = self
         collectionView.delegate = self
-        //TODO: add accountButton
-//        accountButton.target = self
-//        accountButton.action = #selector(accountButtonPressed(sender:))
-//        Style.styleBarButton(accountButton)
+        accountButton.target = self
+        accountButton.action = #selector(accountButtonPressed(sender:))
+        Style.styleBarButton(accountButton)
     }
 
     func setupButtons() {
@@ -75,8 +75,8 @@ class TestGridViewController: UIViewController {
     //MARK: - Async Functions
 
     func fetchData() {
-//        guard let authtoken = App.account?.authtoken,
-//              let userID = App.account?.userID else { return }
+        //        guard let authtoken = App.account?.authtoken,
+        //              let userID = App.account?.userID else { return }
 
         if App.config.enableEventsButton {
             fetchHomeOrgSettings()
@@ -94,16 +94,16 @@ class TestGridViewController: UIViewController {
             let org = Organization.find(byId: orgID)
             self.loadButtons(forOrg: org)
             self.collectionView.reloadData()
-//            let eventsURL = org.eventsURL,
-//               !eventsURL.isEmpty,
-//               let url = URL(string: eventsURL)
-//            {
-//                let index = self.buttons.index(before: self.buttons.endIndex)
-//                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
-//                    UIApplication.shared.open(url)
-//                }), at: index)
-//                self.tableView.reloadData()
-//            }
+            //            let eventsURL = org.eventsURL,
+            //               !eventsURL.isEmpty,
+            //               let url = URL(string: eventsURL)
+            //            {
+            //                let index = self.buttons.index(before: self.buttons.endIndex)
+            //                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
+            //                    UIApplication.shared.open(url)
+            //                }), at: index)
+            //                self.tableView.reloadData()
+            //            }
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
@@ -156,9 +156,15 @@ class TestGridViewController: UIViewController {
         buttonItems = [mainButtons, secondaryButtons]
     }
 
+    //MARK: - Callback Functions
+
     @objc func applicationDidBecomeActive() {
         os_log("didBecomeActive: fetchData", log: log)
         fetchData()
+    }
+
+    @objc func accountButtonPressed(sender: UIBarButtonItem) {
+        self.showAlert(title: "TODO", message: "refactor account behaviors into BaseMainViewController")
     }
 }
 
