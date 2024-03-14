@@ -75,11 +75,8 @@ extension UIViewController {
             return
         }
 
-        // Calling "UIView.transition" below will animate the swap.
+        // Calling UIView.transition animates the swap
         window.rootViewController = vc
-
-        // Creates a transition animation.
-        // Though `animations` is optional, the documentation tells us that it must not be nil. ¯\_(ツ)_/¯
         UIView.transition(with: window, duration: duration, options: .transitionCrossDissolve, animations: {}, completion: completion)
     }
 
