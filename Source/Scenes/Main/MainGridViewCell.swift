@@ -18,7 +18,7 @@
 
 import UIKit
 
-class TestGridViewCell: UICollectionViewCell {
+class MainGridViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
 }

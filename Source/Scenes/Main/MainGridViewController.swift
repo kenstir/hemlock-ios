@@ -16,320 +16,233 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-import Foundation
 import UIKit
-import PromiseKit
-import PMKAlamofire
-import SwiftUI
+import os.log
 
 class MainGridViewController: UIViewController {
 
     //MARK: - fields
 
     @IBOutlet weak var accountButton: UIBarButtonItem!
-    @IBOutlet weak var messagesButton: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var bottomButtonBar: UIStackView!
-    @IBOutlet weak var fullCatalogButton: UIButton!
-    @IBOutlet weak var libraryLocatorButton: UIButton!
-    @IBOutlet weak var galileoButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
 
-    var buttons: [ButtonAction] = []
-    var didFetchEventsURL = false
-    
+    var mainButtons: [ButtonAction] = []
+    var secondaryButtons: [ButtonAction] = []
+    var buttonItems: [[ButtonAction]] = []
+    var didFetchHomeOrgSettings = false
+
+    private let reuseIdentifier = "mainGridCell"
+    private let sectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    private let mainButtonsPerRow: CGFloat = 2
+    private let secondaryButtonsPerRow: CGFloat = 3
+    private let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
+
     //MARK: - UIViewController
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButtons()
         setupViews()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // deselect row when navigating back
-        if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-        
+
+        // cause func to be called when returning to app, e.g. from browser
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
                                                name: UIApplication.didBecomeActiveNotification, object: nil)
-        
+
         self.fetchData()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
-    
-    //MARK: - Functions
-    
-    func setupButtons() {
-        buttons.append(ButtonAction(title: "GRID ME", iconName: "museum passes", handler: {
-            self.pushVC(fromStoryboard: "TestGrid")
-        }))
-        buttons.append(ButtonAction(title: "Search", iconName: "Search", handler: {
-            self.pushVC(fromStoryboard: "Search")
-        }))
-        buttons.append(ButtonAction(title: "Items Checked Out", iconName: "Items Checked Out", handler: {
-            self.pushVC(fromStoryboard: "Checkouts")
-        }))
-        buttons.append(ButtonAction(title: "Holds", iconName: "Holds", handler: {
-            self.pushVC(fromStoryboard: "Holds")
-        }))
-        buttons.append(ButtonAction(title: "Fines", iconName: "Fines", handler: {
-            self.pushVC(fromStoryboard: "Fines")
-        }))
-        buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
-            self.pushVC(fromStoryboard: "BookBags")
-        }))
-        buttons.append(ButtonAction(title: "Library Info", iconName: "Library Info", handler: {
-            self.pushVC(fromStoryboard: "OrgDetails")
-        }))
-        if App.config.barcodeFormat != .Disabled {
-            buttons.append(ButtonAction(title: "Show Card", iconName: "Show Card") {
-                self.pushVC(fromStoryboard: "ShowCard")
-            })
-        }
-        // This was part of a failed experiment to integrate SwiftUI
-//        if #available(iOS 14.0, *) {
-//            buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
-//                guard let account = App.account else { return }
-//                ActorService.fetchBookBags(account: account).done {
-//                    let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                }.catch { error in
-//                    self.presentGatewayAlert(forError: error)
-//                }
-//            }))
-//        }
-        // Shortcut to Place Hold
-//        buttons.append(ButtonAction("Place Hold", "Place Hold", {
-//            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
-//                "doc_id": 4674474,
-//                "tcn": 4674474,
-//                "title": "Discipline is destiny : the power of self-control",
-//                "author": "Holiday, Ryan"
-//            ]))
-//            record.attrs = ["icon_format": "book"]
-//            if let vc = PlaceHoldViewController.make(record: record) {
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//        }))
-        // Shortcut to Search Results
-//        buttons.append(("Prepared query", "", {
-//            if let vc = UIStoryboard(name: "Results", bundle: nil).instantiateInitialViewController() as? ResultsViewController {
-//                vc.searchParameters = SearchParameters(text: "Goblet of fire", searchClass: "keyword", searchFormat: nil, organizationShortName: nil, sort: nil)
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//        }))
-    }
+
+    //MARK: - UI Setup
 
     func setupViews() {
         navigationItem.title = App.config.title
-        tableView.dataSource = self
-        tableView.delegate = self
-        if App.config.enableMessages {
-            messagesButton.target = self
-            messagesButton.action = #selector(messagesButtonPressed(sender:))
-        } else {
-            //messagesButton.width = 0.01
-            messagesButton.isEnabled = false
-            messagesButton.isAccessibilityElement = false
-        }
+        collectionView.dataSource = self
+        collectionView.delegate = self
         accountButton.target = self
         accountButton.action = #selector(accountButtonPressed(sender:))
         Style.styleBarButton(accountButton)
-        if App.config.enableMainSceneBottomToolbar {
-            Style.styleButton(asPlain: fullCatalogButton)
-            Style.styleButton(asPlain: libraryLocatorButton)
-            Style.styleButton(asPlain: galileoButton)
-        } else {
-            bottomButtonBar.isHidden = true
-            fullCatalogButton.isHidden = true
-            libraryLocatorButton.isHidden = true
-            galileoButton.isHidden = true
-        }
     }
-    
-    func fetchData() {
-        guard let authtoken = App.account?.authtoken,
-              let userID = App.account?.userID else { return }
 
-        if App.config.enableMessages {
-            fetchMessages(authtoken: authtoken, userid: userID)
-        }
+    func setupButtons() {
+    }
+
+    //MARK: - Async Functions
+
+    func fetchData() {
+        //        guard let authtoken = App.account?.authtoken,
+        //              let userID = App.account?.userID else { return }
+
         if App.config.enableEventsButton {
-            fetchEventsURL()
+            fetchHomeOrgSettings()
+        } else {
+            loadButtons(forOrg: nil)
         }
     }
-    
-    func fetchEventsURL() {
-        if didFetchEventsURL { return }
+
+    func fetchHomeOrgSettings() {
+        if didFetchHomeOrgSettings { return }
         guard let orgID = App.account?.homeOrgID else { return }
         let promise = ActorService.fetchOrgTreeAndSettings(forOrgID: orgID)
         promise.done {
-            self.didFetchEventsURL = true
-            if let org = Organization.find(byId: orgID),
-               let eventsURL = org.eventsURL,
-               !eventsURL.isEmpty,
-               let url = URL(string: eventsURL)
-            {
-                let index = self.buttons.index(before: self.buttons.endIndex)
-                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
-                    UIApplication.shared.open(url)
-                }), at: index)
-                self.tableView.reloadData()
-            }
+            self.didFetchHomeOrgSettings = true
+            let org = Organization.find(byId: orgID)
+            self.loadButtons(forOrg: org)
+            self.collectionView.reloadData()
+            //            let eventsURL = org.eventsURL,
+            //               !eventsURL.isEmpty,
+            //               let url = URL(string: eventsURL)
+            //            {
+            //                let index = self.buttons.index(before: self.buttons.endIndex)
+            //                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
+            //                    UIApplication.shared.open(url)
+            //                }), at: index)
+            //                self.tableView.reloadData()
+            //            }
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }
 
-    func fetchMessages(authtoken: String, userid: Int) {
-        ActorService.fetchMessages(authtoken: authtoken, userID: userid).done { array in
-            self.updateMessagesBadge(messageList: array)
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
-        }
-    }
-
-    func updateMessagesBadge(messageList: [OSRFObject]) {
-        let messages = PatronMessage.makeArray(messageList)
-        let unreadCount = messages.filter { $0.isPatronVisible && !$0.isDeleted && !$0.isRead }.count
-        messagesButton.setBadge(text: (unreadCount > 0) ? String(unreadCount) : nil)
-    }
-    
-    @objc func accountButtonPressed(sender: UIBarButtonItem) {
-        let haveMultipleAccounts = App.credentialManager.credentials.count > 1
-
-        // Create an action sheet to present the account options
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        Style.styleAlertController(alertController)
-        
-        // Add an action for each stored account
-        if haveMultipleAccounts {
-            for credential in App.credentialManager.credentials {
-                let action = UIAlertAction(title: credential.chooserLabel, style: .default) { action in
-                    self.doSwitchAccount(toAccount: credential)
-                }
-                var imageName = "Account"
-                if credential.username == App.account?.username {
-                    action.isEnabled = false
-                    imageName = "Account with Checkmark"
-                }
-                if let icon = loadAssetImage(named: imageName) {
-                    action.setValue(icon, forKey: "image")
-                }
-                alertController.addAction(action)
-            }
-        }
-        
-        // Add remaining actions
-        alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
-            self.doAddAccount()
-        })
-        alertController.addAction(UIAlertAction(title: "Logout", style: .destructive) { action in
-            self.doLogout()
-        })
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        // iPad requires a popoverPresentationController
-        if let popoverController = alertController.popoverPresentationController {
-            popoverController.barButtonItem = sender
+    func loadButtons(forOrg org: Organization?) {
+        mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
+            self.pushVC(fromStoryboard: "ShowCard")
+        }))
+        mainButtons.append(ButtonAction(title: "Search Catalog", iconName: "search", handler: {
+            self.pushVC(fromStoryboard: "Search")
+        }))
+        mainButtons.append(ButtonAction(title: "Library Hours & Info", iconName: "info", handler: {
+            self.pushVC(fromStoryboard: "OrgDetails")
+        }))
+        mainButtons.append(ButtonAction(title: "Items Checked Out", iconName: "checkouts", handler: {
+            self.pushVC(fromStoryboard: "Checkouts")
+        }))
+        mainButtons.append(ButtonAction(title: "Fines", iconName: "fines", handler: {
+            self.pushVC(fromStoryboard: "Fines")
+        }))
+        mainButtons.append(ButtonAction(title: "Holds", iconName: "holds", handler: {
+            self.pushVC(fromStoryboard: "Holds")
+        }))
+        mainButtons.append(ButtonAction(title: "My Lists", iconName: "lists", handler: {
+            self.pushVC(fromStoryboard: "BookBags")
+        }))
+        if let url = org?.eventsURL {
+            mainButtons.append(ButtonAction(title: "Events", iconName: "events", handler: {
+                self.launchURL(url: url)
+            }))
         }
 
-        self.present(alertController, animated: true)
-    }
-    
-    func doSwitchAccount(toAccount storedAccount: Credential) {
-        App.switchCredential(credential: storedAccount)
-        self.popToLogin()
-    }
-    
-    func doAddAccount() {
-        App.switchCredential(credential: nil)
-        self.popToLogin(forAddingCredential: true)
-    }
-    
-    func doLogout() {
-        App.logout()
-        self.popToLogin()
+        if let url = org?.eresourcesURL {
+            secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
+                self.launchURL(url: url)
+            }))
+        }
+        if let url = org?.meetingRoomsURL {
+            secondaryButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {
+                self.launchURL(url: url)
+            }))
+        }
+        if let url = org?.museumPassesURL {
+            secondaryButtons.append(ButtonAction(title: "Museum Passes", iconName: "museum passes", handler: {
+                self.launchURL(url: url)
+            }))
+        }
+
+        buttonItems = [mainButtons, secondaryButtons]
     }
 
-    @IBAction func fullCatalogButtonPressed(_ sender: Any) {
-        if let libraryURL = App.library?.url,
-            let url = URL(string: libraryURL) {
-             UIApplication.shared.open(url)
-        }
-    }
-    
-    @IBAction func libraryLocatorButtonPressed(_ sender: Any) {
-        let uri = "http://pines.georgialibraries.org/pinesLocator/locator.html"
-        if let url = URL(string: uri) {
-            UIApplication.shared.open(url)
-        }
-    }
-
-    @IBAction func galileoButtonPressed(_ sender: Any) {
-        let uri = "https://www.galileo.usg.edu"
-        if let url = URL(string: uri) {
-            UIApplication.shared.open(url)
-        }
-    }
-
-    @objc func messagesButtonPressed(sender: UIBarButtonItem) {
-        if let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateInitialViewController() as? MessagesViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
+    //MARK: - Callback Functions
 
     @objc func applicationDidBecomeActive() {
+        os_log("didBecomeActive: fetchData", log: log)
         fetchData()
     }
 
+    @objc func accountButtonPressed(sender: UIBarButtonItem) {
+        self.showAlert(title: "TODO", message: "refactor account behaviors into BaseMainViewController")
+    }
 }
 
-//MARK: - UITableViewDataSource
-extension MainGridViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return buttons.count
+//MARK: - UICollectionViewDataSource
+extension MainGridViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return buttonItems.count
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return App.account?.displayName
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return buttonItems[section].count
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as? MainTableViewCell else {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MainGridViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
 
-        let action = buttons[indexPath.row]
-        var image: UIImage?
-        if App.config.haveColorButtonImages {
-            image = UIImage(named: action.iconName)?.withRenderingMode(.automatic)
-        } else {
-            image = UIImage(named: action.iconName)?.withRenderingMode(.alwaysTemplate)
-            cell.tintColor = App.theme.mainButtonTintColor
-        }
-        cell.imageView?.image = image
-        cell.textLabel?.text = R.getString(action.title)
-
-        cell.title = action.title
+        let item = buttonItems[indexPath.section][indexPath.row]
+        cell.backgroundColor = Style.secondarySystemGroupedBackground
+        cell.layer.cornerRadius = 5
+        cell.title.text = item.title
+        cell.title.numberOfLines = (indexPath.section == 0) ? 1 : 2
+        cell.title.font = (indexPath.section == 0) ? UIFont.preferredFont(forTextStyle: .body) : UIFont.preferredFont(forTextStyle: .callout)
+        cell.image.image = loadAssetImage(named: item.iconName)
 
         return cell
     }
 }
 
-//MARK: - UITableViewDelegate
-extension MainGridViewController: UITableViewDelegate {
+//MARK: - UICollectionViewDelegateFlowLayout
+extension MainGridViewController: UICollectionViewDelegateFlowLayout {
+    private func buttonSize(forSection section: Int) -> CGSize {
+        let itemsPerRow: CGFloat = (section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
+        let aspectRatio: CGFloat = (section == 0) ? (1.6 / 1.0) : (1.0 / 1.0)
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let action = buttons[indexPath.row]
-        action.handler()
+        // calculate the size of the buttons
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+
+        return CGSize(width: widthPerItem, height: widthPerItem / aspectRatio)
+    }
+
+    /// NB: Calculate the size based on how many itemsPerRow we WANT to show
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return buttonSize(forSection: indexPath.section)
+    }
+
+    /// NB: Calculate the insets base on how many items we are ACTUALLY showing
+    /// In the case of secondary buttons this might be fewer than secondaryButtonsPerRow.
+    /// That is, we want to size the secondary buttons as if there are 3 per row,
+    /// but we want to center them even if there is only 1 visible.
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            return sectionInsets
+        }
+
+        let itemSize = buttonSize(forSection: section)
+
+        let numItems = CGFloat(secondaryButtons.count)
+        let usedItemsWidth = itemSize.width * numItems + sectionInsets.left * (numItems - 1)
+        let unusedWidth = view.frame.width - usedItemsWidth
+        let insets = UIEdgeInsets(top: sectionInsets.top, left: unusedWidth / 2.0, bottom: sectionInsets.bottom, right: unusedWidth / 2.0)
+        return insets
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+extension MainGridViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = buttonItems[indexPath.section][indexPath.row]
+        print("item \(item.title) selected")
+        item.handler()
     }
 }

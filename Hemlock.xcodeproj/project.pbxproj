@@ -979,11 +979,9 @@
 		D28AE26F24FDDD7700960E9E /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D28AE26E24FDDD7700960E9E /* custom_strings.json */; };
 		D28AE27224FDDE8300960E9E /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D28AE27024FDDD8800960E9E /* custom_strings.json */; };
 		D28AE27424FDE01900960E9E /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D28AE27324FDE01900960E9E /* custom_strings.json */; };
-		D28E04412BA1079B001850C5 /* MainGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E043F2BA1079B001850C5 /* MainGrid.storyboard */; };
-		D28E04432BA1232C001850C5 /* MainGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04422BA1232C001850C5 /* MainGridViewController.swift */; };
-		D28E04452BA12B8E001850C5 /* TestGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E04442BA12B8E001850C5 /* TestGrid.storyboard */; };
-		D28E04472BA12CE7001850C5 /* TestGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04462BA12CE7001850C5 /* TestGridViewController.swift */; };
-		D28E04492BA234AB001850C5 /* TestGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04482BA234AB001850C5 /* TestGridViewCell.swift */; };
+		D28E04452BA12B8E001850C5 /* MainGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E04442BA12B8E001850C5 /* MainGrid.storyboard */; };
+		D28E04472BA12CE7001850C5 /* MainGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04462BA12CE7001850C5 /* MainGridViewController.swift */; };
+		D28E04492BA234AB001850C5 /* MainGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04482BA234AB001850C5 /* MainGridViewCell.swift */; };
 		D28F5E6129CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6229CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6329CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
@@ -2080,11 +2078,9 @@
 		D28AE26E24FDDD7700960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27024FDDD8800960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27324FDE01900960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
-		D28E04402BA1079B001850C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainGrid.storyboard; sourceTree = "<group>"; };
-		D28E04422BA1232C001850C5 /* MainGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainGridViewController.swift; sourceTree = "<group>"; };
-		D28E04442BA12B8E001850C5 /* TestGrid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestGrid.storyboard; sourceTree = "<group>"; };
-		D28E04462BA12CE7001850C5 /* TestGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGridViewController.swift; sourceTree = "<group>"; };
-		D28E04482BA234AB001850C5 /* TestGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGridViewCell.swift; sourceTree = "<group>"; };
+		D28E04442BA12B8E001850C5 /* MainGrid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGrid.storyboard; sourceTree = "<group>"; };
+		D28E04462BA12CE7001850C5 /* MainGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGridViewController.swift; sourceTree = "<group>"; };
+		D28E04482BA234AB001850C5 /* MainGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGridViewCell.swift; sourceTree = "<group>"; };
 		D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+.swift"; sourceTree = "<group>"; };
 		D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRecord.swift; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* ZBookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagsView.swift; sourceTree = "<group>"; };
@@ -2485,14 +2481,12 @@
 		D212DB1520C37B0600267503 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D28E043F2BA1079B001850C5 /* MainGrid.storyboard */,
 				D287D4FF207AEF2B001AF644 /* Main.storyboard */,
 				D246990520AA5C620006DFF9 /* MainTableViewCell.swift */,
 				D246990320A9D80E0006DFF9 /* MainViewController.swift */,
-				D28E04422BA1232C001850C5 /* MainGridViewController.swift */,
-				D28E04442BA12B8E001850C5 /* TestGrid.storyboard */,
-				D28E04462BA12CE7001850C5 /* TestGridViewController.swift */,
-				D28E04482BA234AB001850C5 /* TestGridViewCell.swift */,
+				D28E04442BA12B8E001850C5 /* MainGrid.storyboard */,
+				D28E04462BA12CE7001850C5 /* MainGridViewController.swift */,
+				D28E04482BA234AB001850C5 /* MainGridViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -3292,7 +3286,7 @@
 				D210EC2522B1EE55002FB5E0 /* LICENSE.txt in Resources */,
 				D210EC2722B1EE55002FB5E0 /* Holds.storyboard in Resources */,
 				D2816CBC28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
-				D28E04452BA12B8E001850C5 /* TestGrid.storyboard in Resources */,
+				D28E04452BA12B8E001850C5 /* MainGrid.storyboard in Resources */,
 				D210EC2822B1EE55002FB5E0 /* CopyInfo.storyboard in Resources */,
 				D210EC2922B1EE55002FB5E0 /* Search.storyboard in Resources */,
 				D210EC2A22B1EE55002FB5E0 /* Documentation in Resources */,
@@ -3315,7 +3309,6 @@
 				D2EA31152B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D21090D124D726FA004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537229D0F09800494763 /* Results.storyboard in Resources */,
-				D28E04412BA1079B001850C5 /* MainGrid.storyboard in Resources */,
 				D210EC3122B1EE55002FB5E0 /* Main.storyboard in Resources */,
 				D2AA9D4627383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 			);
@@ -3753,7 +3746,6 @@
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
 				D20B2FFA22CF976200F69848 /* AppBehavior.swift in Sources */,
-				D28E04432BA1232C001850C5 /* MainGridViewController.swift in Sources */,
 				D28F5E6129CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2AA9D5E2738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
@@ -3795,12 +3787,12 @@
 				D210EC0D22B1EE55002FB5E0 /* CheckoutsTableViewCell.swift in Sources */,
 				D210EC0E22B1EE55002FB5E0 /* UIScrollView+.swift in Sources */,
 				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
-				D28E04472BA12CE7001850C5 /* TestGridViewController.swift in Sources */,
+				D28E04472BA12CE7001850C5 /* MainGridViewController.swift in Sources */,
 				D2BB66BC297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D29838602B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5127383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31212B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
-				D28E04492BA234AB001850C5 /* TestGridViewCell.swift in Sources */,
+				D28E04492BA234AB001850C5 /* MainGridViewCell.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainViewController.swift in Sources */,
 				D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
@@ -4972,14 +4964,6 @@
 				D287D505207AEF2C001AF644 /* Base */,
 			);
 			name = Launch.storyboard;
-			sourceTree = "<group>";
-		};
-		D28E043F2BA1079B001850C5 /* MainGrid.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D28E04402BA1079B001850C5 /* Base */,
-			);
-			name = MainGrid.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
