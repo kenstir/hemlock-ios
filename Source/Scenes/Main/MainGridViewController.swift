@@ -19,7 +19,7 @@
 import UIKit
 import os.log
 
-class MainGridViewController: UIViewController {
+class MainGridViewController: MainBaseViewController {
 
     //MARK: - fields
 
@@ -158,13 +158,8 @@ class MainGridViewController: UIViewController {
 
     //MARK: - Callback Functions
 
-    @objc func applicationDidBecomeActive() {
-        os_log("didBecomeActive: fetchData", log: log)
-        fetchData()
-    }
-
-    @objc func accountButtonPressed(sender: UIBarButtonItem) {
-        self.showAlert(title: "TODO", message: "refactor account behaviors into BaseMainViewController")
+    @objc override func applicationDidBecomeActive() {
+        os_log("didBecomeActive", log: log)
     }
 }
 

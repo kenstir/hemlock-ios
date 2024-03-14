@@ -28,8 +28,8 @@ struct ButtonAction {
     let handler: (() -> Void)
 }
 
-class MainListViewController: UIViewController {
-    
+class MainListViewController: MainBaseViewController {
+
     //MARK: - fields
 
     @IBOutlet weak var accountButton: UIBarButtonItem!
@@ -61,17 +61,9 @@ class MainListViewController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        // cause func to be called when returning to app, e.g. from browser
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
-                                               name: UIApplication.didBecomeActiveNotification, object: nil)
-
         self.fetchData()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
+
     //MARK: - Functions
     
     func setupButtons() {
@@ -205,63 +197,6 @@ class MainListViewController: UIViewController {
         let unreadCount = messages.filter { $0.isPatronVisible && !$0.isDeleted && !$0.isRead }.count
         messagesButton.setBadge(text: (unreadCount > 0) ? String(unreadCount) : nil)
     }
-    
-    @objc func accountButtonPressed(sender: UIBarButtonItem) {
-        let haveMultipleAccounts = App.credentialManager.credentials.count > 1
-
-        // Create an action sheet to present the account options
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        Style.styleAlertController(alertController)
-        
-        // Add an action for each stored account
-        if haveMultipleAccounts {
-            for credential in App.credentialManager.credentials {
-                let action = UIAlertAction(title: credential.chooserLabel, style: .default) { action in
-                    self.doSwitchAccount(toAccount: credential)
-                }
-                var imageName = "Account"
-                if credential.username == App.account?.username {
-                    action.isEnabled = false
-                    imageName = "Account with Checkmark"
-                }
-                if let icon = loadAssetImage(named: imageName) {
-                    action.setValue(icon, forKey: "image")
-                }
-                alertController.addAction(action)
-            }
-        }
-        
-        // Add remaining actions
-        alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
-            self.doAddAccount()
-        })
-        alertController.addAction(UIAlertAction(title: "Logout", style: .destructive) { action in
-            self.doLogout()
-        })
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        // iPad requires a popoverPresentationController
-        if let popoverController = alertController.popoverPresentationController {
-            popoverController.barButtonItem = sender
-        }
-
-        self.present(alertController, animated: true)
-    }
-    
-    func doSwitchAccount(toAccount storedAccount: Credential) {
-        App.switchCredential(credential: storedAccount)
-        self.popToLogin()
-    }
-    
-    func doAddAccount() {
-        App.switchCredential(credential: nil)
-        self.popToLogin(forAddingCredential: true)
-    }
-    
-    func doLogout() {
-        App.logout()
-        self.popToLogin()
-    }
 
     @IBAction func fullCatalogButtonPressed(_ sender: Any) {
         if let libraryURL = App.library?.url,
@@ -290,7 +225,7 @@ class MainListViewController: UIViewController {
         }
     }
 
-    @objc func applicationDidBecomeActive() {
+    @objc override func applicationDidBecomeActive() {
         os_log("didBecomeActive: fetchData", log: log)
         fetchData()
     }

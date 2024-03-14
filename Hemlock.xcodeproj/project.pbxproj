@@ -982,6 +982,17 @@
 		D28E04452BA12B8E001850C5 /* MainGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E04442BA12B8E001850C5 /* MainGrid.storyboard */; };
 		D28E04472BA12CE7001850C5 /* MainGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04462BA12CE7001850C5 /* MainGridViewController.swift */; };
 		D28E04492BA234AB001850C5 /* MainGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04482BA234AB001850C5 /* MainGridViewCell.swift */; };
+		D28E044B2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E044C2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E044D2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E044E2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E044F2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E04502BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E04512BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E04522BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E04532BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E04542BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
+		D28E04552BA3A26F001850C5 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */; };
 		D28F5E6129CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6229CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6329CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
@@ -2081,6 +2092,7 @@
 		D28E04442BA12B8E001850C5 /* MainGrid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGrid.storyboard; sourceTree = "<group>"; };
 		D28E04462BA12CE7001850C5 /* MainGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGridViewController.swift; sourceTree = "<group>"; };
 		D28E04482BA234AB001850C5 /* MainGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGridViewCell.swift; sourceTree = "<group>"; };
+		D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBaseViewController.swift; sourceTree = "<group>"; };
 		D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+.swift"; sourceTree = "<group>"; };
 		D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRecord.swift; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* ZBookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagsView.swift; sourceTree = "<group>"; };
@@ -2487,6 +2499,7 @@
 				D28E04442BA12B8E001850C5 /* MainGrid.storyboard */,
 				D28E04462BA12CE7001850C5 /* MainGridViewController.swift */,
 				D28E04482BA234AB001850C5 /* MainGridViewCell.swift */,
+				D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -3777,6 +3790,7 @@
 				D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */,
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
 				D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */,
+				D28E044B2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
 				D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */,
 				D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */,
@@ -3841,6 +3855,7 @@
 				D23E9F8723B9200A0030F5C1 /* Library.swift in Sources */,
 				D2EA31102B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D23E9F8823B9200A0030F5C1 /* GatewayResponse.swift in Sources */,
+				D28E04552BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D23E9F8923B9200A0030F5C1 /* SMSCarrier.swift in Sources */,
 				D2029B65297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA7272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -3950,6 +3965,7 @@
 				D2477C3424786CCF00FD4CF6 /* IndianaTheme.swift in Sources */,
 				D2EA310A2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2477BD424785A6B00FD4CF6 /* GatewayResponse.swift in Sources */,
+				D28E044F2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D2477BD524785A6B00FD4CF6 /* SMSCarrier.swift in Sources */,
 				D2029B5F297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA3272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -4059,6 +4075,7 @@
 				D2572AC324AD7755000BA698 /* Library.swift in Sources */,
 				D2EA310B2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2572AC424AD7755000BA698 /* GatewayResponse.swift in Sources */,
+				D28E04502BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D2572AC524AD7755000BA698 /* SMSCarrier.swift in Sources */,
 				D2029B60297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA8272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -4168,6 +4185,7 @@
 				D25EEC6528A1E8310090F108 /* App.swift in Sources */,
 				D2EA310E2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D25EEC6628A1E8310090F108 /* Library.swift in Sources */,
+				D28E04532BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D25EEC6728A1E8310090F108 /* GatewayResponse.swift in Sources */,
 				D2029B63297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D25EEC6828A1E8310090F108 /* SMSCarrier.swift in Sources */,
@@ -4273,6 +4291,7 @@
 				D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D28F5E6329CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D276DA9721336B20007FAA31 /* API.swift in Sources */,
+				D28E044D2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D246290F273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D27DF20621AB2EDA002DCC47 /* ShowCardViewController.swift in Sources */,
 				D276DA9821336B20007FAA31 /* HoldsTableViewCell.swift in Sources */,
@@ -4381,6 +4400,7 @@
 				D28F5E6429CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D27990D220DDD473003B451E /* FinesViewController.swift in Sources */,
 				D2462910273732DC000DC659 /* BookBagsViewController.swift in Sources */,
+				D28E044E2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D27990D320DDD473003B451E /* API.swift in Sources */,
 				FA57B93820EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
 				D21090C924D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4489,6 +4509,7 @@
 				D29911E5248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D28F5E6229CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D284245C21D0358200C7171C /* FinesViewController.swift in Sources */,
+				D28E044C2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D246290E273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D284245D21D0358200C7171C /* API.swift in Sources */,
 				D284245E21D0358200C7171C /* ShowCardViewController.swift in Sources */,
@@ -4601,6 +4622,7 @@
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D2EA310F2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
+				D28E04542BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D2029B64297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA6272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -4746,6 +4768,7 @@
 				D2BDA62822D176BD00D9B60C /* App.swift in Sources */,
 				D2EA310C2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2BDA62922D176BD00D9B60C /* Library.swift in Sources */,
+				D28E04512BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D2BDA62B22D176BD00D9B60C /* GatewayResponse.swift in Sources */,
 				D2029B61297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA4272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -4855,6 +4878,7 @@
 				D2BDA6C022D2A72000D9B60C /* Library.swift in Sources */,
 				D2EA310D2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2BDA6C222D2A72000D9B60C /* GatewayResponse.swift in Sources */,
+				D28E04522BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D2BDA6C322D2A72000D9B60C /* SMSCarrier.swift in Sources */,
 				D2029B62297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA5272DE56500CBA5AA /* BookBagItem.swift in Sources */,
