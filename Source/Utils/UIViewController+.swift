@@ -64,7 +64,7 @@ extension UIViewController {
 
     /// reset the VC stack to the Main VC
     func popToMain() {
-        let name = App.config.enableMainGridScene ? "MainGrid" : "Main"
+        let name = App.config.enableMainGridScene ? "TestGrid" : "Main"
 //        let name = App.config.enableMainGridScene ? "TestGrid" : "Main"
         guard let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() else { return }
         swapRootVC(vc)
@@ -188,6 +188,8 @@ extension UIViewController {
         self.present(alertController, animated: true)
     }
 
+    //MARK: - Helper Functions
+
     /// helper function to ensure I don't forget to copy a new image to the app-specific asset bundle
     func loadAssetImage(named: String) -> UIImage? {
         let image = UIImage(named: named)
@@ -195,5 +197,12 @@ extension UIViewController {
             showAlert(title: "Missing Image", message: "App is missing image \"\(named)\"")
         }
         return image
+    }
+
+    /// open URL
+    func launchURL(url: String) {
+        if let u = URL(string: url) {
+            UIApplication.shared.open(u)
+        }
     }
 }

@@ -22,7 +22,7 @@ import Foundation
 import UIKit
 import PromiseKit
 import PMKAlamofire
-import SwiftUI
+import os.log
 
 struct ButtonAction {
     let title: String
@@ -45,7 +45,8 @@ class MainViewController: UIViewController {
 
     var buttons: [ButtonAction] = []
     var didFetchEventsURL = false
-    
+    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
+
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -61,10 +62,11 @@ class MainViewController: UIViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
+
+        // cause func to be called when returning to app, e.g. from browser
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
                                                name: UIApplication.didBecomeActiveNotification, object: nil)
-        
+
         self.fetchData()
     }
     
@@ -140,7 +142,6 @@ class MainViewController: UIViewController {
             messagesButton.target = self
             messagesButton.action = #selector(messagesButtonPressed(sender:))
         } else {
-            //messagesButton.width = 0.01
             messagesButton.isEnabled = false
             messagesButton.isAccessibilityElement = false
         }
@@ -292,6 +293,7 @@ class MainViewController: UIViewController {
     }
 
     @objc func applicationDidBecomeActive() {
+        os_log("didBecomeActive: fetchData", log: log)
         fetchData()
     }
 

@@ -17,6 +17,7 @@
  */
 
 import UIKit
+import os.log
 
 class TestGridViewController: UIViewController {
 
@@ -27,11 +28,13 @@ class TestGridViewController: UIViewController {
     var mainButtons: [ButtonAction] = []
     var secondaryButtons: [ButtonAction] = []
     var buttonItems: [[ButtonAction]] = []
+    var didFetchHomeOrgSettings = false
 
     private let reuseIdentifier = "mainGridCell"
     private let sectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     private let mainButtonsPerRow: CGFloat = 2
     private let secondaryButtonsPerRow: CGFloat = 3
+    private let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
 
     //MARK: - UIViewController
 
@@ -40,51 +43,122 @@ class TestGridViewController: UIViewController {
         setupViews()
     }
 
-    //MARK: - Functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // cause func to be called when returning to app, e.g. from browser
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
+                                               name: UIApplication.didBecomeActiveNotification, object: nil)
+
+        self.fetchData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+
+    //MARK: - UI Setup
 
     func setupViews() {
+        navigationItem.title = App.config.title
         collectionView.dataSource = self
         collectionView.delegate = self
-        setupButtons()
+        //TODO: add accountButton
+//        accountButton.target = self
+//        accountButton.action = #selector(accountButtonPressed(sender:))
+//        Style.styleBarButton(accountButton)
     }
 
     func setupButtons() {
+    }
+
+    //MARK: - Async Functions
+
+    func fetchData() {
+//        guard let authtoken = App.account?.authtoken,
+//              let userID = App.account?.userID else { return }
+
+        if App.config.enableEventsButton {
+            fetchHomeOrgSettings()
+        } else {
+            loadButtons(forOrg: nil)
+        }
+    }
+
+    func fetchHomeOrgSettings() {
+        if didFetchHomeOrgSettings { return }
+        guard let orgID = App.account?.homeOrgID else { return }
+        let promise = ActorService.fetchOrgTreeAndSettings(forOrgID: orgID)
+        promise.done {
+            self.didFetchHomeOrgSettings = true
+            let org = Organization.find(byId: orgID)
+            self.loadButtons(forOrg: org)
+            self.collectionView.reloadData()
+//            let eventsURL = org.eventsURL,
+//               !eventsURL.isEmpty,
+//               let url = URL(string: eventsURL)
+//            {
+//                let index = self.buttons.index(before: self.buttons.endIndex)
+//                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
+//                    UIApplication.shared.open(url)
+//                }), at: index)
+//                self.tableView.reloadData()
+//            }
+        }.catch { error in
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    func loadButtons(forOrg org: Organization?) {
         mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
             self.pushVC(fromStoryboard: "ShowCard")
         }))
         mainButtons.append(ButtonAction(title: "Search Catalog", iconName: "search", handler: {
-            print("stop here")
+            self.pushVC(fromStoryboard: "Search")
         }))
         mainButtons.append(ButtonAction(title: "Library Hours & Info", iconName: "info", handler: {
-            print("stop here")
+            self.pushVC(fromStoryboard: "OrgDetails")
         }))
         mainButtons.append(ButtonAction(title: "Items Checked Out", iconName: "checkouts", handler: {
-            print("stop here")
+            self.pushVC(fromStoryboard: "Checkouts")
         }))
         mainButtons.append(ButtonAction(title: "Fines", iconName: "fines", handler: {
-            print("stop here")
+            self.pushVC(fromStoryboard: "Fines")
         }))
         mainButtons.append(ButtonAction(title: "Holds", iconName: "holds", handler: {
-            print("stop here")
+            self.pushVC(fromStoryboard: "Holds")
         }))
         mainButtons.append(ButtonAction(title: "My Lists", iconName: "lists", handler: {
-            print("stop here")
+            self.pushVC(fromStoryboard: "BookBags")
         }))
-        mainButtons.append(ButtonAction(title: "Events", iconName: "events", handler: {
-            print("stop here")
-        }))
+        if let url = org?.eventsURL {
+            mainButtons.append(ButtonAction(title: "Events", iconName: "events", handler: {
+                self.launchURL(url: url)
+            }))
+        }
 
-        secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
-            print("stop here")
-        }))
-        secondaryButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {
-            print("stop here")
-        }))
-        secondaryButtons.append(ButtonAction(title: "Museum Passes", iconName: "museum passes", handler: {
-            print("stop here")
-        }))
+        if let url = org?.eresourcesURL {
+            secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
+                self.launchURL(url: url)
+            }))
+        }
+        if let url = org?.meetingRoomsURL {
+            secondaryButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {
+                self.launchURL(url: url)
+            }))
+        }
+        if let url = org?.museumPassesURL {
+            secondaryButtons.append(ButtonAction(title: "Museum Passes", iconName: "museum passes", handler: {
+                self.launchURL(url: url)
+            }))
+        }
 
         buttonItems = [mainButtons, secondaryButtons]
+    }
+
+    @objc func applicationDidBecomeActive() {
+        os_log("didBecomeActive: fetchData", log: log)
+        fetchData()
     }
 }
 
