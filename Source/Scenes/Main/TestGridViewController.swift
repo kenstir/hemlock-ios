@@ -116,29 +116,35 @@ extension TestGridViewController: UICollectionViewDataSource {
 //MARK: - UICollectionViewDelegateFlowLayout
 extension TestGridViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemsPerRow: CGFloat = (indexPath.section == 0) ? 2.0 : CGFloat(bottomButtons.count)
-        let sectionInsets = (indexPath.section == 0) ? mainSectionInsets : bottomSectionInsets
+
+        let itemsPerRow: CGFloat = 2.0
+        let sectionInsets = mainSectionInsets
         let aspectRatio: CGFloat = 1.6 / 1.0
 
-        if (indexPath.section == 0) {
-            let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-            let availableWidth = view.frame.width - paddingSpace
-            let widthPerItem = availableWidth / itemsPerRow
+        // calculate the size of the main buttons
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
 
+        // calculate the size of the secondary buttons relative to the main buttons
+        if indexPath.section == 0 {
             return CGSize(width: widthPerItem, height: widthPerItem / aspectRatio)
         } else {
-            return CGSize(width: 100, height: 80)
+            let ratio = 0.5
+            return CGSize(width: widthPerItem * ratio, height: widthPerItem * ratio / aspectRatio)
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let sectionInsets = (section == 0) ? mainSectionInsets : bottomSectionInsets
-        return sectionInsets
+        //let sectionInsets = (section == 0) ? mainSectionInsets : bottomSectionInsets
+        //return sectionInsets
+        return mainSectionInsets
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        let sectionInsets = (section == 0) ? mainSectionInsets : bottomSectionInsets
-        return sectionInsets.left
+//        let sectionInsets = (section == 0) ? mainSectionInsets : bottomSectionInsets
+//        return sectionInsets.left
+        return mainSectionInsets.left
     }
 }
 
