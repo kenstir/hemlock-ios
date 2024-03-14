@@ -107,6 +107,8 @@ extension TestGridViewController: UICollectionViewDataSource {
         cell.backgroundColor = Style.secondarySystemGroupedBackground
         cell.layer.cornerRadius = 5
         cell.title.text = item.title
+        cell.title.numberOfLines = (indexPath.section == 0) ? 1 : 2
+        cell.title.font = (indexPath.section == 0) ? UIFont.preferredFont(forTextStyle: .body) : UIFont.preferredFont(forTextStyle: .callout)
         cell.image.image = loadAssetImage(named: item.iconName)
 
         return cell
@@ -117,7 +119,7 @@ extension TestGridViewController: UICollectionViewDataSource {
 extension TestGridViewController: UICollectionViewDelegateFlowLayout {
     private func buttonSize(forSection section: Int) -> CGSize {
         let itemsPerRow: CGFloat = (section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
-        let aspectRatio: CGFloat = 1.6 / 1.0
+        let aspectRatio: CGFloat = (section == 0) ? (1.6 / 1.0) : (1.0 / 1.0)
 
         // calculate the size of the buttons
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
@@ -142,10 +144,10 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
             return sectionInsets
         }
 
-        let size = buttonSize(forSection: section)
+        let itemSize = buttonSize(forSection: section)
 
         let numItems = CGFloat(secondaryButtons.count)
-        let usedItemsWidth = size.width * numItems + sectionInsets.left * (numItems - 1)
+        let usedItemsWidth = itemSize.width * numItems + sectionInsets.left * (numItems - 1)
         let unusedWidth = view.frame.width - usedItemsWidth
         let insets = UIEdgeInsets(top: sectionInsets.top, left: unusedWidth / 2.0, bottom: sectionInsets.bottom, right: unusedWidth / 2.0)
         return insets
