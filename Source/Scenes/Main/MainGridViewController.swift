@@ -19,7 +19,7 @@
 import UIKit
 import os.log
 
-class TestGridViewController: UIViewController {
+class MainGridViewController: UIViewController {
 
     //MARK: - fields
 
@@ -169,7 +169,7 @@ class TestGridViewController: UIViewController {
 }
 
 //MARK: - UICollectionViewDataSource
-extension TestGridViewController: UICollectionViewDataSource {
+extension MainGridViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return buttonItems.count
     }
@@ -179,7 +179,7 @@ extension TestGridViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TestGridViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MainGridViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
 
@@ -196,7 +196,7 @@ extension TestGridViewController: UICollectionViewDataSource {
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-extension TestGridViewController: UICollectionViewDelegateFlowLayout {
+extension MainGridViewController: UICollectionViewDelegateFlowLayout {
     private func buttonSize(forSection section: Int) -> CGSize {
         let itemsPerRow: CGFloat = (section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
         let aspectRatio: CGFloat = (section == 0) ? (1.6 / 1.0) : (1.0 / 1.0)
@@ -239,7 +239,7 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
 }
 
 //MARK: - UICollectionViewDelegate
-extension TestGridViewController: UICollectionViewDelegate {
+extension MainGridViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = buttonItems[indexPath.section][indexPath.row]
         print("item \(item.title) selected")
