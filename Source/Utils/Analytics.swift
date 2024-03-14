@@ -26,7 +26,7 @@ enum AnalyticsErrorCode {
 
 class Analytics {
     static let nullTag = "nil"
-    static let log = OSLog(subsystem: "net.kenstir.apps.hemlock", category: "Analytics")
+    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Analytics")
     static var buf = RingBuffer<String>(count: 256)
 
     static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
