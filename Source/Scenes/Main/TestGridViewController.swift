@@ -74,15 +74,15 @@ class TestGridViewController: UIViewController {
             print("stop here")
         }))
 
-//        secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
-//            print("stop here")
-//        }))
-//        secondaryButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {
-//            print("stop here")
-//        }))
-//        secondaryButtons.append(ButtonAction(title: "Museum Passes", iconName: "museum passes", handler: {
-//            print("stop here")
-//        }))
+        secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
+            print("stop here")
+        }))
+        secondaryButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {
+            print("stop here")
+        }))
+        secondaryButtons.append(ButtonAction(title: "Museum Passes", iconName: "museum passes", handler: {
+            print("stop here")
+        }))
 
         buttonItems = [mainButtons, secondaryButtons]
     }
@@ -91,11 +91,11 @@ class TestGridViewController: UIViewController {
 //MARK: - UICollectionViewDataSource
 extension TestGridViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return buttonItems.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (section == 0) ? mainButtons.count : secondaryButtons.count
+        return buttonItems[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
