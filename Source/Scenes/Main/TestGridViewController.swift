@@ -115,10 +115,8 @@ extension TestGridViewController: UICollectionViewDataSource {
 
 //MARK: - UICollectionViewDelegateFlowLayout
 extension TestGridViewController: UICollectionViewDelegateFlowLayout {
-    /// NB: Calculate the size based on how many itemsPerRow we WANT to show
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let itemsPerRow: CGFloat = (indexPath.section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
+    private func buttonSize(forSection section: Int) -> CGSize {
+        let itemsPerRow: CGFloat = (section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
         let aspectRatio: CGFloat = 1.6 / 1.0
 
         // calculate the size of the buttons
@@ -127,6 +125,12 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
         let widthPerItem = availableWidth / itemsPerRow
 
         return CGSize(width: widthPerItem, height: widthPerItem / aspectRatio)
+    }
+
+    /// NB: Calculate the size based on how many itemsPerRow we WANT to show
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return buttonSize(forSection: indexPath.section)
     }
 
     /// NB: Calculate the insets base on how many items we are ACTUALLY showing
@@ -138,16 +142,10 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
             return sectionInsets
         }
 
-        let itemsPerRow: CGFloat = secondaryButtonsPerRow
-        let aspectRatio: CGFloat = 1.6 / 1.0
-
-        // calculate the size of the buttons
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
+        let size = buttonSize(forSection: section)
 
         let numItems = CGFloat(secondaryButtons.count)
-        let usedItemsWidth = widthPerItem * numItems + sectionInsets.left * (numItems - 1)
+        let usedItemsWidth = size.width * numItems + sectionInsets.left * (numItems - 1)
         let unusedWidth = view.frame.width - usedItemsWidth
         let insets = UIEdgeInsets(top: sectionInsets.top, left: unusedWidth / 2.0, bottom: sectionInsets.bottom, right: unusedWidth / 2.0)
         return insets
