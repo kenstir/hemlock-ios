@@ -50,7 +50,7 @@ class TestGridViewController: UIViewController {
 
     func setupButtons() {
         mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
-            print("stop here")
+            self.pushVC(fromStoryboard: "ShowCard")
         }))
         mainButtons.append(ButtonAction(title: "Search Catalog", iconName: "search", handler: {
             print("stop here")
@@ -115,7 +115,7 @@ extension TestGridViewController: UICollectionViewDataSource {
 
 //MARK: - UICollectionViewDelegateFlowLayout
 extension TestGridViewController: UICollectionViewDelegateFlowLayout {
-    /// NB: Calculate the size based on how many items per row we want to show: 2 for main buttons, 3 for secondary buttons
+    /// NB: Calculate the size based on how many itemsPerRow we WANT to show
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let itemsPerRow: CGFloat = (indexPath.section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
@@ -129,8 +129,8 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: widthPerItem, height: widthPerItem / aspectRatio)
     }
 
-    /// NB: Calculate the insets base on how many items we are actually showing, which in the
-    /// case of secondary buttons might be fewer than secondaryButtonsPerRow.
+    /// NB: Calculate the insets base on how many items we are ACTUALLY showing
+    /// In the case of secondary buttons this might be fewer than secondaryButtonsPerRow.
     /// That is, we want to size the secondary buttons as if there are 3 per row,
     /// but we want to center them even if there is only 1 visible.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
