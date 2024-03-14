@@ -19,7 +19,7 @@
 import UIKit
 import os.log
 
-class MainGridViewController: UIViewController {
+class MainGridViewController: MainBaseViewController {
 
     //MARK: - fields
 
@@ -75,9 +75,6 @@ class MainGridViewController: UIViewController {
     //MARK: - Async Functions
 
     func fetchData() {
-        //        guard let authtoken = App.account?.authtoken,
-        //              let userID = App.account?.userID else { return }
-
         if App.config.enableEventsButton {
             fetchHomeOrgSettings()
         } else {
@@ -94,22 +91,13 @@ class MainGridViewController: UIViewController {
             let org = Organization.find(byId: orgID)
             self.loadButtons(forOrg: org)
             self.collectionView.reloadData()
-            //            let eventsURL = org.eventsURL,
-            //               !eventsURL.isEmpty,
-            //               let url = URL(string: eventsURL)
-            //            {
-            //                let index = self.buttons.index(before: self.buttons.endIndex)
-            //                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
-            //                    UIApplication.shared.open(url)
-            //                }), at: index)
-            //                self.tableView.reloadData()
-            //            }
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }
 
     func loadButtons(forOrg org: Organization?) {
+        // main buttons
         mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
             self.pushVC(fromStoryboard: "ShowCard")
         }))
@@ -137,6 +125,7 @@ class MainGridViewController: UIViewController {
             }))
         }
 
+        // secondary buttons
         if let url = org?.eresourcesURL {
             secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
                 self.launchURL(url: url)
@@ -153,18 +142,14 @@ class MainGridViewController: UIViewController {
             }))
         }
 
+        // combine them to simplify delegate funcs
         buttonItems = [mainButtons, secondaryButtons]
     }
 
     //MARK: - Callback Functions
 
-    @objc func applicationDidBecomeActive() {
-        os_log("didBecomeActive: fetchData", log: log)
-        fetchData()
-    }
-
-    @objc func accountButtonPressed(sender: UIBarButtonItem) {
-        self.showAlert(title: "TODO", message: "refactor account behaviors into BaseMainViewController")
+    @objc override func applicationDidBecomeActive() {
+        os_log("didBecomeActive", log: log)
     }
 }
 
@@ -242,7 +227,6 @@ extension MainGridViewController: UICollectionViewDelegateFlowLayout {
 extension MainGridViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = buttonItems[indexPath.section][indexPath.row]
-        print("item \(item.title) selected")
         item.handler()
     }
 }
