@@ -29,8 +29,7 @@ class TestGridViewController: UIViewController {
     var buttonItems: [[ButtonAction]] = []
 
     private let reuseIdentifier = "mainGridCell"
-    private let sectionInsets = UIEdgeInsets(top: 32.0, left: 16.0, bottom: 32.0, right: 16.0)
-//    private let bottomSectionInsets = UIEdgeInsets(top: 32.0, left: 48.0, bottom: 32.0, right: 48.0)
+    private let sectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     private let mainButtonsPerRow: CGFloat = 2
     private let secondaryButtonsPerRow: CGFloat = 3
 
@@ -75,9 +74,9 @@ class TestGridViewController: UIViewController {
             print("stop here")
         }))
 
-        secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
-            print("stop here")
-        }))
+//        secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
+//            print("stop here")
+//        }))
 //        secondaryButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {
 //            print("stop here")
 //        }))
@@ -120,7 +119,6 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let itemsPerRow: CGFloat = (indexPath.section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
-        let sectionInsets = sectionInsets
         let aspectRatio: CGFloat = 1.6 / 1.0
 
         // calculate the size of the buttons
@@ -131,9 +129,28 @@ extension TestGridViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: widthPerItem, height: widthPerItem / aspectRatio)
     }
 
-    /// NB: 
+    /// NB: Calculate the insets base on how many items we are actually showing, which in the
+    /// case of secondary buttons might be fewer than secondaryButtonsPerRow.
+    /// That is, we want to size the secondary buttons as if there are 3 per row,
+    /// but we want to center them even if there is only 1 visible.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
+        if section == 0 {
+            return sectionInsets
+        }
+
+        let itemsPerRow: CGFloat = secondaryButtonsPerRow
+        let aspectRatio: CGFloat = 1.6 / 1.0
+
+        // calculate the size of the buttons
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+
+        let numItems = CGFloat(secondaryButtons.count)
+        let usedItemsWidth = widthPerItem * numItems + sectionInsets.left * (numItems - 1)
+        let unusedWidth = view.frame.width - usedItemsWidth
+        let insets = UIEdgeInsets(top: sectionInsets.top, left: unusedWidth / 2.0, bottom: sectionInsets.bottom, right: unusedWidth / 2.0)
+        return insets
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
