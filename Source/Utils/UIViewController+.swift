@@ -64,7 +64,7 @@ extension UIViewController {
 
     /// reset the VC stack to the Main VC
     func popToMain() {
-        let name = App.config.enableMainGridScene ? "MainGrid" : "Main"
+        let name = App.config.enableMainGridScene ? "MainGrid" : "MainList"
         guard let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() else { return }
         swapRootVC(vc)
     }

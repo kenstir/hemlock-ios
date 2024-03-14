@@ -1,6 +1,4 @@
 /*
- *  MainViewController.swift
- *
  *  Copyright (C) 2018 Kenneth H. Cox
  *
  *  This program is free software; you can redistribute it and/or
@@ -30,7 +28,7 @@ struct ButtonAction {
     let handler: (() -> Void)
 }
 
-class MainViewController: UIViewController {
+class MainListViewController: UIViewController {
     
     //MARK: - fields
 
@@ -300,7 +298,7 @@ class MainViewController: UIViewController {
 }
 
 //MARK: - UITableViewDataSource
-extension MainViewController: UITableViewDataSource {
+extension MainListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return buttons.count
@@ -333,7 +331,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension MainViewController: UITableViewDelegate {
+extension MainListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let action = buttons[indexPath.row]
