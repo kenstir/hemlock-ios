@@ -89,8 +89,11 @@ class Organization {
     var areSettingsLoaded = false
     var isPickupLocationSetting: Bool?
     var isPaymentAllowedSetting: Bool?
+    var eresourcesURL: String?
     var eventsURL: String?
     var infoURL: String?
+    var meetingRoomsURL: String?
+    var museumPassesURL: String?
     var isPickupLocation: Bool {
         if let val = isPickupLocationSetting {
             return val
@@ -150,8 +153,17 @@ class Organization {
         if let val = Organization.ousGetString(obj, API.settingInfoURL) {
             self.infoURL = val
         }
+        if let val = Organization.ousGetString(obj, API.settingHemlockEresourcesURL) {
+            self.eresourcesURL = val
+        }
         if let val = Organization.ousGetString(obj, API.settingHemlockEventsURL) {
             self.eventsURL = val
+        }
+        if let val = Organization.ousGetString(obj, API.settingHemlockMeetingRoomsURL)  {
+            self.meetingRoomsURL = val
+        }
+        if let val = Organization.ousGetString(obj, API.settingHemlockMuseumPassesURL) {
+            self.museumPassesURL = val
         }
         if let val = Organization.ousGetBool(obj, API.settingSMSEnable) {
             // this setting is only queried on the top-level org
