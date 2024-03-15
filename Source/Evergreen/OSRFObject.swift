@@ -174,6 +174,8 @@ struct OSRFObject: Equatable {
     }
 
     func getObject(_ key: String) -> OSRFObject? {
+        print("getObject(\(key))")
+        dump()
         if let val = dict[key] as? OSRFObject {
             return val
         }

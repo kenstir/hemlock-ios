@@ -22,7 +22,7 @@ import os.log
 
 //TODO: Unify GatewayError and HemlockError
 public enum GatewayError: Error {
-    case event(ilsevent: Int, textcode: String, desc: String, failpart: String?)
+    case event(ilsevent: Any, textcode: String, desc: String, failpart: String?)
     case failure(String)
 }
 extension GatewayError: LocalizedError {
@@ -35,7 +35,9 @@ extension GatewayError: LocalizedError {
             if let failPartKey = failpart,
                 let msg = MessageMap.failPartMessageMap[failPartKey] { return msg }
             if let msg = messageOverrides[textcode] { return msg }
-            return desc
+            if !desc.isEmpty { return desc }
+            if let msg = failpart, !msg.isEmpty { return msg }
+            return textcode
         case .failure(let reason):
             return reason
         }
@@ -221,16 +223,19 @@ struct GatewayResponse {
     func decodeArray(_ jsonArray: [[String: Any?]]) throws -> [OSRFObject] {
         return try OSRFCoder.decode(fromArray: jsonArray)
     }
-    
+
+    // Comment from EG AppUtils.pm sub is_event:
+    // "some events, in particular auto-generated events, don't have an
+    // ilsevent key.  Treat hashes with a 'textcode key as events."
     func parseEvent(fromObj obj: OSRFObject?) -> GatewayError? {
         // case 1: obj is an event
-        if let ilsevent = obj?.getDouble("ilsevent"),
-            ilsevent != 0,
-            let textcode = obj?.getString("textcode"),
-            let desc = obj?.getString("desc")
+        if let ilsevent = obj?.getAny("ilsevent"),
+           let textcode = obj?.getString("textcode"),
+           textcode != "SUCCESS",
+           let desc = obj?.getString("desc")
         {
             let failpart = obj?.getObject("payload")?.getString("fail_part")
-            return .event(ilsevent: Int(ilsevent), textcode: textcode, desc: desc, failpart: failpart)
+            return .event(ilsevent: ilsevent, textcode: textcode, desc: desc, failpart: failpart)
         }
 
         // case 2: obj has a last_event, or a result with a last_event

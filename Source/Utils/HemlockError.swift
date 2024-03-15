@@ -42,8 +42,8 @@ extension HemlockError: LocalizedError {
 func isSessionExpired(error: Error) -> Bool {
     if let gatewayError = error as? GatewayError {
         switch gatewayError {
-        case .event(let ilsevent, _, _, _):
-            return ilsevent == 1001 // && textcode == "NO_SESSION"
+        case .event(let ilsevent, let textcode, _, _):
+            return ((ilsevent as? Int) == 1001 || (textcode == "NO_SESSION"))
         default:
             return false
         }

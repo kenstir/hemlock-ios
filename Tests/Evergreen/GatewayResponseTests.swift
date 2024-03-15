@@ -112,7 +112,8 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertEqual(resp.stringResult, "nonce")
     }
-    
+
+    // TEST 2
     func test_authCompleteSuccess() {
         let json = """
             {"payload":[{"ilsevent":0,"textcode":"SUCCESS","desc":"Success","pid":6939,"stacktrace":"oils_auth.c:634","payload":{"authtoken":"985cda3d943232fbfd987d85d1f1a8af","authtime":420}}],"status":200}
@@ -171,7 +172,18 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertTrue(resp.failed)
         XCTAssertEqual(resp.errorMessage, "User already has an open hold on the selected item")
     }
-    
+
+    // This hold response has a result containing an auto-generated last_event, with an empty "ilsevent".
+    // The OPAC gets the error message from a cascading series of checks that ends up with "Problem: STAFF_CHR".
+    func test_placeHold_failWithAlert_block_STAFF_CHR() {
+        let json = """
+            {"payload":[{"result":{"place_unfillable":0,"last_event":{"servertime":"Fri Mar 15 14:40:20 2024","payload":{"fail_part":"STAFF_CHR"},"pid":1337988,"ilsevent":"","stacktrace":"Holds.pm:3370","textcode":"STAFF_CHR","desc":""},"success":0,"age_protected_copy":0},"target":6390231}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertEqual(resp.errorMessage, "STAFF_CHR")
+    }
+
     func test_titleHoldIsPossibleFail() {
         let json = """
             {"payload":[{"last_event":{"ilsevent":"1714","servertime":"Sat Aug 22 09:45:28 2020","pid":6842,"textcode":"HIGH_LEVEL_HOLD_HAS_NO_COPIES","stacktrace":"Holds.pm:2617","desc":"A hold request at a higher level than copy has been attempted, but there are no copies that belonging to the higher-level unit.","payload":{"fail_part":"no_ultimate_items"}},"place_unfillable":1,"age_protected_copy":null,"success":0}],"status":200}
