@@ -19,6 +19,7 @@
 import UIKit
 import os.log
 
+@available(iOS 14.0, *)
 class MainGridViewController: MainBaseViewController {
 
     //MARK: - fields
@@ -46,16 +47,7 @@ class MainGridViewController: MainBaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        // cause func to be called when returning to app, e.g. from browser
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
-                                               name: UIApplication.didBecomeActiveNotification, object: nil)
-
         self.fetchData()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     //MARK: - UI Setup
@@ -67,9 +59,6 @@ class MainGridViewController: MainBaseViewController {
         accountButton.target = self
         accountButton.action = #selector(accountButtonPressed(sender:))
         Style.styleBarButton(accountButton)
-    }
-
-    func setupButtons() {
     }
 
     //MARK: - Async Functions
@@ -97,6 +86,11 @@ class MainGridViewController: MainBaseViewController {
     }
 
     func loadButtons(forOrg org: Organization?) {
+#if DEBUG
+        let defaultButtonUrl: String? = nil // "https://google.com" // cause all buttons to show up in debug
+#else
+        let defaultButtonUrl: String? = nil
+#endif
         // main buttons
         mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
             self.pushVC(fromStoryboard: "ShowCard")
@@ -119,24 +113,24 @@ class MainGridViewController: MainBaseViewController {
         mainButtons.append(ButtonAction(title: "My Lists", iconName: "lists", handler: {
             self.pushVC(fromStoryboard: "BookBags")
         }))
-        if let url = org?.eventsURL {
+        if let url = org?.eventsURL ?? defaultButtonUrl {
             mainButtons.append(ButtonAction(title: "Events", iconName: "events", handler: {
                 self.launchURL(url: url)
             }))
         }
 
         // secondary buttons
-        if let url = org?.eresourcesURL {
+        if let url = org?.eresourcesURL ?? defaultButtonUrl {
             secondaryButtons.append(ButtonAction(title: "Ebooks & Digital", iconName: "ebooks", handler: {
                 self.launchURL(url: url)
             }))
         }
-        if let url = org?.meetingRoomsURL {
+        if let url = org?.meetingRoomsURL ?? defaultButtonUrl {
             secondaryButtons.append(ButtonAction(title: "Meeting Rooms", iconName: "meeting rooms", handler: {
                 self.launchURL(url: url)
             }))
         }
-        if let url = org?.museumPassesURL {
+        if let url = org?.museumPassesURL ?? defaultButtonUrl {
             secondaryButtons.append(ButtonAction(title: "Museum Passes", iconName: "museum passes", handler: {
                 self.launchURL(url: url)
             }))
@@ -154,6 +148,7 @@ class MainGridViewController: MainBaseViewController {
 }
 
 //MARK: - UICollectionViewDataSource
+@available(iOS 14.0, *)
 extension MainGridViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return buttonItems.count
@@ -168,9 +163,10 @@ extension MainGridViewController: UICollectionViewDataSource {
             fatalError("dequeued cell of wrong class!")
         }
 
+        // format the cell like a uitableviewcell
+        cell.backgroundConfiguration = .listGroupedCell()
+
         let item = buttonItems[indexPath.section][indexPath.row]
-        cell.backgroundColor = Style.secondarySystemGroupedBackground
-        cell.layer.cornerRadius = 5
         cell.title.text = item.title
         cell.title.numberOfLines = (indexPath.section == 0) ? 1 : 2
         cell.title.font = (indexPath.section == 0) ? UIFont.preferredFont(forTextStyle: .body) : UIFont.preferredFont(forTextStyle: .callout)
@@ -181,6 +177,7 @@ extension MainGridViewController: UICollectionViewDataSource {
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
+@available(iOS 14.0, *)
 extension MainGridViewController: UICollectionViewDelegateFlowLayout {
     private func buttonSize(forSection section: Int) -> CGSize {
         let itemsPerRow: CGFloat = (section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
@@ -224,8 +221,15 @@ extension MainGridViewController: UICollectionViewDelegateFlowLayout {
 }
 
 //MARK: - UICollectionViewDelegate
+@available(iOS 14.0, *)
 extension MainGridViewController: UICollectionViewDelegate {
+    private func deselectAllItems(_ collectionView: UICollectionView) {
+        guard let selectedItems = collectionView.indexPathsForSelectedItems else { return }
+        for indexPath in selectedItems { collectionView.deselectItem(at: indexPath, animated: true) }
+    }
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        deselectAllItems(collectionView)
         let item = buttonItems[indexPath.section][indexPath.row]
         item.handler()
     }

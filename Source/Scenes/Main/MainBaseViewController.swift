@@ -43,7 +43,6 @@ class MainBaseViewController: UIViewController {
     //MARK: - Callback Functions
 
     @objc func applicationDidBecomeActive() {
-        os_log("didBecomeActive", log: log)
         fatalError("must override")
     }
 

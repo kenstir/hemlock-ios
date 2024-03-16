@@ -2493,13 +2493,13 @@
 		D212DB1520C37B0600267503 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */,
 				D287D4FF207AEF2B001AF644 /* MainList.storyboard */,
 				D246990520AA5C620006DFF9 /* MainTableViewCell.swift */,
 				D246990320A9D80E0006DFF9 /* MainListViewController.swift */,
 				D28E04442BA12B8E001850C5 /* MainGrid.storyboard */,
 				D28E04462BA12CE7001850C5 /* MainGridViewController.swift */,
 				D28E04482BA234AB001850C5 /* MainGridViewCell.swift */,
-				D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
