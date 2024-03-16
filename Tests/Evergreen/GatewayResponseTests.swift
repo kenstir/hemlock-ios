@@ -175,7 +175,7 @@ class GatewayResponseTests: XCTestCase {
 
     // This hold response has a result containing an auto-generated last_event, with an empty "ilsevent".
     // The OPAC gets the error message from a cascading series of checks that ends up with "Problem: STAFF_CHR".
-    func test_placeHold_failWithAlert_block_STAFF_CHR() {
+    func test_placeHold_failWithAlertBlock() {
         let json = """
             {"payload":[{"result":{"place_unfillable":0,"last_event":{"servertime":"Fri Mar 15 14:40:20 2024","payload":{"fail_part":"STAFF_CHR"},"pid":1337988,"ilsevent":"","stacktrace":"Holds.pm:3370","textcode":"STAFF_CHR","desc":""},"success":0,"age_protected_copy":0},"target":6390231}],"status":200}
             """
