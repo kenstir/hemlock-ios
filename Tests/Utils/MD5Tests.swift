@@ -25,4 +25,9 @@ class MD5Tests: XCTestCase {
         XCTAssertEqual(md5("blah"), "6f1ed002ab5595859014ebf0951522d9")
         XCTAssertEqual(md5("a:b:c"), "02cc8f08398a4f3113b554e8105ebe4c")
     }
+
+    func test_md5_new() {
+        let s = "$2a$10$iHp694Dza1H5EsOKib08eu"
+        XCTAssertEqual(md5(s), "15c4ff9d8b2fb5384845293ea3dd6e2b")
+    }
 }
