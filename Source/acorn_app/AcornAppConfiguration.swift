@@ -24,11 +24,18 @@ class AcornAppConfiguration: BaseAppConfiguration {
 
     override var enableHoldPhoneNotification: Bool { return true }
     override var enablePartHolds: Bool { return true }
-    override var enableMainGridScene: Bool { return true }
+    override var enableMainGridScene: Bool {
+        if #available(iOS 14.0, *) {
+            return true
+        } else {
+            return false
+        }
+    }
     override var enableEventsButton: Bool { return true }
     override var enableCopyInfoWebLinks: Bool { return true }
     override var needMARCRecord: Bool { return true }
     override var showOnlineAccessHostname: Bool { return true }
+    override var haveColorButtonImages: Bool { return true }
 
     override var searchLimit: Int { return 100 }
 }

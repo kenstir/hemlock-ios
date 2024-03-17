@@ -67,26 +67,26 @@ class MainListViewController: MainBaseViewController {
     //MARK: - Functions
     
     func setupButtons() {
-        buttons.append(ButtonAction(title: "Search", iconName: "Search", handler: {
+        buttons.append(ButtonAction(title: "Search", iconName: "search", handler: {
             self.pushVC(fromStoryboard: "Search")
         }))
-        buttons.append(ButtonAction(title: "Items Checked Out", iconName: "Items Checked Out", handler: {
+        buttons.append(ButtonAction(title: "Items Checked Out", iconName: "checkouts", handler: {
             self.pushVC(fromStoryboard: "Checkouts")
         }))
-        buttons.append(ButtonAction(title: "Holds", iconName: "Holds", handler: {
+        buttons.append(ButtonAction(title: "Holds", iconName: "holds", handler: {
             self.pushVC(fromStoryboard: "Holds")
         }))
-        buttons.append(ButtonAction(title: "Fines", iconName: "Fines", handler: {
+        buttons.append(ButtonAction(title: "Fines", iconName: "fines", handler: {
             self.pushVC(fromStoryboard: "Fines")
         }))
-        buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
+        buttons.append(ButtonAction(title: "My Lists", iconName: "lists", handler: {
             self.pushVC(fromStoryboard: "BookBags")
         }))
-        buttons.append(ButtonAction(title: "Library Info", iconName: "Library Info", handler: {
+        buttons.append(ButtonAction(title: "Library Info", iconName: "info", handler: {
             self.pushVC(fromStoryboard: "OrgDetails")
         }))
         if App.config.barcodeFormat != .Disabled {
-            buttons.append(ButtonAction(title: "Show Card", iconName: "Show Card") {
+            buttons.append(ButtonAction(title: "Show Card", iconName: "library card") {
                 self.pushVC(fromStoryboard: "ShowCard")
             })
         }
@@ -103,7 +103,7 @@ class MainListViewController: MainBaseViewController {
 //            }))
 //        }
         // Shortcut to Place Hold
-//        buttons.append(ButtonAction("Place Hold", "Place Hold", {
+//        buttons.append(ButtonAction("Place Hold", "holds", {
 //            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
 //                "doc_id": 4674474,
 //                "tcn": 4674474,
@@ -174,7 +174,7 @@ class MainListViewController: MainBaseViewController {
                let url = URL(string: eventsURL)
             {
                 let index = self.buttons.index(before: self.buttons.endIndex)
-                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
+                self.buttons.insert(ButtonAction(title: "Events", iconName: "events", handler: {
                     UIApplication.shared.open(url)
                 }), at: index)
                 self.tableView.reloadData()
