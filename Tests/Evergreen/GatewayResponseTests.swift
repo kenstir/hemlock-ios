@@ -113,7 +113,6 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.stringResult, "nonce")
     }
 
-    // TEST 2
     func test_authCompleteSuccess() {
         let json = """
             {"payload":[{"ilsevent":0,"textcode":"SUCCESS","desc":"Success","pid":6939,"stacktrace":"oils_auth.c:634","payload":{"authtoken":"985cda3d943232fbfd987d85d1f1a8af","authtime":420}}],"status":200}
