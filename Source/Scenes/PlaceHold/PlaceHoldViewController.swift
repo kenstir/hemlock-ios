@@ -403,7 +403,6 @@ class PlaceHoldViewController: UIViewController {
     func loadExpirationData() {
         // Unlike the other load* methods, this does not need to wait for fetchData to complete.
         // Leaving it hear for now for consistency.
-        holdRecord?.ahrObj.dump()
         suspendSwitch.isOn = holdRecord?.isSuspended ?? false
         if let date = holdRecord?.expireDate {
             expirationDate = date
