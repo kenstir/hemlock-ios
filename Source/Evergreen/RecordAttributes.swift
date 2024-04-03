@@ -38,7 +38,7 @@ class RecordAttributes {
 
     static func parseAttributes(fromMRAString attrsDump: String) -> [String: String] {
         var attrs: [String: String] = [:]
-        for entry in attrsDump.split(onString: ", ") {
+        for entry in attrsDump.split(onString: "\", \"") {
             let kv = entry.split(onString: "=>")
             if kv.count == 2 {
                 attrs[kv[0].trimQuotes()] = kv[1].trimQuotes()

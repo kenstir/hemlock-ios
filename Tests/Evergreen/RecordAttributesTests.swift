@@ -21,8 +21,27 @@ import XCTest
 @testable import Hemlock
 
 class RecordAttributesTests: XCTestCase {
-    
-    func test_RecordAttributes_fromMRAResponse() {
+
+    func test_RecordAttributes_basic() {
+        let mraResponse = """
+            "conf"=>"0", "cont"=>" ", "item_type"=>"a", "pub_status"=>"s", "icon_format"=>"book", "search_format"=>"book"
+            """
+        let attrs = RecordAttributes.parseAttributes(fromMRAString: mraResponse)
+        XCTAssertEqual(6, attrs.count)
+        XCTAssertEqual("book", attrs["icon_format"])
+        XCTAssertEqual(" ", attrs["cont"])
+    }
+
+    func test_RecordAttributes_withEmbeddedComma() {
+        // https://evergreen.cool-cat.org/osrf-gateway-v1?service=open-ils.pcrud&method=open-ils.pcrud.retrieve.mra&param=%22ANONYMOUS%22&param=1613894
+        let mraResponse = "\"icon_format\"=>\"book\", \"marc21_biblio_300_sub_a\"=>\"xviii, 253 pages ;\""
+        let attrs = RecordAttributes.parseAttributes(fromMRAString: mraResponse)
+        XCTAssertEqual(2, attrs.count)
+        XCTAssertEqual("book", attrs["icon_format"])
+        XCTAssertEqual("xviii, 253 pages ;", attrs["marc21_biblio_300_sub_a"])
+    }
+
+    func test_RecordAttributes_fromMRAResponse1() {
         // https://gapines.org/osrf-gateway-v1?service=open-ils.pcrud&method=open-ils.pcrud.retrieve.mra&param=%22ANONYMOUS%22&param=2255449
         let mraResponse = """
             "biog"=>"d", "conf"=>"0", "cont"=>" ", "ctry"=>"nyu", "fest"=>"0", "ills"=>" ", "indx"=>"0", "cont1"=>" ", "date1"=>"1994", "ills1"=>" ", "audience"=>" ", "cat_form"=>"a", "language"=>"eng", "lit_form"=>"0", "bib_level"=>"m", "item_lang"=>"eng", "item_type"=>"a", "pub_status"=>"s", "icon_format"=>"book", "search_format"=>"book", "mr_hold_format"=>"book"
@@ -31,7 +50,7 @@ class RecordAttributesTests: XCTestCase {
         XCTAssert(attrs.count > 7)
         XCTAssertEqual(attrs["icon_format"], "book")
     }
-    
+
     func test_RecordAttributes_fromMRAResponse2() {
         // https://gapines.org/osrf-gateway-v1?service=open-ils.pcrud&method=open-ils.pcrud.retrieve.mra&param=%22ANONYMOUS%22&param=4132282
         let mraResponse = "\"conf\"=>\"0\", \"cont\"=>\" \", \"ctry\"=>\"meu\", \"fest\"=>\"0\", \"ills\"=>\" \", \"indx\"=>\"0\", \"cont1\"=>\" \", \"date1\"=>\"2000\", \"ills1\"=>\" \", \"audience\"=>\"c\", \"cat_form\"=>\"a\", \"language\"=>\"eng\", \"lit_form\"=>\"1\", \"bib_level\"=>\"m\", \"item_form\"=>\"d\", \"item_lang\"=>\"eng\", \"item_type\"=>\"a\", \"pub_status\"=>\"s\", \"icon_format\"=>\"lpbook\", \"search_format\"=>\"book\", \"mr_hold_format\"=>\"lpbook\""
