@@ -191,7 +191,7 @@ class PlaceHoldViewController: UIViewController {
         carrierTextField.isEnabled = didCompleteFetch
         actionButton.isEnabled = didCompleteFetch
 
-        // phone number is shown only when requested
+        // phone number row is shown only when configured
         phoneNotifyStack.isHidden = !App.config.enableHoldPhoneNotification
 
         // for a simpler UX, suspend/thaw are hidden when placing a hold
@@ -199,6 +199,8 @@ class PlaceHoldViewController: UIViewController {
         suspendStack.isHidden = !isEditHold
         thawStack.isHidden = !isEditHold
 
+        // phone numbers are enabled based on their switches
+        phoneTextField.isEnabled = phoneSwitch.isOn
         smsNumberTextField.isEnabled = smsSwitch.isOn
 
         // The suspend switch has a bunch of effects.
