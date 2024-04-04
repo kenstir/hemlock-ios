@@ -125,8 +125,7 @@ class AlamoTests: XCTestCase {
     func test_requestWithCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
-//            let url = "https://httpbin.org/ip"
-            let url = "http://192.168.1.8/osrf-gateway-v1?service=open-ils.actor&method=opensrf.open-ils.system.ils_version"
+            let url = "https://httpbin.org/ip"
             let request = Gateway.makeRequest(url: url, shouldCache: true)
             print("request:  \(request.description)")
             request.responseData { response in
@@ -147,8 +146,7 @@ class AlamoTests: XCTestCase {
     func test_requestWithoutCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
-//            let url = "https://httpbin.org/headers"
-            let url = "http://192.168.1.8/osrf-gateway-v1?service=open-ils.actor&method=opensrf.open-ils.system.ils_version"
+            let url = "https://httpbin.org/headers"
             let request = Gateway.makeRequest(url: url, shouldCache: false)
             print("request:  \(request.description)")
             request.responseData { response in
