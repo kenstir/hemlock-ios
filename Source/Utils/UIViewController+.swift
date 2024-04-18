@@ -64,7 +64,8 @@ extension UIViewController {
 
     /// reset the VC stack to the Main VC
     func popToMain() {
-        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else { return }
+        let name = App.config.enableMainGridScene ? "MainGrid" : "MainList"
+        guard let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() else { return }
         swapRootVC(vc)
     }
 
@@ -74,11 +75,8 @@ extension UIViewController {
             return
         }
 
-        // Calling "UIView.transition" below will animate the swap.
+        // Calling UIView.transition animates the swap
         window.rootViewController = vc
-
-        // Creates a transition animation.
-        // Though `animations` is optional, the documentation tells us that it must not be nil. ¯\_(ツ)_/¯
         UIView.transition(with: window, duration: duration, options: .transitionCrossDissolve, animations: {}, completion: completion)
     }
 
@@ -186,6 +184,8 @@ extension UIViewController {
         self.present(alertController, animated: true)
     }
 
+    //MARK: - Helper Functions
+
     /// helper function to ensure I don't forget to copy a new image to the app-specific asset bundle
     func loadAssetImage(named: String) -> UIImage? {
         let image = UIImage(named: named)
@@ -193,5 +193,12 @@ extension UIViewController {
             showAlert(title: "Missing Image", message: "App is missing image \"\(named)\"")
         }
         return image
+    }
+
+    /// open URL
+    func launchURL(url: String) {
+        if let u = URL(string: url) {
+            UIApplication.shared.open(u)
+        }
     }
 }

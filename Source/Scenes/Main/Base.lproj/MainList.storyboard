@@ -28,7 +28,7 @@
         <!--Main-->
         <scene sceneID="pOa-oD-aH5">
             <objects>
-                <viewController storyboardIdentifier="Main" id="Xqe-Fu-Ne1" userLabel="Main" customClass="MainViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="Xqe-Fu-Ne1" userLabel="Main" customClass="MainListViewController" customModule="COOL" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IXu-ol-nV9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

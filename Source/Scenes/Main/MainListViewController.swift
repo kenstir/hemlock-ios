@@ -1,6 +1,4 @@
 /*
- *  MainViewController.swift
- *
  *  Copyright (C) 2018 Kenneth H. Cox
  *
  *  This program is free software; you can redistribute it and/or
@@ -22,7 +20,7 @@ import Foundation
 import UIKit
 import PromiseKit
 import PMKAlamofire
-import SwiftUI
+import os.log
 
 struct ButtonAction {
     let title: String
@@ -30,8 +28,8 @@ struct ButtonAction {
     let handler: (() -> Void)
 }
 
-class MainViewController: UIViewController {
-    
+class MainListViewController: MainBaseViewController {
+
     //MARK: - fields
 
     @IBOutlet weak var accountButton: UIBarButtonItem!
@@ -45,7 +43,8 @@ class MainViewController: UIViewController {
 
     var buttons: [ButtonAction] = []
     var didFetchEventsURL = false
-    
+    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
+
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -61,40 +60,33 @@ class MainViewController: UIViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
-                                               name: UIApplication.didBecomeActiveNotification, object: nil)
-        
+
         self.fetchData()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
+
     //MARK: - Functions
     
     func setupButtons() {
-        buttons.append(ButtonAction(title: "Search", iconName: "Search", handler: {
+        buttons.append(ButtonAction(title: "Search", iconName: "search", handler: {
             self.pushVC(fromStoryboard: "Search")
         }))
-        buttons.append(ButtonAction(title: "Items Checked Out", iconName: "Items Checked Out", handler: {
+        buttons.append(ButtonAction(title: "Items Checked Out", iconName: "checkouts", handler: {
             self.pushVC(fromStoryboard: "Checkouts")
         }))
-        buttons.append(ButtonAction(title: "Holds", iconName: "Holds", handler: {
+        buttons.append(ButtonAction(title: "Holds", iconName: "holds", handler: {
             self.pushVC(fromStoryboard: "Holds")
         }))
-        buttons.append(ButtonAction(title: "Fines", iconName: "Fines", handler: {
+        buttons.append(ButtonAction(title: "Fines", iconName: "fines", handler: {
             self.pushVC(fromStoryboard: "Fines")
         }))
-        buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
+        buttons.append(ButtonAction(title: "My Lists", iconName: "lists", handler: {
             self.pushVC(fromStoryboard: "BookBags")
         }))
-        buttons.append(ButtonAction(title: "Library Info", iconName: "Library Info", handler: {
+        buttons.append(ButtonAction(title: "Library Info", iconName: "info", handler: {
             self.pushVC(fromStoryboard: "OrgDetails")
         }))
         if App.config.barcodeFormat != .Disabled {
-            buttons.append(ButtonAction(title: "Show Card", iconName: "Show Card") {
+            buttons.append(ButtonAction(title: "Show Card", iconName: "library card") {
                 self.pushVC(fromStoryboard: "ShowCard")
             })
         }
@@ -111,7 +103,7 @@ class MainViewController: UIViewController {
 //            }))
 //        }
         // Shortcut to Place Hold
-//        buttons.append(ButtonAction("Place Hold", "Place Hold", {
+//        buttons.append(ButtonAction("Place Hold", "holds", {
 //            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
 //                "doc_id": 4674474,
 //                "tcn": 4674474,
@@ -140,7 +132,6 @@ class MainViewController: UIViewController {
             messagesButton.target = self
             messagesButton.action = #selector(messagesButtonPressed(sender:))
         } else {
-            //messagesButton.width = 0.01
             messagesButton.isEnabled = false
             messagesButton.isAccessibilityElement = false
         }
@@ -183,7 +174,7 @@ class MainViewController: UIViewController {
                let url = URL(string: eventsURL)
             {
                 let index = self.buttons.index(before: self.buttons.endIndex)
-                self.buttons.insert(ButtonAction(title: "Events", iconName: "Events", handler: {
+                self.buttons.insert(ButtonAction(title: "Events", iconName: "events", handler: {
                     UIApplication.shared.open(url)
                 }), at: index)
                 self.tableView.reloadData()
@@ -205,63 +196,6 @@ class MainViewController: UIViewController {
         let messages = PatronMessage.makeArray(messageList)
         let unreadCount = messages.filter { $0.isPatronVisible && !$0.isDeleted && !$0.isRead }.count
         messagesButton.setBadge(text: (unreadCount > 0) ? String(unreadCount) : nil)
-    }
-    
-    @objc func accountButtonPressed(sender: UIBarButtonItem) {
-        let haveMultipleAccounts = App.credentialManager.credentials.count > 1
-
-        // Create an action sheet to present the account options
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        Style.styleAlertController(alertController)
-        
-        // Add an action for each stored account
-        if haveMultipleAccounts {
-            for credential in App.credentialManager.credentials {
-                let action = UIAlertAction(title: credential.chooserLabel, style: .default) { action in
-                    self.doSwitchAccount(toAccount: credential)
-                }
-                var imageName = "Account"
-                if credential.username == App.account?.username {
-                    action.isEnabled = false
-                    imageName = "Account with Checkmark"
-                }
-                if let icon = loadAssetImage(named: imageName) {
-                    action.setValue(icon, forKey: "image")
-                }
-                alertController.addAction(action)
-            }
-        }
-        
-        // Add remaining actions
-        alertController.addAction(UIAlertAction(title: "Add account", style: .default) { action in
-            self.doAddAccount()
-        })
-        alertController.addAction(UIAlertAction(title: "Logout", style: .destructive) { action in
-            self.doLogout()
-        })
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        // iPad requires a popoverPresentationController
-        if let popoverController = alertController.popoverPresentationController {
-            popoverController.barButtonItem = sender
-        }
-
-        self.present(alertController, animated: true)
-    }
-    
-    func doSwitchAccount(toAccount storedAccount: Credential) {
-        App.switchCredential(credential: storedAccount)
-        self.popToLogin()
-    }
-    
-    func doAddAccount() {
-        App.switchCredential(credential: nil)
-        self.popToLogin(forAddingCredential: true)
-    }
-    
-    func doLogout() {
-        App.logout()
-        self.popToLogin()
     }
 
     @IBAction func fullCatalogButtonPressed(_ sender: Any) {
@@ -291,14 +225,15 @@ class MainViewController: UIViewController {
         }
     }
 
-    @objc func applicationDidBecomeActive() {
+    @objc override func applicationDidBecomeActive() {
+        os_log("didBecomeActive: fetchData", log: log)
         fetchData()
     }
 
 }
 
 //MARK: - UITableViewDataSource
-extension MainViewController: UITableViewDataSource {
+extension MainListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return buttons.count
@@ -331,7 +266,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension MainViewController: UITableViewDelegate {
+extension MainListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let action = buttons[indexPath.row]
