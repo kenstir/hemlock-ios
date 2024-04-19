@@ -27,7 +27,6 @@ protocol AppConfiguration {
     var detailsExtraLinkFragment: String? { get }
 
     var enableCheckoutHistory: Bool { get }
-    var enableFirebase: Bool { get }
     var enableHierarchicalOrgTree: Bool { get }
     var enableHoldShowQueuePosition: Bool { get }
     var enableHoldShowExpiration: Bool { get }
@@ -64,7 +63,6 @@ class BaseAppConfiguration: AppConfiguration {
     var detailsExtraLinkFragment: String? { return nil }
 
     var enableCheckoutHistory: Bool { return true }
-    var enableFirebase: Bool { return false }
     var enableHierarchicalOrgTree: Bool { return true }
     var enableHoldShowQueuePosition: Bool { return true }
     var enableHoldShowExpiration: Bool { return true }

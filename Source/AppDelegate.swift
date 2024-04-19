@@ -18,7 +18,9 @@
 import Foundation
 import UIKit
 import CoreText
+#if HAVE_FIREBASE
 import FirebaseCore
+#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,9 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         App.library = Library(App.config.url)
         App.behavior = AppFactory.makeBehavior()
 
-        if App.config.enableFirebase {
-            FirebaseApp.configure()
-        }
+#if HAVE_FIREBASE
+        FirebaseApp.configure()
+#endif
 
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = UIColor.white
