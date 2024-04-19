@@ -26,6 +26,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Your camera will be used to scan barcodes.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch</string>
 	<key>UIMainStoryboardFile</key>
