@@ -10,3 +10,6 @@
 # exclude test data
 TestConfig/**
 TestUserData/**
+
+# Firebase creds
+GoogleService-Info.plist

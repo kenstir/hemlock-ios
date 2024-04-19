@@ -1,4 +1,3 @@
- //  AppDelegate.swift
  //
  //  Copyright (C) 2018 Kenneth H. Cox
  //
@@ -19,6 +18,7 @@
 import Foundation
 import UIKit
 import CoreText
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,11 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
         App.theme = AppFactory.makeTheme()
         App.config = AppFactory.makeAppConfiguration()
         App.library = Library(App.config.url)
         App.behavior = AppFactory.makeBehavior()
+
+        if App.config.enableFirebase {
+            FirebaseApp.configure()
+        }
 
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = UIColor.white

@@ -25,6 +25,7 @@ class PinesAppConfiguration: BaseAppConfiguration {
     override var detailsExtraLinkQuery: String? { return nil }
     override var detailsExtraLinkFragment: String? { return "awards" }
 
+    override var enableFirebase: Bool { return true }
     override var enableHoldShowQueuePosition: Bool { return false }
     override var enableHoldShowExpiration: Bool { return false }
     override var enableHoldPhoneNotification: Bool { return true }
