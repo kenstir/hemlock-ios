@@ -43,6 +43,7 @@ class App {
     static var library: Library?
     static var idlLoaded: Bool?
     static var account: Account?
+    static var fcmNotificationToken: String?
 
     /// the URL of the JSON directory of library systems available for use in the Hemlock app
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
