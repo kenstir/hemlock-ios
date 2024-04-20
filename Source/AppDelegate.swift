@@ -64,8 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return [.alert, .badge]
     }
 
-    private func messageID(_ userInfo: [AnyHashable: Any]) -> Int {
-        return userInfo[gcmMessageIDKey] as? Int ?? -1
+    private func messageID(_ userInfo: [AnyHashable: Any]) -> String {
+        return userInfo[gcmMessageIDKey] as? String ?? "na"
     }
 
     private func setupFirebase(_ application: UIApplication) {
@@ -105,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 #if HAVE_FIREBASE
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    /// called by the system when the app receives a notification while in the foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         let id = messageID(userInfo)
@@ -112,7 +113,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler(notificationOptions())
     }
 
-    // TODO: remove this...unnecessary?  In the docs this method is under "Handling the Selection of Custom Actions"
+    /// called by the system when the app is started from a background notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         let id = messageID(userInfo)
@@ -124,6 +125,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 #if HAVE_FIREBASE
 extension AppDelegate: MessagingDelegate {
+    /// called by FCM when the notification token is available
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("[fcm] token: \(fcmToken ?? "(nil)")")
         if let token = fcmToken {
