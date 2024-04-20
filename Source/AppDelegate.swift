@@ -88,13 +88,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("[fcm \(id)] didReceiveRemoteNotification: \(userInfo)")
     }
 
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) async -> UIBackgroundFetchResult {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
         let id = messageID(userInfo)
         print("[fcm \(id)] didReceiveRemoteNotification async: \(userInfo)")
-        return UIBackgroundFetchResult.newData
+        completionHandler(UIBackgroundFetchResult.newData)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -105,17 +105,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 #if HAVE_FIREBASE
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         let id = messageID(userInfo)
         print("[fcm \(id)] willPresent async: \(userInfo)")
-        return notificationOptions()
+        completionHandler(notificationOptions())
     }
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+    // TODO: remove this...unnecessary?  In the docs this method is under "Handling the Selection of Custom Actions"
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         let id = messageID(userInfo)
         print("[fcm \(id)] didReceive async: \(userInfo)")
+        completionHandler()
     }
 }
 #endif
@@ -124,6 +126,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("[fcm] token: \(fcmToken ?? "(nil)")")
+        if let token = fcmToken {
+            App.fcmNotificationToken = token
+            // TODO: update server if it changed
+        }
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
         NotificationCenter.default.post(
             name: Notification.Name("FCMToken"),
