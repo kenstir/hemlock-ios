@@ -54,11 +54,6 @@ struct API {
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let settingCreditPaymentsAllow = "credit.payments.allow"
-    static let settingHemlockCacheKey = "hemlock.cache_key"
-    static let settingHemlockEresourcesURL = "hemlock.eresources_url"
-    static let settingHemlockEventsURL = "hemlock.events_calendar_url"
-    static let settingHemlockMeetingRoomsURL = "hemlock.meeting_rooms_url"
-    static let settingHemlockMuseumPassesURL = "hemlock.museum_passes_url"
     static let settingInfoURL = "lib.info_url"
     static let transactionsWithCharges = "open-ils.actor.user.transactions.have_charge.fleshed"
     static let userFleshedRetrieve = "open-ils.actor.user.fleshed.retrieve"
@@ -69,6 +64,15 @@ struct API {
     static let userSettingDefaultSearchLocation =  "opac.default_search_location"
     static let userSettingDefaultSMSCarrier = "opac.default_sms_carrier"
     static let userSettingDefaultSMSNotify = "opac.default_sms_notify"
+
+    //MARK: - Hemlock-specific settings
+
+    static let settingHemlockCacheKey = "hemlock.cache_key"
+    static let settingHemlockEresourcesURL = "hemlock.eresources_url"
+    static let settingHemlockEventsURL = "hemlock.events_calendar_url"
+    static let settingHemlockMeetingRoomsURL = "hemlock.meeting_rooms_url"
+    static let settingHemlockMuseumPassesURL = "hemlock.museum_passes_url"
+    static let usereSettingHemlockPushNotificationData = "hemlock.push_notification_data"
 
     //MARK: - auth service
 
