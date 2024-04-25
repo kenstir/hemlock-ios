@@ -128,16 +128,7 @@ extension AppDelegate: MessagingDelegate {
     /// called by FCM when the notification token is available
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("[fcm] token: \(fcmToken ?? "(nil)")")
-        if let token = fcmToken {
-            App.fcmNotificationToken = token
-            // TODO: update server if it changed
-        }
-        let dataDict: [String: String] = ["token": fcmToken ?? ""]
-        NotificationCenter.default.post(
-            name: Notification.Name("FCMToken"),
-            object: nil,
-            userInfo: dataDict
-        )
+        App.fcmNotificationToken = fcmToken
     }
 }
 #endif
