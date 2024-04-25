@@ -1298,6 +1298,17 @@
 		D29C96002599288100CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95FE2599288100CACDBD /* event_msg_map.json */; };
 		D29E874B22D2AFE7003C5467 /* ntlc.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D29E874A22D2AFE7003C5467 /* ntlc.xcassets */; };
 		D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
+		D2A627D52BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627D62BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627D72BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627D82BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627D92BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627DA2BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627DB2BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627DC2BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627DD2BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627DE2BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
+		D2A627DF2BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
 		D2A6C580221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D2A6C581221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D2A6C582221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
@@ -2133,6 +2144,7 @@
 		D29C95FE2599288100CACDBD /* event_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event_msg_map.json; sourceTree = "<group>"; };
 		D29E874A22D2AFE7003C5467 /* ntlc.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ntlc.xcassets; sourceTree = "<group>"; };
 		D29E87FC20D831540003EB27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D2A627D42BDAC308005BB11F /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZXMultiFormatWriter+SafeEncode.m"; sourceTree = "<group>"; };
 		D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZXMultiFormatWriter+SafeEncode.h"; sourceTree = "<group>"; };
 		D2A73B1E246CB54000874620 /* JSONUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
@@ -2460,6 +2472,7 @@
 				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
 				D2BB6689297C813A007E19E7 /* PatronMessage.swift */,
+				D2A627D42BDAC308005BB11F /* PushNotification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3756,6 +3769,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2A627D52BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D210EBC922B1EE55002FB5E0 /* OSRFCoder.swift in Sources */,
 				D2462902273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D24D491F29D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
@@ -3884,6 +3898,7 @@
 				D2816CCF28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */,
 				D28F5E7729CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D2A627DF2BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D28AE25224F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D23E9F7723B9200A0030F5C1 /* MainTableViewCell.swift in Sources */,
 				D23E9F7823B9200A0030F5C1 /* HoldRecord.swift in Sources */,
@@ -3994,6 +4009,7 @@
 				D2816CCB28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2477BC424785A6B00FD4CF6 /* MainTableViewCell.swift in Sources */,
 				D28F5E7129CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D2A627D92BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D28AE24E24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2477BC524785A6B00FD4CF6 /* HoldRecord.swift in Sources */,
 				D2477BC624785A6B00FD4CF6 /* Bundle+.swift in Sources */,
@@ -4104,6 +4120,7 @@
 				D2816CD028B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2572AB224AD7755000BA698 /* Organization.swift in Sources */,
 				D28F5E7229CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D2A627DA2BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D28AE25324F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2572AB424AD7755000BA698 /* MainTableViewCell.swift in Sources */,
 				D2572AB524AD7755000BA698 /* HoldRecord.swift in Sources */,
@@ -4214,6 +4231,7 @@
 				D271862B28CEBE7C0046E9BC /* ScanBarcodeViewController.swift in Sources */,
 				D25EECD928A1EB2E0090F108 /* OwwlTheme.swift in Sources */,
 				D28F5E7529CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D2A627DD2BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D25EEC5628A1E8310090F108 /* Organization.swift in Sources */,
 				D25EEC5728A1E8310090F108 /* ServiceUtils.swift in Sources */,
 				D25EEC5828A1E8310090F108 /* MainTableViewCell.swift in Sources */,
@@ -4317,6 +4335,7 @@
 				D276DA8F21336B20007FAA31 /* String+splitOnRegex.swift in Sources */,
 				D20B2FE422CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D24D76932234418F00AFE50C /* UIColor+.swift in Sources */,
+				D2A627D72BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D2BCFCBC2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D276DA9021336B20007FAA31 /* Organization.swift in Sources */,
 				D20BDB792214BCF300BB6A5F /* UIView+disclosureIndicator.swift in Sources */,
@@ -4426,6 +4445,7 @@
 				D20B2FE222CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D24D76912234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBA2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
+				D2A627D82BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */,
 				D20BDB772214BCF300BB6A5F /* UIView+disclosureIndicator.swift in Sources */,
 				D226B60720ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
@@ -4535,6 +4555,7 @@
 				D21867A321D039BF0082358C /* AppFactory.swift in Sources */,
 				D20B2FE522CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D24D76942234418F00AFE50C /* UIColor+.swift in Sources */,
+				D2A627D62BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D2BCFCBD2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D284245321D0358200C7171C /* OSRFObject.swift in Sources */,
 				D20BDB7A2214BCF300BB6A5F /* UIView+disclosureIndicator.swift in Sources */,
@@ -4651,6 +4672,7 @@
 				D2816CCE28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D28F5E7629CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D2A627DE2BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D28AE25124F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
@@ -4797,6 +4819,7 @@
 				D2816CCC28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA61722D176BD00D9B60C /* Organization.swift in Sources */,
 				D28F5E7329CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D2A627DB2BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D28AE24F24F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2BDA61822D176BD00D9B60C /* MainTableViewCell.swift in Sources */,
 				D2BDA61922D176BD00D9B60C /* HoldRecord.swift in Sources */,
@@ -4907,6 +4930,7 @@
 				D2816CCD28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2BDA6B022D2A72000D9B60C /* MainTableViewCell.swift in Sources */,
 				D28F5E7429CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D2A627DC2BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D28AE25024F355A500960E9E /* ServiceUtils.swift in Sources */,
 				D2BDA6B122D2A72000D9B60C /* HoldRecord.swift in Sources */,
 				D2BDA6B222D2A72000D9B60C /* Bundle+.swift in Sources */,

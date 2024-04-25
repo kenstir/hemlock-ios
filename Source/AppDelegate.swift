@@ -27,7 +27,6 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -65,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func messageID(_ userInfo: [AnyHashable: Any]) -> String {
-        return userInfo[gcmMessageIDKey] as? String ?? "na"
+        return userInfo[PushNotification.gcmMessageIDKey] as? String ?? "na"
     }
 
     private func setupFirebase(_ application: UIApplication) {
@@ -83,18 +82,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        let id = messageID(userInfo)
-        print("[fcm \(id)] didReceiveRemoteNotification: \(userInfo)")
+        let pn = PushNotification(userInfo: userInfo)
+        print("[fcm] didReceiveRemoteNotification: \(pn)")
+        notifyListeners(userInfo)
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        let id = messageID(userInfo)
-        print("[fcm \(id)] didReceiveRemoteNotification async: \(userInfo)")
+        let pn = PushNotification(userInfo: userInfo)
+        print("[fcm] didReceiveRemoteNotification: \(pn)")
+        //notifyListeners(pn)
         completionHandler(UIBackgroundFetchResult.newData)
+    }
+
+    private func notifyListeners(_ userInfo: [AnyHashable: Any]) {
+        let pn = PushNotification(userInfo: userInfo)
+        print("[fcm] notifyListeners: \(pn)")
+
+        NotificationCenter.default.post(
+            name: Notification.Name("FCMNotification"),
+            object: nil,
+            userInfo: userInfo
+        )
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -105,19 +115,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 #if HAVE_FIREBASE
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    /// called by the system when the app receives a notification while in the foreground
+    /// called by the system when the app receives a notification, to decide how to present it
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        let id = messageID(userInfo)
-        print("[fcm \(id)] willPresent async: \(userInfo)")
+        let pn = PushNotification(userInfo: notification.request.content.userInfo)
+        print("[fcm] willPresent: \(pn)")
         completionHandler(notificationOptions())
     }
 
-    /// called by the system when the app is started from a background notification
+    /// called by the system when the app is started from a background notification, or maybe when a notification is tapped?
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        let id = messageID(userInfo)
-        print("[fcm \(id)] didReceive async: \(userInfo)")
+        let pn = PushNotification(userInfo: response.notification.request.content.userInfo)
+        print("[fcm] didReceive: \(pn)")
+        //notifyListeners(pn)
         completionHandler()
     }
 }
