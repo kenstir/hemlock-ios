@@ -20,7 +20,7 @@ import Foundation
 
 class PushNotification {
     /// userInfo as received from FCM
-    let userInfo: [AnyHashable: Any]
+    var userInfo: [AnyHashable: Any]
     let title: String?
     let body: String?
 
@@ -30,6 +30,7 @@ class PushNotification {
     static let hemlockNotificationTypeKey = "hemlock.t"
     static let hemlockNotificationTypePMC = "pmc"
     static let hemlockNotificationUsernameKey = "hemlock.u"
+    static let hemlockNotificationTagKey = "hemlock.tag" // for debugging
 
     var id: String {
         return userInfo[PushNotification.gcmMessageIDKey] as? String ?? "na"
@@ -39,6 +40,15 @@ class PushNotification {
     }
     var username: String? {
         return userInfo[PushNotification.hemlockNotificationUsernameKey] as? String
+    }
+    /*** debug tag to track notifications by origin.  We store it userInfo so it can be passed through the NotificationCenter. */
+    var tag: String? {
+        get {
+            return userInfo[PushNotification.hemlockNotificationTagKey] as? String
+        }
+        set {
+            userInfo[PushNotification.hemlockNotificationTagKey] = newValue
+        }
     }
 
     init(userInfo: [AnyHashable : Any]) {
@@ -54,6 +64,6 @@ class PushNotification {
 
 extension PushNotification: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "id:\(id) user:\(username ?? "(nil)") title:\(title ?? "(nil)") body:\(body ?? "(nil)")"
+        return "id:\(id) user:\(username ?? "(nil)") title:\(title ?? "(nil)") body:\(body ?? "(nil)") tag:\(tag ?? "")"
     }
 }
