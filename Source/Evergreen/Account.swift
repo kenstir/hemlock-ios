@@ -108,14 +108,13 @@ class Account {
     /// we just got the fcmToken from the user setting.  If the one we have in the app is
     /// different, we need to update the user setting in Evergreen
     func maybeUpdateStoredToken(storedFCMToken: String?) {
-        print("[fcm] stored token: \(storedFCMToken ?? "(nil)")")
-        print("[fcm] app token:    \(App.fcmNotificationToken ?? "(nil)")")
+        print("[fcm] stored token:  \(storedFCMToken ?? "(nil)")")
         if let currentFCMToken = App.fcmNotificationToken,
            currentFCMToken != storedFCMToken
         {
             let promise = ActorService.updatePushNotificationToken(account: self, token: currentFCMToken)
             promise.done {
-                print("[fcm] done storing token")
+                print("[fcm] done updating stored token")
             }.catch { error in
                 print("[fcm] caught error \(error.localizedDescription)")
             }

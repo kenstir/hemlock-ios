@@ -201,4 +201,23 @@ extension UIViewController {
             UIApplication.shared.open(u)
         }
     }
+
+    //MARK: - FCM Functions
+#if HAVE_FIREBASE
+    func registerForNotifications() {
+        print("[fcm] registerForNotifications")
+        NotificationCenter.default.addObserver(self, selector: #selector(displayNotification(notification:)), name: Notification.Name("FCMNotification"), object: nil)
+    }
+
+    @objc func displayNotification(notification: NSNotification) {
+        print("[fcm] displayNotification \(notification)")
+        let obj = notification.object
+        if let userInfo = notification.userInfo {
+            let pn = PushNotification(userInfo: userInfo)
+            self.showAlert(title: "got message", message: "\(pn)")
+            print("[fcm] displayNotification: \(pn)")
+            print("[fcm] obj: \(obj ?? "(nil)")")
+        }
+    }
+#endif
 }

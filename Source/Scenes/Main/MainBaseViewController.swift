@@ -26,6 +26,9 @@ class MainBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+#if HAVE_FIREBASE
+        registerForNotifications()
+#endif
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +50,8 @@ class MainBaseViewController: UIViewController {
     }
 
     @objc func accountButtonPressed(sender: UIBarButtonItem) {
+        App.printLaunchInfo() //FCM TODO
+
         let haveMultipleAccounts = App.credentialManager.credentials.count > 1
 
         // Create an action sheet to present the account options

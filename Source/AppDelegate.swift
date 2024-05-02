@@ -45,6 +45,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 #if HAVE_FIREBASE
         setupFirebase(application)
+
+        // If the app was started by tapping a remoteNotification, stash it now
+        if let remoteNotification = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification],
+           let userInfo = remoteNotification as? [AnyHashable: Any]
+        {
+            let pn = PushNotification(userInfo: userInfo)
+            pn.tag = "launchOptions"
+            App.launchNotificationUserInfo = pn.userInfo
+        }
 #endif
 
         return true
@@ -83,16 +92,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         let pn = PushNotification(userInfo: userInfo)
+        pn.tag = "didReceiveRemoteNotification(1)"
         print("[fcm] didReceiveRemoteNotification: \(pn)")
-        notifyListeners(userInfo)
+        notifyListeners(pn.userInfo)
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         let pn = PushNotification(userInfo: userInfo)
+        pn.tag = "didReceiveRemoteNotification(2)"
         print("[fcm] didReceiveRemoteNotification: \(pn)")
-        //notifyListeners(pn)
+        notifyListeners(pn.userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
     }
 
@@ -125,8 +136,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     /// called by the system when the app is started from a background notification, or maybe when a notification is tapped?
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let pn = PushNotification(userInfo: response.notification.request.content.userInfo)
+        pn.tag = "didReceive"
         print("[fcm] didReceive: \(pn)")
-        //notifyListeners(pn)
+        notifyListeners(pn.userInfo)
         completionHandler()
     }
 }
@@ -136,7 +148,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: MessagingDelegate {
     /// called by FCM when the notification token is available
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("[fcm] token: \(fcmToken ?? "(nil)")")
+        print("[fcm] got fcm token: \(fcmToken ?? "(nil)")")
         App.fcmNotificationToken = fcmToken
     }
 }
