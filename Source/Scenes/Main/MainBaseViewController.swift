@@ -26,10 +26,8 @@ class MainBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-#if HAVE_FIREBASE
-        registerForNotifications()
+        registerForRuntimeNotifications()
         handleLaunchNotification()
-#endif
     }
 
     override func viewWillAppear(_ animated: Bool) {

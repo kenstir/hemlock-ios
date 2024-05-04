@@ -203,31 +203,27 @@ extension UIViewController {
     }
 
     //MARK: - FCM Functions
-#if HAVE_FIREBASE
-    func registerForNotifications() {
-        print("[fcm] registerForNotifications")
-        NotificationCenter.default.addObserver(self, selector: #selector(displayNotification(notification:)), name: Notification.Name("FCMNotification"), object: nil)
+    func registerForRuntimeNotifications() {
+        print("[fcm] registerForRuntimeNotifications")
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRuntimeNotification(notification:)), name: Notification.Name("FCMNotification"), object: nil)
     }
 
-    @objc func displayNotification(notification: NSNotification) {
-        print("[fcm] displayNotification \(notification)")
-        let obj = notification.object
-        if let userInfo = notification.userInfo {
-            let pn = PushNotification(userInfo: userInfo)
-            self.showAlert(title: "got message", message: "\(pn)")
-            print("[fcm] displayNotification: \(pn)")
-            print("[fcm] obj: \(obj ?? "(nil)")")
-        }
+    @objc func handleRuntimeNotification(notification: NSNotification) {
+        print("[fcm] handleRuntimeNotification")
+        handleNotification(userInfo: notification.userInfo)
     }
 
     /// if the app was launched from a notification, start the desired VC
     func handleLaunchNotification() {
         App.printLaunchInfo()
-        guard let userInfo = App.launchNotificationUserInfo else { return }
-        let notification = PushNotification(userInfo: userInfo)
+        handleNotification(userInfo: App.launchNotificationUserInfo)
+    }
+
+    func handleNotification(userInfo: [AnyHashable: Any]?) {
+        guard let info = userInfo else { return }
+        let notification = PushNotification(userInfo: info)
         if notification.type == PushNotification.hemlockNotificationTypePMC {
             self.pushVC(fromStoryboard: "Messages")
         }
     }
-#endif
 }
