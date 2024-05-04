@@ -219,5 +219,15 @@ extension UIViewController {
             print("[fcm] obj: \(obj ?? "(nil)")")
         }
     }
+
+    /// if the app was launched from a notification, start the desired VC
+    func handleLaunchNotification() {
+        App.printLaunchInfo()
+        guard let userInfo = App.launchNotificationUserInfo else { return }
+        let notification = PushNotification(userInfo: userInfo)
+        if notification.type == PushNotification.hemlockNotificationTypePMC {
+            self.pushVC(fromStoryboard: "Messages")
+        }
+    }
 #endif
 }

@@ -28,6 +28,7 @@ class MainBaseViewController: UIViewController {
         super.viewDidLoad()
 #if HAVE_FIREBASE
         registerForNotifications()
+        handleLaunchNotification()
 #endif
     }
 
@@ -50,8 +51,6 @@ class MainBaseViewController: UIViewController {
     }
 
     @objc func accountButtonPressed(sender: UIBarButtonItem) {
-        App.printLaunchInfo() //FCM TODO
-
         let haveMultipleAccounts = App.credentialManager.credentials.count > 1
 
         // Create an action sheet to present the account options
