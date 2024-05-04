@@ -220,9 +220,7 @@ class MainListViewController: MainBaseViewController {
     }
 
     @objc func messagesButtonPressed(sender: UIBarButtonItem) {
-        if let vc = UIStoryboard(name: "Messages", bundle: nil).instantiateInitialViewController() as? MessagesViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        self.pushVC(fromStoryboard: "Messages")
     }
 
     @objc override func applicationDidBecomeActive() {
