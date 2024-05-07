@@ -126,14 +126,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 #if HAVE_FIREBASE
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    /// called by the system when the app receives a notification, to decide how to present it
+    /// called by the system when the app receives a notification while running (fg or bg), to decide how to present it
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let pn = PushNotification(userInfo: notification.request.content.userInfo)
         print("[fcm] willPresent: \(pn)")
         completionHandler(notificationOptions())
     }
 
-    /// called by the system when the app is started from a background notification, or maybe when a notification is tapped?
+    /// called by the system when a notification is tapped while the app is running (fg or bg)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let pn = PushNotification(userInfo: response.notification.request.content.userInfo)
         pn.tag = "didReceive"
