@@ -95,10 +95,13 @@ class ActorService {
                 }
             }
             var settings = [
-                API.settingNotPickupLib,
                 API.settingCreditPaymentsAllow,
                 API.settingInfoURL,
+                API.settingNotPickupLib,
+                API.settingHemlockEresourcesURL,
                 API.settingHemlockEventsURL,
+                API.settingHemlockMeetingRoomsURL,
+                API.settingHemlockMuseumPassesURL,
             ]
             if org.parent == nil {
                 settings.append(API.settingSMSEnable)
