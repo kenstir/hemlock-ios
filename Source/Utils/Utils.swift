@@ -90,4 +90,14 @@ class Utils {
         // modeled afterr code in misc_util.tt2 block get_marc_attrs
         return t2.replace(regex: "^[^A-Z0-9]*", with: "")
     }
+
+    /// return an index that won't result in a crash for Index out of range
+    static func safeIndex(_ index: Int, count: Int) -> Int {
+        if index >= 0 && index < count {
+            return index
+        }
+        //TODO: add analytics; this should not happen
+        return 0
+    }
+
 }

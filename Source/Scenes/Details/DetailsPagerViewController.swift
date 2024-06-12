@@ -51,7 +51,7 @@ class DetailsPagerViewController: UIPageViewController {
             for (row, item) in items.enumerated() {
                 vc.pages.append(Page(index: row, record: item))
             }
-            vc.currentIndex = selectedItem
+            vc.currentIndex = Utils.safeIndex(selectedItem, count: items.count)
             vc.displayOptions = displayOptions
             return vc
         }

@@ -329,7 +329,8 @@ extension HoldsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "holdsCell", for: indexPath) as? HoldsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
-        
+
+        //TODO: figure out how we crashed here once with Index out of range
         let item = items[indexPath.row]
         cell.holdsTitleLabel.text = item.title
         cell.holdsAuthorLabel.text = item.author
