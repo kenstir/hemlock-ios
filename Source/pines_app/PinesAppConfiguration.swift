@@ -30,7 +30,7 @@ class PinesAppConfiguration: BaseAppConfiguration {
     override var enableHoldPhoneNotification: Bool { return true }
     override var enableHoldShowPickupLib: Bool { return true }
     override var enablePartHolds: Bool { return true }
-    override var enableTitleHoldOnItemWithParts: Bool { return true }
+    override var enableTitleHoldOnItemWithParts: Bool { return false }
     override var enableMainSceneBottomToolbar: Bool { return true }
     override var enableMessages: Bool { return true }
     override var groupCopyInfoBySystem: Bool { return true }
