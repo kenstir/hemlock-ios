@@ -19,7 +19,9 @@
 
 class PinesAppConfiguration: BaseAppConfiguration {
     override var title: String { return "PINES" }
-    override var url: String { return "https://gapines.org" }
+//    override var url: String { return "https://gapines.org" }
+    override var url: String { return "http://192.168.1.8" } // LAN test server
+//    override var url: String { return "https://test.gapines.org" } // PINES test server
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var detailsExtraLinkText: String? { return "More Information" }
     override var detailsExtraLinkQuery: String? { return nil }
