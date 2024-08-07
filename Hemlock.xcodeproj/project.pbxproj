@@ -2016,6 +2016,7 @@
 		D23E9FEB23B923B80030F5C1 /* SageCatTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SageCatTheme.swift; sourceTree = "<group>"; };
 		D23E9FF023B924390030F5C1 /* sagecat.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = sagecat.xcassets; sourceTree = "<group>"; };
 		D23E9FF223B932DF0030F5C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D23F41A52C63D70A0024AAC4 /* acorn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = acorn.entitlements; sourceTree = "<group>"; };
 		D24628F6273722E0000DC659 /* BookBags.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookBags.storyboard; sourceTree = "<group>"; };
 		D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagsTableViewCell.swift; sourceTree = "<group>"; };
 		D246290C273732DC000DC659 /* BookBagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagsViewController.swift; sourceTree = "<group>"; };
@@ -2805,6 +2806,7 @@
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
+				D23F41A52C63D70A0024AAC4 /* acorn.entitlements */,
 				D296EE0F213381FE009BDB12 /* Default-568h@2x.png */,
 				D22D0274208516D600DC1F5B /* LICENSE */,
 				D27EFD5A2094E1EB00D7E22E /* README.md */,
@@ -5103,6 +5105,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = acorn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -5130,6 +5133,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = acorn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
