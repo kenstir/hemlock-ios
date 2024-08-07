@@ -2455,6 +2455,7 @@
 				D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */,
 				D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */,
 				D210EC4322B1F23D002FB5E0 /* AppFactory.swift */,
+				D23F41A52C63D70A0024AAC4 /* acorn.entitlements */,
 				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
 				D210EC4B22B1F331002FB5E0 /* acorn.xcassets */,
 			);
@@ -2806,7 +2807,6 @@
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
-				D23F41A52C63D70A0024AAC4 /* acorn.entitlements */,
 				D296EE0F213381FE009BDB12 /* Default-568h@2x.png */,
 				D22D0274208516D600DC1F5B /* LICENSE */,
 				D27EFD5A2094E1EB00D7E22E /* README.md */,
