@@ -64,7 +64,7 @@ extension UIViewController {
 
     /// reset the VC stack to the Main VC
     func popToMain() {
-        let name = App.config.enableMainGridScene ? "MainGrid" : "MainList"
+        let name = getMainStoryboard()
         guard let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() else { return }
         swapRootVC(vc)
     }
@@ -222,8 +222,22 @@ extension UIViewController {
     func handleNotification(userInfo: [AnyHashable: Any]?) {
         guard let info = userInfo else { return }
         let notification = PushNotification(userInfo: info)
-        if notification.type == PushNotification.hemlockNotificationTypePMC {
-            self.pushVC(fromStoryboard: "Messages")
+        if notification.isNotGeneral {
+            pushVC(fromStoryboard: getStoryboardForNotificationType(notification))
+        }
+    }
+
+    func getMainStoryboard() -> String {
+        return App.config.enableMainGridScene ? "MainGrid" : "MainList"
+    }
+
+    func getStoryboardForNotificationType(_ notification: PushNotification) -> String {
+        switch(notification.type) {
+        case NotificationType.checkouts: return "Checkouts"
+        case NotificationType.fines: return "Fines"
+        case NotificationType.general: return getMainStoryboard()
+        case NotificationType.holds: return "Holds"
+        case NotificationType.pmc: return "Messages"
         }
     }
 }

@@ -18,6 +18,18 @@
 
 import Foundation
 
+// NB: This list of strings must be kept in sync in 3 places:
+// * hemlock (android): core/src/main/java/org/evergreen_ils/data/PushNotification.kt
+// * hemlock-ios:       Source/Models/PushNotification.swift
+// * hemlock-sendmsg:   sendmsg.go
+enum NotificationType: String {
+    case checkouts = "checkouts"
+    case fines = "fines"
+    case general = "general"
+    case holds = "holds"
+    case pmc = "pmc"
+}
+
 class PushNotification {
     /// userInfo as received from FCM
     var userInfo: [AnyHashable: Any]
@@ -26,17 +38,21 @@ class PushNotification {
 
     static let gcmMessageIDKey = "gcm.message_id"
 
-    // these must agree with the [hemlock-sendmsg daemon](https://github.com/kenstir/hemlock-sendmsg)
+    // these type keys must agree with the [hemlock-sendmsg daemon](https://github.com/kenstir/hemlock-sendmsg)
     static let hemlockNotificationTypeKey = "hemlock.t"
-    static let hemlockNotificationTypePMC = "pmc"
     static let hemlockNotificationUsernameKey = "hemlock.u"
+
     static let hemlockNotificationTagKey = "hemlock.tag" // for debugging
 
     var id: String {
         return userInfo[PushNotification.gcmMessageIDKey] as? String ?? "na"
     }
-    var type: String {
-        return userInfo[PushNotification.hemlockNotificationTypeKey] as? String ?? PushNotification.hemlockNotificationTypePMC
+    var type: NotificationType {
+        if let typeString = userInfo[PushNotification.hemlockNotificationTypeKey] as? String,
+           let typeVal = NotificationType(rawValue: typeString) {
+            return typeVal
+        }
+        return NotificationType.holds
     }
     var username: String? {
         return userInfo[PushNotification.hemlockNotificationUsernameKey] as? String
@@ -49,6 +65,9 @@ class PushNotification {
         set {
             userInfo[PushNotification.hemlockNotificationTagKey] = newValue
         }
+    }
+    var isNotGeneral: Bool {
+        return type != NotificationType.general
     }
 
     init(userInfo: [AnyHashable : Any]) {
