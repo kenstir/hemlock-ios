@@ -6,15 +6,28 @@ if [ $# -ne 1 ]; then
 fi
 app="$1"
 
-proj=""
-
-manifest="${app}_app/src/main/AndroidManifest.xml"
-if [ ! -f "$manifest" ]; then
-    echo "No such file: $manifest"
-    exit 1
-fi
+proj="Hemlock.xcodeproj/project.pbxproj"
 
 set -e
+
+## find the plist identifier of XCBuildConfiguration section for Debug and Release
+
+cat "$proj" \
+    | sed -ne '/Begin XCBuildConfiguration section/,/End XCBuildConfiguration section/ p' \
+    | awk '
+    # Store the identifier
+    /[A-F0-9]+ \/\* (Debug|Release) \*\// {
+        IDENT = $1
+    }
+
+    # Print the stored identifier
+    /CODE_SIGN_ENTITLEMENTS = Source\/'$app'_app/ {
+        print IDENT
+        exit
+    }
+'
+exit 1
+
 
 versionCode=$(egrep android:versionCode $manifest)
 versionCode=${versionCode#*\"}
