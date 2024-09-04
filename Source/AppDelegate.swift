@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
+        App.updateLaunchCount()
         App.theme = AppFactory.makeTheme()
         App.config = AppFactory.makeAppConfiguration()
         App.library = Library(App.config.url)

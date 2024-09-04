@@ -43,6 +43,7 @@ class App {
     static var library: Library?
     static var idlLoaded: Bool?
     static var account: Account?
+    static var launchCount: Int = 0
 
     /// the URL of the JSON directory of library systems available for use in the Hemlock app
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
@@ -89,5 +90,15 @@ class App {
             os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
         }
         return promise
+    }
+
+    static func updateLaunchCount() {
+        if let str = valet.string(forKey: "launchCount"),
+           let val = Int(str) {
+            launchCount = val + 1
+        } else {
+            launchCount = 1
+        }
+        valet.set(string: String(launchCount), forKey: "launchCount")
     }
 }
