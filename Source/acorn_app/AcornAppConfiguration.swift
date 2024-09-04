@@ -20,7 +20,9 @@
 class AcornAppConfiguration: BaseAppConfiguration {
 //    override var url: String { return "https://opac.biblio.org" }
     override var url: String { return "https://theory.biblio.org" } // public test server
-    override var title: String { return "Acorn Catalog" }
+    //    override var title: String { return "Acorn Catalog" }
+    override var title: String { return "Acorn Catalog TEST" }
+
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
     override var enableHoldPhoneNotification: Bool { return true }
