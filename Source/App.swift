@@ -44,6 +44,7 @@ class App {
     static var idlLoaded: Bool?
     static var account: Account?
     static var fcmNotificationToken: String?
+    static var launchCount: Int = 0
     static var launchNotificationUserInfo: [AnyHashable: Any]?
 
     /// the URL of the JSON directory of library systems available for use in the Hemlock app
@@ -99,5 +100,15 @@ class App {
             print("[fcm] pn: \(pn)")
         }
         print("")
+    }
+
+    static func updateLaunchCount() {
+        if let str = valet.string(forKey: "launchCount"),
+           let val = Int(str) {
+            launchCount = val + 1
+        } else {
+            launchCount = 1
+        }
+        valet.set(string: String(launchCount), forKey: "launchCount")
     }
 }
