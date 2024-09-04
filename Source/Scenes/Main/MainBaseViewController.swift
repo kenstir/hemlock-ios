@@ -17,6 +17,7 @@
  */
 
 import UIKit
+import MessageUI
 import os.log
 
 class MainBaseViewController: UIViewController {
@@ -28,6 +29,17 @@ class MainBaseViewController: UIViewController {
         super.viewDidLoad()
         registerForRuntimeNotifications()
         handleLaunchNotification()
+        addBarButton()
+    }
+
+    func addBarButton() {
+        if #available(iOS 13.0, *) {
+            if Bundle.isTestFlightOrDebug && MFMailComposeViewController.canSendMail() {
+                let image = UIImage(systemName: "square.and.arrow.up")
+                let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(shareButtonPressed(sender:)))
+                navigationItem.rightBarButtonItems?.append(button)
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +58,18 @@ class MainBaseViewController: UIViewController {
 
     @objc func applicationDidBecomeActive() {
         fatalError("must override")
+    }
+
+    @objc func shareButtonPressed(sender: UIBarButtonItem) {
+        if Bundle.isTestFlightOrDebug && MFMailComposeViewController.canSendMail() {
+            let alertController = UIAlertController(title: "Email debug log", message: nil, preferredStyle: .alert)
+            Style.styleAlertController(alertController)
+            alertController.addAction(UIAlertAction(title: "Send report to developer", style: .destructive) { action in
+                self.sendErrorReport(errorMessage: "n/a")
+            })
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alertController, animated: true)
+        }
     }
 
     @objc func accountButtonPressed(sender: UIBarButtonItem) {
