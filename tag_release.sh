@@ -26,7 +26,7 @@ buildver=$(cat "$proj" \
     }
 
     # If the app matches, we are in the right block
-    /CODE_SIGN_ENTITLEMENTS = Source\/'$app'_app/ {
+    /INFOPLIST_FILE.*\/'$app'_app/ {
         #print NR, $0
         #print IDENT
         app_matches = 1
@@ -42,26 +42,26 @@ buildver=$(cat "$proj" \
 
     # Extract BUILD (includes semicolon)
     /CURRENT_PROJECT_VERSION = / {
-        if (app_matches) {
-            BUILD = $3
-        }
+        BUILD = $3
     }
 
     # Extract VERSION (includes semicolon)
     /MARKETING_VERSION = / {
-        if (app_matches) {
-            VERSION = $3
-        }
+        VERSION = $3
     }
 
     END {
-        print "BUILD=" BUILD
-        print "VERSION=" VERSION
+        if (app_matches) {
+            print "BUILD=" BUILD
+            print "VERSION=" VERSION
+        } else {
+            print "false"
+        }
     }
 ')
 
 echo "$buildver"
-eval "$buildver"
+eval "$buildver" || { echo >&2 failed to parse BUILD and VERSION; exit 1; }
 test -n "$BUILD"
 test -n "$VERSION"
 
