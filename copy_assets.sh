@@ -9,16 +9,25 @@ dst="$1"; shift
 
 set -e
 
-## verify args
+## func
 
-pushd Source/${src}_app/*.xcassets
-for i in "$@"; do
-    if [ ! -d "$i" ]; then
-        echo >&2 $i: No such directory
+function checkdir () {
+    dir="$1"
+    if [ ! -d "$dir" ]; then
+        echo >&2 "$dir: No such directory"
         exit 1
     fi
+}
+
+## verify args
+
+srcdir=Source/${src}_app/${src}.xcassets
+dstdir=Source/${dst}_app/${dst}.xcassets
+checkdir "$srcdir"
+checkdir "$dstdir"
+for i in "$@"; do
+    checkdir "$srcdir/$i"
 done
-popd
 
 ## copy assets
 
