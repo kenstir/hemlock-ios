@@ -115,7 +115,7 @@ class PromiseKitTests: XCTestCase {
         }
         
         wait(for: [expectation], timeout: 10.0)
-        
+
         XCTAssertEqual(stage, 1)
     }
 
@@ -186,6 +186,8 @@ class PromiseKitTests: XCTestCase {
             
             let promise = req.responseJSON().done { json in
                 print("\(i): done")
+            }.ensure {
+                print("\(i): ensure")
                 expectation.fulfill()
             }
             promises.append(promise)
@@ -196,8 +198,6 @@ class PromiseKitTests: XCTestCase {
             when(fulfilled: promises)
         }.done {
             print("-: done")
-        }.ensure {
-            print("-: ensure")
         }.catch { error in
             print("-: error")
             self.showAlert(error)
@@ -209,23 +209,22 @@ class PromiseKitTests: XCTestCase {
  
     // You can also fire off multiple requests and handle 'done' for all
     // promises together as an array of (json,response) tuples.
-    // I don't like this pattern for unit testing, because I have to associate
-    // the response with the XCTestExpectation.  The test_whenFulfilled looks cleaner.
     func test_whenFulfilledDoneAllAtOnce() {
         var expectations: [XCTestExpectation] = []
-        var expectationMap: [Int: XCTestExpectation] = [:]
         var promises: [Promise<(json: Any, response: PMKAlamofireDataResponse)>] = []
         
         for i in 0..<10 {
             let expectation = XCTestExpectation(description: "\(i): response")
             expectations.append(expectation)
-            expectationMap[i] = expectation
-            
+
             let params = ["i": i]
             let req = AF.request("https://httpbin.org/get", method: .get, parameters: params)
             print("\(i): req")
             
-            let promise = req.responseJSON()
+            let promise = req.responseJSON().ensure {
+                print("\(i): ensure")
+                expectation.fulfill()
+            }
             promises.append(promise)
         }
         
@@ -236,18 +235,16 @@ class PromiseKitTests: XCTestCase {
             print("-: done")
             for tuple in tuples {
                 let (json, response) = tuple
-                print("-: done " + (response.request!.url?.absoluteString)!)
+                //print("-: done " + (response.request!.url?.absoluteString)!)
                 //debugPrint(json)
                 if let dict = json as? [String: Any?],
                     let args = dict["args"] as? [String: Any?],
                     let arg_i = args["i"] as? String,
                     let i = Int(arg_i)
                 {
-                    expectationMap[i]?.fulfill()
+                    print("\(i): done")
                 }
             }
-        }.ensure {
-            print("-: ensure")
         }.catch { error in
             print("-: error")
             self.showAlert(error)
