@@ -235,7 +235,7 @@ class PromiseKitTests: XCTestCase {
             print("-: done")
             for tuple in tuples {
                 let (json, response) = tuple
-                //print("-: done " + (response.request!.url?.absoluteString)!)
+                print("-: done " + (response.request!.url?.absoluteString)!)
                 //debugPrint(json)
                 if let dict = json as? [String: Any?],
                     let args = dict["args"] as? [String: Any?],
