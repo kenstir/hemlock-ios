@@ -203,6 +203,7 @@ extension UIViewController {
     }
 
     //MARK: - FCM Functions
+#if USE_FCM
     func registerForRuntimeNotifications() {
         print("[fcm] registerForRuntimeNotifications")
         NotificationCenter.default.addObserver(self, selector: #selector(handleRuntimeNotification(notification:)), name: Notification.Name("FCMNotification"), object: nil)
@@ -227,10 +228,6 @@ extension UIViewController {
         }
     }
 
-    func getMainStoryboard() -> String {
-        return App.config.enableMainGridScene ? "MainGrid" : "MainList"
-    }
-
     func getStoryboardForNotificationType(_ notification: PushNotification) -> String {
         switch(notification.type) {
         case NotificationType.checkouts: return "Checkouts"
@@ -239,5 +236,10 @@ extension UIViewController {
         case NotificationType.holds: return "Holds"
         case NotificationType.pmc: return "Messages"
         }
+    }
+#endif
+
+    func getMainStoryboard() -> String {
+        return App.config.enableMainGridScene ? "MainGrid" : "MainList"
     }
 }

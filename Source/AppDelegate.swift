@@ -18,11 +18,11 @@
 import Foundation
 import UIKit
 import CoreText
-#if USE_FA || USE_FCM
-import FirebaseCore
-#endif
 #if USE_FCM
+import FirebaseCore
 import FirebaseMessaging
+#elseif USE_FA
+import FirebaseCore
 #endif
 
 @UIApplicationMain
@@ -47,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
 #if USE_FCM
-        setupFirebase(application)
+        FirebaseApp.configure()
+        setupFirebaseCloudMessaging(application)
 
         // If the app was started by tapping a remoteNotification, stash it now
         if let remoteNotification = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification],
@@ -57,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pn.tag = "launchOptions"
             App.launchNotificationUserInfo = pn.userInfo
         }
+#elseif USE_FA
+        FirebaseApp.configure()
 #endif
 
         return true
@@ -79,9 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return userInfo[PushNotification.gcmMessageIDKey] as? String ?? "na"
     }
 
-    private func setupFirebase(_ application: UIApplication) {
-        FirebaseApp.configure()
-
+    private func setupFirebaseCloudMessaging(_ application: UIApplication) {
         Messaging.messaging().delegate = self
 
         //TODO: move this request to later, e.g. when placing a hold
