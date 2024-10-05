@@ -1612,6 +1612,8 @@
 		D2C3EA4229D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C3EA4329D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C7150B2B98CAC000A1F585 /* JSONUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */; };
+		D2C7F2DF2CB1FDD600CA46B0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D2C7F2DE2CB1FDD600CA46B0 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		D2C7F2E12CB1FDE300CA46B0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D2C7F2E02CB1FDE300CA46B0 /* FirebaseCrashlytics */; };
 		D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
@@ -2379,9 +2381,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2C7F2DF2CB1FDD600CA46B0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				D2951E662B8FC29E00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D2C7F2E12CB1FDE300CA46B0 /* FirebaseCrashlytics in Frameworks */,
 				D2951E682B8FC29E00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E6A2B8FC29E00193695 /* Valet.xcframework in Frameworks */,
 				D2951E642B8FC29E00193695 /* PMKAlamofire.xcframework in Frameworks */,
@@ -3253,6 +3257,10 @@
 			dependencies = (
 			);
 			name = NOBLE;
+			packageProductDependencies = (
+				D2C7F2DE2CB1FDD600CA46B0 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				D2C7F2E02CB1FDE300CA46B0 /* FirebaseCrashlytics */,
+			);
 			productName = Hemlock;
 			productReference = D2BDA67F22D176BD00D9B60C /* NOBLE.app */;
 			productType = "com.apple.product-type.application";
@@ -5120,7 +5128,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.bibliomation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = HAVE_FIREBASE;
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -5147,7 +5155,7 @@
 				MARKETING_VERSION = 3.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.bibliomation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = HAVE_FIREBASE;
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5620,7 +5628,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = HAVE_FIREBASE;
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -5649,7 +5657,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = HAVE_FIREBASE;
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5940,6 +5948,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		D2C7F2DE2CB1FDD600CA46B0 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		D2C7F2E02CB1FDE300CA46B0 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 		D2E409052BD1F72C00148FD5 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;

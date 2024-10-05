@@ -18,8 +18,10 @@
 import Foundation
 import UIKit
 import CoreText
-#if HAVE_FIREBASE
+#if USE_FA || USE_FCM
 import FirebaseCore
+#endif
+#if USE_FCM
 import FirebaseMessaging
 #endif
 
@@ -44,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
-#if HAVE_FIREBASE
+#if USE_FCM
         setupFirebase(application)
 
         // If the app was started by tapping a remoteNotification, stash it now
@@ -60,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-#if HAVE_FIREBASE
+#if USE_FCM
     private func notificationOptions() -> UNNotificationPresentationOptions {
         if #available(iOS 14.0, *) {
             return [[.banner]]
@@ -84,7 +86,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //TODO: move this request to later, e.g. when placing a hold
         UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: authorizationOptions(), completionHandler: { _, _ in })
+        UNUserNotificationCenter.current().requestAuthorization(options: authorizationOptions(), completionHandler: { allowed, _ in
+            print("[fcm] allowed is \(allowed)")
+        })
 
         application.registerForRemoteNotifications()
     }
@@ -125,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #endif
 }
 
-#if HAVE_FIREBASE
+#if USE_FCM
 extension AppDelegate: UNUserNotificationCenterDelegate {
     /// called by the system when the app receives a notification while running (fg or bg), to decide how to present it
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -145,7 +149,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 #endif
 
-#if HAVE_FIREBASE
+#if USE_FCM
 extension AppDelegate: MessagingDelegate {
     /// called by FCM when the notification token is available
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
