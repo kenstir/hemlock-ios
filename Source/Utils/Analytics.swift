@@ -17,6 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+import FirebaseAnalytics
 import Foundation
 import os.log
 
@@ -24,10 +25,33 @@ enum AnalyticsErrorCode {
     case shouldNotHappen
 }
 
+typealias FA = FirebaseAnalytics.Analytics
+
 class Analytics {
     static let nullTag = "nil"
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Analytics")
     static var buf = RingBuffer<String>(count: 256)
+
+    class Event {
+        static let login = "login"
+    }
+
+    class Param {
+        static let homeOrg = "home_org"
+        static let parentOrg = "parent_org"
+        static let result = "result"
+    }
+
+    class Value {
+        static let ok = "ok"
+        static let unknown = "?"
+    }
+
+    static func logEvent(event: String, parameters: [String: Any]) {
+        let s = String(describing: parameters)
+        os_log("FA: %@ %@", event, s)
+        FA.logEvent(event, parameters: parameters)
+    }
 
     static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
         os_log("%s:%d: %s", log: log, type: .info, file, line, msg)

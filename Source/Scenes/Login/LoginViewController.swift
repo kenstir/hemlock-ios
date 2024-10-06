@@ -92,7 +92,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         firstly {
             when(fulfilled: promises)
         }.then {
-            return App.fetchIDL()
+            return self.fetchServiceData()
         }.done {
             self.loginButton.isEnabled = true
             self.didCompleteFetch = true
@@ -102,7 +102,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.activityIndicator.stopAnimating()
         }
     }
-    
+
+    // This data needs to be loaded, but after the cache keys are available
+    func fetchServiceData() -> Promise<Void> {
+        var promises: [Promise<Void>] = []
+        promises.append(App.fetchIDL())
+        promises.append(ActorService.fetchOrgTree())
+        let promise = when(fulfilled: promises)
+        return promise
+    }
+
     //MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -160,19 +169,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return ActorService.fetchUserSettings(account: account)
         }.done {
             credential.displayName = account.displayName
-            self.saveAccountAndFinish(account: account, credential: credential)
+            self.onSuccessfulLogin(account: account, credential: credential)
         }.catch { error in
+            self.logFailedLogin(error)
             self.presentGatewayAlert(forError: error)
         }.finally {
             self.activityIndicator.stopAnimating()
         }
     }
-    
-    func saveAccountAndFinish(account: Account, credential: Credential) {
+
+    func onSuccessfulLogin(account: Account, credential: Credential) {
         alreadyLoggedIn = true
         App.account = account
         App.credentialManager.add(credential: credential)
-//        self.performSegue(withIdentifier: "ShowMainSegue", sender: nil)
+        logSuccessfulLogin(account: account)
         self.popToMain()
+    }
+
+    func logSuccessfulLogin(account: Account) {
+        let homeOrg = Organization.find(byId: account.homeOrgID)
+        let parentOrg = Organization.find(byId: homeOrg?.parent)
+        Analytics.logEvent(event: Analytics.Event.login, parameters: [
+            Analytics.Param.result: Analytics.Value.ok,
+            Analytics.Param.homeOrg: homeOrg?.shortname ?? Analytics.Value.unknown,
+            Analytics.Param.parentOrg: parentOrg?.shortname ?? Analytics.Value.unknown
+        ])
+    }
+
+    func logFailedLogin(_ error: Error) {
+        let message = error.localizedDescription
+        Analytics.logEvent(event: Analytics.Event.login, parameters: [
+            Analytics.Param.result: message
+        ])
     }
 }
