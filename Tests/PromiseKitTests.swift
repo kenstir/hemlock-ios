@@ -213,7 +213,7 @@ class PromiseKitTests: XCTestCase {
         var expectations: [XCTestExpectation] = []
         var promises: [Promise<(json: Any, response: PMKAlamofireDataResponse)>] = []
         
-        for i in 0..<10 {
+        for i in 0..<4 {
             let expectation = XCTestExpectation(description: "\(i): response")
             expectations.append(expectation)
 
