@@ -34,13 +34,19 @@ class Analytics {
 
     class Event {
         static let login = "login"
+        static let search = FirebaseAnalytics.AnalyticsEventSearch
     }
 
     class Param {
         static let homeOrg = "home_org"
         static let numAccounts = "num_accounts"
+        static let numResults = "num_results"
         static let parentOrg = "parent_org"
         static let result = "result"
+        static let searchClass = "search_class"
+        static let searchFormat = "search_format"
+        static let searchOrgKey = "search_org" // { home | other }
+        static let searchTerm = FirebaseAnalytics.AnalyticsParameterSearchTerm
     }
 
     class Value {

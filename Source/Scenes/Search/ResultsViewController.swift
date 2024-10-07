@@ -83,10 +83,12 @@ class ResultsViewController: UIViewController {
             os_log("search.query: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
             let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
             self.fetchRecordDetails(records: records)
+            self.logSearchEvent(numResults: records.count)
             self.didCompleteSearch = true
         }.catch { error in
             self.activityIndicator.stopAnimating()
             self.updateTableSectionHeader(onError: error)
+            self.logSearchEvent(withError: error)
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -153,6 +155,22 @@ class ResultsViewController: UIViewController {
             query += " sort(\(sort))"
         }
         return query
+    }
+
+    func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
+        guard let sp = searchParameters else { return }
+        var params: [String: Any] = [
+            Analytics.Param.searchTerm: sp.text,
+            Analytics.Param.searchClass: sp.searchClass,
+            Analytics.Param.searchFormat: sp.searchFormat ?? ""
+        ]
+        if let err = error {
+            params[Analytics.Param.result] = err.localizedDescription
+        } else {
+            params[Analytics.Param.result] = Analytics.Value.ok
+            params[Analytics.Param.numResults] = numResults
+        }
+        Analytics.logEvent(event: Analytics.Event.search, parameters: params)
     }
 }
 
