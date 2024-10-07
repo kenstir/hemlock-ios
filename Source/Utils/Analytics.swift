@@ -60,6 +60,29 @@ class Analytics {
         FA.logEvent(event, parameters: parameters)
     }
 
+    static func orgDimensionKey(selectedOrg s: Organization?, defaultOrg d: Organization?, homeOrg h: Organization?) -> String {
+        guard let selectedOrg = s, let defaultOrg = d, let homeOrg = h else {
+            return "null"
+        }
+        if selectedOrg.id == defaultOrg.id {
+            return "default"
+        }
+        if selectedOrg.id == homeOrg.id {
+            return "home"
+        }
+        if selectedOrg.isConsortium {
+            return selectedOrg.shortname
+        }
+        return "other"
+    }
+
+    static func loginTypeKey(username: String, barcode: String?) -> String {
+        if username == barcode {
+            return "barcode"
+        }
+        return "username"
+    }
+
     static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
         os_log("%s:%d: %s", log: log, type: .info, file, line, msg)
         let s = "\(file):\(line): \(msg)"

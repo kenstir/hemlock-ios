@@ -103,6 +103,9 @@ class Organization {
         }
         return true // should not happen
     }
+    var isConsortium: Bool {
+        return id == Organization.consortiumOrgID
+    }
     var orgType: OrgType? {
         return OrgType.find(byId: ouType)
     }
