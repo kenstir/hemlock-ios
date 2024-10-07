@@ -17,15 +17,19 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import FirebaseAnalytics
 import Foundation
 import os.log
+#if USE_FA
+import FirebaseAnalytics
+#endif
 
 enum AnalyticsErrorCode {
     case shouldNotHappen
 }
 
+#if USE_FA
 typealias FA = FirebaseAnalytics.Analytics
+#endif
 
 class Analytics {
     static let nullTag = "nil"
@@ -34,7 +38,7 @@ class Analytics {
 
     class Event {
         static let login = "login"
-        static let search = FirebaseAnalytics.AnalyticsEventSearch
+        static let search = "search" // FirebaseAnalytics.AnalyticsEventSearch
     }
 
     class Param {
@@ -46,7 +50,7 @@ class Analytics {
         static let searchClass = "search_class"
         static let searchFormat = "search_format"
         static let searchOrgKey = "search_org" // { home | other }
-        static let searchTerm = FirebaseAnalytics.AnalyticsParameterSearchTerm
+        static let searchTerm = "search_term" // FirebaseAnalytics.AnalyticsParameterSearchTerm
     }
 
     class Value {
@@ -55,9 +59,11 @@ class Analytics {
     }
 
     static func logEvent(event: String, parameters: [String: Any]) {
+    #if USE_FA
         let s = String(describing: parameters)
-        os_log("FA: %@ %@", event, s)
+        os_log("[fa] logEvent %@ %@", event, s)
         FA.logEvent(event, parameters: parameters)
+    #endif
     }
 
     static func orgDimensionKey(selectedOrg s: Organization?, defaultOrg d: Organization?, homeOrg h: Organization?) -> String {
