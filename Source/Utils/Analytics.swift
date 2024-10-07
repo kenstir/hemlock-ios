@@ -59,9 +59,9 @@ class Analytics {
     }
 
     static func logEvent(event: String, parameters: [String: Any]) {
-    #if USE_FA
         let s = String(describing: parameters)
         os_log("[fa] logEvent %@ %@", event, s)
+    #if USE_FA
         FA.logEvent(event, parameters: parameters)
     #endif
     }

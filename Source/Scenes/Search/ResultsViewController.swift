@@ -159,10 +159,14 @@ class ResultsViewController: UIViewController {
 
     func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
         guard let sp = searchParameters else { return }
+        let selectedOrg = Organization.find(byShortName: sp.organizationShortName)
+        let defaultOrg = Organization.find(byId: App.account?.searchOrgID)
+        let homeOrg = Organization.find(byId: App.account?.homeOrgID)
         var params: [String: Any] = [
             Analytics.Param.searchTerm: sp.text,
             Analytics.Param.searchClass: sp.searchClass,
-            Analytics.Param.searchFormat: sp.searchFormat ?? Analytics.Value.unset
+            Analytics.Param.searchFormat: sp.searchFormat ?? Analytics.Value.unset,
+            Analytics.Param.searchOrgKey: Analytics.orgDimensionKey(selectedOrg: selectedOrg, defaultOrg: defaultOrg, homeOrg: homeOrg)
         ]
         if let err = error {
             params[Analytics.Param.result] = err.localizedDescription
