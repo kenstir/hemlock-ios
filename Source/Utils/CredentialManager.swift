@@ -72,7 +72,10 @@ class CredentialManager {
     var lastUsedCredential: Credential? {
         return bundle.credentials.first(where: { $0.username == bundle.lastUsername })
     }
-    
+    var numCredentials: Int {
+        return bundle.credentials.count
+    }
+
     init(valet: Valet) {
         self.valet = valet
         self.bundle = CredentialBundleV1(lastUsername: nil, credentials: [])

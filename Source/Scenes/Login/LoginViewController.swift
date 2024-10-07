@@ -182,17 +182,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alreadyLoggedIn = true
         App.account = account
         App.credentialManager.add(credential: credential)
-        logSuccessfulLogin(account: account)
+        logSuccessfulLogin(account: account, numCredentials: App.credentialManager.numCredentials)
         self.popToMain()
     }
 
-    func logSuccessfulLogin(account: Account) {
+    func logSuccessfulLogin(account: Account, numCredentials: Int) {
         let homeOrg = Organization.find(byId: account.homeOrgID)
         let parentOrg = Organization.find(byId: homeOrg?.parent)
         Analytics.logEvent(event: Analytics.Event.login, parameters: [
             Analytics.Param.result: Analytics.Value.ok,
             Analytics.Param.homeOrg: homeOrg?.shortname ?? Analytics.Value.unknown,
-            Analytics.Param.parentOrg: parentOrg?.shortname ?? Analytics.Value.unknown
+            Analytics.Param.parentOrg: parentOrg?.shortname ?? Analytics.Value.unknown,
+            Analytics.Param.numAccounts: numCredentials
         ])
     }
 

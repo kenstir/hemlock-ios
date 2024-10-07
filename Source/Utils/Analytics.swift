@@ -38,6 +38,7 @@ class Analytics {
 
     class Param {
         static let homeOrg = "home_org"
+        static let numAccounts = "num_accounts"
         static let parentOrg = "parent_org"
         static let result = "result"
     }
