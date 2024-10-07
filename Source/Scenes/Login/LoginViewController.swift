@@ -191,8 +191,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let parentOrg = Organization.find(byId: homeOrg?.parent)
         Analytics.logEvent(event: Analytics.Event.login, parameters: [
             Analytics.Param.result: Analytics.Value.ok,
-            Analytics.Param.homeOrg: homeOrg?.shortname ?? Analytics.Value.unknown,
-            Analytics.Param.parentOrg: parentOrg?.shortname ?? Analytics.Value.unknown,
+            Analytics.Param.homeOrg: homeOrg?.shortname ?? Analytics.Value.unset,
+            Analytics.Param.parentOrg: parentOrg?.shortname ?? Analytics.Value.unset,
             Analytics.Param.numAccounts: numCredentials
         ])
     }

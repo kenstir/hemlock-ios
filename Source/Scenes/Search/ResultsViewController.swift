@@ -162,7 +162,7 @@ class ResultsViewController: UIViewController {
         var params: [String: Any] = [
             Analytics.Param.searchTerm: sp.text,
             Analytics.Param.searchClass: sp.searchClass,
-            Analytics.Param.searchFormat: sp.searchFormat ?? ""
+            Analytics.Param.searchFormat: sp.searchFormat ?? Analytics.Value.unset
         ]
         if let err = error {
             params[Analytics.Param.result] = err.localizedDescription

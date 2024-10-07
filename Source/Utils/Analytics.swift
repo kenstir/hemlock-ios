@@ -55,7 +55,7 @@ class Analytics {
 
     class Value {
         static let ok = "ok"
-        static let unknown = "?"
+        static let unset = ""
     }
 
     static func logEvent(event: String, parameters: [String: Any]) {
