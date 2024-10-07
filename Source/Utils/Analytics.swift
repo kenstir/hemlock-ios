@@ -66,8 +66,8 @@ class Analytics {
     #endif
     }
 
-    static func orgDimensionKey(selectedOrg s: Organization?, defaultOrg d: Organization?, homeOrg h: Organization?) -> String {
-        guard let selectedOrg = s, let defaultOrg = d, let homeOrg = h else {
+    static func orgDimensionKey(selectedOrg: Organization?, defaultOrg: Organization?, homeOrg: Organization?) -> String {
+        guard let selectedOrg, let defaultOrg, let homeOrg else {
             return "null"
         }
         if selectedOrg.id == defaultOrg.id {
