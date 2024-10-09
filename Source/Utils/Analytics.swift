@@ -19,7 +19,7 @@
 
 import Foundation
 import os.log
-#if USE_FA
+#if USE_FA || USE_FCM
 import FirebaseAnalytics
 #endif
 
@@ -27,7 +27,7 @@ enum AnalyticsErrorCode {
     case shouldNotHappen
 }
 
-#if USE_FA
+#if USE_FA || USE_FCM
 typealias FA = FirebaseAnalytics.Analytics
 #endif
 
@@ -63,7 +63,7 @@ class Analytics {
     static func logEvent(event: String, parameters: [String: Any]) {
         let s = String(describing: parameters)
         os_log("[fa] logEvent %@ %@", event, s)
-    #if USE_FA
+    #if USE_FA || USE_FCM
         FA.logEvent(event, parameters: parameters)
     #endif
     }
