@@ -163,11 +163,13 @@ class ResultsViewController: UIViewController {
         let defaultOrg = Organization.find(byId: App.account?.searchOrgID)
         let homeOrg = Organization.find(byId: App.account?.homeOrgID)
         var params: [String: Any] = [
-            Analytics.Param.searchTerm: sp.text,
             Analytics.Param.searchClass: sp.searchClass,
             Analytics.Param.searchFormat: sp.searchFormat ?? Analytics.Value.unset,
             Analytics.Param.searchOrgKey: Analytics.orgDimensionKey(selectedOrg: selectedOrg, defaultOrg: defaultOrg, homeOrg: homeOrg)
         ]
+        Analytics.getSearchTermStats(searchTerm: sp.text).forEach {
+            params[$0] = $1
+        }
         if let err = error {
             params[Analytics.Param.result] = err.localizedDescription
         } else {

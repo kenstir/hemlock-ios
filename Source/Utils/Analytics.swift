@@ -50,7 +50,9 @@ class Analytics {
         static let searchClass = "search_class"
         static let searchFormat = "search_format"
         static let searchOrgKey = "search_org" // { home | other }
-        static let searchTerm = "search_term" // FirebaseAnalytics.AnalyticsParameterSearchTerm
+        //static let searchTerm = "search_term" // FirebaseAnalytics.AnalyticsParameterSearchTerm omitted for privacy
+        static let searchTermNumUniqueWords = "search_term_uniq_words"
+        static let searchTermAverageWordLengthX10 = "search_term_avg_word_length"
     }
 
     class Value {
@@ -87,6 +89,31 @@ class Analytics {
             return "barcode"
         }
         return "username"
+    }
+
+    static func getSearchTermStats(searchTerm: String) -> [String: Int] {
+        // Extract words
+        var keywords: [String] = []
+        for word in searchTerm.lowercased().components(separatedBy: .whitespaces) {
+            let cleanedWord = word.replacingOccurrences(of: "\\W+", with: "", options: .regularExpression)
+            if !cleanedWord.isEmpty {
+                keywords.append(cleanedWord)
+            }
+        }
+
+        // Calculate unique keywords
+        let uniqueKeywords = Set(keywords)
+        let uniqueKeywordCount = uniqueKeywords.count
+
+        // Calculate average keyword length
+        let totalLength = keywords.reduce(0) { $0 + $1.count }
+        let averageKeywordLength = Int(round(10.0 * Double(totalLength) / Double(keywords.count)))
+
+        let stats: [String: Int] = [
+            Param.searchTermNumUniqueWords: uniqueKeywordCount,
+            Param.searchTermAverageWordLengthX10: averageKeywordLength
+        ]
+        return stats
     }
 
     static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
