@@ -52,7 +52,7 @@ class Analytics {
         static let searchOrgKey = "search_org" // { home | other }
         //static let searchTerm = "search_term" // FirebaseAnalytics.AnalyticsParameterSearchTerm omitted for privacy
         static let searchTermNumUniqueWords = "search_term_uniq_words"
-        static let searchTermAverageWordLengthX10 = "search_term_avg_word_length"
+        static let searchTermAverageWordLengthX10 = "search_term_avg_word_len_x10"
     }
 
     class Value {
