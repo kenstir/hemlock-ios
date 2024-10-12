@@ -162,6 +162,7 @@ class Account {
 
     func loadBookBags(fromArray objects: [OSRFObject]) {
         bookBags = BookBag.makeArray(objects)
+        Analytics.logEvent(event: Analytics.Event.bookbagsLoad, parameters: [Analytics.Param.numItems: bookBags.count])
         bookBagsEverLoaded = true
     }
 }

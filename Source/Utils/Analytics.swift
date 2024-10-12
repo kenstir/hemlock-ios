@@ -37,6 +37,7 @@ class Analytics {
     static var buf = RingBuffer<String>(count: 256)
 
     class Event {
+        static let bookbagsLoad = "bookbags_load"
         static let login = "login"
         static let search = "search" // FirebaseAnalytics.AnalyticsEventSearch
     }
