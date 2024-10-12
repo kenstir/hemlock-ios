@@ -42,17 +42,25 @@ class Analytics {
     }
 
     class Param {
-        static let homeOrg = "home_org"
-        static let numAccounts = "num_accounts"
-        static let numResults = "num_results"
-        static let parentOrg = "parent_org"
+        // these need to be registered in FA as Custom Dimensions w/ scope=Event
         static let result = "result"
         static let searchClass = "search_class"
         static let searchFormat = "search_format"
         static let searchOrgKey = "search_org" // { home | other }
         //static let searchTerm = "search_term" // FirebaseAnalytics.AnalyticsParameterSearchTerm omitted for privacy
+
+        // these need to be registered in FA as Custom Metrics
+        static let numAccounts = "num_accounts"
+        static let numItems = "num_items"
+        static let numResults = "num_results"
         static let searchTermNumUniqueWords = "search_term_uniq_words"
         static let searchTermAverageWordLengthX10 = "search_term_avg_word_len_x10"
+    }
+
+    class UserProperty {
+        // these need to be registered in FA as Custom Dimensions w/ scope=User
+        static let homeOrg = "user_home_org"
+        static let parentOrg = "user_parent_org"
     }
 
     class Value {
@@ -63,9 +71,15 @@ class Analytics {
     static func logEvent(event: String, parameters: [String: Any]) {
         let s = String(describing: parameters)
         os_log("[fa] logEvent %@ %@", event, s)
-    #if USE_FA || USE_FCM
+#if USE_FA || USE_FCM
         FA.logEvent(event, parameters: parameters)
-    #endif
+#endif
+    }
+
+    static func setUserProperty(value: String?, forName name: String) {
+#if USE_FA || USE_FCM
+        FA.setUserProperty(value, forName: name)
+#endif
     }
 
     static func orgDimensionKey(selectedOrg: Organization?, defaultOrg: Organization?, homeOrg: Organization?) -> String {
@@ -106,8 +120,8 @@ class Analytics {
         let uniqueKeywordCount = uniqueKeywords.count
 
         // Calculate average keyword length
-        let totalLength = keywords.reduce(0) { $0 + $1.count }
-        let averageKeywordLength = Int(round(10.0 * Double(totalLength) / Double(keywords.count)))
+        let totalLength = uniqueKeywords.reduce(0) { $0 + $1.count }
+        let averageKeywordLength = Int(round(10.0 * Double(totalLength) / Double(uniqueKeywordCount)))
 
         let stats: [String: Int] = [
             Param.searchTermNumUniqueWords: uniqueKeywordCount,

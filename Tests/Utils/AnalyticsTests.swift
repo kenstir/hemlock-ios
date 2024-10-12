@@ -33,6 +33,10 @@ class AnalyticsTests: XCTestCase {
     func test_searchTermStats() {
         let stats = Analytics.getSearchTermStats(searchTerm: "La la land")
         XCTAssertEqual(stats[Analytics.Param.searchTermNumUniqueWords], 2)
-        XCTAssertEqual(stats[Analytics.Param.searchTermAverageWordLengthX10], 27)
+        XCTAssertEqual(stats[Analytics.Param.searchTermAverageWordLengthX10], 30)
+
+        let stats2 = Analytics.getSearchTermStats(searchTerm: "Potter Goblet")
+        XCTAssertEqual(stats2[Analytics.Param.searchTermNumUniqueWords], 2)
+        XCTAssertEqual(stats2[Analytics.Param.searchTermAverageWordLengthX10], 60)
     }
 }
