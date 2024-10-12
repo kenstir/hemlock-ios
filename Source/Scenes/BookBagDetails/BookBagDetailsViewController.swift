@@ -213,9 +213,11 @@ class BookBagDetailsViewController : UITableViewController {
 
         let item = sortedItems[indexPath.row]
         ActorService.removeItemFromBookBag(authtoken: authtoken, bookBagItemId: item.id).done {
+            Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.bookBag?.items.removeAll(where: { $0.id == item.id })
             self.updateItems()
         }.catch { error in
+            Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: error.localizedDescription])
             self.presentGatewayAlert(forError: error)
         }
     }
