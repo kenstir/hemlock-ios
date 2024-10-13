@@ -511,10 +511,13 @@ class PlaceHoldViewController: UIViewController {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
 
+        let eventParams = placeHoldEventParams()
+
         let promise = CircService.placeHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, useOverride: App.config.enableHoldUseOverride)
         promise.done { obj in
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful
+                self.logPlaceHold(params: eventParams)
                 self.valueChangedHandler?();
                 self.navigationController?.view.makeToast("Hold successfully placed")
                 self.navigationController?.popViewController(animated: true)
@@ -535,6 +538,7 @@ class PlaceHoldViewController: UIViewController {
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
+            self.logPlaceHold(withError: error, params: eventParams)
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -561,6 +565,27 @@ class PlaceHoldViewController: UIViewController {
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
+    }
+
+    private func placeHoldEventParams() -> [String: Any] {
+        // TODO: include expires_key, pickup_key like Android
+
+        var notifyTypes: [String] = []
+        if emailSwitch.isOn { notifyTypes.append("email") }
+        if phoneSwitch.isOn { notifyTypes.append("phone") }
+        if smsSwitch.isOn { notifyTypes.append("sms") }
+
+        return [Analytics.Param.holdNotify: notifyTypes.joined(separator: "|")]
+    }
+
+    func logPlaceHold(withError error: Error? = nil, params: [String: Any]) {
+        var eventParams: [String: Any] = params
+        if let err = error {
+            eventParams[Analytics.Param.result] = err.localizedDescription
+        } else {
+            eventParams[Analytics.Param.result] = Analytics.Value.ok
+        }
+        Analytics.logEvent(event: Analytics.Event.placeHold, parameters: eventParams)
     }
 
     func makeHoldError(fromEventObj obj: OSRFObject) -> Error {

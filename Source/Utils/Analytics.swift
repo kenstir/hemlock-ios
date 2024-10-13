@@ -41,12 +41,16 @@ class Analytics {
         static let bookbagDeleteItem = "bookbag_delete_item"
         static let bookbagLoad = "bookbag_load"
         static let bookbagsLoad = "bookbags_load"
+        static let cancelHold = "hold_cancel"
+        static let placeHold = "hold_place"
+        static let updateHold = "hold_update"
         static let login = "login"
         static let search = "search" // FirebaseAnalytics.AnalyticsEventSearch
     }
 
     class Param {
         // these need to be registered in FA as Custom Dimensions w/ scope=Event
+        static let holdNotify = "hold_notify"
         static let result = "result"
         static let searchClass = "search_class"
         static let searchFormat = "search_format"
