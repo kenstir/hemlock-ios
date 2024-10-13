@@ -511,7 +511,7 @@ class PlaceHoldViewController: UIViewController {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
 
-        let eventParams = placeHoldEventParams()
+        let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
 
         let promise = CircService.placeHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, useOverride: App.config.enableHoldUseOverride)
         promise.done { obj in
@@ -547,10 +547,13 @@ class PlaceHoldViewController: UIViewController {
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()
 
+        let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
+
         let promise = CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendSwitch.isOn, thawDate: thawDate)
         promise.done { resp in
             if let _ = resp.str {
                 // case 1: result is String - update successful
+                self.logUpdateHold(params: eventParams)
                 self.valueChangedHandler?();
                 self.navigationController?.view.makeToast("Hold successfully updated")
                 self.navigationController?.popViewController(animated: true)
@@ -563,19 +566,24 @@ class PlaceHoldViewController: UIViewController {
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
+            self.logUpdateHold(withError: error, params: eventParams)
             self.presentGatewayAlert(forError: error)
         }
     }
 
-    private func placeHoldEventParams() -> [String: Any] {
-        // TODO: include expires_key, pickup_key like Android
-
+    private func placeHoldEventParams(selectedOrg: Organization) -> [String: Any] {
         var notifyTypes: [String] = []
         if emailSwitch.isOn { notifyTypes.append("email") }
         if phoneSwitch.isOn { notifyTypes.append("phone") }
         if smsSwitch.isOn { notifyTypes.append("sms") }
 
-        return [Analytics.Param.holdNotify: notifyTypes.joined(separator: "|")]
+        let defaultOrg = Organization.find(byId: App.account?.pickupOrgID)
+        let homeOrg = Organization.find(byId: App.account?.homeOrgID)
+
+        return [
+            Analytics.Param.holdNotify: notifyTypes.joined(separator: "|"),
+            Analytics.Param.holdPickupKey: Analytics.orgDimension(selectedOrg: selectedOrg, defaultOrg: defaultOrg, homeOrg: homeOrg)
+        ]
     }
 
     private func logPlaceHold(withError error: Error? = nil, params: [String: Any]) {
@@ -586,6 +594,16 @@ class PlaceHoldViewController: UIViewController {
             eventParams[Analytics.Param.result] = Analytics.Value.ok
         }
         Analytics.logEvent(event: Analytics.Event.placeHold, parameters: eventParams)
+    }
+
+    private func logUpdateHold(withError error: Error? = nil, params: [String: Any]) {
+        var eventParams: [String: Any] = params
+        if let err = error {
+            eventParams[Analytics.Param.result] = err.localizedDescription
+        } else {
+            eventParams[Analytics.Param.result] = Analytics.Value.ok
+        }
+        Analytics.logEvent(event: Analytics.Event.updateHold, parameters: eventParams)
     }
 
     func makeHoldError(fromEventObj obj: OSRFObject) -> Error {

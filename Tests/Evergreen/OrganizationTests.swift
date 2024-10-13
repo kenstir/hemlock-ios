@@ -146,10 +146,10 @@ class OrganizationTests: XCTestCase {
         let systemOrg = Organization.find(byShortName: "BETSYS")
         let consortiumOrg = Organization.find(byId: 1)
 
-        XCTAssertEqual(Analytics.orgDimensionKey(selectedOrg: branchOrg, defaultOrg: nil, homeOrg: nil), "null")
-        XCTAssertEqual(Analytics.orgDimensionKey(selectedOrg: branchOrg, defaultOrg: branchOrg, homeOrg: branchOrg), "default")
-        XCTAssertEqual(Analytics.orgDimensionKey(selectedOrg: branchOrg, defaultOrg: consortiumOrg, homeOrg: branchOrg), "home")
-        XCTAssertEqual(Analytics.orgDimensionKey(selectedOrg: consortiumOrg, defaultOrg: branchOrg, homeOrg: branchOrg), "CONS")
-        XCTAssertEqual(Analytics.orgDimensionKey(selectedOrg: systemOrg, defaultOrg: consortiumOrg, homeOrg: branchOrg), "other")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: nil, homeOrg: nil), "null")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: branchOrg, homeOrg: branchOrg), "default")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: consortiumOrg, homeOrg: branchOrg), "home")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: consortiumOrg, defaultOrg: branchOrg, homeOrg: branchOrg), "CONS")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: systemOrg, defaultOrg: consortiumOrg, homeOrg: branchOrg), "other")
     }
 }

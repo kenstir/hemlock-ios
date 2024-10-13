@@ -51,6 +51,8 @@ class Analytics {
     class Param {
         // these need to be registered in FA as Custom Dimensions w/ scope=Event
         static let holdNotify = "hold_notify"
+        static let holdPickupKey = "hold_pickup" // { home | other }
+        static let holdSuspend = "hold_suspend"
         static let result = "result"
         static let searchClass = "search_class"
         static let searchFormat = "search_format"
@@ -90,7 +92,7 @@ class Analytics {
 #endif
     }
 
-    static func orgDimensionKey(selectedOrg: Organization?, defaultOrg: Organization?, homeOrg: Organization?) -> String {
+    static func orgDimension(selectedOrg: Organization?, defaultOrg: Organization?, homeOrg: Organization?) -> String {
         guard let selectedOrg, let defaultOrg, let homeOrg else {
             return "null"
         }
@@ -106,14 +108,14 @@ class Analytics {
         return "other"
     }
 
-    static func loginTypeKey(username: String, barcode: String?) -> String {
+    static func loginTypeDimension(username: String, barcode: String?) -> String {
         if username == barcode {
             return "barcode"
         }
         return "username"
     }
 
-    static func getSearchTermStats(searchTerm: String) -> [String: Int] {
+    static func searchTermParameters(searchTerm: String) -> [String: Int] {
         // Extract words
         var keywords: [String] = []
         for word in searchTerm.lowercased().components(separatedBy: .whitespaces) {
@@ -131,11 +133,10 @@ class Analytics {
         let totalLength = uniqueKeywords.reduce(0) { $0 + $1.count }
         let averageKeywordLength = Int(round(10.0 * Double(totalLength) / Double(uniqueKeywordCount)))
 
-        let stats: [String: Int] = [
+        return [
             Param.searchTermNumUniqueWords: uniqueKeywordCount,
             Param.searchTermAverageWordLengthX10: averageKeywordLength
         ]
-        return stats
     }
 
     static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {

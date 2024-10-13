@@ -165,9 +165,9 @@ class ResultsViewController: UIViewController {
         var params: [String: Any] = [
             Analytics.Param.searchClass: sp.searchClass,
             Analytics.Param.searchFormat: sp.searchFormat ?? Analytics.Value.unset,
-            Analytics.Param.searchOrgKey: Analytics.orgDimensionKey(selectedOrg: selectedOrg, defaultOrg: defaultOrg, homeOrg: homeOrg)
+            Analytics.Param.searchOrgKey: Analytics.orgDimension(selectedOrg: selectedOrg, defaultOrg: defaultOrg, homeOrg: homeOrg)
         ]
-        Analytics.getSearchTermStats(searchTerm: sp.text).forEach {
+        Analytics.searchTermParameters(searchTerm: sp.text).forEach {
             params[$0] = $1
         }
         if let err = error {
