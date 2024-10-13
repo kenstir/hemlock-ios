@@ -578,7 +578,7 @@ class PlaceHoldViewController: UIViewController {
         return [Analytics.Param.holdNotify: notifyTypes.joined(separator: "|")]
     }
 
-    func logPlaceHold(withError error: Error? = nil, params: [String: Any]) {
+    private func logPlaceHold(withError error: Error? = nil, params: [String: Any]) {
         var eventParams: [String: Any] = params
         if let err = error {
             eventParams[Analytics.Param.result] = err.localizedDescription

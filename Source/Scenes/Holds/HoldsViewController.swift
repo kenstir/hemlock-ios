@@ -295,14 +295,26 @@ class HoldsViewController: UIViewController {
                 self.navigationController?.view.makeToast("Cancelling hold failed: \(String(describing: resp))")
                 return
             }
+            self.logCancelHold()
             self.navigationController?.view.makeToast("Hold cancelled")
             self.didCompleteFetch = false
             self.fetchData()
         }.catch { error in
+            self.logCancelHold(withError: error)
             self.presentGatewayAlert(forError: error)
         }
     }
-    
+
+    private func logCancelHold(withError error: Error? = nil) {
+        var eventParams: [String: Any] = [:]
+        if let err = error {
+            eventParams[Analytics.Param.result] = err.localizedDescription
+        } else {
+            eventParams[Analytics.Param.result] = Analytics.Value.ok
+        }
+        Analytics.logEvent(event: Analytics.Event.cancelHold, parameters: eventParams)
+    }
+
     func getItem(_ indexPath: IndexPath) -> HoldRecord? {
         guard indexPath.row >= 0 && indexPath.row < items.count else { return nil }
         return items[indexPath.row]
