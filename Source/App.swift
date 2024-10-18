@@ -43,7 +43,9 @@ class App {
     static var library: Library?
     static var idlLoaded: Bool?
     static var account: Account?
+    static var fcmNotificationToken: String?
     static var launchCount: Int = 0
+    static var launchNotificationUserInfo: [AnyHashable: Any]?
 
     /// the URL of the JSON directory of library systems available for use in the Hemlock app
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
@@ -55,21 +57,21 @@ class App {
     static let credentialManager = CredentialManager(valet: valet)
 
     //MARK: - Functions
-    
+
     // Clear the active account and its credentials
     static func logout() {
         credentialManager.removeCredential(forUsername: account?.username)
         account?.clear()
         unloadIDL()
     }
-    
+
     // Clear the active account and switch credentials
     static func switchCredential(credential: Credential?) {
         credentialManager.setActive(credential: credential)
         account?.clear()
         //unloadIDL()  // I do not see why we would want to do this here
     }
-    
+
     static func unloadIDL() {
         App.idlLoaded = false
     }
@@ -90,6 +92,14 @@ class App {
             os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
         }
         return promise
+    }
+
+    static func printLaunchInfo() {
+        if let userInfo = launchNotificationUserInfo {
+            let pn = PushNotification(userInfo: userInfo)
+            print("[fcm] pn: \(pn)")
+        }
+        print("")
     }
 
     static func updateLaunchCount() {

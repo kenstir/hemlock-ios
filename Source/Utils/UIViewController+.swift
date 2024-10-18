@@ -64,7 +64,7 @@ extension UIViewController {
 
     /// reset the VC stack to the Main VC
     func popToMain() {
-        let name = App.config.enableMainGridScene ? "MainGrid" : "MainList"
+        let name = getMainStoryboard()
         guard let vc = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() else { return }
         swapRootVC(vc)
     }
@@ -200,5 +200,46 @@ extension UIViewController {
         if let u = URL(string: url) {
             UIApplication.shared.open(u)
         }
+    }
+
+    //MARK: - FCM Functions
+#if USE_FCM
+    func registerForRuntimeNotifications() {
+        print("[fcm] registerForRuntimeNotifications")
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRuntimeNotification(notification:)), name: Notification.Name("FCMNotification"), object: nil)
+    }
+
+    @objc func handleRuntimeNotification(notification: NSNotification) {
+        print("[fcm] handleRuntimeNotification")
+        handleNotification(userInfo: notification.userInfo)
+    }
+
+    /// if the app was launched from a notification, start the desired VC
+    func handleLaunchNotification() {
+        App.printLaunchInfo()
+        handleNotification(userInfo: App.launchNotificationUserInfo)
+    }
+
+    func handleNotification(userInfo: [AnyHashable: Any]?) {
+        guard let info = userInfo else { return }
+        let notification = PushNotification(userInfo: info)
+        if notification.isNotGeneral {
+            pushVC(fromStoryboard: getStoryboardForNotificationType(notification))
+        }
+    }
+
+    func getStoryboardForNotificationType(_ notification: PushNotification) -> String {
+        switch(notification.type) {
+        case NotificationType.checkouts: return "Checkouts"
+        case NotificationType.fines: return "Fines"
+        case NotificationType.general: return getMainStoryboard()
+        case NotificationType.holds: return "Holds"
+        case NotificationType.pmc: return "Messages"
+        }
+    }
+#endif
+
+    func getMainStoryboard() -> String {
+        return App.config.enableMainGridScene ? "MainGrid" : "MainList"
     }
 }

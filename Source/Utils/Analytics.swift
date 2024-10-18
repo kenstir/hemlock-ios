@@ -19,15 +19,125 @@
 
 import Foundation
 import os.log
+#if USE_FA || USE_FCM
+import FirebaseAnalytics
+#endif
 
 enum AnalyticsErrorCode {
     case shouldNotHappen
 }
 
+#if USE_FA || USE_FCM
+typealias FA = FirebaseAnalytics.Analytics
+#endif
+
 class Analytics {
     static let nullTag = "nil"
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Analytics")
     static var buf = RingBuffer<String>(count: 256)
+
+    class Event {
+        static let bookbagAddItem = "bookbag_add_item"
+        static let bookbagDeleteItem = "bookbag_delete_item"
+        static let bookbagLoad = "bookbag_load"
+        static let bookbagsLoad = "bookbags_load"
+        static let cancelHold = "hold_cancel"
+        static let placeHold = "hold_place"
+        static let updateHold = "hold_update"
+        static let login = "login"
+        static let search = "search" // FirebaseAnalytics.AnalyticsEventSearch
+    }
+
+    class Param {
+        // these need to be registered in FA as Custom Dimensions w/ scope=Event
+        static let holdNotify = "hold_notify"
+        static let holdPickupKey = "hold_pickup" // { home | other }
+        static let holdSuspend = "hold_suspend"
+        static let result = "result"
+        static let searchClass = "search_class"
+        static let searchFormat = "search_format"
+        static let searchOrgKey = "search_org" // { home | other }
+        //static let searchTerm = "search_term" // FirebaseAnalytics.AnalyticsParameterSearchTerm omitted for privacy
+
+        // these need to be registered in FA as Custom Metrics
+        static let numAccounts = "num_accounts"
+        static let numItems = "num_items"
+        static let numResults = "num_results"
+        static let searchTermNumUniqueWords = "search_term_uniq_words"
+        static let searchTermAverageWordLengthX10 = "search_term_avg_word_len_x10"
+    }
+
+    class UserProperty {
+        // these need to be registered in FA as Custom Dimensions w/ scope=User
+        static let homeOrg = "user_home_org"
+        static let parentOrg = "user_parent_org"
+    }
+
+    class Value {
+        static let ok = "ok"
+        static let unset = ""
+    }
+
+    static func logEvent(event: String, parameters: [String: Any]) {
+        let s = String(describing: parameters)
+        os_log("[fa] logEvent %@ %@", event, s)
+#if USE_FA || USE_FCM
+        FA.logEvent(event, parameters: parameters)
+#endif
+    }
+
+    static func setUserProperty(value: String?, forName name: String) {
+#if USE_FA || USE_FCM
+        FA.setUserProperty(value, forName: name)
+#endif
+    }
+
+    static func orgDimension(selectedOrg: Organization?, defaultOrg: Organization?, homeOrg: Organization?) -> String {
+        guard let selectedOrg, let defaultOrg, let homeOrg else {
+            return "null"
+        }
+        if selectedOrg.id == defaultOrg.id {
+            return "default"
+        }
+        if selectedOrg.id == homeOrg.id {
+            return "home"
+        }
+        if selectedOrg.isConsortium {
+            return selectedOrg.shortname
+        }
+        return "other"
+    }
+
+    static func loginTypeDimension(username: String, barcode: String?) -> String {
+        if username == barcode {
+            return "barcode"
+        }
+        return "username"
+    }
+
+    static func searchTermParameters(searchTerm: String) -> [String: Int] {
+        // Extract words
+        var keywords: [String] = []
+        for word in searchTerm.lowercased().components(separatedBy: .whitespaces) {
+            let cleanedWord = word.replacingOccurrences(of: "\\W+", with: "", options: .regularExpression)
+            if !cleanedWord.isEmpty {
+                keywords.append(cleanedWord)
+            }
+        }
+
+        // Calculate unique keywords
+        let uniqueKeywords = Set(keywords)
+        let uniqueKeywordCount = uniqueKeywords.count
+
+        // Calculate average keyword length
+        let totalLength = uniqueKeywords.reduce(0) { $0 + $1.count }
+        let averageKeywordLength = Int(round(10.0 * Double(totalLength) / Double(uniqueKeywordCount)))
+
+        return [
+            Param.searchTermNumUniqueWords: uniqueKeywordCount,
+            Param.searchTermAverageWordLengthX10: averageKeywordLength
+        ]
+    }
 
     static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
         os_log("%s:%d: %s", log: log, type: .info, file, line, msg)

@@ -64,7 +64,7 @@ class LiveServiceTests: XCTestCase {
     let manualTestsEnabled = true
     let updateTestsEnabled = false // only run update tests manually
 
-    var username: String { return LiveServiceTests.config!.username }
+    var username: String { return LiveServiceTests.config!.username } // if you error here, see TestUserData/README.md
     var password: String { return LiveServiceTests.config!.password }
     var homeOrgID: Int { return LiveServiceTests.config!.homeOrgID }
     var sampleRecordID: Int { return LiveServiceTests.config!.sampleRecordID }

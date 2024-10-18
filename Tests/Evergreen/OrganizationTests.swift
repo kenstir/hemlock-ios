@@ -21,7 +21,7 @@ import XCTest
 @testable import Hemlock
 
 class OrganizationTests: XCTestCase {
-    
+
     override func setUp() {
         super.setUp()
         setUpOrgTypes()
@@ -139,5 +139,17 @@ class OrganizationTests: XCTestCase {
     func test_orgAncestry() {
         let ancestors = Organization.ancestors(byShortName: "BETHEL")
         XCTAssertEqual(ancestors, ["BETHEL", "BETSYS", "CONS"])
+    }
+
+    func test_orgDimensionKey() {
+        let branchOrg = Organization.find(byShortName: "BETHEL")
+        let systemOrg = Organization.find(byShortName: "BETSYS")
+        let consortiumOrg = Organization.find(byId: 1)
+
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: nil, homeOrg: nil), "null")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: branchOrg, homeOrg: branchOrg), "default")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: consortiumOrg, homeOrg: branchOrg), "home")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: consortiumOrg, defaultOrg: branchOrg, homeOrg: branchOrg), "CONS")
+        XCTAssertEqual(Analytics.orgDimension(selectedOrg: systemOrg, defaultOrg: consortiumOrg, homeOrg: branchOrg), "other")
     }
 }

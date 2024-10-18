@@ -338,8 +338,10 @@ class DetailsViewController: UIViewController {
         guard let authtoken = App.account?.authtoken else { return }
 
         ActorService.addItemToBookBag(authtoken: authtoken, bookBagId: bookBag.id, recordId: record.id).done {
+            Analytics.logEvent(event: Analytics.Event.bookbagAddItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.navigationController?.view.makeToast("Item added to list")
         }.catch { error in
+            Analytics.logEvent(event: Analytics.Event.bookbagAddItem, parameters: [Analytics.Param.result: error.localizedDescription])
             self.presentGatewayAlert(forError: error)
         }
     }

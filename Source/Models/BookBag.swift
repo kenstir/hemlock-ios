@@ -73,6 +73,7 @@ class BookBag : Identifiable {
                 }
             }
         }
+        Analytics.logEvent(event: Analytics.Event.bookbagLoad, parameters: [Analytics.Param.numItems: items.count])
     }
 
     static func makeArray(_ objects: [OSRFObject]) -> [BookBag] {

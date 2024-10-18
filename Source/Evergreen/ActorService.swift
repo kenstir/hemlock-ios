@@ -304,4 +304,18 @@ class ActorService {
         }
         return promise
     }
+
+    static func updatePushNotificationToken(account: Account, token: String) -> Promise<Void> {
+        guard let authtoken = account.authtoken,
+            let userID = account.userID else {
+            return Promise<Void>()
+        }
+        let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.usereSettingHemlockPushNotificationData, value: token).then { (str: String) -> Promise<Void> in
+            // `str` doesn't matter, it either worked or it errored.
+            // TODO: do we have anything to do here?
+            print("[fcm] token updated str=\(str)")
+            return Promise<Void>()
+        }
+        return promise
+    }
 }

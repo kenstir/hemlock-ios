@@ -17,8 +17,11 @@
  //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import os.log
 
 class Account {
+    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Account")
+
     let username: String
     var password: String
     var authtoken: String?
@@ -58,7 +61,7 @@ class Account {
     var searchOrgID: Int? { return userSettingDefaultSearchLocation ?? homeOrgID }
     var smsCarrier: Int? { return userSettingDefaultSMSCarrier }
     var smsNotify: String? { return userSettingDefaultSMSNotify }
-    
+
     init(_ username: String, password: String) {
         self.username = username
         self.password = password
@@ -101,12 +104,29 @@ class Account {
         defaultNotifyPhone = value.contains("phone")
         defaultNotifySMS = value.contains("sms")
     }
-    
+
+    /// we just got the fcmToken from the user setting.  If the one we have in the app is
+    /// different, we need to update the user setting in Evergreen
+    func maybeUpdateStoredToken(storedFCMToken: String?) {
+        print("[fcm] stored token:  \(storedFCMToken ?? "(nil)")")
+        if let currentFCMToken = App.fcmNotificationToken,
+           currentFCMToken != storedFCMToken
+        {
+            let promise = ActorService.updatePushNotificationToken(account: self, token: currentFCMToken)
+            promise.done {
+                print("[fcm] done updating stored token")
+            }.catch { error in
+                print("[fcm] caught error \(error.localizedDescription)")
+            }
+        }
+    }
+
     func loadUserSettings(fromObject obj: OSRFObject) {
         if let card = obj.getObject("card") {
             barcode = card.getString("barcode")
         }
         var holdNotifySetting = "email:phone" // OPAC default
+        var storedFCMToken: String? = nil
         if let settings = obj.getAny("settings") as? [OSRFObject] {
             for setting in settings {
                 if let name = setting.getString("name"),
@@ -127,16 +147,22 @@ class Account {
                         holdNotifySetting = strvalue
                     } else if name == API.userSettingCircHistoryStart {
                         userSettingCircHistoryStart = strvalue
+                    } else if name == API.usereSettingHemlockPushNotificationData {
+                        storedFCMToken = strvalue
                     }
                 }
             }
         }
         parseHoldNotifyValue(holdNotifySetting)
         userSettingsLoaded = true
+
+        maybeUpdateStoredToken(storedFCMToken: storedFCMToken)
+        os_log(.info, log: Account.log, "loadUserSettings finished, fcmToken=%@", App.fcmNotificationToken ?? "(nil)")
     }
-    
+
     func loadBookBags(fromArray objects: [OSRFObject]) {
         bookBags = BookBag.makeArray(objects)
+        Analytics.logEvent(event: Analytics.Event.bookbagsLoad, parameters: [Analytics.Param.numItems: bookBags.count])
         bookBagsEverLoaded = true
     }
 }

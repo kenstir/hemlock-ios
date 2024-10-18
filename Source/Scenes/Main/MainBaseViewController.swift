@@ -26,6 +26,10 @@ class MainBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+#if USE_FCM
+        registerForRuntimeNotifications()
+        handleLaunchNotification()
+#endif
     }
 
     override func viewWillAppear(_ animated: Bool) {

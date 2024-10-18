@@ -29,4 +29,14 @@ class AnalyticsTests: XCTestCase {
         let s = Analytics.getLog()
         XCTAssertEqual("ff: send: m p1,p2\nff: recv: {}\n", s)
     }
+
+    func test_searchTermStats() {
+        let stats = Analytics.searchTermParameters(searchTerm: "La la land")
+        XCTAssertEqual(stats[Analytics.Param.searchTermNumUniqueWords], 2)
+        XCTAssertEqual(stats[Analytics.Param.searchTermAverageWordLengthX10], 30)
+
+        let stats2 = Analytics.searchTermParameters(searchTerm: "Potter Goblet")
+        XCTAssertEqual(stats2[Analytics.Param.searchTermNumUniqueWords], 2)
+        XCTAssertEqual(stats2[Analytics.Param.searchTermAverageWordLengthX10], 60)
+    }
 }

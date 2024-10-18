@@ -1,2 +1,2 @@
 #!/bin/bash -
-git clean -dfx --exclude=TestUserData
+git clean -dfx --exclude=TestUserData --exclude=GoogleService-Info.plist
