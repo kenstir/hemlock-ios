@@ -51,6 +51,7 @@ protocol AppConfiguration {
 
     var barcodeFormat: BarcodeFormat { get }
     var searchLimit: Int { get }
+    var upcomingClosuresLimit: Int { get }
 }
 
 class BaseAppConfiguration: AppConfiguration {
@@ -86,4 +87,5 @@ class BaseAppConfiguration: AppConfiguration {
 
     var barcodeFormat: BarcodeFormat { return .Codabar }
     var searchLimit: Int { return 200 }
+    var upcomingClosuresLimit: Int { return 5 }
 }
