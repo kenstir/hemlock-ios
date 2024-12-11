@@ -86,11 +86,9 @@ class MainGridViewController: MainBaseViewController {
     }
 
     func loadButtons(forOrg org: Organization?) {
-#if DEBUG
-        let defaultButtonUrl: String? = nil // "https://google.com" // cause all buttons to show up in debug
-#else
+//        let defaultButtonUrl: String? = "https://google.com" // cause all buttons to show up in debug
         let defaultButtonUrl: String? = nil
-#endif
+
         // main buttons
         mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
             self.pushVC(fromStoryboard: "ShowCard")
