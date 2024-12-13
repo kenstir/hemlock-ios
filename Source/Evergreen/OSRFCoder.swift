@@ -19,10 +19,21 @@
 
 import Foundation
 
-enum OSRFDecodingError: Error {
+enum OSRFDecodingError: LocalizedError {
     case classNotFound(String)
     case jsonDecodingFailed
     case unexpectedError(String)
+
+    var errorDescription: String? {
+        switch self {
+        case .classNotFound(let className):
+            return "Class \"\(className)\" is not registered"
+        case .jsonDecodingFailed:
+            return "JSON decoding failed"
+        case .unexpectedError(let str):
+            return "Unexpected error: \(str)"
+        }
+    }
 }
 
 /// `OSRFCoder` decodes OSRF objects from OSRF wire format.

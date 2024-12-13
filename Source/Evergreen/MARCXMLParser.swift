@@ -19,9 +19,18 @@
 
 import Foundation
 
-enum MARCXMLParseError: Error {
+enum MARCXMLParseError: LocalizedError {
+    case parseError(String)
     case unknownError
-    case parseError
+
+    var errorDescription: String? {
+        switch self {
+        case .parseError(let reason):
+            return "Error parsing MARC XML: \(reason)"
+        case .unknownError:
+            return "Unknown error parsing MARC XML: \(self.failureReason ?? "unknown reason")"
+        }
+    }
 }
 
 class MARCXMLParser: NSObject, XMLParserDelegate {
@@ -46,7 +55,7 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
     
     func parse() throws -> MARCRecord {
         guard let parser = self.parser else {
-            throw MARCXMLParseError.parseError
+            throw MARCXMLParseError.parseError("failed to initialize parser")
         }
         parser.delegate = self
         let ok = parser.parse()
@@ -54,7 +63,7 @@ class MARCXMLParser: NSObject, XMLParserDelegate {
             return currentRecord
         } else {
             if let err = error {
-                throw err
+                throw MARCXMLParseError.parseError(err.localizedDescription)
             }
             throw MARCXMLParseError.unknownError
         }

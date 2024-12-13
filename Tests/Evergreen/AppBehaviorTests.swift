@@ -104,4 +104,21 @@ class AppBehaviorTests: XCTestCase {
         XCTAssertEqual(1, linksForCONS.count)
         XCTAssertEqual("user manual:", linksForCONS.first?.text)
     }
+
+    func test_localizedDescription() {
+        guard let path = testBundle.path(forResource: "TestData/marcxml_parse_error", ofType: "xml") else
+        {
+            XCTFail("unable to open xml resource")
+            return
+        }
+        let parser = MARCXMLParser(contentsOf: URL(fileURLWithPath: path))
+        do {
+            let marcRecord = try parser.parse()
+            debugPrint(marcRecord)
+            XCTFail("should not get here")
+        } catch {
+            debugPrint(error)
+            XCTAssertTrue(error.localizedDescription.hasPrefix("Error parsing MARC XML: "))
+        }
+    }
 }
