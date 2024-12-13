@@ -153,7 +153,7 @@ class OSRFCoderTests: XCTestCase {
             XCTAssertNotNil(error, error.localizedDescription)
         }
     }
-    
+
     // Case: decode an OSRF object from an empty object
     func test_decode_wireObject_empty() {
         let wireProtocol = "{}"
@@ -299,5 +299,12 @@ class OSRFCoderTests: XCTestCase {
         }
         let str = String(data: data, encoding: .utf8)
         XCTAssertTrue(str == expected1 || str == expected2)
+    }
+
+    // The default localizedDescription is "The operation couldn't be completed."  Boo.
+    // See github.com/mxcl/LegibleError for details and a more general solution.
+    func test_localizedDescription() {
+        let err = OSRFDecodingError.classNotFound("yadda")
+        XCTAssertEqual("Class \"yadda\" is not registered", err.localizedDescription)
     }
 }

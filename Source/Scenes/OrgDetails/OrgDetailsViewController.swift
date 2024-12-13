@@ -290,11 +290,10 @@ class OrgDetailsViewController: UIViewController {
 
     func onClosuresLoaded(_ objs: [OSRFObject]) {
         let now = Date()
-        let upcomingClosures = objs.filter {
-            if let date = $0.getDate("close_end"), date > now {
-                true
-            } else {
-                false
+        var upcomingClosures: [OSRFObject] = []
+        for obj in objs {
+            if let date = obj.getDate("close_end"), date > now && upcomingClosures.count < App.config.upcomingClosuresLimit {
+                upcomingClosures.append(obj)
             }
         }
         addClosureRows(upcomingClosures)

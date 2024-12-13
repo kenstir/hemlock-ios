@@ -23,7 +23,6 @@ class NobleAppConfiguration: BaseAppConfiguration {
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var sort: String? { return "poprel" }
 
-    override var enableHoursOfOperation: Bool { return false }
     override var needMARCRecord: Bool { return true }
     override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
 

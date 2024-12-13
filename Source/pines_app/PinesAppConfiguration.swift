@@ -18,11 +18,11 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class PinesAppConfiguration: BaseAppConfiguration {
-    //    override var url: String { return "https://gapines.org" }
+    override var url: String { return "https://gapines.org" }
     //    override var url: String { return "http://192.168.1.8" } // LAN test server
-    override var url: String { return "https://test.gapines.org" } // public test server
-//    override var title: String { return "PINES" }
-    override var title: String { return "PINES TEST" }
+//    override var url: String { return "https://test.gapines.org" } // public test server
+    override var title: String { return "PINES" }
+//    override var title: String { return "PINES TEST" }
 
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var detailsExtraLinkText: String? { return "More Information" }
