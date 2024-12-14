@@ -141,13 +141,13 @@ class Analytics {
     }
 
     static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
-        os_log("%s:%d: %s", log: log, type: .info, file, line, msg)
+        os_log("%{public}s:%d: %{public}s", log: log, type: .error, file, line, msg)
         let s = "\(file):\(line): \(msg)"
         buf.write(s)
     }
 
     static func logError(error: Error) {
-        os_log("%s", log: log, type: .info, error.localizedDescription)
+        os_log("%{public}s", log: log, type: .error, error.localizedDescription)
         buf.write(error.localizedDescription)
 #if USE_FA || USE_FCM
         Crashlytics.crashlytics().record(error: error)
@@ -163,10 +163,17 @@ class Analytics {
         }
         let s = "\(tag): send: \(method) \(argsDescription)"
 
-        os_log("%s", log: log, type: .info, s)
+        os_log("%{public}s", log: log, type: .info, s)
         buf.write(s)
     }
-    
+
+    static func logRequest(tag: String, url: String) {
+        let s = "\(tag): send: \(url)"
+
+        os_log("%{public}s", log: log, type: .info, s)
+        buf.write(s)
+    }
+
     static func logResponse(tag: String, data responseData: Data?) {
         if let d = responseData,
             let s = String(data: d, encoding: .utf8) {
@@ -178,6 +185,7 @@ class Analytics {
     
     static func logResponse(tag: String, wireString: String) {
         // redact certain responses: login (au), message (aum), orgTree (aou)
+        // au? is sensitive; aou is just long
         let pattern = """
             ("__c":"aum?"|"__c":"aou")
             """
@@ -191,7 +199,7 @@ class Analytics {
 
         // log the first bytes of the response
         // TODO: indicate if cached
-        os_log("%s", log: log, type: .info, s[0..<256])
+        os_log("%{public}s", log: log, type: .info, s[0..<256])
         buf.write(s)
     }
     

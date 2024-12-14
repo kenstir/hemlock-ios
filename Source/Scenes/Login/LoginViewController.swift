@@ -85,6 +85,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     func fetchData() {
         self.activityIndicator.startAnimating()
+
+        // the cache keys need to be available before we make any other requests that depend on them
         var promises: [Promise<Void>] = []
         promises.append(ActorService.fetchServerVersion())
         promises.append(ActorService.fetchServerCacheKey())
@@ -92,7 +94,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         firstly {
             when(fulfilled: promises)
         }.then {
-            return self.fetchServiceData()
+            // IDL needs to be loaded before we can fetchOrgTree, which returns an OSRF-encoded object
+            return App.fetchIDL()
+        }.then {
+            return ActorService.fetchOrgTree()
         }.done {
             self.loginButton.isEnabled = true
             self.didCompleteFetch = true
@@ -101,15 +106,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }.finally {
             self.activityIndicator.stopAnimating()
         }
-    }
-
-    // This data needs to be loaded, but after the cache keys are available
-    func fetchServiceData() -> Promise<Void> {
-        var promises: [Promise<Void>] = []
-        promises.append(App.fetchIDL())
-        promises.append(ActorService.fetchOrgTree())
-        let promise = when(fulfilled: promises)
-        return promise
     }
 
     //MARK: UITextFieldDelegate

@@ -96,8 +96,11 @@ class Gateway {
     /// assumes the url already contains cache-busting params if needed
     static func makeRequest(url: String, shouldCache: Bool) -> Alamofire.DataRequest
     {
-//        os_log("%s", log: log, type: .info, "url: \(url)")
-        return sessionManager.makeRequest(url, shouldCache: shouldCache)
+        let request = sessionManager.makeRequest(url, shouldCache: shouldCache)
+        let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
+//        os_log("%@: url: %@", log: log, type: .info, tag, url)
+        Analytics.logRequest(tag: tag, url: url)
+        return request
     }
 
     /// make a request to an OPAC url that mimics a browser session with cookies.
