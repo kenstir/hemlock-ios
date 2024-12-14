@@ -87,6 +87,8 @@ class MainListViewController: MainBaseViewController {
         }))
         if App.config.barcodeFormat != .Disabled {
             buttons.append(ButtonAction(title: "Show Card", iconName: "library card") {
+//                let numbers = [0] // Test Crash
+//                let _ = numbers[1] // Test Crash
                 self.pushVC(fromStoryboard: "ShowCard")
             })
         }

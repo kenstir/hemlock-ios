@@ -93,6 +93,8 @@ class MainGridViewController: MainBaseViewController {
 #endif
         // main buttons
         mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
+//            let numbers = [0] // Test Crash
+//            let _ = numbers[1] // Test Crash
             self.pushVC(fromStoryboard: "ShowCard")
         }))
         mainButtons.append(ButtonAction(title: "Search Catalog", iconName: "search", handler: {

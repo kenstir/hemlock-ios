@@ -21,6 +21,7 @@ import Foundation
 import os.log
 #if USE_FA || USE_FCM
 import FirebaseAnalytics
+import FirebaseCrashlytics
 #endif
 
 enum AnalyticsErrorCode {
@@ -143,6 +144,14 @@ class Analytics {
         os_log("%s:%d: %s", log: log, type: .info, file, line, msg)
         let s = "\(file):\(line): \(msg)"
         buf.write(s)
+    }
+
+    static func logError(error: Error) {
+        os_log("%s", log: log, type: .info, error.localizedDescription)
+        buf.write(error.localizedDescription)
+#if USE_FA || USE_FCM
+        Crashlytics.crashlytics().record(error: error)
+#endif
     }
 
     static func logRequest(tag: String, method: String, args: [String]) {
