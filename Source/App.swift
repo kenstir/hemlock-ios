@@ -85,6 +85,8 @@ class App {
         // Fetch IDL and parse it.
         let req = Gateway.makeRequest(url: Gateway.idlURL(), shouldCache: true)
         let promise = req.responseData().done { data, pmkresponse in
+            let tag = pmkresponse.request?.debugTag ?? Analytics.nullTag
+            Analytics.logResponse(tag: tag, data: data)
             let parser = IDLParser(data: data)
             App.idlLoaded = parser.parse()
             let elapsed = -start.timeIntervalSinceNow
