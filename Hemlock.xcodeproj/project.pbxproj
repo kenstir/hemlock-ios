@@ -620,6 +620,8 @@
 		D2572B2924AD7A13000BA698 /* MoAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */; };
 		D2592D7D24AFA4C0009E80EC /* mo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2592D7C24AFA4C0009E80EC /* mo.xcassets */; };
 		D259671924511CA90076267D /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D259671824511CA90076267D /* UtilsTests.swift */; };
+		D25E7CE92D0A284800AD1A2A /* MainGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04462BA12CE7001850C5 /* MainGridViewController.swift */; };
+		D25E7CEA2D0A284E00AD1A2A /* MainGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04482BA234AB001850C5 /* MainGridViewCell.swift */; };
 		D25EEC4A28A1E8310090F108 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D25EEC4B28A1E8310090F108 /* BookBagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2462901273724B1000DC659 /* BookBagsTableViewCell.swift */; };
 		D25EEC4C28A1E8310090F108 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
@@ -948,6 +950,8 @@
 		D28424A821D0358200C7171C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D296EE0F213381FE009BDB12 /* Default-568h@2x.png */; };
 		D28424A921D0358200C7171C /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		D28424AB21D0358200C7171C /* MainList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* MainList.storyboard */; };
+		D2844F152D0A1B02000F7E2A /* grid-icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */; };
+		D2844F162D0A2625000F7E2A /* MainGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E04442BA12B8E001850C5 /* MainGrid.storyboard */; };
 		D28725AE20E86F30002A4C42 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
 		D28725AF20E88063002A4C42 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
@@ -2093,6 +2097,7 @@
 		D28290F720E6F770008EBE4B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D28424B021D0358200C7171C /* COOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28424B121D0358300C7171C /* CoolInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoolInfo.plist; sourceTree = "<group>"; };
+		D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "grid-icons.xcassets"; sourceTree = "<group>"; };
 		D28725AD20E86F30002A4C42 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -2444,6 +2449,7 @@
 		D21090D224D72721004FE532 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */,
 				D29C95F12599283A00CACDBD /* event_msg_map.json */,
 				D21090D324D7275A004FE532 /* fail_part_msg_map.json */,
 				D28AE26124FDD9B200960E9E /* strings.json */,
@@ -3700,6 +3706,7 @@
 				D2816CC128B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2BDA66D22D176BD00D9B60C /* Checkouts.storyboard in Resources */,
 				D2BDA66F22D176BD00D9B60C /* LICENSE.txt in Resources */,
+				D2844F162D0A2625000F7E2A /* MainGrid.storyboard in Resources */,
 				D2BDA67022D176BD00D9B60C /* Holds.storyboard in Resources */,
 				D293EC19297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D2EA311B2B3F50FE004CEF6E /* History.storyboard in Resources */,
@@ -3726,6 +3733,7 @@
 				D21090DA24D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D2BDA67A22D176BD00D9B60C /* MainList.storyboard in Resources */,
 				D24628FC273722E0000DC659 /* BookBags.storyboard in Resources */,
+				D2844F152D0A1B02000F7E2A /* grid-icons.xcassets in Resources */,
 				D28AE27224FDDE8300960E9E /* custom_strings.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4916,6 +4924,7 @@
 				D2931AA4272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2BDA62C22D176BD00D9B60C /* SMSCarrier.swift in Sources */,
 				D2BB66B7297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
+				D25E7CE92D0A284800AD1A2A /* MainGridViewController.swift in Sources */,
 				D2BDA62D22D176BD00D9B60C /* RingBuffer.swift in Sources */,
 				D2BDA62E22D176BD00D9B60C /* HemlockError.swift in Sources */,
 				D2BB6690297C813A007E19E7 /* PatronMessage.swift in Sources */,
@@ -4967,6 +4976,7 @@
 				D2BDA65622D176BD00D9B60C /* CheckoutsTableViewCell.swift in Sources */,
 				D2BDA65722D176BD00D9B60C /* UIScrollView+.swift in Sources */,
 				D2BDA65822D176BD00D9B60C /* Style.swift in Sources */,
+				D25E7CEA2D0A284E00AD1A2A /* MainGridViewCell.swift in Sources */,
 				D2A73B23246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C2297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D29838662B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
