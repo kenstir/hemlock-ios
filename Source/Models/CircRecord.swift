@@ -54,7 +54,7 @@ class CircRecord {
     }
     var isDueSoon: Bool {
         guard let dueDate = dueDate,
-              let thresholdDate = Calendar.current.date(byAdding: .day, value: -7, to: dueDate) else
+              let thresholdDate = Calendar.current.date(byAdding: .day, value: -4, to: dueDate) else
         {
             return false
         }
