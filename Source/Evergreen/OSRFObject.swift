@@ -34,7 +34,7 @@ struct OSRFObject: Equatable {
     static var apiDateFormatter = ISO8601DateFormatter()
     static var outputDateFormatter: DateFormatter = {
         let df = DateFormatter()
-        df.dateStyle = .long
+        df.dateStyle = .medium
         df.timeStyle = .none
         df.locale = Locale(identifier: "en_US")
         return df

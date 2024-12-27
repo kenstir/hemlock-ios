@@ -48,15 +48,15 @@ class OSRFObjectTests: XCTestCase {
     
     func test_dateFormatting_US_to_US_1() {
         // en_US date to API and back removes the leading 0
-        let localDateStr = "January 01, 2019"
+        let localDateStr = "Jan 01, 2019"
         let localDate = OSRFObject.outputDateFormatter.date(from: localDateStr)
         let str = OSRFObject.outputDateFormatter.string(from: localDate!)
-        XCTAssertEqual(str, "January 1, 2019")
+        XCTAssertEqual(str, "Jan 1, 2019")
     }
 
     func test_dateFormatting_US_to_US_2() {
         // en_US date without the leading 0 stays the same
-        let localDateStr = "January 1, 2019"
+        let localDateStr = "Jan 1, 2019"
         let localDate = OSRFObject.outputDateFormatter.date(from: localDateStr)
         let str = OSRFObject.outputDateFormatter.string(from: localDate!)
         XCTAssertEqual(str, localDateStr)
