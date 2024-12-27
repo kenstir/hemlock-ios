@@ -210,19 +210,32 @@ class CheckoutsViewController: UIViewController {
         tableView.reloadData()
     }
 
-    func dueDateText(_ item: CircRecord) -> String {
+    func dueDateText(_ item: CircRecord) -> NSAttributedString {
+        let baseText = "Due \(item.dueDateLabel) "
+        var captionText = ""
+        var foregroundColor = Style.secondaryLabelColor
+        var attrs: [NSAttributedString.Key: Any] = [
+            .font: UIFont.preferredFont(forTextStyle: .footnote)
+        ]
         if item.isOverdue {
-            return "Due \(item.dueDateLabel) (overdue)"
+            captionText = "(overdue)"
+            foregroundColor = App.theme.alertTextColor
         }
-        // These are commented out for now because they cause the text
-        // to bleed under the Renew button.
-//        if item.isDueSoon && item.autoRenewals > 0 {
-//            return "Due \(item.dueDateLabel) (but may auto-renew)"
-//        }
-//        if item.wasAutoRenewed {
-//            return "Due \(item.dueDateLabel) (item was auto-renewed)"
-//        }
-        return "Due \(item.dueDateLabel)"
+        else if item.isDueSoon {
+            if item.autoRenewals > 0 {
+                captionText = "(may auto-renew)"
+            }
+            foregroundColor = App.theme.warningTextColor
+        }
+        else if item.wasAutoRenewed {
+            captionText = "(item was auto-renewed)"
+        }
+        attrs[.foregroundColor] = foregroundColor
+        let str = NSMutableAttributedString(string: baseText + captionText, attributes: attrs)
+        if captionText.count > 0 {
+            str.addAttribute(.font, value: UIFont.preferredFont(forTextStyle: .caption1), range: NSRange(location: baseText.count, length: captionText.count))
+        }
+        return str
     }
 
     @objc func historyButtonPressed(sender: Any) {
@@ -295,8 +308,7 @@ extension CheckoutsViewController: UITableViewDataSource {
         cell.author.text = item.author
         cell.format.text = item.format
         cell.renewals.text = "Renewals left: " + String(item.renewalsRemaining)
-        cell.dueDate.text = dueDateText(item)
-        cell.dueDate.textColor = item.isOverdue ? App.theme.alertTextColor : Style.secondaryLabelColor
+        cell.dueDate.attributedText = dueDateText(item)
 
         // add an action to the renewButton
         cell.renewButton.tag = indexPath.row

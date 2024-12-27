@@ -30,7 +30,10 @@ class Style {
     class var headlineSize: CGFloat { return UIFont.preferredFont(forTextStyle: .headline).pointSize } // 17
     class var subheadSize: CGFloat { return UIFont.preferredFont(forTextStyle: .subheadline).pointSize } // 15
     class var calloutSize: CGFloat { return UIFont.preferredFont(forTextStyle: .callout).pointSize } // 16
-    
+    class var footnoteSize: CGFloat { return UIFont.preferredFont(forTextStyle: .footnote).pointSize} // 13
+    class var caption1Size: CGFloat { return UIFont.preferredFont(forTextStyle: .caption1).pointSize} // 12
+    class var caption2Size: CGFloat { return UIFont.preferredFont(forTextStyle: .caption2).pointSize} // 11
+
     //MARK: - Sizes
 
     static var tableHeaderHeight = 55.0

@@ -26,6 +26,7 @@ protocol Theme {
     var inverseButtonColor: UIColor { get }
     var buttonTintColor: UIColor { get }
     var mainButtonTintColor: UIColor { get }
-    
+
     var alertTextColor: UIColor { get }
+    var warningTextColor: UIColor { get }
 }

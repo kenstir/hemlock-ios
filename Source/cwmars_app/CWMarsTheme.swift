@@ -28,4 +28,5 @@ class CWMarsTheme: Theme {
     let mainButtonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
 
     let alertTextColor = UIColor(rgb: 0xee7623)
+    let warningTextColor = UIColor(rgb: 0xee7623)
 }

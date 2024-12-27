@@ -28,4 +28,5 @@ class PinesTheme: Theme {
     let mainButtonTintColor = UIColor(rgb: 0x2e7b61)
     
     let alertTextColor = UIColor.red
+    let warningTextColor = UIColor(rgb: 0xee7623)
 }
