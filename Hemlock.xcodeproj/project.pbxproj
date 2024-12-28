@@ -2963,8 +2963,8 @@
 				D2BDA71A22D2A87D00D9B60C /* AppFactory.swift */,
 				D2BDA71B22D2A87D00D9B60C /* NTLCAppBehavior.swift */,
 				D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */,
-				D2BDA71822D2A72000D9B60C /* NTLCInfo.plist */,
 				D2BDA71922D2A87D00D9B60C /* NTLCTheme.swift */,
+				D2BDA71822D2A72000D9B60C /* NTLCInfo.plist */,
 				D29E874A22D2AFE7003C5467 /* ntlc.xcassets */,
 			);
 			path = ntlc_app;
