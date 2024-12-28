@@ -82,6 +82,11 @@ class MainBaseViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Logout", style: .destructive) { action in
             self.doLogout()
         })
+        if haveMultipleAccounts {
+            alertController.addAction(UIAlertAction(title: "Clear All Accounts", style: .destructive) { action in
+                self.clearAllAccounts()
+            })
+        }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
         // iPad requires a popoverPresentationController
@@ -104,6 +109,22 @@ class MainBaseViewController: UIViewController {
 
     func doLogout() {
         App.logout()
+        self.popToLogin()
+    }
+
+    func clearAllAccounts() {
+        // confirm action
+        let alertController = UIAlertController(title: "Clear all accounts?", message: "Logout and clear all accounts from this device?  This does not affect your account on the server.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Clear all accounts", style: .destructive) { action in
+            self.doLogoutAndClearAll()
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alertController, animated: true)
+    }
+
+    func doLogoutAndClearAll() {
+        App.logout()
+        App.credentialManager.clearAllCredentials()
         self.popToLogin()
     }
 }

@@ -146,7 +146,14 @@ class CredentialManager {
             writeToStorage()
         }
     }
-    
+
+    func clearAllCredentials() {
+        bundle.credentials = []
+        bundle.lastUsername = nil
+        os_log("creds: clear all")
+        writeToStorage()
+    }
+
     private func sortCredentialsByName() {
         bundle.credentials.sort(by: { $0.username < $1.username })
     }
