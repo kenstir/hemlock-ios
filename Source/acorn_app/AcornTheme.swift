@@ -27,5 +27,6 @@ class AcornTheme: Theme {
     let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
     let mainButtonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
 
-    let alertTextColor = UIColor.red
+    let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
+    let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red
 }

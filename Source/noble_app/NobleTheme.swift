@@ -27,5 +27,6 @@ class NobleTheme: Theme {
     let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray//UIColor(rgb: 0x002f6c)
     let mainButtonTintColor = UIColor(rgb: 0x002f6c)
 
-    let alertTextColor = UIColor.red
+    let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
+    let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red
 }

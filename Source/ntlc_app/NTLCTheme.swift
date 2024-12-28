@@ -27,5 +27,6 @@ class NTLCTheme: Theme {
     let buttonTintColor = UIColor(rgb: 0x559767)
     let mainButtonTintColor = UIColor(rgb: 0x559767)
 
-    let alertTextColor = UIColor.red
+    let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
+    let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red
 }

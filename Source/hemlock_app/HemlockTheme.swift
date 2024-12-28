@@ -27,6 +27,6 @@ class HemlockTheme: Theme {
     let buttonTintColor = UIColor(rgb: 0x2e7b61)
     let mainButtonTintColor = UIColor(rgb: 0x2e7b61)
 
-    let alertTextColor = UIColor(rgb: 0xff0000)
-    let warningTextColor = UIColor(rgb: 0xee7623)
+    let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
+    let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red
 }
