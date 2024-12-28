@@ -3,7 +3,7 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -191,17 +191,17 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="406"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZX-Ef-wAD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="445.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="461.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="200" verticalCompressionResistancePriority="749" image="splash3" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-VS-ogx">
-                                                <rect key="frame" x="28" y="24" width="264" height="195.5"/>
+                                                <rect key="frame" x="28" y="24" width="264" height="176.5"/>
                                                 <accessibility key="accessibilityConfiguration" label="library logo">
                                                     <bool key="isElement" value="YES"/>
                                                 </accessibility>
                                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Number or Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ky-33-NgZ">
-                                                <rect key="frame" x="28" y="243.5" width="264" height="34"/>
+                                                <rect key="frame" x="28" y="224.5" width="264" height="34"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
                                                 <connections>
@@ -209,7 +209,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofn-Nj-gGI">
-                                                <rect key="frame" x="64" y="355.5" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="336.5" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Login"/>
                                                 <connections>
@@ -217,12 +217,20 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fV-yF-Bl6">
-                                                <rect key="frame" x="28" y="293.5" width="264" height="34"/>
+                                                <rect key="frame" x="28" y="274.5" width="264" height="34"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLD-wn-foj" userLabel="Cancel Button">
+                                                <rect key="frame" x="122" y="377.5" width="76.5" height="35"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelPressed:" destination="pCn-5I-KnN" eventType="primaryActionTriggered" id="GjD-9d-N45"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0t-oX-Cjw">
-                                                <rect key="frame" x="64" y="404.5" width="192" height="33"/>
+                                                <rect key="frame" x="64" y="420.5" width="192" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Forgot Password"/>
                                                 <connections>
@@ -230,19 +238,21 @@
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-va-eUu" userLabel="Spinner">
-                                                <rect key="frame" x="141.5" y="263.5" width="37" height="37"/>
+                                                <rect key="frame" x="141.5" y="244.5" width="37" height="37"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="L0t-oX-Cjw" firstAttribute="top" secondItem="ofn-Nj-gGI" secondAttribute="bottom" constant="16" id="382-Zk-CVf"/>
+                                            <constraint firstItem="L0t-oX-Cjw" firstAttribute="top" secondItem="BLD-wn-foj" secondAttribute="bottom" constant="8" id="382-Zk-CVf"/>
                                             <constraint firstItem="ofn-Nj-gGI" firstAttribute="top" secondItem="2fV-yF-Bl6" secondAttribute="bottom" constant="28" id="7fN-3F-gyy"/>
                                             <constraint firstItem="bpy-va-eUu" firstAttribute="top" secondItem="2Ky-33-NgZ" secondAttribute="top" priority="500" constant="20" id="9Uz-CO-cn4" userLabel="Spinner.top = Username Field.top + 20"/>
                                             <constraint firstItem="UqT-VS-ogx" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="BfE-jA-C4Y"/>
                                             <constraint firstItem="bpy-va-eUu" firstAttribute="centerX" secondItem="2Ky-33-NgZ" secondAttribute="centerXWithinMargins" priority="500" id="GC0-x1-zwy"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="L0t-oX-Cjw" secondAttribute="trailing" constant="64" id="HEm-hc-iIq"/>
+                                            <constraint firstItem="BLD-wn-foj" firstAttribute="centerX" secondItem="AZX-Ef-wAD" secondAttribute="centerX" id="Tz0-zf-4Wc"/>
                                             <constraint firstAttribute="bottom" secondItem="L0t-oX-Cjw" secondAttribute="bottom" constant="8" id="WVG-bo-mUu"/>
                                             <constraint firstItem="2Ky-33-NgZ" firstAttribute="top" secondItem="UqT-VS-ogx" secondAttribute="bottom" constant="24" id="cIQ-9d-Z62"/>
+                                            <constraint firstItem="BLD-wn-foj" firstAttribute="top" secondItem="ofn-Nj-gGI" secondAttribute="bottom" constant="8" id="eLc-7u-wqo"/>
                                             <constraint firstItem="L0t-oX-Cjw" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="64" id="etz-91-HeA"/>
                                             <constraint firstItem="2fV-yF-Bl6" firstAttribute="leading" secondItem="AZX-Ef-wAD" secondAttribute="leading" constant="28" id="faW-ta-waO"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="2Ky-33-NgZ" secondAttribute="trailing" constant="28" id="gnc-gl-0e4"/>
@@ -280,6 +290,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="bpy-va-eUu" id="SA6-We-K9g"/>
+                        <outlet property="cancelButton" destination="BLD-wn-foj" id="Vns-V2-t8S"/>
                         <outlet property="forgotPasswordButton" destination="L0t-oX-Cjw" id="N8N-28-8Ee"/>
                         <outlet property="loginButton" destination="ofn-Nj-gGI" id="Uqg-lY-AtJ"/>
                         <outlet property="passwordField" destination="2fV-yF-Bl6" id="z1k-CK-gCv"/>
@@ -311,7 +322,7 @@
     </scenes>
     <resources>
         <image name="Jason" width="698" height="1200"/>
-        <image name="splash3" width="403.5" height="195.5"/>
+        <image name="splash3" width="361.5" height="176.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

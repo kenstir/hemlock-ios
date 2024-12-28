@@ -30,13 +30,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var didCompleteFetch = false
 
-    // TODO: provide some way to cancel back to the lastUsedCredential if adding
-    // e.g. by popToLogin()
+    /// This is a secondary Login to support the "Add Account" action
     var isAddingAccount = false
 
     /// prevent LoginVC from attempting auto-login as it is being destructed during account switching
@@ -76,9 +76,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // add style
         loginButton.isEnabled = false
         Style.styleButton(asInverse: loginButton)
+        Style.styleButton(asPlain: cancelButton)
         Style.styleButton(asPlain: forgotPasswordButton)
         Style.styleActivityIndicator(activityIndicator)
-        
+
+        if isAddingAccount {
+            cancelButton.isHidden = false
+        } else {
+            cancelButton.isHidden = true
+            cancelButton.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        }
+
         self.setupTapToDismissKeyboard(onScrollView: scrollView)
         self.scrollView.setupKeyboardAutoResizer()
     }
@@ -133,6 +141,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let url: URL = baseurl.appendingPathComponent("/eg/opac/password_reset")
             UIApplication.shared.open(url)
         }
+    }
+
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.popToLogin()
     }
 
     @IBAction func loginPressed(_ sender: Any) {
