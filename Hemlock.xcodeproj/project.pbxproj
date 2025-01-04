@@ -186,6 +186,8 @@
 		D21867A221D039BF0082358C /* CoolTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679F21D039BF0082358C /* CoolTheme.swift */; };
 		D21867A321D039BF0082358C /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21867A021D039BF0082358C /* AppFactory.swift */; };
 		D21867A521D039CE0082358C /* cool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21867A421D039CE0082358C /* cool.xcassets */; };
+		D21889F92D29E66700E8A1C3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D21889F82D29E66700E8A1C3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D21889FA2D29E67200E8A1C3 /* FirebaseCrashlytics */; };
 		D21981F8235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
 		D21981F9235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
 		D21981FA235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
@@ -1022,6 +1024,7 @@
 		D28F5E7529CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
 		D28F5E7629CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
 		D28F5E7729CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D290A4032D29E52E00A08A6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */; };
 		D2931A9F272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA0272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
@@ -2123,6 +2126,7 @@
 		D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBaseViewController.swift; sourceTree = "<group>"; };
 		D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+.swift"; sourceTree = "<group>"; };
 		D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRecord.swift; sourceTree = "<group>"; };
+		D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* ZBookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagsView.swift; sourceTree = "<group>"; };
 		D2931A93272DE25D00CBA5AA /* ZBookBagDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagDetailsView.swift; sourceTree = "<group>"; };
 		D2931A9E272DE56500CBA5AA /* BookBagItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagItem.swift; sourceTree = "<group>"; };
@@ -2314,9 +2318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951DDE2B8FBFF900193695 /* Alamofire.xcframework in Frameworks */,
+				D21889F92D29E66700E8A1C3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2951DE62B8FBFF900193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */,
+				D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */,
 				D2951DEA2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */,
 				D2951DE42B8FBFF900193695 /* PMKAlamofire.xcframework in Frameworks */,
@@ -2777,6 +2783,7 @@
 		D276DAE521336B9F007FAA31 /* cwmars_app */ = {
 			isa = PBXGroup;
 			children = (
+				D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */,
 				D296EE0A2133802F009BDB12 /* AppFactory.swift */,
 				D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */,
 				D296EE0B21338030009BDB12 /* CWMarsTheme.swift */,
@@ -3163,12 +3170,17 @@
 				D276DAC721336B20007FAA31 /* Frameworks */,
 				D276DAD121336B20007FAA31 /* Resources */,
 				D2951DF02B8FBFF900193695 /* Embed Frameworks */,
+				D290A4012D29E37500A08A6E /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = cwmars;
+			packageProductDependencies = (
+				D21889F82D29E66700E8A1C3 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				D21889FA2D29E67200E8A1C3 /* FirebaseCrashlytics */,
+			);
 			productName = Hemlock;
 			productReference = D276DAE221336B20007FAA31 /* cwmars.app */;
 			productType = "com.apple.product-type.application";
@@ -3561,6 +3573,7 @@
 				D2C3EA3B29D905F100583A96 /* Details.storyboard in Resources */,
 				D276DAD621336B20007FAA31 /* Holds.storyboard in Resources */,
 				D29C95F32599283A00CACDBD /* event_msg_map.json in Resources */,
+				D290A4032D29E52E00A08A6E /* GoogleService-Info.plist in Resources */,
 				D2029B51297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2F3537429D0F09800494763 /* Results.storyboard in Resources */,
 				D276DAD721336B20007FAA31 /* CopyInfo.storyboard in Resources */,
@@ -3779,6 +3792,29 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		D231C76C2BD2BF3D00440D9D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+		D290A4012D29E37500A08A6E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -5395,6 +5431,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5405,6 +5442,7 @@
 				MARKETING_VERSION = 3.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cwmars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -5419,6 +5457,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5429,6 +5468,7 @@
 				MARKETING_VERSION = 3.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cwmars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5990,6 +6030,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		D21889F82D29E66700E8A1C3 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		D21889FA2D29E67200E8A1C3 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 		D2C7F2DE2CB1FDD600CA46B0 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
