@@ -214,21 +214,28 @@ class CheckoutsViewController: UIViewController {
         let baseText = "Due \(item.dueDateLabel) "
         var captionText = ""
         var foregroundColor = Style.secondaryLabelColor
-        var attrs: [NSAttributedString.Key: Any] = [
-            .font: UIFont.preferredFont(forTextStyle: .footnote)
-        ]
+        var wantBold = false
+        var attrs: [NSAttributedString.Key: Any] = [:]
         if item.isOverdue {
             captionText = "(overdue)"
             foregroundColor = App.theme.alertTextColor
+            wantBold = true
         }
         else if item.isDueSoon {
             if item.autoRenewals > 0 {
                 captionText = "(may auto-renew)"
             }
             foregroundColor = App.theme.warningTextColor
+            wantBold = true
         }
         else if item.wasAutoRenewed {
             captionText = "(item was auto-renewed)"
+        }
+        if wantBold,
+           let boldFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .footnote).withSymbolicTraits(.traitBold) {
+            attrs[.font] = UIFont(descriptor: boldFontDescriptor, size: 0.0)
+        } else {
+            attrs[.font] = UIFont.preferredFont(forTextStyle: .footnote)
         }
         attrs[.foregroundColor] = foregroundColor
         let str = NSMutableAttributedString(string: baseText + captionText, attributes: attrs)
