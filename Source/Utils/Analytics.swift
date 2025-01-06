@@ -66,6 +66,9 @@ class Analytics {
         static let numResults = "num_results"
         static let searchTermNumUniqueWords = "search_term_uniq_words"
         static let searchTermAverageWordLengthX10 = "search_term_avg_word_len_x10"
+
+        // boolean params do not need to be registered
+        static let multipleAccounts = "multiple_accounts"
     }
 
     class UserProperty {
