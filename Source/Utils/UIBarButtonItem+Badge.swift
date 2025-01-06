@@ -30,11 +30,7 @@ extension UIBarButtonItem {
             return
         }
 
-        var font = UIFont.systemFont(ofSize: fontSize)
-
-        if #available(iOS 9.0, *) {
-            font = UIFont.monospacedDigitSystemFont(ofSize: fontSize, weight: .regular)
-        }
+        let font = UIFont.monospacedDigitSystemFont(ofSize: fontSize, weight: .regular)
 
         let badgeSize = text.size(withAttributes: [.font: font])
 
