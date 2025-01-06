@@ -6,4 +6,4 @@ github "kenstir/PINCache" == 3.0.6-kenstir.3
 github "kenstir/PINRemoteImage" == 3.0.5-kenstir.5
 github "Square/Valet" == 3.2.3
 github "scalessec/Toast-Swift" == 5.1.0
-github "kenstir/zxingify-objc" == 3.6.8-kenstir.1
+github "zxingify/zxingify-objc" == 3.6.9
