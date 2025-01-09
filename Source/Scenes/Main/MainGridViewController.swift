@@ -90,6 +90,7 @@ class MainGridViewController: MainBaseViewController {
         let defaultButtonUrl: String? = nil
 
         // main buttons
+        // TODO: make button titles configurable, and use the default (original) titles, override in Acorn
         mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
 //            let numbers = [0] // Test Crash
 //            let _ = numbers[1] // Test Crash
