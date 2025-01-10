@@ -215,6 +215,7 @@
 		D228950229D9DB4B00D558BA /* DetailsPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */; };
 		D228950329D9DB4B00D558BA /* DetailsPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */; };
 		D228FB6520D33402001A7E31 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228FB6420D33402001A7E31 /* App.swift */; };
+		D229310B2D30A623009BE70F /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D229310A2D30A623009BE70F /* custom_strings.json */; };
 		D229CAF52471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
 		D229CAF62471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
 		D229CAF72471C099006BCC07 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229CAF42471C099006BCC07 /* AuthService.swift */; };
@@ -1997,6 +1998,7 @@
 		D226B60920ED519E00CA5B79 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsPager.storyboard; sourceTree = "<group>"; };
 		D228FB6420D33402001A7E31 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		D229310A2D30A623009BE70F /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D229CAF42471C099006BCC07 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D22AE118221B75FC0089C196 /* AFSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFSession+.swift"; sourceTree = "<group>"; };
 		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -2466,7 +2468,7 @@
 		D210EC4222B1F1F6002FB5E0 /* acorn_app */ = {
 			isa = PBXGroup;
 			children = (
-				D2CC3EAF2C500CD700483CB6 /* GoogleService-Info.plist */,
+				D229310A2D30A623009BE70F /* custom_strings.json */,
 				D29C95FB2599285E00CACDBD /* event_msg_map.json */,
 				D21090D024D726FA004FE532 /* fail_part_msg_map.json */,
 				D20B300122CFED2300F69848 /* AcornAppBehavior.swift */,
@@ -2475,6 +2477,7 @@
 				D210EC4322B1F23D002FB5E0 /* AppFactory.swift */,
 				D23F41A52C63D70A0024AAC4 /* acorn.entitlements */,
 				D210EC4922B1F2D2002FB5E0 /* Info.plist */,
+				D2CC3EAF2C500CD700483CB6 /* GoogleService-Info.plist */,
 				D210EC4B22B1F331002FB5E0 /* acorn.xcassets */,
 			);
 			path = acorn_app;
@@ -2783,11 +2786,11 @@
 		D276DAE521336B9F007FAA31 /* cwmars_app */ = {
 			isa = PBXGroup;
 			children = (
-				D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */,
 				D296EE0A2133802F009BDB12 /* AppFactory.swift */,
 				D296EE092133802F009BDB12 /* CWMarsAppConfiguration.swift */,
 				D296EE0B21338030009BDB12 /* CWMarsTheme.swift */,
 				D276DAE321336B20007FAA31 /* CWMARSInfo.plist */,
+				D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */,
 				D276DAE621336BE3007FAA31 /* cwmars.xcassets */,
 			);
 			path = cwmars_app;
@@ -3400,6 +3403,7 @@
 				D2029B4F297DBEDE000FF4C1 /* MessageDetails.storyboard in Resources */,
 				D2CC3EB02C500CD700483CB6 /* GoogleService-Info.plist in Resources */,
 				D29C95FC2599285E00CACDBD /* event_msg_map.json in Resources */,
+				D229310B2D30A623009BE70F /* custom_strings.json in Resources */,
 				D2EA31152B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D21090D124D726FA004FE532 /* fail_part_msg_map.json in Resources */,
 				D2F3537229D0F09800494763 /* Results.storyboard in Resources */,

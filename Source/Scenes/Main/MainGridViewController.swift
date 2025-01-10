@@ -90,22 +90,21 @@ class MainGridViewController: MainBaseViewController {
         let defaultButtonUrl: String? = nil
 
         // main buttons
-        // TODO: make button titles configurable, and use the default (original) titles, override in Acorn
-        mainButtons.append(ButtonAction(title: "Digital Library Card", iconName: "library card", handler: {
+        mainButtons.append(ButtonAction(title: R.getString("Show Card"), iconName: "library card", handler: {
 //            let numbers = [0] // Test Crash
 //            let _ = numbers[1] // Test Crash
             self.pushVC(fromStoryboard: "ShowCard")
         }))
-        mainButtons.append(ButtonAction(title: "Search Catalog", iconName: "search", handler: {
+        mainButtons.append(ButtonAction(title: R.getString("Search"), iconName: "search", handler: {
             self.pushVC(fromStoryboard: "Search")
         }))
-        mainButtons.append(ButtonAction(title: "Library Hours & Info", iconName: "info", handler: {
+       mainButtons.append(ButtonAction(title: R.getString("Info"), iconName: "info", handler: {
             self.pushVC(fromStoryboard: "OrgDetails")
         }))
         mainButtons.append(ButtonAction(title: "Items Checked Out", iconName: "checkouts", handler: {
             self.pushVC(fromStoryboard: "Checkouts")
         }))
-        mainButtons.append(ButtonAction(title: "Fines", iconName: "fines", handler: {
+        mainButtons.append(ButtonAction(title: R.getString("Fines"), iconName: "fines", handler: {
             self.pushVC(fromStoryboard: "Fines")
         }))
         mainButtons.append(ButtonAction(title: "Holds", iconName: "holds", handler: {
