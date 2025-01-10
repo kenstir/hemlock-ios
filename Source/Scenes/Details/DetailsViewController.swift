@@ -218,14 +218,19 @@ class DetailsViewController: UIViewController {
         }
         promises.append(done_promise)
 
-        // Fetch MARCXML record if needed
-        if App.config.needMARCRecord {
+        // Fetch MARC if needed
+        if App.config.needMARCRecord && record.marcRecord == nil {
             promises.insert(PCRUDService.fetchMARC(forRecord: record), at: 0)
         }
 
         // Fetch MRA if needed
         if record.attrs == nil {
             promises.append(PCRUDService.fetchMRA(forRecord: record))
+        }
+
+        // Fetch MODS if needed
+        if record.mvrObj == nil {
+            promises.append(SearchService.fetchRecordMODS(forRecord: record))
         }
 
         firstly {

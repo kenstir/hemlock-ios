@@ -53,7 +53,7 @@ class AsyncRecord: MBRecord {
     }
 
     /// free-threaded
-    // TODO: may not be necessary with MainActor UITableView
+    // TODO: lock may not be necessary with MainActor UITableView
     func startPrefetch() -> [Promise<Void>] {
         os_log("[%s] row=%02d prefetch state=%s", log: AsyncRecord.log, type: .info, Thread.current.tag(), row, String(describing: state))
         lock.lock()
@@ -73,7 +73,7 @@ class AsyncRecord: MBRecord {
     }
 
     /// free-threaded
-    // TODO: may not be necessary with MainActor UITableView
+    // TODO: lock may not be necessary with MainActor UITableView
     func markPrefetchDone() {
         os_log("[%s] row=%02d done", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
         lock.lock()
