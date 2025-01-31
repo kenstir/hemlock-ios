@@ -269,11 +269,8 @@ class ActorService {
     }
 
     /// returns "1" or an error
-    static func updatePatronSetting(authtoken: String, userID: Int, name: String, value: String?) -> Promise<String> {
-        let param: JSONDictionary = [
-            name: value
-        ]
-        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, param], shouldCache: false)
+    static func updatePatronSettings(authtoken: String, userID: Int, settings: JSONDictionary) -> Promise<String> {
+        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, settings], shouldCache: false)
         return req.gatewayStringResponse()
     }
 
@@ -283,7 +280,8 @@ class ActorService {
             return Promise<Void>()
         }
         let dateString = OSRFObject.apiDayOnlyFormatter.string(from: Date())
-        let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString).then { (str: String) -> Promise<Void> in
+        let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
+        let promise = updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings).then { (str: String) -> Promise<Void> in
             // `str` doesn't matter, it either worked or it errored.
             account.userSettingCircHistoryStart = dateString
             return Promise<Void>()
@@ -297,7 +295,8 @@ class ActorService {
             return Promise<Void>()
         }
         let dateString: String? = nil
-        let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.userSettingCircHistoryStart, value: dateString).then { (str: String) -> Promise<Void> in
+        let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
+        let promise = updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings).then { (str: String) -> Promise<Void> in
             // `str` doesn't matter, it either worked or it errored.
             account.userSettingCircHistoryStart = dateString
             return Promise<Void>()
@@ -310,7 +309,11 @@ class ActorService {
             let userID = account.userID else {
             return Promise<Void>()
         }
-        let promise = updatePatronSetting(authtoken: authtoken, userID: userID, name: API.usereSettingHemlockPushNotificationData, value: token).then { (str: String) -> Promise<Void> in
+        let settings: JSONDictionary = [
+            API.userSettingHemlockPushNotificationData: token,
+            API.userSettingHemlockPushNotificationEnabled: true
+        ]
+        let promise = updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings).then { (str: String) -> Promise<Void> in
             // `str` doesn't matter, it either worked or it errored.
             // TODO: do we have anything to do here?
             print("[fcm] token updated str=\(str)")

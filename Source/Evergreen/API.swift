@@ -72,7 +72,8 @@ struct API {
     static let settingHemlockEventsURL = "hemlock.events_calendar_url"
     static let settingHemlockMeetingRoomsURL = "hemlock.meeting_rooms_url"
     static let settingHemlockMuseumPassesURL = "hemlock.museum_passes_url"
-    static let usereSettingHemlockPushNotificationData = "hemlock.push_notification_data"
+    static let userSettingHemlockPushNotificationData = "hemlock.push_notification_data"
+    static let userSettingHemlockPushNotificationEnabled = "hemlock.push_notification_enabled"
 
     //MARK: - auth service
 

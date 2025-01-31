@@ -107,14 +107,15 @@ class Account {
 
     /// we just got the fcmToken from the user setting.  If the one we have in the app is
     /// different, we need to update the user setting in Evergreen
-    func maybeUpdateStoredToken(storedFCMToken: String?) {
-        print("[fcm] stored token:  \(storedFCMToken ?? "(nil)")")
+    func maybeUpdateUserSettings(storedData: String?, storedEnabledFlag: Bool) {
+        print("[fcm] stored token was: \(storedData ?? "(nil)")")
         if let currentFCMToken = App.fcmNotificationToken,
-           currentFCMToken != storedFCMToken
+           currentFCMToken != storedData || !storedEnabledFlag
         {
+            print("[fcm] updating stored token")
             let promise = ActorService.updatePushNotificationToken(account: self, token: currentFCMToken)
             promise.done {
-                print("[fcm] done updating stored token")
+                //print("[fcm] done updating stored token")
             }.catch { error in
                 print("[fcm] caught error \(error.localizedDescription)")
             }
@@ -126,7 +127,8 @@ class Account {
             barcode = card.getString("barcode")
         }
         var holdNotifySetting = "email:phone" // OPAC default
-        var storedFCMToken: String? = nil
+        var storedPushNotificationData: String? = nil
+        var storedPushNotificationEnabled = false
         if let settings = obj.getAny("settings") as? [OSRFObject] {
             for setting in settings {
                 if let name = setting.getString("name"),
@@ -147,8 +149,10 @@ class Account {
                         holdNotifySetting = strvalue
                     } else if name == API.userSettingCircHistoryStart {
                         userSettingCircHistoryStart = strvalue
-                    } else if name == API.usereSettingHemlockPushNotificationData {
-                        storedFCMToken = strvalue
+                    } else if name == API.userSettingHemlockPushNotificationData {
+                        storedPushNotificationData = strvalue
+                    } else if name == API.userSettingHemlockPushNotificationEnabled {
+                        storedPushNotificationEnabled = (strvalue == "true")
                     }
                 }
             }
@@ -156,7 +160,7 @@ class Account {
         parseHoldNotifyValue(holdNotifySetting)
         userSettingsLoaded = true
 
-        maybeUpdateStoredToken(storedFCMToken: storedFCMToken)
+        maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled)
         os_log(.info, log: Account.log, "loadUserSettings finished, fcmToken=%@", App.fcmNotificationToken ?? "(nil)")
     }
 

@@ -552,7 +552,7 @@ class LiveServiceTests: XCTestCase {
             let account = LiveServiceTests.state!.account
             let obj = LiveServiceTests.state!.sessionObj
             account.loadSession(fromObject: obj!)
-            return ActorService.updatePatronSetting(authtoken: self.authtoken!, userID: self.userID!, name: API.userSettingCircHistoryStart, value: "2023-12-22")
+            return ActorService.updatePatronSettings(authtoken: self.authtoken!, userID: self.userID!, settings: [API.userSettingCircHistoryStart: "2023-12-22"])
         }.done { str in
             XCTAssertNotNil(str)
             expectation.fulfill()
