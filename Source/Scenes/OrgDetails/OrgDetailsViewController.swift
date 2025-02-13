@@ -79,24 +79,25 @@ class OrgDetailsViewController: UIViewController {
         firstly {
             when(fulfilled: promises)
         }.done {
-            self.refetchThisOrg()
+            self.fetchOrg()
             self.fetchHours()
             self.fetchClosures()
             self.fetchAddress()
-            self.onOrgsLoaded()
+            self.onOrgTreeLoaded()
         }.ensure {
-            self.enableButtonsWhenReady()
             self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }
     
-    func refetchThisOrg() {
+    func fetchOrg() {
         // fetch details for this org again, so it's up-to-date
         // and not the cached version from the orgTree
         guard let orgID = self.orgID else { return }
-        ActorService.fetchOrg(forOrgID: orgID).catch { error in
+        ActorService.fetchOrg(forOrgID: orgID).done {
+            self.onOrgLoaded()
+        }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -129,9 +130,6 @@ class OrgDetailsViewController: UIViewController {
         
         ActorService.fetchOrgAddress(addressID: addressID).done { obj in
             self.onAddressLoaded(obj)
-//        }.ensure {
-//            self.enableButtonsWhenReady()
-//            self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
@@ -155,7 +153,11 @@ class OrgDetailsViewController: UIViewController {
         mapButton.addTarget(self, action: #selector(mapButtonPressed(sender:)), for: .touchUpInside)
         emailButton.addTarget(self, action: #selector(emailButtonPressed(sender:)), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonPressed(sender:)), for: .touchUpInside)
-        enableButtonsWhenReady()
+        orgButton.isEnabled = false
+        webSiteButton.isEnabled = false
+        emailButton.isEnabled = false
+        phoneButton.isEnabled = false
+        mapButton.isEnabled = false
     }
     
     func setupHoursViews() {
@@ -173,7 +175,7 @@ class OrgDetailsViewController: UIViewController {
         }
     }
 
-    func enableButtonsWhenReady() {
+    func onOrgLoaded() {
         let org = Organization.find(byId: orgID)
         if let name = org?.name {
             orgButton.isEnabled = true
@@ -200,6 +202,10 @@ class OrgDetailsViewController: UIViewController {
             phoneButton.isEnabled = false
             phoneButton.setTitle(nil, for: .normal)
         }
+    }
+
+    func onAddressLoaded() {
+        let org = Organization.find(byId: orgID)
         if let obj = org?.addressObj, let _ = mapsURL(obj) {
             mapButton.isEnabled = true
         } else {
@@ -399,7 +405,7 @@ class OrgDetailsViewController: UIViewController {
         }
         return line1
     }
-    
+
     func getAddressLine2(_ obj: OSRFObject) -> String {
         var line2 = ""
         if let s = obj.getString("city"), !s.isEmpty {
@@ -434,10 +440,7 @@ class OrgDetailsViewController: UIViewController {
         addressLine2.text = getAddressLine2(obj)
     }
 
-    func onOrgsLoaded() {
-        //let org = Organization.find(byId: orgID)
-        //orgButton.setTitle(org?.name, for: .normal)
-
+    func onOrgTreeLoaded() {
         orgLabels = Organization.getSpinnerLabels()
     }
 }
