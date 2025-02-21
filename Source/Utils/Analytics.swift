@@ -45,7 +45,7 @@ class Analytics {
         static let cancelHold = "hold_cancel"
         static let placeHold = "hold_place"
         static let updateHold = "hold_update"
-        static let login = "login"
+        static let login = "login_v2"
         static let search = "search" // FirebaseAnalytics.AnalyticsEventSearch
     }
 
