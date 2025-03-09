@@ -20,7 +20,8 @@ class MoAppConfiguration: BaseAppConfiguration {
     override var url: String { return "https://missourievergreen.org" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
-    override var enableHoldShowExpiration: Bool { return false }
+    override var enableHoldShowQueuePosition: Bool { return true }
+    override var enableHoldShowExpiration: Bool { return true }
     override var enableHoldPhoneNotification: Bool { return true }
     override var enablePartHolds: Bool { return true }
     override var enableMessages: Bool { return true }
