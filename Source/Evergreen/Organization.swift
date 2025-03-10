@@ -288,4 +288,19 @@ class Organization {
         org.aouObj = obj
         //print("xxx.org_update id=\(id) level=\(org.level) vis=\(org.opacVisible) site=\(org.shortname) name=\(org.name)")
     }
+
+    static func dumpOrgStats() {
+        // count the number of orgs that are pickup locations
+        let numPickupLocations = visibleOrgs.count { $0.isPickupLocation }
+        let numWithEvents = visibleOrgs.count { $0.eventsURL != nil }
+        let numWithEresources = visibleOrgs.count { $0.eresourcesURL != nil }
+        let numWithMeetingRooms = visibleOrgs.count { $0.meetingRoomsURL != nil }
+        let numWithMuseumPasses = visibleOrgs.count { $0.museumPassesURL != nil }
+        print("xxx.org_stats \(visibleOrgs.count) visible orgs")
+        print("xxx.org_stats \(numPickupLocations) are pickup locations")
+        print("xxx.org_stats \(numWithEvents) have events URLs")
+        print("xxx.org_stats \(numWithEresources) have eresources URLs")
+        print("xxx.org_stats \(numWithMeetingRooms) have meeting rooms URLs")
+        print("xxx.org_stats \(numWithMuseumPasses) have museum passes URLs")
+    }
 }

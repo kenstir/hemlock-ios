@@ -301,6 +301,7 @@ class PlaceHoldViewController: UIViewController {
         loadCarrierData()
         loadExpirationData()
         enableViewsWhenReady()
+        Organization.dumpOrgStats()
     }
 
     func loadNotifyData() {
