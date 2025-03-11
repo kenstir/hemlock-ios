@@ -42,7 +42,7 @@ class MainListViewController: MainBaseViewController {
     @IBOutlet weak var galileoButton: UIButton!
 
     var buttons: [ButtonAction] = []
-    var didFetchEventsURL = false
+    var didFetchHomeOrgSettings = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
 
     //MARK: - UIViewController
@@ -160,16 +160,16 @@ class MainListViewController: MainBaseViewController {
             fetchMessages(authtoken: authtoken, userid: userID)
         }
         if App.config.enableEventsButton {
-            fetchEventsURL()
+            fetchHomeOrgSettings()
         }
     }
     
-    func fetchEventsURL() {
-        if didFetchEventsURL { return }
+    func fetchHomeOrgSettings() {
+        if didFetchHomeOrgSettings { return }
         guard let orgID = App.account?.homeOrgID else { return }
         let promise = ActorService.fetchOrgTreeAndSettings(forOrgID: orgID)
         promise.done {
-            self.didFetchEventsURL = true
+            self.didFetchHomeOrgSettings = true
             if let org = Organization.find(byId: orgID),
                let eventsURL = org.eventsURL,
                !eventsURL.isEmpty,

@@ -64,11 +64,7 @@ class MainGridViewController: MainBaseViewController {
     //MARK: - Async Functions
 
     func fetchData() {
-        if App.config.enableEventsButton {
-            fetchHomeOrgSettings()
-        } else {
-            loadButtons(forOrg: nil)
-        }
+        fetchHomeOrgSettings()
     }
 
     func fetchHomeOrgSettings() {
