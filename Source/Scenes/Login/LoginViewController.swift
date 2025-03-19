@@ -112,6 +112,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }.finally {
+            self.loginButton.isEnabled = true
             self.activityIndicator.stopAnimating()
         }
     }
@@ -155,10 +156,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if alreadyLoggedIn {
             return
         }
-        guard
-            usernameField.hasText,
-            passwordField.hasText,
-            let username = usernameField.text,
+        guard usernameField.hasText else {
+            self.view.makeToast("Username cannot be empty")
+            return
+        }
+        guard passwordField.hasText else {
+            self.view.makeToast("Password cannot be empty")
+            return
+        }
+        guard let username = usernameField.text,
             let password = passwordField.text else
         {
             return
