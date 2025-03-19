@@ -41,8 +41,7 @@ struct TestServiceData {
             let json = try? JSONSerialization.jsonObject(with: data),
             let jsonObject = json as? [String: Any] else
         {
-            serviceData.error = "invalid JSON data in \(TestServiceData.configFile).json, see TestUserData/README.md"
-            return serviceData
+            fatalError("invalid JSON data in \(TestServiceData.configFile).json, see TestUserData/README.md")
         }
         if let httpbinServer = jsonObject["httpbinServer"] as? String {
             serviceData.httpbinServer = httpbinServer
