@@ -22,44 +22,36 @@ import Alamofire
 import Foundation
 @testable import Hemlock
 
-class TestServiceData {
+struct TestServiceData {
     static let configFile = "TestUserData/testServiceData" // .json
-    static var instance: TestServiceData? = nil
 
-    let httpbinServer: String?
+    var httpbinServer = "https://httpbin.org"
 
-    init(httpbinServer: String?) {
-        self.httpbinServer = httpbinServer
-    }
+    var error: String? = nil
 
     static func make(fromBundle bundle: Bundle) -> TestServiceData {
-        if let i = instance {
-            return i
-        }
+        var serviceData = TestServiceData()
 
         // read json file
         guard let path = bundle.path(forResource: TestServiceData.configFile, ofType: "json") else {
-            let i = TestServiceData(httpbinServer: "invalid JSON data in \(TestServiceData.configFile).json, see TestUserData/README.md")
-            instance = i
-            return i
+            return serviceData
         }
         guard
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonObject = json as? [String: Any],
-            let httpbinServer = jsonObject["httpbinServer"] as? String else
+            let jsonObject = json as? [String: Any] else
         {
-            let i = TestServiceData(httpbinServer: "invalid JSON data in \(TestServiceData.configFile).json, see TestUserData/README.md")
-            instance = i
-            return i
+            serviceData.error = "invalid JSON data in \(TestServiceData.configFile).json, see TestUserData/README.md"
+            return serviceData
         }
-        let i = TestServiceData(httpbinServer: httpbinServer)
-        instance = i
-        return i
+        if let httpbinServer = jsonObject["httpbinServer"] as? String {
+            serviceData.httpbinServer = httpbinServer
+        }
+        return serviceData
     }
 
     func httpbinServerURL(path: String? = nil) -> String {
-        return (httpbinServer ?? "https://httpbin.org") + (path ?? "/get")
+        return httpbinServer + (path ?? "/get")
     }
 
     func httpbinServerPostURL() -> String {

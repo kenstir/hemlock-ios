@@ -27,18 +27,26 @@ import Foundation
 
 class PromiseKitTests: XCTestCase {
     let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
-    
+
+    var serviceData = TestServiceData()
+
+    override func setUp() {
+        super.setUp()
+
+        serviceData = TestServiceData.make(fromBundle: Bundle(for: type(of: self)))
+    }
+
     func showAlert(_ error: Error) {
         let desc = error.localizedDescription
         print("ERROR: \(desc)")
     }
-    
+
     func test_basicPromiseChain() {
         let expectation = XCTestExpectation(description: "async response")
 
         var savedResult: Any?
 
-        let req = AF.request("https://httpbin.org/get")
+        let req = AF.request(serviceData.httpbinServerURL())
         req.responseJSON().done { json in
             print("done: \(json)")
             savedResult = json
@@ -87,7 +95,7 @@ class PromiseKitTests: XCTestCase {
         var parameters: [String: Any]
 
         parameters = ["stage": stage]
-        req = AF.request("https://httpbin.org/get", method: .get, parameters: parameters)
+        req = AF.request(serviceData.httpbinServerURL(), method: .get, parameters: parameters)
         req.responseJSON().then { (json: Any, response: PMKAlamofire.PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofire.PMKAlamofireDataResponse)> in
             stage = 1
             print("stage \(stage)")
@@ -95,13 +103,13 @@ class PromiseKitTests: XCTestCase {
                 throw PMKError.cancelled
             }
             parameters = ["stage": stage]
-            req = AF.request("https://httpbin.org/get", method: .get, parameters: parameters)
+            req = AF.request(self.serviceData.httpbinServerURL(), method: .get, parameters: parameters)
             return req.responseJSON()
         }.then { (json: Any, response: PMKAlamofire.PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofire.PMKAlamofireDataResponse)> in
             stage = 2
             print("stage \(stage)")
             parameters = ["stage": stage]
-            req = AF.request("https://httpbin.org/get", method: .get, parameters: parameters)
+            req = AF.request(self.serviceData.httpbinServerURL(), method: .get, parameters: parameters)
             return req.responseJSON()
         }.done { json in
             stage = 3
@@ -126,7 +134,7 @@ class PromiseKitTests: XCTestCase {
         var errorCount = 0
 
         // this url returns xml
-        let req = AF.request("https://httpbin.org/xml")
+        let req = AF.request(serviceData.httpbinServerURL(path: "/xml"))
         req.responseJSON().done { json in
             print("done: \(json)")
             expectation.fulfill()
@@ -153,7 +161,7 @@ class PromiseKitTests: XCTestCase {
             expectations.append(expectation)
 
             let params = ["i": i]
-            let req = AF.request("https://httpbin.org/get", method: .get, parameters: params)
+            let req = AF.request(serviceData.httpbinServerURL(), method: .get, parameters: params)
             print("\(i): req")
             req.responseJSON().done { json in
                 print("\(i): done")
@@ -181,7 +189,7 @@ class PromiseKitTests: XCTestCase {
             expectations.append(expectation)
 
             let params = ["i": i]
-            let req = AF.request("https://httpbin.org/get", method: .get, parameters: params)
+            let req = AF.request(serviceData.httpbinServerURL(), method: .get, parameters: params)
             print("\(i): req")
             
             let promise = req.responseJSON().done { json in
@@ -218,7 +226,7 @@ class PromiseKitTests: XCTestCase {
             expectations.append(expectation)
 
             let params = ["i": i]
-            let req = AF.request("https://httpbin.org/get", method: .get, parameters: params)
+            let req = AF.request(serviceData.httpbinServerURL(), method: .get, parameters: params)
             print("\(i): req")
             
             let promise = req.responseJSON().ensure {
