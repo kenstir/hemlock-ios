@@ -22,12 +22,66 @@ import Alamofire
 import Foundation
 @testable import Hemlock
 
+class TestServiceData {
+    static let configFile = "TestUserData/testServiceData" // .json
+    static var instance: TestServiceData? = nil
+
+    let httpbinServer: String?
+
+    init(httpbinServer: String?) {
+        self.httpbinServer = httpbinServer
+    }
+
+    static func make(fromBundle bundle: Bundle) -> TestServiceData {
+        if let i = instance {
+            return i
+        }
+
+        // read json file
+        guard let path = bundle.path(forResource: TestServiceData.configFile, ofType: "json") else {
+            let i = TestServiceData(httpbinServer: "invalid JSON data in \(TestServiceData.configFile).json, see TestUserData/README.md")
+            instance = i
+            return i
+        }
+        guard
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let jsonObject = json as? [String: Any],
+            let httpbinServer = jsonObject["httpbinServer"] as? String else
+        {
+            let i = TestServiceData(httpbinServer: "invalid JSON data in \(TestServiceData.configFile).json, see TestUserData/README.md")
+            instance = i
+            return i
+        }
+        let i = TestServiceData(httpbinServer: httpbinServer)
+        instance = i
+        return i
+    }
+
+    func httpbinServerURL(path: String? = nil) -> String {
+        return (httpbinServer ?? "https://httpbin.org") + (path ?? "/get")
+    }
+
+    func httpbinServerPostURL() -> String {
+        return httpbinServerURL(path: "/post")
+    }
+
+}
+
 class AlamoTests: XCTestCase {
     let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
 
+    var serviceData: TestServiceData?
+
+    override func setUp() {
+        super.setUp()
+
+        serviceData = TestServiceData.make(fromBundle: Bundle(for: type(of: self)))
+    }
+
     func test_basicGet() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = AF.request("https://httpbin.org/get")
+        let request = AF.request(serviceData!.httpbinServerURL())
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
@@ -77,7 +131,7 @@ class AlamoTests: XCTestCase {
 
     // test using gatewayEncoding to encode as param=1&param=2
     func test_gatewayEncoding() {
-        let url = URL(string: "https://httpbin.org/get")!
+        let url = URL(string: serviceData!.httpbinServerURL())!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         let parameters: Parameters = ["param": [1,2]]
@@ -94,7 +148,7 @@ class AlamoTests: XCTestCase {
     func test_gatewayEncodingResponse() {
         let expectation = XCTestExpectation(description: "async response")
         let parameters = ["param": ["\"stringish\"", "{\"objish\":1}"]]
-        let request = AF.request("https://httpbin.org/post", method: .post, parameters: parameters, encoding: gatewayEncoding)
+        let request = AF.request(serviceData!.httpbinServerPostURL(), method: .post, parameters: parameters, encoding: gatewayEncoding)
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
@@ -125,7 +179,7 @@ class AlamoTests: XCTestCase {
     func test_requestWithCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
-            let url = "https://httpbin.org/ip"
+            let url = serviceData!.httpbinServerURL(path: "/ip")
             let request = Gateway.makeRequest(url: url, shouldCache: true)
             print("request:  \(request.description)")
             request.responseData { response in
@@ -146,7 +200,7 @@ class AlamoTests: XCTestCase {
     func test_requestWithoutCache() {
         self.measure {
             let expectation = XCTestExpectation(description: "async response")
-            let url = "https://httpbin.org/headers"
+            let url = serviceData!.httpbinServerURL(path: "/headers")
             let request = Gateway.makeRequest(url: url, shouldCache: false)
             print("request:  \(request.description)")
             request.responseData { response in
