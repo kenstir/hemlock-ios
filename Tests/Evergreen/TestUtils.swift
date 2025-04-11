@@ -64,6 +64,14 @@ class TestUtils {
             "opac_visible": "t",
             "parent_ou": 3,
             "children": nil])
+        let br4 = OSRFObject([
+            "id": 7,
+            "ou_type": 3,
+            "shortname": "BR4",
+            "name": "Example Branch 4",
+            "opac_visible": "f",
+            "parent_ou": 3,
+            "children": nil])
         let sys2 = OSRFObject([
             "id": 3,
             "ou_type": 2,
@@ -71,7 +79,7 @@ class TestUtils {
             "name": "Example System 2",
             "opac_visible": "t",
             "parent_ou": 1,
-            "children": [br3]])
+            "children": [br3, br4]])
         let cons = OSRFObject([
             "id": 1,
             "ou_type": 1,

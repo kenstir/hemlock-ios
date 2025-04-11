@@ -114,7 +114,9 @@ class CopyLocationCounts {
 
         // if a branch is not opac visible, its copies should not be visible
         for elem in array {
-            if Organization.find(byId: elem.orgID) != nil {
+            if let org = Organization.find(byId: elem.orgID),
+               org.opacVisible
+            {
                 ret.append(elem)
             }
         }

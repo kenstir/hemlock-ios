@@ -41,9 +41,9 @@ class JSONUtils {
     static func parseObject(fromData data: Data) -> JSONDictionary? {
         if
             let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonObject = json as? JSONDictionary
+            let dict = json as? JSONDictionary
         {
-            return jsonObject
+            return dict
         } else {
             return nil
         }
