@@ -18,7 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class AcornAppConfiguration: BaseAppConfiguration {
-    override var url: String { return "https://opac.biblio.org" }
+    override var url: String { return "https://acornapp.biblio.org" }
 //    override var url: String { return "https://theory.biblio.org" } // public test server
         override var title: String { return "Acorn Catalog" }
 //    override var title: String { return "Acorn Catalog TEST" }
