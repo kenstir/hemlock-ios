@@ -23,7 +23,7 @@ class AcornAppConfiguration: BaseAppConfiguration {
         override var title: String { return "Acorn Catalog" }
 //    override var title: String { return "Acorn Catalog TEST" }
 
-    override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
+    override var bugReportEmailAddress: String { return "acornapp@biblio.org" }
 
     override var enableHoldPhoneNotification: Bool { return true }
     override var enablePartHolds: Bool { return true }
