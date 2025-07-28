@@ -627,6 +627,9 @@
 		D2572B2924AD7A13000BA698 /* MoAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */; };
 		D2592D7D24AFA4C0009E80EC /* mo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2592D7C24AFA4C0009E80EC /* mo.xcassets */; };
 		D259671924511CA90076267D /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D259671824511CA90076267D /* UtilsTests.swift */; };
+		D25D97222E38412400DBFD65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D25D97212E38412400DBFD65 /* GoogleService-Info.plist */; };
+		D25D97242E38417D00DBFD65 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D25D97232E38417D00DBFD65 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		D25D97262E38418700DBFD65 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D25D97252E38418700DBFD65 /* FirebaseCrashlytics */; };
 		D25E7CE92D0A284800AD1A2A /* MainGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04462BA12CE7001850C5 /* MainGridViewController.swift */; };
 		D25E7CEA2D0A284E00AD1A2A /* MainGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E04482BA234AB001850C5 /* MainGridViewCell.swift */; };
 		D25EEC4A28A1E8310090F108 /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
@@ -2071,6 +2074,7 @@
 		D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoAppBehavior.swift; sourceTree = "<group>"; };
 		D2592D7C24AFA4C0009E80EC /* mo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mo.xcassets; sourceTree = "<group>"; };
 		D259671824511CA90076267D /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
+		D25D97212E38412400DBFD65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D25EECCF28A1E8310090F108 /* OWWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25EECD028A1E8310090F108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25EECD228A1EB2D0090F108 /* OwwlAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwwlAppBehavior.swift; sourceTree = "<group>"; };
@@ -2280,9 +2284,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */,
+				D25D97242E38417D00DBFD65 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				D2951E3C2B8FC27600193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */,
 				D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D25D97262E38418700DBFD65 /* FirebaseCrashlytics in Frameworks */,
 				D2951E3E2B8FC27600193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E402B8FC27600193695 /* Valet.xcframework in Frameworks */,
 				D2951E3A2B8FC27600193695 /* PMKAlamofire.xcframework in Frameworks */,
@@ -2747,6 +2753,7 @@
 		D2477C2D24785C0300FD4CF6 /* indiana_app */ = {
 			isa = PBXGroup;
 			children = (
+				D25D97212E38412400DBFD65 /* GoogleService-Info.plist */,
 				D2477C2F24786CCE00FD4CF6 /* AppFactory.swift */,
 				D2477C3224786CCF00FD4CF6 /* IndianaAppBehavior.swift */,
 				D2477C3124786CCF00FD4CF6 /* IndianaAppConfiguration.swift */,
@@ -3132,6 +3139,7 @@
 				D2477C0C24785A6B00FD4CF6 /* Frameworks */,
 				D2477C1724785A6B00FD4CF6 /* Resources */,
 				D2951E442B8FC27700193695 /* Embed Frameworks */,
+				D25D97272E38424700DBFD65 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -3483,6 +3491,7 @@
 				D2477C2124785A6B00FD4CF6 /* Options.storyboard in Resources */,
 				D24628FB273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D20F1A552B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
+				D25D97222E38412400DBFD65 /* GoogleService-Info.plist in Resources */,
 				D29911DE248461C0007DB26C /* OrgDetails.storyboard in Resources */,
 				D23371122A6C78830080294F /* Login.storyboard in Resources */,
 				D2477C2224785A6B00FD4CF6 /* Default-568h@2x.png in Resources */,
@@ -3834,6 +3843,29 @@
 			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 		D231C76C2BD2BF3D00440D9D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+		D25D97272E38424700DBFD65 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -5334,6 +5366,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/indiana_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5344,6 +5377,7 @@
 				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.indiana;
 				PRODUCT_NAME = "Evergreen Indiana";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -5358,6 +5392,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/indiana_app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -5368,6 +5403,7 @@
 				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.indiana;
 				PRODUCT_NAME = "Evergreen Indiana";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6097,6 +6133,16 @@
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
 		};
 		D22A7FF52D680B60003C5F20 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		D25D97232E38417D00DBFD65 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		D25D97252E38418700DBFD65 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
