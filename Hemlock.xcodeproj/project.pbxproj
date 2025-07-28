@@ -1313,6 +1313,7 @@
 		D29C96002599288100CACDBD /* event_msg_map.json in Resources */ = {isa = PBXBuildFile; fileRef = D29C95FE2599288100CACDBD /* event_msg_map.json */; };
 		D29E874B22D2AFE7003C5467 /* ntlc.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D29E874A22D2AFE7003C5467 /* ntlc.xcassets */; };
 		D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E87FC20D831540003EB27 /* SearchViewController.swift */; };
+		D2A3C8C32E3712A000A2702C /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = D2A3C8C22E3712A000A2702C /* AppIcon.icon */; };
 		D2A627D52BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
 		D2A627D62BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
 		D2A627D72BDAC308005BB11F /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A627D42BDAC308005BB11F /* PushNotification.swift */; };
@@ -2170,6 +2171,7 @@
 		D29C95FE2599288100CACDBD /* event_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event_msg_map.json; sourceTree = "<group>"; };
 		D29E874A22D2AFE7003C5467 /* ntlc.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ntlc.xcassets; sourceTree = "<group>"; };
 		D29E87FC20D831540003EB27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D2A3C8C22E3712A000A2702C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppIcon.icon; sourceTree = "<group>"; };
 		D2A627D42BDAC308005BB11F /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZXMultiFormatWriter+SafeEncode.m"; sourceTree = "<group>"; };
 		D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZXMultiFormatWriter+SafeEncode.h"; sourceTree = "<group>"; };
@@ -2792,6 +2794,7 @@
 				D25EECD428A1EB2D0090F108 /* OwwlTheme.swift */,
 				D25EECD028A1E8310090F108 /* Info.plist */,
 				D25EECD528A1EB2D0090F108 /* owwl.xcassets */,
+				D2A3C8C22E3712A000A2702C /* AppIcon.icon */,
 			);
 			path = owwl_app;
 			sourceTree = "<group>";
@@ -3560,6 +3563,7 @@
 				D25EECBE28A1E8310090F108 /* event_msg_map.json in Resources */,
 				D23371162A6C78830080294F /* Login.storyboard in Resources */,
 				D271862C28CEBFC90046E9BC /* ScanBarcode.storyboard in Resources */,
+				D2A3C8C32E3712A000A2702C /* AppIcon.icon in Resources */,
 				D25EECBF28A1E8310090F108 /* ShowCard.storyboard in Resources */,
 				D25EECC028A1E8310090F108 /* strings.json in Resources */,
 				D25EECC128A1E8310090F108 /* Options.storyboard in Resources */,
@@ -5242,7 +5246,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.1;
+				MARKETING_VERSION = 4.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.bibliomation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -5270,7 +5274,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.1;
+				MARKETING_VERSION = 4.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.bibliomation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
