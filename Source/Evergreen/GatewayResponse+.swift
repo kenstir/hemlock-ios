@@ -15,9 +15,25 @@
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
-//
-//struct XGatewayResponseContent: Codable {
-//    let payload: [Any?]
-//    let debug: String?
-//    let status: String
-//}
+
+extension GatewayResponse {
+    func asString() throws -> String {
+        if let error = self.error {
+            throw error
+        } else if let str = self.str {
+            return str
+        } else {
+            throw HemlockError.serverError("expected string, got \(self.description)")
+        }
+    }
+
+    func asObject() throws -> OSRFObject {
+        if let error = self.error {
+            throw error
+        } else if let obj = self.obj {
+            return obj
+        } else {
+            throw HemlockError.serverError("expected object, got \(self.description)")
+        }
+    }
+}

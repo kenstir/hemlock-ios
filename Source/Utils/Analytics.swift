@@ -157,27 +157,27 @@ class Analytics {
 #endif
     }
 
-    static func logRequest(tag: String, method: String, args: [String]) {
+    static func logRequest(tag: String?, method: String, args: [String]) {
         // TODO: redact authtoken inside args
         var argsDescription = "***"
         if method != "open-ils.auth.authenticate.init",
            method != "open-ils.auth.authenticate.complete" {
             argsDescription = args.joined(separator: ",")
         }
-        let s = "\(tag): send: \(method) \(argsDescription)"
+        let s = "\(tag ?? nullTag): send: \(method) \(argsDescription)"
 
         os_log("%{public}s", log: log, type: .info, s)
         buf.write(s)
     }
 
-    static func logRequest(tag: String, url: String) {
-        let s = "\(tag): send: \(url)"
+    static func logRequest(tag: String?, url: String) {
+        let s = "\(tag ?? nullTag): send: \(url)"
 
         os_log("%{public}s", log: log, type: .info, s)
         buf.write(s)
     }
 
-    static func logResponse(tag: String, data responseData: Data?) {
+    static func logResponse(tag: String?, data responseData: Data?) {
         if let d = responseData,
             let s = String(data: d, encoding: .utf8) {
             logResponse(tag: tag, wireString: s)
@@ -186,7 +186,7 @@ class Analytics {
         }
     }
     
-    static func logResponse(tag: String, wireString: String) {
+    static func logResponse(tag: String?, wireString: String) {
         // redact certain responses: login (au), message (aum), orgTree (aou)
         // au? is sensitive; aou is just long
         let pattern = """
@@ -195,9 +195,9 @@ class Analytics {
         let range = wireString.range(of: pattern, options: .regularExpression)
         let s: String
         if range == nil {
-            s = "\(tag): recv: \(wireString)"
+            s = "\(tag ?? nullTag): recv: \(wireString)"
         } else {
-            s = "\(tag): recv: ***"
+            s = "\(tag ?? nullTag): recv: ***"
         }
 
         // log the first bytes of the response
