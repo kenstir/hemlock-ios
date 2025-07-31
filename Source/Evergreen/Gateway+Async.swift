@@ -33,4 +33,27 @@ extension Alamofire.DataRequest {
             }
         }
     }
+
+    func gatewayObjectResponseAsync(queue: DispatchQueue = .main) async throws -> OSRFObject {
+        return try await withCheckedThrowingContinuation { continuation in
+            responseData(queue: queue) { response in
+                let tag = response.request?.debugTag ?? Analytics.nullTag
+                switch response.result {
+                case .success(let data):
+                    Analytics.logResponse(tag: tag, data: data)
+                    let resp = GatewayResponse(data)
+                    if let error = resp.error {
+                        continuation.resume(throwing: error)
+                    } else if let obj = resp.obj {
+                        continuation.resume(returning: obj)
+                    } else {
+                        let extra = Bundle.isTestFlightOrDebug ? " (\(tag))" : ""
+                        continuation.resume(throwing: HemlockError.serverError("expected object, received \(resp.description)\(extra)"))
+                    }
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
 }

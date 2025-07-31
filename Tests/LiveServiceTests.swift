@@ -168,6 +168,13 @@ class LiveServiceTests: XCTestCase {
         }
     }
 
+    //MARK: - Async tests
+    func test_asyncBasic() async throws {
+        let service = EvergreenAuthService()
+        let authToken = try await service.fetchAuthToken(credential: Credential(username: username, password: password))
+        XCTAssertFalse(authToken.isEmpty, "authToken should not be empty")
+    }
+
     //MARK: - Promise tests
     
     // Test a basic promise chain, it does not actually login

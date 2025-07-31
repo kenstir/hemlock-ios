@@ -304,6 +304,17 @@
 		D233988E2E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398852E3BC3DB00CBDAEB /* Gateway+Async.swift */; };
 		D233988F2E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398852E3BC3DB00CBDAEB /* Gateway+Async.swift */; };
 		D23398902E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398852E3BC3DB00CBDAEB /* Gateway+Async.swift */; };
+		D23398922E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D23398932E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D23398942E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D23398952E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D23398962E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D23398972E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D23398982E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D23398992E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D233989A2E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D233989B2E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
+		D233989C2E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */; };
 		D2346FFB24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */; };
 		D2346FFC24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */; };
 		D2346FFD24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */; };
@@ -2079,6 +2090,7 @@
 		D233986D2E3BB3EA00CBDAEB /* XLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XLoaderService.swift; sourceTree = "<group>"; };
 		D23398792E3BB64F00CBDAEB /* EvergreenAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenAuthService.swift; sourceTree = "<group>"; };
 		D23398852E3BC3DB00CBDAEB /* Gateway+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gateway+Async.swift"; sourceTree = "<group>"; };
+		D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XGatewayResponseContent.swift; sourceTree = "<group>"; };
 		D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Badge.swift"; sourceTree = "<group>"; };
 		D2385E2B2091400D00FE0C89 /* IDLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParserTests.swift; sourceTree = "<group>"; };
 		D2385E2D20914E6B00FE0C89 /* TestData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestData; sourceTree = SOURCE_ROOT; };
@@ -2741,6 +2753,7 @@
 				D28AE24924F355A500960E9E /* ServiceUtils.swift */,
 				D2C24A32210178DD0028180B /* SMSCarrier.swift */,
 				D23398852E3BC3DB00CBDAEB /* Gateway+Async.swift */,
+				D23398912E3BC71500CBDAEB /* XGatewayResponseContent.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -4163,6 +4176,7 @@
 				D2931AAA272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D210EBF122B1EE55002FB5E0 /* SendEmailViewController.swift in Sources */,
 				D210EBF222B1EE55002FB5E0 /* UIView+UYLExtensions.swift in Sources */,
+				D23398992E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D210EBF322B1EE55002FB5E0 /* CircRecord.swift in Sources */,
 				D210EBF422B1EE55002FB5E0 /* CheckoutsViewController.swift in Sources */,
 				D210EBF622B1EE55002FB5E0 /* Theme.swift in Sources */,
@@ -4298,6 +4312,7 @@
 				D233986E2E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D23E9FA223B9200A0030F5C1 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491D29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
+				D233989B2E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
 				D23E9FA423B9200A0030F5C1 /* Gateway+PMK.swift in Sources */,
 				D21090CE24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4413,6 +4428,7 @@
 				D23398722E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */,
 				D24D491729D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
+				D233989C2E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D2477BF424785A6B00FD4CF6 /* Gateway+PMK.swift in Sources */,
 				D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */,
 				D21090CA24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4528,6 +4544,7 @@
 				D23398782E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2572AE524AD7755000BA698 /* Gateway+PMK.swift in Sources */,
 				D24D491829D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
+				D23398972E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */,
 				D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */,
 				D21090CF24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4643,6 +4660,7 @@
 				D23398752E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D25EEC8A28A1E8310090F108 /* CodedValueMap.swift in Sources */,
 				D24D491B29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
+				D23398982E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D25EEC8B28A1E8310090F108 /* Gateway+PMK.swift in Sources */,
 				D25EEC8C28A1E8310090F108 /* CopyLocationCounts.swift in Sources */,
 				D25EEC8D28A1E8310090F108 /* MBRecord.swift in Sources */,
@@ -4761,6 +4779,7 @@
 				D276DAB621336B20007FAA31 /* CopyLocationCounts.swift in Sources */,
 				D2CF924422471D210009C06A /* Utils.swift in Sources */,
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
+				D23398942E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D233987F2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
 				D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
@@ -4875,6 +4894,7 @@
 				D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */,
 				D2CF924222471D210009C06A /* Utils.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
+				D23398922E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D233987C2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
@@ -4989,6 +5009,7 @@
 				D284247E21D0358200C7171C /* MBRecord.swift in Sources */,
 				D2CF924522471D210009C06A /* Utils.swift in Sources */,
 				D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */,
+				D23398932E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D23398842E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
 				D24C3931254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
@@ -5100,6 +5121,7 @@
 				D23398772E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2A6C581221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491C29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
+				D23398952E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				D21090CD24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -5235,6 +5257,7 @@
 				D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */,
 				D2BDA63922D176BD00D9B60C /* SendEmailViewController.swift in Sources */,
 				D2931AAF272DE83200CBA5AA /* BookBag.swift in Sources */,
+				D23398962E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D2BDA63A22D176BD00D9B60C /* UIView+UYLExtensions.swift in Sources */,
 				D2BDA63B22D176BD00D9B60C /* CircRecord.swift in Sources */,
 				D2BDA63C22D176BD00D9B60C /* CheckoutsViewController.swift in Sources */,
@@ -5370,6 +5393,7 @@
 				D23398702E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2BDA6DF22D2A72000D9B60C /* CopyLocationCounts.swift in Sources */,
 				D24D491A29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
+				D233989A2E3BC71500CBDAEB /* XGatewayResponseContent.swift in Sources */,
 				D2BDA71F22D2A87E00D9B60C /* NTLCAppBehavior.swift in Sources */,
 				D2BDA6E022D2A72000D9B60C /* MBRecord.swift in Sources */,
 				D21090CC24D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -5458,7 +5482,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = H23XR6LSB9;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/acorn_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5486,7 +5510,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = H23XR6LSB9;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/acorn_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5511,7 +5535,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/sagecat_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5537,7 +5561,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/sagecat_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5562,7 +5586,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/indiana_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5588,7 +5612,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/indiana_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5614,7 +5638,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MC84U89M34;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/mo_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5642,7 +5666,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MC84U89M34;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/mo_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5668,7 +5692,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/owwl_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5694,7 +5718,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/owwl_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5719,7 +5743,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5745,7 +5769,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5770,7 +5794,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/HemlockInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5795,7 +5819,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/HemlockInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5819,7 +5843,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cool_app/CoolInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5844,7 +5868,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/cool_app/CoolInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5986,7 +6010,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/PINESInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6015,7 +6039,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/PINESInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6039,6 +6063,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6060,6 +6085,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6083,7 +6109,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/noble_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6109,7 +6135,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/noble_app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6134,7 +6160,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/ntlc_app/NTLCInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6159,7 +6185,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/ntlc_app/NTLCInfo.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
