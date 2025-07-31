@@ -19,13 +19,12 @@ import Foundation
 import os.log
 
 extension Alamofire.DataRequest {
-    func gatewayResponseAsync(queue: DispatchQueue = .main) async throws -> GatewayResponse {
+    func gatewayResponseAsyncFirstAttempt(queue: DispatchQueue = .main) async throws -> GatewayResponse {
         return try await withCheckedThrowingContinuation { continuation in
             responseData(queue: queue) { response in
-                let tag = response.request?.debugTag ?? Analytics.nullTag
                 switch response.result {
                 case .success(let data):
-                    Analytics.logResponse(tag: tag, data: data)
+                    Analytics.logResponse(tag: response.request?.debugTag, data: data)
                     continuation.resume(returning: GatewayResponse(data))
                 case .failure(let error):
                     continuation.resume(throwing: error)
@@ -34,26 +33,21 @@ extension Alamofire.DataRequest {
         }
     }
 
-    func gatewayObjectResponseAsync(queue: DispatchQueue = .main) async throws -> OSRFObject {
-        return try await withCheckedThrowingContinuation { continuation in
-            responseData(queue: queue) { response in
-                let tag = response.request?.debugTag ?? Analytics.nullTag
-                switch response.result {
-                case .success(let data):
-                    Analytics.logResponse(tag: tag, data: data)
-                    let resp = GatewayResponse(data)
-                    if let error = resp.error {
-                        continuation.resume(throwing: error)
-                    } else if let obj = resp.obj {
-                        continuation.resume(returning: obj)
-                    } else {
-                        let extra = Bundle.isTestFlightOrDebug ? " (\(tag))" : ""
-                        continuation.resume(throwing: HemlockError.serverError("expected object, received \(resp.description)\(extra)"))
-                    }
-                case .failure(let error):
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
+    func gatewayResponseAsync(queue: DispatchQueue = .main) async throws -> GatewayResponse {
+        let data = try await serializingData().value
+        Analytics.logResponse(tag: self.request?.debugTag, data: data)
+        return GatewayResponse(data)
     }
+
+    /* Decided against using JSONResponseSerializer because it is not easier, and also it is deprecated.
+    func gatewayObjectResponseAsyncUsingDeprecatedResponseSerializer(queue: DispatchQueue = .main) async throws -> OSRFObject {
+        let resp = serializingResponse(using: JSONResponseSerializer())
+        print("resp: \(type(of: resp)): \(resp)")
+        let value = try await resp.value
+        print("value: \(type(of: value)): \(value)")
+        let dict = value as? JSONDictionary
+        print("dict: \(type(of: dict)): \(dict)")
+        return OSRFObject()
+    }
+     */
 }
