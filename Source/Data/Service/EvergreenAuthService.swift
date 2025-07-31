@@ -19,19 +19,31 @@ import os.log
 
 class EvergreenAuthService : XAuthService {
     func fetchAuthToken(credential: Credential) async throws -> String {
+        // step 1: get nonce
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [credential.username], shouldCache: false)
         let resp: GatewayResponse = try await req.gatewayResponseAsync()
         guard let nonce = resp.str else {
             throw HemlockError.serverError("expected string")
         }
+
+        // step 2: complete with nonce + password
         let md5password = md5(nonce + md5(credential.password))
-        let objectParam = [
+        let options = [
             "type": "persist",
             "username": credential.username,
             "password": md5password
         ]
-        let req2 = Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam], shouldCache: false)
-        return try await req2.gatewayAuthtokenResponseAsync()
+        let req2 = Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [options], shouldCache: false)
+        let resp2 = try await req2.gatewayObjectResponseAsync()
+
+        // step 3: get authtoken from response object
+        guard let payload = resp2.getObject("payload") else {
+            throw HemlockError.serverError("missing payload in login response")
+        }
+        guard let authToken = payload.getString("authtoken") else {
+            throw HemlockError.serverError("missing authtoken in login response")
+        }
+        return authToken
     }
 
     static func fetchSession(authtoken: String) async throws -> OSRFObject {
