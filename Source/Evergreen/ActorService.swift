@@ -25,26 +25,6 @@ class ActorService {
     static var orgTypesLoaded = false
     static var orgTreeLoaded = false
 
-    static func fetchServerVersion() -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.ilsVersion, args: [], shouldCache: false)
-        let promise = req.gatewayResponse().done { resp in
-            if let versionString = resp.str {
-                Gateway.serverVersionString = versionString
-            }
-        }
-        return promise
-    }
-
-    static func fetchServerCacheKey() -> Promise<Void> {
-        let settings = [API.settingHemlockCacheKey]
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [Organization.consortiumOrgID, settings, API.anonymousAuthToken], shouldCache: false)
-        let promise = req.gatewayObjectResponse().done { obj in
-            let val = Organization.ousGetString(obj, API.settingHemlockCacheKey)
-            Gateway.serverHemlockCacheKey = val
-        }
-        return promise
-    }
-
     /// Fetch list of org types.
     static func fetchOrgTypes() -> Promise<Void> {
         if orgTypesLoaded {
@@ -57,8 +37,8 @@ class ActorService {
         }
         return promise
     }
-    
-    /// Fetch org tree.
+
+    /// DEPRECATED: use async version
     static func fetchOrgTree() -> Promise<Void> {
         if orgTreeLoaded {
             return Promise<Void>()
@@ -70,7 +50,18 @@ class ActorService {
         }
         return promise
     }
-    
+
+    /// Loads the org tree
+    static func loadOrgTreeAsync() async throws -> Void {
+        if orgTreeLoaded {
+            return
+        }
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: true)
+        let obj = try await req.gatewayResponseAsync().asObject()
+        try Organization.loadOrganizations(fromObj: obj)
+        orgTreeLoaded = true
+    }
+
     /// Fetch one specific org unit.  We use this to fetch up-to-date (uncached) info on a specific org
     static func fetchOrg(forOrgID orgID: Int) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitRetrieve, args: [API.anonymousAuthToken, orgID], shouldCache: false)
@@ -142,25 +133,6 @@ class ActorService {
     static func fetchOrgAddress(addressID: Int) -> Promise<(OSRFObject?)> {
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [addressID], shouldCache: true)
         return req.gatewayOptionalObjectResponse()
-    }
-
-    static func fetchUserSettings(account: Account) -> Promise<Void> {
-        if account.userSettingsLoaded {
-            return Promise<Void>()
-        }
-        guard let authtoken = account.authtoken,
-            let userID = account.userID else {
-            //TODO: analytics
-            return Promise<Void>()
-        }
-        let fields = ["card", "settings"]
-        let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [authtoken, userID, fields], shouldCache: false)
-        let promise = req.gatewayResponse().done { resp in
-            if let obj = resp.obj {
-                account.loadUserSettings(fromObject: obj)
-            }
-        }
-        return promise
     }
 
     static func fetchBookBags(account: Account, authtoken: String, userID: Int) -> Promise<Void> {
