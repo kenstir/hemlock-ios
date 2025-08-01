@@ -176,6 +176,14 @@ class LiveServiceTests: XCTestCase {
         XCTAssertFalse(authToken.isEmpty, "authToken should not be empty")
     }
 
+    func test_asyncLoadStartupPrerequisites() async throws {
+        let service = EvergreenLoaderService()
+        try await service.loadStartupPrerequisites(options: LoadStartupOptions(
+            clientCacheKey: Bundle.appVersionUrlSafe, useHierarchicalOrgTree: true
+        ))
+        XCTAssertTrue(App.idlLoaded ?? false, "IDL should be loaded")
+    }
+
     //MARK: - Promise tests
     
     // Test a basic promise chain, it does not actually login
