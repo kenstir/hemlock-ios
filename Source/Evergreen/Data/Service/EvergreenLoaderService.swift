@@ -25,14 +25,17 @@ class EvergreenLoaderService: XLoaderService {
 //        Gateway.clientCacheKey = options.clientCacheKey
         try await loadServerCacheKey()
 
-        // sync: lod the IDL next, because everything else depends on it
+        // sync: load the IDL next, because everything else depends on it
         try await loadIDL()
+
+        // sync: load the org tree
+        try await loadOrgTree()
 
         os_log("startup.elapsed: %.3f", log: Gateway.log, type: .info, -start.timeIntervalSinceNow)
     }
 
     private func loadServerCacheKey() async throws {
-        // async: try to launch these two in parallel
+        // async: launch these two in parallel
         let versionReq = Gateway.makeRequest(service: API.actor, method: API.ilsVersion, args: [], shouldCache: false)
 
         let settings = [API.settingHemlockCacheKey]
@@ -50,5 +53,13 @@ class EvergreenLoaderService: XLoaderService {
         let req = Gateway.makeRequest(url: Gateway.idlURL(), shouldCache: true)
         let data = try await req.gatewayDataResponseAsync()
         let _ = App.loadIDL(fromData: data)
+    }
+
+    private func loadOrgTree() async throws {
+        try await ActorService.loadOrgTreeAsync()
+    }
+
+    func loadPlaceHoldPrerequisites() async throws {
+        throw HemlockError.notImplemented
     }
 }

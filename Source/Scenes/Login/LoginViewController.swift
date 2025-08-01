@@ -17,8 +17,6 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import PromiseKit
-import PMKAlamofire
 import UIKit
 import os.log
 
@@ -51,9 +49,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         os_log("login: viewDidAppear: adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
         super.viewDidAppear(animated)
@@ -93,31 +91,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.scrollView.setupKeyboardAutoResizer()
     }
 
-    func fetchData() {
+    @MainActor
+    func fetchData() async {
         self.activityIndicator.startAnimating()
 
-        // the cache keys need to be available before we make any other requests that depend on them
-        var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchServerVersion())
-        promises.append(ActorService.fetchServerCacheKey())
+        do {
+            let options = LoadStartupOptions(clientCacheKey: Bundle.appVersionUrlSafe,
+                                             useHierarchicalOrgTree: App.config.enableHierarchicalOrgTree)
+            try await App.serviceConfig.loaderService.loadStartupPrerequisites(options: options)
 
-        firstly {
-            when(fulfilled: promises)
-        }.then {
-            // IDL needs to be loaded before we can fetchOrgTree, which returns an OSRF-encoded object
-            return App.fetchIDL()
-        }.then {
-            return ActorService.fetchOrgTree()
-        }.done {
             self.loginButton.isEnabled = true
             self.didCompleteFetch = true
-            self.attemptAutoLogin()
-        }.catch { error in
+
+            attemptAutoLogin()
+        } catch {
             self.presentGatewayAlert(forError: error)
-        }.finally {
-            self.loginButton.isEnabled = true
-            self.activityIndicator.stopAnimating()
         }
+
+        self.activityIndicator.stopAnimating()
     }
 
     //MARK: UITextFieldDelegate
@@ -168,31 +159,36 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         guard let username = usernameField.text,
-            let password = passwordField.text else
+              let password = passwordField.text else
         {
             return
         }
         os_log("login: doLogin: username=%@", username)
 
+        Task { await doLoginAsync(username: username, password: password) }
+    }
+
+    @MainActor
+    func doLoginAsync(username: String, password: String) async {
         activityIndicator.startAnimating()
 
         var credential = Credential(username: username, password: password)
         let account = Account(username, password: password)
-        AuthService.fetchAuthToken(credential: credential).then { (authtoken: String) -> Promise<(OSRFObject)> in
+        do {
+            let authtoken = try await App.serviceConfig.authService.fetchAuthToken(credential: credential)
             account.authtoken = authtoken
-            return AuthService.fetchSession(authtoken: authtoken)
-        }.then { (obj: OSRFObject) -> Promise<Void> in
-            account.loadSession(fromObject: obj)
-            return ActorService.fetchUserSettings(account: account)
-        }.done {
+
+            try await App.serviceConfig.userService.loadSession(account: account)
+
             credential.displayName = account.displayName
             self.onSuccessfulLogin(account: account, credential: credential)
-        }.catch { error in
+
+        } catch {
             self.logFailedLogin(error)
             self.presentGatewayAlert(forError: error)
-        }.finally {
-            self.activityIndicator.stopAnimating()
         }
+
+        self.activityIndicator.stopAnimating()
     }
 
     func onSuccessfulLogin(account: Account, credential: Credential) {
