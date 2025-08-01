@@ -96,6 +96,13 @@ class App {
         return promise
     }
 
+    static func loadIDL(fromData data: Data) -> Bool {
+        let parser = IDLParser(data: data)
+        let ok = parser.parse()
+        App.idlLoaded = ok
+        return ok
+    }
+
     static func printLaunchInfo() {
         if let userInfo = launchNotificationUserInfo {
             let pn = PushNotification(userInfo: userInfo)

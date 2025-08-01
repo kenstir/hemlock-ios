@@ -39,6 +39,12 @@ extension Alamofire.DataRequest {
         return GatewayResponse(data)
     }
 
+    func gatewayDataResponseAsync(queue: DispatchQueue = .main) async throws -> Data {
+        let data = try await serializingData().value
+        Analytics.logResponse(tag: self.request?.debugTag, data: data)
+        return data
+    }
+
     /* Decided against using JSONResponseSerializer because it is not easier, and also it is deprecated.
     func gatewayObjectResponseAsyncUsingDeprecatedResponseSerializer(queue: DispatchQueue = .main) async throws -> OSRFObject {
         let resp = serializingResponse(using: JSONResponseSerializer())

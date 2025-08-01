@@ -1654,6 +1654,17 @@
 		D2C300262E3C02220082C308 /* GatewayResponse+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */; };
 		D2C300272E3C02220082C308 /* GatewayResponse+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */; };
 		D2C300282E3C02220082C308 /* GatewayResponse+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */; };
+		D2C3002A2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C3002B2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C3002C2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C3002D2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C3002E2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C3002F2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C300302E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C300312E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C300322E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C300332E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
+		D2C300342E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */; };
 		D2C3EA2129D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
 		D2C3EA2229D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
 		D2C3EA2329D88DC000583A96 /* DetailsPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */; };
@@ -2275,6 +2286,7 @@
 		D2C24A2F210171290028180B /* PCRUDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCRUDService.swift; sourceTree = "<group>"; };
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
 		D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatewayResponse+.swift"; sourceTree = "<group>"; };
+		D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenLoaderService.swift; sourceTree = "<group>"; };
 		D2C3EA2029D88DC000583A96 /* DetailsPagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPagerViewController.swift; sourceTree = "<group>"; };
 		D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2C3EA3829D905F100583A96 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
@@ -2725,6 +2737,7 @@
 		D22D027620857DFE00DC1F5B /* Evergreen */ = {
 			isa = PBXGroup;
 			children = (
+				D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */,
 				D23398852E3BC3DB00CBDAEB /* Gateway+Async.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D287D51B207AEF3D001AF644 /* Account.swift */,
@@ -2753,7 +2766,6 @@
 				D267E4E3210CDE4700C56047 /* SearchService.swift */,
 				D28AE24924F355A500960E9E /* ServiceUtils.swift */,
 				D2C24A32210178DD0028180B /* SMSCarrier.swift */,
-				D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */,
 			);
 			path = Evergreen;
 			sourceTree = "<group>";
@@ -2935,6 +2947,7 @@
 				D23398552E3BB23F00CBDAEB /* XAuthService.swift */,
 				D23398792E3BB64F00CBDAEB /* EvergreenAuthService.swift */,
 				D233986D2E3BB3EA00CBDAEB /* XLoaderService.swift */,
+				D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -4215,6 +4228,7 @@
 				D210EC0E22B1EE55002FB5E0 /* UIScrollView+.swift in Sources */,
 				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
 				D28E04472BA12CE7001850C5 /* MainGridViewController.swift in Sources */,
+				D2C300322E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2C3001E2E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D2BB66BC297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D29838602B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
@@ -4341,6 +4355,7 @@
 				D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D23E9FB723B9200A0030F5C1 /* CopyCount.swift in Sources */,
 				D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */,
+				D2C300302E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */,
 				D2C300202E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */,
@@ -4457,6 +4472,7 @@
 				D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2477C0824785A6B00FD4CF6 /* CopyCount.swift in Sources */,
 				D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */,
+				D2C3002F2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */,
 				D2C300252E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D2477C0B24785A6B00FD4CF6 /* Account.swift in Sources */,
@@ -4573,6 +4589,7 @@
 				D2572AFA24AD7755000BA698 /* OrgDetailsViewController.swift in Sources */,
 				D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */,
 				D2572AFC24AD7755000BA698 /* String+subscript.swift in Sources */,
+				D2C3002D2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2572AFD24AD7755000BA698 /* SearchService.swift in Sources */,
 				D2C300212E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D2572AFE24AD7755000BA698 /* Account.swift in Sources */,
@@ -4689,6 +4706,7 @@
 				D25EECA628A1E8310090F108 /* CopyCount.swift in Sources */,
 				D25EECA728A1E8310090F108 /* String+subscript.swift in Sources */,
 				D25EECA828A1E8310090F108 /* SearchService.swift in Sources */,
+				D2C3002C2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D25EECD828A1EB2E0090F108 /* AppFactory.swift in Sources */,
 				D2C300262E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D25EECA928A1E8310090F108 /* Account.swift in Sources */,
@@ -4783,6 +4801,7 @@
 				D233987F2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
 				D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
+				D2C300332E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BE297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
@@ -4898,6 +4917,7 @@
 				D233987C2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
+				D2C300312E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BF297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
@@ -5013,6 +5033,7 @@
 				D23398842E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
 				D24C3931254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
+				D2C3002A2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BD297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
 				D284248121D0358200C7171C /* BarcodeUtils.swift in Sources */,
@@ -5150,6 +5171,7 @@
 				D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */,
 				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
+				D2C3002E2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
 				D2C3001F2E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
@@ -5296,6 +5318,7 @@
 				D2BDA65722D176BD00D9B60C /* UIScrollView+.swift in Sources */,
 				D2BDA65822D176BD00D9B60C /* Style.swift in Sources */,
 				D25E7CEA2D0A284E00AD1A2A /* MainGridViewCell.swift in Sources */,
+				D2C3002B2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2C300232E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D2A73B23246CB54000874620 /* JSONUtils.swift in Sources */,
 				D2BB66C2297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
@@ -5422,6 +5445,7 @@
 				D29911EA248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA6F422D2A72000D9B60C /* SearchService.swift in Sources */,
 				D2BDA71E22D2A87E00D9B60C /* AppFactory.swift in Sources */,
+				D2C300342E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BDA71D22D2A87E00D9B60C /* NTLCTheme.swift in Sources */,
 				D2C300282E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D2BDA6F522D2A72000D9B60C /* Account.swift in Sources */,
