@@ -235,7 +235,6 @@ class PlaceHoldViewController: UIViewController {
         let startOfFetch = Date()
 
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchUserSettings(account: account))
         promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTreeAndSettings())
         promises.append(PCRUDService.fetchCodedValueMaps())

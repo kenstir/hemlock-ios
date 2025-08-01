@@ -22,6 +22,7 @@ public enum HemlockError: Error {
     case serverError(String)
     case shouldNotHappen(String)
     case sessionExpired
+    case notImplemented
 }
 
 extension HemlockError: LocalizedError {
@@ -35,6 +36,8 @@ extension HemlockError: LocalizedError {
             return reason
         case .sessionExpired:
             return "Session expired"
+        case .notImplemented:
+            return "Not implemented yet"
         }
     }
 }

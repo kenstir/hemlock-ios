@@ -16,12 +16,7 @@
 
 import Foundation
 
-struct LoadStartupOptions {
-    let clientCacheKey: String
-    let useHierarchicalOrgTree: Bool
-}
-
-protocol XLoaderService {
-    func loadStartupPrerequisites(options: LoadStartupOptions) async throws -> Void
-    func loadPlaceHoldPrerequisites() async throws -> Void
+protocol XUserService {
+    func loadSession(account: Account) async throws -> Void
+    func deleteSession(account: Account) async throws -> Void
 }

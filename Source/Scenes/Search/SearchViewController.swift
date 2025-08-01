@@ -97,17 +97,11 @@ class SearchViewController: UIViewController {
     //MARK: - Functions
 
     func fetchData() {
-        guard let account = App.account else
-        {
-            presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
-        }
         let start = Date()
 
         var promises: [Promise<Void>] = []        
         promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTree())
-        promises.append(ActorService.fetchUserSettings(account: account))
         promises.append(PCRUDService.fetchCodedValueMaps())
         promises.append(SearchService.fetchCopyStatusAll())
 

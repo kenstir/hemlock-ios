@@ -16,12 +16,8 @@
 
 import Foundation
 
-struct LoadStartupOptions {
-    let clientCacheKey: String
-    let useHierarchicalOrgTree: Bool
-}
-
-protocol XLoaderService {
-    func loadStartupPrerequisites(options: LoadStartupOptions) async throws -> Void
-    func loadPlaceHoldPrerequisites() async throws -> Void
+class EvergreenServiceConfig: ServiceConfig {
+    var loaderService: any XLoaderService = EvergreenLoaderService()
+    var authService: any XAuthService = EvergreenAuthService()
+    var userService: any XUserService = EvergreenUserService()
 }

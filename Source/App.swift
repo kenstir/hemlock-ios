@@ -47,6 +47,9 @@ class App {
     static var launchCount: Int = 0
     static var launchNotificationUserInfo: [AnyHashable: Any]?
 
+    /// TODO: make this injectable
+    static var serviceConfig: ServiceConfig = EvergreenServiceConfig()
+
     /// the URL of the JSON directory of library systems available for use in the Hemlock app
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
 
