@@ -27,7 +27,7 @@ extension UIViewController {
     //MARK: - common view setup
 
     func addActivityIndicator() -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         view.addSubview(activityIndicator)
         centerSubview(activityIndicator)
 
@@ -71,7 +71,10 @@ extension UIViewController {
 
     // adapted with gratitude from https://stackoverflow.com/questions/41144523/swap-rootviewcontroller-with-animation
     func swapRootVC(_ vc: UIViewController, duration: TimeInterval = 0.75, completion: ((Bool) -> Void)? = nil) {
-        guard let window = UIApplication.shared.keyWindow else {
+        guard let window = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .flatMap({ $0.windows })
+            .first(where: { $0.isKeyWindow }) else {
             return
         }
 

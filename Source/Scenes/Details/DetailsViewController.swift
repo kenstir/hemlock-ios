@@ -109,7 +109,7 @@ class DetailsViewController: UIViewController {
 
         // Reduce button padding so that author text aligns with title & format
         // NB: does not seem to have any effect on iOS 16.4 simulator, but it works on iOS 12 h/w
-        authorButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.1, bottom: 0, right: 0.1)
+        //authorButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.1, bottom: 0, right: 0.1)
     }
 
     private func setupOtherRecordLabels() {
