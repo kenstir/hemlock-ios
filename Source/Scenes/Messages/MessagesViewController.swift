@@ -80,10 +80,12 @@ class MessagesViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    func markMessageDeleted(authtoken: String, message: PatronMessage) {
-        ActorService.markMessageDeleted(authtoken: authtoken, messageID: message.id).done {
-            Task { await self.fetchData() }
-        }.catch { error in
+    @MainActor
+    func markMessageDeleted(account: Account, message: PatronMessage) async {
+        do {
+            try await App.serviceConfig.userService.markMessageDeleted(account: account, messageID: message.id)
+            await self.fetchData()
+        } catch {
             self.presentGatewayAlert(forError: error, title: "Error deleting message")
         }
     }
@@ -110,8 +112,7 @@ class MessagesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
@@ -123,7 +124,7 @@ class MessagesViewController: UITableViewController {
         let alertController = UIAlertController(title: "Delete message?", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
-            self.markMessageDeleted(authtoken: authtoken, message: item)
+            Task { await self.markMessageDeleted(account: account, message: item) }
         })
         self.present(alertController, animated: true)
     }
