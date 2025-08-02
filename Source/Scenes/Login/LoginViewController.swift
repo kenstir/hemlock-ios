@@ -57,7 +57,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         os_log("login: viewDidAppear: adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
         super.viewDidAppear(animated)
+    }
 
+    func attemptAutoLogin() {
         // auto login
         if !isAddingAccount,
            let credential = App.credentialManager.lastUsedCredential
@@ -109,6 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }.done {
             self.loginButton.isEnabled = true
             self.didCompleteFetch = true
+            self.attemptAutoLogin()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }.finally {
@@ -124,7 +127,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.passwordField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
-            if App.idlLoaded ?? false {
+            if self.didCompleteFetch {
                 doLogin()
             }
         }
