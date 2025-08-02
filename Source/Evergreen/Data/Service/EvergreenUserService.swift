@@ -36,4 +36,9 @@ class EvergreenUserService: XUserService {
         throw HemlockError.notImplemented
     }
 
+    func fetchPatronMessages(account: Account) async throws -> [PatronMessage] {
+        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [account.authtoken, account.userID], shouldCache: false)
+        let objects = try await req.gatewayResponseAsync().asArray()
+        return PatronMessage.makeArray(objects)
+    }
 }
