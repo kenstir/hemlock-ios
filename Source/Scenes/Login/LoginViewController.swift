@@ -43,21 +43,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var alreadyLoggedIn = false
 
     override func viewDidLoad() {
+        print("[async]\(self.xx) login: viewDidLoad: start")
         os_log("login: viewDidLoad:   adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
         super.viewDidLoad()
         setupViews()
+        print("[async]\(self.xx) login: viewDidLoad: end")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("[async]\(self.xx) viewWillAppear: start")
         super.viewWillAppear(animated)
 
         self.fetchData()
+        print("[async]\(self.xx) viewWillAppear: end")
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("[async]\(self.xx) login: viewDidAppear: start")
         os_log("login: viewDidAppear: adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
         super.viewDidAppear(animated)
 
+        self.attemptAutoLogin()
+    }
+
+    func attemptAutoLogin() {
         // auto login
         if !isAddingAccount,
            let credential = App.credentialManager.lastUsedCredential
@@ -91,30 +100,54 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.scrollView.setupKeyboardAutoResizer()
     }
 
+    func sleep(seconds: Double) -> Promise<Void> {
+        return Promise { seal in
+            DispatchQueue.global().asyncAfter(deadline: .now() + seconds) {
+                seal.fulfill(())
+            }
+        }
+    }
+
+    var xx: String {
+        if Thread.isMainThread {
+            return "[main ]"
+        } else {
+            return "[other]"
+        }
+    }
+
     func fetchData() {
+        print("[async]\(self.xx) fetchData: begin")
+        defer { print("[async]\(self.xx) fetchData: defer") }
         self.activityIndicator.startAnimating()
 
         // the cache keys need to be available before we make any other requests that depend on them
         var promises: [Promise<Void>] = []
         promises.append(ActorService.fetchServerVersion())
         promises.append(ActorService.fetchServerCacheKey())
+        promises.append(sleep(seconds: 3.0))
 
         firstly {
             when(fulfilled: promises)
         }.then {
             // IDL needs to be loaded before we can fetchOrgTree, which returns an OSRF-encoded object
+            print("[async]\(self.xx) fetchData: about to fetch IDL")
             return App.fetchIDL()
         }.then {
+            print("[async]\(self.xx) fetchData: about to fetch OrgTree")
             return ActorService.fetchOrgTree()
         }.done {
+            print("[async]\(self.xx) fetchData: loaded prereqisites")
             self.loginButton.isEnabled = true
             self.didCompleteFetch = true
+            //self.attemptAutoLogin()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }.finally {
             self.loginButton.isEnabled = true
             self.activityIndicator.stopAnimating()
         }
+        print("[async]\(self.xx) fetchData: end")
     }
 
     //MARK: UITextFieldDelegate
@@ -124,7 +157,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.passwordField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
-            if App.idlLoaded ?? false {
+            if self.didCompleteFetch {
                 doLogin()
             }
         }
@@ -153,6 +186,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doLogin() {
+        print("[async]\(self.xx) login: doLogin: start")
         if alreadyLoggedIn {
             return
         }
