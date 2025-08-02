@@ -62,8 +62,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         print("[async]\(self.xx) login: viewDidAppear: start")
         os_log("login: viewDidAppear: adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
         super.viewDidAppear(animated)
-
-        self.attemptAutoLogin()
     }
 
     func attemptAutoLogin() {
@@ -140,7 +138,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("[async]\(self.xx) fetchData: loaded prereqisites")
             self.loginButton.isEnabled = true
             self.didCompleteFetch = true
-            //self.attemptAutoLogin()
+            self.attemptAutoLogin()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }.finally {
