@@ -19,4 +19,6 @@ import Foundation
 protocol XUserService {
     func loadSession(account: Account) async throws -> Void
     func deleteSession(account: Account) async throws -> Void
+
+    func fetchPatronMessages(account: Account) async throws -> [PatronMessage]
 }

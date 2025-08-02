@@ -1,23 +1,20 @@
-/*
- * Copyright (c) 2023 Kenneth H. Cox
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+//
+//  Copyright (c) 2025 Kenneth H. Cox
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
-import PromiseKit
 import os.log
 
 class MessagesViewController: UITableViewController {
@@ -43,7 +40,7 @@ class MessagesViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -57,11 +54,9 @@ class MessagesViewController: UITableViewController {
         navigationItem.rightBarButtonItems?.append(editButtonItem)
     }
 
-    func fetchData() {
-        guard let account = App.account,
-              let authtoken = account.authtoken,
-              let userID = account.userID else
-        {
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account else {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
@@ -69,27 +64,25 @@ class MessagesViewController: UITableViewController {
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        // fetch messages
-        ActorService.fetchMessages(authtoken: authtoken, userID: userID).done { array in
+        do {
+            let messages = try await App.serviceConfig.userService.fetchPatronMessages(account: account)
             self.didCompleteFetch = true
-            self.updateItems(messageList: array)
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
+            self.updateItems(messages: messages)
+        } catch {
             self.presentGatewayAlert(forError: error, title: "Error retrieving messages")
         }
+
+        self.activityIndicator.stopAnimating()
     }
 
-    func updateItems(messageList: [OSRFObject]) {
-        let messages = PatronMessage.makeArray(messageList)
+    func updateItems(messages: [PatronMessage]) {
         items = messages.filter { $0.isPatronVisible && !$0.isDeleted }
         tableView.reloadData()
     }
 
     func markMessageDeleted(authtoken: String, message: PatronMessage) {
         ActorService.markMessageDeleted(authtoken: authtoken, messageID: message.id).done {
-            self.fetchData()
+            Task { await self.fetchData() }
         }.catch { error in
             self.presentGatewayAlert(forError: error, title: "Error deleting message")
         }

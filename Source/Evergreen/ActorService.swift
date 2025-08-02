@@ -208,11 +208,6 @@ class ActorService {
         return promise
     }
 
-    static func fetchMessages(authtoken: String, userID: Int) -> Promise<([OSRFObject])> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [authtoken, userID], shouldCache: false)
-        return req.gatewayArrayResponse()
-    }
-
     static private func markMessageAction(authtoken: String, messageID: Int, action: String) -> Promise<Void> {
         var url = App.library?.url ?? ""
         url += "/eg/opac/myopac/messages?action=\(action)&message_id=\(messageID)"

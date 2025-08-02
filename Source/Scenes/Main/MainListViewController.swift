@@ -151,19 +151,18 @@ class MainListViewController: MainBaseViewController {
             galileoButton.isHidden = true
         }
     }
-    
+
     func fetchData() {
-        guard let authtoken = App.account?.authtoken,
-              let userID = App.account?.userID else { return }
+        guard let account = App.account else { return }
 
         if App.config.enableMessages {
-            fetchMessages(authtoken: authtoken, userid: userID)
+            Task { await self.fetchMessages(account: account) }
         }
         if App.config.enableEventsButton {
             fetchHomeOrgSettings()
         }
     }
-    
+
     func fetchHomeOrgSettings() {
         if didFetchHomeOrgSettings { return }
         guard let orgID = App.account?.homeOrgID else { return }
@@ -186,16 +185,18 @@ class MainListViewController: MainBaseViewController {
         }
     }
 
-    func fetchMessages(authtoken: String, userid: Int) {
-        ActorService.fetchMessages(authtoken: authtoken, userID: userid).done { array in
-            self.updateMessagesBadge(messageList: array)
-        }.catch { error in
+    @MainActor
+    func fetchMessages(account: Account) async {
+
+        do {
+            let messages = try await App.serviceConfig.userService.fetchPatronMessages(account: account)
+            self.updateMessagesBadge(messages: messages)
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
 
-    func updateMessagesBadge(messageList: [OSRFObject]) {
-        let messages = PatronMessage.makeArray(messageList)
+    func updateMessagesBadge(messages: [PatronMessage]) {
         let unreadCount = messages.filter { $0.isPatronVisible && !$0.isDeleted && !$0.isRead }.count
         messagesButton.setBadge(text: (unreadCount > 0) ? String(unreadCount) : nil)
     }
