@@ -93,14 +93,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.scrollView.setupKeyboardAutoResizer()
     }
 
-    func sleep(seconds: Double) -> Promise<Void> {
-        return Promise { seal in
-            DispatchQueue.global().asyncAfter(deadline: .now() + seconds) {
-                seal.fulfill(())
-            }
-        }
-    }
-
     func fetchData() {
         self.activityIndicator.startAnimating()
 
