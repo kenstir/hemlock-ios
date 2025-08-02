@@ -21,4 +21,7 @@ protocol XUserService {
     func deleteSession(account: Account) async throws -> Void
 
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage]
+    func markMessageRead(account: Account, messageID: Int) async throws -> Void
+    func markMessageUnread(account: Account, messageID: Int) async throws -> Void
+    func markMessageDeleted(account: Account, messageID: Int) async throws -> Void
 }

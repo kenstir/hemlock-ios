@@ -36,7 +36,7 @@ class MessageDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -52,37 +52,40 @@ class MessageDetailsViewController: UIViewController {
         bodyLabel.text = message?.message.trim()
     }
 
-    func fetchData() {
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
         guard let messageID = message?.id else { return }
 
-        // mark message read
-        ActorService.markMessageRead(authtoken: authtoken, messageID: messageID).done {
-            // nada
-        }.catch { error in
+        do {
+            try await App.serviceConfig.userService.markMessageRead(account: account, messageID: messageID)
+        } catch {
             self.presentGatewayAlert(forError: error, title: "Error marking message read")
         }
     }
 
+    @MainActor
+    func markMessageUnread(account: Account, messageID: Int) async {
+        do {
+            try await App.serviceConfig.userService.markMessageUnread(account: account, messageID: messageID)
+
+        } catch {
+            self.presentGatewayAlert(forError: error, title: "Error marking message unread")
+        }
+    }
+
     @objc func markUnreadButtonPressed(sender: UIBarButtonItem) {
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
         guard let messageID = message?.id else { return }
 
-        // mark message unread
-        ActorService.markMessageUnread(authtoken: authtoken, messageID: messageID).done {
-            self.navigationController?.popViewController(animated: true)
-        }.catch { error in
-            self.presentGatewayAlert(forError: error, title: "Error marking message unread")
-        }
+        Task { await markMessageUnread(account: account, messageID: messageID) }
     }
 }

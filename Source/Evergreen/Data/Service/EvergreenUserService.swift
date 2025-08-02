@@ -15,6 +15,7 @@
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import Alamofire
 
 class EvergreenUserService: XUserService {
     func loadSession(account: Account) async throws {
@@ -40,5 +41,27 @@ class EvergreenUserService: XUserService {
         let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [account.authtoken, account.userID], shouldCache: false)
         let objects = try await req.gatewayResponseAsync().asArray()
         return PatronMessage.makeArray(objects)
+    }
+
+    private func markMessageAction(account: Account, messageID: Int, action: String) async throws {
+        guard let authtoken = account.authtoken else {
+            throw HemlockError.sessionExpired
+        }
+        var url = App.library?.url ?? ""
+        url += "/eg/opac/myopac/messages?action=\(action)&message_id=\(messageID)"
+        let req = Gateway.makeOPACRequest(url: url, authtoken: authtoken, shouldCache: false)
+        let _ = try await req.serializingData().value
+    }
+
+    func markMessageRead(account: Account, messageID: Int) async throws {
+        return try await markMessageAction(account: account, messageID: messageID, action: "mark_read")
+    }
+
+    func markMessageUnread(account: Account, messageID: Int) async throws {
+        return try await markMessageAction(account: account, messageID: messageID, action: "mark_unread")
+    }
+
+    func markMessageDeleted(account: Account, messageID: Int) async throws {
+        return try await markMessageAction(account: account, messageID: messageID, action: "mark_deleted")
     }
 }
