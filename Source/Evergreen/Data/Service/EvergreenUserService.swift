@@ -30,13 +30,13 @@ class EvergreenUserService: XUserService {
     func loadSession(account: Account) async throws {
         let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [account.authtoken], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
-        await loadSessionSafe(account: account, fromObject: obj)
+        await loadSessionDone(account: account, fromObject: obj)
 
         try await loadUserSettings(account: account)
     }
 
     @MainActor
-    func loadSessionSafe(account: Account, fromObject obj: OSRFObject) async {
+    func loadSessionDone(account: Account, fromObject obj: OSRFObject) async {
         print("[async]\(tt) about to account.loadSession")
         account.loadSession(fromObject: obj)
     }
@@ -45,11 +45,11 @@ class EvergreenUserService: XUserService {
         let fields = ["card", "settings"]
         let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [account.authtoken, account.userID, fields], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
-        await loadUserSettingsSafe(account: account, fromObject: obj)
+        await loadUserSettingsDone(account: account, fromObject: obj)
     }
 
     @MainActor
-    func loadUserSettingsSafe(account: Account, fromObject obj: OSRFObject) {
+    func loadUserSettingsDone(account: Account, fromObject obj: OSRFObject) {
         print("[async]\(tt) about to account.loadUserSettings")
         account.loadUserSettings(fromObject: obj)
     }
@@ -63,11 +63,11 @@ class EvergreenUserService: XUserService {
         let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [account.authtoken, account.userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
         let objects = try await req.gatewayResponseAsync().asArray()
 
-        await loadPatronListsSafe(account: account, fromArray: objects)
+        await loadPatronListsDone(account: account, fromArray: objects)
     }
 
     @MainActor
-    func loadPatronListsSafe(account: Account, fromArray objects: [OSRFObject]) async {
+    func loadPatronListsDone(account: Account, fromArray objects: [OSRFObject]) async {
         print("[async]\(tt) about to call account.loadBookBags(fromArray:)")
         account.loadBookBags(fromArray: objects)
     }
@@ -88,11 +88,11 @@ class EvergreenUserService: XUserService {
         let allItemsObj = try await allItemsReq.gatewayResponseAsync().asObject()
 
         // safely load results
-        await loadPatronListItemsSafe(account: account, patronList: patronList, queryObj: queryObj, allItemsObj: allItemsObj)
+        await loadPatronListItemsDone(account: account, patronList: patronList, queryObj: queryObj, allItemsObj: allItemsObj)
     }
 
     @MainActor
-    func loadPatronListItemsSafe(account: Account, patronList: BookBag, queryObj: OSRFObject, allItemsObj: OSRFObject) {
+    func loadPatronListItemsDone(account: Account, patronList: BookBag, queryObj: OSRFObject, allItemsObj: OSRFObject) {
         print("[async]\(tt) \(patronList.id) about to call .loadItems()")
         patronList.initVisibleIds(fromQueryObj: queryObj)
         patronList.loadItems(fromFleshedObj: allItemsObj)
