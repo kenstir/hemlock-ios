@@ -163,9 +163,19 @@ class ActorService {
         return promise
     }
 
+    static var tt: String {
+        if Thread.isMainThread {
+            return "[main ]"
+        } else {
+            let threadID = pthread_mach_thread_np(pthread_self())
+            return "[\(threadID)]"
+        }
+    }
+
     static func fetchBookBags(account: Account, authtoken: String, userID: Int) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [authtoken, userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
         let promise = req.gatewayArrayResponse().done { array in
+            print("[async]\(tt) about to call account.loadBookBags(fromArray:)")
             account.loadBookBags(fromArray: array)
         }
         return promise
@@ -180,6 +190,7 @@ class ActorService {
             let req2 = Gateway.makeRequest(service: API.actor, method: API.containerFlesh, args: [authtoken, API.containerClassBiblio, bookBag.id], shouldCache: false)
             return req2.gatewayObjectResponse()
         }.done { obj in
+            print("[async]\(tt) about to call bookBag.loadItems(fromFleshedObj:)")
             bookBag.loadItems(fromFleshedObj: obj)
         }
         return promise
