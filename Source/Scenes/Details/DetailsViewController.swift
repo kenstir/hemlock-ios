@@ -294,19 +294,23 @@ class DetailsViewController: UIViewController {
             return
         }
 
-        guard let account = App.account,
-              let authtoken = account.authtoken,
-              let userID = account.userID else
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
 
         // fetch the list of bookbags
-        ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
+        Task { await fetchPatronLists(account: account) }
+    }
+
+    @MainActor
+    func fetchPatronLists(account: Account) async {
+        do {
+            try await App.serviceConfig.userService.loadPatronLists(account: account)
             self.addToList()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
+        } catch {
+            presentGatewayAlert(forError: error, title: "Error fetching lists")
         }
     }
 
