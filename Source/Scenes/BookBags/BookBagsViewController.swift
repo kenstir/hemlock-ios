@@ -19,7 +19,6 @@
  */
 
 import UIKit
-import PromiseKit
 import os.log
 
 class BookBagsViewController : UITableViewController {
@@ -45,7 +44,7 @@ class BookBagsViewController : UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -60,11 +59,10 @@ class BookBagsViewController : UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(sender:)))
         navigationItem.rightBarButtonItems?.append(addButton)
     }
-    
-    func fetchData() {
-        guard let account = App.account,
-              let authtoken = account.authtoken,
-              let userID = account.userID else
+
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
@@ -72,35 +70,29 @@ class BookBagsViewController : UITableViewController {
         
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
-        
-        // fetch the list of bookbags
-        ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
-            os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
-            self.fetchBookBagContents(account: account, authtoken: authtoken)
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
-        }
-    }
-    
-    func fetchBookBagContents(account: Account, authtoken: String) {
-        var promises: [Promise<Void>] = []
-        for bookBag in account.bookBags {
-            promises.append(ActorService.fetchBookBagContents(authtoken: authtoken, bookBag: bookBag))
-        }
-        os_log("%d promises made", log: self.log, type: .info, promises.count)
 
-        firstly {
-            when(resolved: promises)
-        }.done { results in
-            os_log("%d promises done", log: self.log, type: .info, promises.count)
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forResults: results)
+        do {
+            try await App.serviceConfig.userService.loadPatronLists(account: account)
+            os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
+
+            try await withThrowingTaskGroup(of: Void.self) { group in
+                for bookBag in account.bookBags {
+                    group.addTask {
+                        try await App.serviceConfig.userService.loadPatronListItems(account: account, patronList: bookBag)
+                    }
+                }
+                try await group.waitForAll()
+            }
+
             self.didCompleteFetch = true
             self.updateItems()
+        } catch {
+            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
         }
+
+        activityIndicator.stopAnimating()
     }
-    
+
     @objc func addButtonPressed(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Create list", message: nil, preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { textField in
@@ -127,7 +119,7 @@ class BookBagsViewController : UITableViewController {
         
         ActorService.createBookBag(authtoken: authtoken, userID: userID, name: name).done {
             self.navigationController?.view.makeToast("List created")
-            self.fetchData()
+            Task { await self.fetchData() }
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
