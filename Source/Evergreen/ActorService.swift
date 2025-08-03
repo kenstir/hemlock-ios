@@ -135,14 +135,6 @@ class ActorService {
         return req.gatewayOptionalObjectResponse()
     }
 
-    static func fetchBookBags(account: Account, authtoken: String, userID: Int) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [authtoken, userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
-        let promise = req.gatewayArrayResponse().done { array in
-            account.loadBookBags(fromArray: array)
-        }
-        return promise
-    }
-
     static func fetchBookBagContents(authtoken: String, bookBag: BookBag) -> Promise<Void> {
         let query = "container(bre,bookbag,\(bookBag.id),\(authtoken))"
         let options = ["limit": 999]

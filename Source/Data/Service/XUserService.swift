@@ -20,6 +20,12 @@ protocol XUserService {
     func loadSession(account: Account) async throws -> Void
     func deleteSession(account: Account) async throws -> Void
 
+    func loadPatronLists(account: Account) async throws -> Void
+    func loadPatronListItems(account: Account, patronList: BookBag) async throws -> Void
+    func createPatronList(account: Account, name: String, description: String) async throws -> Void
+    func deletePatronList(account: Account, listId: Int) async throws -> Void
+    func removeItemFromPatronList(account: Account, listId: Int, itemId: Int) async throws -> Void
+
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage]
     func markMessageRead(account: Account, messageID: Int) async throws -> Void
     func markMessageUnread(account: Account, messageID: Int) async throws -> Void
