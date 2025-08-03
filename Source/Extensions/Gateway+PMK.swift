@@ -50,6 +50,7 @@ extension Alamofire.DataRequest {
 				case .success(let data):
 //                    os_log("%@: resp.elapsed: %.3f (%.3f)", log: Gateway.log, type: .info, tag, response.timeline.totalDuration, Gateway.addElapsed(response.timeline.totalDuration))
                     Analytics.logResponse(tag: tag, data: data)
+                    print("[async]\(Utils.tt) about to build GatewayResponse()")
                     let resp = GatewayResponse(data)
                     if let error = resp.error {
                         seal.reject(error)

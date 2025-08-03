@@ -30,15 +30,6 @@ class BookBagsViewController : UITableViewController {
     var didCompleteFetch = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
 
-    var tt: String {
-        if Thread.isMainThread {
-            return "[main ]"
-        } else {
-            let threadID = pthread_mach_thread_np(pthread_self())
-            return "[\(threadID)]"
-        }
-    }
-
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -84,7 +75,7 @@ class BookBagsViewController : UITableViewController {
         
         // fetch the list of bookbags
         ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
-            print("[async]\(self.tt) fetched bookbags")
+            print("\(Utils.tt) fetched bookbags")
             os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
             self.fetchBookBagContents(account: account, authtoken: authtoken)
         }.catch { error in
