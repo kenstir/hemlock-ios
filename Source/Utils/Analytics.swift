@@ -35,6 +35,7 @@ typealias FA = FirebaseAnalytics.Analytics
 class Analytics {
     static let nullTag = "nil"
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Analytics")
+    static let lock = NSRecursiveLock()
     static var buf = RingBuffer<String>(count: 256)
     static let maxBytesShown = 512
 
@@ -144,21 +145,32 @@ class Analytics {
         ]
     }
 
-    static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
-        os_log("%{public}s:%d: %{public}s", log: log, type: .error, file, line, msg)
-        let s = "\(file):\(line): \(msg)"
+    /// mt: MT-Safe
+    static private func logToBuffer(_ s: String) {
+        lock.lock(); defer { lock.unlock() }
         buf.write(s)
     }
 
+    /// mt: MT-Safe
+    static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
+        os_log("%{public}s:%d: %{public}s", log: log, type: .error, file, line, msg)
+        let s = "\(file):\(line): \(msg)"
+        logToBuffer(s)
+    }
+
+    /// mt: MT-Safe
     static func logError(error: Error) {
         os_log("%{public}s", log: log, type: .error, error.localizedDescription)
-        buf.write(error.localizedDescription)
+        logToBuffer(error.localizedDescription)
 #if USE_FA || USE_FCM
         Crashlytics.crashlytics().record(error: error)
 #endif
     }
 
+    /// mt: MT-Safe
     static func logRequest(tag: String?, method: String, args: [String]) {
+        print("\(Utils.tt) logRequest \(tag ?? nullTag): \(method)")
+
         // TODO: redact authtoken inside args
         var argsDescription = "***"
         if method != "open-ils.auth.authenticate.init",
@@ -168,16 +180,18 @@ class Analytics {
         let s = "\(tag ?? nullTag): send: \(method) \(argsDescription)"
 
         os_log("%{public}s", log: log, type: .info, s)
-        buf.write(s)
+        logToBuffer(s)
     }
 
+    /// mt: MT-Safe
     static func logRequest(tag: String?, url: String) {
         let s = "\(tag ?? nullTag): send: \(url)"
 
         os_log("%{public}s", log: log, type: .info, s)
-        buf.write(s)
+        logToBuffer(s)
     }
 
+    /// mt: MT-Safe
     static func logResponse(tag: String?, data responseData: Data?) {
         if let d = responseData,
             let s = String(data: d, encoding: .utf8) {
@@ -186,8 +200,11 @@ class Analytics {
             logResponse(tag: tag, wireString: "(null)")
         }
     }
-    
+
+    /// mt: MT-Safe
     static func logResponse(tag: String?, wireString: String) {
+        print("\(Utils.tt) logResponse \(tag ?? nullTag)")
+
         // redact certain responses: login (au), message (aum), orgTree (aou)
         // au? is sensitive; aou is just long
         let redactedResponseRegex = """
@@ -208,14 +225,18 @@ class Analytics {
         // log the first bytes of the response
         // TODO: indicate if cached
         os_log("%{public}s", log: log, type: .info, s[0..<maxBytesShown])
-        buf.write(s)
+        logToBuffer(s)
     }
-    
+
+    /// mt: MT-Safe
     static func clearLog() {
+        lock.lock(); defer { lock.unlock() }
         buf.clear()
     }
-    
+
+    /// mt: MT-Safe
     static func getLog() -> String {
+        lock.lock(); defer { lock.unlock() }
         let arr = buf.map { $0 }
         return arr.joined(separator: "\n") + "\n"
     }

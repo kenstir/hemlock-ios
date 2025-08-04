@@ -40,7 +40,8 @@ class Gateway {
     //MARK: - fields
 
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Gateway")
-    
+    private static let lock = NSRecursiveLock()
+
     // NOTES ON CACHING
     // ----------------
     // We add 2 parameters to every request to ensure a coherent cache:
@@ -53,17 +54,21 @@ class Gateway {
     //    would otherwise cause OSRF decode crashes.
     // 3. Evergreen admin action.  Changing "hemlock.cache_key" on orgID=1 is a final
     //    override that is needed only to push out org tree or org URL changes immediately.
-    static var clientCacheKey: String {
-        return Bundle.appVersionUrlSafe
+    static private(set) var clientCacheKey: String = Bundle.appVersionUrlSafe
+    static func setClientCacheKey(_ val: String) {
+        lock.lock(); defer { lock.unlock() }
+
+        clientCacheKey = val
     }
-    static var serverCacheKey: String {
+    static private(set) var serverCacheKey: String = String(CACurrentMediaTime().truncatingRemainder(dividingBy: 1))
+    static func setServerCacheKey(serverVersion: String, serverHemlockCacheKey: String?) {
+        lock.lock(); defer { lock.unlock() }
+
         if let val = serverHemlockCacheKey {
-            return "\(serverVersionString)-\(val)"
+            serverCacheKey = "\(serverVersion)-\(val)"
         }
-        return serverVersionString
+        serverCacheKey = serverVersion
     }
-    static var serverVersionString: String = String(CACurrentMediaTime().truncatingRemainder(dividingBy: 1))
-    static var serverHemlockCacheKey: String? = nil
 
     /// an encoding that serializes parameters as param=1&param=2
     static let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)

@@ -45,10 +45,7 @@ class EvergreenLoaderService: XLoaderService {
         let version = try await versionReq.gatewayResponseAsync().asString()
         let settingsObj = try await cacheKeyReq.gatewayResponseAsync().asObject()
         let settingsVal = Organization.ousGetString(settingsObj, API.settingHemlockCacheKey)
-        await MainActor.run {
-            Gateway.serverVersionString = version
-            Gateway.serverHemlockCacheKey = settingsVal
-        }
+        Gateway.setServerCacheKey(serverVersion: version, serverHemlockCacheKey: settingsVal)
     }
 
     private func loadIDL() async throws {
