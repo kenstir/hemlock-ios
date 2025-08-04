@@ -22,7 +22,7 @@ class EvergreenLoaderService: XLoaderService {
         let start = Date()
 
         // sync: cache keys must be established first, before IDL is loaded
-//        Gateway.clientCacheKey = options.clientCacheKey
+        Gateway.setClientCacheKey(options.clientCacheKey)
         try await loadServerCacheKey()
 
         // sync: load the IDL next, because everything else depends on it
