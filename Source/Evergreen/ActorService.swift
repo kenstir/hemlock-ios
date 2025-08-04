@@ -38,7 +38,7 @@ class ActorService {
         return promise
     }
 
-    /// DEPRECATED: use async version
+    /// DEPRECATED: use Async version
     static func fetchOrgTree() -> Promise<Void> {
         if orgTreeLoaded {
             return Promise<Void>()
@@ -58,8 +58,10 @@ class ActorService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: true)
         let obj = try await req.gatewayResponseAsync().asObject()
-        try Organization.loadOrganizations(fromObj: obj)
-        orgTreeLoaded = true
+        try await MainActor.run {
+            try Organization.loadOrganizations(fromObj: obj)
+            orgTreeLoaded = true
+        }
     }
 
     /// Fetch one specific org unit.  We use this to fetch up-to-date (uncached) info on a specific org

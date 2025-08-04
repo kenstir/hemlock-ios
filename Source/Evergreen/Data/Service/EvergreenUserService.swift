@@ -18,40 +18,27 @@ import Foundation
 import Alamofire
 
 class EvergreenUserService: XUserService {
-    var tt: String {
-        if Thread.isMainThread {
-            return "[main ]"
-        } else {
-            let threadID = pthread_mach_thread_np(pthread_self())
-            return "[\(threadID)]"
-        }
-    }
 
     func loadSession(account: Account) async throws {
         let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [account.authtoken], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
-        await loadSessionDone(account: account, fromObject: obj)
+        print("\(Utils.tt) about to account.loadSession")
+        await MainActor.run {
+            account.loadSession(fromObject: obj)
+        }
 
         try await loadUserSettings(account: account)
-    }
-
-    @MainActor
-    func loadSessionDone(account: Account, fromObject obj: OSRFObject) async {
-        print("[async]\(tt) about to account.loadSession")
-        account.loadSession(fromObject: obj)
     }
 
     private func loadUserSettings(account: Account) async throws {
         let fields = ["card", "settings"]
         let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [account.authtoken, account.userID, fields], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
-        await loadUserSettingsDone(account: account, fromObject: obj)
-    }
 
-    @MainActor
-    func loadUserSettingsDone(account: Account, fromObject obj: OSRFObject) {
-        print("[async]\(tt) about to account.loadUserSettings")
-        account.loadUserSettings(fromObject: obj)
+        print("\(Utils.tt) about to account.loadUserSettings")
+        await MainActor.run {
+            account.loadUserSettings(fromObject: obj)
+        }
     }
 
     func deleteSession(account: Account) async throws {
@@ -59,7 +46,7 @@ class EvergreenUserService: XUserService {
     }
 
     func loadPatronLists(account: Account) async throws {
-        print("[async]\(tt) loadPatronLists")
+        print("\(Utils.tt) loadPatronLists")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [account.authtoken, account.userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
         let objects = try await req.gatewayResponseAsync().asArray()
 
@@ -68,12 +55,12 @@ class EvergreenUserService: XUserService {
 
     @MainActor
     func loadPatronListsDone(account: Account, fromArray objects: [OSRFObject]) async {
-        print("[async]\(tt) about to call account.loadBookBags(fromArray:)")
+        print("\(Utils.tt) about to call account.loadBookBags(fromArray:)")
         account.loadBookBags(fromArray: objects)
     }
 
     func loadPatronListItems(account: Account, patronList: BookBag) async throws {
-        print("[async]\(tt) \(patronList.id) loadPatronListItems")
+        print("\(Utils.tt) \(patronList.id) loadPatronListItems")
         guard let authtoken = account.authtoken else {
             throw HemlockError.sessionExpired
         }
@@ -93,7 +80,7 @@ class EvergreenUserService: XUserService {
 
     @MainActor
     func loadPatronListItemsDone(account: Account, patronList: BookBag, queryObj: OSRFObject, allItemsObj: OSRFObject) {
-        print("[async]\(tt) \(patronList.id) about to call .loadItems()")
+        print("\(Utils.tt) \(patronList.id) about to call .loadItems()")
         patronList.initVisibleIds(fromQueryObj: queryObj)
         patronList.loadItems(fromFleshedObj: allItemsObj)
     }
