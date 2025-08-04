@@ -21,22 +21,23 @@ import os.log
 
 class Account {
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Account")
+    private let lock = NSRecursiveLock()
 
     let username: String
-    var password: String
-    var authtoken: String?
-    var userID: Int?
-    var homeOrgID: Int?
-    var barcode: String?
-    var dayPhone: String?
-    var firstGivenName: String?
-    var familyName: String?
-    var expireDate: Date?
-    var defaultNotifyEmail: Bool?
-    var defaultNotifyPhone: Bool?
-    var defaultNotifySMS: Bool?
-    var bookBags: [BookBag] = []
-    var bookBagsEverLoaded = false
+    private(set) var password: String
+    private(set) var authtoken: String?
+    private(set) var userID: Int?
+    private(set) var homeOrgID: Int?
+    private(set) var barcode: String?
+    private(set) var dayPhone: String?
+    private(set) var firstGivenName: String?
+    private(set) var familyName: String?
+    private(set) var expireDate: Date?
+    private(set) var defaultNotifyEmail: Bool?
+    private(set) var defaultNotifyPhone: Bool?
+    private(set) var defaultNotifySMS: Bool?
+    private(set) var bookBags: [BookBag] = []
+    private(set) var bookBagsEverLoaded = false
     
     var displayName: String {
         if username == barcode,
@@ -48,13 +49,13 @@ class Account {
         }
     }
 
-    var userSettingsLoaded = false
+    private(set) var userSettingsLoaded = false
     fileprivate var userSettingDefaultPickupLocation: Int?
     fileprivate var userSettingDefaultPhone: String?
     fileprivate var userSettingDefaultSearchLocation: Int?
     fileprivate var userSettingDefaultSMSCarrier: Int?
     fileprivate var userSettingDefaultSMSNotify: String?
-    var userSettingCircHistoryStart: String?
+    private(set) var userSettingCircHistoryStart: String?
 
     var notifyPhone: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }
     var pickupOrgID: Int? { return userSettingDefaultPickupLocation ?? homeOrgID }
@@ -68,6 +69,8 @@ class Account {
     }
     
     func clear() -> Void {
+        lock.lock(); defer { lock.unlock() }
+
         self.password = ""
         self.authtoken = nil
         self.userID = nil
@@ -80,6 +83,8 @@ class Account {
     }
 
     func loadSession(fromObject obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+
         print("\(Utils.tt) loadSession")
         userID = obj.getInt("id")
         homeOrgID = obj.getInt("home_ou")
@@ -124,6 +129,8 @@ class Account {
     }
 
     func loadUserSettings(fromObject obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+
         print("\(Utils.tt) loadUserSettings")
         if let card = obj.getObject("card") {
             barcode = card.getString("barcode")
@@ -166,9 +173,32 @@ class Account {
         os_log(.info, log: Account.log, "loadUserSettings finished, fcmToken=%@", App.fcmNotificationToken ?? "(nil)")
     }
 
+    func setCircHistoryStart(_ start: String?) {
+        lock.lock(); defer { lock.unlock() }
+
+        userSettingCircHistoryStart = start
+    }
+
     func loadBookBags(fromArray objects: [OSRFObject]) {
+        lock.lock(); defer { lock.unlock() }
+
         bookBags = BookBag.makeArray(objects)
         Analytics.logEvent(event: Analytics.Event.bookbagsLoad, parameters: [Analytics.Param.numItems: bookBags.count])
         bookBagsEverLoaded = true
+    }
+
+    func removeBookBag(at index: Int) {
+        lock.lock(); defer { lock.unlock() }
+
+        guard index >= 0 && index < bookBags.count else {
+            return
+        }
+        bookBags.remove(at: index)
+    }
+
+    func setAuthToken(_ authtoken: String) {
+        lock.lock(); defer { lock.unlock() }
+
+        self.authtoken = authtoken
     }
 }
