@@ -80,6 +80,7 @@ class Account {
     }
 
     func loadSession(fromObject obj: OSRFObject) {
+        print("\(Utils.tt) loadSession")
         userID = obj.getInt("id")
         homeOrgID = obj.getInt("home_ou")
         dayPhone = obj.getString("day_phone")
@@ -123,6 +124,7 @@ class Account {
     }
 
     func loadUserSettings(fromObject obj: OSRFObject) {
+        print("\(Utils.tt) loadUserSettings")
         if let card = obj.getObject("card") {
             barcode = card.getString("barcode")
         }
