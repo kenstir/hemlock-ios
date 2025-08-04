@@ -24,21 +24,21 @@ class Account {
     private let lock = NSRecursiveLock()
 
     let username: String
-    private(set) var password: String
+    private var password: String
     private(set) var authtoken: String?
     private(set) var userID: Int?
     private(set) var homeOrgID: Int?
     private(set) var barcode: String?
-    private(set) var dayPhone: String?
-    private(set) var firstGivenName: String?
-    private(set) var familyName: String?
+    private var dayPhone: String?
+    private var firstGivenName: String?
+    private var familyName: String?
     private(set) var expireDate: Date?
     private(set) var defaultNotifyEmail: Bool?
     private(set) var defaultNotifyPhone: Bool?
     private(set) var defaultNotifySMS: Bool?
     private(set) var bookBags: [BookBag] = []
     private(set) var bookBagsEverLoaded = false
-    
+
     var displayName: String {
         if username == barcode,
             let first = firstGivenName,
@@ -49,12 +49,12 @@ class Account {
         }
     }
 
-    private(set) var userSettingsLoaded = false
-    fileprivate var userSettingDefaultPickupLocation: Int?
-    fileprivate var userSettingDefaultPhone: String?
-    fileprivate var userSettingDefaultSearchLocation: Int?
-    fileprivate var userSettingDefaultSMSCarrier: Int?
-    fileprivate var userSettingDefaultSMSNotify: String?
+    private var userSettingsLoaded = false
+    private var userSettingDefaultPickupLocation: Int?
+    private var userSettingDefaultPhone: String?
+    private var userSettingDefaultSearchLocation: Int?
+    private var userSettingDefaultSMSCarrier: Int?
+    private var userSettingDefaultSMSNotify: String?
     private(set) var userSettingCircHistoryStart: String?
 
     var notifyPhone: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }

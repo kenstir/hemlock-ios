@@ -289,6 +289,7 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func addToListPressed(sender: Any) {
+        // TODO: load bookbags if not already loaded
         if App.account?.bookBagsEverLoaded == true {
             addToList()
             return
