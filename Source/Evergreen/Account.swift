@@ -129,9 +129,12 @@ class Account {
     }
 
     func loadUserSettings(fromObject obj: OSRFObject) {
+        let start = DispatchTime.now()
         lock.lock(); defer { lock.unlock() }
+        let end = DispatchTime.now()
+        let elapsed = Double(end.uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000 // milliseconds
+        print("\(Utils.tt) loadUserSettings lock took \(elapsed) ms")
 
-        print("\(Utils.tt) loadUserSettings")
         if let card = obj.getObject("card") {
             barcode = card.getString("barcode")
         }
