@@ -127,7 +127,7 @@ class BookBagsViewController : UITableViewController {
 
     func deleteBookBag(authtoken: String, bookBagId: Int, indexPath: IndexPath) {
         ActorService.deleteBookBag(authtoken: authtoken, bookBagId: bookBagId).done {
-            App.account?.bookBags.remove(at: indexPath.row)
+            App.account?.removeBookBag(at: indexPath.row)
             self.updateItems()
         }.catch { error in
             self.presentGatewayAlert(forError: error)

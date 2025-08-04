@@ -23,9 +23,9 @@ class EvergreenUserService: XUserService {
         let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [account.authtoken], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
         print("\(Utils.tt) about to account.loadSession")
-        await MainActor.run {
+//        await MainActor.run {
             account.loadSession(fromObject: obj)
-        }
+//        }
 
         try await loadUserSettings(account: account)
     }
@@ -36,9 +36,9 @@ class EvergreenUserService: XUserService {
         let obj = try await req.gatewayResponseAsync().asObject()
 
         print("\(Utils.tt) about to account.loadUserSettings")
-        await MainActor.run {
+//        await MainActor.run {
             account.loadUserSettings(fromObject: obj)
-        }
+//        }
     }
 
     func deleteSession(account: Account) async throws {
