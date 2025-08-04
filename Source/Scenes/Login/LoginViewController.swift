@@ -173,7 +173,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let account = Account(username, password: password)
         do {
             let authtoken = try await App.serviceConfig.authService.fetchAuthToken(credential: credential)
-            account.authtoken = authtoken
+            account.setAuthToken(authtoken)
 
             try await App.serviceConfig.userService.loadSession(account: account)
 

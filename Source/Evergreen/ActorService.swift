@@ -222,7 +222,7 @@ class ActorService {
         let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
         let promise = updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings).then { (str: String) -> Promise<Void> in
             // `str` doesn't matter, it either worked or it errored.
-            account.userSettingCircHistoryStart = dateString
+            account.setCircHistoryStart(dateString)
             return Promise<Void>()
         }
         return promise
@@ -237,7 +237,7 @@ class ActorService {
         let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
         let promise = updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings).then { (str: String) -> Promise<Void> in
             // `str` doesn't matter, it either worked or it errored.
-            account.userSettingCircHistoryStart = dateString
+            account.setCircHistoryStart(dateString)
             return Promise<Void>()
         }
         return promise
