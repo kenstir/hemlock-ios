@@ -25,18 +25,19 @@ class PCRUDService {
     static var carriersLoaded = false
     static var ccvmLoaded = false
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "pcrud")
-    
-    static func fetchCodedValueMaps() -> Promise<Void> {
+
+    static func loadCodedValueMapsAsync() async throws {
         if ccvmLoaded {
-            return Promise<Void>()
+            return
         }
         let query: [String: Any] = ["ctype": ["icon_format", "search_format"]]
         let req = Gateway.makeRequest(service: API.pcrud, method: API.searchCCVM, args: [API.anonymousAuthToken, query], shouldCache: true)
-        let promise = req.gatewayArrayResponse().done { array in
+        let array = try await req.gatewayResponseAsync().asArray()
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
             CodedValueMap.load(fromArray: array)
             ccvmLoaded = true
         }
-        return promise
     }
 
     static func fetchSMSCarriers() -> Promise<Void> {

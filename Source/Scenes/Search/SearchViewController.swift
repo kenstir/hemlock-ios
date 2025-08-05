@@ -100,10 +100,7 @@ class SearchViewController: UIViewController {
         let start = Date()
 
         var promises: [Promise<Void>] = []        
-        promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTree())
-        promises.append(PCRUDService.fetchCodedValueMaps())
-        promises.append(SearchService.fetchCopyStatusAll())
 
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()

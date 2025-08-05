@@ -25,30 +25,18 @@ class ActorService {
     static var orgTypesLoaded = false
     static var orgTreeLoaded = false
 
-    /// Fetch list of org types.
-    static func fetchOrgTypes() -> Promise<Void> {
+    /// Load  list of org types.
+    static func loadOrgTypesAsync() async throws -> Void {
         if orgTypesLoaded {
-            return Promise<Void>()
+            return
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: [], shouldCache: true)
-        let promise = req.gatewayArrayResponse().done { array in
+        let array = try await req.gatewayResponseAsync().asArray()
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
             OrgType.loadOrgTypes(fromArray: array)
             orgTypesLoaded = true
         }
-        return promise
-    }
-
-    /// DEPRECATED: use Async version
-    static func fetchOrgTree() -> Promise<Void> {
-        if orgTreeLoaded {
-            return Promise<Void>()
-        }
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: true)
-        let promise = req.gatewayObjectResponse().done { obj in
-            try Organization.loadOrganizations(fromObj: obj)
-            orgTreeLoaded = true
-        }
-        return promise
     }
 
     /// Loads the org tree
@@ -58,10 +46,16 @@ class ActorService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: true)
         let obj = try await req.gatewayResponseAsync().asObject()
+        // TODO: make mt-safe, remove await
         try await MainActor.run {
             try Organization.loadOrganizations(fromObj: obj)
             orgTreeLoaded = true
         }
+    }
+
+    /// TODO: remove after transition
+    static func fetchOrgTree() -> Promise<Void> {
+        return Promise<Void>()
     }
 
     /// Fetch one specific org unit.  We use this to fetch up-to-date (uncached) info on a specific org

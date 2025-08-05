@@ -23,7 +23,11 @@ import XCTest
 /// This class exists to evaluate random questions relating to Swift.
 /// The error messages are better here than in the Swift playground.
 class MiscTests: XCTestCase {
-    
+
+    override func tearDown() {
+        print("tearDown")
+    }
+
     // Test how to deserialize from JSON
     func test_howto_deserializeJSON() {
         let str = """

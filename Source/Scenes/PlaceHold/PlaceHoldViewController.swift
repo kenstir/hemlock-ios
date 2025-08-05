@@ -235,9 +235,7 @@ class PlaceHoldViewController: UIViewController {
         let startOfFetch = Date()
 
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTreeAndSettings())
-        promises.append(PCRUDService.fetchCodedValueMaps())
         promises.append(PCRUDService.fetchSMSCarriers())
         promises.append(fetchPartsData(account: account))
         print("xxx \(promises.count) promises made")

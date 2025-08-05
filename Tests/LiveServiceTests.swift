@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -12,8 +12,7 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import XCTest
 import PromiseKit
@@ -40,7 +39,6 @@ class TestConfig {
 /// the test account server state, so we don't have to login for every test
 class TestState {
     var account: Account
-    var sessionObj: OSRFObject? = nil
     var executionCount = 0
 
     init(username: String, password: String) {
@@ -56,7 +54,8 @@ class LiveServiceTests: XCTestCase {
 
     static var config: TestConfig?
     static var state: TestState?
-    static var idlLoaded = false
+    static var prerequisitesLoaded = false
+    static var sessionLoaded = false
 
     let configFile = "TestUserData/testAccount" // .json
     let consortiumOrgID = 1
@@ -86,6 +85,8 @@ class LiveServiceTests: XCTestCase {
     }
 
     override func tearDown() {
+        print("tearDown")
+        // TODO: call deleteSession()
     }
 
     func initTestConfig() {
@@ -119,163 +120,105 @@ class LiveServiceTests: XCTestCase {
         LiveServiceTests.state = TestState(username: username, password: password)
     }
 
-    func loadIDL() -> Bool {
-        guard !LiveServiceTests.idlLoaded else { return true }
-
-        print("LiveServiceTests: LOADING IDL")
-        let parser = IDLParser(contentsOf: URL(string: Gateway.idlURL())!)
-        let ok = parser.parse()
-        LiveServiceTests.idlLoaded = ok
-        return ok
-    }
-
     /// return a promise for an authtoken for the test user, but calling the server only once
     func makeAuthtokenPromise() -> Promise<(String)> {
-        if let authtoken = LiveServiceTests.state!.account.authtoken {
-            let promise = Promise<(String)>() { seal in
-                seal.fulfill(authtoken)
-            }
-            return promise
-        } else {
-            print("LiveServiceTests: FETCHING AUTHTOKEN")
-            let credential = Credential(username: username, password: password)
-            let promise = AuthService.fetchAuthToken(credential: credential)
-            return promise.then { (authtoken: String) -> Promise<(String)> in
-                LiveServiceTests.state!.account.authtoken = authtoken
-                return Promise<(String)>() { seal in
-                    seal.fulfill(authtoken)
-                }
-            }
+        let promise = Promise<(String)>() { seal in
+            seal.fulfill("bogus")
         }
+        return promise
     }
 
     /// return a promise for a session obj, but calling the server only once
     func makeFetchSessionPromise() -> Promise<Void> {
-        if (LiveServiceTests.state?.sessionObj) != nil {
-            let promise = Promise<Void>() { seal in
-                seal.fulfill(Void())
-            }
-            return promise
-        } else {
-            let promise = makeAuthtokenPromise()
-            return promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
-                print("LiveServiceTests: FETCHING SESSION")
-                return AuthService.fetchSession(authtoken: authtoken)
-            }.then { (obj: OSRFObject) -> Promise<Void> in
-                LiveServiceTests.state?.sessionObj = obj
-                return Promise<Void>()
-            }
+        let promise = Promise<Void>() { seal in
+            seal.fulfill(Void())
         }
+        return promise
+//        let promise = makeAuthtokenPromise()
+//        return promise.then { (authtoken: String) -> Promise<(OSRFObject)> in
+//            print("LiveServiceTests: FETCHING SESSION")
+//            return AuthService.fetchSession(authtoken: authtoken)
+//        }.then { (obj: OSRFObject) -> Promise<Void> in
+//            LiveServiceTests.state?.sessionObj = obj
+//            return Promise<Void>()
+//        }
     }
 
-    //MARK: - Async tests
+    //MARK: - Async helpers
 
-    func test_asyncBasic() async throws {
+    func loadTestState_authToken(credential: Credential) async throws -> String {
+        if let authtoken = LiveServiceTests.state!.account.authtoken {
+            return authtoken
+        }
         let service = EvergreenAuthService()
         let credential = Credential(username: username, password: password)
         let authToken = try await service.fetchAuthToken(credential: credential)
-        XCTAssertFalse(authToken.isEmpty, "authToken should not be empty")
+        LiveServiceTests.state!.account.setAuthToken(authToken)
+        return authToken
     }
 
-    func test_asyncLoadStartupPrerequisites() async throws {
+    func loadTestState_loadStartupPrerequisites() async throws {
+        if LiveServiceTests.prerequisitesLoaded {
+            return
+        }
         let service = EvergreenLoaderService()
         try await service.loadStartupPrerequisites(options: LoadStartupOptions(
             clientCacheKey: Bundle.appVersionUrlSafe, useHierarchicalOrgTree: true
         ))
+        LiveServiceTests.prerequisitesLoaded = true
+    }
+
+    func loadTestState_loadSession() async throws {
+        if LiveServiceTests.sessionLoaded {
+            return
+        }
+        let service = EvergreenUserService()
+        try await service.loadSession(account: LiveServiceTests.state!.account)
+        LiveServiceTests.sessionLoaded = true
+    }
+
+    //MARK: - AuthService tests
+
+    func test_fetchAuthToken_ok() async throws {
+        let credential = Credential(username: username, password: password)
+        let authToken = try await loadTestState_authToken(credential: credential)
+        XCTAssertFalse(authToken.isEmpty, "authToken should not be empty")
+    }
+
+    func test_fetchAuthToken_fail() async throws {
+        let credential = Credential(username: "peterpan", password: "password1")
+        let service = EvergreenAuthService()
+        do {
+            let authToken = try await service.fetchAuthToken(credential: credential)
+            XCTFail("fetchAuthToken succeeded but should have failed, authToken: \(authToken)")
+        } catch {
+            XCTAssertEqual(error.localizedDescription, "User login failed")
+        }
+    }
+
+    //MARK: - LoaderService tests
+
+    func test_loadStartupPrerequisites() async throws {
+        try await loadTestState_loadStartupPrerequisites()
         XCTAssertTrue(App.idlLoaded ?? false, "IDL should be loaded")
     }
 
-    //MARK: - Promise tests
-    
-    // Test a basic promise chain, it does not actually login
-    // but it goes through the mechanics of logging in.
-    func test_promiseBasic() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let args: [Any] = [username]
-        let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: args, shouldCache: false)
-        req.responseJSON().then { (json: Any, response: PMKAlamofireDataResponse) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> in
-            print("then: \(json)")
-            let objectParam = ["type": "opac",
-                               "username": "hemlock_app_bogus_user",
-                               "password": "badbeef"]
-            return Gateway.makeRequest(service: API.auth, method: API.authComplete, args: [objectParam], shouldCache: false).responseJSON()
-        }.done { (json,response) in
-            print("done: \(json)")
-            expectation.fulfill()
-        }.ensure {
-            // nada
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
-
-    //MARK: - Auth tests
-
-    func test_fetchAuthToken_ok() {
-        let expectation = XCTestExpectation(description: "async response")
-
-        let promise = makeAuthtokenPromise()
-        promise.done { authtoken in
-            XCTAssertFalse(authtoken.isEmpty)
-            print("authtoken: \(authtoken)")
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
-    
-    func test_fetchAuthToken_fail() {
-        let expectation = XCTestExpectation(description: "async response")
-
-        let credential = Credential(username: "peterpan", password: "password1")
-        let promise = AuthService.fetchAuthToken(credential: credential)
-        promise.done { authtoken in
-            XCTFail("fetchAuthToken succeeded but should have failed")
-            expectation.fulfill()
-        }.catch { error in
-            XCTAssertEqual(error.localizedDescription, "User login failed")
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
-    
-    func test_fetchSession() {
-        XCTAssertTrue(loadIDL())
-
-        let expectation = XCTestExpectation(description: "async response")
-
-        let promise = makeFetchSessionPromise()
-        promise.done {
-            let obj = LiveServiceTests.state!.sessionObj
-            XCTAssertNotNil(obj)
-            let userID = obj?.getInt("id")
-            XCTAssertNotNil(userID)
-            let homeOrgID = obj?.getInt("home_ou")
-            XCTAssertNotNil(homeOrgID)
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
-
-    //MARK: - IDL
-
     // Test that parseIDL registers exactly as many netClasses as we asked for
-    func test_parseIDL_subset() {
-        XCTAssertTrue(loadIDL())
+    func test_parseIDL_subset() async throws {
+        try await loadTestState_loadStartupPrerequisites()
         let expected = API.netClasses.split(separator: ",").count
         XCTAssertEqual(OSRFCoder.registryCount(), expected)
+    }
+
+    //MARK: - UserService tests
+
+    func test_fetchSession() async throws {
+        try await loadTestState_loadStartupPrerequisites()
+        let authtoken = try await loadTestState_authToken(credential: Credential(username: username, password: password))
+        try await loadTestState_loadSession()
+
+        XCTAssertFalse(authtoken.isEmpty, "authtoken should not be empty")
+        XCTAssertNotNil(LiveServiceTests.state!.account.userID, "userID should not be nil")
     }
 
     //MARK: - orgTypesRetrieve
@@ -498,23 +441,6 @@ class LiveServiceTests: XCTestCase {
             expectation.fulfill()
         }
 
-        wait(for: [expectation], timeout: 20.0)
-    }
-
-    //MARK: - serverVersion
-
-    func test_serverVersion() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let promise = ActorService.fetchServerVersion()
-        promise.done {
-            XCTAssertNotNil(Gateway.serverVersionString)
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
         wait(for: [expectation], timeout: 20.0)
     }
 

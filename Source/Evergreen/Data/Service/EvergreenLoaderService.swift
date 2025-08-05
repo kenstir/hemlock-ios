@@ -28,8 +28,15 @@ class EvergreenLoaderService: XLoaderService {
         // sync: load the IDL next, because everything else depends on it
         try await loadIDL()
 
-        // sync: load the org tree
-        try await loadOrgTree()
+        // async: everything else can be done in parallel
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            group.addTask { try await self.loadOrgTypes() }
+            group.addTask { try await self.loadOrgTree() }
+            group.addTask { try await self.loadCopyStatuses() }
+            group.addTask { try await self.loadCodedValueMaps() }
+
+            try await group.waitForAll()
+        }
 
         os_log("startup.elapsed: %.3f", log: Gateway.log, type: .info, -start.timeIntervalSinceNow)
     }
@@ -51,12 +58,26 @@ class EvergreenLoaderService: XLoaderService {
     private func loadIDL() async throws {
         let req = Gateway.makeRequest(url: Gateway.idlURL(), shouldCache: true)
         let data = try await req.gatewayDataResponseAsync()
-        // TODO: maybe await MainActor.run here?
-        let _ = App.loadIDL(fromData: data)
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
+            let _ = App.loadIDL(fromData: data)
+        }
+    }
+
+    private func loadOrgTypes() async throws {
+        try await ActorService.loadOrgTypesAsync()
     }
 
     private func loadOrgTree() async throws {
         try await ActorService.loadOrgTreeAsync()
+    }
+
+    private func loadCopyStatuses() async throws {
+        try await SearchService.loadCopyStatusesAsync()
+    }
+
+    private func loadCodedValueMaps() async throws {
+        try await PCRUDService.loadCodedValueMapsAsync()
     }
 
     func loadPlaceHoldPrerequisites() async throws {
