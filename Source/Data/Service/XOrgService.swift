@@ -16,9 +16,7 @@
 
 import Foundation
 
-protocol ServiceConfig {
-    var loaderService: XLoaderService { get }
-    var authService: XAuthService { get }
-    var orgService: XOrgService { get }
-    var userService: XUserService { get }
+protocol XOrgService {
+    func loadOrgSettings(forOrgID orgID: Int) async throws -> Void
+    func loadOrgDetails(account: Account, forOrgID orgID: Int) async throws -> Void
 }
