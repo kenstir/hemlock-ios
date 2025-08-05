@@ -19,5 +19,6 @@ import Foundation
 class EvergreenServiceConfig: ServiceConfig {
     var loaderService: any XLoaderService = EvergreenLoaderService()
     var authService: any XAuthService = EvergreenAuthService()
+    var orgService: any XOrgService = EvergreenOrgService()
     var userService: any XUserService = EvergreenUserService()
 }

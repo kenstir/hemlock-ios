@@ -935,6 +935,28 @@
 		D28290F620E5CFAE008EBE4B /* UIView+UYLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */; };
 		D28290F820E6F770008EBE4B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D28290F920E6F7DF008EBE4B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
+		D283B0AF2E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B02E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B12E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B22E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B32E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B42E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B52E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B62E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B72E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B82E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0B92E4269BD00AE5F43 /* XOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */; };
+		D283B0BB2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0BC2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0BD2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0BE2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0BF2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0C02E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0C12E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0C22E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0C32E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0C42E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
+		D283B0C52E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */; };
 		D284244D21D0358200C7171C /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D284244E21D0358200C7171C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D284245321D0358200C7171C /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
@@ -2221,6 +2243,8 @@
 		D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBarcodeViewController.swift; sourceTree = "<group>"; };
 		D28290F420E5CF48008EBE4B /* UIView+UYLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+UYLExtensions.swift"; sourceTree = "<group>"; };
 		D28290F720E6F770008EBE4B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgService.swift; sourceTree = "<group>"; };
+		D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenOrgService.swift; sourceTree = "<group>"; };
 		D28424B021D0358200C7171C /* COOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28424B121D0358300C7171C /* CoolInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoolInfo.plist; sourceTree = "<group>"; };
 		D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "grid-icons.xcassets"; sourceTree = "<group>"; };
@@ -2984,6 +3008,7 @@
 				D233986D2E3BB3EA00CBDAEB /* XLoaderService.swift */,
 				D2C300362E3D5AF90082C308 /* ServiceConfig.swift */,
 				D2C300502E3E65AB0082C308 /* XUserService.swift */,
+				D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -3167,6 +3192,7 @@
 				D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */,
 				D2C300442E3D5C990082C308 /* EvergreenServiceConfig.swift */,
 				D2C3005C2E3E660A0082C308 /* EvergreenUserService.swift */,
+				D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -4208,6 +4234,7 @@
 				D210EBD622B1EE55002FB5E0 /* HoldRecord.swift in Sources */,
 				D210EBD722B1EE55002FB5E0 /* Bundle+.swift in Sources */,
 				D20B2FF422CE7BF500F69848 /* Link.swift in Sources */,
+				D283B0C12E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D20B2FEC22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D210EBD822B1EE55002FB5E0 /* PCRUDService.swift in Sources */,
 				D210EBD922B1EE55002FB5E0 /* String+.swift in Sources */,
@@ -4282,6 +4309,7 @@
 				D23398672E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D210EC0C22B1EE55002FB5E0 /* UIViewController+.swift in Sources */,
 				D210EC0D22B1EE55002FB5E0 /* CheckoutsTableViewCell.swift in Sources */,
+				D283B0B52E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D210EC0E22B1EE55002FB5E0 /* UIScrollView+.swift in Sources */,
 				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
 				D28E04472BA12CE7001850C5 /* MainGridViewController.swift in Sources */,
@@ -4328,8 +4356,10 @@
 				D23E9F7723B9200A0030F5C1 /* MainTableViewCell.swift in Sources */,
 				D23E9F7823B9200A0030F5C1 /* HoldRecord.swift in Sources */,
 				D23E9F7923B9200A0030F5C1 /* Bundle+.swift in Sources */,
+				D283B0AF2E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D23E9F7A23B9200A0030F5C1 /* Link.swift in Sources */,
 				D23E9F7B23B9200A0030F5C1 /* MARCRecord.swift in Sources */,
+				D283B0C02E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D23E9F7C23B9200A0030F5C1 /* PCRUDService.swift in Sources */,
 				D23E9F7D23B9200A0030F5C1 /* String+.swift in Sources */,
 				D23E9F7E23B9200A0030F5C1 /* AppConfiguration.swift in Sources */,
@@ -4448,8 +4478,10 @@
 				D2477BC524785A6B00FD4CF6 /* HoldRecord.swift in Sources */,
 				D2477BC624785A6B00FD4CF6 /* Bundle+.swift in Sources */,
 				D2477BC724785A6B00FD4CF6 /* Link.swift in Sources */,
+				D283B0B02E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D2477BC824785A6B00FD4CF6 /* MARCRecord.swift in Sources */,
 				D2477BC924785A6B00FD4CF6 /* PCRUDService.swift in Sources */,
+				D283B0C52E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D2477BCA24785A6B00FD4CF6 /* String+.swift in Sources */,
 				D2477BCB24785A6B00FD4CF6 /* AppConfiguration.swift in Sources */,
 				D2477BCC24785A6B00FD4CF6 /* FinesViewController.swift in Sources */,
@@ -4568,8 +4600,10 @@
 				D2572AB424AD7755000BA698 /* MainTableViewCell.swift in Sources */,
 				D2572AB524AD7755000BA698 /* HoldRecord.swift in Sources */,
 				D2572AB624AD7755000BA698 /* Bundle+.swift in Sources */,
+				D283B0B62E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D2572AB724AD7755000BA698 /* Link.swift in Sources */,
 				D2572AB824AD7755000BA698 /* MARCRecord.swift in Sources */,
+				D283B0C32E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D2572AB924AD7755000BA698 /* PCRUDService.swift in Sources */,
 				D2572ABA24AD7755000BA698 /* String+.swift in Sources */,
 				D2572ABB24AD7755000BA698 /* AppConfiguration.swift in Sources */,
@@ -4688,8 +4722,10 @@
 				D25EEC5728A1E8310090F108 /* ServiceUtils.swift in Sources */,
 				D25EEC5828A1E8310090F108 /* MainTableViewCell.swift in Sources */,
 				D25EEC5928A1E8310090F108 /* HoldRecord.swift in Sources */,
+				D283B0B92E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D25EEC5A28A1E8310090F108 /* Bundle+.swift in Sources */,
 				D25EEC5B28A1E8310090F108 /* Link.swift in Sources */,
+				D283B0BF2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D25EEC5C28A1E8310090F108 /* MARCRecord.swift in Sources */,
 				D25EEC5D28A1E8310090F108 /* PCRUDService.swift in Sources */,
 				D25EEC5E28A1E8310090F108 /* String+.swift in Sources */,
@@ -4861,6 +4897,7 @@
 				D296EE0E21338030009BDB12 /* CWMarsTheme.swift in Sources */,
 				D276DAAC21336B20007FAA31 /* Theme.swift in Sources */,
 				D276DAAE21336B20007FAA31 /* XUtils.swift in Sources */,
+				D283B0B42E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D276DAAF21336B20007FAA31 /* Analytics.swift in Sources */,
 				D276DAB121336B20007FAA31 /* MD5.swift in Sources */,
 				D276DAB221336B20007FAA31 /* FinesTableViewCell.swift in Sources */,
@@ -4878,6 +4915,7 @@
 				D2C300332E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BE297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
+				D283B0BD2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D27DF20A21AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */,
 				D2816CC928B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
@@ -4980,6 +5018,7 @@
 				D279911820DDE11E003B451E /* AppFactory.swift in Sources */,
 				D2DE83EC20F5AC280027FAA1 /* XUtils.swift in Sources */,
 				D27990E020DDD473003B451E /* Analytics.swift in Sources */,
+				D283B0B32E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D23C305020E5C6EA00666A2B /* HemlockTheme.swift in Sources */,
 				D27990E120DDD473003B451E /* MD5.swift in Sources */,
 				D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */,
@@ -4997,6 +5036,7 @@
 				D2C300312E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BF297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
+				D283B0C22E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D27DF20821AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D27990E820DDD473003B451E /* FineRecord.swift in Sources */,
 				D2816CCA28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
@@ -5099,6 +5139,7 @@
 				D284247521D0358200C7171C /* Theme.swift in Sources */,
 				D284247621D0358200C7171C /* XUtils.swift in Sources */,
 				D284247721D0358200C7171C /* Analytics.swift in Sources */,
+				D283B0B12E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D284247821D0358200C7171C /* MD5.swift in Sources */,
 				D284247921D0358200C7171C /* FinesTableViewCell.swift in Sources */,
 				D284247A21D0358200C7171C /* LocationPicker.swift in Sources */,
@@ -5116,6 +5157,7 @@
 				D2C3002A2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BD297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
+				D283B0BE2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D284248121D0358200C7171C /* BarcodeUtils.swift in Sources */,
 				D284248221D0358200C7171C /* FineRecord.swift in Sources */,
 				D2816CC828B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
@@ -5165,8 +5207,10 @@
 				D260755920E0860300795124 /* Organization.swift in Sources */,
 				D246990620AA5C620006DFF9 /* MainTableViewCell.swift in Sources */,
 				D21981FE235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
+				D283B0B82E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D20B2FF122CE7BF500F69848 /* Link.swift in Sources */,
 				D20B2FE922CC359000F69848 /* MARCRecord.swift in Sources */,
+				D283B0BC2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
 				D2A81797224699C700340074 /* Bundle+.swift in Sources */,
 				D2C24A312101712E0028180B /* PCRUDService.swift in Sources */,
@@ -5325,6 +5369,7 @@
 				D2BDA61922D176BD00D9B60C /* HoldRecord.swift in Sources */,
 				D2BDA61A22D176BD00D9B60C /* Bundle+.swift in Sources */,
 				D2BDA61B22D176BD00D9B60C /* Link.swift in Sources */,
+				D283B0C42E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D2BDA61C22D176BD00D9B60C /* MARCRecord.swift in Sources */,
 				D2BDA61D22D176BD00D9B60C /* PCRUDService.swift in Sources */,
 				D2BDA61E22D176BD00D9B60C /* String+.swift in Sources */,
@@ -5399,6 +5444,7 @@
 				D233986B2E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2BDA65522D176BD00D9B60C /* UIViewController+.swift in Sources */,
 				D2BDA65622D176BD00D9B60C /* CheckoutsTableViewCell.swift in Sources */,
+				D283B0B72E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D2BDA65722D176BD00D9B60C /* UIScrollView+.swift in Sources */,
 				D2BDA65822D176BD00D9B60C /* Style.swift in Sources */,
 				D25E7CEA2D0A284E00AD1A2A /* MainGridViewCell.swift in Sources */,
@@ -5445,8 +5491,10 @@
 				D2BDA6B122D2A72000D9B60C /* HoldRecord.swift in Sources */,
 				D2BDA6B222D2A72000D9B60C /* Bundle+.swift in Sources */,
 				D2BDA6B322D2A72000D9B60C /* Link.swift in Sources */,
+				D283B0B22E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D2BDA6B422D2A72000D9B60C /* MARCRecord.swift in Sources */,
 				D2BDA6B522D2A72000D9B60C /* PCRUDService.swift in Sources */,
+				D283B0BB2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D2BDA6B622D2A72000D9B60C /* String+.swift in Sources */,
 				D2BDA6B722D2A72000D9B60C /* AppConfiguration.swift in Sources */,
 				D2BDA6B822D2A72000D9B60C /* FinesViewController.swift in Sources */,
