@@ -48,9 +48,10 @@ class EvergreenLoaderService: XLoaderService {
         let settings = [API.settingHemlockCacheKey]
         let cacheKeyReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [Organization.consortiumOrgID, settings, API.anonymousAuthToken], shouldCache: false)
 
-        // await both responses
-        let version = try await versionReq.gatewayResponseAsync().asString()
-        let settingsObj = try await cacheKeyReq.gatewayResponseAsync().asObject()
+        // await both responses in parallel
+        async let versionResp = try versionReq.gatewayResponseAsync()
+        async let settingsResp = try cacheKeyReq.gatewayResponseAsync()
+        let (version, settingsObj) = try await (versionResp.asString(), settingsResp.asObject())
         let settingsVal = Organization.ousGetString(settingsObj, API.settingHemlockCacheKey)
         Gateway.setServerCacheKey(serverVersion: version, serverHemlockCacheKey: settingsVal)
     }
