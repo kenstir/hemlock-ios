@@ -42,7 +42,11 @@ class EvergreenUserService: XUserService {
     }
 
     func deleteSession(account: Account) async throws {
-        throw HemlockError.notImplemented
+        let req = Gateway.makeRequest(service: API.auth, method: API.authDeleteSession, args: [account.authtoken], shouldCache: false)
+        let _ = try await req.gatewayResponseAsync().asString()
+
+        print("\(Utils.tt) about to account.clear")
+        account.clear()
     }
 
     func loadPatronLists(account: Account) async throws {

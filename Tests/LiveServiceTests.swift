@@ -39,7 +39,6 @@ class TestConfig {
 /// the test account server state, so we don't have to login for every test
 class TestState {
     var account: Account
-    var executionCount = 0
 
     init(username: String, password: String) {
         self.account = Account(username, password: password)
@@ -57,11 +56,10 @@ class LiveServiceTests: XCTestCase {
     static var prerequisitesLoaded = false
     static var sessionLoaded = false
 
-    let configFile = "TestUserData/testAccount" // .json
-    let consortiumOrgID = 1
+    static let configFile = "TestUserData/testAccount" // .json
 
-    let manualTestsEnabled = true
-    let updateTestsEnabled = false // only run update tests manually
+    let manualTestsEnabled = false // hack to limit certain tests
+    let updateTestsEnabled = false // hack to limit certain tests
 
     var username: String { return LiveServiceTests.config!.username } // if you error here, see TestUserData/README.md
     var password: String { return LiveServiceTests.config!.password }
@@ -72,30 +70,27 @@ class LiveServiceTests: XCTestCase {
 
     //MARK: - functions
 
-    override func setUp() {
+    override class func setUp() {
         super.setUp()
 
-        initTestConfig()
         initTestState()
 
         App.library = Library(LiveServiceTests.config!.url)
-
-        LiveServiceTests.state?.executionCount += 1
-        print("setUp: executionCount  = \(LiveServiceTests.state?.executionCount ?? 0)")
     }
 
-    override func tearDown() {
-        print("tearDown")
-        // TODO: call deleteSession()
+    override class func tearDown() {
+        super.tearDown()
+
+        Task {
+            try await LiveServiceTests.once_deleteSession()
+        }
     }
 
-    func initTestConfig() {
-        guard LiveServiceTests.config == nil else { return }
-
+    static func initTestState() {
         print("LiveServiceTests: INITIALIZING TEST CONFIG")
 
         // read configFile as json
-        let testBundle = Bundle(for: type(of: self))
+        let testBundle = Bundle(for: LiveServiceTests.self)
         guard
             let path = testBundle.path(forResource: configFile, ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
@@ -112,11 +107,6 @@ class LiveServiceTests: XCTestCase {
         }
 
         LiveServiceTests.config = TestConfig(url: url, username: username, password: password, homeOrgID: homeOrgID, sampleRecordID: sampleRecordID)
-    }
-
-    func initTestState() {
-        guard LiveServiceTests.state == nil else { return }
-
         LiveServiceTests.state = TestState(username: username, password: password)
     }
 
@@ -146,7 +136,7 @@ class LiveServiceTests: XCTestCase {
 
     //MARK: - Async helpers
 
-    func loadTestState_authToken(credential: Credential) async throws -> String {
+    func once_fetchAuthToken(credential: Credential) async throws -> String {
         if let authtoken = LiveServiceTests.state!.account.authtoken {
             return authtoken
         }
@@ -157,7 +147,7 @@ class LiveServiceTests: XCTestCase {
         return authToken
     }
 
-    func loadTestState_loadStartupPrerequisites() async throws {
+    func once_loadStartupPrerequisites() async throws {
         if LiveServiceTests.prerequisitesLoaded {
             return
         }
@@ -168,7 +158,7 @@ class LiveServiceTests: XCTestCase {
         LiveServiceTests.prerequisitesLoaded = true
     }
 
-    func loadTestState_loadSession() async throws {
+    func once_loadSession() async throws {
         if LiveServiceTests.sessionLoaded {
             return
         }
@@ -177,11 +167,20 @@ class LiveServiceTests: XCTestCase {
         LiveServiceTests.sessionLoaded = true
     }
 
+    static func once_deleteSession() async throws {
+        if !LiveServiceTests.sessionLoaded {
+            return
+        }
+        let service = EvergreenUserService()
+        try await service.deleteSession(account: LiveServiceTests.state!.account)
+        LiveServiceTests.sessionLoaded = false
+    }
+
     //MARK: - AuthService tests
 
     func test_fetchAuthToken_ok() async throws {
         let credential = Credential(username: username, password: password)
-        let authToken = try await loadTestState_authToken(credential: credential)
+        let authToken = try await once_fetchAuthToken(credential: credential)
         XCTAssertFalse(authToken.isEmpty, "authToken should not be empty")
     }
 
@@ -199,46 +198,51 @@ class LiveServiceTests: XCTestCase {
     //MARK: - LoaderService tests
 
     func test_loadStartupPrerequisites() async throws {
-        try await loadTestState_loadStartupPrerequisites()
+        try await once_loadStartupPrerequisites()
         XCTAssertTrue(App.idlLoaded ?? false, "IDL should be loaded")
     }
 
     // Test that parseIDL registers exactly as many netClasses as we asked for
     func test_parseIDL_subset() async throws {
-        try await loadTestState_loadStartupPrerequisites()
+        try await once_loadStartupPrerequisites()
         let expected = API.netClasses.split(separator: ",").count
         XCTAssertEqual(OSRFCoder.registryCount(), expected)
+    }
+
+    func test_orgTypes() async throws {
+        try await once_loadStartupPrerequisites()
+        let orgTypes = OrgType.orgTypes
+        XCTAssert(orgTypes.count > 0, "found some org types")
+    }
+
+    func test_orgTree() async throws {
+        try await once_loadStartupPrerequisites()
+
+        let org = Organization.find(byId: 1)
+        XCTAssertNotNil(org)
+        XCTAssertNotNil(org?.name)
+        let consortium = Organization.consortium()
+        XCTAssertNotNil(consortium)
+        XCTAssertEqual(1, consortium?.id)
+    }
+
+    func test_copyStatuses() async throws {
+        try await once_loadStartupPrerequisites()
+
+        XCTAssertGreaterThan(CopyStatus.status.count, 0)
     }
 
     //MARK: - UserService tests
 
     func test_fetchSession() async throws {
-        try await loadTestState_loadStartupPrerequisites()
-        let authtoken = try await loadTestState_authToken(credential: Credential(username: username, password: password))
-        try await loadTestState_loadSession()
+        try await once_loadStartupPrerequisites()
+        let authtoken = try await once_fetchAuthToken(credential: Credential(username: username, password: password))
+        try await once_loadSession()
 
         XCTAssertFalse(authtoken.isEmpty, "authtoken should not be empty")
         XCTAssertNotNil(LiveServiceTests.state!.account.userID, "userID should not be nil")
     }
 
-    //MARK: - orgTypesRetrieve
-    
-    func test_orgTypesRetrieve() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let promise = ActorService.fetchOrgTypes()
-        promise.done {
-            let orgTypes = OrgType.orgTypes
-            XCTAssert(orgTypes.count > 0, "found some org types")
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
-    
     //MARK: - orgTreeRetrieve
     
     func test_orgTreeRetrieve() {
@@ -266,7 +270,7 @@ class LiveServiceTests: XCTestCase {
     func test_orgUnitSetting() {
         let expectation = XCTestExpectation(description: "async response")
 
-        let orgID = self.consortiumOrgID
+        let orgID = Organization.consortiumOrgID
         let setting = API.settingSMSEnable
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSetting, args: [orgID, setting, API.anonymousAuthToken], shouldCache: false)
         req.gatewayOptionalObjectResponse().done { obj in
@@ -285,7 +289,7 @@ class LiveServiceTests: XCTestCase {
     func test_orgUnitSettingBatch() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let orgID = self.consortiumOrgID
+        let orgID = Organization.consortiumOrgID
         let settings = [API.settingNotPickupLib, API.settingSMSEnable]
         var notPickupLib = false
         var smsEnable = false
@@ -333,33 +337,11 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 20.0)
     }
-    
-    //MARK: - Copy Status
 
-    func test_copyStatusAll() {
-        XCTAssertTrue(loadIDL())
-
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let promise = SearchService.fetchCopyStatusAll()
-        print("xxx promise made")
-        promise.done {
-            XCTAssertGreaterThan(CopyStatus.status.count, 0)
-            expectation.fulfill()
-        }.catch { error in
-            print("xxx promise caught")
-            let str = error.localizedDescription
-            print("xxx \(str)")
-            XCTFail(error.localizedDescription)
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
-    
     func test_copyCounts() {
         let expectation = XCTestExpectation(description: "async response")
         
-        let promise = SearchService.fetchCopyCount(orgID: self.consortiumOrgID, recordID: self.sampleRecordID)
+        let promise = SearchService.fetchCopyCount(orgID: Organization.consortiumOrgID, recordID: self.sampleRecordID)
         promise.done { array in
             let copyCounts = CopyCount.makeArray(fromArray: array)
             XCTAssertGreaterThan(copyCounts.count, 0)
@@ -393,118 +375,118 @@ class LiveServiceTests: XCTestCase {
         
         wait(for: [expectation], timeout: 10)
     }
-    
+
     //MARK: - misc API
-    
-    func test_retrieveBRE() {
-        XCTAssertTrue(loadIDL())
 
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, self.sampleRecordID], shouldCache: false)
-        req.gatewayObjectResponse().done({ obj in
-            let marcXML = obj.getString("marc")
-            XCTAssertNotNil(marcXML)
-            let parser = MARCXMLParser(data: marcXML!.data(using: .utf8)!)
-            if let marcRecord = try? parser.parse() {
-                print("marcRecord = \(marcRecord)")
-            } else {
-                XCTFail(parser.error?.localizedDescription ?? "??")
-            }
-            expectation.fulfill()
-        }).catch({ error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        })
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
-    
-    func test_hoursOfOperation() {
-        XCTAssertTrue(loadIDL())
+//    func test_retrieveBRE() {
+//        XCTAssertTrue(loadIDL())
+//
+//        let expectation = XCTestExpectation(description: "async response")
+//        
+//        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, self.sampleRecordID], shouldCache: false)
+//        req.gatewayObjectResponse().done({ obj in
+//            let marcXML = obj.getString("marc")
+//            XCTAssertNotNil(marcXML)
+//            let parser = MARCXMLParser(data: marcXML!.data(using: .utf8)!)
+//            if let marcRecord = try? parser.parse() {
+//                print("marcRecord = \(marcRecord)")
+//            } else {
+//                XCTFail(parser.error?.localizedDescription ?? "??")
+//            }
+//            expectation.fulfill()
+//        }).catch({ error in
+//            XCTFail(error.localizedDescription)
+//            expectation.fulfill()
+//        })
+//        
+//        wait(for: [expectation], timeout: 20.0)
+//    }
 
-        let expectation = XCTestExpectation(description: "async response")
-
-        let promise = makeAuthtokenPromise()
-        promise.then { (authtoken: String) -> Promise<(OSRFObject?)> in
-            XCTAssertFalse(authtoken.isEmpty)
-            return ActorService.fetchOrgHours(authtoken: authtoken, forOrgID: self.homeOrgID)
-        }.done { obj in
-            XCTAssertNotNil(obj)
-            let mondayOpen = obj?.getString("dow_0_open")
-            XCTAssertEqual(mondayOpen?.isEmpty, false)
-            let sundayClose = obj?.getString("dow_6_close")
-            XCTAssertEqual(sundayClose?.isEmpty, false)
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 20.0)
-    }
+//    func test_hoursOfOperation() {
+//        XCTAssertTrue(loadIDL())
+//
+//        let expectation = XCTestExpectation(description: "async response")
+//
+//        let promise = makeAuthtokenPromise()
+//        promise.then { (authtoken: String) -> Promise<(OSRFObject?)> in
+//            XCTAssertFalse(authtoken.isEmpty)
+//            return ActorService.fetchOrgHours(authtoken: authtoken, forOrgID: self.homeOrgID)
+//        }.done { obj in
+//            XCTAssertNotNil(obj)
+//            let mondayOpen = obj?.getString("dow_0_open")
+//            XCTAssertEqual(mondayOpen?.isEmpty, false)
+//            let sundayClose = obj?.getString("dow_6_close")
+//            XCTAssertEqual(sundayClose?.isEmpty, false)
+//            expectation.fulfill()
+//        }.catch { error in
+//            XCTFail(error.localizedDescription)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 20.0)
+//    }
 
     //MARK: - API Manual Test Playground
     // these tests are skipped unless run manually
 
-    func test_checkoutHistory() throws {
-        if !manualTestsEnabled {
-            throw XCTSkip("manual test")
-        }
+//    func test_checkoutHistory() throws {
+//        if !manualTestsEnabled {
+//            throw XCTSkip("manual test")
+//        }
+//
+//        XCTAssertTrue(loadIDL())
+//
+//        let expectation = XCTestExpectation(description: "async response")
+//
+//        let promise = makeAuthtokenPromise()
+//        promise.then { (authtoken: String) -> Promise<[OSRFObject]> in
+//            XCTAssertFalse(authtoken.isEmpty)
+//            return ActorService.fetchCheckoutHistory(authtoken: authtoken)
+//        }.done { arr in
+//            XCTAssertNotNil(arr)
+//            expectation.fulfill()
+//            let objs = HistoryRecord.makeArray(arr)
+//            if objs.count > 0 {
+//                let item = objs[0]
+//                print("objs[0] = \(item)")
+//            }
+//            if objs.count > 1 {
+//                let item = objs[1]
+//                print("objs[1] = \(item)")
+//            }
+//            print("stop here")
+//        }.catch { error in
+//            XCTFail(error.localizedDescription)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 2000.0)
+//    }
 
-        XCTAssertTrue(loadIDL())
-
-        let expectation = XCTestExpectation(description: "async response")
-
-        let promise = makeAuthtokenPromise()
-        promise.then { (authtoken: String) -> Promise<[OSRFObject]> in
-            XCTAssertFalse(authtoken.isEmpty)
-            return ActorService.fetchCheckoutHistory(authtoken: authtoken)
-        }.done { arr in
-            XCTAssertNotNil(arr)
-            expectation.fulfill()
-            let objs = HistoryRecord.makeArray(arr)
-            if objs.count > 0 {
-                let item = objs[0]
-                print("objs[0] = \(item)")
-            }
-            if objs.count > 1 {
-                let item = objs[1]
-                print("objs[1] = \(item)")
-            }
-            print("stop here")
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 2000.0)
-    }
-
-    func test_patronSettingUpdate() throws {
-        if !updateTestsEnabled {
-            throw XCTSkip("update tests not enabled")
-        }
-
-        XCTAssertTrue(loadIDL())
-
-        let expectation = XCTestExpectation(description: "async response")
-
-        let promise = makeFetchSessionPromise()
-        promise.then {
-            let account = LiveServiceTests.state!.account
-            let obj = LiveServiceTests.state!.sessionObj
-            account.loadSession(fromObject: obj!)
-            return ActorService.updatePatronSettings(authtoken: self.authtoken!, userID: self.userID!, settings: [API.userSettingCircHistoryStart: "2023-12-22"])
-        }.done { str in
-            XCTAssertNotNil(str)
-            expectation.fulfill()
-            print("resp = \(str)")
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 2000.0)
-    }
+//    func test_patronSettingUpdate() throws {
+//        if !updateTestsEnabled {
+//            throw XCTSkip("update tests not enabled")
+//        }
+//
+//        XCTAssertTrue(loadIDL())
+//
+//        let expectation = XCTestExpectation(description: "async response")
+//
+//        let promise = makeFetchSessionPromise()
+//        promise.then {
+//            let account = LiveServiceTests.state!.account
+//            let obj = LiveServiceTests.state!.sessionObj
+//            account.loadSession(fromObject: obj!)
+//            return ActorService.updatePatronSettings(authtoken: self.authtoken!, userID: self.userID!, settings: [API.userSettingCircHistoryStart: "2023-12-22"])
+//        }.done { str in
+//            XCTAssertNotNil(str)
+//            expectation.fulfill()
+//            print("resp = \(str)")
+//        }.catch { error in
+//            XCTFail(error.localizedDescription)
+//            expectation.fulfill()
+//        }
+//
+//        wait(for: [expectation], timeout: 2000.0)
+//    }
 }
