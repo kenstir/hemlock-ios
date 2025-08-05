@@ -19,18 +19,19 @@ import PromiseKit
 import PMKAlamofire
 
 class SearchService {
-    static var copyStatusLoaded = false
-    
-    static func fetchCopyStatusAll() -> Promise<Void> {
-        if copyStatusLoaded {
-            return Promise<Void>()
+    static var copyStatusesLoaded = false
+
+    static func loadCopyStatusesAsync() async throws {
+        if copyStatusesLoaded {
+            return
         }
         let req = Gateway.makeRequest(service: API.search, method: API.copyStatusRetrieveAll, args: [], shouldCache: true)
-        let promise = req.gatewayArrayResponse().done { array in
+        let array = try await req.gatewayResponseAsync().asArray()
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
             CopyStatus.loadCopyStatus(fromArray: array)
-            copyStatusLoaded = true
+            copyStatusesLoaded = true
         }
-        return promise
     }
 
     static func fetchCopyCount(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {

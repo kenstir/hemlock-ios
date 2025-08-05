@@ -76,10 +76,8 @@ class HoldsViewController: UIViewController {
         let startOfFetch = Date()
         
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTree())
-        promises.append(PCRUDService.fetchCodedValueMaps())
-        
+
         let req = Gateway.makeRequest(service: API.circ, method: API.holdsRetrieve, args: [authtoken, userid], shouldCache: false)
         let promise = req.gatewayArrayResponse().done { objects in
             self.items = HoldRecord.makeArray(objects)
@@ -109,7 +107,6 @@ class HoldsViewController: UIViewController {
             throw HemlockError.sessionExpired
         }
         var promises: [Promise<Void>] = []
-        promises.append(PCRUDService.fetchCodedValueMaps())
         for hold in self.items {
             promises.append(try fetchHoldTargetDetails(hold: hold, authtoken: authtoken))
             promises.append(try fetchHoldQueueStats(hold: hold, authtoken: authtoken))

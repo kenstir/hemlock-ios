@@ -70,7 +70,6 @@ class OrgDetailsViewController: UIViewController {
     
     func fetchData() {
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTypes())
         promises.append(ActorService.fetchOrgTreeAndSettings(forOrgID: orgID))
         
         centerSubview(activityIndicator)

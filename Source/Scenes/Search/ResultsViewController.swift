@@ -104,7 +104,6 @@ class ResultsViewController: UIViewController {
 
         // Collect promises
         var promises: [Promise<Void>] = []
-        promises.append(PCRUDService.fetchCodedValueMaps())
         for record in preloadedRecords {
             promises.append(contentsOf: record.startPrefetch())
         }
