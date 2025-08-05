@@ -39,7 +39,7 @@ class AccountTests: XCTestCase {
     
     func test_authtoken() {
         XCTAssertNil(sut.authtoken)
-        sut.authtoken = "f1d0f00d"
+        sut.setAuthToken("f1d0f00d")
         XCTAssertNotNil(sut.authtoken)
         XCTAssertEqual(sut.authtoken, "f1d0f00d")
     }

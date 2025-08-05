@@ -49,12 +49,6 @@ class EvergreenUserService: XUserService {
         print("\(Utils.tt) loadPatronLists")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [account.authtoken, account.userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
         let objects = try await req.gatewayResponseAsync().asArray()
-
-        await loadPatronListsDone(account: account, fromArray: objects)
-    }
-
-    @MainActor
-    func loadPatronListsDone(account: Account, fromArray objects: [OSRFObject]) async {
         print("\(Utils.tt) about to call account.loadBookBags(fromArray:)")
         account.loadBookBags(fromArray: objects)
     }
@@ -74,15 +68,12 @@ class EvergreenUserService: XUserService {
         let queryObj = try await queryReq.gatewayResponseAsync().asObject()
         let allItemsObj = try await allItemsReq.gatewayResponseAsync().asObject()
 
-        // safely load results
-        await loadPatronListItemsDone(account: account, patronList: patronList, queryObj: queryObj, allItemsObj: allItemsObj)
-    }
-
-    @MainActor
-    func loadPatronListItemsDone(account: Account, patronList: BookBag, queryObj: OSRFObject, allItemsObj: OSRFObject) {
-        print("\(Utils.tt) \(patronList.id) about to call .loadItems()")
-        patronList.initVisibleIds(fromQueryObj: queryObj)
-        patronList.loadItems(fromFleshedObj: allItemsObj)
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
+            print("\(Utils.tt) \(patronList.id) about to call .loadItems()")
+            patronList.initVisibleIds(fromQueryObj: queryObj)
+            patronList.loadItems(fromFleshedObj: allItemsObj)
+        }
     }
 
     func createPatronList(account: Account, name: String, description: String) async throws {

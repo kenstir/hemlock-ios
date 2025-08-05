@@ -100,7 +100,6 @@ class CheckoutsViewController: UIViewController {
         let ids = obj.getIDList("overdue") + obj.getIDList("out")
         var records: [CircRecord] = []
         var promises: [Promise<Void>] = []
-        promises.append(PCRUDService.fetchCodedValueMaps())
         for id in ids {
             let record = CircRecord(id: id)
             records.append(record)
