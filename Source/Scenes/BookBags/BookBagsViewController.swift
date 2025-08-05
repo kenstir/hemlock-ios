@@ -1,22 +1,18 @@
-/*
- * BookBagsViewController.swift
- *
- * Copyright (C) 2021 Kenneth H. Cox
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+//
+//  Copyright (c) 2025 Kenneth H. Cox
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 import os.log
@@ -98,38 +94,44 @@ class BookBagsViewController : UITableViewController {
         alertController.addTextField(configurationHandler: { textField in
             textField.placeholder = "List name"
         })
+        alertController.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Description (optional)"
+        })
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Create", style: .default) { action in
+            let description = alertController.textFields?[1].text?.trim()
             if let listName = alertController.textFields?[0].text?.trim(),
                !listName.isEmpty {
-                self.createBookBag(name: listName)
+                Task { await self.createBookBag(name: listName, description: description) }
             }
         })
         self.present(alertController, animated: true)
     }
-    
-    func createBookBag(name: String) {
-        guard let account = App.account,
-              let authtoken = account.authtoken,
-              let userID = account.userID else
+
+    @MainActor
+    func createBookBag(name: String, description: String?) async {
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
-        
-        ActorService.createBookBag(authtoken: authtoken, userID: userID, name: name).done {
+
+        do {
+            try await App.serviceConfig.userService.createPatronList(account: account, name: name, description: description ?? "")
             self.navigationController?.view.makeToast("List created")
-            Task { await self.fetchData() }
-        }.catch { error in
+            await self.fetchData()
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
 
-    func deleteBookBag(authtoken: String, bookBagId: Int, indexPath: IndexPath) {
-        ActorService.deleteBookBag(authtoken: authtoken, bookBagId: bookBagId).done {
-            App.account?.removeBookBag(at: indexPath.row)
+    @MainActor
+    func deleteBookBag(account: Account, listId: Int, indexPath: IndexPath) async {
+        do {
+            try await App.serviceConfig.userService.deletePatronList(account: account, listId: listId)
+            account.removeBookBag(at: indexPath.row)
             self.updateItems()
-        }.catch { error in
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -161,8 +163,7 @@ class BookBagsViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
@@ -174,7 +175,7 @@ class BookBagsViewController : UITableViewController {
         let alertController = UIAlertController(title: "Delete list?", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
-            self.deleteBookBag(authtoken: authtoken, bookBagId: item.id, indexPath: indexPath)
+            Task { await self.deleteBookBag(account: account, listId: item.id, indexPath: indexPath) }
         })
         self.present(alertController, animated: true)
     }

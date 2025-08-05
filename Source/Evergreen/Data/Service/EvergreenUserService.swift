@@ -16,6 +16,7 @@
 
 import Foundation
 import Alamofire
+import os.log
 
 class EvergreenUserService: XUserService {
 
@@ -81,17 +82,34 @@ class EvergreenUserService: XUserService {
     }
 
     func createPatronList(account: Account, name: String, description: String) async throws {
-        throw HemlockError.notImplemented
+        guard let authtoken = account.authtoken,
+            let userID = account.userID else {
+            throw HemlockError.sessionExpired
+        }
+        let obj = OSRFObject([
+            "btype": API.containerTypeBookbag,
+            "name": name,
+            "description": description,
+            "pub": false,
+            "owner": userID,
+        ], netClass: "cbreb")
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
+        let str = try await req.gatewayResponseAsync().asString()
+        os_log("[bookbag] createBag %@ result %@", name, str)
     }
 
     func deletePatronList(account: Account, listId: Int) async throws {
-        throw HemlockError.notImplemented
+        guard let authtoken = account.authtoken else {
+            throw HemlockError.sessionExpired
+        }
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, listId], shouldCache: false)
+        let str = try await req.gatewayResponseAsync().asString()
+        os_log("[bookbag] bag %d deleteBag result %@", listId, str)
     }
 
     func removeItemFromPatronList(account: Account, listId: Int, itemId: Int) async throws {
         throw HemlockError.notImplemented
     }
-
 
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage] {
         let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [account.authtoken, account.userID], shouldCache: false)
