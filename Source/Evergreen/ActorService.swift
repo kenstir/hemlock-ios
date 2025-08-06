@@ -58,15 +58,6 @@ class ActorService {
         return Promise<Void>()
     }
 
-    /// Fetch one specific org unit.  We use this to fetch up-to-date (uncached) info on a specific org
-    static func fetchOrg(forOrgID orgID: Int) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitRetrieve, args: [API.anonymousAuthToken, orgID], shouldCache: false)
-        let promise = req.gatewayObjectResponse().done { obj in
-            Organization.updateOrg(fromObj: obj)
-        }
-        return promise
-    }
-
     /// fetch settings for all organizations.
     /// Must be called only after `orgTreeLoaded`.
     /// If `forOrgID` is non-nil, it means load settings for just the one org.
@@ -113,22 +104,6 @@ class ActorService {
             return when(fulfilled: promises)
         }
         return promise
-    }
-
-    static func fetchOrgHours(authtoken: String, forOrgID orgID: Int) -> Promise<(OSRFObject?)> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [authtoken, orgID], shouldCache: false)
-        return req.gatewayOptionalObjectResponse()
-    }
-
-    static func fetchOrgClosures(authtoken: String, forOrgID orgID: Int) -> Promise<([OSRFObject])> {
-        let param: JSONDictionary = ["orgid": orgID]
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursClosedRetrieve, args: [authtoken, param], shouldCache: false)
-        return req.gatewayMaybeEmptyArrayResponse()
-    }
-
-    static func fetchOrgAddress(addressID: Int) -> Promise<(OSRFObject?)> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [addressID], shouldCache: true)
-        return req.gatewayOptionalObjectResponse()
     }
 
     static func addItemToBookBag(authtoken: String, bookBagId: Int, recordId: Int) -> Promise<Void> {
