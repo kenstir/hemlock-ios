@@ -62,13 +62,31 @@ class OrgDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        fetchData()
+
+        fetchDataOG()
+        //Task { await fetchData() }
     }
-    
+
     //MARK: - Functions
-    
-    func fetchData() {
+
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account,
+              let orgID = self.orgID else { return }
+
+        centerSubview(activityIndicator)
+        activityIndicator.startAnimating()
+
+        do {
+            try await App.serviceConfig.orgService.loadOrgDetails(account: account, forOrgID: orgID)
+        } catch {
+            self.presentGatewayAlert(forError: error)
+        }
+
+        activityIndicator.stopAnimating()
+    }
+
+    func fetchDataOG() {
         var promises: [Promise<Void>] = []
         promises.append(ActorService.fetchOrgTreeAndSettings(forOrgID: orgID))
         

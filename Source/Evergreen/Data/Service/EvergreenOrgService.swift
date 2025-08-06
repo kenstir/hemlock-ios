@@ -46,6 +46,11 @@ class EvergreenOrgService: XOrgService {
         guard let org = Organization.find(byId: orgID) else {
             throw HemlockError.internalError("org \(orgID) not found")
         }
+
+        // Reload org no caching
+        // Hours
+        // Closures
+        // Address
     }
     
 }

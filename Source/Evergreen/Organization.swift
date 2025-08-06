@@ -78,6 +78,7 @@ class Organization {
     let ouType: Int
     let opacVisible: Bool
 
+    var hours: XOrgHours? = nil
     var addressObj: OSRFObject? = nil
 
     var aouObj: OSRFObject
