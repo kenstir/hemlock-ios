@@ -37,6 +37,14 @@ extension GatewayResponse {
         }
     }
 
+    func asObjectOrNil() throws -> OSRFObject? {
+        if let error = self.error {
+            throw error
+        } else {
+            return self.obj
+        }
+    }
+
     func asArray() throws -> [OSRFObject] {
         if let error = self.error {
             throw error
@@ -46,4 +54,17 @@ extension GatewayResponse {
             throw HemlockError.serverError("expected array, got \(self.description)")
         }
     }
+
+    func asMaybeEmptyArray() throws -> [OSRFObject] {
+        if let error = self.error {
+            throw error
+        } else if self.type == .empty {
+            return []
+        } else if let array = self.array {
+            return array
+        } else {
+            throw HemlockError.serverError("expected array, got \(self.description)")
+        }
+    }
+
 }

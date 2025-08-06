@@ -46,6 +46,31 @@ class EvergreenOrgService: XOrgService {
         guard let org = Organization.find(byId: orgID) else {
             throw HemlockError.internalError("org \(orgID) not found")
         }
+
+        // async 1: reload org without caching
+        let orgReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitRetrieve, args: [API.anonymousAuthToken, org.id], shouldCache: false)
+        async let orgResp = orgReq.gatewayResponseAsync()
+
+        // async 2: load org hours
+        let hoursReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursOfOperationRetrieve, args: [account.authtoken, org.id], shouldCache: false)
+        async let hoursResp = hoursReq.gatewayResponseAsync()
+
+        // async 3: load org closures
+        let param: JSONDictionary = ["orgid": orgID]
+        let closuresReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitHoursClosedRetrieve, args: [account.authtoken, param], shouldCache: false)
+        async let closuresResp = closuresReq.gatewayResponseAsync()
+
+        // async 4: load address
+        let addressReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [org.addressID], shouldCache: false)
+        async let addressResp = addressReq.gatewayResponseAsync()
+
+        // await responses in parallel
+        let (orgObj, hoursObj, closures, addressObj) = try await (orgResp.asObject(), hoursResp.asObjectOrNil(), closuresResp.asMaybeEmptyArray(), addressResp.asObjectOrNil())
+
+        // load data
+        org.updateOrg(fromObj: orgObj)
+        org.loadHours(fromObj: hoursObj)
+        org.setAddress(fromObj: addressObj)
+        org.loadClosures(fromArray: closures)
     }
-    
 }
