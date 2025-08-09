@@ -100,7 +100,7 @@ class Utils {
         return 0
     }
 
-    /// tt - thread tag for debug logging
+    /// tt - thread tag for [async] debug logging
     static var tt: String {
         if Thread.isMainThread {
             return "[async][main ]"
