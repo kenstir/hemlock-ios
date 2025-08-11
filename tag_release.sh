@@ -75,5 +75,4 @@ msg="${tag}"
 git commit "$proj" -m "$msg" || true
 git tag -a -m "$msg" $tag
 git push
-#git push --tags
 git push origin $tag
