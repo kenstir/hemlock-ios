@@ -893,6 +893,28 @@
 		D279911120DDD77F003B451E /* pines.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D279911020DDD77F003B451E /* pines.xcassets */; };
 		D279911820DDE11E003B451E /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911720DDE11E003B451E /* AppFactory.swift */; };
 		D279911A20DDE160003B451E /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279911920DDE160003B451E /* AppFactory.swift */; };
+		D27C8AC02E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC12E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC22E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC32E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC42E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC52E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC62E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC72E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC82E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8AC92E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8ACA2E4FE84900367643 /* XBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ABF2E4FE84900367643 /* XBiblioService.swift */; };
+		D27C8ACC2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8ACD2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8ACE2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8ACF2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8AD02E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8AD12E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8AD22E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8AD32E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8AD42E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8AD52E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27C8AD62E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
 		D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
 		D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
 		D27DF20521AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
@@ -2275,6 +2297,8 @@
 		D279911020DDD77F003B451E /* pines.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pines.xcassets; sourceTree = "<group>"; };
 		D279911720DDE11E003B451E /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D279911920DDE160003B451E /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		D27C8ABF2E4FE84900367643 /* XBiblioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBiblioService.swift; sourceTree = "<group>"; };
+		D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenBiblioService.swift; sourceTree = "<group>"; };
 		D27DF20221AA3D81002DCC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Source/Storyboards/Base.lproj/ShowCard.storyboard; sourceTree = "<group>"; };
 		D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeUtils.swift; sourceTree = "<group>"; };
 		D27DF20B21AB4B84002DCC47 /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
@@ -3059,6 +3083,7 @@
 				D2C300362E3D5AF90082C308 /* ServiceConfig.swift */,
 				D2C300502E3E65AB0082C308 /* XUserService.swift */,
 				D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */,
+				D27C8ABF2E4FE84900367643 /* XBiblioService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -3245,6 +3270,7 @@
 				D2C3005C2E3E660A0082C308 /* EvergreenUserService.swift */,
 				D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */,
 				D2B302452E4D589D006C3BE6 /* EvergreenOrgClosure.swift */,
+				D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -4333,6 +4359,7 @@
 				D210EBEF22B1EE55002FB5E0 /* CopyInfoViewController.swift in Sources */,
 				D2931AAA272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D210EBF122B1EE55002FB5E0 /* SendEmailViewController.swift in Sources */,
+				D27C8AC82E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D210EBF222B1EE55002FB5E0 /* UIView+UYLExtensions.swift in Sources */,
 				D210EBF322B1EE55002FB5E0 /* CircRecord.swift in Sources */,
 				D210EBF422B1EE55002FB5E0 /* CheckoutsViewController.swift in Sources */,
@@ -4367,6 +4394,7 @@
 				D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D20B300022CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D210EC0B22B1EE55002FB5E0 /* Gateway.swift in Sources */,
+				D27C8ACD2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D23398672E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D210EC0C22B1EE55002FB5E0 /* UIViewController+.swift in Sources */,
 				D210EC0D22B1EE55002FB5E0 /* CheckoutsTableViewCell.swift in Sources */,
@@ -4415,6 +4443,7 @@
 				D2816CCF28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2B302432E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */,
+				D27C8ACE2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D28F5E7729CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2D8ABC42E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2A627DF2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4447,6 +4476,7 @@
 				D2931AA7272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D23E9F8A23B9200A0030F5C1 /* RingBuffer.swift in Sources */,
 				D2C300552E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D27C8AC72E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66BB297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D23E9F8B23B9200A0030F5C1 /* HemlockError.swift in Sources */,
 				D23E9F8D23B9200A0030F5C1 /* SearchViewController.swift in Sources */,
@@ -4541,6 +4571,7 @@
 				D2816CCB28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2B302402E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D2477BC424785A6B00FD4CF6 /* MainTableViewCell.swift in Sources */,
+				D27C8AD42E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D28F5E7129CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2D8ABC12E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2A627D92BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4573,6 +4604,7 @@
 				D2931AA3272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2477BD624785A6B00FD4CF6 /* RingBuffer.swift in Sources */,
 				D2C300512E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D27C8AC42E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66B5297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2477BD724785A6B00FD4CF6 /* HemlockError.swift in Sources */,
 				D2477BD924785A6B00FD4CF6 /* SearchViewController.swift in Sources */,
@@ -4667,6 +4699,7 @@
 				D2816CD028B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2B3023F2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D2572AB224AD7755000BA698 /* Organization.swift in Sources */,
+				D27C8ACF2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D28F5E7229CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2D8ABC32E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2A627DA2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4699,6 +4732,7 @@
 				D2931AA8272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2572AC624AD7755000BA698 /* RingBuffer.swift in Sources */,
 				D2C300532E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D27C8ACA2E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66B6297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2572AC724AD7755000BA698 /* HemlockError.swift in Sources */,
 				D2572AC924AD7755000BA698 /* SearchViewController.swift in Sources */,
@@ -4793,6 +4827,7 @@
 				D271862B28CEBE7C0046E9BC /* ScanBarcodeViewController.swift in Sources */,
 				D2B302422E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D25EECD928A1EB2E0090F108 /* OwwlTheme.swift in Sources */,
+				D27C8AD02E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D28F5E7529CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2D8ABC92E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2A627DD2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4825,6 +4860,7 @@
 				D25EEC6828A1E8310090F108 /* SMSCarrier.swift in Sources */,
 				D25EEC6928A1E8310090F108 /* BookBagItem.swift in Sources */,
 				D2C3005A2E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D27C8AC02E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66B9297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D25EEC6A28A1E8310090F108 /* RingBuffer.swift in Sources */,
 				D25EEC6B28A1E8310090F108 /* HemlockError.swift in Sources */,
@@ -4907,6 +4943,7 @@
 				D276DA8921336B20007FAA31 /* OSRFCoder.swift in Sources */,
 				D276DA8A21336B20007FAA31 /* LoginViewController.swift in Sources */,
 				D2EA312F2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
+				D27C8AD12E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D2C3EA2329D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2EA31082B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
@@ -4965,6 +5002,7 @@
 				D2D8ABC82E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D22AE11B221B82BA0089C196 /* AFSession+.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
+				D27C8AC52E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
 				D29838622B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5327383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
@@ -5032,6 +5070,7 @@
 				FAA9E31921962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D2C3EA2429D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2EA31302B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
+				D27C8AD62E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
 				D2EA31092B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
@@ -5090,6 +5129,7 @@
 				D2D8ABC52E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
+				D27C8AC22E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2AA9D5427383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D29838632B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D20B2FF622CF976200F69848 /* AppBehavior.swift in Sources */,
@@ -5157,6 +5197,7 @@
 				D21867A221D039BF0082358C /* CoolTheme.swift in Sources */,
 				D284244D21D0358200C7171C /* OSRFCoder.swift in Sources */,
 				D2EA312E2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
+				D27C8AD52E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D2C3EA2229D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2EA31072B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D284244E21D0358200C7171C /* LoginViewController.swift in Sources */,
@@ -5215,6 +5256,7 @@
 				D2D8ABCB2E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D22AE11C221B82BB0089C196 /* AFSession+.swift in Sources */,
 				D284246D21D0358200C7171C /* HoldsViewController.swift in Sources */,
+				D27C8AC12E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
 				D29838612B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5227383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
@@ -5294,6 +5336,7 @@
 				D2816CCE28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2B3023A2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
+				D27C8ACC2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D28F5E7629CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2D8ABC62E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2A627DE2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -5326,6 +5369,7 @@
 				D2931AA6272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */,
 				D2C300522E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D27C8AC62E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66BA297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
 				D2F390352241E5950089D745 /* RingBuffer.swift in Sources */,
@@ -5504,6 +5548,7 @@
 				D2AA9D632738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D2BDA63722D176BD00D9B60C /* CopyInfoViewController.swift in Sources */,
 				D2BDA63922D176BD00D9B60C /* SendEmailViewController.swift in Sources */,
+				D27C8AC92E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2931AAF272DE83200CBA5AA /* BookBag.swift in Sources */,
 				D2BDA63A22D176BD00D9B60C /* UIView+UYLExtensions.swift in Sources */,
 				D2BDA63B22D176BD00D9B60C /* CircRecord.swift in Sources */,
@@ -5538,6 +5583,7 @@
 				D2BDA65222D176BD00D9B60C /* RecordAttributes.swift in Sources */,
 				D2CAFBC4246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D2BDA65422D176BD00D9B60C /* Gateway.swift in Sources */,
+				D27C8AD22E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D233986B2E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2BDA65522D176BD00D9B60C /* UIViewController+.swift in Sources */,
 				D2BDA65622D176BD00D9B60C /* CheckoutsTableViewCell.swift in Sources */,
@@ -5586,6 +5632,7 @@
 				D2816CCD28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2B3023E2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D2BDA6B022D2A72000D9B60C /* MainTableViewCell.swift in Sources */,
+				D27C8AD32E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D28F5E7429CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2D8ABC22E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2A627DC2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -5618,6 +5665,7 @@
 				D2931AA5272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2BDA6C422D2A72000D9B60C /* RingBuffer.swift in Sources */,
 				D2C300572E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D27C8AC32E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66B8297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2BDA6C522D2A72000D9B60C /* HemlockError.swift in Sources */,
 				D2BDA6C722D2A72000D9B60C /* SearchViewController.swift in Sources */,

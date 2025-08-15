@@ -16,10 +16,8 @@
 
 import Foundation
 
-class EvergreenServiceConfig: ServiceConfig {
-    var loaderService: any XLoaderService = EvergreenLoaderService()
-    var authService: any XAuthService = EvergreenAuthService()
-    var biblioService: any XBiblioService = EvergreenBiblioService()
-    var orgService: any XOrgService = EvergreenOrgService()
-    var userService: any XUserService = EvergreenUserService()
+class EvergreenBiblioService: XBiblioService {
+    func loadRecordDetails(forRecord record: MBRecord) async throws -> Void {
+        throw HemlockError.notImplemented
+    }
 }

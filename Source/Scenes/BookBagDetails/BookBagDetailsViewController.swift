@@ -19,8 +19,9 @@
  */
 
 import UIKit
-import PromiseKit
 import os.log
+
+import PromiseKit
 
 class BookBagDetailsViewController : UITableViewController {
 
@@ -32,7 +33,7 @@ class BookBagDetailsViewController : UITableViewController {
     var sortDescending = false
     var sortOrderButton = UIBarButtonItem()
 
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
+    let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
     
     //MARK: - UIViewController
     
@@ -49,7 +50,7 @@ class BookBagDetailsViewController : UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -71,31 +72,56 @@ class BookBagDetailsViewController : UITableViewController {
         let sortButton = UIBarButtonItem(image: sortByImage, style: .plain, target: self, action: #selector(sortButtonPressed(sender:)))
         navigationItem.rightBarButtonItems?.append(sortButton)
     }
-    
-    func fetchData() {
+
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account, let bookBag = self.bookBag else { return }
+
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        // fetch the record details
-        var promises: [Promise<Void>] = []
-        if let items = bookBag?.items {
-            for item in items {
-                promises.append(fetchTargetDetails(forItem: item))
+        do {
+            try await App.serviceConfig.userService.loadPatronListItems(account: account, patronList: bookBag)
+            os_log("fetched %d items", log: self.log, type: .info, account.bookBags.count)
+
+            try await withThrowingTaskGroup(of: Void.self) { group in
+                for item in bookBag.items {
+                    group.addTask {
+                        try await self.loadItemDetails(forItem: item)
+                    }
+                }
+                try await group.waitForAll()
             }
-        }
-        
-        // wait for them to be fulfilled
-        firstly {
-            when(fulfilled: promises)
-        }.done {
+
             self.updateItems()
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
+        } catch {
+            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
         }
+
+        activityIndicator.stopAnimating()
+
+//        var promises: [Promise<Void>] = []
+//        if let items = bookBag?.items {
+//            for item in items {
+//                promises.append(fetchTargetDetails(forItem: item))
+//            }
+//        }
+//        firstly {
+//            when(fulfilled: promises)
+//        }.done {
+//            self.updateItems()
+//        }.ensure {
+//            self.activityIndicator.stopAnimating()
+//        }.catch { error in
+//            self.presentGatewayAlert(forError: error)
+//        }
     }
-    
+
+    func loadItemDetails(forItem item: BookBagItem) async throws -> Void {
+        guard let record = item.metabibRecord else { return }
+        try await App.serviceConfig.biblioService.loadRecordDetails(forRecord: record)
+    }
+
     func fetchTargetDetails(forItem item: BookBagItem) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [item.targetId], shouldCache: true)
         let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
