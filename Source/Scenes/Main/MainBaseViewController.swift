@@ -114,7 +114,7 @@ class MainBaseViewController: UIViewController {
 
     func clearAllAccounts() {
         // confirm action
-        let alertController = UIAlertController(title: "Clear all accounts?", message: "Logout and clear all accounts from this device?  This does not affect your account on the server.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Clear all accounts?", message: "Logout and clear all accounts from this device?  This will not delete your library account.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Clear all accounts", style: .destructive) { action in
             self.doLogoutAndClearAll()
         })
