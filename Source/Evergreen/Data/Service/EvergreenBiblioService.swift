@@ -17,7 +17,15 @@
 import Foundation
 
 class EvergreenBiblioService: XBiblioService {
-    func loadRecordDetails(forRecord record: MBRecord) async throws -> Void {
-        throw HemlockError.notImplemented
+    func loadRecordDetails(forRecord record: MBRecord, needMARC: Bool) async throws -> Void {
+        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
+        let obj = try await req.gatewayResponseAsync().asObject()
+        record.setMvrObj(obj)
+
+        if needMARC {
+            let marcReq = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, record.id], shouldCache: true)
+            let marcObj = try await marcReq.gatewayResponseAsync().asObject()
+            record.update(fromBreObj: marcObj)
+        }
     }
 }

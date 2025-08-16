@@ -17,5 +17,5 @@
 import Foundation
 
 protocol XBiblioService {
-    func loadRecordDetails(forRecord record: MBRecord) async throws -> Void
+    func loadRecordDetails(forRecord record: MBRecord, needMARC: Bool) async throws -> Void
 }

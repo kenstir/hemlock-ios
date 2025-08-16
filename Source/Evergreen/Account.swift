@@ -65,7 +65,8 @@ class Account {
         self.username = username
         self.password = password
     }
-    
+
+    /// mt-safe
     func clear() -> Void {
         lock.lock(); defer { lock.unlock() }
 
@@ -80,6 +81,7 @@ class Account {
         self.bookBagsEverLoaded = false
     }
 
+    /// mt-safe
     func loadSession(fromObject obj: OSRFObject) {
         lock.lock(); defer { lock.unlock() }
 
@@ -126,6 +128,7 @@ class Account {
         }
     }
 
+    /// mt-safe
     func loadUserSettings(fromObject obj: OSRFObject) {
         lock.lock(); defer { lock.unlock() }
         print("\(Utils.tt) loadUserSettings")
@@ -171,12 +174,14 @@ class Account {
         os_log(.info, log: Account.log, "loadUserSettings finished, fcmToken=%@", App.fcmNotificationToken ?? "(nil)")
     }
 
+    /// mt-safe
     func setCircHistoryStart(_ start: String?) {
         lock.lock(); defer { lock.unlock() }
 
         userSettingCircHistoryStart = start
     }
 
+    /// mt-safe
     func loadBookBags(fromArray objects: [OSRFObject]) {
         lock.lock(); defer { lock.unlock() }
 
@@ -185,6 +190,7 @@ class Account {
         bookBagsEverLoaded = true
     }
 
+    /// mt-safe
     func removeBookBag(at index: Int) {
         lock.lock(); defer { lock.unlock() }
 
@@ -194,6 +200,7 @@ class Account {
         bookBags.remove(at: index)
     }
 
+    /// mt-safe
     func setAuthToken(_ authtoken: String) {
         lock.lock(); defer { lock.unlock() }
 

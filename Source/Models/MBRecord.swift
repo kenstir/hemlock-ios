@@ -20,7 +20,8 @@ import Foundation
 
 /// Metabib Record
 class MBRecord {
-    
+    private let lock = NSRecursiveLock()
+
     var id: Int
     var mvrObj: OSRFObject?
     var attrs: [String: String]? // from MRA object
@@ -92,12 +93,35 @@ class MBRecord {
 
     //MARK: - Functions
 
+    /// mt-safe
+    func setMvrObj(_ obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+        self.mvrObj = obj
+    }
+
+    /// mt-safe
+    func update(fromBreObj obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+
+        guard
+            let marcXML = obj.getString("marc"),
+            let data = marcXML.data(using: .utf8) else
+        {
+            return
+        }
+        let parser = MARCXMLParser(data: data)
+        marcRecord = try? parser.parse()
+        marcIsDeleted = obj.getBoolOrFalse("deleted")
+    }
+
     func totalCopies(atOrgID orgID: Int?) -> Int {
         if let copyCount = copyCounts?.last {
             return copyCount.count
         }
         return 0
     }
+
+    //MARK: - Static functions
 
     // Create array of skeleton records from the multiclassQuery response object.
     static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord] {

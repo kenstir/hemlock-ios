@@ -118,23 +118,7 @@ class BookBagDetailsViewController : UITableViewController {
     }
 
     func loadItemDetails(forItem item: BookBagItem) async throws -> Void {
-        guard let record = item.metabibRecord else { return }
-        try await App.serviceConfig.biblioService.loadRecordDetails(forRecord: record)
-    }
-
-    func fetchTargetDetails(forItem item: BookBagItem) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [item.targetId], shouldCache: true)
-        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
-            let record = MBRecord(id: item.targetId, mvrObj: obj)
-            item.metabibRecord = record
-            if App.config.needMARCRecord {
-                return PCRUDService.fetchMARC(forRecord: record)
-            } else {
-                return Promise<Void>()
-            }
-        }.done {
-        }
-        return promise
+        try await App.serviceConfig.biblioService.loadRecordDetails(forRecord: item.metabibRecord, needMARC: App.config.needMARCRecord)
     }
 
     @objc func sortButtonPressed(sender: UIBarButtonItem) {
@@ -195,24 +179,24 @@ class BookBagDetailsViewController : UITableViewController {
 
     func authorSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
         if (descending) {
-            return a.metabibRecord?.author ?? "" > b.metabibRecord?.author ?? ""
+            return a.metabibRecord.author > b.metabibRecord.author
         } else {
-            return a.metabibRecord?.author ?? "" < b.metabibRecord?.author ?? ""
+            return a.metabibRecord.author < b.metabibRecord.author
         }
     }
 
     func titleSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
-        let akey = a.metabibRecord?.titleSortKey ?? ""
-        let bkey = b.metabibRecord?.titleSortKey ?? ""
+        let akey = a.metabibRecord.titleSortKey
+        let bkey = b.metabibRecord.titleSortKey
         let order = descending ? ComparisonResult.orderedDescending : ComparisonResult.orderedAscending
         return akey.compare(bkey, locale: .current) == order
     }
 
     func pubdateSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
         if (descending) {
-            return Utils.pubdateSortKey(a.metabibRecord?.pubdate) ?? 0 > Utils.pubdateSortKey(b.metabibRecord?.pubdate) ?? 0
+            return Utils.pubdateSortKey(a.metabibRecord.pubdate) ?? 0 > Utils.pubdateSortKey(b.metabibRecord.pubdate) ?? 0
         } else {
-            return Utils.pubdateSortKey(a.metabibRecord?.pubdate) ?? 0 < Utils.pubdateSortKey(b.metabibRecord?.pubdate) ?? 0
+            return Utils.pubdateSortKey(a.metabibRecord.pubdate) ?? 0 < Utils.pubdateSortKey(b.metabibRecord.pubdate) ?? 0
         }
     }
 
@@ -254,9 +238,9 @@ class BookBagDetailsViewController : UITableViewController {
         }
 
         let item = sortedItems[indexPath.row]
-        cell.title.text = item.metabibRecord?.title
-        cell.author.text = item.metabibRecord?.author
-        cell.format.text = item.metabibRecord?.iconFormatLabel
+        cell.title.text = item.metabibRecord.title
+        cell.author.text = item.metabibRecord.author
+        cell.format.text = item.metabibRecord.iconFormatLabel
 
         return cell
     }
@@ -264,9 +248,7 @@ class BookBagDetailsViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var records: [MBRecord] = []
         for item in sortedItems {
-            if let record = item.metabibRecord {
-                records.append(record)
-            }
+            records.append(item.metabibRecord)
         }
 
         if records.count > 0 {
