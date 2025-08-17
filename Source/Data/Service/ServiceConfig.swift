@@ -20,6 +20,7 @@ protocol ServiceConfig {
     var loaderService: XLoaderService { get }
     var authService: XAuthService { get }
     var biblioService: XBiblioService { get }
+    var circService: XCircService { get }
     var orgService: XOrgService { get }
     var userService: XUserService { get }
 }

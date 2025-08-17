@@ -21,12 +21,13 @@ import Foundation
 
 /// A `CircRecord` is a record of an item in circulation
 class CircRecord {
-    
+    private let lock = NSRecursiveLock()
+
     let id: Int
-    var circObj: OSRFObject?
-    var metabibRecord: MBRecord?
-    var acpObj: OSRFObject?
-    
+    private(set) var circObj: OSRFObject?
+    private(set) var metabibRecord: MBRecord?
+    private(set) var acpObj: OSRFObject?
+
     var title: String {
         if let title = metabibRecord?.title, !title.isEmpty { return title }
         if let title = acpObj?.getString("dummy_title"), !title.isEmpty { return title }
@@ -64,5 +65,32 @@ class CircRecord {
     
     init(id: Int) {
         self.id = id
+    }
+
+    /// mt-safe
+    func setCircObj(_ obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+        circObj = obj
+    }
+
+    /// mt-safe
+    func setMetabibRecord(_ record: MBRecord) {
+        lock.lock(); defer { lock.unlock() }
+        metabibRecord = record
+    }
+
+    /// mt-safe
+    func setAcpObj(_ obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+        acpObj = obj
+    }
+
+    static func makeArray(fromObj obj: OSRFObject) -> [CircRecord] {
+        let ids = obj.getIDList("overdue") + obj.getIDList("out")
+        var records: [CircRecord] = []
+        for id in ids {
+            records.append(CircRecord(id: id))
+        }
+        return records
     }
 }

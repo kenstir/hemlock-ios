@@ -107,6 +107,12 @@ class MBRecord {
     }
 
     /// mt-safe
+    func update(fromMraObj obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+        attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
+    }
+
+    /// mt-safe
     func update(fromBreObj obj: OSRFObject) {
         lock.lock(); defer { lock.unlock() }
 

@@ -16,11 +16,15 @@
 
 import Foundation
 
-class EvergreenServiceConfig: ServiceConfig {
-    var loaderService: any XLoaderService = EvergreenLoaderService()
-    var authService: any XAuthService = EvergreenAuthService()
-    var biblioService: any XBiblioService = EvergreenBiblioService()
-    var circService: any XCircService = EvergreenCircService()
-    var orgService: any XOrgService = EvergreenOrgService()
-    var userService: any XUserService = EvergreenUserService()
+protocol XCircService {
+    /// Fetches the current checkouts
+    ///
+    /// Returns a list of skeleton records, that must be fleshed out with loadCheckoutDetails.
+    func fetchCheckouts(account: Account) async throws -> [CircRecord]
+
+    /// Loads the details for a specific circ record
+    func loadCheckoutDetails(account: Account, circRecord: CircRecord) async throws -> Void
+
+    /// Renews a checkout
+    func renewCheckout(account: Account, targetCopy: Int) async throws -> Bool
 }

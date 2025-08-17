@@ -22,16 +22,6 @@ import PromiseKit
 import PMKAlamofire
 
 class CircService {
-    static func renew(authtoken: String, userID: Int, targetCopy: Int) -> Promise<OSRFObject> {
-        let complexParam: [String: Int] = [
-            "patron": userID,
-            "copyid": targetCopy,
-            "opac_renewal": 1
-        ]
-        let req = Gateway.makeRequest(service: API.circ, method: API.renew, args: [authtoken, complexParam], shouldCache: false)
-        return req.gatewayObjectResponse()
-    }
-    
     // This returns a Promise<GatewayResponse> and not Promise<OSRFObject>
     // because we don't want to reject the promise chain if a title hold is not possible.
     static func titleHoldIsPossible(authtoken: String, userID: Int, targetID: Int, pickupOrgID: Int) -> Promise<GatewayResponse> {
