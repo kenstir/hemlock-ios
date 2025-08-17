@@ -177,7 +177,7 @@ class Analytics {
            method != "open-ils.auth.authenticate.complete" {
             argsDescription = args.joined(separator: ",")
         }
-        let s = "\(tag ?? nullTag): send: \(method) \(argsDescription)"
+        let s = "[net] \(tag ?? nullTag): send: \(method) \(argsDescription)"
 
         os_log("%{public}s", log: log, type: .info, s)
         logToBuffer(s)
@@ -185,7 +185,7 @@ class Analytics {
 
     /// mt: MT-Safe
     static func logRequest(tag: String?, url: String) {
-        let s = "\(tag ?? nullTag): send: \(url)"
+        let s = "[net] \(tag ?? nullTag): send: \(url)"
 
         os_log("%{public}s", log: log, type: .info, s)
         logToBuffer(s)
@@ -203,7 +203,7 @@ class Analytics {
 
     /// mt: MT-Safe
     static func logResponse(tag: String?, wireString: String) {
-        print("\(Utils.tt) logResponse \(tag ?? nullTag)")
+        //print("\(Utils.tt) logResponse \(tag ?? nullTag)")
 
         // redact certain responses: login (au), message (aum), orgTree (aou)
         // au? is sensitive; aou is just long
@@ -212,13 +212,13 @@ class Analytics {
             """
         let s: String
         if wireString.starts(with: "<IDL ") {
-            s = "\(tag ?? nullTag): recv: <IDL>"
+            s = "[net] \(tag ?? nullTag): recv: <IDL>"
         } else {
             let range = wireString.range(of: redactedResponseRegex, options: .regularExpression)
             if range == nil {
-                s = "\(tag ?? nullTag): recv: \(wireString)"
+                s = "[net] \(tag ?? nullTag): recv: \(wireString)"
             } else {
-                s = "\(tag ?? nullTag): recv: ***"
+                s = "[net] \(tag ?? nullTag): recv: ***"
             }
         }
 
