@@ -19,7 +19,7 @@
 
 import Foundation
 
-class FineRecord {
+class FineRecord: XPatronChargeRecord {
 
     //MARK: - Properties
 
@@ -45,7 +45,7 @@ class FineRecord {
         }
         return ""
     }
-    var balance: Double? {
+    var balanceOwed: Double? {
         return mbtsObj.getDouble("balance_owed")
     }
     var status: String {
@@ -55,27 +55,35 @@ class FineRecord {
         if let _ = self.circObj?.getDate("checkin_time") {
             return "returned"
         }
-        if let balance = self.balance,
+        if let balance = self.balanceOwed,
             let maxFine = self.circObj?.getDouble("max_fine"),
             balance > maxFine {
             return "maximum fine"
         }
         return "fines accruing"
     }
-    
+    var record: MBRecord?
+
     //MARK: - Functions
 
-    init(transaction: OSRFObject) {
-        self.mbtsObj = transaction
+    init(mbtsObj: OSRFObject, circObj: OSRFObject? = nil, mvrObj: OSRFObject? = nil) {
+        self.mbtsObj = mbtsObj
+        self.circObj = circObj
+        if let mvrObj = mvrObj {
+            self.mvrObj = mvrObj
+            self.record = MBRecord(mvrObj: mvrObj)
+        }
     }
-    
-    static func makeArray(_ objects: [OSRFObject]) -> [FineRecord] {
-        var ret: [FineRecord] = []
+
+    //MARK: - Static Functions
+
+    static func makeArray(_ objects: [OSRFObject]) -> [XPatronChargeRecord] {
+        var ret: [XPatronChargeRecord] = []
         for obj in objects {
-            if let transaction = obj.getObject("transaction") {
-                let fine = FineRecord(transaction: transaction)
-                fine.circObj = obj.getObject("circ")
-                fine.mvrObj = obj.getObject("record")
+            if let mbtsObj = obj.getObject("transaction") {
+                let circObj = obj.getObject("circ")
+                let mvrObj = obj.getObject("record")
+                let fine = FineRecord(mbtsObj: mbtsObj, circObj: circObj, mvrObj: mvrObj)
                 ret.append(fine)
             } else {
                 Analytics.logError(code: .shouldNotHappen, msg: "fine record has no txn", file: #file, line: #line)

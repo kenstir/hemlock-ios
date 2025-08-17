@@ -1,7 +1,5 @@
 //
-//  FinesViewController.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -14,8 +12,7 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
 import UIKit
@@ -53,7 +50,8 @@ class FinesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -115,14 +113,24 @@ class FinesViewController: UIViewController {
         }
     }
 
-    func fetchData() {
-        guard let authtoken = App.account?.authtoken,
-            let userid = App.account?.userID else
-        {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account else { return }
+
+        centerSubview(activityIndicator)
+        activityIndicator.startAnimating()
+
+        do {
+            // fetch the home org settings
+            // fetch the charges
+            throw HemlockError.notImplemented // TODO: replace with actual fetch logic
+        } catch {
+            self.presentGatewayAlert(forError: error)
         }
-        
+
+        activityIndicator.stopAnimating()
+
+        /*
         var promises: [Promise<Void>] = []
 
         centerSubview(activityIndicator)
@@ -151,10 +159,11 @@ class FinesViewController: UIViewController {
         }.done {
             self.updatePayFinesButton()
         }.ensure {
-            self.activityIndicator.stopAnimating()
+         self.activityIndicator.stopAnimating()
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }
+         */
     }
     
     func updatePayFinesButton() {
@@ -193,7 +202,7 @@ class FinesViewController: UIViewController {
             print("title:    \(fine.title)")
             print("subtitle: \(fine.subtitle)")
             print("status:   \(fine.status)")
-            if let balance = fine.balance {
+            if let balance = fine.balanceOwed {
                 print("balance:  \(balance)")
             }
         }
@@ -215,7 +224,7 @@ extension FinesViewController: UITableViewDataSource {
         let fine = fines[indexPath.row]
         cell.finesTitle?.text = fine.title
         cell.finesSubtitle?.text = fine.subtitle
-        cell.finesValue?.text = String(format: "$ %.2f ", fine.balance!)
+        cell.finesValue?.text = String(format: "$ %.2f ", fine.balanceOwed ?? 0.0)
         cell.finesStatus?.text = fine.status
 
         return cell

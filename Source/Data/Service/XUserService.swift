@@ -30,4 +30,6 @@ protocol XUserService {
     func markMessageRead(account: Account, messageID: Int) async throws -> Void
     func markMessageUnread(account: Account, messageID: Int) async throws -> Void
     func markMessageDeleted(account: Account, messageID: Int) async throws -> Void
+
+    func fetchPatronCharges(account: Account) async throws -> PatronCharges
 }

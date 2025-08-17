@@ -90,6 +90,10 @@ class MBRecord {
         self.id = id
         self.mvrObj = mvrObj        
     }
+    init(mvrObj: OSRFObject) {
+        self.id = mvrObj.getInt("doc_id") ?? -1
+        self.mvrObj = mvrObj
+    }
 
     //MARK: - Functions
 

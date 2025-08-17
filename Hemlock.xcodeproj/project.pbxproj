@@ -1045,6 +1045,18 @@
 		D28424AB21D0358200C7171C /* MainList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* MainList.storyboard */; };
 		D2844F152D0A1B02000F7E2A /* grid-icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */; };
 		D2844F162D0A2625000F7E2A /* MainGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28E04442BA12B8E001850C5 /* MainGrid.storyboard */; };
+		D2861B462E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B472E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B482E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B492E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B4A2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B4B2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B4C2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B4D2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B4E2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B4F2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B502E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */; };
+		D2861B522E51593F00C61AD9 /* AsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2861B512E51593F00C61AD9 /* AsyncTests.swift */; };
 		D28725AE20E86F30002A4C42 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
 		D28725AF20E88063002A4C42 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28725AD20E86F30002A4C42 /* CircService.swift */; };
 		D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
@@ -2316,6 +2328,8 @@
 		D28424B021D0358200C7171C /* COOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28424B121D0358300C7171C /* CoolInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoolInfo.plist; sourceTree = "<group>"; };
 		D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "grid-icons.xcassets"; sourceTree = "<group>"; };
+		D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPatronChargeRecord.swift; sourceTree = "<group>"; };
+		D2861B512E51593F00C61AD9 /* AsyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTests.swift; sourceTree = "<group>"; };
 		D28725AD20E86F30002A4C42 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
 		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -2857,6 +2871,7 @@
 		D22D0271208506A700DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D2861B512E51593F00C61AD9 /* AsyncTests.swift */,
 				D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */,
 				D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */,
 				D22D0272208506C500DC1F5B /* MD5Tests.swift */,
@@ -3071,6 +3086,7 @@
 			children = (
 				D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */,
 				D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */,
+				D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4413,6 +4429,7 @@
 				D28E04492BA234AB001850C5 /* MainGridViewCell.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainListViewController.swift in Sources */,
+				D2861B4E2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D210EC1122B1EE55002FB5E0 /* CopyCount.swift in Sources */,
 				D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */,
@@ -4471,6 +4488,7 @@
 				D23E9F8823B9200A0030F5C1 /* GatewayResponse.swift in Sources */,
 				D2B302492E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */,
 				D28E04552BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
+				D2861B482E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D23E9F8923B9200A0030F5C1 /* SMSCarrier.swift in Sources */,
 				D2029B65297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA7272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -4599,6 +4617,7 @@
 				D2477BD424785A6B00FD4CF6 /* GatewayResponse.swift in Sources */,
 				D2B302472E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */,
 				D28E044F2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
+				D2861B472E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D2477BD524785A6B00FD4CF6 /* SMSCarrier.swift in Sources */,
 				D2029B5F297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA3272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -4727,6 +4746,7 @@
 				D2572AC424AD7755000BA698 /* GatewayResponse.swift in Sources */,
 				D2B3024F2E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */,
 				D28E04502BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
+				D2861B4F2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D2572AC524AD7755000BA698 /* SMSCarrier.swift in Sources */,
 				D2029B60297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA8272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -4855,6 +4875,7 @@
 				D25EEC6628A1E8310090F108 /* Library.swift in Sources */,
 				D2B3024E2E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */,
 				D28E04532BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
+				D2861B492E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D25EEC6728A1E8310090F108 /* GatewayResponse.swift in Sources */,
 				D2029B63297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D25EEC6828A1E8310090F108 /* SMSCarrier.swift in Sources */,
@@ -5002,6 +5023,7 @@
 				D2D8ABC82E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D22AE11B221B82BA0089C196 /* AFSession+.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
+				D2861B462E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D27C8AC52E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
 				D29838622B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
@@ -5129,6 +5151,7 @@
 				D2D8ABC52E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
+				D2861B502E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D27C8AC22E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2AA9D5427383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D29838632B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
@@ -5256,6 +5279,7 @@
 				D2D8ABCB2E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D22AE11C221B82BB0089C196 /* AFSession+.swift in Sources */,
 				D284246D21D0358200C7171C /* HoldsViewController.swift in Sources */,
+				D2861B4B2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D27C8AC12E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
 				D29838612B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
@@ -5364,6 +5388,7 @@
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D2B3024A2E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */,
 				D28E04542BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
+				D2861B4C2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D22D027820857E4C00DC1F5B /* GatewayResponse.swift in Sources */,
 				D2029B64297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA6272DE56500CBA5AA /* BookBagItem.swift in Sources */,
@@ -5476,6 +5501,7 @@
 				D22D02692083EA7600DC1F5B /* GatewayTests.swift in Sources */,
 				D2931AB7272DF49A00CBA5AA /* BookBagTests.swift in Sources */,
 				D252DA2A23F6382000D11662 /* HoldRecordTests.swift in Sources */,
+				D2861B522E51593F00C61AD9 /* AsyncTests.swift in Sources */,
 				D2C7150B2B98CAC000A1F585 /* JSONUtilsTests.swift in Sources */,
 				D28AE26024FDD6F000960E9E /* MessageMapTests.swift in Sources */,
 				D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */,
@@ -5602,6 +5628,7 @@
 				D2EA31272B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainListViewController.swift in Sources */,
+				D2861B4A2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA65A22D176BD00D9B60C /* CopyCount.swift in Sources */,
 				D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */,
@@ -5660,6 +5687,7 @@
 				D2BDA6C222D2A72000D9B60C /* GatewayResponse.swift in Sources */,
 				D2B302502E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */,
 				D28E04522BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
+				D2861B4D2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D2BDA6C322D2A72000D9B60C /* SMSCarrier.swift in Sources */,
 				D2029B62297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2931AA5272DE56500CBA5AA /* BookBagItem.swift in Sources */,
