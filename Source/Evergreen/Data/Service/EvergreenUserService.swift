@@ -153,13 +153,12 @@ class EvergreenUserService: XUserService {
         let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, account.userID], shouldCache: false)
 
         // await both in parallel
-        async let summaryObj = try req1.gatewayResponseAsync().asObject()
-        async let transactionsArray = try req2.gatewayResponseAsync().asArray()
-        let (summary, transactions) = try await (summaryObj, transactionsArray)
-        print("\(Utils.tt) ")
+        async let summaryFuture = try req1.gatewayResponseAsync().asObject()
+        async let transactionsFuture = try req2.gatewayResponseAsync().asArray()
+        let (summary, transactions) = try await (summaryFuture, transactionsFuture)
 
         let charges = PatronCharges(
-            totalCharges: summary.getDouble("total_charges") ?? 0.0,
+            totalCharges: summary.getDouble("total_owed") ?? 0.0,
             totalPaid: summary.getDouble("total_paid") ?? 0.0,
             balanceOwed: summary.getDouble("balance_owed") ?? 0.0,
             transactions: FineRecord.makeArray(transactions))

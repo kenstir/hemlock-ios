@@ -83,6 +83,9 @@ class MBRecord {
         }
         return nil
     }
+    var isPreCat: Bool {
+        return id == -1
+    }
 
     static let dummyRecord = MBRecord(id: -1)
 
