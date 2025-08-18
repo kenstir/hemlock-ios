@@ -242,28 +242,6 @@ class LiveServiceTests: XCTestCase {
         XCTAssertFalse(authtoken.isEmpty, "authtoken should not be empty")
         XCTAssertNotNil(LiveServiceTests.state!.account.userID, "userID should not be nil")
     }
-
-    //MARK: - orgTreeRetrieve
-    
-    func test_orgTreeRetrieve() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let promise = ActorService.fetchOrgTreeAndSettings()
-        promise.done {
-            let org = Organization.find(byId: 1)
-            XCTAssertNotNil(org)
-            XCTAssertNotNil(org?.name)
-            let consortium = Organization.consortium()
-            XCTAssertNotNil(consortium)
-            XCTAssertEqual(1, consortium?.id)
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
     
     //MARK: - orgUnitSetting
     

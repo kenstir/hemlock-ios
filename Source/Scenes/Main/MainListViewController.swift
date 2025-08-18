@@ -18,8 +18,6 @@
 
 import Foundation
 import UIKit
-import PromiseKit
-import PMKAlamofire
 import os.log
 
 struct ButtonAction {
@@ -61,7 +59,7 @@ class MainListViewController: MainBaseViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -152,36 +150,43 @@ class MainListViewController: MainBaseViewController {
         }
     }
 
-    func fetchData() {
+    @MainActor
+    func fetchData() async {
         guard let account = App.account else { return }
 
         if App.config.enableMessages {
-            Task { await self.fetchMessages(account: account) }
+            await fetchMessages(account: account)
         }
         if App.config.enableEventsButton {
-            fetchHomeOrgSettings()
+            await fetchHomeOrgSettings()
         }
     }
 
-    func fetchHomeOrgSettings() {
+    @MainActor
+    func fetchHomeOrgSettings() async {
         if didFetchHomeOrgSettings { return }
         guard let orgID = App.account?.homeOrgID else { return }
-        let promise = ActorService.fetchOrgTreeAndSettings(forOrgID: orgID)
-        promise.done {
-            self.didFetchHomeOrgSettings = true
-            if let org = Organization.find(byId: orgID),
-               let eventsURL = org.eventsURL,
-               !eventsURL.isEmpty,
-               let url = URL(string: eventsURL)
-            {
-                let index = self.buttons.index(before: self.buttons.endIndex)
-                self.buttons.insert(ButtonAction(title: "Events", iconName: "events", handler: {
-                    UIApplication.shared.open(url)
-                }), at: index)
-                self.tableView.reloadData()
-            }
-        }.catch { error in
+
+        do {
+            try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: orgID)
+            didFetchHomeOrgSettings = true
+            onHomeOrgSettingsLoaded(homeOrgID: orgID)
+        } catch {
             self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    func onHomeOrgSettingsLoaded(homeOrgID orgID: Int) {
+        if let org = Organization.find(byId: orgID),
+           let eventsURL = org.eventsURL,
+           !eventsURL.isEmpty,
+           let url = URL(string: eventsURL)
+        {
+            let index = self.buttons.index(before: self.buttons.endIndex)
+            self.buttons.insert(ButtonAction(title: "Events", iconName: "events", handler: {
+                UIApplication.shared.open(url)
+            }), at: index)
+            self.tableView.reloadData()
         }
     }
 
@@ -228,7 +233,7 @@ class MainListViewController: MainBaseViewController {
 
     @objc override func applicationDidBecomeActive() {
         os_log("didBecomeActive: fetchData", log: log)
-        fetchData()
+        Task { await fetchData() }
     }
 
 }

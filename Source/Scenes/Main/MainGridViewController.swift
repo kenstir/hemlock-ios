@@ -47,7 +47,7 @@ class MainGridViewController: MainBaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - UI Setup
@@ -63,22 +63,29 @@ class MainGridViewController: MainBaseViewController {
 
     //MARK: - Async Functions
 
-    func fetchData() {
-        fetchHomeOrgSettings()
+    @MainActor
+    func fetchData() async {
+        await fetchHomeOrgSettings()
     }
 
-    func fetchHomeOrgSettings() {
+    @MainActor
+    func fetchHomeOrgSettings() async {
         if didFetchHomeOrgSettings { return }
         guard let orgID = App.account?.homeOrgID else { return }
-        let promise = ActorService.fetchOrgTreeAndSettings(forOrgID: orgID)
-        promise.done {
-            self.didFetchHomeOrgSettings = true
-            let org = Organization.find(byId: orgID)
-            self.loadButtons(forOrg: org)
-            self.collectionView.reloadData()
-        }.catch { error in
+
+        do {
+            try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: orgID)
+            didFetchHomeOrgSettings = true
+            onHomeOrgSettingsLoaded(homeOrgID: orgID)
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
+    }
+
+    func onHomeOrgSettingsLoaded(homeOrgID orgID: Int) {
+        let org = Organization.find(byId: orgID)
+        self.loadButtons(forOrg: org)
+        self.collectionView.reloadData()
     }
 
     func loadButtons(forOrg org: Organization?) {

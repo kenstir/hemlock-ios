@@ -53,57 +53,12 @@ class ActorService {
         }
     }
 
-    /// TODO: remove after transition
+    /// TODO: remove after async transition; the org tree was already loaded by EvergreenLoaderService
     static func fetchOrgTree() -> Promise<Void> {
         return Promise<Void>()
     }
-
-    /// fetch settings for all organizations.
-    /// Must be called only after `orgTreeLoaded`.
-    /// If `forOrgID` is non-nil, it means load settings for just the one org.
-    static private func fetchOrgSettings(forOrgID: Int?) -> [Promise<Void>] {
-        var promises: [Promise<Void>] = []
-        for org in Organization.visibleOrgs {
-            if org.areSettingsLoaded {
-                continue
-            }
-            if let id = forOrgID {
-                if id != org.id {
-                    continue
-                }
-            }
-            var settings = [
-                API.settingCreditPaymentsAllow,
-                API.settingInfoURL,
-                API.settingNotPickupLib,
-                API.settingHemlockEresourcesURL,
-                API.settingHemlockEventsURL,
-                API.settingHemlockMeetingRoomsURL,
-                API.settingHemlockMuseumPassesURL,
-            ]
-            if org.parent == nil {
-                settings.append(API.settingSMSEnable)
-            }
-            let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [org.id, settings, API.anonymousAuthToken], shouldCache: true)
-            let promise = req.gatewayObjectResponse().done { obj in
-                org.loadSettings(fromObj: obj)
-            }
-            promises.append(promise)
-        }
-        return promises
-    }
-    
-    // fetch org tree and settings for all orgs
     static func fetchOrgTreeAndSettings(forOrgID orgID: Int? = nil) -> Promise<Void> {
-        let start = Date()
-
-        let promise = fetchOrgTree().then { () -> Promise<Void> in
-            let elapsed = -start.timeIntervalSinceNow
-            os_log("orgTree.elapsed: %.3f (%.3f)", elapsed, Gateway.addElapsed(elapsed))
-            let promises: [Promise<Void>] = self.fetchOrgSettings(forOrgID: orgID)
-            return when(fulfilled: promises)
-        }
-        return promise
+        return Promise<Void>()
     }
 
     static func addItemToBookBag(authtoken: String, bookBagId: Int, recordId: Int) -> Promise<Void> {
