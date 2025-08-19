@@ -36,10 +36,7 @@ class EvergreenOrgService: XOrgService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [org.id, settings, API.anonymousAuthToken], shouldCache: true)
         let obj = try await req.gatewayResponseAsync().asObject()
-        // TODO: make mt-safe, remove await
-        await MainActor.run {
-            org.loadSettings(fromObj: obj)
-        }
+        org.loadSettings(fromObj: obj)
     }
 
     func loadOrgDetails(account: Account, forOrgID orgID: Int) async throws {

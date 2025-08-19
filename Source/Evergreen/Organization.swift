@@ -149,8 +149,11 @@ class Organization {
         }
         return nil
     }
-    
+
+    /// mt-safe
     func loadSettings(fromObj obj: OSRFObject)  {
+        lock.lock(); defer { lock.unlock() }
+
         if let val = Organization.ousGetBool(obj, API.settingCreditPaymentsAllow) {
             self.isPaymentAllowedSetting = val
         }
@@ -178,6 +181,37 @@ class Organization {
         }
         self.areSettingsLoaded = true
     }
+
+    /// mt-safe
+    func updateOrg(fromObj obj: OSRFObject) -> Void {
+        lock.lock(); defer { lock.unlock() }
+
+        aouObj = obj
+        //print("xxx.org_update id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+    }
+
+    /// mt-safe
+    func loadHours(fromObj obj: OSRFObject?) -> Void {
+        lock.lock(); defer { lock.unlock() }
+
+        self.hours = EvergreenOrgHours.make(obj)
+    }
+
+    /// mt-safe
+    func setAddress(fromObj addressObj: OSRFObject?) -> Void {
+        lock.lock(); defer { lock.unlock() }
+
+        self.addressObj = addressObj
+    }
+
+    /// mt-safe
+    func loadClosures(fromArray array: [OSRFObject]) -> Void {
+        lock.lock(); defer { lock.unlock() }
+
+        closures = EvergreenOrgClosure.makeArray(array)
+    }
+
+    //MARK: - Static functions
 
     static func find(byName name: String?) -> Organization? {
         if let org = orgs.first(where: { $0.name == name }) {
@@ -285,35 +319,6 @@ class Organization {
                 }
             }
         }
-    }
-
-    /// mt-safe
-    func updateOrg(fromObj obj: OSRFObject) -> Void {
-        lock.lock(); defer { lock.unlock() }
-
-        aouObj = obj
-        //print("xxx.org_update id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
-    }
-
-    /// mt-safe
-    func loadHours(fromObj obj: OSRFObject?) -> Void {
-        lock.lock(); defer { lock.unlock() }
-
-        self.hours = EvergreenOrgHours.make(obj)
-    }
-
-    /// mt-safe
-    func setAddress(fromObj addressObj: OSRFObject?) -> Void {
-        lock.lock(); defer { lock.unlock() }
-
-        self.addressObj = addressObj
-    }
-
-    /// mt-safe
-    func loadClosures(fromArray array: [OSRFObject]) -> Void {
-        lock.lock(); defer { lock.unlock() }
-        
-        closures = EvergreenOrgClosure.makeArray(array)
     }
 
     static func dumpOrgStats() {
