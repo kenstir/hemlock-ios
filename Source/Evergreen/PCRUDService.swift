@@ -40,17 +40,18 @@ class PCRUDService {
         }
     }
 
-    static func fetchSMSCarriers() -> Promise<Void> {
+    static func loadSMSCarriersAsync() async throws {
         if carriersLoaded {
-            return Promise<Void>()
+            return
         }
         let options: [String: Any] = ["active": 1]
         let req = Gateway.makeRequest(service: API.pcrud, method: API.searchSMSCarriers, args: [API.anonymousAuthToken, options], shouldCache: true)
-        let promise = req.gatewayArrayResponse().done { array in
+        let array = try await req.gatewayResponseAsync().asArray()
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
             SMSCarrier.loadSMSCarriers(fromArray: array)
             carriersLoaded = true
         }
-        return promise
     }
 
     static func fetchMRA(forRecord record: MBRecord) -> Promise<Void> {

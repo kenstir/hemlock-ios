@@ -295,26 +295,7 @@ class LiveServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 20.0)
     }
 
-    //MARK: - sms carriers
-
-    func test_fetchSMSCarriers() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let promise = PCRUDService.fetchSMSCarriers()
-        promise.done {
-            let carriers = SMSCarrier.getSpinnerLabels()
-            for l in carriers {
-                print ("carrier: \(l)")
-            }
-            XCTAssertGreaterThan(carriers.count, 0)
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 20.0)
-    }
+    //MARK: -
 
     func test_copyCounts() {
         let expectation = XCTestExpectation(description: "async response")

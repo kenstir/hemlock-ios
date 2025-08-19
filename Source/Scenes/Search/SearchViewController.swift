@@ -99,8 +99,7 @@ class SearchViewController: UIViewController {
     func fetchData() {
         let start = Date()
 
-        var promises: [Promise<Void>] = []        
-        promises.append(ActorService.fetchOrgTree())
+        let promises: [Promise<Void>] = []
 
         centerSubview(activityIndicator)
         self.activityIndicator.startAnimating()

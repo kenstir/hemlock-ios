@@ -22,9 +22,7 @@ import PromiseKit
 import PMKAlamofire
 
 class CircService {
-    // This returns a Promise<GatewayResponse> and not Promise<OSRFObject>
-    // because we don't want to reject the promise chain if a title hold is not possible.
-    static func titleHoldIsPossible(authtoken: String, userID: Int, targetID: Int, pickupOrgID: Int) -> Promise<GatewayResponse> {
+    static func titleHoldIsPossible(authtoken: String, userID: Int, targetID: Int, pickupOrgID: Int) async throws -> Bool {
         let complexParam: JSONDictionary = [
             "patronid": userID,
             "pickup_lib": pickupOrgID,
@@ -32,7 +30,11 @@ class CircService {
             "titleid": targetID,
         ]
         let req = Gateway.makeRequest(service: API.circ, method: API.titleHoldIsPossible, args: [authtoken, complexParam], shouldCache: false)
-        return req.gatewayResponse()
+        // The response is a JSON object with details, e.g. "success":1.  But if a title hold is not possible,
+        // the response includes an event, and asObject() will throw.
+        let obj = try await req.gatewayResponseAsync().asObject()
+        print("titleHoldIsPossible response: \(obj)")
+        return true
     }
     
     static func placeHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, useOverride: Bool) -> Promise<OSRFObject> {

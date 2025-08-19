@@ -76,7 +76,6 @@ class HoldsViewController: UIViewController {
         let startOfFetch = Date()
         
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTree())
 
         let req = Gateway.makeRequest(service: API.circ, method: API.holdsRetrieve, args: [authtoken, userid], shouldCache: false)
         let promise = req.gatewayArrayResponse().done { objects in

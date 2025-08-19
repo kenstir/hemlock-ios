@@ -82,6 +82,17 @@ class EvergreenLoaderService: XLoaderService {
     }
 
     func loadPlaceHoldPrerequisites() async throws {
-        throw HemlockError.notImplemented
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            group.addTask { try await PCRUDService.loadSMSCarriersAsync() }
+            for org in Organization.visibleOrgs {
+                if !org.areSettingsLoaded {
+                    group.addTask {
+                        try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: org.id)
+                    }
+                }
+            }
+
+            try await group.waitForAll()
+        }
     }
 }

@@ -16,7 +16,6 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
-import PromiseKit
 import os.log
 
 class PlaceHoldViewController: UIViewController {
@@ -101,7 +100,7 @@ class PlaceHoldViewController: UIViewController {
         self.setupTapToDismissKeyboard(onScrollView: scrollView)
         scrollView.setupKeyboardAutoResizer()
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Setup Functions
@@ -228,59 +227,54 @@ class PlaceHoldViewController: UIViewController {
 
     //MARK: - Async Functions
 
-    func fetchData() {
+    @MainActor
+    func fetchData() async {
         guard !didCompleteFetch else { return }
         guard let account = App.account else { return }
 
         let startOfFetch = Date()
 
-        var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTreeAndSettings())
-        promises.append(PCRUDService.fetchSMSCarriers())
-        promises.append(fetchPartsData(account: account))
-        print("xxx \(promises.count) promises made")
-
         centerSubview(activityIndicator)
-        self.activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
 
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            print("xxx \(promises.count) promises fulfilled")
-            let elapsed = -startOfFetch.timeIntervalSinceNow
-            os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+        do {
+            try await App.serviceConfig.loaderService.loadPlaceHoldPrerequisites()
+            try await fetchPartsData(account: account)
             self.didCompleteFetch = true
             self.onDataLoaded()
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
+        } catch {
+            self.presentGatewayAlert(forError: error, title: "Error fetching prerequisites")
         }
+
+        activityIndicator.stopAnimating()
+
+        let elapsed = -startOfFetch.timeIntervalSinceNow
+        os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
     }
 
-    func fetchPartsData(account: Account) -> Promise<Void> {
+    func fetchPartsData(account: Account) async throws {
         if !App.config.enablePartHolds || isEditHold {
-            return Promise<Void>()
+            return
         }
         print("PlaceHold: \(record.title): fetching parts")
-        let promise = SearchService.fetchHoldParts(recordID: record.id).then { (parts: [OSRFObject]) -> Promise<(GatewayResponse)> in
-            self.parts = parts
-            if self.hasParts,
-                App.config.enableTitleHoldOnItemWithParts,
-                let authtoken = account.authtoken,
-                let userID = account.userID,
-                let pickupOrgID = account.pickupOrgID
-            {
-                print("PlaceHold: \(self.record.title): checking titleHoldIsPossible")
-                return CircService.titleHoldIsPossible(authtoken: authtoken, userID: userID, targetID: self.record.id, pickupOrgID: pickupOrgID)
-            } else {
-                return ServiceUtils.makeEmptyGatewayResponsePromise()
+
+        let parts = try await SearchService.fetchHoldParts(recordID: record.id)
+        self.parts = parts
+        if self.hasParts,
+           App.config.enableTitleHoldOnItemWithParts,
+           let authtoken = account.authtoken,
+           let userID = account.userID,
+           let pickupOrgID = account.pickupOrgID
+        {
+            print("PlaceHold: \(self.record.title): checking titleHoldIsPossible")
+            do {
+                let _ = try await CircService.titleHoldIsPossible(authtoken: authtoken, userID: userID, targetID: self.record.id, pickupOrgID: pickupOrgID)
+                self.titleHoldIsPossible = true
+            } catch {
+                self.titleHoldIsPossible = false
             }
-        }.done { resp in
-            self.titleHoldIsPossible = !resp.failed
             print("PlaceHold: \(self.record.title): titleHoldIsPossible=\(Utils.toString(self.titleHoldIsPossible))")
         }
-        return promise
     }
 
     func toInt(_ str: String?) -> Int? {

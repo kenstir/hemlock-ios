@@ -59,12 +59,11 @@ class SearchService {
         return promise
     }
 
-    static func fetchHoldParts(recordID: Int) -> Promise<([OSRFObject])> {
+    static func fetchHoldParts(recordID: Int) async throws -> [OSRFObject] {
         let param: JSONDictionary = [
             "record": recordID
         ]
         let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param], shouldCache: true)
-        let promise = req.gatewayArrayResponse()
-        return promise
+        return try await req.gatewayResponseAsync().asArray()
     }
 }

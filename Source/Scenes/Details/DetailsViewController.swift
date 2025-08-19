@@ -205,7 +205,6 @@ class DetailsViewController: UIViewController {
     func fetchData() {
         // Fetch orgs and copy statuses
         var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTree())
 
         // Fetch copy counts
         let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID

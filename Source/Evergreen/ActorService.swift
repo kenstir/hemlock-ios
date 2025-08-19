@@ -53,14 +53,6 @@ class ActorService {
         }
     }
 
-    /// TODO: remove after async transition; the org tree was already loaded by EvergreenLoaderService
-    static func fetchOrgTree() -> Promise<Void> {
-        return Promise<Void>()
-    }
-    static func fetchOrgTreeAndSettings(forOrgID orgID: Int? = nil) -> Promise<Void> {
-        return Promise<Void>()
-    }
-
     static func addItemToBookBag(authtoken: String, bookBagId: Int, recordId: Int) -> Promise<Void> {
         let obj = OSRFObject([
             "bucket": bookBagId,
