@@ -27,7 +27,7 @@ class AnalyticsTests: XCTestCase {
         Analytics.logRequest(tag: "ff", method: "m", args: ["p1","p2"])
         Analytics.logResponse(tag: "ff", wireString: "{}")
         let s = Analytics.getLog()
-        XCTAssertEqual("ff: send: m p1,p2\nff: recv: {}\n", s)
+        XCTAssertEqual("[net] ff: send: m p1,p2\n[net] ff: recv: {}\n", s)
     }
 
     func test_searchTermStats() {
