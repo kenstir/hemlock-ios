@@ -915,6 +915,39 @@
 		D27C8AD42E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
 		D27C8AD52E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
 		D27C8AD62E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */; };
+		D27D87B32E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87B42E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87B52E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87B62E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87B72E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87B82E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87B92E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87BA2E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87BB2E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87BC2E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87BD2E565741006F3C5F /* HoldPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87B22E565741006F3C5F /* HoldPart.swift */; };
+		D27D87BF2E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C02E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C12E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C22E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C32E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C42E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C52E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C62E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C72E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C82E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87C92E565792006F3C5F /* HoldOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87BE2E565792006F3C5F /* HoldOptions.swift */; };
+		D27D87CB2E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87CC2E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87CD2E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87CE2E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87CF2E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87D02E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87D12E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87D22E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87D32E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87D42E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
+		D27D87D52E566908006F3C5F /* hold.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D87CA2E566908006F3C5F /* hold.swift */; };
 		D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
 		D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
 		D27DF20521AA3D81002DCC47 /* ShowCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D27DF20121AA3D81002DCC47 /* ShowCard.storyboard */; };
@@ -2333,6 +2366,9 @@
 		D279911920DDE160003B451E /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D27C8ABF2E4FE84900367643 /* XBiblioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XBiblioService.swift; sourceTree = "<group>"; };
 		D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenBiblioService.swift; sourceTree = "<group>"; };
+		D27D87B22E565741006F3C5F /* HoldPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldPart.swift; sourceTree = "<group>"; };
+		D27D87BE2E565792006F3C5F /* HoldOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldOptions.swift; sourceTree = "<group>"; };
+		D27D87CA2E566908006F3C5F /* hold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hold.swift; sourceTree = "<group>"; };
 		D27DF20221AA3D81002DCC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Source/Storyboards/Base.lproj/ShowCard.storyboard; sourceTree = "<group>"; };
 		D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeUtils.swift; sourceTree = "<group>"; };
 		D27DF20B21AB4B84002DCC47 /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
@@ -3111,6 +3147,8 @@
 				D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */,
 				D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */,
 				D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */,
+				D27D87B22E565741006F3C5F /* HoldPart.swift */,
+				D27D87BE2E565792006F3C5F /* HoldOptions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3153,6 +3191,7 @@
 				D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */,
 				D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */,
 				D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */,
+				D27D87CA2E566908006F3C5F /* hold.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3306,13 +3345,13 @@
 			isa = PBXGroup;
 			children = (
 				D23398792E3BB64F00CBDAEB /* EvergreenAuthService.swift */,
-				D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */,
-				D2C300442E3D5C990082C308 /* EvergreenServiceConfig.swift */,
-				D2C3005C2E3E660A0082C308 /* EvergreenUserService.swift */,
-				D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */,
-				D2B302452E4D589D006C3BE6 /* EvergreenOrgClosure.swift */,
 				D27C8ACB2E4FE8EA00367643 /* EvergreenBiblioService.swift */,
 				D2E3B2D12E526BAD00EBFCF0 /* EvergreenCircService.swift */,
+				D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */,
+				D2B302452E4D589D006C3BE6 /* EvergreenOrgClosure.swift */,
+				D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */,
+				D2C300442E3D5C990082C308 /* EvergreenServiceConfig.swift */,
+				D2C3005C2E3E660A0082C308 /* EvergreenUserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -4383,6 +4422,7 @@
 				D2C3005E2E3E660A0082C308 /* EvergreenUserService.swift in Sources */,
 				D210EBE422B1EE55002FB5E0 /* GatewayResponse.swift in Sources */,
 				D2BB66B1297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
+				D27D87BD2E565741006F3C5F /* HoldPart.swift in Sources */,
 				D210EBE522B1EE55002FB5E0 /* SMSCarrier.swift in Sources */,
 				D210EBE622B1EE55002FB5E0 /* RingBuffer.swift in Sources */,
 				D210EBE722B1EE55002FB5E0 /* HemlockError.swift in Sources */,
@@ -4433,6 +4473,7 @@
 				D23398862E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
 				D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */,
+				D27D87C72E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */,
 				D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D2E3B2D72E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
@@ -4457,6 +4498,7 @@
 				D28E04492BA234AB001850C5 /* MainGridViewCell.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainListViewController.swift in Sources */,
+				D27D87CB2E566908006F3C5F /* hold.swift in Sources */,
 				D2861B4E2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D210EC1122B1EE55002FB5E0 /* CopyCount.swift in Sources */,
@@ -4473,11 +4515,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D23E9F6B23B9200A0030F5C1 /* OSRFCoder.swift in Sources */,
+				D27D87C12E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D246290A273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D24D492929D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D23E9F6C23B9200A0030F5C1 /* LoginViewController.swift in Sources */,
 				D23E9F7023B9200A0030F5C1 /* UIColor+.swift in Sources */,
 				D23E9F7123B9200A0030F5C1 /* OptionsViewController.swift in Sources */,
+				D27D87BC2E565741006F3C5F /* HoldPart.swift in Sources */,
 				D23E9F7223B9200A0030F5C1 /* MARCXMLParser.swift in Sources */,
 				D23E9F7323B9200A0030F5C1 /* OSRFObject.swift in Sources */,
 				D23E9F7423B9200A0030F5C1 /* UIView+disclosureIndicator.swift in Sources */,
@@ -4509,6 +4553,7 @@
 				D23E9F8023B9200A0030F5C1 /* API.swift in Sources */,
 				D23E9F8223B9200A0030F5C1 /* ShowCardViewController.swift in Sources */,
 				D23E9F8323B9200A0030F5C1 /* HoldsTableViewCell.swift in Sources */,
+				D27D87D52E566908006F3C5F /* hold.swift in Sources */,
 				D23E9F8423B9200A0030F5C1 /* CopyStatus.swift in Sources */,
 				D23E9F8623B9200A0030F5C1 /* App.swift in Sources */,
 				D23E9F8723B9200A0030F5C1 /* Library.swift in Sources */,
@@ -4604,11 +4649,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2477BB724785A6B00FD4CF6 /* OSRFCoder.swift in Sources */,
+				D27D87C02E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D2462906273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D24D492329D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2477BB824785A6B00FD4CF6 /* LoginViewController.swift in Sources */,
 				D2477BBC24785A6B00FD4CF6 /* UIColor+.swift in Sources */,
 				D2477BBD24785A6B00FD4CF6 /* OptionsViewController.swift in Sources */,
+				D27D87B52E565741006F3C5F /* HoldPart.swift in Sources */,
 				D2477BBE24785A6B00FD4CF6 /* MARCXMLParser.swift in Sources */,
 				D2477BBF24785A6B00FD4CF6 /* OSRFObject.swift in Sources */,
 				D2477BC024785A6B00FD4CF6 /* UIView+disclosureIndicator.swift in Sources */,
@@ -4640,6 +4687,7 @@
 				D2477BCE24785A6B00FD4CF6 /* ShowCardViewController.swift in Sources */,
 				D2477BCF24785A6B00FD4CF6 /* HoldsTableViewCell.swift in Sources */,
 				D2477BD024785A6B00FD4CF6 /* CopyStatus.swift in Sources */,
+				D27D87CD2E566908006F3C5F /* hold.swift in Sources */,
 				D2477BD224785A6B00FD4CF6 /* App.swift in Sources */,
 				D2477BD324785A6B00FD4CF6 /* Library.swift in Sources */,
 				D2477C3424786CCF00FD4CF6 /* IndianaTheme.swift in Sources */,
@@ -4735,11 +4783,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2572AA724AD7755000BA698 /* OSRFCoder.swift in Sources */,
+				D27D87C62E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D246290B273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D24D492429D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2572AA824AD7755000BA698 /* LoginViewController.swift in Sources */,
 				D2572AAC24AD7755000BA698 /* UIColor+.swift in Sources */,
 				D2572B2624AD7A13000BA698 /* MoAppConfiguration.swift in Sources */,
+				D27D87BB2E565741006F3C5F /* HoldPart.swift in Sources */,
 				D2572AAD24AD7755000BA698 /* OptionsViewController.swift in Sources */,
 				D2572AAE24AD7755000BA698 /* MARCXMLParser.swift in Sources */,
 				D2572AAF24AD7755000BA698 /* OSRFObject.swift in Sources */,
@@ -4771,6 +4821,7 @@
 				D2572ABD24AD7755000BA698 /* API.swift in Sources */,
 				D2572ABE24AD7755000BA698 /* ShowCardViewController.swift in Sources */,
 				D2572ABF24AD7755000BA698 /* HoldsTableViewCell.swift in Sources */,
+				D27D87CE2E566908006F3C5F /* hold.swift in Sources */,
 				D2572AC024AD7755000BA698 /* CopyStatus.swift in Sources */,
 				D2572AC224AD7755000BA698 /* App.swift in Sources */,
 				D2572AC324AD7755000BA698 /* Library.swift in Sources */,
@@ -4866,11 +4917,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D25EEC4A28A1E8310090F108 /* OSRFCoder.swift in Sources */,
+				D27D87C82E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D25EEC4B28A1E8310090F108 /* BookBagsTableViewCell.swift in Sources */,
 				D24D492729D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D25EEC4C28A1E8310090F108 /* LoginViewController.swift in Sources */,
 				D25EEC4F28A1E8310090F108 /* UIColor+.swift in Sources */,
 				D25EEC5128A1E8310090F108 /* OptionsViewController.swift in Sources */,
+				D27D87B62E565741006F3C5F /* HoldPart.swift in Sources */,
 				D25EEC5228A1E8310090F108 /* MARCXMLParser.swift in Sources */,
 				D25EEC5328A1E8310090F108 /* OSRFObject.swift in Sources */,
 				D25EEC5428A1E8310090F108 /* UIView+disclosureIndicator.swift in Sources */,
@@ -4902,6 +4955,7 @@
 				D25EEC6028A1E8310090F108 /* FinesViewController.swift in Sources */,
 				D25EEC6128A1E8310090F108 /* API.swift in Sources */,
 				D25EEC6228A1E8310090F108 /* ShowCardViewController.swift in Sources */,
+				D27D87D22E566908006F3C5F /* hold.swift in Sources */,
 				D25EEC6328A1E8310090F108 /* HoldsTableViewCell.swift in Sources */,
 				D25EEC6428A1E8310090F108 /* CopyStatus.swift in Sources */,
 				D25EEC6528A1E8310090F108 /* App.swift in Sources */,
@@ -5002,6 +5056,7 @@
 				D2EA312F2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D27C8AD12E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D2C3EA2329D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
+				D27D87CC2E566908006F3C5F /* hold.swift in Sources */,
 				D2EA31082B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D276DA8E21336B20007FAA31 /* OSRFObject.swift in Sources */,
 				D276DA8F21336B20007FAA31 /* String+splitOnRegex.swift in Sources */,
@@ -5060,6 +5115,7 @@
 				D2D8ABC82E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D22AE11B221B82BA0089C196 /* AFSession+.swift in Sources */,
 				D276DAA621336B20007FAA31 /* HoldsViewController.swift in Sources */,
+				D27D87C92E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D2861B462E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D27C8AC52E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
@@ -5091,6 +5147,7 @@
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
 				D233987F2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
+				D27D87B82E565741006F3C5F /* HoldPart.swift in Sources */,
 				D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2C300332E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BE297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
@@ -5132,6 +5189,7 @@
 				D2EA31302B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D27C8AD62E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
+				D27D87D32E566908006F3C5F /* hold.swift in Sources */,
 				D2EA31092B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */,
 				D20B2FE222CC309800F69848 /* MARCXMLParser.swift in Sources */,
@@ -5190,6 +5248,7 @@
 				D2D8ABC52E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D27990DC20DDD473003B451E /* HoldsViewController.swift in Sources */,
 				D248CBE221211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
+				D27D87BF2E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D2861B502E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D27C8AC22E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2AA9D5427383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
@@ -5221,6 +5280,7 @@
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D233987C2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
+				D27D87BA2E565741006F3C5F /* HoldPart.swift in Sources */,
 				D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2C300312E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BF297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
@@ -5262,6 +5322,7 @@
 				D2EA312E2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D27C8AD52E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D2C3EA2229D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
+				D27D87D12E566908006F3C5F /* hold.swift in Sources */,
 				D2EA31072B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D284244E21D0358200C7171C /* LoginViewController.swift in Sources */,
 				D21867A321D039BF0082358C /* AppFactory.swift in Sources */,
@@ -5320,6 +5381,7 @@
 				D2D8ABCB2E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D22AE11C221B82BB0089C196 /* AFSession+.swift in Sources */,
 				D284246D21D0358200C7171C /* HoldsViewController.swift in Sources */,
+				D27D87C32E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D2861B4B2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D27C8AC12E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D284246E21D0358200C7171C /* CopyInfoTableViewCell.swift in Sources */,
@@ -5351,6 +5413,7 @@
 				D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */,
 				D23398842E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
+				D27D87B42E565741006F3C5F /* HoldPart.swift in Sources */,
 				D24C3931254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2C3002A2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BD297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
@@ -5387,11 +5450,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2A74B1721289E8E001D4B0F /* PinesAppConfiguration.swift in Sources */,
+				D27D87C42E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D2462909273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D24D492829D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				FAA9E31A21962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
+				D27D87B32E565741006F3C5F /* HoldPart.swift in Sources */,
 				D20B2FE322CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D24D76922234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBB2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
@@ -5423,6 +5488,7 @@
 				D2A74B1521289D63001D4B0F /* AppConfiguration.swift in Sources */,
 				D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */,
 				D287D520207AF88E001AF644 /* API.swift in Sources */,
+				D27D87CF2E566908006F3C5F /* hold.swift in Sources */,
 				FA57B93920EECD3F00DE99DF /* HoldsTableViewCell.swift in Sources */,
 				D2D93CF6210AB6F1004306D8 /* CopyStatus.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
@@ -5600,6 +5666,7 @@
 				D2C300602E3E660A0082C308 /* EvergreenUserService.swift in Sources */,
 				D2931AA4272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2BDA62C22D176BD00D9B60C /* SMSCarrier.swift in Sources */,
+				D27D87B92E565741006F3C5F /* HoldPart.swift in Sources */,
 				D2BB66B7297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D25E7CE92D0A284800AD1A2A /* MainGridViewController.swift in Sources */,
 				D2BDA62D22D176BD00D9B60C /* RingBuffer.swift in Sources */,
@@ -5650,6 +5717,7 @@
 				D233988C2E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
 				D2BDA64F22D176BD00D9B60C /* FineRecord.swift in Sources */,
 				D2BDA65022D176BD00D9B60C /* AppDelegate.swift in Sources */,
+				D27D87C22E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D2BDA65122D176BD00D9B60C /* ActorService.swift in Sources */,
 				D2BDA65222D176BD00D9B60C /* RecordAttributes.swift in Sources */,
 				D2E3B2D32E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
@@ -5674,6 +5742,7 @@
 				D2EA31272B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainListViewController.swift in Sources */,
+				D27D87D42E566908006F3C5F /* hold.swift in Sources */,
 				D2861B4A2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA65A22D176BD00D9B60C /* CopyCount.swift in Sources */,
@@ -5690,11 +5759,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2BDA6A322D2A72000D9B60C /* OSRFCoder.swift in Sources */,
+				D27D87C52E565792006F3C5F /* HoldOptions.swift in Sources */,
 				D2462908273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D24D492629D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2BDA6A422D2A72000D9B60C /* LoginViewController.swift in Sources */,
 				D2BDA6A822D2A72000D9B60C /* UIColor+.swift in Sources */,
 				D2BDA6A922D2A72000D9B60C /* OptionsViewController.swift in Sources */,
+				D27D87B72E565741006F3C5F /* HoldPart.swift in Sources */,
 				D2BDA6AB22D2A72000D9B60C /* MARCXMLParser.swift in Sources */,
 				D2BDA6AC22D2A72000D9B60C /* OSRFObject.swift in Sources */,
 				D2BDA6AD22D2A72000D9B60C /* UIView+disclosureIndicator.swift in Sources */,
@@ -5726,6 +5797,7 @@
 				D2BDA72022D2A87E00D9B60C /* NTLCAppConfiguration.swift in Sources */,
 				D2BDA6BA22D2A72000D9B60C /* ShowCardViewController.swift in Sources */,
 				D2BDA6BB22D2A72000D9B60C /* HoldsTableViewCell.swift in Sources */,
+				D27D87D02E566908006F3C5F /* hold.swift in Sources */,
 				D2BDA6BC22D2A72000D9B60C /* CopyStatus.swift in Sources */,
 				D2BDA6BF22D2A72000D9B60C /* App.swift in Sources */,
 				D2BDA6C022D2A72000D9B60C /* Library.swift in Sources */,
