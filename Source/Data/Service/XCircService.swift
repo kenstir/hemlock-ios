@@ -41,13 +41,13 @@ protocol XCircService {
     func loadHoldDetails(account: Account, hold: HoldRecord) async throws -> Void
 
     /// Fetches the parts available to place a hold
-    func fetchHoldParts(targetId: Int) async throws -> [HoldPart]
+    func fetchHoldParts(targetId: Int) async throws -> [XHoldPart]
 
     /// Fetches whether a title hold is possible for the given item with parts for the specified pickup library
     func fetchTitleHoldIsPossible(account: Account, targetId: Int, pickupOrgId: Int) async throws -> Bool
 
     /// Places a hold
-    func placeHold(account: Account, targetId: Int, withOptions options: HoldOptions) async throws -> Bool
+    func placeHold(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> Bool
 
     /// Cancels a hold
     func cancelHold(account: Account, holdId: Int) async throws -> Bool

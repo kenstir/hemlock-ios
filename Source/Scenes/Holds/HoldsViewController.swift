@@ -140,8 +140,10 @@ class HoldsViewController: UIViewController {
         })
         self.present(alertController, animated: true)
     }
-    
+
     func cancelHold(authtoken: String, holdID: Int) {
+        self.presentGatewayAlert(forError: HemlockError.notImplemented)
+        /*
         let promise = CircService.cancelHold(authtoken: authtoken, holdID: holdID)
         promise.done { resp in
             guard resp.type == GatewayResponseType.string,
@@ -158,6 +160,7 @@ class HoldsViewController: UIViewController {
             self.logCancelHold(withError: error)
             self.presentGatewayAlert(forError: error)
         }
+        */
     }
 
     private func logCancelHold(withError error: Error? = nil) {

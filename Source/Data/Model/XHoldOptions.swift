@@ -17,7 +17,7 @@
 import Foundation
 
 /// Options for placing or updating a hold.  Properties marked as `var` can be modified for updateHold.
-struct HoldOptions {
+struct XHoldOptions {
     let holdType: String
     let emailNotify: Bool
     let phoneNotify: String?

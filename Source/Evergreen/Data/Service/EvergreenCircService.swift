@@ -48,7 +48,7 @@ class EvergreenCircService: XCircService {
     }
 
     func fetchRecordMods(id: Int) async throws -> OSRFObject {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
+        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id], shouldCache: true)
         return try await req.gatewayResponseAsync().asObject()
     }
 
@@ -184,7 +184,7 @@ class EvergreenCircService: XCircService {
 //        return promise
     }
 
-    func loadHoldQueueStats(hold: HoldRecord, authtoken: String) throws async throws {
+    func loadHoldQueueStats(hold: HoldRecord, authtoken: String) async throws {
 //        guard let id = hold.ahrObj.getID("id") else {
 //            return Promise<Void>() //TODO: add analytics
 //        }
@@ -199,7 +199,7 @@ class EvergreenCircService: XCircService {
     }
 
 
-    func fetchHoldParts(targetId: Int) async throws -> [any HoldPart] {
+    func fetchHoldParts(targetId: Int) async throws -> [XHoldPart] {
         throw HemlockError.notImplemented
     }
 
@@ -207,7 +207,7 @@ class EvergreenCircService: XCircService {
         throw HemlockError.notImplemented
     }
 
-    func placeHold(account: Account, targetId: Int, withOptions options: HoldOptions) async throws -> Bool {
+    func placeHold(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> Bool {
         throw HemlockError.notImplemented
     }
 

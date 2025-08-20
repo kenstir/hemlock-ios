@@ -16,7 +16,7 @@
 
 import Foundation
 
-protocol HoldPart {
+protocol XHoldPart {
     var id: Int { get }
     var label: String { get }
 }
