@@ -108,22 +108,29 @@ class EvergreenCircService: XCircService {
             return
         }
         if holdType == API.holdTypeTitle {
-            try await loadTitleHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let details: Void = loadTitleHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let qstats: Void = loadHoldQueueStats(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            _ = try await (details, qstats)
         } else if hold.holdType == API.holdTypeMetarecord {
-            try await loadMetarecordHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let details: Void = loadMetarecordHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let qstats: Void = loadHoldQueueStats(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            _ = try await (details, qstats)
         } else if hold.holdType == API.holdTypePart {
-            try await loadPartHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let details: Void = loadPartHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let qstats: Void = loadHoldQueueStats(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            _ = try await (details, qstats)
         } else if hold.holdType == API.holdTypeCopy || hold.holdType == API.holdTypeForce || hold.holdType == API.holdTypeRecall {
-            try await loadCopyHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let details: Void = loadCopyHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let qstats: Void = loadHoldQueueStats(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            _ = try await (details, qstats)
         } else if hold.holdType == API.holdTypeVolume {
-            try await loadVolumeHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let details: Void = loadVolumeHoldTargetDetails(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            async let qstats: Void = loadHoldQueueStats(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
+            _ = try await (details, qstats)
         } else {
             os_log("[hold] target=%d holdType=%@ NOT HANDLED", log: log, type: .info, holdTarget, holdType)
             return
         }
-
-        // ideally, make this parallel with loading the details
-        try await loadHoldQueueStats(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
     }
 
     func loadTitleHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
