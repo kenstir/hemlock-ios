@@ -108,6 +108,9 @@ class EvergreenCircService: XCircService {
             os_log("[hold] target=%d holdType=%@ NOT HANDLED", log: log, type: .info, holdTarget, holdType)
             return
         }
+
+        // ideally, make this parallel with loading the details
+        try await loadHoldQueueStats(hold: hold, holdTarget: holdTarget, authtoken: authtoken)
     }
 
     func loadTitleHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
@@ -186,20 +189,15 @@ class EvergreenCircService: XCircService {
 //        return promise
     }
 
-    func loadHoldQueueStats(hold: HoldRecord, authtoken: String) async throws {
-//        guard let id = hold.ahrObj.getID("id") else {
-//            return Promise<Void>() //TODO: add analytics
-//        }
-//        let holdTarget = hold.target ?? 0
-//        os_log("fetchQueueStats target=%d start", log: log, type: .info, holdTarget)
-//        let req = Gateway.makeRequest(service: API.circ, method: API.holdQueueStats, args: [authtoken, id], shouldCache: false)
-//        let promise = req.gatewayObjectResponse().done { obj in
-//            os_log("fetchQueueStats target=%d done", log: log, type: .info, holdTarget)
-//            hold.qstatsObj = obj
-//        }
-//        return promise
-    }
+    func loadHoldQueueStats(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
+        guard let id = hold.ahrObj.getID("id") else { return }
 
+        os_log("[hold] target=%d qstats start", log: log, type: .info, holdTarget)
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdQueueStats, args: [authtoken, id], shouldCache: false)
+        let obj = try await req.gatewayResponseAsync().asObject()
+        hold.setQstatsObj(obj)
+        os_log("[hold] target=%d qstats done", log: log, type: .info, holdTarget)
+    }
 
     func fetchHoldParts(targetId: Int) async throws -> [XHoldPart] {
         throw HemlockError.notImplemented
