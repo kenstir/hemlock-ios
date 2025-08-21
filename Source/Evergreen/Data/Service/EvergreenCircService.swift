@@ -212,6 +212,11 @@ class EvergreenCircService: XCircService {
     }
 
     func cancelHold(account: Account, holdId: Int) async throws -> Bool {
-        throw HemlockError.notImplemented
+        let note = "Cancelled by mobile app"
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [account.authtoken, holdId, nil, note], shouldCache: false)
+        // holdCancel returns "1" on success, and an error event if it fails.
+        let str = try await req.gatewayResponseAsync().asString()
+        os_log("[hold] id=%d holdCancel result=%@", log: log, type: .info, holdId, str)
+        return true
     }
 }
