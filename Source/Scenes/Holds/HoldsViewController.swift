@@ -121,11 +121,7 @@ class HoldsViewController: UIViewController {
 
     @objc func cancelHoldPressed(_ indexPath: IndexPath) {
         guard let hold = getItem(indexPath) else { return }
-        guard let authtoken = App.account?.authtoken else
-        {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return
-        }
+        guard let account = App.account else { return }
         guard let holdID = hold.id else {
             self.showAlert(title: "Internal Error", error: HemlockError.unexpectedNetworkResponse("Hold record has no ID"))
             //TODO: analytics
@@ -136,31 +132,23 @@ class HoldsViewController: UIViewController {
         let alertController = UIAlertController(title: "Cancel hold?", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Keep Hold", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Cancel Hold", style: .default) { action in
-            self.cancelHold(authtoken: authtoken, holdID: holdID)
+            Task { await self.cancelHold(account: account, holdID: holdID) }
         })
         self.present(alertController, animated: true)
     }
 
-    func cancelHold(authtoken: String, holdID: Int) {
-        self.presentGatewayAlert(forError: HemlockError.notImplemented)
-        /*
-        let promise = CircService.cancelHold(authtoken: authtoken, holdID: holdID)
-        promise.done { resp in
-            guard resp.type == GatewayResponseType.string,
-                resp.str == "1" else
-            {
-                self.navigationController?.view.makeToast("Cancelling hold failed: \(String(describing: resp))")
-                return
-            }
+    @MainActor
+    func cancelHold(account: Account, holdID: Int) async {
+        do {
+            let _ = try await App.serviceConfig.circService.cancelHold(account: account, holdId: holdID)
             self.logCancelHold()
             self.navigationController?.view.makeToast("Hold cancelled")
             self.didCompleteFetch = false
-            self.fetchData()
-        }.catch { error in
+            await self.fetchData()
+        } catch {
             self.logCancelHold(withError: error)
             self.presentGatewayAlert(forError: error)
         }
-        */
     }
 
     private func logCancelHold(withError error: Error? = nil) {
