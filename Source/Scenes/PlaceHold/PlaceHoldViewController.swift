@@ -262,13 +262,11 @@ class PlaceHoldViewController: UIViewController {
         self.parts = parts
         if self.hasParts,
            App.config.enableTitleHoldOnItemWithParts,
-           let authtoken = account.authtoken,
-           let userID = account.userID,
            let pickupOrgID = account.pickupOrgID
         {
             print("PlaceHold: \(self.record.title): checking titleHoldIsPossible")
             do {
-                let _ = try await CircService.titleHoldIsPossible(authtoken: authtoken, userID: userID, targetID: self.record.id, pickupOrgID: pickupOrgID)
+                let _ = try await App.serviceConfig.circService.fetchTitleHoldIsPossible(account: account, targetId: self.record.id, pickupOrgId: pickupOrgID)
                 self.titleHoldIsPossible = true
             } catch {
                 self.titleHoldIsPossible = false

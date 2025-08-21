@@ -62,6 +62,19 @@ class EvergreenCircService: XCircService {
         return try await req.gatewayResponseAsync().asObject()
     }
 
+    func fetchBMP(holdTarget: Int) async throws -> OSRFObject {
+        var param: [String: Any] = [:]
+        param["cache"] = 1
+        param["fields"] = ["label", "record"]
+        param["query"] = ["id": holdTarget]
+        let req = Gateway.makeRequest(service: API.fielder, method: API.fielderBMPAtomic, args: [param], shouldCache: false)
+        let array = try await req.gatewayResponseAsync().asArray()
+        guard let obj = array.first else {
+            throw HemlockError.unexpectedNetworkResponse("Failed to load details for hold target \(holdTarget)")
+        }
+        return obj
+    }
+
     func renewCheckout(account: Account, targetCopy: Int) async throws -> Bool {
         let options: JSONDictionary = [
             "patron": account.userID,
@@ -132,27 +145,19 @@ class EvergreenCircService: XCircService {
     }
 
     func loadPartHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
-//        os_log("[hold] target=%d holdType=P fielder start", log: log, type: .info, holdTarget)
-//        var param: [String: Any] = [:]
-//        param["cache"] = 1
-//        param["fields"] = ["label", "record"]
-//        param["query"] = ["id": holdTarget]
-//        let req = Gateway.makeRequest(service: API.fielder, method: API.fielderBMPAtomic, args: [param], shouldCache: false)
-//        let promise = req.gatewayArrayResponse().then { (array: [OSRFObject]) -> Promise<(OSRFObject)> in
-//            guard let obj = array.first,
-//                let target = obj.getInt("record") else
-//            {
-//                throw HemlockError.unexpectedNetworkResponse("Failed to load fields for part hold")
-//            }
-//            hold.label = obj.getString("label")
-//            os_log("[hold] target=%d holdType=P targetRecord=%d fielder done mods start", log: log, type: .info, holdTarget, target)
-//            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [target], shouldCache: true).gatewayObjectResponse()
-//        }.done { (obj: OSRFObject) -> Void in
-//            os_log("[hold] target=%d holdType=P mods done", log: log, type: .info, holdTarget)
-//            guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for part hold") }
-//            hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
-//        }
-//        return promise
+        os_log("[hold] target=%d holdType=P start", log: log, type: .info, holdTarget)
+        let obj = try await fetchBMP(holdTarget: holdTarget)
+        guard let target = obj.getInt("record") else {
+            throw HemlockError.unexpectedNetworkResponse("Failed to load fields for part hold")
+        }
+        hold.setLabel(obj.getString("label"))
+
+        let modsObj = try await fetchRecordMods(id: target)
+        let record = MBRecord(mvrObj: modsObj)
+        let mraObj = try await fetchMRA(id: record.id)
+        record.update(fromMraObj: mraObj)
+        hold.setMetabibRecord(record)
+        os_log("[hold] target=%d holdType=P done", log: log, type: .info, holdTarget)
     }
 
     func loadCopyHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
@@ -204,7 +209,18 @@ class EvergreenCircService: XCircService {
     }
 
     func fetchTitleHoldIsPossible(account: Account, targetId: Int, pickupOrgId: Int) async throws -> Bool {
-        throw HemlockError.notImplemented
+        let complexParam: JSONDictionary = [
+            "patronid": account.userID,
+            "pickup_lib": pickupOrgId,
+            "hold_type": API.holdTypeTitle,
+            "titleid": targetId,
+        ]
+        let req = Gateway.makeRequest(service: API.circ, method: API.titleHoldIsPossible, args: [account.authtoken, complexParam], shouldCache: false)
+        // The response is a JSON object with details, e.g. "success":1.  But if a title hold is not possible,
+        // the response includes an event, and asObject() will throw.
+        let _ = try await req.gatewayResponseAsync().asObject()
+        os_log("[hold] target=%d titleHoldIsPossible=true", log: log, type: .info, targetId)
+        return true
     }
 
     func placeHold(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> Bool {
