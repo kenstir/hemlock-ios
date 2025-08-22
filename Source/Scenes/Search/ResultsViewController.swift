@@ -80,7 +80,7 @@ class ResultsViewController: UIViewController {
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1], shouldCache: true)
         req.gatewayOptionalObjectResponse().done { obj in
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
-            os_log("search.query: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+            os_log("query.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
             self.fetchRecordDetails(records: records)
             self.logSearchEvent(numResults: records.count)
@@ -99,27 +99,27 @@ class ResultsViewController: UIViewController {
         // Select subset of records to preload in a batch, or else they will get loaded
         // individually on demand by cellForRowAt.
         let maxRecordsToPreload = 6 // best estimate is 5 on screen + 1 partial
-        let preloadedRecords = records.prefix(maxRecordsToPreload)
-        os_log("[%s] fetchRecordDetails first %d records", log: AsyncRecord.log, type: .info, Thread.current.tag(), preloadedRecords.count)
+        let preloadRecords = records.prefix(maxRecordsToPreload)
+        os_log("[%s] fetchRecordDetails first %d records", log: AsyncRecord.log, type: .info, Thread.current.tag(), preloadRecords.count)
 
         // Collect promises
         var promises: [Promise<Void>] = []
         promises.append(PCRUDService.fetchCodedValueMaps())
-        for record in preloadedRecords {
+        for record in preloadRecords {
             promises.append(contentsOf: record.startPrefetch())
         }
 
         firstly {
             when(fulfilled: promises)
         }.done {
-            for record in preloadedRecords {
+            for record in preloadRecords {
                 record.markPrefetchDone()
             }
             self.updateItems(withRecords: records)
         }.ensure {
             self.activityIndicator.stopAnimating()
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
-            os_log("search.details: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+            os_log("preload %d details elapsed: %.3f", log: Gateway.log, type: .info, preloadRecords.count, elapsed)
         }.catch { error in
             self.presentGatewayAlert(forError: error)
         }

@@ -33,6 +33,7 @@ class CheckoutsViewController: UIViewController {
 
     var items: [CircRecord] = []
     var selectedItem: CircRecord?
+    var startOfFetch = Date()
     var didCompleteFetch = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "Checkouts")
 
@@ -85,7 +86,8 @@ class CheckoutsViewController: UIViewController {
         
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
-        
+        startOfFetch = Date()
+
         // fetch the list of items
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [authtoken, userid], shouldCache: false)
         req.gatewayObjectResponse().done { obj in
@@ -111,7 +113,8 @@ class CheckoutsViewController: UIViewController {
         firstly {
             when(resolved: promises)
         }.done { results in
-            os_log("%d promises done", log: self.log, type: .info, promises.count)
+            let elapsed = -self.startOfFetch.timeIntervalSinceNow
+            os_log("%d records loaded, elapsed: %.3f", log: self.log, type: .info, promises.count, elapsed)
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forResults: results)
             self.didCompleteFetch = true

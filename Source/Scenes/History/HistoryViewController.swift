@@ -26,6 +26,7 @@ class HistoryViewController: UITableViewController {
     weak var activityIndicator: UIActivityIndicatorView!
 
     var items: [HistoryRecord] = []
+    var startOfFetch = Date()
     var didCompleteFetch = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "History")
 
@@ -73,6 +74,7 @@ class HistoryViewController: UITableViewController {
 
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
+        startOfFetch = Date()
 
         // fetch history
         ActorService.fetchCheckoutHistory(authtoken: authtoken).done { objList in
@@ -97,14 +99,13 @@ class HistoryViewController: UITableViewController {
             }
             promises.append(promise)
         }
-        let start = Date()
         os_log("%d promises made", log: self.log, type: .info, promises.count)
 
         firstly {
             when(resolved: promises)
         }.done { results in
-            let elapsed = -start.timeIntervalSinceNow
-            os_log("%d promises done, elapsed: %.3f", log: self.log, type: .info, promises.count, elapsed)
+            let elapsed = -self.startOfFetch.timeIntervalSinceNow
+            os_log("%d history records loaded, elapsed: %.3f", log: self.log, type: .info, promises.count, elapsed)
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forResults: results)
             self.didCompleteFetch = true

@@ -32,6 +32,7 @@ class HoldsViewController: UIViewController {
 
     var items: [HoldRecord] = []
     var didCompleteFetch = false
+    var startOfFetch = Date()
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "Holds")
 
     //MARK: - UIViewController
@@ -73,7 +74,7 @@ class HoldsViewController: UIViewController {
             return
         }
         
-        let startOfFetch = Date()
+        startOfFetch = Date()
         
         var promises: [Promise<Void>] = []
         promises.append(ActorService.fetchOrgTypes())
@@ -95,8 +96,8 @@ class HoldsViewController: UIViewController {
             when(fulfilled: promises)
         }.done {
             print("xxx \(promises.count) promises fulfilled")
-            let elapsed = -startOfFetch.timeIntervalSinceNow
-            os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+            let elapsed = -self.startOfFetch.timeIntervalSinceNow
+            os_log("initial fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
         }.ensure {
             self.activityIndicator.stopAnimating()
         }.catch { error in
@@ -120,6 +121,8 @@ class HoldsViewController: UIViewController {
             when(resolved: promises)
         }.done { results in
             os_log("%d promises done", log: self.log, type: .info, promises.count)
+            let elapsed = -self.startOfFetch.timeIntervalSinceNow
+            os_log("details fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             self.activityIndicator.stopAnimating()
             self.presentGatewayAlert(forResults: results)
             self.updateItems()

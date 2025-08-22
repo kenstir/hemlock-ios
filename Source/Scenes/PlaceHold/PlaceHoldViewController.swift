@@ -251,7 +251,7 @@ class PlaceHoldViewController: UIViewController {
         }.done {
             print("xxx \(promises.count) promises fulfilled")
             let elapsed = -startOfFetch.timeIntervalSinceNow
-            os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+            os_log("initial fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             self.didCompleteFetch = true
             self.onDataLoaded()
         }.ensure {
