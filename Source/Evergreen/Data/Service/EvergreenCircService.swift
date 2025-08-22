@@ -67,6 +67,11 @@ class EvergreenCircService: XCircService {
         return try await req.gatewayResponseAsync().asObject()
     }
 
+    func fetchACP(id: Int) async throws -> OSRFObject {
+        let acpReq = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [id], shouldCache: true)
+        return try await acpReq.gatewayResponseAsync().asObject()
+    }
+
     func fetchBMP(holdTarget: Int) async throws -> OSRFObject {
         var param: [String: Any] = [:]
         param["cache"] = 1
@@ -173,8 +178,7 @@ class EvergreenCircService: XCircService {
 
     func loadCopyHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=C start", log: log, type: .info, holdTarget)
-        let acpReq = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget], shouldCache: true)
-        let acpObj = try await acpReq.gatewayResponseAsync().asObject()
+        let acpObj = try await fetchACP(id: holdTarget)
         guard let callNumber = acpObj.getID("call_number") else {
             throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold")
         }
