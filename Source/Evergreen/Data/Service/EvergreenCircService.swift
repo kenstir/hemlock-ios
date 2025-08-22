@@ -62,6 +62,11 @@ class EvergreenCircService: XCircService {
         return try await req.gatewayResponseAsync().asObject()
     }
 
+    func fetchACN(id: Int) async throws -> OSRFObject {
+        let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [id], shouldCache: true)
+        return try await req.gatewayResponseAsync().asObject()
+    }
+
     func fetchBMP(holdTarget: Int) async throws -> OSRFObject {
         var param: [String: Any] = [:]
         param["cache"] = 1
@@ -174,8 +179,7 @@ class EvergreenCircService: XCircService {
             throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold")
         }
 
-        let acnReq = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber], shouldCache: true)
-        let acnObj = try await acnReq.gatewayResponseAsync().asObject()
+        let acnObj = try await fetchACN(id: callNumber)
         guard let id = acnObj.getID("record") else {
             throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for copy hold")
         }
@@ -188,9 +192,8 @@ class EvergreenCircService: XCircService {
 
     func loadVolumeHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=V start", log: log, type: .info, holdTarget)
-        let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [holdTarget], shouldCache: true)
-        let obj = try await req.gatewayResponseAsync().asObject()
-        guard let id = obj.getID("record") else {
+        let acnObj = try await fetchACN(id: holdTarget)
+        guard let id = acnObj.getID("record") else {
             throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for volume hold")
         }
 
