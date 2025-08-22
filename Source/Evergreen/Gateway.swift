@@ -178,14 +178,6 @@ class Gateway {
         return ["_ck=" + clientCacheKey,
                 "_sk=" + serverCacheKey]
     }
-    
-    static var totalElapsed = 0.0
-    @discardableResult
-    static func addElapsed(_ elapsed: Double) -> Double {
-        //Gateway.reportCacheUsage()
-        totalElapsed += elapsed
-        return totalElapsed
-    }
 
     static func reportCacheUsage() {
         let diskUsageKB = URLCache.shared.currentDiskUsage / 1024

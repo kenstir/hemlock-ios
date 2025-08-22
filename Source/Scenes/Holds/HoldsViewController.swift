@@ -83,7 +83,7 @@ class HoldsViewController: UIViewController {
         activityIndicator.stopAnimating()
 
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        os_log("fetch.elapsed: %.3f (%", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+        os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
     }
 
     func loadHoldDetails(account: Account) async throws {

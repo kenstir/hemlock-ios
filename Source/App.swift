@@ -93,7 +93,6 @@ class App {
             let parser = IDLParser(data: data)
             App.idlLoaded = parser.parse()
             let elapsed = -start.timeIntervalSinceNow
-            Gateway.addElapsed(elapsed)
             os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
         }
         return promise
