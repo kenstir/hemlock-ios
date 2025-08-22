@@ -144,9 +144,11 @@ class EvergreenCircService: XCircService {
 
     func loadTitleHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=T start", log: log, type: .info, holdTarget)
-        let obj = try await fetchRecordMods(id: holdTarget)
+        async let modsTask = try await fetchRecordMods(id: holdTarget)
+        async let mraTask = try await fetchMRA(id: holdTarget)
+        let (obj, mraObj) = try await (modsTask, mraTask)
+
         let record = MBRecord(id: holdTarget, mvrObj: obj)
-        let mraObj = try await fetchMRA(id: record.id)
         record.update(fromMraObj: mraObj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=T done", log: log, type: .info, holdTarget)
