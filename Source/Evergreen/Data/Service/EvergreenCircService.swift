@@ -167,23 +167,23 @@ class EvergreenCircService: XCircService {
     }
 
     func loadCopyHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
-        throw HemlockError.notImplemented
-//        os_log("[hold] target=%d holdType=T asset start", log: log, type: .info, holdTarget)
-//        let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget], shouldCache: true)
-//        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-//            guard let callNumber = obj.getID("call_number") else { throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold") }
-//            os_log("[hold] target=%d holdType=T call start", log: log, type: .info, holdTarget)
-//            return Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber], shouldCache: true).gatewayObjectResponse()
-//        }.then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-//            guard let id = obj.getID("record") else { throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for copy hold") }
-//            os_log("[hold] target=%d holdType=T mods start", log: log, type: .info, holdTarget)
-//            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id], shouldCache: true).gatewayObjectResponse()
-//        }.done { (obj: OSRFObject) -> Void in
-//            os_log("[hold] target=%d holdType=P mods done", log: log, type: .info, holdTarget)
-//            guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for copy hold") }
-//            hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
-//        }
-//        return promise
+        os_log("[hold] target=%d holdType=C start", log: log, type: .info, holdTarget)
+        let acpReq = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget], shouldCache: true)
+        let acpObj = try await acpReq.gatewayResponseAsync().asObject()
+        guard let callNumber = acpObj.getID("call_number") else {
+            throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold")
+        }
+
+        let acnReq = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [callNumber], shouldCache: true)
+        let acnObj = try await acnReq.gatewayResponseAsync().asObject()
+        guard let id = acnObj.getID("record") else {
+            throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for copy hold")
+        }
+
+        let modsObj = try await fetchRecordMods(id: id)
+        let record = MBRecord(mvrObj: modsObj)
+        hold.setMetabibRecord(record)
+        os_log("[hold] target=%d holdType=C done", log: log, type: .info, holdTarget)
     }
 
     func loadVolumeHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
