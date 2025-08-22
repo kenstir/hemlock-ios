@@ -167,6 +167,7 @@ class EvergreenCircService: XCircService {
     }
 
     func loadCopyHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
+        throw HemlockError.notImplemented
 //        os_log("[hold] target=%d holdType=T asset start", log: log, type: .info, holdTarget)
 //        let req = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [holdTarget], shouldCache: true)
 //        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
@@ -186,18 +187,17 @@ class EvergreenCircService: XCircService {
     }
 
     func loadVolumeHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
-//        os_log("[hold] target=%d holdType=V call start", log: log, type: .info, holdTarget)
-//        let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [holdTarget], shouldCache: true)
-//        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<(OSRFObject)> in
-//            guard let id = obj.getID("record") else { throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for volume hold")}
-//            os_log("[hold] target=%d holdType=V mods start", log: log, type: .info, holdTarget)
-//            return Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id], shouldCache: true).gatewayObjectResponse()
-//        }.done { (obj: OSRFObject) -> Void in
-//            os_log("[hold] target=%d holdType=V mods done", log: log, type: .info, holdTarget)
-//            guard let id = obj.getInt("doc_id") else { throw HemlockError.unexpectedNetworkResponse("Failed to find doc_id for volume hold") }
-//            hold.metabibRecord = MBRecord(id: id, mvrObj: obj)
-//        }
-//        return promise
+        os_log("[hold] target=%d holdType=V start", log: log, type: .info, holdTarget)
+        let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [holdTarget], shouldCache: true)
+        let obj = try await req.gatewayResponseAsync().asObject()
+        guard let id = obj.getID("record") else {
+            throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for volume hold")
+        }
+
+        let modsObj = try await fetchRecordMods(id: id)
+        let record = MBRecord(mvrObj: modsObj)
+        hold.setMetabibRecord(record)
+        os_log("[hold] target=%d holdType=V done", log: log, type: .info, holdTarget)
     }
 
     func loadHoldQueueStats(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
