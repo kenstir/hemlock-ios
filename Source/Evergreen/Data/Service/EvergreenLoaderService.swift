@@ -73,17 +73,38 @@ class EvergreenLoaderService: XLoaderService {
         try await ActorService.loadOrgTreeAsync()
     }
 
+    private var copyStatusesLoaded = false
     private func loadCopyStatuses() async throws {
-        try await SearchService.loadCopyStatusesAsync()
+        if copyStatusesLoaded {
+            return
+        }
+        let req = Gateway.makeRequest(service: API.search, method: API.copyStatusRetrieveAll, args: [], shouldCache: true)
+        let array = try await req.gatewayResponseAsync().asArray()
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
+            CopyStatus.loadCopyStatus(fromArray: array)
+            copyStatusesLoaded = true
+        }
     }
 
+    private var ccvmLoaded = false
     private func loadCodedValueMaps() async throws {
-        try await PCRUDService.loadCodedValueMapsAsync()
+        if ccvmLoaded {
+            return
+        }
+        let query: [String: Any] = ["ctype": ["icon_format", "search_format"]]
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.searchCCVM, args: [API.anonymousAuthToken, query], shouldCache: true)
+        let array = try await req.gatewayResponseAsync().asArray()
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
+            CodedValueMap.load(fromArray: array)
+            ccvmLoaded = true
+        }
     }
 
     func loadPlaceHoldPrerequisites() async throws {
         try await withThrowingTaskGroup(of: Void.self) { group in
-            group.addTask { try await PCRUDService.loadSMSCarriersAsync() }
+            group.addTask { try await self.loadSMSCarriersAsync() }
             for org in Organization.visibleOrgs {
                 if !org.areSettingsLoaded {
                     group.addTask {
@@ -93,6 +114,21 @@ class EvergreenLoaderService: XLoaderService {
             }
 
             try await group.waitForAll()
+        }
+    }
+
+    private var carriersLoaded = false
+    func loadSMSCarriersAsync() async throws {
+        if carriersLoaded {
+            return
+        }
+        let options: [String: Any] = ["active": 1]
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.searchSMSCarriers, args: [API.anonymousAuthToken, options], shouldCache: true)
+        let array = try await req.gatewayResponseAsync().asArray()
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
+            SMSCarrier.loadSMSCarriers(fromArray: array)
+            carriersLoaded = true
         }
     }
 }

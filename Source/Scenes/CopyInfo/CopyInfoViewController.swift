@@ -65,7 +65,7 @@ class CopyInfoViewController: UIViewController {
             self.showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing record ID or search org"))
             return
         }
-        let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
+        let promise = SearchService.fetchCopyLocationCounts(recordID: recordID, org: org)
         promise.done { resp in
             self.items = CopyLocationCounts.makeArray(fromPayload: resp.payload)
             self.updateItems()

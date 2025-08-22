@@ -14,7 +14,6 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import PromiseKit
 import UIKit
 
 class DetailsViewController: UIViewController {
@@ -68,7 +67,7 @@ class DetailsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -202,40 +201,29 @@ class DetailsViewController: UIViewController {
         Style.styleButton(asPlain: extrasButton)
     }
 
-    func fetchData() {
-        // Fetch orgs and copy statuses
-        var promises: [Promise<Void>] = []
+    func have(_ val: Any?) -> String {
+        if val != nil {
+            return "YES"
+        }
+        return "nil"
+    }
 
-        // Fetch copy counts
+    @MainActor
+    func fetchData() async {
         let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
-        let promise = SearchService.fetchCopyCount(orgID: orgID, recordID: record.id)
-        let done_promise = promise.done { array in
-            self.record.copyCounts = CopyCount.makeArray(fromArray: array)
-        }
-        promises.append(done_promise)
 
-        // Fetch MARC if needed
-        if App.config.needMARCRecord && record.marcRecord == nil {
-            promises.insert(PCRUDService.fetchMARC(forRecord: record), at: 0)
-        }
-
-        // Fetch MRA if needed
-        if record.attrs == nil {
-            promises.append(PCRUDService.fetchMRA(forRecord: record))
+        do {
+            print("record.mvrObj:     \(have(record.mvrObj))")
+            print("record.attrs:      \(have(record.attrs))")
+            print("record.marcRecord: \(have(record.marcRecord))")
+            async let detailsTask: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
+            async let ccountsTask: Void = App.serviceConfig.biblioService.loadRecordCopyCounts(record: record, orgId: orgID)
+            let _ = try await (detailsTask, ccountsTask)
+        } catch {
+            presentGatewayAlert(forError: error)
         }
 
-        // Fetch MODS if needed
-        if record.mvrObj == nil {
-            promises.append(SearchService.fetchRecordMODS(forRecord: record))
-        }
-
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            self.setupAsyncViews()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
-        }
+        setupAsyncViews()
     }
 
     //MARK: - Actions
@@ -324,7 +312,7 @@ class DetailsViewController: UIViewController {
         Style.styleAlertController(alertController)
         for bookBag in bookBags {
             alertController.addAction(UIAlertAction(title: bookBag.name, style: .default) { action in
-                self.addItem(toBookBag: bookBag)
+                Task { await self.addItem(toBookBag: bookBag) }
             })
         }
 //        alertController.addAction(UIAlertAction(title: "Add to New List", style: .default) { action in
@@ -340,13 +328,15 @@ class DetailsViewController: UIViewController {
         self.present(alertController, animated: true)
     }
 
-    func addItem(toBookBag bookBag: BookBag) {
-        guard let authtoken = App.account?.authtoken else { return }
+    @MainActor
+    func addItem(toBookBag bookBag: BookBag) async {
+        guard let account = App.account else { return }
 
-        ActorService.addItemToBookBag(authtoken: authtoken, bookBagId: bookBag.id, recordId: record.id).done {
+        do {
+            try await App.serviceConfig.userService.addItemToPatronList(account: account, listId: bookBag.id, recordId: record.id)
             Analytics.logEvent(event: Analytics.Event.bookbagAddItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.navigationController?.view.makeToast("Item added to list")
-        }.catch { error in
+        } catch {
             Analytics.logEvent(event: Analytics.Event.bookbagAddItem, parameters: [Analytics.Param.result: error.localizedDescription])
             self.presentGatewayAlert(forError: error)
         }

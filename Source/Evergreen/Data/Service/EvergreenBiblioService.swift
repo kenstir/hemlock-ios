@@ -17,15 +17,39 @@
 import Foundation
 
 class EvergreenBiblioService: XBiblioService {
-    func loadRecordDetails(forRecord record: MBRecord, needMARC: Bool) async throws -> Void {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
-        let obj = try await req.gatewayResponseAsync().asObject()
-        record.setMvrObj(obj)
+    func imageUrl(forRecord record: MBRecord) -> String? {
+        return nil
+    }
 
-        if needMARC {
-            let marcReq = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, record.id], shouldCache: true)
-            let marcObj = try await marcReq.gatewayResponseAsync().asObject()
-            record.update(fromBreObj: marcObj)
+    func loadRecordDetails(forRecord record: MBRecord, needMARC: Bool) async throws -> Void {
+        // load MODS and MARC data for the record, but only if it wasn't already done
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            if !record.hasMODS {
+                group.addTask {
+                    let modsObj = try await EvergreenAsync.fetchRecordMODS(id: record.id)
+                    record.setMvrObj(modsObj)
+                }
+            }
+            if !record.hasMARC {
+                group.addTask {
+                    let breObj = try await EvergreenAsync.fetchBRE(id: record.id)
+                    record.update(fromBreObj: breObj)
+                }
+            }
+            try await group.waitForAll()
         }
+    }
+
+    func loadRecordAttributes(record: MBRecord) async throws {
+        if !record.hasAttrs {
+            let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
+            record.update(fromMraObj: mraObj)
+        }
+    }
+
+    func loadRecordCopyCounts(record: MBRecord, orgId: Int) async throws {
+        let array = try await SearchService.fetchCopyCount(recordID: record.id, orgID: orgId)
+        let copyCounts = CopyCount.makeArray(fromArray: array)
+        record.setCopyCounts(copyCounts)
     }
 }

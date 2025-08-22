@@ -22,43 +22,13 @@ import PromiseKit
 import os.log
 
 class PCRUDService {
-    static var carriersLoaded = false
-    static var ccvmLoaded = false
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "pcrud")
-
-    static func loadCodedValueMapsAsync() async throws {
-        if ccvmLoaded {
-            return
-        }
-        let query: [String: Any] = ["ctype": ["icon_format", "search_format"]]
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.searchCCVM, args: [API.anonymousAuthToken, query], shouldCache: true)
-        let array = try await req.gatewayResponseAsync().asArray()
-        // TODO: make mt-safe, remove await
-        await MainActor.run {
-            CodedValueMap.load(fromArray: array)
-            ccvmLoaded = true
-        }
-    }
-
-    static func loadSMSCarriersAsync() async throws {
-        if carriersLoaded {
-            return
-        }
-        let options: [String: Any] = ["active": 1]
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.searchSMSCarriers, args: [API.anonymousAuthToken, options], shouldCache: true)
-        let array = try await req.gatewayResponseAsync().asArray()
-        // TODO: make mt-safe, remove await
-        await MainActor.run {
-            SMSCarrier.loadSMSCarriers(fromArray: array)
-            carriersLoaded = true
-        }
-    }
 
     static func fetchMRA(forRecord record: MBRecord) -> Promise<Void> {
 //        os_log("fetchMRA id=%d start", log: PCRUDService.log, type: .info, record.id)
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, record.id], shouldCache: true)
         let promise = req.gatewayOptionalObjectResponse().done { obj in
-            record.attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
+            record.update(fromMraObj: obj)
 //            os_log("fetchMRA id=%d done format=%@ title=%@", log: PCRUDService.log, type: .info, record.id, record.iconFormatLabel, record.title)
         }
         return promise
@@ -68,16 +38,7 @@ class PCRUDService {
         os_log("fetchMARC id=%d start", log: PCRUDService.log, type: .info, record.id)
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, record.id], shouldCache: true)
         let promise = req.gatewayObjectResponse().done { obj in
-            guard let marcXML = obj.getString("marc") else {
-                throw HemlockError.unexpectedNetworkResponse("no marc for record \(record.id)")
-            }
-            guard let data = marcXML.data(using: .utf8) else {
-                throw HemlockError.unexpectedNetworkResponse("failed to parse marc for record \(record.id)")
-            }
-            let parser = MARCXMLParser(data: data)
-            record.marcRecord = try parser.parse()
-            record.marcIsDeleted = obj.getBoolOrFalse("deleted")
-            os_log("fetchMARC id=%d done", log: PCRUDService.log, type: .info, record.id)
+            record.update(fromBreObj: obj)
         }
         return promise
     }

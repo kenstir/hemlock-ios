@@ -19,28 +19,13 @@ import PromiseKit
 import PMKAlamofire
 
 class SearchService {
-    static var copyStatusesLoaded = false
 
-    static func loadCopyStatusesAsync() async throws {
-        if copyStatusesLoaded {
-            return
-        }
-        let req = Gateway.makeRequest(service: API.search, method: API.copyStatusRetrieveAll, args: [], shouldCache: true)
-        let array = try await req.gatewayResponseAsync().asArray()
-        // TODO: make mt-safe, remove await
-        await MainActor.run {
-            CopyStatus.loadCopyStatus(fromArray: array)
-            copyStatusesLoaded = true
-        }
-    }
-
-    static func fetchCopyCount(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {
+    static func fetchCopyCount(recordID: Int, orgID: Int) async throws -> [OSRFObject] {
         let req = Gateway.makeRequest(service: API.search, method: API.copyCount, args: [orgID, recordID], shouldCache: false)
-        let promise = req.gatewayArrayResponse()
-        return promise
+        return try await req.gatewayResponseAsync().asArray()
     }
 
-    static func fetchCopyLocationCounts(org: Organization?, recordID: Int) -> Promise<(GatewayResponse)> {
+    static func fetchCopyLocationCounts(recordID: Int, org: Organization?) -> Promise<(GatewayResponse)> {
         var args: [Any] = [recordID]
         if let searchOrg = org {
             args.append(searchOrg.id)
@@ -54,7 +39,7 @@ class SearchService {
     static func fetchRecordMODS(forRecord record: MBRecord) -> Promise<Void> {
         let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
         let promise = req.gatewayObjectResponse().done { obj in
-            record.mvrObj = obj
+            record.setMvrObj(obj)
         }
         return promise
     }

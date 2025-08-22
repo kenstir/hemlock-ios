@@ -31,48 +31,33 @@ class EvergreenCircService: XCircService {
         let circObj = try await circReq.gatewayResponseAsync().asObject()
         circRecord.setCircObj(circObj)
 
-        if let modsObj = try await fetchCopyMods(copyId: circRecord.targetCopy) {
+        if let modsObj = try await fetchCopyMODS(copyId: circRecord.targetCopy) {
             circRecord.setMetabibRecord(MBRecord(mvrObj: modsObj))
         }
 
         if let record = circRecord.metabibRecord {
-            let mraObj = try await fetchMRA(id: record.id)
+            let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
             record.update(fromMraObj: mraObj)
         }
     }
 
-    private func fetchCopyMods(copyId: Int) async throws -> OSRFObject? {
+    private func fetchCopyMODS(copyId: Int) async throws -> OSRFObject? {
         guard copyId != -1 else { return nil }
         let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [copyId], shouldCache: true)
         return try await req.gatewayResponseAsync().asObject()
     }
 
-    func fetchRecordMods(id: Int) async throws -> OSRFObject {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [id], shouldCache: true)
-        return try await req.gatewayResponseAsync().asObject()
-    }
-
-    func fetchMetarecordMods(id: Int) async throws -> OSRFObject {
-        let req = Gateway.makeRequest(service: API.search, method: API.metarecordModsRetrieve, args: [id], shouldCache: true)
-        return try await req.gatewayResponseAsync().asObject()
-    }
-
-    func fetchMRA(id: Int) async throws -> OSRFObject {
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id], shouldCache: true)
-        return try await req.gatewayResponseAsync().asObject()
-    }
-
-    func fetchACN(id: Int) async throws -> OSRFObject {
+    private func fetchACN(id: Int) async throws -> OSRFObject {
         let req = Gateway.makeRequest(service: API.search, method: API.assetCallNumberRetrieve, args: [id], shouldCache: true)
         return try await req.gatewayResponseAsync().asObject()
     }
 
-    func fetchACP(id: Int) async throws -> OSRFObject {
+    private func fetchACP(id: Int) async throws -> OSRFObject {
         let acpReq = Gateway.makeRequest(service: API.search, method: API.assetCopyRetrieve, args: [id], shouldCache: true)
         return try await acpReq.gatewayResponseAsync().asObject()
     }
 
-    func fetchBMP(holdTarget: Int) async throws -> OSRFObject {
+    private func fetchBMP(holdTarget: Int) async throws -> OSRFObject {
         var param: [String: Any] = [:]
         param["cache"] = 1
         param["fields"] = ["label", "record"]
@@ -144,8 +129,8 @@ class EvergreenCircService: XCircService {
 
     func loadTitleHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=T start", log: log, type: .info, holdTarget)
-        async let modsTask = try await fetchRecordMods(id: holdTarget)
-        async let mraTask = try await fetchMRA(id: holdTarget)
+        async let modsTask = EvergreenAsync.fetchRecordMODS(id: holdTarget)
+        async let mraTask = EvergreenAsync.fetchMRA(id: holdTarget)
         let (obj, mraObj) = try await (modsTask, mraTask)
 
         let record = MBRecord(id: holdTarget, mvrObj: obj)
@@ -156,7 +141,7 @@ class EvergreenCircService: XCircService {
 
     func loadMetarecordHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=M start", log: log, type: .info, holdTarget)
-        let obj = try await fetchMetarecordMods(id: holdTarget)
+        let obj = try await EvergreenAsync.fetchMetarecordMODS(id: holdTarget)
         let record = MBRecord(id: obj.getInt("tcn") ?? -1, mvrObj: obj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=M done", log: log, type: .info, holdTarget)
@@ -170,9 +155,9 @@ class EvergreenCircService: XCircService {
         }
         hold.setLabel(obj.getString("label"))
 
-        let modsObj = try await fetchRecordMods(id: target)
+        let modsObj = try await EvergreenAsync.fetchRecordMODS(id: target)
         let record = MBRecord(mvrObj: modsObj)
-        let mraObj = try await fetchMRA(id: record.id)
+        let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
         record.update(fromMraObj: mraObj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=P done", log: log, type: .info, holdTarget)
@@ -190,7 +175,7 @@ class EvergreenCircService: XCircService {
             throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for copy hold")
         }
 
-        let modsObj = try await fetchRecordMods(id: id)
+        let modsObj = try await EvergreenAsync.fetchRecordMODS(id: id)
         let record = MBRecord(mvrObj: modsObj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=C done", log: log, type: .info, holdTarget)
@@ -203,7 +188,7 @@ class EvergreenCircService: XCircService {
             throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for volume hold")
         }
 
-        let modsObj = try await fetchRecordMods(id: id)
+        let modsObj = try await EvergreenAsync.fetchRecordMODS(id: id)
         let record = MBRecord(mvrObj: modsObj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=V done", log: log, type: .info, holdTarget)
@@ -220,7 +205,8 @@ class EvergreenCircService: XCircService {
     }
 
     func fetchHoldParts(targetId: Int) async throws -> [XHoldPart] {
-        throw HemlockError.notImplemented
+        let parts = try await SearchService.fetchHoldParts(recordID: targetId)
+        return parts.map { XHoldPart(id: $0.getInt("id") ?? -1, label: $0.getString("label") ?? "Unknown part") }
     }
 
     func fetchTitleHoldIsPossible(account: Account, targetId: Int, pickupOrgId: Int) async throws -> Bool {

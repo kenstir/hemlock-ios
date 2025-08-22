@@ -16,7 +16,12 @@
 
 import Foundation
 
-protocol XHoldPart {
-    var id: Int { get }
-    var label: String { get }
+class XHoldPart {
+    let id: Int
+    let label: String
+
+    init(id: Int, label: String) {
+        self.id = id
+        self.label = label
+    }
 }

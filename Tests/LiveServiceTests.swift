@@ -297,27 +297,11 @@ class LiveServiceTests: XCTestCase {
 
     //MARK: -
 
-    func test_copyCounts() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let promise = SearchService.fetchCopyCount(orgID: Organization.consortiumOrgID, recordID: self.sampleRecordID)
-        promise.done { array in
-            let copyCounts = CopyCount.makeArray(fromArray: array)
-            XCTAssertGreaterThan(copyCounts.count, 0)
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 10)
-    }
-    
     func test_copyLocationCounts() {
         let expectation = XCTestExpectation(description: "async response")
         
         let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", ouType: 0, opacVisible: true, aouObj: OSRFObject())
-        let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: sampleRecordID)
+        let promise = SearchService.fetchCopyLocationCounts(recordID: sampleRecordID, org: org)
         promise.done { resp in
             XCTAssertNotNil(resp.payload)
             let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload!)

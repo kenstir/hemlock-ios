@@ -21,12 +21,11 @@ import os.log
 class EvergreenUserService: XUserService {
 
     func loadSession(account: Account) async throws {
+        // authGetSession must be called first, before any other API calls taking an authtoken.
         let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [account.authtoken], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
         print("\(Utils.tt) about to account.loadSession")
-//        await MainActor.run {
-            account.loadSession(fromObject: obj)
-//        }
+        account.loadSession(fromObject: obj)
 
         try await loadUserSettings(account: account)
     }
@@ -37,9 +36,7 @@ class EvergreenUserService: XUserService {
         let obj = try await req.gatewayResponseAsync().asObject()
 
         print("\(Utils.tt) about to account.loadUserSettings")
-//        await MainActor.run {
-            account.loadUserSettings(fromObject: obj)
-//        }
+        account.loadUserSettings(fromObject: obj)
     }
 
     func deleteSession(account: Account) async throws {
@@ -106,6 +103,20 @@ class EvergreenUserService: XUserService {
         let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, listId], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
         os_log("[bookbag] bag %d deleteBag result %@", listId, str)
+    }
+
+    func addItemToPatronList(account: Account, listId: Int, recordId: Int) async throws {
+        guard let authtoken = account.authtoken else {
+            throw HemlockError.sessionExpired
+        }
+        let obj = OSRFObject([
+            "bucket": listId,
+            "target_biblio_record_entry": recordId,
+            "id": nil,
+        ], netClass: "cbrebi")
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerItemCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
+        let str = try await req.gatewayResponseAsync().asString()
+        os_log("[bookbag] addItem %d result %@", listId, str)
     }
 
     func removeItemFromPatronList(account: Account, listId: Int, itemId: Int) async throws {

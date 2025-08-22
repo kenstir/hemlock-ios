@@ -23,11 +23,14 @@ class MBRecord {
     private let lock = NSRecursiveLock()
 
     var id: Int
-    var mvrObj: OSRFObject?
-    var attrs: [String: String]? // from MRA object
-    var marcRecord: MARCRecord?
-    var marcIsDeleted: Bool?
-    var copyCounts: [CopyCount]?
+    private(set) var mvrObj: OSRFObject?
+    var hasMODS: Bool { return mvrObj != nil }
+    private(set) var attrs: [String: String]? // from MRA object
+    var hasAttrs: Bool { return attrs != nil }
+    private(set) var marcRecord: MARCRecord?
+    var hasMARC: Bool { return marcRecord != nil }
+    private(set) var marcIsDeleted: Bool?
+    private(set) var copyCounts: [CopyCount]?
 
     var title: String { return mvrObj?.getString("title") ?? "" }
     var author: String { return mvrObj?.getString("author") ?? "" }
@@ -107,7 +110,7 @@ class MBRecord {
     }
 
     /// mt-safe
-    func update(fromMraObj obj: OSRFObject) {
+    func update(fromMraObj obj: OSRFObject?) {
         lock.lock(); defer { lock.unlock() }
         attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
     }
@@ -125,6 +128,12 @@ class MBRecord {
         let parser = MARCXMLParser(data: data)
         marcRecord = try? parser.parse()
         marcIsDeleted = obj.getBoolOrFalse("deleted")
+    }
+
+    /// mt-safe
+    func setCopyCounts(_ counts: [CopyCount]) {
+        lock.lock(); defer { lock.unlock() }
+        self.copyCounts = counts
     }
 
     func totalCopies(atOrgID orgID: Int?) -> Int {
