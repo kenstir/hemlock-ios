@@ -79,25 +79,6 @@ class App {
         App.idlLoaded = false
     }
 
-    static func fetchIDL() -> Promise<Void> {
-        if App.idlLoaded ?? false {
-            return Promise<Void>()
-        }
-        let start = Date()
-
-        // Fetch IDL and parse it.
-        let req = Gateway.makeRequest(url: Gateway.idlURL(), shouldCache: true)
-        let promise = req.responseData().done { data, pmkresponse in
-            let tag = pmkresponse.request?.debugTag ?? Analytics.nullTag
-            Analytics.logResponse(tag: tag, data: data)
-            let parser = IDLParser(data: data)
-            App.idlLoaded = parser.parse()
-            let elapsed = -start.timeIntervalSinceNow
-            os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
-        }
-        return promise
-    }
-
     static func loadIDL(fromData data: Data) -> Bool {
         let parser = IDLParser(data: data)
         let ok = parser.parse()
