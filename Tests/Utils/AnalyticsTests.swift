@@ -24,10 +24,10 @@ class AnalyticsTests: XCTestCase {
 
     func test_getLog() {
         Analytics.clearLog()
-        Analytics.logRequest(tag: "ff", method: "m", args: ["p1","p2"])
-        Analytics.logResponse(tag: "ff", wireString: "{}")
+        Analytics.logRequest(tag: "dedbeef", method: "m", args: ["p1","p2"])
+        Analytics.logResponse(tag: "dedbeef", wireString: "{}")
         let s = Analytics.getLog()
-        XCTAssertEqual("[net] ff: send: m p1,p2\n[net] ff: recv: {}\n", s)
+        XCTAssertEqual("[net] dedbeef  send  m p1,p2\n[net] dedbeef  recv  {}\n", s)
     }
 
     func test_searchTermStats() {

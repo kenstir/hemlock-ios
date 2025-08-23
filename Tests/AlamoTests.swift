@@ -185,7 +185,6 @@ class AlamoTests: XCTestCase {
                 return true
             }
         }
-
         return false
     }
 
@@ -223,7 +222,6 @@ class AlamoTests: XCTestCase {
 
     func test_get_shouldNotCache() {
         let randomArg = randomString(ofLength: 4)
-        let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)")
         let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)&shouldCache=false")
 
         let firstWasCached = doRequest(url: url, shouldCache: false)
@@ -231,5 +229,24 @@ class AlamoTests: XCTestCase {
 
         let secondWasCached = doRequest(url: url, shouldCache: false)
         XCTAssertFalse(secondWasCached)
+    }
+
+    func doRequestAsync(url: String, shouldCache: Bool) async throws -> Bool {
+        let req = Gateway.makeRequest(url: url, shouldCache: true)
+        let resp = await req.serializingData().response
+        let str = try resp.result.get().asString()
+        print("response: \(str ?? "")")
+        return wasCached(resp.metrics)
+    }
+
+    func test_asyncGet_shouldCache() async throws {
+        let randomArg = randomString(ofLength: 4)
+        let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)&asyncShouldCache=true")
+
+        let firstWasCached = try await doRequestAsync(url: url, shouldCache: true)
+        XCTAssertFalse(firstWasCached)
+
+        let secondWasCached = try await doRequestAsync(url: url, shouldCache: true)
+        XCTAssertTrue(secondWasCached)
     }
 }

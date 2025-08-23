@@ -33,11 +33,12 @@ typealias FA = FirebaseAnalytics.Analytics
 #endif
 
 class Analytics {
-    static let nullTag = "nil"
+    static let nullTag = "null_tag"
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Analytics")
     static let lock = NSRecursiveLock()
     static var buf = RingBuffer<String>(count: 256)
-    static let maxBytesShown = 512
+    //    static let maxBytesShown = 512
+    static let maxBytesShown = 128
 
     class Event {
         static let bookbagAddItem = "bookbag_add_item"
@@ -167,6 +168,11 @@ class Analytics {
 #endif
     }
 
+    static private func netPrefix(_ tag: String?) -> String {
+        let tag8 = (tag ?? nullTag).padding(toLength: 8, withPad: " ", startingAt: 0)
+        return "[net] \(tag8)"
+    }
+
     /// mt: MT-Safe
     static func logRequest(tag: String?, method: String, args: [String]) {
         print("\(Utils.tt) logRequest \(tag ?? nullTag): \(method)")
@@ -177,7 +183,8 @@ class Analytics {
            method != "open-ils.auth.authenticate.complete" {
             argsDescription = args.joined(separator: ",")
         }
-        let s = "[net] \(tag ?? nullTag): send: \(method) \(argsDescription)"
+        let prefix = netPrefix(tag)
+        let s = "\(prefix) send  \(method) \(argsDescription)"
 
         os_log("%{public}s", log: log, type: .info, s)
         logToBuffer(s)
@@ -185,25 +192,37 @@ class Analytics {
 
     /// mt: MT-Safe
     static func logRequest(tag: String?, url: String) {
-        let s = "[net] \(tag ?? nullTag): send: \(url)"
+        let prefix = netPrefix(tag)
+        let s = "\(prefix) send  \(url)"
 
         os_log("%{public}s", log: log, type: .info, s)
         logToBuffer(s)
     }
 
     /// mt: MT-Safe
-    static func logResponse(tag: String?, data responseData: Data?) {
+    static func logResponse(tag: String?, data responseData: Data?, cached: Bool? = nil, elapsedMs: Int? = nil) {
         if let d = responseData,
             let s = String(data: d, encoding: .utf8) {
-            logResponse(tag: tag, wireString: s)
+            logResponse(tag: tag, wireString: s, cached: cached, elapsedMs: elapsedMs)
         } else {
-            logResponse(tag: tag, wireString: "(null)")
+            logResponse(tag: tag, wireString: "(null)", cached: cached, elapsedMs: elapsedMs)
         }
     }
 
     /// mt: MT-Safe
-    static func logResponse(tag: String?, wireString: String) {
+    static func logResponse(tag: String?, wireString: String, cached: Bool? = nil, elapsedMs: Int? = nil) {
         //print("\(Utils.tt) logResponse \(tag ?? nullTag)")
+
+        // build a prefix indicating cached status and elapsed time if available
+        let netPrefix = netPrefix(tag)
+        let duration: String
+        if let ms = elapsedMs {
+            duration = String(format: " %5d ms", ms)
+        } else {
+            duration = ""
+        }
+        let badge = cached == true ? "*" : " "
+        let prefix = "\(netPrefix) recv\(badge)\(duration)"
 
         // redact certain responses: login (au), message (aum), orgTree (aou)
         // au? is sensitive; aou is just long
@@ -212,18 +231,17 @@ class Analytics {
             """
         let s: String
         if wireString.starts(with: "<IDL ") {
-            s = "[net] \(tag ?? nullTag): recv: <IDL>"
+            s = "\(prefix) <IDL>"
         } else {
             let range = wireString.range(of: redactedResponseRegex, options: .regularExpression)
             if range == nil {
-                s = "[net] \(tag ?? nullTag): recv: \(wireString)"
+                s = "\(prefix) \(wireString)"
             } else {
-                s = "[net] \(tag ?? nullTag): recv: ***"
+                s = "\(prefix) ***"
             }
         }
 
         // log the first bytes of the response
-        // TODO: indicate if cached
         os_log("%{public}s", log: log, type: .info, s[0..<maxBytesShown])
         logToBuffer(s)
     }

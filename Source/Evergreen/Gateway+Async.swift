@@ -24,7 +24,8 @@ extension Alamofire.DataRequest {
             responseData(queue: queue) { response in
                 switch response.result {
                 case .success(let data):
-                    Analytics.logResponse(tag: response.request?.debugTag, data: data)
+                    let cached = self.wasCached(response.metrics)
+                    Analytics.logResponse(tag: response.request?.debugTag, data: data, cached: cached)
                     continuation.resume(returning: GatewayResponse(data))
                 case .failure(let error):
                     continuation.resume(throwing: error)
@@ -33,20 +34,41 @@ extension Alamofire.DataRequest {
         }
     }
 
-    func gatewayResponseAsync(queue: DispatchQueue = .main) async throws -> GatewayResponse {
-        let data = try await serializingData().value
-        Analytics.logResponse(tag: self.request?.debugTag, data: data)
+    func gatewayResponseAsync() async throws -> GatewayResponse {
+        let resp = await serializingData().response
+        let data = try resp.result.get()
+        let cached = self.wasCached(resp.metrics)
+        Analytics.logResponse(tag: self.request?.debugTag, data: data, cached: cached, elapsedMs: self.elapsedInMs(resp.metrics))
         return GatewayResponse(data)
     }
 
-    func gatewayDataResponseAsync(queue: DispatchQueue = .main) async throws -> Data {
-        let data = try await serializingData().value
-        Analytics.logResponse(tag: self.request?.debugTag, data: data)
+    func gatewayDataResponseAsync() async throws -> Data {
+        let resp = await serializingData().response
+        let data = try resp.result.get()
+        let cached = self.wasCached(resp.metrics)
+        Analytics.logResponse(tag: self.request?.debugTag, data: data, cached: cached, elapsedMs: self.elapsedInMs(resp.metrics))
         return data
     }
 
+    func wasCached(_ metrics: URLSessionTaskMetrics?) -> Bool {
+        // Get the last transaction metric (the "final" one)
+        if let finalMetric = metrics?.transactionMetrics.last {
+            if finalMetric.resourceFetchType == .localCache {
+                return true
+            }
+        }
+        return false
+    }
+
+    func elapsedInMs(_ metrics: URLSessionTaskMetrics?) -> Int? {
+        if let elapsed = metrics?.taskInterval.duration {
+            return Int((elapsed * 1000.0).rounded())
+        }
+        return nil
+    }
+
     /* Decided against using JSONResponseSerializer because it is not easier, and also it is deprecated.
-    func gatewayObjectResponseAsyncUsingDeprecatedResponseSerializer(queue: DispatchQueue = .main) async throws -> OSRFObject {
+    func gatewayObjectResponseAsyncUsingDeprecatedResponseSerializer() async throws -> OSRFObject {
         let resp = serializingResponse(using: JSONResponseSerializer())
         print("resp: \(type(of: resp)): \(resp)")
         let value = try await resp.value
