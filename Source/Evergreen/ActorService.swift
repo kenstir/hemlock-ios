@@ -53,16 +53,6 @@ class ActorService {
         }
     }
 
-    static func removeItemFromBookBag(authtoken: String, bookBagItemId: Int) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, bookBagItemId], shouldCache: false)
-        let promise = req.gatewayResponse().done { resp in
-            if let str = resp.str {
-                os_log("[bookbag] removeItem %d result %@", bookBagItemId, str)
-            }
-        }
-        return promise
-    }
-
     static func fetchCheckoutHistory(authtoken: String) -> Promise<[OSRFObject]> {
         let req = Gateway.makeRequest(service: API.actor, method: API.checkoutHistory, args: [authtoken], shouldCache: true)
         return req.gatewayMaybeEmptyArrayResponse()

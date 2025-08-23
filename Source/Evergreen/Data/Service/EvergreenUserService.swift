@@ -120,7 +120,12 @@ class EvergreenUserService: XUserService {
     }
 
     func removeItemFromPatronList(account: Account, listId: Int, itemId: Int) async throws {
-        throw HemlockError.notImplemented
+        guard let authtoken = account.authtoken else {
+            throw HemlockError.sessionExpired
+        }
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, itemId], shouldCache: false)
+        let str = try await req.gatewayResponseAsync().asString()
+        os_log("[bookbag] removeItem %d result %@", itemId, str)
     }
 
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage] {

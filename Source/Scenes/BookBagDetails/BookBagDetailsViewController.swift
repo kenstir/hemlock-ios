@@ -192,24 +192,29 @@ class BookBagDetailsViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+        guard let account = App.account, let bookBag = self.bookBag else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
 
         let item = sortedItems[indexPath.row]
-        ActorService.removeItemFromBookBag(authtoken: authtoken, bookBagItemId: item.id).done {
+        Task { await self.deleteItem(account: account, bookBag: bookBag, item: item) }
+    }
+
+    @MainActor
+    func deleteItem(account: Account, bookBag: BookBag, item: BookBagItem) async {
+        do {
+            try await App.serviceConfig.userService.removeItemFromPatronList(account: account, listId: bookBag.id, itemId: item.id)
             Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.bookBag?.items.removeAll(where: { $0.id == item.id })
             self.updateItems()
-        }.catch { error in
+        } catch {
             Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: error.localizedDescription])
             self.presentGatewayAlert(forError: error)
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "bookBagDetailsCell", for: indexPath) as? BookBagDetailsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
