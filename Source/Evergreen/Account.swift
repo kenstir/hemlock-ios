@@ -111,18 +111,17 @@ class Account {
         defaultNotifySMS = value.contains("sms")
     }
 
-    /// we just got the fcmToken from the user setting.  If the one we have in the app is
-    /// different, we need to update the user setting in Evergreen
-    func maybeUpdateUserSettings(storedData: String?, storedEnabledFlag: Bool) {
+    /// we just read `storedData` and `storedEnabledFlag` from the user settings.
+    /// If what we have in the app is different, we need to update the user setting in Evergreen
+    func maybeUpdateUserSettings(storedData: String?, storedEnabledFlag: Bool) async {
         print("[fcm] stored token was: \(storedData ?? "(nil)")")
         if let currentFCMToken = App.fcmNotificationToken,
            currentFCMToken != storedData || !storedEnabledFlag
         {
             print("[fcm] updating stored token")
-            let promise = ActorService.updatePushNotificationToken(account: self, token: currentFCMToken)
-            promise.done {
-                //print("[fcm] done updating stored token")
-            }.catch { error in
+            do {
+                try await App.serviceConfig.userService.updatePushNotificationToken(account: self, token: currentFCMToken)
+            } catch {
                 print("[fcm] caught error \(error.localizedDescription)")
             }
         }
@@ -170,8 +169,8 @@ class Account {
         parseHoldNotifyValue(holdNotifySetting)
         userSettingsLoaded = true
 
-        maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled)
-        os_log(.info, log: Account.log, "loadUserSettings finished, fcmToken=%@", App.fcmNotificationToken ?? "(nil)")
+        Task { await maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled) }
+        os_log(.info, log: Account.log, "loadUserSettings finished")
     }
 
     /// mt-safe

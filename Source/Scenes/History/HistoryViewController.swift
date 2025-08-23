@@ -45,7 +45,7 @@ class HistoryViewController: UITableViewController {
         }
 
         if !didCompleteFetch {
-            self.fetchData()
+            Task { await self.fetchData() }
         }
     }
 
@@ -63,7 +63,8 @@ class HistoryViewController: UITableViewController {
         navigationItem.rightBarButtonItems?.append(button)
     }
 
-    func fetchData() {
+    @MainActor
+    func fetchData() async {
         guard let account = App.account,
               let authtoken = account.authtoken else
         {
@@ -74,14 +75,15 @@ class HistoryViewController: UITableViewController {
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        // fetch history
-        ActorService.fetchCheckoutHistory(authtoken: authtoken).done { objList in
+        do {
+            let objList = try await ActorService.fetchCheckoutHistory(authtoken: authtoken)
             self.items = HistoryRecord.makeArray(objList)
             self.fetchCircDetails()
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forError: error, title: "Error retrieving messages")
+        } catch {
+            self.presentGatewayAlert(forError: error)
         }
+
+        activityIndicator.stopAnimating()
     }
 
     func fetchCircDetails() {
@@ -131,16 +133,18 @@ class HistoryViewController: UITableViewController {
         let alertController = UIAlertController(title: "Disable checkout history?", message: "Disabling checkout history will permanently remove all items from your history.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Disable history", style: .destructive) { action in
-            self.disableCheckoutHistory(account: account)
+            Task { await self.disableCheckoutHistory(account: account) }
         })
         self.present(alertController, animated: true)
     }
 
-    func disableCheckoutHistory(account: Account) {
-        let promise = ActorService.disableCheckoutHistory(account: account)
-        promise.done {
+    @MainActor
+    func disableCheckoutHistory(account: Account) async {
+        do {
+            try await App.serviceConfig.userService.disableCheckoutHistory(account: account)
+            try await App.serviceConfig.userService.clearCheckoutHistory(account: account)
             self.navigationController?.popViewController(animated: true)
-        }.catch { error in
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }

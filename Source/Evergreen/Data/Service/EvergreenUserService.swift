@@ -132,20 +132,48 @@ class EvergreenUserService: XUserService {
     }
 
     //MARK: - User Settings
+
     func updatePushNotificationToken(account: Account, token: String?) async throws {
-        throw HemlockError.notImplemented
+        guard let authtoken = account.authtoken, let userID = account.userID else { return }
+        let settings: JSONDictionary = [
+            API.userSettingHemlockPushNotificationData: token,
+            API.userSettingHemlockPushNotificationEnabled: true
+        ]
+        let str = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
+        // `str` doesn't matter, it either worked or it errored.
+        // TODO: do we have anything to do here?
+        print("[fcm] token updated str=\(str)")
     }
 
     func enableCheckoutHistory(account: Account) async throws {
-        throw HemlockError.notImplemented
+        guard let authtoken = account.authtoken, let userID = account.userID else { return }
+        let dateString = OSRFObject.apiDayOnlyFormatter.string(from: Date())
+        let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
+        // return value doesn't matter, it either worked or it errored.
+        let _ = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
+        account.setCircHistoryStart(dateString)
     }
 
     func disableCheckoutHistory(account: Account) async throws {
-        throw HemlockError.notImplemented
+        guard let authtoken = account.authtoken, let userID = account.userID else { return }
+        let dateString: String? = nil
+        let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
+        // return value doesn't matter, it either worked or it errored.
+        let _ = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
+        account.setCircHistoryStart(dateString)
+    }
+
+    private func updatePatronSettings(authtoken: String, userID: Int, settings: JSONDictionary) async throws -> String {
+        /// returns "1" or an error
+        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, settings], shouldCache: false)
+        return try await req.gatewayResponseAsync().asString()
     }
 
     func clearCheckoutHistory(account: Account) async throws {
-        throw HemlockError.notImplemented
+        guard let authtoken = account.authtoken else { return }
+        let req = Gateway.makeRequest(service: API.actor, method: API.clearCheckoutHistory, args: [authtoken], shouldCache: false)
+        // return value doesn't matter, it either worked or it errored.
+        let _ = try await req.gatewayResponseAsync().asString()
     }
 
     //MARK: - Messages

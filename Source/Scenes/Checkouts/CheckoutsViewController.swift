@@ -202,23 +202,24 @@ class CheckoutsViewController: UIViewController {
         let alertController = UIAlertController(title: "Checkout history is not enabled.", message: "Your account does not have checkout history enabled.  If you enable it, items you check out from now on will appear in your history.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Enable checkout history", style: .default) { action in
-            self.enableCheckoutHistory(account: account)
+            Task { await self.enableCheckoutHistory(account: account) }
         })
         self.present(alertController, animated: true)
     }
 
-    func enableCheckoutHistory(account: Account) {
+    @MainActor
+    func enableCheckoutHistory(account: Account) async {
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        let promise = ActorService.enableCheckoutHistory(account: account)
-        promise.done {
+        do {
+            try await App.serviceConfig.userService.enableCheckoutHistory(account: account)
             self.showAlert(title: "Success", message: "Items you check out from now on will appear in your history.")
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
+
+        activityIndicator.stopAnimating()
     }
 
     func showHistoryVC() {

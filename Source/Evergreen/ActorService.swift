@@ -53,62 +53,8 @@ class ActorService {
         }
     }
 
-    static func fetchCheckoutHistory(authtoken: String) -> Promise<[OSRFObject]> {
+    static func fetchCheckoutHistory(authtoken: String) async throws -> [OSRFObject] {
         let req = Gateway.makeRequest(service: API.actor, method: API.checkoutHistory, args: [authtoken], shouldCache: true)
-        return req.gatewayMaybeEmptyArrayResponse()
-    }
-
-    /// returns "1" or an error
-    static func updatePatronSettings(authtoken: String, userID: Int, settings: JSONDictionary) -> Promise<String> {
-        let req = Gateway.makeRequest(service: API.actor, method: API.patronSettingsUpdate, args: [authtoken, userID, settings], shouldCache: false)
-        return req.gatewayStringResponse()
-    }
-
-    static func enableCheckoutHistory(account: Account) -> Promise<Void> {
-        guard let authtoken = account.authtoken,
-            let userID = account.userID else {
-            return Promise<Void>()
-        }
-        let dateString = OSRFObject.apiDayOnlyFormatter.string(from: Date())
-        let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
-        let promise = updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings).then { (str: String) -> Promise<Void> in
-            // `str` doesn't matter, it either worked or it errored.
-            account.setCircHistoryStart(dateString)
-            return Promise<Void>()
-        }
-        return promise
-    }
-
-    static func disableCheckoutHistory(account: Account) -> Promise<Void> {
-        guard let authtoken = account.authtoken,
-            let userID = account.userID else {
-            return Promise<Void>()
-        }
-        let dateString: String? = nil
-        let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
-        let promise = updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings).then { (str: String) -> Promise<Void> in
-            // `str` doesn't matter, it either worked or it errored.
-            account.setCircHistoryStart(dateString)
-            return Promise<Void>()
-        }
-        return promise
-    }
-
-    static func updatePushNotificationToken(account: Account, token: String) -> Promise<Void> {
-        guard let authtoken = account.authtoken,
-            let userID = account.userID else {
-            return Promise<Void>()
-        }
-        let settings: JSONDictionary = [
-            API.userSettingHemlockPushNotificationData: token,
-            API.userSettingHemlockPushNotificationEnabled: true
-        ]
-        let promise = updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings).then { (str: String) -> Promise<Void> in
-            // `str` doesn't matter, it either worked or it errored.
-            // TODO: do we have anything to do here?
-            print("[fcm] token updated str=\(str)")
-            return Promise<Void>()
-        }
-        return promise
+        return try await req.gatewayResponseAsync().asMaybeEmptyArray()
     }
 }
