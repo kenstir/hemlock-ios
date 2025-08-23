@@ -62,7 +62,6 @@ struct TestServiceData {
 class AlamoTests: XCTestCase {
     let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
 
-
     static var serviceData = TestServiceData()
 
     override class func setUp() {
@@ -168,6 +167,17 @@ class AlamoTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
 
+    func randomString(ofLength length: Int) -> String {
+        let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var str = ""
+        for _ in 0..<length {
+            if let char = characters.randomElement() {
+                str.append(char)
+            }
+        }
+        return str
+    }
+
     func wasCached(_ metrics: URLSessionTaskMetrics?) -> Bool {
         // Get the last transaction metric (the "final" one)
         if let finalMetric = metrics?.transactionMetrics.last {
@@ -179,96 +189,47 @@ class AlamoTests: XCTestCase {
         return false
     }
 
-    func test_requestWithCache() {
-        for _ in 1...2 {
-            let expectation = XCTestExpectation(description: "async response")
-            let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5")
-            let request = Gateway.makeRequest(url: url, shouldCache: true)
-            print("request:  \(request.description)")
-            request.responseData { response in
-                print("response: \(response.description)")
-                switch response.result {
-                case .success(let data):
-                    XCTAssertNotNil(data)
-                case .failure(let error):
-                    XCTFail(error.localizedDescription)
-                }
-                print("[af5] wasCached: \(self.wasCached(response.metrics))")
-                expectation.fulfill()
+    /// makes a request, and returns true if the response was cached
+    func doRequest(url: String, shouldCache: Bool) -> Bool {
+        let expectation = XCTestExpectation(description: "async response")
+        let request = Gateway.makeRequest(url: url, shouldCache: shouldCache)
+        var wasCached = false
+        request.responseData { response in
+            switch response.result {
+            case .success(_):
+                break
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
-
-            wait(for: [expectation], timeout: 20.0)
+            wasCached = self.wasCached(response.metrics)
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 20.0)
+        return wasCached
     }
 
-    func test_requestWithoutCache() {
-        for _ in 1...2 {
-            let expectation = XCTestExpectation(description: "async response")
-            let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5")
-            let request = Gateway.makeRequest(url: url, shouldCache: false)
-            print("request:  \(request.description)")
-            request.responseData { response in
-                print("response: \(response.description)")
-                switch response.result {
-                case .success(let data):
-                    XCTAssertNotNil(data)
-                case .failure(let error):
-                    XCTFail(error.localizedDescription)
-                }
-                print("[af5] wasCached: \(self.wasCached(response.metrics))")
-                expectation.fulfill()
-            }
+    func test_get_shouldCache() {
+        // httpbin /cache/5 means cache for 5 seconds (Cache-Control: public, max-age=5)
+        // Add a random arg to avoid any previous caching
+        let randomArg = randomString(ofLength: 4)
+        let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)&shouldCache=true")
 
-            wait(for: [expectation], timeout: 20.0)
-        }
+        let firstWasCached = doRequest(url: url, shouldCache: true)
+        XCTAssertFalse(firstWasCached)
+
+        let secondWasCached = doRequest(url: url, shouldCache: true)
+        XCTAssertTrue(secondWasCached)
     }
 
-    // FAILED ATTEMPT TO VALIDATE CACHING
-    //
-    // So for now I validated caching by watching the request log on a local server.
-    //
-//    func randomString(length: Int) -> String {
-//        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-//        return String((0..<length).map{ _ in letters.randomElement()! })
-//    }
-//
-//    // Send 2 requests with anything?rand=x, and expect both responses to echo the same 'rand' arg,
-//    // and to have the same X-Amzn-Trace-Id, meaning that only one actual request made it to the server
-//    // and the other was cached.
-//    func test_requestWithCache() {
-//        let randomArg = randomString(length: 8)
-//        var expectedTraceID: String? = nil
-//        for i in 1...2 {
-//            let expectation = XCTestExpectation(description: "async response")
-//            let url = "https://httpbin.org/anything?rand=\(randomArg)"
-//            let request = Gateway.makeRequest(url: url, shouldCache: true)
-//            request.responseData { response in
-//                print("response: \(response.description)")
-//                switch response.result {
-//                case .success(let data):
-//                    if let dict = JSONUtils.parseObject(fromData: data),
-//                       let args = JSONUtils.getObj(dict, key: "args"),
-//                       let responseRandArg = JSONUtils.getString(args, key: "rand"),
-//                       let headers = JSONUtils.getObj(dict, key: "headers"),
-//                       let responseTraceID = JSONUtils.getString(headers, key: "X-Amzn-Trace-Id")
-//                    {
-//                        XCTAssertEqual(randomArg, responseRandArg)
-//                        print("traceID: \(responseTraceID)")
-//                        if expectedTraceID == nil {
-//                            expectedTraceID = responseTraceID
-//                        } else {
-//                            XCTAssertEqual(expectedTraceID, responseTraceID)
-//                        }
-//                    } else {
-//                        XCTFail()
-//                    }
-//                case .failure(let error):
-//                    XCTFail(error.localizedDescription)
-//                }
-//                expectation.fulfill()
-//            }
-//
-//            wait(for: [expectation], timeout: 20.0)
-//        }
-//    }
+    func test_get_shouldNotCache() {
+        let randomArg = randomString(ofLength: 4)
+        let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)")
+        let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)&shouldCache=false")
+
+        let firstWasCached = doRequest(url: url, shouldCache: false)
+        XCTAssertFalse(firstWasCached)
+
+        let secondWasCached = doRequest(url: url, shouldCache: false)
+        XCTAssertFalse(secondWasCached)
+    }
 }
