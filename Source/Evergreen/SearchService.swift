@@ -36,14 +36,6 @@ class SearchService {
         return promise
     }
 
-    static func fetchRecordMODS(forRecord record: MBRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
-        let promise = req.gatewayObjectResponse().done { obj in
-            record.setMvrObj(obj)
-        }
-        return promise
-    }
-
     static func fetchHoldParts(recordID: Int) async throws -> [OSRFObject] {
         let param: JSONDictionary = [
             "record": recordID
