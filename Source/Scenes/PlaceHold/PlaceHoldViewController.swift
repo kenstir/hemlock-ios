@@ -238,12 +238,13 @@ class PlaceHoldViewController: UIViewController {
         activityIndicator.startAnimating()
 
         do {
-            try await App.serviceConfig.loaderService.loadPlaceHoldPrerequisites()
-            try await fetchPartsData(account: account)
+            async let prereq: Void = App.serviceConfig.loaderService.loadPlaceHoldPrerequisites()
+            async let parts: Void = fetchPartsData(account: account)
+            _ = try await (prereq, parts)
             self.didCompleteFetch = true
             self.onDataLoaded()
         } catch {
-            self.presentGatewayAlert(forError: error, title: "Error fetching prerequisites")
+            self.presentGatewayAlert(forError: error)
         }
 
         activityIndicator.stopAnimating()
@@ -491,20 +492,20 @@ class PlaceHoldViewController: UIViewController {
         }
 
         if let hold = holdRecord {
-            doUpdateHold(authtoken: authtoken, holdRecord: hold, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
+            Task { await doUpdateHold(authtoken: authtoken, holdRecord: hold, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID) }
         } else {
-            doPlaceHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID)
+            Task { await doPlaceHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID) }
         }
     }
 
-    func doPlaceHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
+    @MainActor
+    func doPlaceHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
         centerSubview(activityIndicator)
-        self.activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
 
         let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
-
-        let promise = CircService.placeHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, useOverride: App.config.enableHoldUseOverride)
-        promise.done { obj in
+        do {
+            let obj = try await CircService.placeHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, useOverride: App.config.enableHoldUseOverride)
             if let _ = obj.getInt("result") {
                 // case 1: result is an Int - hold successful
                 self.logPlaceHold(params: eventParams)
@@ -525,22 +526,22 @@ class PlaceHoldViewController: UIViewController {
             } else {
                 throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
             }
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
+        } catch {
             self.logPlaceHold(withError: error, params: eventParams)
             self.presentGatewayAlert(forError: error)
         }
+
+        activityIndicator.stopAnimating()
     }
 
-    func doUpdateHold(authtoken: String, holdRecord: HoldRecord, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) {
+    @MainActor
+    func doUpdateHold(authtoken: String, holdRecord: HoldRecord, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
         centerSubview(activityIndicator)
-        self.activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
 
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
-
-        let promise = CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendSwitch.isOn, thawDate: thawDate)
-        promise.done { resp in
+        do {
+            let resp = try await CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendSwitch.isOn, thawDate: thawDate)
             if let _ = resp.str {
                 // case 1: result is String - update successful
                 self.logUpdateHold(params: eventParams)
@@ -553,12 +554,12 @@ class PlaceHoldViewController: UIViewController {
             } else {
                 throw HemlockError.serverError("expected string, received \(resp.description)")
             }
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
+        } catch {
             self.logUpdateHold(withError: error, params: eventParams)
             self.presentGatewayAlert(forError: error)
         }
+
+        activityIndicator.stopAnimating()
     }
 
     private func placeHoldEventParams(selectedOrg: Organization) -> [String: Any] {

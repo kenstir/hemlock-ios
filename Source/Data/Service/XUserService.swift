@@ -17,9 +17,11 @@
 import Foundation
 
 protocol XUserService {
+    //MARK: - Session Management
     func loadSession(account: Account) async throws -> Void
     func deleteSession(account: Account) async throws -> Void
 
+    //MARK: - Patron Lists
     func loadPatronLists(account: Account) async throws -> Void
     func loadPatronListItems(account: Account, patronList: BookBag) async throws -> Void
     func createPatronList(account: Account, name: String, description: String) async throws -> Void
@@ -27,10 +29,18 @@ protocol XUserService {
     func addItemToPatronList(account: Account, listId: Int, recordId: Int) async throws -> Void
     func removeItemFromPatronList(account: Account, listId: Int, itemId: Int) async throws -> Void
 
+    //MARK: - User Settings
+    func updatePushNotificationToken(account: Account, token: String?) async throws -> Void
+    func enableCheckoutHistory(account: Account) async throws -> Void
+    func disableCheckoutHistory(account: Account) async throws -> Void
+    func clearCheckoutHistory(account: Account) async throws -> Void
+
+    //MARK: - Messages
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage]
     func markMessageRead(account: Account, messageID: Int) async throws -> Void
     func markMessageUnread(account: Account, messageID: Int) async throws -> Void
     func markMessageDeleted(account: Account, messageID: Int) async throws -> Void
 
+    //MARK: - Charges (Fines)
     func fetchPatronCharges(account: Account) async throws -> PatronCharges
 }

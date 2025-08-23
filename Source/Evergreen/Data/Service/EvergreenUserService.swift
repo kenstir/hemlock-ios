@@ -19,6 +19,7 @@ import Alamofire
 import os.log
 
 class EvergreenUserService: XUserService {
+    //MARK: - Session Management
 
     func loadSession(account: Account) async throws {
         // authGetSession must be called first, before any other API calls taking an authtoken.
@@ -46,6 +47,8 @@ class EvergreenUserService: XUserService {
         print("\(Utils.tt) about to account.clear")
         account.clear()
     }
+
+    //MARK: - Patron Lists (Book Bags)
 
     func loadPatronLists(account: Account) async throws {
         print("\(Utils.tt) loadPatronLists")
@@ -128,6 +131,25 @@ class EvergreenUserService: XUserService {
         os_log("[bookbag] removeItem %d result %@", itemId, str)
     }
 
+    //MARK: - User Settings
+    func updatePushNotificationToken(account: Account, token: String?) async throws {
+        throw HemlockError.notImplemented
+    }
+
+    func enableCheckoutHistory(account: Account) async throws {
+        throw HemlockError.notImplemented
+    }
+
+    func disableCheckoutHistory(account: Account) async throws {
+        throw HemlockError.notImplemented
+    }
+
+    func clearCheckoutHistory(account: Account) async throws {
+        throw HemlockError.notImplemented
+    }
+
+    //MARK: - Messages
+
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage] {
         let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [account.authtoken, account.userID], shouldCache: false)
         let objects = try await req.gatewayResponseAsync().asArray()
@@ -155,6 +177,8 @@ class EvergreenUserService: XUserService {
     func markMessageDeleted(account: Account, messageID: Int) async throws {
         return try await markMessageAction(account: account, messageID: messageID, action: "mark_deleted")
     }
+
+    //MARK: - Charges (Fines)
 
     func fetchPatronCharges(account: Account) async throws -> PatronCharges{
         print("\(Utils.tt) loadPatronCharges")

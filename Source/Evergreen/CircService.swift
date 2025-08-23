@@ -18,11 +18,9 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
-import PromiseKit
-import PMKAlamofire
 
 class CircService {
-    static func placeHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, useOverride: Bool) -> Promise<OSRFObject> {
+    static func placeHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, useOverride: Bool) async throws -> OSRFObject {
         var complexParam: JSONDictionary = [
             "email_notify": notifyByEmail,
             "hold_type": holdType,
@@ -46,10 +44,10 @@ class CircService {
         }
         let method = useOverride ? API.holdTestAndCreateOverride : API.holdTestAndCreate
         let req = Gateway.makeRequest(service: API.circ, method: method, args: [authtoken, complexParam, [targetID]], shouldCache: false)
-        return req.gatewayObjectResponse()
+        return try await req.gatewayResponseAsync().asObject()
     }
 
-    static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) -> Promise<(GatewayResponse)> {
+    static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) async throws -> GatewayResponse {
         var complexParam: JSONDictionary = [
             "id": holdRecord.id,
             "email_notify": notifyByEmail,
@@ -72,6 +70,6 @@ class CircService {
             complexParam["thaw_date"] = OSRFObject.apiDateFormatter.string(from: date)
         }
         let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [authtoken, nil, complexParam], shouldCache: false)
-        return req.gatewayResponse()
+        return try await req.gatewayResponseAsync()
     }
 }
