@@ -108,7 +108,6 @@
 		D210EBD522B1EE55002FB5E0 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D210EBD622B1EE55002FB5E0 /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
 		D210EBD722B1EE55002FB5E0 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
-		D210EBD822B1EE55002FB5E0 /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D210EBD922B1EE55002FB5E0 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D210EBDA22B1EE55002FB5E0 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D210EBDB22B1EE55002FB5E0 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -323,7 +322,6 @@
 		D23E9F7923B9200A0030F5C1 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
 		D23E9F7A23B9200A0030F5C1 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
 		D23E9F7B23B9200A0030F5C1 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
-		D23E9F7C23B9200A0030F5C1 /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D23E9F7D23B9200A0030F5C1 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D23E9F7E23B9200A0030F5C1 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D23E9F7F23B9200A0030F5C1 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -443,7 +441,6 @@
 		D2477BC624785A6B00FD4CF6 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
 		D2477BC724785A6B00FD4CF6 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
 		D2477BC824785A6B00FD4CF6 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
-		D2477BC924785A6B00FD4CF6 /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2477BCA24785A6B00FD4CF6 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D2477BCB24785A6B00FD4CF6 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D2477BCC24785A6B00FD4CF6 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -593,7 +590,6 @@
 		D2572AB624AD7755000BA698 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
 		D2572AB724AD7755000BA698 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
 		D2572AB824AD7755000BA698 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
-		D2572AB924AD7755000BA698 /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2572ABA24AD7755000BA698 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D2572ABB24AD7755000BA698 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D2572ABC24AD7755000BA698 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -697,7 +693,6 @@
 		D25EEC5A28A1E8310090F108 /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
 		D25EEC5B28A1E8310090F108 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
 		D25EEC5C28A1E8310090F108 /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
-		D25EEC5D28A1E8310090F108 /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D25EEC5E28A1E8310090F108 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D25EEC5F28A1E8310090F108 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D25EEC6028A1E8310090F108 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -811,7 +806,6 @@
 		D276DA9021336B20007FAA31 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
 		D276DA9121336B20007FAA31 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D276DA9221336B20007FAA31 /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
-		D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D276DA9421336B20007FAA31 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -1017,7 +1011,6 @@
 		D284245521D0358200C7171C /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* Organization.swift */; };
 		D284245621D0358200C7171C /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990520AA5C620006DFF9 /* MainTableViewCell.swift */; };
 		D284245821D0358200C7171C /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
-		D284245921D0358200C7171C /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D284245A21D0358200C7171C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D284245B21D0358200C7171C /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D284245C21D0358200C7171C /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -1570,7 +1563,6 @@
 		D2BDA61A22D176BD00D9B60C /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
 		D2BDA61B22D176BD00D9B60C /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
 		D2BDA61C22D176BD00D9B60C /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
-		D2BDA61D22D176BD00D9B60C /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2BDA61E22D176BD00D9B60C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D2BDA61F22D176BD00D9B60C /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D2BDA62122D176BD00D9B60C /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -1656,7 +1648,6 @@
 		D2BDA6B222D2A72000D9B60C /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A81795224699C700340074 /* Bundle+.swift */; };
 		D2BDA6B322D2A72000D9B60C /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FEF22CE7BF500F69848 /* Link.swift */; };
 		D2BDA6B422D2A72000D9B60C /* MARCRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FE722CC359000F69848 /* MARCRecord.swift */; };
-		D2BDA6B522D2A72000D9B60C /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2BDA6B622D2A72000D9B60C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D2BDA6B722D2A72000D9B60C /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A74B1321289D63001D4B0F /* AppConfiguration.swift */; };
 		D2BDA6B822D2A72000D9B60C /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
@@ -1727,8 +1718,6 @@
 		D2BDA71E22D2A87E00D9B60C /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDA71A22D2A87D00D9B60C /* AppFactory.swift */; };
 		D2BDA71F22D2A87E00D9B60C /* NTLCAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDA71B22D2A87D00D9B60C /* NTLCAppBehavior.swift */; };
 		D2BDA72022D2A87E00D9B60C /* NTLCAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */; };
-		D2C24A30210171290028180B /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
-		D2C24A312101712E0028180B /* PCRUDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A2F210171290028180B /* PCRUDService.swift */; };
 		D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C24A32210178DD0028180B /* SMSCarrier.swift */; };
 		D2C3001E2E3C02220082C308 /* GatewayResponse+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */; };
@@ -2467,7 +2456,6 @@
 		D2BDA71A22D2A87D00D9B60C /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D2BDA71B22D2A87D00D9B60C /* NTLCAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLCAppBehavior.swift; sourceTree = "<group>"; };
 		D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLCAppConfiguration.swift; sourceTree = "<group>"; };
-		D2C24A2F210171290028180B /* PCRUDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCRUDService.swift; sourceTree = "<group>"; };
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
 		D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatewayResponse+.swift"; sourceTree = "<group>"; };
 		D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenLoaderService.swift; sourceTree = "<group>"; };
@@ -2954,7 +2942,6 @@
 				D29C72132092691A00E90952 /* OSRFClass.swift */,
 				D29C720F209248F500E90952 /* OSRFCoder.swift */,
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
-				D2C24A2F210171290028180B /* PCRUDService.swift */,
 				D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */,
 				D267E4E3210CDE4700C56047 /* SearchService.swift */,
 				D2C24A32210178DD0028180B /* SMSCarrier.swift */,
@@ -4387,7 +4374,6 @@
 				D20B2FF422CE7BF500F69848 /* Link.swift in Sources */,
 				D283B0C12E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D20B2FEC22CC359000F69848 /* MARCRecord.swift in Sources */,
-				D210EBD822B1EE55002FB5E0 /* PCRUDService.swift in Sources */,
 				D210EBD922B1EE55002FB5E0 /* String+.swift in Sources */,
 				D210EBDA22B1EE55002FB5E0 /* AppConfiguration.swift in Sources */,
 				D210EC4422B1F23D002FB5E0 /* AppFactory.swift in Sources */,
@@ -4527,7 +4513,6 @@
 				D23E9F7A23B9200A0030F5C1 /* Link.swift in Sources */,
 				D23E9F7B23B9200A0030F5C1 /* MARCRecord.swift in Sources */,
 				D283B0C02E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
-				D23E9F7C23B9200A0030F5C1 /* PCRUDService.swift in Sources */,
 				D23E9F7D23B9200A0030F5C1 /* String+.swift in Sources */,
 				D23E9F7E23B9200A0030F5C1 /* AppConfiguration.swift in Sources */,
 				D23E9F7F23B9200A0030F5C1 /* FinesViewController.swift in Sources */,
@@ -4658,7 +4643,6 @@
 				D2477BC724785A6B00FD4CF6 /* Link.swift in Sources */,
 				D283B0B02E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D2477BC824785A6B00FD4CF6 /* MARCRecord.swift in Sources */,
-				D2477BC924785A6B00FD4CF6 /* PCRUDService.swift in Sources */,
 				D283B0C52E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D2477BCA24785A6B00FD4CF6 /* String+.swift in Sources */,
 				D2477BCB24785A6B00FD4CF6 /* AppConfiguration.swift in Sources */,
@@ -4793,7 +4777,6 @@
 				D2572AB724AD7755000BA698 /* Link.swift in Sources */,
 				D2572AB824AD7755000BA698 /* MARCRecord.swift in Sources */,
 				D283B0C32E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
-				D2572AB924AD7755000BA698 /* PCRUDService.swift in Sources */,
 				D2572ABA24AD7755000BA698 /* String+.swift in Sources */,
 				D2572ABB24AD7755000BA698 /* AppConfiguration.swift in Sources */,
 				D2572ABC24AD7755000BA698 /* FinesViewController.swift in Sources */,
@@ -4927,7 +4910,6 @@
 				D25EEC5B28A1E8310090F108 /* Link.swift in Sources */,
 				D283B0BF2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D25EEC5C28A1E8310090F108 /* MARCRecord.swift in Sources */,
-				D25EEC5D28A1E8310090F108 /* PCRUDService.swift in Sources */,
 				D25EEC5E28A1E8310090F108 /* String+.swift in Sources */,
 				D25EEC5F28A1E8310090F108 /* AppConfiguration.swift in Sources */,
 				D233987E2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
@@ -5056,7 +5038,6 @@
 				D20B2FEA22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D2BB66B3297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2C300652E3E660A0082C308 /* EvergreenUserService.swift in Sources */,
-				D276DA9321336B20007FAA31 /* PCRUDService.swift in Sources */,
 				D2A81798224699C700340074 /* Bundle+.swift in Sources */,
 				D28F5E6F29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */,
@@ -5191,7 +5172,6 @@
 				D2A81796224699C700340074 /* Bundle+.swift in Sources */,
 				D28F5E7029CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2CAFBC3246B7C3900A56945 /* CredentialManager.swift in Sources */,
-				D2C24A30210171290028180B /* PCRUDService.swift in Sources */,
 				D226B60A20ED519E00CA5B79 /* String+.swift in Sources */,
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
 				D2C300562E3E65AB0082C308 /* XUserService.swift in Sources */,
@@ -5324,7 +5304,6 @@
 				D2A81799224699C700340074 /* Bundle+.swift in Sources */,
 				D28F5E6E29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
 				D2CAFBC1246B7C3900A56945 /* CredentialManager.swift in Sources */,
-				D284245921D0358200C7171C /* PCRUDService.swift in Sources */,
 				D284245A21D0358200C7171C /* String+.swift in Sources */,
 				D2C3005B2E3E65AB0082C308 /* XUserService.swift in Sources */,
 				D284245B21D0358200C7171C /* AppConfiguration.swift in Sources */,
@@ -5457,7 +5436,6 @@
 				D283B0BC2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */,
 				D2A81797224699C700340074 /* Bundle+.swift in Sources */,
-				D2C24A312101712E0028180B /* PCRUDService.swift in Sources */,
 				D226B60B20ED519E00CA5B79 /* String+.swift in Sources */,
 				D23398832E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D23398622E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
@@ -5621,7 +5599,6 @@
 				D2BDA61B22D176BD00D9B60C /* Link.swift in Sources */,
 				D283B0C42E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D2BDA61C22D176BD00D9B60C /* MARCRecord.swift in Sources */,
-				D2BDA61D22D176BD00D9B60C /* PCRUDService.swift in Sources */,
 				D2BDA61E22D176BD00D9B60C /* String+.swift in Sources */,
 				D2BDA61F22D176BD00D9B60C /* AppConfiguration.swift in Sources */,
 				D2BDA62122D176BD00D9B60C /* FinesViewController.swift in Sources */,
@@ -5759,7 +5736,6 @@
 				D2BDA6B322D2A72000D9B60C /* Link.swift in Sources */,
 				D283B0B22E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D2BDA6B422D2A72000D9B60C /* MARCRecord.swift in Sources */,
-				D2BDA6B522D2A72000D9B60C /* PCRUDService.swift in Sources */,
 				D283B0BB2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D2BDA6B622D2A72000D9B60C /* String+.swift in Sources */,
 				D2BDA6B722D2A72000D9B60C /* AppConfiguration.swift in Sources */,

@@ -25,15 +25,14 @@ class SearchService {
         return try await req.gatewayResponseAsync().asArray()
     }
 
-    static func fetchCopyLocationCounts(recordID: Int, org: Organization?) -> Promise<(GatewayResponse)> {
+    static func fetchCopyLocationCounts(recordID: Int, org: Organization?) async throws -> GatewayResponse {
         var args: [Any] = [recordID]
         if let searchOrg = org {
             args.append(searchOrg.id)
             args.append(searchOrg.level)
         }
         let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: args, shouldCache: false)
-        let promise = req.gatewayResponse()
-        return promise
+        return try await req.gatewayResponseAsync()
     }
 
     static func fetchHoldParts(recordID: Int) async throws -> [OSRFObject] {
