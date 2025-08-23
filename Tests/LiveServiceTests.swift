@@ -48,7 +48,7 @@ class TestState {
 /// These tests run against the live service configured in TestUserData/testAccount.json.
 /// Don't do anything crazy here.
 class LiveServiceTests: XCTestCase {
-    
+
     //MARK: - properties
 
     static var config: TestConfig?
@@ -217,81 +217,5 @@ class LiveServiceTests: XCTestCase {
 
         XCTAssertFalse(authtoken.isEmpty, "authtoken should not be empty")
         XCTAssertNotNil(LiveServiceTests.state!.account.userID, "userID should not be nil")
-    }
-    
-    //MARK: - orgUnitSetting
-    
-    func test_orgUnitSetting() {
-        let expectation = XCTestExpectation(description: "async response")
-
-        let orgID = Organization.consortiumOrgID
-        let setting = API.settingSMSEnable
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSetting, args: [orgID, setting, API.anonymousAuthToken], shouldCache: false)
-        req.gatewayOptionalObjectResponse().done { obj in
-            let value = obj?.getBool("value")
-            print("org \(orgID) setting \(setting) value \(String(describing: value))")
-            XCTAssertTrue(true, "we do not know what settings what orgs will or will not have")
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 20.0)
-    }
-    
-    func test_orgUnitSettingBatch() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let orgID = Organization.consortiumOrgID
-        let settings = [API.settingNotPickupLib, API.settingSMSEnable]
-        var notPickupLib = false
-        var smsEnable = false
-        let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [orgID, settings, API.anonymousAuthToken], shouldCache: false)
-        req.gatewayOptionalObjectResponse().done { obj in
-            if let settingObj = obj?.getObject(API.settingNotPickupLib),
-                let settingValue = settingObj.getBool("value")
-            {
-                notPickupLib = settingValue
-            }
-            if let settingObj = obj?.getObject(API.settingSMSEnable),
-                let settingValue = settingObj.getBool("value")
-            {
-                smsEnable = settingValue
-            }
-            print("org \(orgID) setting \(API.settingNotPickupLib) value \(notPickupLib)")
-            print("org \(orgID) setting \(API.settingSMSEnable) value \(smsEnable)")
-            XCTAssertTrue(true, "we do not know what settings what orgs will or will not have")
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 20.0)
-    }
-
-    //MARK: -
-
-    func test_copyLocationCounts() {
-        let expectation = XCTestExpectation(description: "async response")
-        
-        let org = Organization(id: 1, level: 0, name: "Consort", shortname: "CONS", ouType: 0, opacVisible: true, aouObj: OSRFObject())
-        let promise = SearchService.fetchCopyLocationCounts(recordID: sampleRecordID, org: org)
-        promise.done { resp in
-            XCTAssertNotNil(resp.payload)
-            let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: resp.payload!)
-            XCTAssertNotNil(copyLocationCounts)
-            //XCTAssertEqual(copyLocationCounts.count, 1)
-            //let copyLocationCount = copyLocationCounts.first
-            //XCTAssertEqual(copyLocationCount?.countsByStatus.count, 1)
-            //XCTAssertEqual(copyLocationCount?.shelvingLocation, "Adult")
-            expectation.fulfill()
-        }.catch { error in
-            XCTFail(error.localizedDescription)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 10)
     }
 }

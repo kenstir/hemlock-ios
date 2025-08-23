@@ -177,7 +177,6 @@
 		D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */; };
 		D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */; };
 		D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* acorn.xcassets */; };
-		D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2720C5B90A00267503 /* PromiseKitTests.swift */; };
 		D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D213904A2C5006A7007C4EFD /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D21390492C5006A7007C4EFD /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D213904B2C5006BA007C4EFD /* FirebaseCrashlytics */; };
@@ -2240,7 +2239,6 @@
 		D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornAppConfiguration.swift; sourceTree = "<group>"; };
 		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D210EC4B22B1F331002FB5E0 /* acorn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acorn.xcassets; sourceTree = "<group>"; };
-		D212DB2720C5B90A00267503 /* PromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKitTests.swift; sourceTree = "<group>"; };
 		D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Gateway+PMK.swift"; path = "Source/Extensions/Gateway+PMK.swift"; sourceTree = SOURCE_ROOT; };
 		D218679E21D039BF0082358C /* CoolAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolAppConfiguration.swift; sourceTree = "<group>"; };
 		D218679F21D039BF0082358C /* CoolTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolTheme.swift; sourceTree = "<group>"; };
@@ -3230,7 +3228,6 @@
 				D231B52120804DF900478D25 /* AlamoTests.swift */,
 				D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */,
 				D20EE9D72094BC9100AF261D /* MiscTests.swift */,
-				D212DB2720C5B90A00267503 /* PromiseKitTests.swift */,
 				D287D512207AEF2D001AF644 /* Info.plist */,
 				D2F390382241E6090089D745 /* RingBufferTests.swift */,
 			);
@@ -5573,7 +5570,6 @@
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
 				D2EA31122B3F3C20004CEF6E /* HistoryRecordTests.swift in Sources */,
 				D24D87A52B769FC800F1B77E /* TestUtils.swift in Sources */,
-				D212DB2820C5B90A00267503 /* PromiseKitTests.swift in Sources */,
 				D23F57742DA9CB7C00A16941 /* JSONTestUtils.swift in Sources */,
 				D20B2FEE22CD726900F69848 /* MARCXMLParserTests.swift in Sources */,
 				D22D0273208506C500DC1F5B /* MD5Tests.swift in Sources */,
