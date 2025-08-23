@@ -14,7 +14,6 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import PromiseKit
 import os.log
 
 /// AsyncRecord adds asynchronous loading to MBRecord for prefetching.
@@ -22,16 +21,7 @@ class AsyncRecord: MBRecord {
 
     //MARK: - Properties
 
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "AsyncRecord")
     let row: Int
-    private let lock = NSLock()
-    var promises: [Promise<Void>] = []
-    enum LoadState {
-        case initial
-        case started
-        case loaded
-    }
-    private var state = LoadState.initial
 
     //MARK: - Lifecycle
 
@@ -43,45 +33,21 @@ class AsyncRecord: MBRecord {
 
     //MARK: - Functions
 
-    /// free-threaded
-    // TODO: may not be necessary with MainActor UITableView
-    func getState() -> LoadState {
-        lock.lock()
-        defer { lock.unlock() }
-
-        return state
+    func isLoaded() -> Bool {
+        return hasMODS && hasAttrs
     }
 
-    /// free-threaded
-    // TODO: lock may not be necessary with MainActor UITableView
-    func startPrefetch() -> [Promise<Void>] {
-        os_log("[%s] row=%02d prefetch state=%s", log: AsyncRecord.log, type: .info, Thread.current.tag(), row, String(describing: state))
-        lock.lock()
-        defer { lock.unlock() }
+    /// `prefetch` does asynchronous prefetching of details and attributes.
+    ///  It does not throw because we use it for preloading table rows.
+    func prefetch() async -> Void {
+        print("\(Utils.tt) row=\(String(format: "%2d", row)) prefetch hasMODS=\(self.hasMODS) hasAttrs=\(self.hasAttrs)")
 
-        switch state {
-        case .initial:
-            promises.append(SearchService.fetchRecordMODS(forRecord: self))
-            promises.append(PCRUDService.fetchMRA(forRecord: self))
-            state = .started
-            return promises
-        case .started:
-            return promises
-        case .loaded:
-            return promises
-        }
+        async let details: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: self, needMARC: false)
+        async let attrs: Void = App.serviceConfig.biblioService.loadRecordAttributes(forRecord: self)
+        let _ = try? await (details, attrs)
     }
 
-    /// free-threaded
-    // TODO: lock may not be necessary with MainActor UITableView
-    func markPrefetchDone() {
-        os_log("[%s] row=%02d done", log: AsyncRecord.log, type: .info, Thread.current.tag(), row)
-        lock.lock()
-        defer { lock.unlock() }
-
-        promises = []
-        state = .loaded
-    }
+    //MARK: - Static Functions
 
     static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [AsyncRecord] {
         let recordIds = MBRecord.getIdsList(fromQueryObj: theobj)

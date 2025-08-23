@@ -40,14 +40,14 @@ class EvergreenBiblioService: XBiblioService {
         }
     }
 
-    func loadRecordAttributes(record: MBRecord) async throws {
+    func loadRecordAttributes(forRecord record: MBRecord) async throws {
         if !record.hasAttrs {
             let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
             record.update(fromMraObj: mraObj)
         }
     }
 
-    func loadRecordCopyCounts(record: MBRecord, orgId: Int) async throws {
+    func loadRecordCopyCounts(forRecord record: MBRecord, orgId: Int) async throws {
         let array = try await SearchService.fetchCopyCount(recordID: record.id, orgID: orgId)
         let copyCounts = CopyCount.makeArray(fromArray: array)
         record.setCopyCounts(copyCounts)

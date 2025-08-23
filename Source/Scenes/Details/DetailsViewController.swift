@@ -216,9 +216,10 @@ class DetailsViewController: UIViewController {
             print("record.mvrObj:     \(have(record.mvrObj))")
             print("record.attrs:      \(have(record.attrs))")
             print("record.marcRecord: \(have(record.marcRecord))")
-            async let detailsTask: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
-            async let ccountsTask: Void = App.serviceConfig.biblioService.loadRecordCopyCounts(record: record, orgId: orgID)
-            let _ = try await (detailsTask, ccountsTask)
+            async let details: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
+            async let attrs: Void = App.serviceConfig.biblioService.loadRecordAttributes(forRecord: record)
+            async let ccounts: Void = App.serviceConfig.biblioService.loadRecordCopyCounts(forRecord: record, orgId: orgID)
+            let _ = try await (details, attrs, ccounts)
         } catch {
             presentGatewayAlert(forError: error)
         }

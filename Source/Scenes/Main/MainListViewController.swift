@@ -91,17 +91,11 @@ class MainListViewController: MainBaseViewController {
             })
         }
         // This was part of a failed experiment to integrate SwiftUI
-//        if #available(iOS 14.0, *) {
-//            buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
-//                guard let account = App.account else { return }
-//                ActorService.fetchBookBags(account: account).done {
-//                    let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                }.catch { error in
-//                    self.presentGatewayAlert(forError: error)
-//                }
-//            }))
-//        }
+//        buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
+//            guard let account = App.account else { return }
+//            let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }))
         // Shortcut to Place Hold
 //        buttons.append(ButtonAction("Place Hold", "holds", {
 //            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
