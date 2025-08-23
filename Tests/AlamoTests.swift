@@ -62,17 +62,18 @@ struct TestServiceData {
 class AlamoTests: XCTestCase {
     let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
 
-    var serviceData: TestServiceData?
 
-    override func setUp() {
+    static var serviceData = TestServiceData()
+
+    override class func setUp() {
         super.setUp()
 
-        serviceData = TestServiceData.make(fromBundle: Bundle(for: type(of: self)))
+        serviceData = TestServiceData.make(fromBundle: Bundle(for: AlamoTests.self))
     }
 
     func test_basicGet() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = AF.request(serviceData!.httpbinServerURL())
+        let request = AF.request(AlamoTests.serviceData.httpbinServerURL())
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
@@ -122,7 +123,7 @@ class AlamoTests: XCTestCase {
 
     // test using gatewayEncoding to encode as param=1&param=2
     func test_gatewayEncoding() {
-        let url = URL(string: serviceData!.httpbinServerURL())!
+        let url = URL(string: AlamoTests.serviceData.httpbinServerURL())!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         let parameters: Parameters = ["param": [1,2]]
@@ -139,7 +140,7 @@ class AlamoTests: XCTestCase {
     func test_gatewayEncodingResponse() {
         let expectation = XCTestExpectation(description: "async response")
         let parameters = ["param": ["\"stringish\"", "{\"objish\":1}"]]
-        let request = AF.request(serviceData!.httpbinServerPostURL(), method: .post, parameters: parameters, encoding: gatewayEncoding)
+        let request = AF.request(AlamoTests.serviceData.httpbinServerPostURL(), method: .post, parameters: parameters, encoding: gatewayEncoding)
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
@@ -167,10 +168,21 @@ class AlamoTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
 
+    func wasCached(_ metrics: URLSessionTaskMetrics?) -> Bool {
+        // Get the last transaction metric (the "final" one)
+        if let finalMetric = metrics?.transactionMetrics.last {
+            if finalMetric.resourceFetchType == .localCache {
+                return true
+            }
+        }
+
+        return false
+    }
+
     func test_requestWithCache() {
-        self.measure {
+        for _ in 1...2 {
             let expectation = XCTestExpectation(description: "async response")
-            let url = serviceData!.httpbinServerURL(path: "/ip")
+            let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5")
             let request = Gateway.makeRequest(url: url, shouldCache: true)
             print("request:  \(request.description)")
             request.responseData { response in
@@ -181,6 +193,7 @@ class AlamoTests: XCTestCase {
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
+                print("[af5] wasCached: \(self.wasCached(response.metrics))")
                 expectation.fulfill()
             }
 
@@ -189,9 +202,9 @@ class AlamoTests: XCTestCase {
     }
 
     func test_requestWithoutCache() {
-        self.measure {
+        for _ in 1...2 {
             let expectation = XCTestExpectation(description: "async response")
-            let url = serviceData!.httpbinServerURL(path: "/headers")
+            let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5")
             let request = Gateway.makeRequest(url: url, shouldCache: false)
             print("request:  \(request.description)")
             request.responseData { response in
@@ -202,6 +215,7 @@ class AlamoTests: XCTestCase {
                 case .failure(let error):
                     XCTFail(error.localizedDescription)
                 }
+                print("[af5] wasCached: \(self.wasCached(response.metrics))")
                 expectation.fulfill()
             }
 
