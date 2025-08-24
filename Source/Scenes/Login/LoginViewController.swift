@@ -203,6 +203,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         Analytics.setUserProperty(value: parentOrg?.shortname, forName: Analytics.UserProperty.parentOrg)
         Analytics.logEvent(event: Analytics.Event.login, parameters: [
             Analytics.Param.result: Analytics.Value.ok,
+            Analytics.Param.loginType: Analytics.loginTypeDimension(username: account.username, barcode: account.barcode),
             Analytics.Param.numAccounts: numCredentials,
             Analytics.Param.multipleAccounts: numCredentials > 1
         ])

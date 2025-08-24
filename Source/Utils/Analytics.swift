@@ -45,6 +45,7 @@ class Analytics {
         static let bookbagDeleteItem = "bookbag_delete_item"
         static let bookbagLoad = "bookbag_load"
         static let bookbagsLoad = "bookbags_load"
+        static let historyLoad = "history_load"
         static let cancelHold = "hold_cancel"
         static let placeHold = "hold_place"
         static let updateHold = "hold_update"
@@ -57,6 +58,7 @@ class Analytics {
         static let holdNotify = "hold_notify"
         static let holdPickupKey = "hold_pickup" // { home | other }
         static let holdSuspend = "hold_suspend"
+        static let loginType = "login_type" // { barcode | username }
         static let result = "result"
         static let searchClass = "search_class"
         static let searchFormat = "search_format"

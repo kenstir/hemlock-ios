@@ -79,6 +79,7 @@ class HistoryViewController: UITableViewController {
         do {
             let objList = try await ActorService.fetchCheckoutHistory(authtoken: authtoken)
             self.items = HistoryRecord.makeArray(objList)
+            Analytics.logEvent(event: Analytics.Event.historyLoad, parameters: [Analytics.Param.numItems: items.count])
             Task {
                 await prefetchCircDetails()
                 self.reloadData()
