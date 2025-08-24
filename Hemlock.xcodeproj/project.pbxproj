@@ -1173,10 +1173,6 @@
 		D2951DE12B8FBFF900193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951DE32B8FBFF900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DE42B8FBFF900193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951DE52B8FBFF900193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DE62B8FBFF900193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951DE72B8FBFF900193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
 		D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DEA2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
@@ -1191,10 +1187,6 @@
 		D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DFB2B8FC1D600193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951DFC2B8FC1D600193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DFD2B8FC1D600193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951DFE2B8FC1D600193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DFF2B8FC1D600193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951E002B8FC1D600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E012B8FC1D600193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1209,10 +1201,6 @@
 		D2951E0D2B8FC23500193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E0E2B8FC23500193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E0F2B8FC23500193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E102B8FC23500193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951E112B8FC23500193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E122B8FC23500193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951E132B8FC23500193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E142B8FC23500193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951E152B8FC23500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E162B8FC23500193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1227,10 +1215,6 @@
 		D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E252B8FC25900193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951E262B8FC25900193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E272B8FC25900193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951E282B8FC25900193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E292B8FC25900193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951E2A2B8FC25900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E2B2B8FC25900193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1245,10 +1229,6 @@
 		D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E3A2B8FC27600193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951E3B2B8FC27600193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E3C2B8FC27600193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951E3D2B8FC27600193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E3E2B8FC27600193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951E3F2B8FC27600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E402B8FC27600193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1263,10 +1243,6 @@
 		D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E4F2B8FC28E00193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951E502B8FC28E00193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E512B8FC28F00193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951E522B8FC28F00193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E532B8FC28F00193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951E542B8FC28F00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E552B8FC28F00193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1281,10 +1257,6 @@
 		D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E642B8FC29E00193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951E652B8FC29E00193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E662B8FC29E00193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951E672B8FC29E00193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E682B8FC29E00193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951E692B8FC29E00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E6A2B8FC29E00193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1299,10 +1271,6 @@
 		D2951E762B8FC2AB00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E772B8FC2AB00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E782B8FC2AB00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E792B8FC2AB00193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951E7A2B8FC2AB00193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E7B2B8FC2AC00193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951E7C2B8FC2AC00193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E7D2B8FC2AC00193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951E7E2B8FC2AC00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E7F2B8FC2AC00193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1317,10 +1285,6 @@
 		D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E8E2B8FC2B700193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951E8F2B8FC2B800193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E902B8FC2B800193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951E912B8FC2B800193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E922B8FC2B800193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951E932B8FC2B800193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E942B8FC2B800193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1335,10 +1299,6 @@
 		D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EA32B8FC2C500193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951EA42B8FC2C500193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EA52B8FC2C500193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951EA62B8FC2C500193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EA72B8FC2C500193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951EA82B8FC2C500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EA92B8FC2C500193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1353,10 +1313,6 @@
 		D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EB82B8FC2D400193695 /* PMKAlamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; };
-		D2951EB92B8FC2D400193695 /* PMKAlamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EBA2B8FC2D400193695 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; };
-		D2951EBB2B8FC2D400193695 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EBC2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; };
 		D2951EBD2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EBE2B8FC2D400193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
@@ -1987,11 +1943,9 @@
 			files = (
 				D2951DDF2B8FBFF900193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951DE72B8FBFF900193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */,
 				D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951DE32B8FBFF900193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951DE52B8FBFF900193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951DE12B8FBFF900193695 /* Valet.xcframework in Embed Frameworks */,
 			);
@@ -2005,12 +1959,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951DFE2B8FC1D600193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E002B8FC1D600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E022B8FC1D600193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951DFC2B8FC1D600193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951DF22B8FC1D600193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2024,12 +1976,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E192B8FC23500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E132B8FC23500193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E0B2B8FC23400193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E0F2B8FC23500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E152B8FC23500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E172B8FC23500193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E112B8FC23500193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951E072B8FC23400193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E0D2B8FC23500193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2043,12 +1993,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E282B8FC25900193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E2A2B8FC25900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E2C2B8FC25900193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E262B8FC25900193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951E1C2B8FC25800193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2062,12 +2010,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E3D2B8FC27600193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E3F2B8FC27600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E412B8FC27600193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E3B2B8FC27600193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951E312B8FC27500193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2081,12 +2027,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E522B8FC28F00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E542B8FC28F00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E562B8FC28F00193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E502B8FC28E00193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951E462B8FC28E00193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2100,12 +2044,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E672B8FC29E00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E692B8FC29E00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E6B2B8FC29E00193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E652B8FC29E00193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951E5B2B8FC29E00193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2119,12 +2061,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E822B8FC2AC00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E7C2B8FC2AC00193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E742B8FC2AB00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E782B8FC2AB00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E7E2B8FC2AC00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E802B8FC2AC00193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E7A2B8FC2AB00193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951E702B8FC2AB00193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E762B8FC2AB00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2138,12 +2078,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E912B8FC2B800193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E932B8FC2B800193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E952B8FC2B800193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E8F2B8FC2B800193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951E852B8FC2B700193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2157,12 +2095,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951EA62B8FC2C500193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951EA82B8FC2C500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951EAA2B8FC2C500193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951EA42B8FC2C500193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951E9A2B8FC2C400193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2176,12 +2112,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951EBB2B8FC2D400193695 /* PromiseKit.xcframework in Embed Frameworks */,
 				D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951EBD2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951EBF2B8FC2D400193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951EB92B8FC2D400193695 /* PMKAlamofire.xcframework in Embed Frameworks */,
 				D2951EAF2B8FC2D300193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
@@ -2499,13 +2433,11 @@
 				D213904E2C5006C6007C4EFD /* FirebaseMessaging in Frameworks */,
 				D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */,
 				D213904A2C5006A7007C4EFD /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				D2951DFD2B8FC1D600193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */,
 				D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */,
 				D2951DFF2B8FC1D600193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E012B8FC1D600193695 /* Valet.xcframework in Frameworks */,
-				D2951DFB2B8FC1D600193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951DF12B8FC1D600193695 /* Alamofire.xcframework in Frameworks */,
 				D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2517,13 +2449,11 @@
 			files = (
 				D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */,
 				D25D972B2E39644100DBFD65 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				D2951EBA2B8FC2D400193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */,
 				D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D25D972D2E39644C00DBFD65 /* FirebaseCrashlytics in Frameworks */,
 				D2951EBC2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951EBE2B8FC2D400193695 /* Valet.xcframework in Frameworks */,
-				D2951EB82B8FC2D400193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951EAE2B8FC2D300193695 /* Alamofire.xcframework in Frameworks */,
 				D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2535,13 +2465,11 @@
 			files = (
 				D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */,
 				D25D97242E38417D00DBFD65 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				D2951E3C2B8FC27600193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */,
 				D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D25D97262E38418700DBFD65 /* FirebaseCrashlytics in Frameworks */,
 				D2951E3E2B8FC27600193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E402B8FC27600193695 /* Valet.xcframework in Frameworks */,
-				D2951E3A2B8FC27600193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951E302B8FC27500193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2553,13 +2481,11 @@
 			files = (
 				D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */,
 				D22A7FF42D680B4E003C5F20 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				D2951E512B8FC28F00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D22A7FF62D680B60003C5F20 /* FirebaseCrashlytics in Frameworks */,
 				D2951E532B8FC28F00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E552B8FC28F00193695 /* Valet.xcframework in Frameworks */,
-				D2951E4F2B8FC28E00193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951E452B8FC28E00193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2571,13 +2497,11 @@
 			files = (
 				D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */,
 				D25D97322E39854B00DBFD65 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				D2951E902B8FC2B800193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */,
 				D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D25D97342E39855300DBFD65 /* FirebaseCrashlytics in Frameworks */,
 				D2951E922B8FC2B800193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E942B8FC2B800193695 /* Valet.xcframework in Frameworks */,
-				D2951E8E2B8FC2B700193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951E842B8FC2B700193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2590,12 +2514,10 @@
 				D2951DDE2B8FBFF900193695 /* Alamofire.xcframework in Frameworks */,
 				D21889F92D29E66700E8A1C3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */,
-				D2951DE62B8FBFF900193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */,
 				D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */,
 				D2951DEA2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */,
-				D2951DE42B8FBFF900193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2951DE02B8FBFF900193695 /* Valet.xcframework in Frameworks */,
 			);
@@ -2606,12 +2528,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E272B8FC25900193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */,
 				D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2951E292B8FC25900193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E2B2B8FC25900193695 /* Valet.xcframework in Frameworks */,
-				D2951E252B8FC25900193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951E1B2B8FC25800193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2622,12 +2542,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E182B8FC23500193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E122B8FC23500193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E0A2B8FC23400193695 /* PINCache.xcframework in Frameworks */,
 				D2951E0E2B8FC23500193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2951E142B8FC23500193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E162B8FC23500193695 /* Valet.xcframework in Frameworks */,
-				D2951E102B8FC23500193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951E062B8FC23400193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E0C2B8FC23500193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2640,13 +2558,11 @@
 				D2E4090A2BD1F72C00148FD5 /* FirebaseMessaging in Frameworks */,
 				D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2E409062BD1F72C00148FD5 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				D2951EA52B8FC2C500193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */,
 				D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2E409082BD1F72C00148FD5 /* FirebaseCrashlytics in Frameworks */,
 				D2951EA72B8FC2C500193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951EA92B8FC2C500193695 /* Valet.xcframework in Frameworks */,
-				D2951EA32B8FC2C500193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951E992B8FC2C400193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2665,13 +2581,11 @@
 			files = (
 				D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2C7F2DF2CB1FDD600CA46B0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				D2951E662B8FC29E00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2C7F2E12CB1FDE300CA46B0 /* FirebaseCrashlytics in Frameworks */,
 				D2951E682B8FC29E00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E6A2B8FC29E00193695 /* Valet.xcframework in Frameworks */,
-				D2951E642B8FC29E00193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951E5A2B8FC29E00193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2682,12 +2596,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E812B8FC2AC00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E7B2B8FC2AC00193695 /* PromiseKit.xcframework in Frameworks */,
 				D2951E732B8FC2AB00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E772B8FC2AB00193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2951E7D2B8FC2AC00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E7F2B8FC2AC00193695 /* Valet.xcframework in Frameworks */,
-				D2951E792B8FC2AB00193695 /* PMKAlamofire.xcframework in Frameworks */,
 				D2951E6F2B8FC2AB00193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E752B8FC2AB00193695 /* PINOperation.xcframework in Frameworks */,
 			);
