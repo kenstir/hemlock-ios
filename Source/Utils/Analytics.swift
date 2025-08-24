@@ -175,7 +175,7 @@ class Analytics {
 
     /// mt: MT-Safe
     static func logRequest(tag: String?, method: String, args: [String]) {
-        print("\(Utils.tt) logRequest \(tag ?? nullTag): \(method)")
+        //print("\(Utils.tt) logRequest \(tag ?? nullTag): \(method)")
 
         // TODO: redact authtoken inside args
         var argsDescription = "***"

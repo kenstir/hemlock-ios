@@ -93,8 +93,7 @@ class HistoryViewController: UITableViewController {
             assert(targetCopy != -1, "no target copy")
             let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [targetCopy], shouldCache: true)
             let promise = req.gatewayObjectResponse().done { obj in
-                let id = obj.getInt("doc_id") ?? -1
-                item.metabibRecord = MBRecord(id: id, mvrObj: obj)
+                item.setBibRecord(MBRecord(mvrObj: obj))
                 os_log("id=%d t=%d mods done (%@)", log: self.log, type: .info, item.id, item.targetCopy, item.title)
             }
             promises.append(promise)
@@ -210,7 +209,7 @@ class HistoryViewController: UITableViewController {
         cell.returnDate.text = "Returned Date: \(item.returnedDateLabel)"
 
         // async load the image
-        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(item.metabibRecord?.id ?? 0)) {
+        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(item.metabibRecord?.id ?? -1)) {
             cell.coverImage.pin_setImage(from: url)
         }
 
@@ -219,12 +218,7 @@ class HistoryViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
-        var records: [MBRecord] = []
-        for item in items {
-            if let record = item.metabibRecord {
-                records.append(record)
-            }
-        }
+        let records = items.compactMap { $0.metabibRecord }
         if let vc = XUtils.makeDetailsPager(items: records, selectedItem: indexPath.row, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }
