@@ -16,8 +16,6 @@
 
 import Foundation
 import UIKit
-import PromiseKit
-import PMKAlamofire
 import os.log
 
 class FinesViewController: UIViewController {

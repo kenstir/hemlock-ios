@@ -105,7 +105,7 @@ class Utils {
         if Thread.isMainThread {
             return "[async][main ]"
         } else {
-            let threadID = pthread_mach_thread_np(pthread_self())
+            let threadID = String(format: "%5d", pthread_mach_thread_np(pthread_self()))
             return "[async][\(threadID)]"
         }
     }

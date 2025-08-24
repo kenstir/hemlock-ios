@@ -83,7 +83,11 @@ class ResultsViewController: UIViewController {
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
             os_log("query.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
-            Task { await self.fetchRecordDetails(records: records) }
+            self.items = records
+            Task {
+                await self.prefetchRecordDetails(records: records)
+                self.reloadData()
+            }
             self.logSearchEvent(numResults: records.count)
             self.didCompleteSearch = true
         } catch {
@@ -96,10 +100,10 @@ class ResultsViewController: UIViewController {
     }
 
     @MainActor
-    func fetchRecordDetails(records: [AsyncRecord]) async {
+    func prefetchRecordDetails(records: [AsyncRecord]) async {
         // Select subset of records to preload in a batch, or else they will get loaded
         // individually on demand by cellForRowAt.
-        let maxRecordsToPreload = 6 // best estimate is 5 on screen + 1 partial
+        let maxRecordsToPreload = 7 // best estimate is 6 on screen + 1 partial
         let preloadedRecords = records.prefix(maxRecordsToPreload)
         print("\(Utils.tt) fetchRecordDetails first \(preloadedRecords.count)")
 
@@ -111,7 +115,6 @@ class ResultsViewController: UIViewController {
                 }
                 await group.waitForAll()
             }
-            self.updateItems(withRecords: records)
         }
 
         let elapsed = -self.startOfSearch.timeIntervalSinceNow
@@ -123,9 +126,8 @@ class ResultsViewController: UIViewController {
         tableView.reloadData()
     }
 
-    func updateItems(withRecords records: [AsyncRecord]) {
-        self.items = records
-        print("xxx \(records.count) records now, time to reloadData")
+    func reloadData() {
+        print("\(Utils.tt) \(items.count) records total, time to reloadData")
         tableView.reloadData()
     }
 
@@ -219,6 +221,8 @@ extension ResultsViewController : UITableViewDataSource {
         }
 
         // async load the image
+        // This works here even when the record is not loaded, because the record.id
+        // is stable and does not require any loading.
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(record.id)) {
             cell.coverImage.pin_setImage(from: url)
         }

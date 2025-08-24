@@ -15,8 +15,6 @@
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import XCTest
-import PromiseKit
-import PMKAlamofire
 @testable import Hemlock
 
 /// the test account config, so we don't have to load it for every test

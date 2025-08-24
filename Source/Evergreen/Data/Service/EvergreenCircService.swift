@@ -86,7 +86,10 @@ class EvergreenCircService: XCircService {
     }
 
     func loadHistoryDetails(historyRecord: HistoryRecord) async throws {
-        throw HemlockError.notImplemented
+        let targetCopy = historyRecord.targetCopy
+        let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [targetCopy], shouldCache: true)
+        let modsObj = try await req.gatewayResponseAsync().asObject()
+        historyRecord.setBibRecord(MBRecord(mvrObj: modsObj))
     }
 
     func fetchHolds(account: Account) async throws -> [HoldRecord] {

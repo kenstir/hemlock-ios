@@ -139,7 +139,6 @@
 		D210EBFB22B1EE55002FB5E0 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		D210EBFC22B1EE55002FB5E0 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D210EBFD22B1EE55002FB5E0 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
-		D210EBFE22B1EE55002FB5E0 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -176,7 +175,6 @@
 		D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */; };
 		D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */; };
 		D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* acorn.xcassets */; };
-		D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D213904A2C5006A7007C4EFD /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D21390492C5006A7007C4EFD /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D213904B2C5006BA007C4EFD /* FirebaseCrashlytics */; };
 		D213904E2C5006C6007C4EFD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D213904D2C5006C6007C4EFD /* FirebaseMessaging */; };
@@ -355,7 +353,6 @@
 		D23E9FA123B9200A0030F5C1 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D23E9FA223B9200A0030F5C1 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
-		D23E9FA423B9200A0030F5C1 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D23E9FA523B9200A0030F5C1 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -474,7 +471,6 @@
 		D2477BF124785A6B00FD4CF6 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D2477BF224785A6B00FD4CF6 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
-		D2477BF424785A6B00FD4CF6 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D2477BF624785A6B00FD4CF6 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2477BF724785A6B00FD4CF6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -623,7 +619,6 @@
 		D2572AE224AD7755000BA698 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D2572AE324AD7755000BA698 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D2572AE424AD7755000BA698 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
-		D2572AE524AD7755000BA698 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2572AE824AD7755000BA698 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -731,7 +726,6 @@
 		D25EEC8828A1E8310090F108 /* UIBarButtonItem+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */; };
 		D25EEC8928A1E8310090F108 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D25EEC8A28A1E8310090F108 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
-		D25EEC8B28A1E8310090F108 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D25EEC8C28A1E8310090F108 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D25EEC8D28A1E8310090F108 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D25EEC8E28A1E8310090F108 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
@@ -832,7 +826,6 @@
 		D276DAB221336B20007FAA31 /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
 		D276DAB321336B20007FAA31 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		D276DAB421336B20007FAA31 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
-		D276DAB521336B20007FAA31 /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D276DAB621336B20007FAA31 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
@@ -876,7 +869,6 @@
 		D27990E120DDD473003B451E /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22D026F2084F53E00DC1F5B /* MD5.swift */; };
 		D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
 		D27990E320DDD473003B451E /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
-		D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D27990E720DDD473003B451E /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D27990E820DDD473003B451E /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
@@ -1038,7 +1030,6 @@
 		D284247921D0358200C7171C /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
 		D284247A21D0358200C7171C /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		D284247B21D0358200C7171C /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
-		D284247C21D0358200C7171C /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D284247D21D0358200C7171C /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D284247E21D0358200C7171C /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D284247F21D0358200C7171C /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
@@ -1595,7 +1586,6 @@
 		D2BDA64322D176BD00D9B60C /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		D2BDA64422D176BD00D9B60C /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D2BDA64522D176BD00D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
-		D2BDA64622D176BD00D9B60C /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D2BDA64722D176BD00D9B60C /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D2BDA64822D176BD00D9B60C /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2BDA64922D176BD00D9B60C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -1680,7 +1670,6 @@
 		D2BDA6DA22D2A72000D9B60C /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		D2BDA6DB22D2A72000D9B60C /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D2BDA6DC22D2A72000D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
-		D2BDA6DD22D2A72000D9B60C /* Gateway+PMK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */; };
 		D2BDA6DF22D2A72000D9B60C /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D2BDA6E022D2A72000D9B60C /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2BDA6E122D2A72000D9B60C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -2228,7 +2217,6 @@
 		D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornAppConfiguration.swift; sourceTree = "<group>"; };
 		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D210EC4B22B1F331002FB5E0 /* acorn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acorn.xcassets; sourceTree = "<group>"; };
-		D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Gateway+PMK.swift"; path = "Source/Extensions/Gateway+PMK.swift"; sourceTree = SOURCE_ROOT; };
 		D218679E21D039BF0082358C /* CoolAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolAppConfiguration.swift; sourceTree = "<group>"; };
 		D218679F21D039BF0082358C /* CoolTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolTheme.swift; sourceTree = "<group>"; };
 		D21867A021D039BF0082358C /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
@@ -2931,7 +2919,6 @@
 				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
-				D212DB2F20C8CEFA00267503 /* Gateway+PMK.swift */,
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
 				D270C4082091FCAA00D27159 /* IDLParser.swift */,
 				D231B52B2083C08000478D25 /* Library.swift */,
@@ -4428,7 +4415,6 @@
 				D210EBFC22B1EE55002FB5E0 /* IDLParser.swift in Sources */,
 				D210EBFD22B1EE55002FB5E0 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491329D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
-				D210EBFE22B1EE55002FB5E0 /* Gateway+PMK.swift in Sources */,
 				D2C300592E3E65AB0082C308 /* XUserService.swift in Sources */,
 				D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */,
 				D21090C624D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4571,7 +4557,6 @@
 				D23E9FA223B9200A0030F5C1 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491D29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
-				D23E9FA423B9200A0030F5C1 /* Gateway+PMK.swift in Sources */,
 				D21090CE24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D23E9FA523B9200A0030F5C1 /* CopyLocationCounts.swift in Sources */,
 				D2C300472E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
@@ -4702,7 +4687,6 @@
 				D23398722E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */,
 				D24D491729D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
-				D2477BF424785A6B00FD4CF6 /* Gateway+PMK.swift in Sources */,
 				D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */,
 				D21090CA24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2477BF624785A6B00FD4CF6 /* MBRecord.swift in Sources */,
@@ -4832,7 +4816,6 @@
 				D2572AE324AD7755000BA698 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D2572AE424AD7755000BA698 /* CodedValueMap.swift in Sources */,
 				D23398782E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
-				D2572AE524AD7755000BA698 /* Gateway+PMK.swift in Sources */,
 				D24D491829D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */,
 				D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */,
@@ -4966,7 +4949,6 @@
 				D23398752E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D25EEC8A28A1E8310090F108 /* CodedValueMap.swift in Sources */,
 				D24D491B29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
-				D25EEC8B28A1E8310090F108 /* Gateway+PMK.swift in Sources */,
 				D25EEC8C28A1E8310090F108 /* CopyLocationCounts.swift in Sources */,
 				D25EEC8D28A1E8310090F108 /* MBRecord.swift in Sources */,
 				D25EEC8E28A1E8310090F108 /* MessageMap.swift in Sources */,
@@ -5100,7 +5082,6 @@
 				D233985C2E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2A6C582221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D276DAB421336B20007FAA31 /* IDLParser.swift in Sources */,
-				D276DAB521336B20007FAA31 /* Gateway+PMK.swift in Sources */,
 				D276DAB621336B20007FAA31 /* CopyLocationCounts.swift in Sources */,
 				D2CF924422471D210009C06A /* Utils.swift in Sources */,
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
@@ -5231,7 +5212,6 @@
 				D23398582E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2A6C580221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
-				D27990E420DDD473003B451E /* Gateway+PMK.swift in Sources */,
 				D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */,
 				D2CF924222471D210009C06A /* Utils.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
@@ -5361,7 +5341,6 @@
 				D284247B21D0358200C7171C /* IDLParser.swift in Sources */,
 				D23398602E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2A6C583221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
-				D284247C21D0358200C7171C /* Gateway+PMK.swift in Sources */,
 				D284247D21D0358200C7171C /* CopyLocationCounts.swift in Sources */,
 				D284247E21D0358200C7171C /* MBRecord.swift in Sources */,
 				D2CF924522471D210009C06A /* Utils.swift in Sources */,
@@ -5492,7 +5471,6 @@
 				D2A6C581221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491C29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
-				D212DB3020C8CEFA00267503 /* Gateway+PMK.swift in Sources */,
 				D21090CD24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
 				D2C300452E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
@@ -5653,7 +5631,6 @@
 				D234700024E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
 				D21981FC235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D2BDA64522D176BD00D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
-				D2BDA64622D176BD00D9B60C /* Gateway+PMK.swift in Sources */,
 				D2C300542E3E65AB0082C308 /* XUserService.swift in Sources */,
 				D24D491929D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2BDA69F22D17A9100D9B60C /* AppFactory.swift in Sources */,
@@ -5791,7 +5768,6 @@
 				D2BDA6DC22D2A72000D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D234700124E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
 				D21981FD235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
-				D2BDA6DD22D2A72000D9B60C /* Gateway+PMK.swift in Sources */,
 				D23398702E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2BDA6DF22D2A72000D9B60C /* CopyLocationCounts.swift in Sources */,
 				D24D491A29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
