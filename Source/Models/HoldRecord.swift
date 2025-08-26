@@ -85,7 +85,7 @@ class HoldRecord {
             if App.config.enableHoldShowExpiration,
                let date = shelfExpireDate {
                 let dateStr = OSRFObject.outputDateFormatter.string(from: date)
-                str = "\(str)\nExpires \(dateStr)"
+                str = "\(str)\n\(R.getString("Expires")) \(dateStr)"
             }
             return str
         } else if s == 7 {
