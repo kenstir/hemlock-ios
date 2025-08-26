@@ -30,7 +30,7 @@ class PinesAppConfiguration: BaseAppConfiguration {
     override var detailsExtraLinkFragment: String? { return "awards" }
 
     override var enableHoldShowQueuePosition: Bool { return false }
-    override var enableHoldShowExpiration: Bool { return false }
+    override var enableHoldShowExpiration: Bool { return true }
     override var enableHoldPhoneNotification: Bool { return true }
     override var enableHoldShowPickupLib: Bool { return true }
     override var enablePartHolds: Bool { return true }
