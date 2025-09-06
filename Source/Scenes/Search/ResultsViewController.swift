@@ -104,13 +104,13 @@ class ResultsViewController: UIViewController {
         // Select subset of records to preload in a batch, or else they will get loaded
         // individually on demand by cellForRowAt.
         let maxRecordsToPreload = 7 // best estimate is 6 on screen + 1 partial
-        let preloadedRecords = records.prefix(maxRecordsToPreload)
-        print("\(Utils.tt) fetchRecordDetails first \(preloadedRecords.count)")
+        let preloadRecords = records.prefix(maxRecordsToPreload)
+        print("\(Utils.tt) fetchRecordDetails first \(preloadRecords.count)")
 
         // Prefetch
         do {
             await withTaskGroup(of: Void.self) { group in
-                for record in preloadedRecords {
+                for record in preloadRecords {
                     group.addTask { await record.prefetch() }
                 }
                 await group.waitForAll()
@@ -118,7 +118,7 @@ class ResultsViewController: UIViewController {
         }
 
         let elapsed = -self.startOfSearch.timeIntervalSinceNow
-        os_log("preload details elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
+        os_log("preload %d details elapsed: %.3f", log: Gateway.log, type: .info, preloadRecords.count, elapsed)
     }
 
     // Force update of status string in table section header

@@ -76,6 +76,7 @@ class CheckoutsViewController: UIViewController {
 
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
+        let startOfFetch = Date()
 
         do {
             let checkouts = try await App.serviceConfig.circService.fetchCheckouts(account: account)
@@ -88,6 +89,8 @@ class CheckoutsViewController: UIViewController {
                 }
                 try await group.waitForAll()
             }
+            let elapsed = -startOfFetch.timeIntervalSinceNow
+            os_log("%d 	records loaded, elapsed: %.3f", log: self.log, type: .info, checkouts.count, elapsed)
 
             self.didCompleteFetch = true
             self.updateItems(withRecords: checkouts)

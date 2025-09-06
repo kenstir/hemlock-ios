@@ -113,6 +113,8 @@ class HistoryViewController: UITableViewController {
             }
             await group.waitForAll()
         }
+        let elapsed = -startOfFetch.timeIntervalSinceNow
+        os_log("%d history records loaded, elapsed: %.3f", log: self.log, type: .info, preloadItems.count, elapsed)
     }
 
     func reloadData() {
