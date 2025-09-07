@@ -189,8 +189,8 @@ extension FinesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: FinesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "finesCell") as? FinesTableViewCell else {
-            fatalError("Could not dequeue a cell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "finesCell") as? FinesTableViewCell else {
+            fatalError("dequeued cell of wrong class!")
         }
 
         let fine = fines[indexPath.row]

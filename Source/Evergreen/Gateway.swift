@@ -147,8 +147,7 @@ class Gateway {
                       let str = String(data: jsonData, encoding: .utf8) {
                 params.append(str)
             } else {
-                debugPrint(arg)
-                fatalError("unhandled arg type, arg = \(arg)")
+                Analytics.logError(HemlockError.shouldNotHappen("unhandled arg type, arg = \(arg)"))
             }
         }
         return params
