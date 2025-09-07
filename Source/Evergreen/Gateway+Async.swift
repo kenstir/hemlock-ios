@@ -19,6 +19,7 @@ import Foundation
 import os.log
 
 extension Alamofire.DataRequest {
+    /*
     func gatewayResponseAsyncFirstAttempt(queue: DispatchQueue = .main) async throws -> GatewayResponse {
         return try await withCheckedThrowingContinuation { continuation in
             responseData(queue: queue) { response in
@@ -33,6 +34,7 @@ extension Alamofire.DataRequest {
             }
         }
     }
+    */
 
     func gatewayResponseAsync() async throws -> GatewayResponse {
         let resp = await serializingData().response
