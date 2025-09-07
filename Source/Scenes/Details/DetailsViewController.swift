@@ -251,8 +251,7 @@ class DetailsViewController: UIViewController {
 
         // iPad requires a popoverPresentationController
         if let popoverController = alertController.popoverPresentationController {
-            //TODO: got a crash here once, from valueForUndefinedKey
-            let view: UIView = sender.value(forKey: "view") as? UIView ?? self.view
+            let view: UIView = sender as UIView
             popoverController.sourceView = view
             popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
         }
