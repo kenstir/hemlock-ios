@@ -65,9 +65,11 @@ class ResultsViewController: UIViewController {
 
     @MainActor
     func fetchData() async {
+        // avoid searching when navigating back
         if didCompleteSearch {
             return
         }
+
         guard let query = getQueryString() else { return }
 
         //centerSubview(activityIndicator)
@@ -77,6 +79,7 @@ class ResultsViewController: UIViewController {
         // search
         do {
             let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
+//            if query.contains("throw") { throw HemlockError.shouldNotHappen("Testing error handling") }
             let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1], shouldCache: true)
             let obj = try await req.gatewayResponseAsync().asObjectOrNil()
 
@@ -88,9 +91,10 @@ class ResultsViewController: UIViewController {
                 await self.prefetchRecordDetails(records: records)
                 self.reloadData()
             }
-            self.logSearchEvent(numResults: records.count)
             self.didCompleteSearch = true
+            self.logSearchEvent(numResults: records.count)
         } catch {
+            self.didCompleteSearch = true
             self.updateTableSectionHeader(onError: error)
             self.logSearchEvent(withError: error)
             self.presentGatewayAlert(forError: error)
@@ -183,7 +187,7 @@ extension ResultsViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if activityIndicator?.isAnimating ?? false && !didCompleteSearch {
+        if !didCompleteSearch {
             return "Searching..."
         } else if items.count == 0 {
             if let searchClass = searchParameters?.searchClass,
