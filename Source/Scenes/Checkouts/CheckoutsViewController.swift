@@ -90,7 +90,7 @@ class CheckoutsViewController: UIViewController {
                 try await group.waitForAll()
             }
             let elapsed = -startOfFetch.timeIntervalSinceNow
-            os_log("%d 	records loaded, elapsed: %.3f", log: self.log, type: .info, checkouts.count, elapsed)
+            os_log("%d circ records loaded, elapsed: %.3f", log: self.log, type: .info, checkouts.count, elapsed)
 
             self.didCompleteFetch = true
             self.updateItems(withRecords: checkouts)
