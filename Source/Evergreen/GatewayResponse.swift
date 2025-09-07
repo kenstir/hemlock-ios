@@ -157,7 +157,7 @@ struct GatewayResponse {
             } catch {
                 let err = GatewayError.failure("Error decoding OSRF array: " + error.localizedDescription)
                 self.error = err
-                Analytics.logError(error: err)
+                Analytics.logError(err)
                 return
             }
             if let obj = arrayResult?.first,
@@ -172,7 +172,7 @@ struct GatewayResponse {
             } catch {
                 let err = GatewayError.failure("Error decoding OSRF array: " + error.localizedDescription)
                 self.error = err
-                Analytics.logError(error: err)
+                Analytics.logError(err)
                 return
             }
             if let obj = arrayResult?.first,
@@ -188,7 +188,7 @@ struct GatewayResponse {
             } catch {
                 let err = GatewayError.failure("Error decoding OSRF object: " + error.localizedDescription)
                 self.error = err
-                Analytics.logError(error: err)
+                Analytics.logError(err)
                 return
             }
             if let eventError = parseEvent(fromObj: obj) {

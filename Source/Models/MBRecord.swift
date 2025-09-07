@@ -178,11 +178,11 @@ class MBRecord {
                 } else if let str = elem.first as? String, let id = Int(str) {
                     ret.append(id)
                 } else {
-                    Analytics.logError(code: .shouldNotHappen, msg: "Unexpected element in ids list: \(elem))", file: #file, line: #line)
+                    Analytics.logError(HemlockError.shouldNotHappen("Unexpected element in ids list: \(elem))"))
                 }
             }
         } else {
-            Analytics.logError(code: .shouldNotHappen, msg: "Unexpected format of ids list: \(String(describing: obj.getAny("ids")))", file: #file, line: #line)
+            Analytics.logError(HemlockError.shouldNotHappen("Unexpected format of ids list: \(String(describing: obj.getAny("ids")))"))
         }
         return ret
     }

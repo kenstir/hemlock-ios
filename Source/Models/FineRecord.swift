@@ -86,7 +86,7 @@ class FineRecord: XPatronChargeRecord {
                 let fine = FineRecord(mbtsObj: mbtsObj, circObj: circObj, mvrObj: mvrObj)
                 ret.append(fine)
             } else {
-                Analytics.logError(code: .shouldNotHappen, msg: "fine record has no txn", file: #file, line: #line)
+                Analytics.logError(HemlockError.shouldNotHappen("fine record has no txn"))
             }
         }
         return ret

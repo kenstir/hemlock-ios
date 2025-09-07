@@ -24,10 +24,6 @@ import FirebaseAnalytics
 import FirebaseCrashlytics
 #endif
 
-enum AnalyticsErrorCode {
-    case shouldNotHappen
-}
-
 #if USE_FA || USE_FCM
 typealias FA = FirebaseAnalytics.Analytics
 #endif
@@ -155,14 +151,7 @@ class Analytics {
     }
 
     /// mt: MT-Safe
-    static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
-        os_log("%{public}s:%d: %{public}s", log: log, type: .error, file, line, msg)
-        let s = "\(file):\(line): \(msg)"
-        logToBuffer(s)
-    }
-
-    /// mt: MT-Safe
-    static func logError(error: Error) {
+    static func logError(_ error: Error) {
         os_log("%{public}s", log: log, type: .error, error.localizedDescription)
         logToBuffer(error.localizedDescription)
 #if USE_FA || USE_FCM
