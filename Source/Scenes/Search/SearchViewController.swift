@@ -58,7 +58,6 @@ class SearchViewController: UIViewController {
     var selectedSearchClassIndex = 0
     var formatLabels: [String] = []
     var orgLabels: [String] = []
-    var didCompleteFetch = false
 
     var options: [OptionsEntry] = []
     let searchClassIndex = 0
@@ -83,25 +82,11 @@ class SearchViewController: UIViewController {
             optionsTable.deselectRow(at: indexPath, animated: true)
         }
 
-        if didCompleteFetch {
-            doSearchOnStartup()
-        } else {
-            Task { await fetchData() }
-        }
+        doSearchOnStartup()
     }
 
     //MARK: - Functions
 
-    func fetchData() async {
-        // fetchData is totally unnecessary now, but leaving it in place until I can think harder about it
-        do {
-            self.setupFormatPicker()
-            self.setupLocationPicker()
-            self.didCompleteFetch = true
-            self.doSearchOnStartup()
-        }
-    }
-    
     func setupViews() {
         setupActivityIndicator()
         optionsTable.delegate = self
@@ -110,8 +95,8 @@ class SearchViewController: UIViewController {
         self.setupHomeButton()
         setupSearchBar()
         setupOptionsTable()
-        setupFormatPicker() // will be redone after fetchData
-        setupLocationPicker() // will be redone after fetchData
+        setupFormatPicker()
+        setupLocationPicker()
         setupSearchButton()
     }
     
@@ -181,26 +166,27 @@ class SearchViewController: UIViewController {
 
     func doSearchOnStartup() {
         // handle barcode when navigating back
-        if let barcode = barcodeToSearchFor, didCompleteFetch {
+        if let barcode = barcodeToSearchFor {
             searchBar.textField?.text = barcode
             barcodeToSearchFor = nil
-            DispatchQueue.main.async {
+            Task {
                 self.doSearch(byBarcode: barcode)
             }
             return
         }
 
         // handle author when navigating
-        if let author = authorToSearchFor, didCompleteFetch {
+        if let author = authorToSearchFor {
             searchBar.textField?.text = author
             authorToSearchFor = nil
-            DispatchQueue.main.async {
+            Task {
                 self.doSearch(byAuthor: author)
             }
             return
         }
     }
 
+    @MainActor
     func doSearch(byBarcode barcode: String) {
         let entry = options[searchClassIndex]
         entry.index = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordIdentifier)
@@ -209,6 +195,7 @@ class SearchViewController: UIViewController {
         doSearch()
     }
 
+    @MainActor
     func doSearch(byAuthor author: String) {
         let entry = options[searchClassIndex]
         entry.index = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordAuthor)
@@ -221,6 +208,7 @@ class SearchViewController: UIViewController {
         doSearch()
     }
 
+    @MainActor
     func doSearch() {
         guard let searchText = searchBar.text?.trim(), !searchText.isEmpty else {
             self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
