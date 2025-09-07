@@ -73,8 +73,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        searchButton.isEnabled = false
-        optionsTable.isUserInteractionEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,8 +97,6 @@ class SearchViewController: UIViewController {
         do {
             self.setupFormatPicker()
             self.setupLocationPicker()
-            self.searchButton.isEnabled = true
-            self.optionsTable.isUserInteractionEnabled = true
             self.didCompleteFetch = true
             self.doSearchOnStartup()
         }
@@ -162,9 +158,6 @@ class SearchViewController: UIViewController {
 
     func setupLocationPicker() {
         self.orgLabels = Organization.getSpinnerLabels()
-        if orgLabels.count == 0 {
-            return // we are early
-        }
 
         var selectOrgIndex = 0
         let defaultSearchLocation = App.account?.searchOrgID
@@ -231,10 +224,6 @@ class SearchViewController: UIViewController {
     func doSearch() {
         guard let searchText = searchBar.text?.trim(), !searchText.isEmpty else {
             self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
-            return
-        }
-        if searchButton.isEnabled == false {
-            self.showAlert(title: "Busy", message: "Please wait until data is finished loading")
             return
         }
         guard let searchClassLabel = options[searchClassIndex].value,
