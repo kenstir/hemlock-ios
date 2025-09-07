@@ -2116,7 +2116,6 @@
 		D28AE25F24FDD6F000960E9E /* MessageMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMapTests.swift; sourceTree = "<group>"; };
 		D28AE26124FDD9B200960E9E /* strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strings.json; sourceTree = "<group>"; };
 		D28AE26C24FDD9D400960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
-		D28AE26E24FDDD7700960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27024FDDD8800960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28AE27324FDE01900960E9E /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D28E04442BA12B8E001850C5 /* MainGrid.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainGrid.storyboard; sourceTree = "<group>"; };
@@ -2158,7 +2157,6 @@
 		D29C95FB2599285E00CACDBD /* event_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event_msg_map.json; sourceTree = "<group>"; };
 		D29C95FD2599288100CACDBD /* fail_part_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fail_part_msg_map.json; sourceTree = "<group>"; };
 		D29C95FE2599288100CACDBD /* event_msg_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = event_msg_map.json; sourceTree = "<group>"; };
-		D29E874A22D2AFE7003C5467 /* ntlc.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ntlc.xcassets; sourceTree = "<group>"; };
 		D29E87FC20D831540003EB27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D2A627D42BDAC308005BB11F /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZXMultiFormatWriter+SafeEncode.m"; sourceTree = "<group>"; };
@@ -2187,11 +2185,6 @@
 		D2BDA69922D17A9000D9B60C /* NobleAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NobleAppConfiguration.swift; sourceTree = "<group>"; };
 		D2BDA69A22D17A9000D9B60C /* NobleAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NobleAppBehavior.swift; sourceTree = "<group>"; };
 		D2BDA69B22D17A9100D9B60C /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
-		D2BDA71822D2A72000D9B60C /* NTLCInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NTLCInfo.plist; sourceTree = "<group>"; };
-		D2BDA71922D2A87D00D9B60C /* NTLCTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLCTheme.swift; sourceTree = "<group>"; };
-		D2BDA71A22D2A87D00D9B60C /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
-		D2BDA71B22D2A87D00D9B60C /* NTLCAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLCAppBehavior.swift; sourceTree = "<group>"; };
-		D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NTLCAppConfiguration.swift; sourceTree = "<group>"; };
 		D2C24A32210178DD0028180B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
 		D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GatewayResponse+.swift"; sourceTree = "<group>"; };
 		D2C300292E3D393E0082C308 /* EvergreenLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenLoaderService.swift; sourceTree = "<group>"; };
@@ -2951,7 +2944,6 @@
 				D2477C2D24785C0300FD4CF6 /* indiana_app */,
 				D2572B2124AD7819000BA698 /* mo_app */,
 				D2BDA69522D17A4E00D9B60C /* noble_app */,
-				D2BDA6A022D2A6EF00D9B60C /* ntlc_app */,
 				D25EECD128A1EA760090F108 /* owwl_app */,
 				D2D49BFB20A90CA9000B3A27 /* pines_app */,
 				D23E9FE723B923480030F5C1 /* sagecat_app */,
@@ -2984,20 +2976,6 @@
 				D2BDA69622D17A8400D9B60C /* noble.xcassets */,
 			);
 			path = noble_app;
-			sourceTree = "<group>";
-		};
-		D2BDA6A022D2A6EF00D9B60C /* ntlc_app */ = {
-			isa = PBXGroup;
-			children = (
-				D28AE26E24FDDD7700960E9E /* custom_strings.json */,
-				D2BDA71A22D2A87D00D9B60C /* AppFactory.swift */,
-				D2BDA71B22D2A87D00D9B60C /* NTLCAppBehavior.swift */,
-				D2BDA71C22D2A87E00D9B60C /* NTLCAppConfiguration.swift */,
-				D2BDA71922D2A87D00D9B60C /* NTLCTheme.swift */,
-				D2BDA71822D2A72000D9B60C /* NTLCInfo.plist */,
-				D29E874A22D2AFE7003C5467 /* ntlc.xcassets */,
-			);
-			path = ntlc_app;
 			sourceTree = "<group>";
 		};
 		D2C300422E3D5BD30082C308 /* Data */ = {
