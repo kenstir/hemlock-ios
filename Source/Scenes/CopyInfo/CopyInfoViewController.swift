@@ -41,7 +41,7 @@ class CopyInfoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+        Task { await self.fetchData() }
     }
     
     //MARK: - Functions
@@ -55,8 +55,9 @@ class CopyInfoViewController: UIViewController {
         Style.styleButton(asInverse: placeHoldButton)
         placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
     }
-    
-    func fetchData() {
+
+    @MainActor
+    func fetchData() async {
         let searchOrg = self.org ?? Organization.find(byId: Organization.consortiumOrgID)
         guard let recordID = record?.id,
             let org = searchOrg else
@@ -65,15 +66,16 @@ class CopyInfoViewController: UIViewController {
             self.showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing record ID or search org"))
             return
         }
-        let promise = SearchService.fetchCopyLocationCounts(org: org, recordID: recordID)
-        promise.done { resp in
+
+        do {
+            let resp = try await SearchService.fetchCopyLocationCounts(recordID: recordID, org: org)
             self.items = CopyLocationCounts.makeArray(fromPayload: resp.payload)
             self.updateItems()
-        }.catch { error in
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
-    
+
     func updateItems() {
         self.didCompleteFetch = true
         table.reloadData()

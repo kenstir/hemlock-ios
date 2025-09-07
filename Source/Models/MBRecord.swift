@@ -20,13 +20,17 @@ import Foundation
 
 /// Metabib Record
 class MBRecord {
-    
+    private let lock = NSRecursiveLock()
+
     var id: Int
-    var mvrObj: OSRFObject?
-    var attrs: [String: String]? // from MRA object
-    var marcRecord: MARCRecord?
-    var marcIsDeleted: Bool?
-    var copyCounts: [CopyCount]?
+    private(set) var mvrObj: OSRFObject?
+    var hasMODS: Bool { return mvrObj != nil }
+    private(set) var attrs: [String: String]? // from MRA object
+    var hasAttrs: Bool { return attrs != nil }
+    private(set) var marcRecord: MARCRecord?
+    var hasMARC: Bool { return marcRecord != nil }
+    private(set) var marcIsDeleted: Bool?
+    private(set) var copyCounts: [CopyCount]?
 
     var title: String { return mvrObj?.getString("title") ?? "" }
     var author: String { return mvrObj?.getString("author") ?? "" }
@@ -82,6 +86,9 @@ class MBRecord {
         }
         return nil
     }
+    var isPreCat: Bool {
+        return id == -1
+    }
 
     static let dummyRecord = MBRecord(id: -1)
 
@@ -89,8 +96,45 @@ class MBRecord {
         self.id = id
         self.mvrObj = mvrObj        
     }
+    init(mvrObj: OSRFObject) {
+        self.id = mvrObj.getInt("doc_id") ?? -1
+        self.mvrObj = mvrObj
+    }
 
     //MARK: - Functions
+
+    /// mt-safe
+    func setMvrObj(_ obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+        self.mvrObj = obj
+    }
+
+    /// mt-safe
+    func update(fromMraObj obj: OSRFObject?) {
+        lock.lock(); defer { lock.unlock() }
+        attrs = RecordAttributes.parseAttributes(fromMRAObject: obj)
+    }
+
+    /// mt-safe
+    func update(fromBreObj obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+
+        guard
+            let marcXML = obj.getString("marc"),
+            let data = marcXML.data(using: .utf8) else
+        {
+            return
+        }
+        let parser = MARCXMLParser(data: data)
+        marcRecord = try? parser.parse()
+        marcIsDeleted = obj.getBoolOrFalse("deleted")
+    }
+
+    /// mt-safe
+    func setCopyCounts(_ counts: [CopyCount]) {
+        lock.lock(); defer { lock.unlock() }
+        self.copyCounts = counts
+    }
 
     func totalCopies(atOrgID orgID: Int?) -> Int {
         if let copyCount = copyCounts?.last {
@@ -98,6 +142,8 @@ class MBRecord {
         }
         return 0
     }
+
+    //MARK: - Static functions
 
     // Create array of skeleton records from the multiclassQuery response object.
     static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord] {

@@ -14,11 +14,9 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
-import PromiseKit
 import ZXingObjC
 
 class ShowCardViewController: UIViewController {
@@ -27,8 +25,7 @@ class ShowCardViewController: UIViewController {
     @IBOutlet weak var barcodeWarningLabel: UILabel!
     @IBOutlet weak var barcodeLabel: UILabel!
     @IBOutlet weak var splashImage: UIImageView!
-    
-    var didCompleteFetch = false
+
     let imageWidth: Int32 = 400
     let imageHeight: Int32 = 200
     var savedBrightness: CGFloat = 0.5
@@ -44,10 +41,7 @@ class ShowCardViewController: UIViewController {
         super.viewWillAppear(animated)
         savedBrightness = UIScreen.main.brightness
         UIScreen.main.brightness = 1.0
-        if !didCompleteFetch {
-            fetchData()
-        }
-    }
+     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -63,6 +57,7 @@ class ShowCardViewController: UIViewController {
     
     func setupViews() {
         setupSplash()
+        setupBarcode()
         setupBarcodeTapActions()
         self.setupHomeButton()
     }
@@ -71,7 +66,7 @@ class ShowCardViewController: UIViewController {
         // hide splash in landscape so it doesn't obscure the barcode
         splashImage.isHidden = UIDevice.current.orientation.isLandscape
     }
-    
+
     func setupBarcodeTapActions() {
         barcodeImage.isUserInteractionEnabled = true
         barcodeImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(barcodeTapped)))
@@ -86,7 +81,8 @@ class ShowCardViewController: UIViewController {
 
     }
 
-    func setupBarcode(_ account: Account) {
+    func setupBarcode() {
+        guard let account = App.account else { return }
         guard let barcode = account.barcode,
             let m = BarcodeUtils.tryEncode(barcode, width: imageWidth, height: imageHeight, formats: [.Codabar, .Code39]),
             m.width > 0 && m.height > 0,
@@ -104,21 +100,4 @@ class ShowCardViewController: UIViewController {
             barcodeWarningLabel.isHidden = false
         }
     }
-
-    func fetchData() {
-        guard let account = App.account else
-        {
-            presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
-        }
-
-        let promise = ActorService.fetchUserSettings(account: account)
-        promise.done {
-            self.setupBarcode(account)
-            self.didCompleteFetch = true
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
-        }
-    }
 }
-

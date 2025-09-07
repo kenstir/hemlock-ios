@@ -20,15 +20,15 @@
 import Foundation
 
 class HoldRecord {
-    
+    private let lock = NSRecursiveLock()
+
     //MARK: - Properties
 
-    var ahrObj: OSRFObject
-    var metabibRecord: MBRecord?
-    var qstatsObj: OSRFObject?
-    
-    var label: String? // if the hold is a "P" type, this is the part label
-    
+    private(set) var ahrObj: OSRFObject
+    private(set) var metabibRecord: MBRecord?
+    private(set) var qstatsObj: OSRFObject?
+    private(set) var label: String? // if the hold is a "P" type, this is the part label
+
     var author: String { return metabibRecord?.author ?? "" }
     var format: String {
         if holdType == "M" { return metarecordHoldFormatLabel() }
@@ -124,7 +124,31 @@ class HoldRecord {
     init(obj: OSRFObject) {
         self.ahrObj = obj
     }
-    
+
+    /// mt-safe
+    func setAhrObj(_ obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+        ahrObj = obj
+    }
+
+    /// mt-safe
+    func setMetabibRecord(_ record: MBRecord) {
+        lock.lock(); defer { lock.unlock() }
+        metabibRecord = record
+    }
+
+    /// mt-safe
+    func setQstatsObj(_ obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+        qstatsObj = obj
+    }
+
+    /// mt-safe
+    func setLabel(_ label: String?) {
+        lock.lock(); defer { lock.unlock() }
+        self.label = label
+    }
+
     static func makeArray(_ objects: [OSRFObject]) -> [HoldRecord] {
         var ret: [HoldRecord] = []
         for obj in objects {

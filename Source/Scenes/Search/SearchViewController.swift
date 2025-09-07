@@ -19,8 +19,6 @@
  */
 
 import UIKit
-import PromiseKit
-import PMKAlamofire
 import os.log
 
 struct SearchParameters {
@@ -90,45 +88,21 @@ class SearchViewController: UIViewController {
         if didCompleteFetch {
             doSearchOnStartup()
         } else {
-            fetchData()
+            Task { await fetchData() }
         }
     }
 
     //MARK: - Functions
 
-    func fetchData() {
-        guard let account = App.account else
-        {
-            presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
-        }
-        let start = Date()
-
-        var promises: [Promise<Void>] = []        
-        promises.append(ActorService.fetchOrgTypes())
-        promises.append(ActorService.fetchOrgTree())
-        promises.append(ActorService.fetchUserSettings(account: account))
-        promises.append(PCRUDService.fetchCodedValueMaps())
-        promises.append(SearchService.fetchCopyStatusAll())
-
-        centerSubview(activityIndicator)
-        self.activityIndicator.startAnimating()
-
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            let elapsed = -start.timeIntervalSinceNow
-            os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
+    func fetchData() async {
+        // fetchData is totally unnecessary now, but leaving it in place until I can think harder about it
+        do {
             self.setupFormatPicker()
             self.setupLocationPicker()
             self.searchButton.isEnabled = true
             self.optionsTable.isUserInteractionEnabled = true
             self.didCompleteFetch = true
             self.doSearchOnStartup()
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
         }
     }
     

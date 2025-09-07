@@ -71,6 +71,8 @@ class Organization {
         return Organization.orgs.compactMap { $0.opacVisible ? $0 : nil }
     }
 
+    private let lock = NSRecursiveLock()
+
     let id: Int
     let level: Int
     let name: String
@@ -78,7 +80,9 @@ class Organization {
     let ouType: Int
     let opacVisible: Bool
 
+    var hours: XOrgHours? = nil
     var addressObj: OSRFObject? = nil
+    var closures: [XOrgClosure] = []
 
     var aouObj: OSRFObject
     var parent: Int? { return aouObj.getInt("parent_ou") }
@@ -145,8 +149,11 @@ class Organization {
         }
         return nil
     }
-    
+
+    /// mt-safe
     func loadSettings(fromObj obj: OSRFObject)  {
+        lock.lock(); defer { lock.unlock() }
+
         if let val = Organization.ousGetBool(obj, API.settingCreditPaymentsAllow) {
             self.isPaymentAllowedSetting = val
         }
@@ -174,6 +181,37 @@ class Organization {
         }
         self.areSettingsLoaded = true
     }
+
+    /// mt-safe
+    func updateOrg(fromObj obj: OSRFObject) -> Void {
+        lock.lock(); defer { lock.unlock() }
+
+        aouObj = obj
+        //print("xxx.org_update id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+    }
+
+    /// mt-safe
+    func loadHours(fromObj obj: OSRFObject?) -> Void {
+        lock.lock(); defer { lock.unlock() }
+
+        self.hours = EvergreenOrgHours.make(obj)
+    }
+
+    /// mt-safe
+    func setAddress(fromObj addressObj: OSRFObject?) -> Void {
+        lock.lock(); defer { lock.unlock() }
+
+        self.addressObj = addressObj
+    }
+
+    /// mt-safe
+    func loadClosures(fromArray array: [OSRFObject]) -> Void {
+        lock.lock(); defer { lock.unlock() }
+
+        closures = EvergreenOrgClosure.makeArray(array)
+    }
+
+    //MARK: - Static functions
 
     static func find(byName name: String?) -> Organization? {
         if let org = orgs.first(where: { $0.name == name }) {
@@ -281,12 +319,6 @@ class Organization {
                 }
             }
         }
-    }
-    
-    static func updateOrg(fromObj obj: OSRFObject) -> Void {
-        guard let id = obj.getInt("id"), let org = find(byId: id) else { return }
-        org.aouObj = obj
-        //print("xxx.org_update id=\(id) level=\(org.level) vis=\(org.opacVisible) site=\(org.shortname) name=\(org.name)")
     }
 
     static func dumpOrgStats() {

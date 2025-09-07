@@ -14,9 +14,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-import PromiseKit
 import PINRemoteImage
-import PMKAlamofire
 import UIKit
 import os.log
 
@@ -48,7 +46,7 @@ class ResultsViewController: UIViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -65,7 +63,8 @@ class ResultsViewController: UIViewController {
         self.setupHomeButton()
     }
 
-    func fetchData() {
+    @MainActor
+    func fetchData() async {
         if didCompleteSearch {
             return
         }
@@ -76,53 +75,50 @@ class ResultsViewController: UIViewController {
         startOfSearch = Date()
 
         // search
-        let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
-        let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1], shouldCache: true)
-        req.gatewayOptionalObjectResponse().done { obj in
+        do {
+            let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
+            let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1], shouldCache: true)
+            let obj = try await req.gatewayResponseAsync().asObjectOrNil()
+
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
-            os_log("search.query: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
+            os_log("query.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
             let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
-            self.fetchRecordDetails(records: records)
+            self.items = records
+            Task {
+                await self.prefetchRecordDetails(records: records)
+                self.reloadData()
+            }
             self.logSearchEvent(numResults: records.count)
             self.didCompleteSearch = true
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
+        } catch {
             self.updateTableSectionHeader(onError: error)
             self.logSearchEvent(withError: error)
             self.presentGatewayAlert(forError: error)
         }
+
+        activityIndicator.stopAnimating()
     }
 
-    func fetchRecordDetails(records: [AsyncRecord]) {
-        activityIndicator.startAnimating()
-
+    @MainActor
+    func prefetchRecordDetails(records: [AsyncRecord]) async {
         // Select subset of records to preload in a batch, or else they will get loaded
         // individually on demand by cellForRowAt.
-        let maxRecordsToPreload = 6 // best estimate is 5 on screen + 1 partial
-        let preloadedRecords = records.prefix(maxRecordsToPreload)
-        os_log("[%s] fetchRecordDetails first %d records", log: AsyncRecord.log, type: .info, Thread.current.tag(), preloadedRecords.count)
+        let maxRecordsToPreload = 7 // best estimate is 6 on screen + 1 partial
+        let preloadRecords = records.prefix(maxRecordsToPreload)
+        print("\(Utils.tt) fetchRecordDetails first \(preloadRecords.count)")
 
-        // Collect promises
-        var promises: [Promise<Void>] = []
-        promises.append(PCRUDService.fetchCodedValueMaps())
-        for record in preloadedRecords {
-            promises.append(contentsOf: record.startPrefetch())
-        }
-
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            for record in preloadedRecords {
-                record.markPrefetchDone()
+        // Prefetch
+        do {
+            await withTaskGroup(of: Void.self) { group in
+                for record in preloadRecords {
+                    group.addTask { await record.prefetch() }
+                }
+                await group.waitForAll()
             }
-            self.updateItems(withRecords: records)
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-            let elapsed = -self.startOfSearch.timeIntervalSinceNow
-            os_log("search.details: %.3f (%.3f)", log: Gateway.log, type: .info, elapsed, Gateway.addElapsed(elapsed))
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
         }
+
+        let elapsed = -self.startOfSearch.timeIntervalSinceNow
+        os_log("preload %d details elapsed: %.3f", log: Gateway.log, type: .info, preloadRecords.count, elapsed)
     }
 
     // Force update of status string in table section header
@@ -130,9 +126,8 @@ class ResultsViewController: UIViewController {
         tableView.reloadData()
     }
 
-    func updateItems(withRecords records: [AsyncRecord]) {
-        self.items = records
-        print("xxx \(records.count) records now, time to reloadData")
+    func reloadData() {
+        print("\(Utils.tt) \(items.count) records total, time to reloadData")
         tableView.reloadData()
     }
 
@@ -205,13 +200,13 @@ extension ResultsViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        os_log("[%s] row=%02d cellForRowAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), indexPath.row)
+        print("\(Utils.tt) row=\(String(format: "%2d", indexPath.row)) cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as! ResultsTableViewCell
         guard items.count > indexPath.row else { return cell }
         let record = items[indexPath.row]
 
         // load the data if not already loaded
-        if record.getState() == .loaded {
+        if record.isLoaded() {
             setCellMetadata(cell, forRecord: record)
         } else {
             // Clear reused cells immediately or else it appears the titles
@@ -219,20 +214,15 @@ extension ResultsViewController : UITableViewDataSource {
             setCellMetadata(cell, forRecord: nil)
 
             // async load the metadata
-            let promises = record.startPrefetch()
-            firstly {
-                when(fulfilled: promises)
-            }.done {
-                record.markPrefetchDone()
+            Task {
+                await record.prefetch()
                 self.setCellMetadata(cell, forRecord: record)
-            }.ensure {
-                self.activityIndicator.stopAnimating()
-            }.catch { error in
-                self.presentGatewayAlert(forError: error)
             }
         }
 
         // async load the image
+        // This works here even when the record is not loaded, because the record.id
+        // is stable and does not require any loading.
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(record.id)) {
             cell.coverImage.pin_setImage(from: url)
         }
@@ -253,19 +243,11 @@ extension ResultsViewController : UITableViewDataSource {
 extension ResultsViewController : UITableViewDataSourcePrefetching {
     // TODO: if prefetching is necessary to prevent hitching do it here; if not save the extra network requests
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-//        guard let first = indexPaths.first,
-//              let last = indexPaths.last else { return }
-//        let firstRow = items[first.row].row
-//        let lastRow = items[last.row].row
-//        os_log("[%s] rows=%d..%d prefetchRowsAt", log: AsyncRecord.log, type: .info, Thread.current.tag(), firstRow, lastRow)
-        os_log("[%s] prefetchRowsAt %d rows", log: AsyncRecord.log, type: .info, Thread.current.tag(), indexPaths.count)
+        print("\(Utils.tt) prefetchRowsAt \(indexPaths.count) rows")
         for indexPath in indexPaths {
             guard items.count > indexPath.row else { return }
             let record = items[indexPath.row]
-
-            if record.getState() == .initial {
-                _ = record.startPrefetch()
-            }
+            Task { await record.prefetch() }
         }
     }
 }

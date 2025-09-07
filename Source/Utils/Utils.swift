@@ -100,4 +100,13 @@ class Utils {
         return 0
     }
 
+    /// tt - thread tag for [async] debug logging
+    static var tt: String {
+        if Thread.isMainThread {
+            return "[async][main ]"
+        } else {
+            let threadID = String(format: "%5d", pthread_mach_thread_np(pthread_self()))
+            return "[async][\(threadID)]"
+        }
+    }
 }

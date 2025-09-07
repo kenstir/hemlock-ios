@@ -18,8 +18,6 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
-import PromiseKit
-import PMKAlamofire
 import Valet
 import os.log
 
@@ -46,6 +44,9 @@ class App {
     static var fcmNotificationToken: String?
     static var launchCount: Int = 0
     static var launchNotificationUserInfo: [AnyHashable: Any]?
+
+    /// TODO: make this injectable
+    static var serviceConfig: ServiceConfig = EvergreenServiceConfig()
 
     /// the URL of the JSON directory of library systems available for use in the Hemlock app
     static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
@@ -76,24 +77,11 @@ class App {
         App.idlLoaded = false
     }
 
-    static func fetchIDL() -> Promise<Void> {
-        if App.idlLoaded ?? false {
-            return Promise<Void>()
-        }
-        let start = Date()
-
-        // Fetch IDL and parse it.
-        let req = Gateway.makeRequest(url: Gateway.idlURL(), shouldCache: true)
-        let promise = req.responseData().done { data, pmkresponse in
-            let tag = pmkresponse.request?.debugTag ?? Analytics.nullTag
-            Analytics.logResponse(tag: tag, data: data)
-            let parser = IDLParser(data: data)
-            App.idlLoaded = parser.parse()
-            let elapsed = -start.timeIntervalSinceNow
-            Gateway.addElapsed(elapsed)
-            os_log("idl.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
-        }
-        return promise
+    static func loadIDL(fromData data: Data) -> Bool {
+        let parser = IDLParser(data: data)
+        let ok = parser.parse()
+        App.idlLoaded = ok
+        return ok
     }
 
     static func printLaunchInfo() {

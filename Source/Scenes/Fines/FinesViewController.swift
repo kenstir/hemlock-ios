@@ -1,7 +1,5 @@
 //
-//  FinesViewController.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -14,13 +12,10 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
 import UIKit
-import PromiseKit
-import PMKAlamofire
 import os.log
 
 class FinesViewController: UIViewController {
@@ -41,9 +36,9 @@ class FinesViewController: UIViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
-    var fines: [FineRecord] = []
-    var balanceOwed: Double = 0
-    
+    var anyBalanceOwed = false
+    var fines: [XPatronChargeRecord] = []
+
     //MARK: - UIViewController
 
     override func viewDidLoad() {
@@ -53,7 +48,8 @@ class FinesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fetchData()
+
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -115,54 +111,40 @@ class FinesViewController: UIViewController {
         }
     }
 
-    func fetchData() {
-        guard let authtoken = App.account?.authtoken,
-            let userid = App.account?.userID else
-        {
-            self.presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+    func fetchHomeOrgSettings(account: Account) async throws {
+        if let homeOrgID = account.homeOrgID {
+            try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: homeOrgID)
         }
-        
-        var promises: [Promise<Void>] = []
+    }
+
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account else { return }
 
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        // fetch the orgs
-        promises.append(ActorService.fetchOrgTreeAndSettings(forOrgID: App.account?.homeOrgID))
+        do {
+            async let chargesFuture = App.serviceConfig.userService.fetchPatronCharges(account: account)
 
-        // fetch the summary
-        let req1 = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, userid], shouldCache: false)
-        let promise1 = req1.gatewayOptionalObjectResponse().done { obj in
-            self.loadFinesSummary(fromObj: obj)
-        }
-        promises.append(promise1)
-        
-        // fetch the transactions
-        let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, userid], shouldCache: false)
-        let promise2 = req2.gatewayArrayResponse().done { objects in
-            self.loadTransactions(fines: FineRecord.makeArray(objects))
-        }
-        promises.append(promise2)
-        
-        // wait for them to finish
-        firstly {
-            when(fulfilled: promises)
-        }.done {
+            let (_, charges) = try await (fetchHomeOrgSettings(account: account), chargesFuture)
+
+            self.anyBalanceOwed = charges.balanceOwed > 0.0
             self.updatePayFinesButton()
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
+            self.updateCharges(withCharges: charges)
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
+
+        activityIndicator.stopAnimating()
     }
-    
+
     func updatePayFinesButton() {
         if App.config.enablePayFines,
             let homeOrgID = App.account?.homeOrgID,
             let homeOrg = Organization.find(byId: homeOrgID),
             let isPaymentAllowed = homeOrg.isPaymentAllowedSetting,
-            isPaymentAllowed && balanceOwed > 0
+            isPaymentAllowed && anyBalanceOwed
         {
             Style.styleButton(asInverse: payFinesButton)
             payFinesButton.isEnabled = true
@@ -177,23 +159,22 @@ class FinesViewController: UIViewController {
         }
     }
 
-    func loadFinesSummary(fromObj obj: OSRFObject?) {
-        let totalOwed = obj?.getDouble("total_owed") ?? 0.0
-        let totalPaid = obj?.getDouble("total_paid") ?? 0.0
-        self.balanceOwed = obj?.getDouble("balance_owed") ?? 0.0
-        totalOwedVal.text = String(format: "$ %.2f", totalOwed)
-        totalPaidVal.text = String(format: "$ %.2f", totalPaid)
-        balanceOwedVal.text = String(format: "$ %.2f", balanceOwed)
+    func updateCharges(withCharges charges: PatronCharges) {
+        totalOwedVal.text = String(format: "$ %.2f", charges.totalCharges)
+        totalPaidVal.text = String(format: "$ %.2f", charges.totalPaid)
+        balanceOwedVal.text = String(format: "$ %.2f", charges.balanceOwed)
+
+        loadTransactions(fines: charges.transactions)
     }
-    
-    func loadTransactions(fines: [FineRecord]) {
+
+    func loadTransactions(fines: [XPatronChargeRecord]) {
         self.fines = fines
         for fine in fines {
             print("-----------------------")
             print("title:    \(fine.title)")
             print("subtitle: \(fine.subtitle)")
             print("status:   \(fine.status)")
-            if let balance = fine.balance {
+            if let balance = fine.balanceOwed {
                 print("balance:  \(balance)")
             }
         }
@@ -215,7 +196,7 @@ extension FinesViewController: UITableViewDataSource {
         let fine = fines[indexPath.row]
         cell.finesTitle?.text = fine.title
         cell.finesSubtitle?.text = fine.subtitle
-        cell.finesValue?.text = String(format: "$ %.2f ", fine.balance!)
+        cell.finesValue?.text = String(format: "$ %.2f ", fine.balanceOwed ?? 0.0)
         cell.finesStatus?.text = fine.status
 
         return cell
@@ -225,35 +206,30 @@ extension FinesViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension FinesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var haveAnyGroceryBills = false
+        guard indexPath.row >= 0 && indexPath.row < fines.count else { return }
 
-        // TODO have to deal with grocery bills in the same way as android
-        var records: [MBRecord] = []
         var selectedIndex = indexPath.row
+        let currentFine = fines[indexPath.row]
+        let currentRecord = currentFine.record
+
+        var records: [MBRecord] = []
         for fine in fines {
-            if let mvrObj = fine.mvrObj,
-                let id = mvrObj.getInt("doc_id"),
-                id > 0
-            {
-                records.append(MBRecord(id: id, mvrObj: mvrObj))
-            } else {
-                haveAnyGroceryBills = true
+            if let record = fine.record, !record.isPreCat {
+                records.append(record)
             }
         }
 
-        if haveAnyGroceryBills {
-            // If any of the fines are for non-circulation items ("grocery bills"), we
-            // launch the Details VC with only the selected record, if we can.  We have
-            // no details on grocery bills, and the Details VC doesn't handle nulls.
-            if let mvrObj = fines[indexPath.row].mvrObj,
-                let id = mvrObj.getInt("doc_id"),
-                id > 0
-            {
-                records = [MBRecord(id: id, mvrObj: mvrObj)]
-                selectedIndex = 0
+        // If any of the fines are for non-circulation items ("grocery bills"), we
+        // launch the Details VC with only the selected record, if we can.  We have
+        // no details on grocery bills, and the Details VC doesn't handle nulls.
+        if records.count != fines.count {
+            records = []
+            selectedIndex = 0
+            if let record = currentRecord, !record.isPreCat {
+                records.append(record)
             }
         }
-        
+
         if records.count > 0 {
             let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
             if let vc = XUtils.makeDetailsPager(items: records, selectedItem: selectedIndex, displayOptions: displayOptions) {

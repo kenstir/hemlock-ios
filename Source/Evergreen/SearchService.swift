@@ -15,55 +15,29 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
-import PromiseKit
-import PMKAlamofire
 
 class SearchService {
-    static var copyStatusLoaded = false
-    
-    static func fetchCopyStatusAll() -> Promise<Void> {
-        if copyStatusLoaded {
-            return Promise<Void>()
-        }
-        let req = Gateway.makeRequest(service: API.search, method: API.copyStatusRetrieveAll, args: [], shouldCache: true)
-        let promise = req.gatewayArrayResponse().done { array in
-            CopyStatus.loadCopyStatus(fromArray: array)
-            copyStatusLoaded = true
-        }
-        return promise
-    }
 
-    static func fetchCopyCount(orgID: Int, recordID: Int) -> Promise<([OSRFObject])> {
+    static func fetchCopyCount(recordID: Int, orgID: Int) async throws -> [OSRFObject] {
         let req = Gateway.makeRequest(service: API.search, method: API.copyCount, args: [orgID, recordID], shouldCache: false)
-        let promise = req.gatewayArrayResponse()
-        return promise
+        return try await req.gatewayResponseAsync().asArray()
     }
 
-    static func fetchCopyLocationCounts(org: Organization?, recordID: Int) -> Promise<(GatewayResponse)> {
+    static func fetchCopyLocationCounts(recordID: Int, org: Organization?) async throws -> GatewayResponse {
         var args: [Any] = [recordID]
         if let searchOrg = org {
             args.append(searchOrg.id)
             args.append(searchOrg.level)
         }
         let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: args, shouldCache: false)
-        let promise = req.gatewayResponse()
-        return promise
+        return try await req.gatewayResponseAsync()
     }
 
-    static func fetchRecordMODS(forRecord record: MBRecord) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [record.id], shouldCache: true)
-        let promise = req.gatewayObjectResponse().done { obj in
-            record.mvrObj = obj
-        }
-        return promise
-    }
-
-    static func fetchHoldParts(recordID: Int) -> Promise<([OSRFObject])> {
+    static func fetchHoldParts(recordID: Int) async throws -> [OSRFObject] {
         let param: JSONDictionary = [
             "record": recordID
         ]
         let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param], shouldCache: true)
-        let promise = req.gatewayArrayResponse()
-        return promise
+        return try await req.gatewayResponseAsync().asArray()
     }
 }

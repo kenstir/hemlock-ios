@@ -190,8 +190,23 @@ class GatewayResponseTests: XCTestCase {
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
         XCTAssertEqual(resp.errorMessage, "The system could not find any items to match this hold request")
+
+        XCTAssertThrowsError(try resp.asObject()) { error in
+            XCTAssertTrue(error is GatewayError)
+        }
     }
-    
+
+    func test_titleHoldIsPossibleSuccess() {
+        let json = """
+            {"payload":[{"success":1,"depth":null,"local_avail":""}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertFalse(resp.failed)
+
+        let obj = try? resp.asObject()
+        XCTAssertEqual(obj?.getInt("success"), 1)
+    }
+
     func test_actorCheckedOut() {
         let json = """
             {"status":200,"payload":[{"overdue":[],"out":["73107615","72954513"],"lost":[1,2]}]}

@@ -40,8 +40,8 @@ class CircRecordTests: XCTestCase {
             "due_date": "2020-02-05T23:59:59-0500",
         ])
         let circRecord = CircRecord(id: 93108558)
-        circRecord.circObj = circObj
-        
+        circRecord.setCircObj(circObj)
+
         XCTAssertEqual("Unknown Title", circRecord.title)
         XCTAssertEqual("", circRecord.author)
         XCTAssertEqual(0, circRecord.renewalsRemaining)
@@ -64,9 +64,9 @@ class CircRecordTests: XCTestCase {
             "author": "Margaret Atwood"
         ])
         let circRecord = CircRecord(id: 93108558)
-        circRecord.circObj = circObj
-        circRecord.metabibRecord = MBRecord(id: 1234, mvrObj: mvrObj)
-        
+        circRecord.setCircObj(circObj)
+        circRecord.setMetabibRecord(MBRecord(id: 1234, mvrObj: mvrObj))
+
         XCTAssertEqual("The Testaments", circRecord.title)
         XCTAssertEqual("Margaret Atwood", circRecord.author)
     }
@@ -96,9 +96,9 @@ class CircRecordTests: XCTestCase {
             "status": 1
         ])
         let circRecord = CircRecord(id: 1)
-        circRecord.circObj = circObj
-        circRecord.metabibRecord = MBRecord(id: -1, mvrObj: mvrObj)
-        circRecord.acpObj = acpObj
+        circRecord.setCircObj(circObj)
+        circRecord.setMetabibRecord(MBRecord(id: -1, mvrObj: mvrObj))
+        circRecord.setAcpObj(acpObj)
         
         XCTAssertEqual("SEO TEST", circRecord.title)
         XCTAssertEqual("NO AUTHOR", circRecord.author)

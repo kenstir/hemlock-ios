@@ -1,43 +1,42 @@
- //  Account.swift
- //
- //  Copyright (C) 2018 Kenneth H. Cox
- //
- //  This program is free software; you can redistribute it and/or
- //  modify it under the terms of the GNU General Public License
- //  as published by the Free Software Foundation; either version 2
- //  of the License, or (at your option) any later version.
- //
- //  This program is distributed in the hope that it will be useful,
- //  but WITHOUT ANY WARRANTY; without even the implied warranty of
- //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- //  GNU General Public License for more details.
- //
- //  You should have received a copy of the GNU General Public License
- //  along with this program; if not, write to the Free Software
- //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//
+//  Copyright (c) 2025 Kenneth H. Cox
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
 import os.log
 
 class Account {
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Account")
+    private let lock = NSRecursiveLock()
 
     let username: String
-    var password: String
-    var authtoken: String?
-    var userID: Int?
-    var homeOrgID: Int?
-    var barcode: String?
-    var dayPhone: String?
-    var firstGivenName: String?
-    var familyName: String?
-    var expireDate: Date?
-    var defaultNotifyEmail: Bool?
-    var defaultNotifyPhone: Bool?
-    var defaultNotifySMS: Bool?
-    var bookBags: [BookBag] = []
-    var bookBagsEverLoaded = false
-    
+    private(set) var password: String
+    private(set) var authtoken: String?
+    private(set) var userID: Int?
+    private(set) var homeOrgID: Int?
+    private(set) var barcode: String?
+    private var dayPhone: String?
+    private var firstGivenName: String?
+    private var familyName: String?
+    private(set) var expireDate: Date?
+    private(set) var defaultNotifyEmail: Bool?
+    private(set) var defaultNotifyPhone: Bool?
+    private(set) var defaultNotifySMS: Bool?
+    private(set) var bookBags: [BookBag] = []
+    private(set) var bookBagsEverLoaded = false
+
     var displayName: String {
         if username == barcode,
             let first = firstGivenName,
@@ -48,13 +47,13 @@ class Account {
         }
     }
 
-    var userSettingsLoaded = false
-    fileprivate var userSettingDefaultPickupLocation: Int?
-    fileprivate var userSettingDefaultPhone: String?
-    fileprivate var userSettingDefaultSearchLocation: Int?
-    fileprivate var userSettingDefaultSMSCarrier: Int?
-    fileprivate var userSettingDefaultSMSNotify: String?
-    var userSettingCircHistoryStart: String?
+    private var userSettingsLoaded = false
+    private var userSettingDefaultPickupLocation: Int?
+    private var userSettingDefaultPhone: String?
+    private var userSettingDefaultSearchLocation: Int?
+    private var userSettingDefaultSMSCarrier: Int?
+    private var userSettingDefaultSMSNotify: String?
+    private(set) var userSettingCircHistoryStart: String?
 
     var notifyPhone: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }
     var pickupOrgID: Int? { return userSettingDefaultPickupLocation ?? homeOrgID }
@@ -66,8 +65,11 @@ class Account {
         self.username = username
         self.password = password
     }
-    
+
+    /// mt-safe
     func clear() -> Void {
+        lock.lock(); defer { lock.unlock() }
+
         self.password = ""
         self.authtoken = nil
         self.userID = nil
@@ -79,7 +81,11 @@ class Account {
         self.bookBagsEverLoaded = false
     }
 
+    /// mt-safe
     func loadSession(fromObject obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+
+        print("\(Utils.tt) loadSession")
         userID = obj.getInt("id")
         homeOrgID = obj.getInt("home_ou")
         dayPhone = obj.getString("day_phone")
@@ -105,24 +111,27 @@ class Account {
         defaultNotifySMS = value.contains("sms")
     }
 
-    /// we just got the fcmToken from the user setting.  If the one we have in the app is
-    /// different, we need to update the user setting in Evergreen
-    func maybeUpdateUserSettings(storedData: String?, storedEnabledFlag: Bool) {
+    /// we just read `storedData` and `storedEnabledFlag` from the user settings.
+    /// If what we have in the app is different, we need to update the user setting in Evergreen
+    func maybeUpdateUserSettings(storedData: String?, storedEnabledFlag: Bool) async {
         print("[fcm] stored token was: \(storedData ?? "(nil)")")
         if let currentFCMToken = App.fcmNotificationToken,
            currentFCMToken != storedData || !storedEnabledFlag
         {
             print("[fcm] updating stored token")
-            let promise = ActorService.updatePushNotificationToken(account: self, token: currentFCMToken)
-            promise.done {
-                //print("[fcm] done updating stored token")
-            }.catch { error in
+            do {
+                try await App.serviceConfig.userService.updatePushNotificationToken(account: self, token: currentFCMToken)
+            } catch {
                 print("[fcm] caught error \(error.localizedDescription)")
             }
         }
     }
 
+    /// mt-safe
     func loadUserSettings(fromObject obj: OSRFObject) {
+        lock.lock(); defer { lock.unlock() }
+        print("\(Utils.tt) loadUserSettings")
+
         if let card = obj.getObject("card") {
             barcode = card.getString("barcode")
         }
@@ -160,13 +169,40 @@ class Account {
         parseHoldNotifyValue(holdNotifySetting)
         userSettingsLoaded = true
 
-        maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled)
-        os_log(.info, log: Account.log, "loadUserSettings finished, fcmToken=%@", App.fcmNotificationToken ?? "(nil)")
+        Task { await maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled) }
+        os_log(.info, log: Account.log, "loadUserSettings finished")
     }
 
+    /// mt-safe
+    func setCircHistoryStart(_ start: String?) {
+        lock.lock(); defer { lock.unlock() }
+
+        userSettingCircHistoryStart = start
+    }
+
+    /// mt-safe
     func loadBookBags(fromArray objects: [OSRFObject]) {
+        lock.lock(); defer { lock.unlock() }
+
         bookBags = BookBag.makeArray(objects)
         Analytics.logEvent(event: Analytics.Event.bookbagsLoad, parameters: [Analytics.Param.numItems: bookBags.count])
         bookBagsEverLoaded = true
+    }
+
+    /// mt-safe
+    func removeBookBag(at index: Int) {
+        lock.lock(); defer { lock.unlock() }
+
+        guard index >= 0 && index < bookBags.count else {
+            return
+        }
+        bookBags.remove(at: index)
+    }
+
+    /// mt-safe
+    func setAuthToken(_ authtoken: String) {
+        lock.lock(); defer { lock.unlock() }
+
+        self.authtoken = authtoken
     }
 }

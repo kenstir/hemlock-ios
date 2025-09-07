@@ -1,25 +1,20 @@
-/*
- * BookBagDetailsViewController.swift
- *
- * Copyright (C) 2021 Kenneth H. Cox
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+//
+//  Copyright (c) 2025 Kenneth H. Cox
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
-import PromiseKit
 import os.log
 
 class BookBagDetailsViewController : UITableViewController {
@@ -32,7 +27,7 @@ class BookBagDetailsViewController : UITableViewController {
     var sortDescending = false
     var sortOrderButton = UIBarButtonItem()
 
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
+    let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
     
     //MARK: - UIViewController
     
@@ -49,7 +44,7 @@ class BookBagDetailsViewController : UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -71,44 +66,37 @@ class BookBagDetailsViewController : UITableViewController {
         let sortButton = UIBarButtonItem(image: sortByImage, style: .plain, target: self, action: #selector(sortButtonPressed(sender:)))
         navigationItem.rightBarButtonItems?.append(sortButton)
     }
-    
-    func fetchData() {
+
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account, let bookBag = self.bookBag else { return }
+
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
-        // fetch the record details
-        var promises: [Promise<Void>] = []
-        if let items = bookBag?.items {
-            for item in items {
-                promises.append(fetchTargetDetails(forItem: item))
+        do {
+            try await App.serviceConfig.userService.loadPatronListItems(account: account, patronList: bookBag)
+            os_log("fetched %d items", log: self.log, type: .info, account.bookBags.count)
+
+            try await withThrowingTaskGroup(of: Void.self) { group in
+                for item in bookBag.items {
+                    group.addTask {
+                        try await self.loadItemDetails(forItem: item)
+                    }
+                }
+                try await group.waitForAll()
             }
-        }
-        
-        // wait for them to be fulfilled
-        firstly {
-            when(fulfilled: promises)
-        }.done {
+
             self.updateItems()
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
+        } catch {
+            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
         }
+
+        activityIndicator.stopAnimating()
     }
-    
-    func fetchTargetDetails(forItem item: BookBagItem) -> Promise<Void> {
-        let req = Gateway.makeRequest(service: API.search, method: API.recordModsRetrieve, args: [item.targetId], shouldCache: true)
-        let promise = req.gatewayObjectResponse().then { (obj: OSRFObject) -> Promise<Void> in
-            let record = MBRecord(id: item.targetId, mvrObj: obj)
-            item.metabibRecord = record
-            if App.config.needMARCRecord {
-                return PCRUDService.fetchMARC(forRecord: record)
-            } else {
-                return Promise<Void>()
-            }
-        }.done {
-        }
-        return promise
+
+    func loadItemDetails(forItem item: BookBagItem) async throws -> Void {
+        try await App.serviceConfig.biblioService.loadRecordDetails(forRecord: item.metabibRecord, needMARC: App.config.needMARCRecord)
     }
 
     @objc func sortButtonPressed(sender: UIBarButtonItem) {
@@ -169,24 +157,24 @@ class BookBagDetailsViewController : UITableViewController {
 
     func authorSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
         if (descending) {
-            return a.metabibRecord?.author ?? "" > b.metabibRecord?.author ?? ""
+            return a.metabibRecord.author > b.metabibRecord.author
         } else {
-            return a.metabibRecord?.author ?? "" < b.metabibRecord?.author ?? ""
+            return a.metabibRecord.author < b.metabibRecord.author
         }
     }
 
     func titleSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
-        let akey = a.metabibRecord?.titleSortKey ?? ""
-        let bkey = b.metabibRecord?.titleSortKey ?? ""
+        let akey = a.metabibRecord.titleSortKey
+        let bkey = b.metabibRecord.titleSortKey
         let order = descending ? ComparisonResult.orderedDescending : ComparisonResult.orderedAscending
         return akey.compare(bkey, locale: .current) == order
     }
 
     func pubdateSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
         if (descending) {
-            return Utils.pubdateSortKey(a.metabibRecord?.pubdate) ?? 0 > Utils.pubdateSortKey(b.metabibRecord?.pubdate) ?? 0
+            return Utils.pubdateSortKey(a.metabibRecord.pubdate) ?? 0 > Utils.pubdateSortKey(b.metabibRecord.pubdate) ?? 0
         } else {
-            return Utils.pubdateSortKey(a.metabibRecord?.pubdate) ?? 0 < Utils.pubdateSortKey(b.metabibRecord?.pubdate) ?? 0
+            return Utils.pubdateSortKey(a.metabibRecord.pubdate) ?? 0 < Utils.pubdateSortKey(b.metabibRecord.pubdate) ?? 0
         }
     }
 
@@ -204,33 +192,38 @@ class BookBagDetailsViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+        guard let account = App.account, let bookBag = self.bookBag else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
         }
 
         let item = sortedItems[indexPath.row]
-        ActorService.removeItemFromBookBag(authtoken: authtoken, bookBagItemId: item.id).done {
+        Task { await self.deleteItem(account: account, bookBag: bookBag, item: item) }
+    }
+
+    @MainActor
+    func deleteItem(account: Account, bookBag: BookBag, item: BookBagItem) async {
+        do {
+            try await App.serviceConfig.userService.removeItemFromPatronList(account: account, listId: bookBag.id, itemId: item.id)
             Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.bookBag?.items.removeAll(where: { $0.id == item.id })
             self.updateItems()
-        }.catch { error in
+        } catch {
             Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: error.localizedDescription])
             self.presentGatewayAlert(forError: error)
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "bookBagDetailsCell", for: indexPath) as? BookBagDetailsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
 
         let item = sortedItems[indexPath.row]
-        cell.title.text = item.metabibRecord?.title
-        cell.author.text = item.metabibRecord?.author
-        cell.format.text = item.metabibRecord?.iconFormatLabel
+        cell.title.text = item.metabibRecord.title
+        cell.author.text = item.metabibRecord.author
+        cell.format.text = item.metabibRecord.iconFormatLabel
 
         return cell
     }
@@ -238,9 +231,7 @@ class BookBagDetailsViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var records: [MBRecord] = []
         for item in sortedItems {
-            if let record = item.metabibRecord {
-                records.append(record)
-            }
+            records.append(item.metabibRecord)
         }
 
         if records.count > 0 {

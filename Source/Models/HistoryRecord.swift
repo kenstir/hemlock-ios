@@ -19,10 +19,11 @@ import Foundation
 
 /// A `HistoryRecord` is an item from the patron's circulation history
 class HistoryRecord {
+    private let lock = NSRecursiveLock()
 
     let id: Int
     let auchObj: OSRFObject
-    var metabibRecord: MBRecord?
+    private(set) var metabibRecord: MBRecord?
 
     var title: String {
         if let title = metabibRecord?.title, !title.isEmpty { return title }
@@ -43,10 +44,16 @@ class HistoryRecord {
     var returnedDateLabel: String { return auchObj.getDateLabel("checkin_time") ?? "Not Returned" }
     var targetCopy: Int { return auchObj.getInt("target_copy") ?? -1 }
 
-    init(id: Int, obj: OSRFObject, metabibRecord: MBRecord? = nil) {
+    init(id: Int, obj: OSRFObject) {
         self.id = id
         self.auchObj = obj
-        self.metabibRecord = metabibRecord
+        self.metabibRecord = nil
+    }
+
+    /// mt-safe
+    func setBibRecord(_ record: MBRecord?) {
+        lock.lock(); defer { lock.unlock() }
+        self.metabibRecord = record
     }
 
     static func makeArray(_ objects: [OSRFObject]) -> [HistoryRecord] {

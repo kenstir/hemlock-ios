@@ -1,25 +1,20 @@
-/*
- * BookBagsViewController.swift
- *
- * Copyright (C) 2021 Kenneth H. Cox
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+//
+//  Copyright (c) 2025 Kenneth H. Cox
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
-import PromiseKit
 import os.log
 
 class BookBagsViewController : UITableViewController {
@@ -45,7 +40,7 @@ class BookBagsViewController : UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -60,11 +55,10 @@ class BookBagsViewController : UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(sender:)))
         navigationItem.rightBarButtonItems?.append(addButton)
     }
-    
-    func fetchData() {
-        guard let account = App.account,
-              let authtoken = account.authtoken,
-              let userID = account.userID else
+
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return //TODO: add analytics
@@ -72,72 +66,72 @@ class BookBagsViewController : UITableViewController {
         
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
-        
-        // fetch the list of bookbags
-        ActorService.fetchBookBags(account: account, authtoken: authtoken, userID: userID).done {
-            os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
-            self.fetchBookBagContents(account: account, authtoken: authtoken)
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
-        }
-    }
-    
-    func fetchBookBagContents(account: Account, authtoken: String) {
-        var promises: [Promise<Void>] = []
-        for bookBag in account.bookBags {
-            promises.append(ActorService.fetchBookBagContents(authtoken: authtoken, bookBag: bookBag))
-        }
-        os_log("%d promises made", log: self.log, type: .info, promises.count)
 
-        firstly {
-            when(resolved: promises)
-        }.done { results in
-            os_log("%d promises done", log: self.log, type: .info, promises.count)
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forResults: results)
+        do {
+            try await App.serviceConfig.userService.loadPatronLists(account: account)
+            os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
+
+            try await withThrowingTaskGroup(of: Void.self) { group in
+                for bookBag in account.bookBags {
+                    group.addTask {
+                        try await App.serviceConfig.userService.loadPatronListItems(account: account, patronList: bookBag)
+                    }
+                }
+                try await group.waitForAll()
+            }
+
             self.didCompleteFetch = true
             self.updateItems()
+        } catch {
+            self.presentGatewayAlert(forError: error, title: "Error fetching lists")
         }
+
+        activityIndicator.stopAnimating()
     }
-    
+
     @objc func addButtonPressed(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Create list", message: nil, preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { textField in
             textField.placeholder = "List name"
         })
+        alertController.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Description (optional)"
+        })
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Create", style: .default) { action in
+            let description = alertController.textFields?[1].text?.trim()
             if let listName = alertController.textFields?[0].text?.trim(),
                !listName.isEmpty {
-                self.createBookBag(name: listName)
+                Task { await self.createBookBag(name: listName, description: description) }
             }
         })
         self.present(alertController, animated: true)
     }
-    
-    func createBookBag(name: String) {
-        guard let account = App.account,
-              let authtoken = account.authtoken,
-              let userID = account.userID else
+
+    @MainActor
+    func createBookBag(name: String, description: String?) async {
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
-        
-        ActorService.createBookBag(authtoken: authtoken, userID: userID, name: name).done {
+
+        do {
+            try await App.serviceConfig.userService.createPatronList(account: account, name: name, description: description ?? "")
             self.navigationController?.view.makeToast("List created")
-            self.fetchData()
-        }.catch { error in
+            await self.fetchData()
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
 
-    func deleteBookBag(authtoken: String, bookBagId: Int, indexPath: IndexPath) {
-        ActorService.deleteBookBag(authtoken: authtoken, bookBagId: bookBagId).done {
-            App.account?.bookBags.remove(at: indexPath.row)
+    @MainActor
+    func deleteBookBag(account: Account, listId: Int, indexPath: IndexPath) async {
+        do {
+            try await App.serviceConfig.userService.deletePatronList(account: account, listId: listId)
+            account.removeBookBag(at: indexPath.row)
             self.updateItems()
-        }.catch { error in
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -169,8 +163,7 @@ class BookBagsViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
@@ -182,7 +175,7 @@ class BookBagsViewController : UITableViewController {
         let alertController = UIAlertController(title: "Delete list?", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
-            self.deleteBookBag(authtoken: authtoken, bookBagId: item.id, indexPath: indexPath)
+            Task { await self.deleteBookBag(account: account, listId: item.id, indexPath: indexPath) }
         })
         self.present(alertController, animated: true)
     }

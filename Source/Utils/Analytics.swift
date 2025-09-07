@@ -33,15 +33,19 @@ typealias FA = FirebaseAnalytics.Analytics
 #endif
 
 class Analytics {
-    static let nullTag = "nil"
+    static let nullTag = "null_tag"
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Analytics")
+    static let lock = NSRecursiveLock()
     static var buf = RingBuffer<String>(count: 256)
+    //    static let maxBytesShown = 512
+    static let maxBytesShown = 128
 
     class Event {
         static let bookbagAddItem = "bookbag_add_item"
         static let bookbagDeleteItem = "bookbag_delete_item"
         static let bookbagLoad = "bookbag_load"
         static let bookbagsLoad = "bookbags_load"
+        static let historyLoad = "history_load"
         static let cancelHold = "hold_cancel"
         static let placeHold = "hold_place"
         static let updateHold = "hold_update"
@@ -54,6 +58,7 @@ class Analytics {
         static let holdNotify = "hold_notify"
         static let holdPickupKey = "hold_pickup" // { home | other }
         static let holdSuspend = "hold_suspend"
+        static let loginType = "login_type" // { barcode | username }
         static let result = "result"
         static let searchClass = "search_class"
         static let searchFormat = "search_format"
@@ -143,74 +148,115 @@ class Analytics {
         ]
     }
 
-    static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
-        os_log("%{public}s:%d: %{public}s", log: log, type: .error, file, line, msg)
-        let s = "\(file):\(line): \(msg)"
+    /// mt: MT-Safe
+    static private func logToBuffer(_ s: String) {
+        lock.lock(); defer { lock.unlock() }
         buf.write(s)
     }
 
+    /// mt: MT-Safe
+    static func logError(code: AnalyticsErrorCode, msg: String, file: String, line: Int) {
+        os_log("%{public}s:%d: %{public}s", log: log, type: .error, file, line, msg)
+        let s = "\(file):\(line): \(msg)"
+        logToBuffer(s)
+    }
+
+    /// mt: MT-Safe
     static func logError(error: Error) {
         os_log("%{public}s", log: log, type: .error, error.localizedDescription)
-        buf.write(error.localizedDescription)
+        logToBuffer(error.localizedDescription)
 #if USE_FA || USE_FCM
         Crashlytics.crashlytics().record(error: error)
 #endif
     }
 
-    static func logRequest(tag: String, method: String, args: [String]) {
+    static private func netPrefix(_ tag: String?) -> String {
+        let tag8 = (tag ?? nullTag).padding(toLength: 8, withPad: " ", startingAt: 0)
+        return "[net] \(tag8)"
+    }
+
+    /// mt: MT-Safe
+    static func logRequest(tag: String?, method: String, args: [String]) {
+        //print("\(Utils.tt) logRequest \(tag ?? nullTag): \(method)")
+
         // TODO: redact authtoken inside args
         var argsDescription = "***"
         if method != "open-ils.auth.authenticate.init",
            method != "open-ils.auth.authenticate.complete" {
             argsDescription = args.joined(separator: ",")
         }
-        let s = "\(tag): send: \(method) \(argsDescription)"
+        let prefix = netPrefix(tag)
+        let s = "\(prefix) send  \(method) \(argsDescription)"
 
         os_log("%{public}s", log: log, type: .info, s)
-        buf.write(s)
+        logToBuffer(s)
     }
 
-    static func logRequest(tag: String, url: String) {
-        let s = "\(tag): send: \(url)"
+    /// mt: MT-Safe
+    static func logRequest(tag: String?, url: String) {
+        let prefix = netPrefix(tag)
+        let s = "\(prefix) send  \(url)"
 
         os_log("%{public}s", log: log, type: .info, s)
-        buf.write(s)
+        logToBuffer(s)
     }
 
-    static func logResponse(tag: String, data responseData: Data?) {
+    /// mt: MT-Safe
+    static func logResponse(tag: String?, data responseData: Data?, cached: Bool? = nil, elapsedMs: Int? = nil) {
         if let d = responseData,
             let s = String(data: d, encoding: .utf8) {
-            logResponse(tag: tag, wireString: s)
+            logResponse(tag: tag, wireString: s, cached: cached, elapsedMs: elapsedMs)
         } else {
-            logResponse(tag: tag, wireString: "(null)")
+            logResponse(tag: tag, wireString: "(null)", cached: cached, elapsedMs: elapsedMs)
         }
     }
-    
-    static func logResponse(tag: String, wireString: String) {
+
+    /// mt: MT-Safe
+    static func logResponse(tag: String?, wireString: String, cached: Bool? = nil, elapsedMs: Int? = nil) {
+        //print("\(Utils.tt) logResponse \(tag ?? nullTag)")
+
+        // build a prefix indicating cached status and elapsed time if available
+        let netPrefix = netPrefix(tag)
+        let duration: String
+        if let ms = elapsedMs {
+            duration = String(format: " %5d ms", ms)
+        } else {
+            duration = ""
+        }
+        let badge = cached == true ? "*" : " "
+        let prefix = "\(netPrefix) recv\(badge)\(duration)"
+
         // redact certain responses: login (au), message (aum), orgTree (aou)
         // au? is sensitive; aou is just long
-        let pattern = """
+        let redactedResponseRegex = """
             ("__c":"aum?"|"__c":"aou")
             """
-        let range = wireString.range(of: pattern, options: .regularExpression)
         let s: String
-        if range == nil {
-            s = "\(tag): recv: \(wireString)"
+        if wireString.starts(with: "<IDL ") {
+            s = "\(prefix) <IDL>"
         } else {
-            s = "\(tag): recv: ***"
+            let range = wireString.range(of: redactedResponseRegex, options: .regularExpression)
+            if range == nil {
+                s = "\(prefix) \(wireString)"
+            } else {
+                s = "\(prefix) ***"
+            }
         }
 
         // log the first bytes of the response
-        // TODO: indicate if cached
-        os_log("%{public}s", log: log, type: .info, s[0..<256])
-        buf.write(s)
+        os_log("%{public}s", log: log, type: .info, s[0..<maxBytesShown])
+        logToBuffer(s)
     }
-    
+
+    /// mt: MT-Safe
     static func clearLog() {
+        lock.lock(); defer { lock.unlock() }
         buf.clear()
     }
-    
+
+    /// mt: MT-Safe
     static func getLog() -> String {
+        lock.lock(); defer { lock.unlock() }
         let arr = buf.map { $0 }
         return arr.joined(separator: "\n") + "\n"
     }

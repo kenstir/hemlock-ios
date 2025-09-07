@@ -9,14 +9,6 @@ becomes simpler but not trivial.
 Might be overkill for what we do here, but I started with it, it is well
 maintained, and it has not been a problem.
 
-## PromiseKit - promises
-
-PMK is the center of all async behavior in the app, and many APIs are
-built to return Promise<>.  If I started today, I might choose SwiftUI +
-async, but I'm not going to switch now.
-
-PMKAlamofire is the integration layer.
-
 ## PINRemoteImage - async image loading
 
 PINRemoteImage results in smooth async image loading where it matters -

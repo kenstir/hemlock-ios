@@ -16,7 +16,6 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import UIKit
-import PromiseKit
 import os.log
 
 class HistoryViewController: UITableViewController {
@@ -27,6 +26,7 @@ class HistoryViewController: UITableViewController {
 
     var items: [HistoryRecord] = []
     var didCompleteFetch = false
+    var startOfFetch = Date()
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "History")
 
     //MARK: - UIViewController
@@ -45,7 +45,7 @@ class HistoryViewController: UITableViewController {
         }
 
         if !didCompleteFetch {
-            self.fetchData()
+            Task { await self.fetchData() }
         }
     }
 
@@ -63,7 +63,8 @@ class HistoryViewController: UITableViewController {
         navigationItem.rightBarButtonItems?.append(button)
     }
 
-    func fetchData() {
+    @MainActor
+    func fetchData() async {
         guard let account = App.account,
               let authtoken = account.authtoken else
         {
@@ -73,43 +74,47 @@ class HistoryViewController: UITableViewController {
 
         centerSubview(activityIndicator)
         activityIndicator.startAnimating()
+        startOfFetch = Date()
 
-        // fetch history
-        ActorService.fetchCheckoutHistory(authtoken: authtoken).done { objList in
+        do {
+            let objList = try await ActorService.fetchCheckoutHistory(authtoken: authtoken)
             self.items = HistoryRecord.makeArray(objList)
-            self.fetchCircDetails()
-        }.catch { error in
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forError: error, title: "Error retrieving messages")
+            Analytics.logEvent(event: Analytics.Event.historyLoad, parameters: [Analytics.Param.numItems: items.count])
+            Task {
+                await prefetchCircDetails()
+                self.reloadData()
+            }
+            self.didCompleteFetch = true
+        } catch {
+            self.presentGatewayAlert(forError: error)
         }
+
+        activityIndicator.stopAnimating()
+
+        let elapsed = -startOfFetch.timeIntervalSinceNow
+        os_log("history fetch.elapsed: %.3f", log: self.log, type: .info, elapsed)
     }
 
-    func fetchCircDetails() {
-        var promises: [Promise<Void>] = []
-        for item in items {
-            let targetCopy = item.targetCopy
-            assert(targetCopy != -1, "no target copy")
-            let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [targetCopy], shouldCache: true)
-            let promise = req.gatewayObjectResponse().done { obj in
-                let id = obj.getInt("doc_id") ?? -1
-                item.metabibRecord = MBRecord(id: id, mvrObj: obj)
-                os_log("id=%d t=%d mods done (%@)", log: self.log, type: .info, item.id, item.targetCopy, item.title)
-            }
-            promises.append(promise)
-        }
-        let start = Date()
-        os_log("%d promises made", log: self.log, type: .info, promises.count)
+    @MainActor
+    func prefetchCircDetails() async {
+        // For now, we prefetch ALL details.  We do this because when you tap on a
+        // history item, it goes to the details pager which needs the metabib record.
+        // And we need a modsFromCopy request to get that.
+        //let maxRecordsToPreload = 10 // best estimate is 9 on screen + 1 partial
+        //let preloadItems = items.prefix(maxRecordsToPreload)
+        let preloadItems = items
 
-        firstly {
-            when(resolved: promises)
-        }.done { results in
-            let elapsed = -start.timeIntervalSinceNow
-            os_log("%d promises done, elapsed: %.3f", log: self.log, type: .info, promises.count, elapsed)
-            self.activityIndicator.stopAnimating()
-            self.presentGatewayAlert(forResults: results)
-            self.didCompleteFetch = true
-            self.reloadData()
+        let circService = App.serviceConfig.circService
+        await withTaskGroup(of: Void.self) { group in
+            for item in preloadItems {
+                group.addTask {
+                    try? await circService.loadHistoryDetails(historyRecord: item)
+                }
+            }
+            await group.waitForAll()
         }
+        let elapsed = -startOfFetch.timeIntervalSinceNow
+        os_log("%d history records loaded, elapsed: %.3f", log: self.log, type: .info, preloadItems.count, elapsed)
     }
 
     func reloadData() {
@@ -131,16 +136,18 @@ class HistoryViewController: UITableViewController {
         let alertController = UIAlertController(title: "Disable checkout history?", message: "Disabling checkout history will permanently remove all items from your history.", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Disable history", style: .destructive) { action in
-            self.disableCheckoutHistory(account: account)
+            Task { await self.disableCheckoutHistory(account: account) }
         })
         self.present(alertController, animated: true)
     }
 
-    func disableCheckoutHistory(account: Account) {
-        let promise = ActorService.disableCheckoutHistory(account: account)
-        promise.done {
+    @MainActor
+    func disableCheckoutHistory(account: Account) async {
+        do {
+            try await App.serviceConfig.userService.disableCheckoutHistory(account: account)
+            try await App.serviceConfig.userService.clearCheckoutHistory(account: account)
             self.navigationController?.popViewController(animated: true)
-        }.catch { error in
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
@@ -193,34 +200,54 @@ class HistoryViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as? HistoryTableViewCell else {
-            fatalError("dequeued cell of wrong class!")
-        }
-
-        //TODO: async loading a la ResultsViewController
-
+        print("\(Utils.tt) row=\(String(format: "%2d", indexPath.row)) cellForRowAt")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
+        guard items.count > indexPath.row else { return cell }
         let item = items[indexPath.row]
-        cell.title.text = item.title
-        cell.author.text = item.author
-        cell.checkoutDate.text = "Checkout Date: \(item.checkoutDateLabel)"
-        cell.returnDate.text = "Returned Date: \(item.returnedDateLabel)"
 
+        if item.metabibRecord != nil {
+            setCellMetadata(cell, forItem: item)
+        } else {
+            // Clear reused cells immediately or else it appears the titles
+            // change as you scroll fast
+            setCellMetadata(cell, forItem: nil)
+
+            // async load the metadata
+            Task {
+                try? await App.serviceConfig.circService.loadHistoryDetails(historyRecord: item)
+                self.setCellMetadata(cell, forItem: item)
+            }
+        }
+/*
         // async load the image
-        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(item.metabibRecord?.id ?? 0)) {
+        // We cannot load the image here, because the bib record ID needs to be fetched
+        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(item.metabibRecord?.id ?? -1)) {
             cell.coverImage.pin_setImage(from: url)
         }
-
+*/
         return cell
+    }
+
+    @MainActor
+    func setCellMetadata(_ cell: HistoryTableViewCell, forItem item: HistoryRecord?) {
+        print("\(Utils.tt) setCellMetadata for \(item?.title ?? "")")
+        cell.title.text = item?.title
+        cell.author.text = item?.author
+        cell.checkoutDate.text = "Checkout Date: \(item?.checkoutDateLabel ?? "")"
+        cell.returnDate.text = "Returned Date: \(item?.returnedDateLabel ?? "")"
+        // async load the image
+        if let recordId = item?.metabibRecord?.id,
+            let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(recordId)) {
+            cell.coverImage.pin_setImage(from: url)
+        } else {
+            let url: URL? = nil
+            cell.coverImage.pin_setImage(from: url)
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
-        var records: [MBRecord] = []
-        for item in items {
-            if let record = item.metabibRecord {
-                records.append(record)
-            }
-        }
+        let records = items.compactMap { $0.metabibRecord }
         if let vc = XUtils.makeDetailsPager(items: records, selectedItem: indexPath.row, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }

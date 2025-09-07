@@ -19,7 +19,6 @@
 
 import UIKit
 import MessageUI
-import PromiseKit
 import os.log
 
 extension UIViewController {
@@ -27,7 +26,7 @@ extension UIViewController {
     //MARK: - common view setup
 
     func addActivityIndicator() -> UIActivityIndicatorView {
-        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         view.addSubview(activityIndicator)
         centerSubview(activityIndicator)
 
@@ -71,7 +70,10 @@ extension UIViewController {
 
     // adapted with gratitude from https://stackoverflow.com/questions/41144523/swap-rootviewcontroller-with-animation
     func swapRootVC(_ vc: UIViewController, duration: TimeInterval = 0.75, completion: ((Bool) -> Void)? = nil) {
-        guard let window = UIApplication.shared.keyWindow else {
+        guard let window = UIApplication.shared.connectedScenes
+            .compactMap({ $0 as? UIWindowScene })
+            .flatMap({ $0.windows })
+            .first(where: { $0.isKeyWindow }) else {
             return
         }
 
@@ -138,7 +140,7 @@ extension UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    /// handle error in a promise chain by presenting the appropriate alert
+    /// handle error in async operations by presenting the appropriate alert
     func presentGatewayAlert(forError error: Error, title: String = "Error") {
         if isSessionExpired(error: error) {
             App.unloadIDL()
@@ -147,26 +149,6 @@ extension UIViewController {
             })
         } else {
             self.showAlert(title: title, error: error)
-        }
-    }
-    
-    func presentGatewayAlert(forResults results: [PromiseKit.Result<Void>]) {
-        var errors: [Error] = []
-        for result in results {
-            switch result {
-            case .fulfilled: //(let value):
-                break
-            case .rejected(let error):
-                errors.append(error)
-            }
-        }
-        if let error = errors.last,
-            isSessionExpired(error: error) {
-            self.presentGatewayAlert(forError: error)
-        } else {
-            // 2020-09-28 don't present the error; it was an error loading metadata
-            // for checkouts or holds, e.g. record is deleted, and the OPAC doesn't
-            // display such errors either
         }
     }
 

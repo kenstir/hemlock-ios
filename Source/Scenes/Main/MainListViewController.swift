@@ -18,8 +18,6 @@
 
 import Foundation
 import UIKit
-import PromiseKit
-import PMKAlamofire
 import os.log
 
 struct ButtonAction {
@@ -61,7 +59,7 @@ class MainListViewController: MainBaseViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        self.fetchData()
+        Task { await self.fetchData() }
     }
 
     //MARK: - Functions
@@ -93,17 +91,11 @@ class MainListViewController: MainBaseViewController {
             })
         }
         // This was part of a failed experiment to integrate SwiftUI
-//        if #available(iOS 14.0, *) {
-//            buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
-//                guard let account = App.account else { return }
-//                ActorService.fetchBookBags(account: account).done {
-//                    let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                }.catch { error in
-//                    self.presentGatewayAlert(forError: error)
-//                }
-//            }))
-//        }
+//        buttons.append(ButtonAction(title: "My Lists", iconName: "My Lists", handler: {
+//            guard let account = App.account else { return }
+//            let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }))
         // Shortcut to Place Hold
 //        buttons.append(ButtonAction("Place Hold", "holds", {
 //            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
@@ -151,51 +143,59 @@ class MainListViewController: MainBaseViewController {
             galileoButton.isHidden = true
         }
     }
-    
-    func fetchData() {
-        guard let authtoken = App.account?.authtoken,
-              let userID = App.account?.userID else { return }
+
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account else { return }
 
         if App.config.enableMessages {
-            fetchMessages(authtoken: authtoken, userid: userID)
+            await fetchMessages(account: account)
         }
         if App.config.enableEventsButton {
-            fetchHomeOrgSettings()
+            await fetchHomeOrgSettings()
         }
     }
-    
-    func fetchHomeOrgSettings() {
+
+    @MainActor
+    func fetchHomeOrgSettings() async {
         if didFetchHomeOrgSettings { return }
         guard let orgID = App.account?.homeOrgID else { return }
-        let promise = ActorService.fetchOrgTreeAndSettings(forOrgID: orgID)
-        promise.done {
-            self.didFetchHomeOrgSettings = true
-            if let org = Organization.find(byId: orgID),
-               let eventsURL = org.eventsURL,
-               !eventsURL.isEmpty,
-               let url = URL(string: eventsURL)
-            {
-                let index = self.buttons.index(before: self.buttons.endIndex)
-                self.buttons.insert(ButtonAction(title: "Events", iconName: "events", handler: {
-                    UIApplication.shared.open(url)
-                }), at: index)
-                self.tableView.reloadData()
-            }
-        }.catch { error in
+
+        do {
+            try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: orgID)
+            didFetchHomeOrgSettings = true
+            onHomeOrgSettingsLoaded(homeOrgID: orgID)
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
 
-    func fetchMessages(authtoken: String, userid: Int) {
-        ActorService.fetchMessages(authtoken: authtoken, userID: userid).done { array in
-            self.updateMessagesBadge(messageList: array)
-        }.catch { error in
+    func onHomeOrgSettingsLoaded(homeOrgID orgID: Int) {
+        if let org = Organization.find(byId: orgID),
+           let eventsURL = org.eventsURL,
+           !eventsURL.isEmpty,
+           let url = URL(string: eventsURL)
+        {
+            let index = self.buttons.index(before: self.buttons.endIndex)
+            self.buttons.insert(ButtonAction(title: "Events", iconName: "events", handler: {
+                UIApplication.shared.open(url)
+            }), at: index)
+            self.tableView.reloadData()
+        }
+    }
+
+    @MainActor
+    func fetchMessages(account: Account) async {
+
+        do {
+            let messages = try await App.serviceConfig.userService.fetchPatronMessages(account: account)
+            self.updateMessagesBadge(messages: messages)
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
 
-    func updateMessagesBadge(messageList: [OSRFObject]) {
-        let messages = PatronMessage.makeArray(messageList)
+    func updateMessagesBadge(messages: [PatronMessage]) {
         let unreadCount = messages.filter { $0.isPatronVisible && !$0.isDeleted && !$0.isRead }.count
         messagesButton.setBadge(text: (unreadCount > 0) ? String(unreadCount) : nil)
     }
@@ -227,7 +227,7 @@ class MainListViewController: MainBaseViewController {
 
     @objc override func applicationDidBecomeActive() {
         os_log("didBecomeActive: fetchData", log: log)
-        fetchData()
+        Task { await fetchData() }
     }
 
 }

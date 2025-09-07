@@ -24,13 +24,13 @@ import UIKit
 extension UIFont {
     
     var withSmallCaps: UIFont {
-        let upperCaseFeature = [
-            UIFontDescriptor.FeatureKey.featureIdentifier : kUpperCaseType,
-            UIFontDescriptor.FeatureKey.typeIdentifier : kUpperCaseSmallCapsSelector
+        let upperCaseFeature: [UIFontDescriptor.FeatureKey: Int] = [
+            .type: kUpperCaseType,
+            .selector: kUpperCaseSmallCapsSelector
         ]
-        let lowerCaseFeature = [
-            UIFontDescriptor.FeatureKey.featureIdentifier : kLowerCaseType,
-            UIFontDescriptor.FeatureKey.typeIdentifier : kLowerCaseSmallCapsSelector
+        let lowerCaseFeature: [UIFontDescriptor.FeatureKey: Int] = [
+            .type: kLowerCaseType,
+            .selector: kLowerCaseSmallCapsSelector
         ]
         let features = [upperCaseFeature, lowerCaseFeature]
         let smallCapsDescriptor = self.fontDescriptor.addingAttributes([UIFontDescriptor.AttributeName.featureSettings : features])

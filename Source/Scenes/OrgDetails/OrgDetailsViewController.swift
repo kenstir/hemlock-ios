@@ -12,12 +12,9 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
-import PromiseKit
-import PMKAlamofire
 
 class OrgDetailsViewController: UIViewController {
     
@@ -62,77 +59,37 @@ class OrgDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        fetchData()
+
+        Task { await fetchData() }
     }
-    
+
     //MARK: - Functions
-    
-    func fetchData() {
-        var promises: [Promise<Void>] = []
-        promises.append(ActorService.fetchOrgTypes())
-        promises.append(ActorService.fetchOrgTreeAndSettings(forOrgID: orgID))
-        
+
+    @MainActor
+    func fetchData() async {
+        guard let account = App.account,
+              let orgID = self.orgID,
+              let org = Organization.find(byId: orgID) else { return }
+
         centerSubview(activityIndicator)
-        self.activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
 
-        firstly {
-            when(fulfilled: promises)
-        }.done {
-            self.fetchOrg()
-            self.fetchHours()
-            self.fetchClosures()
-            self.fetchAddress()
-            self.onOrgTreeLoaded()
-        }.ensure {
-            self.activityIndicator.stopAnimating()
-        }.catch { error in
+        do {
+            _ = try await (
+                App.serviceConfig.orgService.loadOrgSettings(forOrgID: orgID),
+                App.serviceConfig.orgService.loadOrgDetails(account: account, forOrgID: orgID)
+            )
+        } catch {
             self.presentGatewayAlert(forError: error)
         }
-    }
-    
-    func fetchOrg() {
-        // fetch details for this org again, so it's up-to-date
-        // and not the cached version from the orgTree
-        guard let orgID = self.orgID else { return }
-        ActorService.fetchOrg(forOrgID: orgID).done {
-            self.onOrgLoaded()
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
-        }
-    }
-    
-    func fetchHours() {
-        guard let authtoken = App.account?.authtoken,
-            let orgID = self.orgID else { return }
-        
-        ActorService.fetchOrgHours(authtoken: authtoken, forOrgID: orgID).done { obj in
-            self.onHoursLoaded(obj)
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
-        }
-    }
 
-    func fetchClosures() {
-        guard let authtoken = App.account?.authtoken,
-            let orgID = self.orgID else { return }
+        activityIndicator.stopAnimating()
 
-        ActorService.fetchOrgClosures(authtoken: authtoken, forOrgID: orgID).done { objList in
-            self.onClosuresLoaded(objList)
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
-        }
-    }
-
-    func fetchAddress() {
-        guard let org = Organization.find(byId: orgID),
-            let addressID = org.addressID else { return }
-        
-        ActorService.fetchOrgAddress(addressID: addressID).done { obj in
-            self.onAddressLoaded(obj)
-        }.catch { error in
-            self.presentGatewayAlert(forError: error)
-        }
+        onOrgTreeLoaded()
+        onOrgLoaded(org)
+        onHoursLoaded(org)
+        onClosuresLoaded(org)
+        onAddressLoaded(org)
     }
 
     func setupViews() {
@@ -175,27 +132,23 @@ class OrgDetailsViewController: UIViewController {
         }
     }
 
-    func onOrgLoaded() {
-        let org = Organization.find(byId: orgID)
-        if let name = org?.name {
-            orgButton.isEnabled = true
-            orgButton.setTitle(name, for: .normal)
-        } else {
-            orgButton.isEnabled = false
-        }
-        if let infoURL = org?.infoURL, !infoURL.isEmpty {
+    func onOrgLoaded(_ org: Organization) {
+        orgButton.isEnabled = true
+        orgButton.setTitle(org.name, for: .normal)
+
+        if let infoURL = org.infoURL, !infoURL.isEmpty {
             webSiteButton.isEnabled = true
         } else {
             webSiteButton.isEnabled = false
         }
-        if let email = org?.email, !email.isEmpty {
+        if let email = org.email, !email.isEmpty {
             emailButton.isEnabled = true
             emailButton.setTitle(email, for: .normal)
         } else {
             emailButton.isEnabled = false
             emailButton.setTitle(nil, for: .normal)
         }
-        if let number = org?.phoneNumber, !number.isEmpty {
+        if let number = org.phoneNumber, !number.isEmpty {
             phoneButton.isEnabled = true
             phoneButton.setTitle(number, for: .normal)
         } else {
@@ -204,9 +157,8 @@ class OrgDetailsViewController: UIViewController {
         }
     }
 
-    func onAddressLoaded() {
-        let org = Organization.find(byId: orgID)
-        if let obj = org?.addressObj, let _ = mapsURL(obj) {
+    func onAddressLoaded(_ org: Organization) {
+        if let obj = org.addressObj, let _ = mapsURL(obj) {
             mapButton.isEnabled = true
         } else {
             mapButton.isEnabled = false
@@ -283,29 +235,20 @@ class OrgDetailsViewController: UIViewController {
         }
         return nil
     }
-    
-    func onHoursLoaded(_ obj: OSRFObject?) {
-        day0Hours.text = hoursOfOperation(obj: obj, day: 0)
-        day1Hours.text = hoursOfOperation(obj: obj, day: 1)
-        day2Hours.text = hoursOfOperation(obj: obj, day: 2)
-        day3Hours.text = hoursOfOperation(obj: obj, day: 3)
-        day4Hours.text = hoursOfOperation(obj: obj, day: 4)
-        day5Hours.text = hoursOfOperation(obj: obj, day: 5)
-        day6Hours.text = hoursOfOperation(obj: obj, day: 6)
+
+    func onHoursLoaded(_ org: Organization) {
+        day0Hours.text = org.hours?.day0Hours
+        day1Hours.text = org.hours?.day1Hours
+        day2Hours.text = org.hours?.day2Hours
+        day3Hours.text = org.hours?.day3Hours
+        day4Hours.text = org.hours?.day4Hours
+        day5Hours.text = org.hours?.day5Hours
+        day6Hours.text = org.hours?.day6Hours
     }
 
-    func onClosuresLoaded(_ objs: [OSRFObject]) {
-        let now = Date()
-        var upcomingClosures: [OSRFObject] = []
-        for obj in objs {
-            if let date = obj.getDate("close_end"), date > now && upcomingClosures.count < App.config.upcomingClosuresLimit {
-                upcomingClosures.append(obj)
-            }
-        }
-        addClosureRows(upcomingClosures)
-    }
+    func onClosuresLoaded(_ org: Organization) {
+        let closures = Array(org.closures.prefix(App.config.upcomingClosuresLimit))
 
-    func addClosureRows(_ closures: [OSRFObject]) {
         // clear all existing rows
         while let view = closuresStack.arrangedSubviews.first {
             view.removeFromSuperview()
@@ -318,11 +261,7 @@ class OrgDetailsViewController: UIViewController {
         }
 
         // find out if any closures have date ranges; if so we need extra room
-        let anyClosuresWithDateRange = closures.contains {
-            let isMultiDay = $0.getBoolOrFalse("multi_day")
-            let isFullDay = $0.getBoolOrFalse("full_day")
-            return isMultiDay || !isFullDay
-        }
+        let anyClosuresWithDateRange = closures.contains { $0.toInfo().isDateRange }
 
         // add a row per closure
         for closure in closures {
@@ -330,11 +269,9 @@ class OrgDetailsViewController: UIViewController {
         }
     }
 
-    func makeClosureRow(_ closure: OSRFObject, useWideDateColumn wide: Bool) -> UIView {
-
-        let dateLabel = getClosureDateLabel(closure)
-        let reason = closure.getString("reason") ?? nil
-        return makeClosureRow(firstString: dateLabel, secondString: reason, useWideDateColumn: wide)
+    func makeClosureRow(_ closure: XOrgClosure, useWideDateColumn wide: Bool) -> UIView {
+        let info = closure.toInfo()
+        return makeClosureRow(firstString: info.dateString, secondString: info.reason, useWideDateColumn: wide)
     }
 
     func makeClosureRow(firstString: String, secondString: String? = nil, useWideDateColumn wide: Bool = false) -> UIView {
@@ -372,26 +309,6 @@ class OrgDetailsViewController: UIViewController {
         }
 
         return stackView
-    }
-
-    func getClosureDateLabel(_ closure: OSRFObject) -> String {
-        guard let startDate = closure.getDate("close_start"),
-              let endDate = closure.getDate("close_end") else {
-            return "???"
-        }
-        let isFullDay = closure.getBoolOrFalse("full_day")
-        let isMultiDay = closure.getBoolOrFalse("multi_day")
-        if isMultiDay {
-            let start = OSRFObject.outputDayOnlyFormatter.string(from: startDate)
-            let end = OSRFObject.outputDayOnlyFormatter.string(from: endDate)
-            return "\(start) - \(end)"
-        } else if isFullDay {
-            return OSRFObject.outputDayOnlyFormatter.string(from: startDate)
-        } else {
-            let start = OSRFObject.getDateTimeLabel(from: startDate)
-            let end = OSRFObject.getDateTimeLabel(from: endDate)
-            return "\(start) - \(end)"
-        }
     }
 
     func getAddressLine1(_ obj: OSRFObject) -> String {
