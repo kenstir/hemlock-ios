@@ -150,10 +150,19 @@ class Analytics {
         buf.write(s)
     }
 
-    /// mt: MT-Safe
+    /// log any error shown to the user to the ring buffer, to be included in an error report if any
     static func logError(_ error: Error) {
         os_log("%{public}s", log: log, type: .error, error.localizedDescription)
         logToBuffer(error.localizedDescription)
+
+        if case .shouldNotHappen = error as? HemlockError {
+            logNonFatalEvent(error)
+        }
+    }
+
+    /// log unexpected error and send it to Crashlytics as a non-fatal event
+    /// mt: MT-Safe
+    static func logNonFatalEvent(_ error: Error) {
 #if USE_FA || USE_FCM
         Crashlytics.crashlytics().record(error: error)
 #endif

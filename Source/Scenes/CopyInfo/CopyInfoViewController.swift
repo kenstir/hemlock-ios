@@ -62,9 +62,7 @@ class CopyInfoViewController: UIViewController {
         guard let recordID = record?.id,
             let org = searchOrg else
         {
-            let error = HemlockError.shouldNotHappen("Missing record ID or search org")
-            Analytics.logError(error)
-            self.showAlert(title: "Internal Error", error: error)
+            self.showAlert(title: "Error", error: HemlockError.shouldNotHappen("Missing record ID or search org"))
             return
         }
 

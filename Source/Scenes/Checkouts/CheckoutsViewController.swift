@@ -115,9 +115,7 @@ class CheckoutsViewController: UIViewController {
             return
         }
         guard let targetCopy = item.circObj?.getID("target_copy") else {
-            let error = HemlockError.shouldNotHappen("Circulation record \(item.id) has no target_copy")
-            Analytics.logError(error)
-            self.showAlert(title: "Error", error: error)
+            self.showAlert(title: "Error", error: HemlockError.shouldNotHappen("Circulation record \(item.id) has no target_copy"))
             return
         }
 
