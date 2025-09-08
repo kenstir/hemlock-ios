@@ -78,17 +78,17 @@ class AsyncTests: XCTestCase {
         let req1 = Gateway.makeRequest(url: randomDelayUrl(), shouldCache: false)
         let req2 = Gateway.makeRequest(url: randomDelayUrl(), shouldCache: false)
 
-        async let data1 = req1.gatewayDataResponseAsync()
+        async let data1Future = req1.gatewayDataResponseAsync()
         print("a\(Utils.tt) test_awaitParallel: data1 started")
-        async let data2 = req2.gatewayDataResponseAsync()
+        async let data2Future = req2.gatewayDataResponseAsync()
         print("a\(Utils.tt) test_awaitParallel: data2 started")
 
-        let (data1Result, data2Result) = try await (data1, data2)
+        let (data1, data2) = try await (data1Future, data2Future)
 
-        let url1 = JSONUtils.parseObject(fromData: data1Result)?["url"] as? String ?? ""
-        let url2 = JSONUtils.parseObject(fromData: data2Result)?["url"] as? String ?? ""
+        let url1 = JSONUtils.parseObject(fromData: data1)?["url"] as? String ?? ""
         print("a\(Utils.tt) test_awaitParallel: url1=\(url1)")
-        print("a\(Utils.tt) test_awaitParallel: url1=\(url2)")
+        let url2 = JSONUtils.parseObject(fromData: data2)?["url"] as? String ?? ""
+        print("a\(Utils.tt) test_awaitParallel: url2=\(url2)")
     }
 
     // This surprised me: using .asString() in the async-let does not defeat the parallelism
@@ -96,17 +96,17 @@ class AsyncTests: XCTestCase {
         let req1 = Gateway.makeRequest(url: randomDelayUrl(), shouldCache: false)
         let req2 = Gateway.makeRequest(url: randomDelayUrl(), shouldCache: false)
 
-        async let str1 = req1.gatewayDataResponseAsync().asString()
+        async let str1Future = req1.gatewayDataResponseAsync().asString()
         print("a\(Utils.tt) test_awaitParallelTake2: data1 started")
-        async let str2 = req2.gatewayDataResponseAsync().asString()
+        async let str2Future = req2.gatewayDataResponseAsync().asString()
         print("a\(Utils.tt) test_awaitParallelTake2: data2 started")
 
-        let (str1Result, str2Result) = try await (str1, str2)
+        let (str1, str2) = try await (str1Future, str2Future)
 
-        let url1 = JSONUtils.parseObject(fromStr: str1Result ?? "")?["url"] as? String ?? ""
-        let url2 = JSONUtils.parseObject(fromStr: str2Result ?? "")?["url"] as? String ?? ""
+        let url1 = JSONUtils.parseObject(fromStr: str1 ?? "")?["url"] as? String ?? ""
         print("a\(Utils.tt) test_awaitParallelTake2: url1=\(url1)")
-        print("a\(Utils.tt) test_awaitParallelTake2: url1=\(url2)")
+        let url2 = JSONUtils.parseObject(fromStr: str2 ?? "")?["url"] as? String ?? ""
+        print("a\(Utils.tt) test_awaitParallelTake2: url2=\(url2)")
     }
 
     // Yet another variation, using .asString() in the await
@@ -122,9 +122,9 @@ class AsyncTests: XCTestCase {
         let (str1, str2) = try await (resp1.asString(), resp2.asString())
 
         let url1 = JSONUtils.parseObject(fromStr: str1 ?? "")?["url"] as? String ?? ""
-        let url2 = JSONUtils.parseObject(fromStr: str2 ?? "")?["url"] as? String ?? ""
         print("a\(Utils.tt) test_awaitParallelTake3: url1=\(url1)")
-        print("a\(Utils.tt) test_awaitParallelTake3: url1=\(url2)")
+        let url2 = JSONUtils.parseObject(fromStr: str2 ?? "")?["url"] as? String ?? ""
+        print("a\(Utils.tt) test_awaitParallelTake3: url2=\(url2)")
     }
 
     func randomDelayUrl() -> String {
