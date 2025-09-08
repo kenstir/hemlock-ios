@@ -152,8 +152,8 @@ class Analytics {
 
     /// log any error shown to the user to the ring buffer, to be included in an error report if any
     static func logError(_ error: Error) {
-        os_log("%{public}s", log: log, type: .error, error.localizedDescription)
-        logToBuffer(error.localizedDescription)
+        os_log("[err] %{public}s", log: log, type: .error, error.localizedDescription)
+        logToBuffer("[err] \(error.localizedDescription)")
 
         if case .shouldNotHappen = error as? HemlockError {
             logNonFatalEvent(error)
