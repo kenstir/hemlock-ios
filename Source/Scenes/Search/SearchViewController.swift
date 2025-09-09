@@ -31,10 +31,12 @@ struct SearchParameters {
 
 class OptionsEntry {
     var label: String
-    var value: String?
+    let appStateKey: String
+    var value: String
     var index: Int?
-    init(_ label: String, value: String?, index: Int? = nil) {
+    init(_ label: String, appStateKey: String, value: String = "", index: Int? = nil) {
         self.label = label
+        self.appStateKey = appStateKey
         self.value = value
         self.index = index
     }
@@ -95,8 +97,6 @@ class SearchViewController: UIViewController {
         self.setupHomeButton()
         setupSearchBar()
         setupOptionsTable()
-        setupFormatPicker()
-        setupLocationPicker()
         setupSearchButton()
     }
     
@@ -125,23 +125,32 @@ class SearchViewController: UIViewController {
 
     func setupOptionsTable() {
         options = []
-        options.append(OptionsEntry("Search by", value: searchClassLabels[0]))
-        options.append(OptionsEntry("Limit to", value: nil))
-        options.append(OptionsEntry("Search within", value: nil))
+        options.append(OptionsEntry("Search by"), AppState.searchClass)
+        options.append(OptionsEntry("Limit to"))
+        options.append(OptionsEntry("Search within"))
+
+        setupSearchClassOptions()
+        setupFormatOptions()
+        setupLocationOptions()
+
+        optionsTable.reloadData()
     }
 
-    func setupFormatPicker() {
+    func setupSearchClassOptions() {
+        let lastClass = AppState.getString(forKey: AppState.searchClass)
+        let entry = options[searchClassIndex]
+        entry.index = searchClassKeywords.firstIndex(of: lastClass ?? "") ?? 0
+        entry.value = searchClassLabels[entry.index ?? 0]
+    }
+
+    func setupFormatOptions() {
         self.formatLabels = CodedValueMap.searchFormatSpinnerLabels()
-        if formatLabels.count == 0 {
-            return // we are early
-        }
-        
+
         let entry = options[searchFormatIndex]
         entry.value = formatLabels[0]
-        self.optionsTable.reloadData()
     }
 
-    func setupLocationPicker() {
+    func setupLocationOptions() {
         self.orgLabels = Organization.getSpinnerLabels()
 
         var selectOrgIndex = 0
@@ -156,7 +165,6 @@ class SearchViewController: UIViewController {
         let entry = options[searchLocationIndex]
         entry.value = orgLabels[selectOrgIndex].trim()
         entry.index = selectOrgIndex
-        self.optionsTable.reloadData()
     }
     
     func setupSearchButton() {
@@ -214,14 +222,13 @@ class SearchViewController: UIViewController {
             self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
             return
         }
-        guard let searchClassLabel = options[searchClassIndex].value,
-            let searchFormatLabel = options[searchFormatIndex].value,
-            let searchOrgIndex = options[searchLocationIndex].index else
-        {
-            self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing search class, format, or org"))
+        guard let searchOrgIndex = options[searchLocationIndex].index else {
+            self.showAlert(title: "Error", error: HemlockError.shouldNotHappen("Search org index is null"))
             return
         }
+        let searchClassLabel = options[searchClassIndex].value
         let searchClass = searchClass(forLabel: searchClassLabel)
+        let searchFormatLabel = options[searchFormatIndex].value
         let searchFormat = CodedValueMap.searchFormatCode(forLabel: searchFormatLabel)
         let searchOrg = Organization.visibleOrgs[searchOrgIndex]
         let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg.shortname, sort: App.config.sort)
@@ -326,6 +333,7 @@ extension SearchViewController: UITableViewDelegate {
         switch indexPath.row {
         case searchClassIndex:
             vc.optionLabels = searchClassLabels
+            AppState.setString(forKey: AppState.searchClass, value: entry.value)
         case searchFormatIndex:
             vc.optionLabels = formatLabels
         case searchLocationIndex:
@@ -338,7 +346,7 @@ extension SearchViewController: UITableViewDelegate {
         vc.selectionChangedHandler = { index, trimmedLabel in
             entry.index = index
             entry.value = trimmedLabel
-            os_log("[search] selection    value=%@, reload", entry.value ?? "")
+            os_log("[search] selection    value=%@, reload", entry.value)
             self.optionsTable.reloadData()
         }
 
