@@ -186,6 +186,16 @@
 		D21981FC235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
 		D21981FE235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
 		D2198200235BCE45003AE531 /* CodedValueMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */; };
+		D21FF9B92E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9BA2E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9BB2E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9BC2E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9BD2E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9BE2E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9BF2E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9C02E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9C12E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
+		D21FF9C22E706D760058E2D3 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF9B82E706D760058E2D3 /* AppState.swift */; };
 		D2211B0420CF68590043947B /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
 		D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AB20D357E900D098D0 /* HoldsViewController.swift */; };
 		D22438AE20D35CC000D098D0 /* HoldRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22438AD20D35CC000D098D0 /* HoldRecord.swift */; };
@@ -1972,6 +1982,7 @@
 		D21867A421D039CE0082358C /* cool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cool.xcassets; sourceTree = "<group>"; };
 		D21981F7235BC7BC003AE531 /* CodedValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CodedValueMap.swift; path = Source/Evergreen/CodedValueMap.swift; sourceTree = SOURCE_ROOT; };
 		D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedValueMapTests.swift; sourceTree = "<group>"; };
+		D21FF9B82E706D760058E2D3 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D2211B0320CF68590043947B /* Checkouts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Checkouts.storyboard; sourceTree = "<group>"; };
 		D22438AB20D357E900D098D0 /* HoldsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsViewController.swift; sourceTree = "<group>"; };
 		D22438AD20D35CC000D098D0 /* HoldRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecord.swift; sourceTree = "<group>"; };
@@ -2591,6 +2602,7 @@
 				D24C392F254B9FA400ECAE64 /* URLRequest+.swift */,
 				D2CF924122471D210009C06A /* Utils.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
+				D21FF9B82E706D760058E2D3 /* AppState.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -4055,6 +4067,7 @@
 				D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */,
 				D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */,
 				D24C3930254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
+				D21FF9BB2E706D760058E2D3 /* AppState.swift in Sources */,
 				D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */,
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
 				D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */,
@@ -4218,6 +4231,7 @@
 				D2EA312B2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainListViewController.swift in Sources */,
+				D21FF9C02E706D760058E2D3 /* AppState.swift in Sources */,
 				D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D23E9FB723B9200A0030F5C1 /* CopyCount.swift in Sources */,
 				D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */,
@@ -4349,6 +4363,7 @@
 				D2EA31252B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */,
 				D2477C0724785A6B00FD4CF6 /* MainListViewController.swift in Sources */,
+				D21FF9BA2E706D760058E2D3 /* AppState.swift in Sources */,
 				D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2477C0824785A6B00FD4CF6 /* CopyCount.swift in Sources */,
 				D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */,
@@ -4480,6 +4495,7 @@
 				D2EA31262B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2572AF724AD7755000BA698 /* Style.swift in Sources */,
 				D2572AF924AD7755000BA698 /* MainListViewController.swift in Sources */,
+				D21FF9BD2E706D760058E2D3 /* AppState.swift in Sources */,
 				D2572AFA24AD7755000BA698 /* OrgDetailsViewController.swift in Sources */,
 				D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */,
 				D2572AFC24AD7755000BA698 /* String+subscript.swift in Sources */,
@@ -4611,6 +4627,7 @@
 				D2EA31292B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D25EECA428A1E8310090F108 /* MainListViewController.swift in Sources */,
 				D25EECA528A1E8310090F108 /* OrgDetailsViewController.swift in Sources */,
+				D21FF9B92E706D760058E2D3 /* AppState.swift in Sources */,
 				D25EECA628A1E8310090F108 /* CopyCount.swift in Sources */,
 				D25EECA728A1E8310090F108 /* String+subscript.swift in Sources */,
 				D25EECA828A1E8310090F108 /* SearchService.swift in Sources */,
@@ -4701,6 +4718,7 @@
 				D276DAA821336B20007FAA31 /* CopyInfoViewController.swift in Sources */,
 				D22D0C9A2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D276DAA921336B20007FAA31 /* UIView+UYLExtensions.swift in Sources */,
+				D21FF9C22E706D760058E2D3 /* AppState.swift in Sources */,
 				D276DAAA21336B20007FAA31 /* CircRecord.swift in Sources */,
 				D2A73B21246CB54000874620 /* JSONUtils.swift in Sources */,
 				D276DAAB21336B20007FAA31 /* CheckoutsViewController.swift in Sources */,
@@ -4831,6 +4849,7 @@
 				D28290F520E5CF48008EBE4B /* UIView+UYLExtensions.swift in Sources */,
 				D22D0C982243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
+				D21FF9C12E706D760058E2D3 /* AppState.swift in Sources */,
 				D27990DE20DDD473003B451E /* CheckoutsViewController.swift in Sources */,
 				D2A73B22246CB54000874620 /* JSONUtils.swift in Sources */,
 				D27990DF20DDD473003B451E /* Theme.swift in Sources */,
@@ -4961,6 +4980,7 @@
 				D284247021D0358200C7171C /* CopyInfoViewController.swift in Sources */,
 				D22D0C9B2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D284247121D0358200C7171C /* UIView+UYLExtensions.swift in Sources */,
+				D21FF9BE2E706D760058E2D3 /* AppState.swift in Sources */,
 				D284247221D0358200C7171C /* CircRecord.swift in Sources */,
 				D2A73B20246CB54000874620 /* JSONUtils.swift in Sources */,
 				D284247321D0358200C7171C /* CheckoutsViewController.swift in Sources */,
@@ -5132,6 +5152,7 @@
 				D2EA312A2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainListViewController.swift in Sources */,
+				D21FF9BF2E706D760058E2D3 /* AppState.swift in Sources */,
 				D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */,
 				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
@@ -5271,6 +5292,7 @@
 				D21090CB24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2BDA64822D176BD00D9B60C /* MBRecord.swift in Sources */,
 				D2BDA64922D176BD00D9B60C /* Utils.swift in Sources */,
+				D21FF9BC2E706D760058E2D3 /* AppState.swift in Sources */,
 				D2BDA64A22D176BD00D9B60C /* OSRFClass.swift in Sources */,
 				D24C3935254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BDA64C22D176BD00D9B60C /* UIFont+smallCaps.swift in Sources */,
