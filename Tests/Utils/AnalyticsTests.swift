@@ -22,6 +22,10 @@ import XCTest
 
 class AnalyticsTests: XCTestCase {
 
+    override class func setUp() {
+        TestUtils.loadExampleOrgs()
+    }
+
     func test_getLog() {
         Analytics.clearLog()
         Analytics.logRequest(tag: "dedbeef", method: "m", args: ["p1","p2"])
@@ -38,5 +42,22 @@ class AnalyticsTests: XCTestCase {
         let stats2 = Analytics.searchTermParameters(searchTerm: "Potter Goblet")
         XCTAssertEqual(stats2[Analytics.Param.searchTermNumUniqueWords], 2)
         XCTAssertEqual(stats2[Analytics.Param.searchTermAverageWordLengthX10], 60)
+    }
+
+    func test_orgDimension() {
+        let CONS = Organization.find(byShortName: "CONS")
+        let BR1 = Organization.find(byShortName: "BR1")
+        let BR2 = Organization.find(byShortName: "BR2")
+
+        XCTAssertEqual("null",
+                       Analytics.orgDimension(selectedOrg: BR1, defaultOrg: nil, homeOrg: nil))
+        XCTAssertEqual("default",
+                       Analytics.orgDimension(selectedOrg: BR1, defaultOrg: BR1, homeOrg: BR1))
+        XCTAssertEqual("other",
+                       Analytics.orgDimension(selectedOrg: BR2, defaultOrg: BR1, homeOrg: BR1))
+        XCTAssertEqual("CONS",
+                       Analytics.orgDimension(selectedOrg: CONS, defaultOrg: BR2, homeOrg: BR1))
+        XCTAssertEqual("home",
+                       Analytics.orgDimension(selectedOrg: BR1, defaultOrg: BR2, homeOrg: BR1))
     }
 }
