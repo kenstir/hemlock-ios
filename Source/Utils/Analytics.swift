@@ -136,7 +136,7 @@ class Analytics {
 
         // Calculate average keyword length
         let totalLength = uniqueKeywords.reduce(0) { $0 + $1.count }
-        let averageKeywordLength = Int(round(10.0 * Double(totalLength) / Double(uniqueKeywordCount)))
+        let averageKeywordLength = (uniqueKeywordCount > 0) ? Int(round(10.0 * Double(totalLength) / Double(uniqueKeywordCount))) : 0
 
         return [
             Param.searchTermNumUniqueWords: uniqueKeywordCount,

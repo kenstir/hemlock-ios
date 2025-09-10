@@ -35,13 +35,21 @@ class AnalyticsTests: XCTestCase {
     }
 
     func test_searchTermStats() {
-        let stats = Analytics.searchTermParameters(searchTerm: "La la land")
-        XCTAssertEqual(stats[Analytics.Param.searchTermNumUniqueWords], 2)
-        XCTAssertEqual(stats[Analytics.Param.searchTermAverageWordLengthX10], 30)
-
-        let stats2 = Analytics.searchTermParameters(searchTerm: "Potter Goblet")
-        XCTAssertEqual(stats2[Analytics.Param.searchTermNumUniqueWords], 2)
-        XCTAssertEqual(stats2[Analytics.Param.searchTermAverageWordLengthX10], 60)
+        do {
+            let stats = Analytics.searchTermParameters(searchTerm: "La la land")
+            XCTAssertEqual(stats[Analytics.Param.searchTermNumUniqueWords], 2)
+            XCTAssertEqual(stats[Analytics.Param.searchTermAverageWordLengthX10], 30)
+        }
+        do {
+            let stats = Analytics.searchTermParameters(searchTerm: "Potter Goblet")
+            XCTAssertEqual(stats[Analytics.Param.searchTermNumUniqueWords], 2)
+            XCTAssertEqual(stats[Analytics.Param.searchTermAverageWordLengthX10], 60)
+        }
+        do {
+            let stats = Analytics.searchTermParameters(searchTerm: "!")
+            XCTAssertEqual(stats[Analytics.Param.searchTermNumUniqueWords], 0)
+            XCTAssertEqual(stats[Analytics.Param.searchTermAverageWordLengthX10], 0)
+        }
     }
 
     func test_orgDimension() {
