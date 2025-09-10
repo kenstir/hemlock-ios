@@ -24,13 +24,22 @@ class OptionsViewController: UIViewController {
     //MARK: - Properties
     
     @IBOutlet weak var table: UITableView!
-    
+
+    /// the set of (possibly padded) labels to display
     var optionLabels: [String] = []
+
+    /// if non-empty, indicates whether each option is enabled; if empty, all options are enabled
     var optionIsEnabled: [Bool] = []
+
+    /// if non-empty, indicates whether each option is primary (larger bold font); if empty, all options are normal font
     var optionIsPrimary: [Bool] = []
-    var optionValues: [String] = []
+
+    //var optionValues: [String] = []
+
+    /// the currently selected option
     var selectedPath: IndexPath?
-    var selectedLabel: String?
+
+    /// called when the user selects an option; passes the row index and trimmed label
     var selectionChangedHandler: ((_ row: Int, _ label: String) -> Void)?
 
     //MARK: - UIViewController
@@ -64,8 +73,6 @@ class OptionsViewController: UIViewController {
     
     func updateViewCell(forCell cell: UITableViewCell, indexPath: IndexPath) {
         if indexPath == selectedPath {
-            cell.accessoryType = .checkmark
-        } else if cell.textLabel?.text?.trim() == selectedLabel {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -104,7 +111,6 @@ extension OptionsViewController: UITableViewDataSource {
 extension OptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let trimmedLabel = optionLabels[indexPath.row].trim()
-        selectedLabel = trimmedLabel
         selectedPath = indexPath
         updateCheckmarks()
         tableView.deselectRow(at: indexPath, animated: true)

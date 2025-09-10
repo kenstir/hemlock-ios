@@ -26,15 +26,19 @@ struct SearchParameters {
 }
 
 class OptionsEntry {
-    let label: String
+    let title: String
     let stateKey: String
-    let getSelectedKeyword: (Int, String) -> String
+    /// given the selected index and trimmed label, return the value to use and store in the app state
+    let getValue: (_ index: Int, _ label: String) -> String
+    /// the index of the selected option
     var selectedIndex: Int = 0
-    var selectedValue: String = ""
-    init(_ label: String, stateKey: String, getSelectedKeyword: @escaping (Int, String) -> String) {
-        self.label = label
+    /// the label of the selected option
+    var description: String = ""
+
+    init(_ title: String, stateKey: String, getValue: @escaping (Int, String) -> String) {
+        self.title = title
         self.stateKey = stateKey
-        self.getSelectedKeyword = getSelectedKeyword
+        self.getValue = getValue
     }
 }
 
@@ -142,7 +146,7 @@ class SearchViewController: UIViewController {
         let entry = options[searchClassIndex]
         let lastValue = AppState.getString(forKey: entry.stateKey) ?? ""
         entry.selectedIndex = searchClassKeywords.firstIndex(of: lastValue) ?? 0
-        entry.selectedValue = searchClassLabels[entry.selectedIndex]
+        entry.description = searchClassLabels[entry.selectedIndex]
     }
 
     func setupFormatOptions() {
@@ -152,7 +156,7 @@ class SearchViewController: UIViewController {
         let lastValue = AppState.getString(forKey: entry.stateKey) ?? ""
         let lastLabel = CodedValueMap.searchFormatLabel(forCode: lastValue)
         entry.selectedIndex = formatLabels.firstIndex(of: lastLabel) ?? 0
-        entry.selectedValue = formatLabels[entry.selectedIndex]
+        entry.description = formatLabels[entry.selectedIndex]
     }
 
     func setupLocationOptions() {
@@ -161,7 +165,7 @@ class SearchViewController: UIViewController {
         let entry = options[searchLocationIndex]
         let lastValue = AppState.getString(forKey: entry.stateKey) ?? Organization.find(byId: App.account?.searchOrgID)?.shortname ?? ""
         entry.selectedIndex = Organization.visibleOrgs.firstIndex(where: { $0.shortname == lastValue }) ?? 0
-        entry.selectedValue = orgLabels[entry.selectedIndex].trim()
+        entry.description = orgLabels[entry.selectedIndex].trim()
     }
     
     func setupSearchButton() {
@@ -195,7 +199,7 @@ class SearchViewController: UIViewController {
     func doSearch(byBarcode barcode: String) {
         let entry = options[searchClassIndex]
         entry.selectedIndex = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordIdentifier) ?? 0
-        entry.selectedValue = searchClassLabels[entry.selectedIndex]
+        entry.description = searchClassLabels[entry.selectedIndex]
         self.optionsTable.reloadData()
         doSearch()
     }
@@ -204,7 +208,7 @@ class SearchViewController: UIViewController {
     func doSearch(byAuthor author: String) {
         let entry = options[searchClassIndex]
         entry.selectedIndex = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordAuthor) ?? 0
-        entry.selectedValue = searchClassLabels[entry.selectedIndex]
+        entry.description = searchClassLabels[entry.selectedIndex]
         self.optionsTable.reloadData()
         doSearch()
     }
@@ -215,7 +219,7 @@ class SearchViewController: UIViewController {
 
     func getSelectedKeyword(forIndex index: Int) -> String {
         let entry = options[index]
-        return entry.getSelectedKeyword(entry.selectedIndex, entry.selectedValue)
+        return entry.getValue(entry.selectedIndex, entry.description)
     }
 
     @MainActor
@@ -308,10 +312,10 @@ extension SearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchOptionsCell", for: indexPath)
 
         let entry = options[indexPath.row]
-        cell.textLabel?.text = entry.label
-        cell.detailTextLabel?.text = entry.selectedValue
+        cell.textLabel?.text = entry.title
+        cell.detailTextLabel?.text = entry.description
         if indexPath.row == searchClassIndex {
-            os_log("[search] cellForRowAt value=%@", entry.selectedValue)
+            os_log("[search] cellForRowAt value=%@", entry.description)
         }
 
         return cell
@@ -324,8 +328,8 @@ extension SearchViewController: UITableViewDelegate {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
         
         let entry = options[indexPath.row]
-        vc.title = entry.label
-        vc.selectedLabel = entry.selectedValue
+        vc.title = entry.title
+        vc.selectedIndex = entry.findSelectedIndex(fromLabel: entry.description)
         switch indexPath.row {
         case searchClassIndex:
             vc.optionLabels = searchClassLabels
@@ -341,8 +345,8 @@ extension SearchViewController: UITableViewDelegate {
         vc.selectionChangedHandler = { index, trimmedLabel in
             os_log("[search] selection    value=%@", trimmedLabel)
             entry.selectedIndex = index
-            entry.selectedValue = trimmedLabel
-            AppState.setString(forKey: entry.stateKey, value: entry.getSelectedKeyword(index, trimmedLabel))
+            entry.description = trimmedLabel
+            AppState.setString(forKey: entry.stateKey, value: entry.getValue(index, trimmedLabel))
             self.optionsTable.reloadData()
         }
 
