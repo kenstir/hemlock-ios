@@ -25,13 +25,14 @@ class AppState {
 
     static func getString(forKey key: String) -> String? {
         if let value = App.valet.string(forKey: key) {
-            print("[pref] Retrieved \(key) = \(value)")
+            print("[pref] Got \(key) = \(value)")
+            return value
         }
         return nil
     }
 
     static func setString(forKey key: String, value: String) {
-        print("[pref] Setting \(key) to \(value)")
+        print("[pref] Set \(key) to \(value)")
         App.valet.set(string: value, forKey: key)
     }
 }
