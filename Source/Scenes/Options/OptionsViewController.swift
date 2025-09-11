@@ -28,13 +28,14 @@ class OptionsViewController: UIViewController {
     /// the set of (possibly padded) labels to display
     var optionLabels: [String] = []
 
+    /// the set of underlying values corresponding to each label (if needed)
+    var optionValues: [String] = []
+
     /// if non-empty, indicates whether each option is enabled; if empty, all options are enabled
     var optionIsEnabled: [Bool] = []
 
     /// if non-empty, indicates whether each option is primary (larger bold font); if empty, all options are normal font
     var optionIsPrimary: [Bool] = []
-
-    //var optionValues: [String] = []
 
     /// the currently selected option
     var selectedPath: IndexPath?

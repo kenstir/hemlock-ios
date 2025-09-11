@@ -69,8 +69,8 @@ class CodedValueMap {
         }
         return ""
     }
-    
-    static func searchFormatSpinnerLabels()  -> [String] {
+
+    static func searchFormatSpinnerLabels() -> [String] {
         var labels: [String] = []
         for cv in searchFormats {
             if cv.opacVisible {
@@ -80,5 +80,13 @@ class CodedValueMap {
         labels = labels.sorted()
         labels.insert(allFormats, at: 0)
         return labels
+    }
+
+    static func searchFormatSpinnerValues() -> [String] {
+        var values: [String] = []
+        for cv in searchFormatSpinnerLabels() {
+            values.append(searchFormatCode(forLabel: cv))
+        }
+        return values
     }
 }

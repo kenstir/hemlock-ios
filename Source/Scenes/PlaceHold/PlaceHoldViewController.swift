@@ -612,7 +612,7 @@ class PlaceHoldViewController: UIViewController {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
         vc.optionLabels = options
-        vc.selectedLabel = selectedOption
+        vc.selectedPath = IndexPath(row: options.firstIndex(of: selectedOption) ?? 0, section: 0)
         return vc
     }
 
