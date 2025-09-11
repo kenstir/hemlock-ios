@@ -1292,6 +1292,16 @@
 		D29838682B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
 		D29838692B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
 		D298386A2B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */; };
+		D29906962E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D29906972E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D29906982E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D29906992E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D299069A2E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D299069B2E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D299069C2E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D299069D2E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D299069E2E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
+		D299069F2E73130500A3E0E2 /* PersistableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29906952E73130500A3E0E2 /* PersistableOption.swift */; };
 		D29911DA248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
 		D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
 		D29911DC248461C0007DB26C /* OrgDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D29911D9248461C0007DB26C /* OrgDetails.storyboard */; };
@@ -2156,6 +2166,7 @@
 		D296EE0B21338030009BDB12 /* CWMarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMarsTheme.swift; sourceTree = "<group>"; };
 		D296EE0F213381FE009BDB12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D298385F2B9106B50060C3A6 /* PlaceHoldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHoldViewController.swift; sourceTree = "<group>"; };
+		D29906952E73130500A3E0E2 /* PersistableOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableOption.swift; sourceTree = "<group>"; };
 		D29911D9248461C0007DB26C /* OrgDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrgDetails.storyboard; sourceTree = "<group>"; };
 		D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgDetailsViewController.swift; sourceTree = "<group>"; };
 		D29C720D209245E200E90952 /* TestUserData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestUserData; sourceTree = SOURCE_ROOT; };
@@ -2586,6 +2597,7 @@
 				D2A73B1E246CB54000874620 /* JSONUtils.swift */,
 				FA37C3F820FC2A09003C2003 /* LocationPicker.swift */,
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
+				D29906952E73130500A3E0E2 /* PersistableOption.swift */,
 				D226B60920ED519E00CA5B79 /* String+.swift */,
 				D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */,
 				D27DF20B21AB4B84002DCC47 /* String+subscript.swift */,
@@ -4086,6 +4098,7 @@
 				D210EC0C22B1EE55002FB5E0 /* UIViewController+.swift in Sources */,
 				D210EC0D22B1EE55002FB5E0 /* CheckoutsTableViewCell.swift in Sources */,
 				D283B0B52E4269BD00AE5F43 /* XOrgService.swift in Sources */,
+				D29906982E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D210EC0E22B1EE55002FB5E0 /* UIScrollView+.swift in Sources */,
 				D2A73B1F246CB54000874620 /* JSONUtils.swift in Sources */,
 				D28E04472BA12CE7001850C5 /* MainGridViewController.swift in Sources */,
@@ -4238,6 +4251,7 @@
 				D2C300302E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */,
 				D2C300202E3C02220082C308 /* GatewayResponse+.swift in Sources */,
+				D299069B2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2DA2E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */,
 			);
@@ -4370,6 +4384,7 @@
 				D2C3002F2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */,
 				D2C300252E3C02220082C308 /* GatewayResponse+.swift in Sources */,
+				D29906992E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D42E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D2477C0B24785A6B00FD4CF6 /* Account.swift in Sources */,
 			);
@@ -4502,6 +4517,7 @@
 				D2C3002D2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2572AFD24AD7755000BA698 /* SearchService.swift in Sources */,
 				D2C300212E3C02220082C308 /* GatewayResponse+.swift in Sources */,
+				D29906962E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2DC2E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D2572AFE24AD7755000BA698 /* Account.swift in Sources */,
 			);
@@ -4634,6 +4650,7 @@
 				D2C3002C2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D25EECD828A1EB2E0090F108 /* AppFactory.swift in Sources */,
 				D2C300262E3C02220082C308 /* GatewayResponse+.swift in Sources */,
+				D299069C2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D82E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D25EECA928A1E8310090F108 /* Account.swift in Sources */,
 			);
@@ -4730,6 +4747,7 @@
 				D276DAB121336B20007FAA31 /* MD5.swift in Sources */,
 				D276DAB221336B20007FAA31 /* FinesTableViewCell.swift in Sources */,
 				D276DAB321336B20007FAA31 /* LocationPicker.swift in Sources */,
+				D299069F2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D233985C2E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2A6C582221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D276DAB421336B20007FAA31 /* IDLParser.swift in Sources */,
@@ -4861,6 +4879,7 @@
 				D27990E120DDD473003B451E /* MD5.swift in Sources */,
 				D27990E220DDD473003B451E /* FinesTableViewCell.swift in Sources */,
 				FA37C3F920FC2A09003C2003 /* LocationPicker.swift in Sources */,
+				D299069A2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D23398582E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2A6C580221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
@@ -4992,6 +5011,7 @@
 				D284247921D0358200C7171C /* FinesTableViewCell.swift in Sources */,
 				D284247A21D0358200C7171C /* LocationPicker.swift in Sources */,
 				D284247B21D0358200C7171C /* IDLParser.swift in Sources */,
+				D299069E2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D23398602E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2A6C583221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D284247D21D0358200C7171C /* CopyLocationCounts.swift in Sources */,
@@ -5159,6 +5179,7 @@
 				D2C3002E2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
 				D2C3001F2E3C02220082C308 /* GatewayResponse+.swift in Sources */,
+				D299069D2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D62E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
 			);
@@ -5311,6 +5332,7 @@
 				D2BDA65522D176BD00D9B60C /* UIViewController+.swift in Sources */,
 				D2BDA65622D176BD00D9B60C /* CheckoutsTableViewCell.swift in Sources */,
 				D283B0B72E4269BD00AE5F43 /* XOrgService.swift in Sources */,
+				D29906972E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2BDA65722D176BD00D9B60C /* UIScrollView+.swift in Sources */,
 				D2BDA65822D176BD00D9B60C /* Style.swift in Sources */,
 				D25E7CEA2D0A284E00AD1A2A /* MainGridViewCell.swift in Sources */,
