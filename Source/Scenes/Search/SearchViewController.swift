@@ -34,17 +34,10 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     
     weak var activityIndicator: UIActivityIndicatorView!
-    
-    static let searchKeywordKeyword = "keyword"
-    static let searchKeywordIdentifier = "identifier"
-    static let searchKeywordAuthor = "author"
-    let searchClassLabels = ["Keyword","Title","Author","Subject","Series","ISBN or UPC"]
-    let searchClassKeywords = [searchKeywordKeyword,"title",searchKeywordAuthor,"subject","series",searchKeywordIdentifier]
-    var selectedSearchClassIndex = 0
-    var formatLabels: [String] = []
-    var orgLabels: [String] = []
 
     var options: [StringOption] = []
+
+    // indexes into options array
     let searchClassIndex = 0
     let searchFormatIndex = 1
     let searchLocationIndex = 2
@@ -111,9 +104,9 @@ class SearchViewController: UIViewController {
         options.append(StringOption(
             key: AppState.Key.searchClass,
             title: "Search by",
-            defaultValue: searchClassKeywords[0],
-            optionLabels: searchClassLabels,
-            optionValues: searchClassKeywords))
+            defaultValue: SearchClass.keyword,
+            optionLabels: SearchClass.getSpinnerLabels(),
+            optionValues: SearchClass.getSpinnerValues()))
         options.append(StringOption(
             key: AppState.Key.searchFormat,
             title: "Limit to",
@@ -165,7 +158,7 @@ class SearchViewController: UIViewController {
     @MainActor
     func doSearch(byBarcode barcode: String) {
         let entry = options[searchClassIndex]
-        entry.select(byValue: SearchViewController.searchKeywordIdentifier)
+        entry.select(byValue: SearchClass.identifier)
         self.optionsTable.reloadData()
         doSearch()
     }
@@ -173,7 +166,7 @@ class SearchViewController: UIViewController {
     @MainActor
     func doSearch(byAuthor author: String) {
         let entry = options[searchClassIndex]
-        entry.select(byValue: SearchViewController.searchKeywordAuthor)
+        entry.select(byValue: SearchClass.author)
         self.optionsTable.reloadData()
         doSearch()
     }
@@ -197,11 +190,6 @@ class SearchViewController: UIViewController {
             vc.searchParameters = params
             self.navigationController?.pushViewController(vc, animated: true)
         }
-    }
-
-    func searchClass(forLabel label: String) -> String {
-        let index = searchClassLabels.firstIndex(of: label) ?? 0
-        return searchClassKeywords[index]
     }
 }
 
