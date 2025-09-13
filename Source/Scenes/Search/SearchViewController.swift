@@ -278,7 +278,7 @@ extension SearchViewController: UITableViewDelegate {
         let entry = options[indexPath.row]
         vc.title = entry.title
         vc.option = entry
-        vc.selectedPath = IndexPath(row: entry.selectedIndex, section: 0)
+        vc.selectedIndex = entry.selectedIndex
 
         vc.selectionChangedHandler = { index, _ in
             os_log("[search] selection    index=%d", index)

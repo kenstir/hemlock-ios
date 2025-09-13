@@ -29,10 +29,10 @@ class OptionsViewController: UIViewController {
     var option: SelectableOption?
 
     /// the currently selected option
-    var selectedPath: IndexPath?
+    var selectedIndex: Int?
 
     /// called when the user selects an option; passes the row index and trimmed label
-    var selectionChangedHandler: ((_ row: Int, _ trimmedLabel: String) -> Void)?
+    var selectionChangedHandler: ((_ index: Int, _ trimmedLabel: String) -> Void)?
 
     //MARK: - UIViewController
     
@@ -62,8 +62,9 @@ class OptionsViewController: UIViewController {
             updateViewCell(forCell: cell, indexPath: indexPath)
         }
     }
-    
+
     func updateViewCell(forCell cell: UITableViewCell, indexPath: IndexPath) {
+        let selectedPath = (selectedIndex != nil) ? IndexPath(row: selectedIndex!, section: 0) : nil
         if indexPath == selectedPath {
             cell.accessoryType = .checkmark
         } else {
@@ -103,7 +104,7 @@ extension OptionsViewController: UITableViewDataSource {
 extension OptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let trimmedLabel = option!.optionLabels[indexPath.row].trim()
-        selectedPath = indexPath
+        selectedIndex = indexPath.row
         updateCheckmarks()
         tableView.deselectRow(at: indexPath, animated: true)
         selectionChangedHandler?(indexPath.row, trimmedLabel)
