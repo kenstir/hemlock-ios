@@ -102,19 +102,19 @@ class SearchViewController: UIViewController {
     func setupOptionsTable() {
         options = []
         options.append(StringOption(
-            key: AppState.Key.searchClass,
+            key: AppState.Str.searchClass,
             title: "Search by",
             defaultValue: SearchClass.keyword,
             optionLabels: SearchClass.getSpinnerLabels(),
             optionValues: SearchClass.getSpinnerValues()))
         options.append(StringOption(
-            key: AppState.Key.searchFormat,
+            key: AppState.Str.searchFormat,
             title: "Limit to",
             defaultValue: "",
             optionLabels: CodedValueMap.searchFormatSpinnerLabels(),
             optionValues: CodedValueMap.searchFormatSpinnerValues()))
         options.append(StringOption(
-            key: AppState.Key.searchOrg,
+            key: AppState.Str.searchOrgShortName,
             title: "Search within",
             defaultValue: Organization.find(byId: App.account?.searchOrgID)?.shortname ?? "",
             optionLabels: Organization.getSpinnerLabels(),
