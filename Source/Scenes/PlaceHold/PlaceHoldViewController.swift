@@ -154,12 +154,14 @@ class PlaceHoldViewController: UIViewController {
         phoneSwitch.addTarget(self, action: #selector(phoneSwitchChanged(sender:)), for: .valueChanged)
         phoneTextField.keyboardType = .phonePad
         phoneTextField.delegate = self
+        phoneTextField.addTarget(self, action: #selector(phoneTextChanged), for: [.editingDidEnd, .editingDidEndOnExit])
     }
 
     func setupSmsRow() {
         smsSwitch.addTarget(self, action: #selector(smsSwitchChanged(sender:)), for: .valueChanged)
         smsNumberTextField.keyboardType = .phonePad
         smsNumberTextField.delegate = self
+        smsNumberTextField.addTarget(self, action: #selector(smsTextChanged), for: [.editingDidEnd, .editingDidEndOnExit])
     }
 
     func setupSuspendRow() {
@@ -438,6 +440,36 @@ class PlaceHoldViewController: UIViewController {
         AppState.set(bool: smsSwitch.isOn, forKey: AppState.Boolean.holdNotifyBySMS)
     }
 
+    @objc func phoneTextChanged(sender: UITextField) {
+        if let phoneNumber = sender.text?.trim(), !phoneNumber.isEmpty {
+            AppState.set(sensitiveString: phoneNumber, forKey: AppState.Str.holdPhoneNumber)
+        }
+    }
+
+    @objc func smsTextChanged(sender: UITextField) {
+        if let smsNumber = sender.text?.trim(), !smsNumber.isEmpty {
+            AppState.set(sensitiveString: smsNumber, forKey: AppState.Str.holdSMSNumber)
+        }
+    }
+
+    // Prompt to make sure the user intends to change the pickup location?
+    // This is an unusual action I think but at least for now I can't justify an alert.
+    func saveSelectedPickupOrg(org: Organization) {
+        /*
+        let alertController = UIAlertController(title: "Change pickup location?", message: "Are you sure you want to change your pickup location to \(selectedOrg.name)?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "Change", style: .default) { action in
+        })
+        */
+        AppState.set(integer: org.id, forKey: AppState.Integer.holdPickupOrgID)
+    }
+
+    func saveSelectedCarrier(byName name: String) {
+        if let carrier = SMSCarrier.find(byName: name) {
+            AppState.set(integer: carrier.id, forKey: AppState.Integer.holdSMSCarrierID)
+        }
+    }
+
     func placeOrUpdateHold() {
         guard let authtoken = App.account?.authtoken,
             let userID = App.account?.userID else
@@ -474,9 +506,6 @@ class PlaceHoldViewController: UIViewController {
                 return
             }
             notifyPhoneNumber = phoneNumber
-            if App.config.enableHoldPhoneNotification {
-                AppState.set(sensitiveString: phoneNumber, forKey: AppState.Str.holdPhoneNumber)
-            }
         }
         if smsSwitch.isOn {
             guard let smsNumber = smsNumberTextField.text?.trim(), !smsNumber.isEmpty else {
@@ -489,8 +518,6 @@ class PlaceHoldViewController: UIViewController {
             }
             notifySMSNumber = smsNumber
             notifyCarrierID = carrier.id
-            AppState.set(sensitiveString: smsNumber, forKey: AppState.Str.holdSMSNumber)
-            AppState.set(integer: carrier.id, forKey: AppState.Integer.holdSMSCarrierID)
         }
 
         if let hold = holdRecord {
@@ -633,6 +660,7 @@ extension PlaceHoldViewController: UITextFieldDelegate {
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedOrgIndex = index
                 self.pickupTextField.text = trimmedLabel
+                self.saveSelectedPickupOrg(org: Organization.visibleOrgs[index])
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false
@@ -643,6 +671,7 @@ extension PlaceHoldViewController: UITextFieldDelegate {
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedCarrierName = trimmedLabel
                 self.carrierTextField.text = trimmedLabel
+                self.saveSelectedCarrier(byName: trimmedLabel)
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false
