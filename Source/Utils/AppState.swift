@@ -17,22 +17,97 @@
 import Foundation
 
 class AppState {
-    class Key {
+    class Str {
+        static let holdPhoneNumber = "phoneNumber"
+        static let holdSMSNumber = "SMSNumber"
+
+        static let listSortBy = "listSortBy"
+
         static let searchClass = "searchClass"
         static let searchFormat = "searchFormat"
-        static let searchOrg = "searchOrg"
+        static let searchOrgShortName = "searchOrg"
+    }
+    class Boolean {
+        static let holdNotifyByEmail = "notifyByEmail"
+        static let holdNotifyByPhone = "notifyByPhone"
+        static let holdNotifyBySMS = "notifyBySMS"
+
+        static let listSortDesc = "listSortDesc" // "t" or "f"
+    }
+    class Integer {
+        static let holdSMSCarrierID = "SMSCarrierID"
+        static let holdPickupOrgID = "pickupOrgID"
     }
 
-    static func getString(forKey key: String) -> String? {
-        if let value = App.valet.string(forKey: key) {
-            print("[pref] Got \(key) = \(value)")
+    static func string(forKey key: String) -> String? {
+        if let value = UserDefaults.standard.string(forKey: key) {
+            print("[state] Got \(key) = \(value)")
             return value
         }
         return nil
     }
 
-    static func setString(forKey key: String, value: String) {
-        print("[pref] Set \(key) to \(value)")
-        App.valet.set(string: value, forKey: key)
+    static func bool(forKey key: String) -> Bool? {
+        // Use ``object(forKey:)`` so we can tell the difference between "not set" and "set to false"
+        if let value = UserDefaults.standard.object(forKey: key) as? Bool {
+            print("[state] Got \(key) = \(value)")
+            return value
+        }
+        return nil
+    }
+
+    static func integer(forKey key: String) -> Int? {
+        // Use ``object(forKey:)`` so we can tell the difference between "not set" and "set to 0"
+        if let value = UserDefaults.standard.object(forKey: key) as? Int {
+            print("[state] Got \(key) = \(value)")
+            return value
+        }
+        return nil
+    }
+
+    static func set(string: String, forKey key: String) {
+        print("[state] Set \(key) to \(string)")
+        UserDefaults.standard.set(string, forKey: key)
+    }
+
+    static func set(bool: Bool, forKey key: String) {
+        print("[state] Set \(key) to \(bool)")
+        UserDefaults.standard.set(bool, forKey: key)
+    }
+
+    static func set(integer: Int, forKey key: String) {
+        print("[state] Set \(key) to \(integer)")
+        UserDefaults.standard.set(integer, forKey: key)
+    }
+
+    /// migrate old settings from Valet to UserDefaults
+    static func migrateLegacySettings() {
+        migrateOneSetting(from: "sortBy", to: AppState.Str.listSortBy)
+        migrateOneSetting(from: "sortDesc", toBool: AppState.Boolean.listSortDesc)
+        migrateOneSetting(from: "PhoneNumber", to: AppState.Str.holdPhoneNumber)
+        migrateOneSetting(from: "SMSNumber", to: AppState.Str.holdSMSNumber)
+        migrateOneSetting(from: "SMSCarrier", toInteger: AppState.Integer.holdSMSCarrierID)
+    }
+    static func migrateOneSetting(from oldKey: String, to newKey: String) {
+        if let val = App.valet.string(forKey: oldKey) {
+            print("[state] migrate \(oldKey) = \(val) to newKey \(newKey)")
+            UserDefaults.standard.set(val, forKey: newKey)
+            App.valet.removeObject(forKey: oldKey)
+        }
+    }
+    static func migrateOneSetting(from oldKey: String, toBool newKey: String) {
+        if let val = App.valet.string(forKey: oldKey) {
+            let boolVal = (val == "t")
+            print("[state] migrate \(oldKey) = \(boolVal) to newKey \(newKey)")
+            UserDefaults.standard.set(boolVal, forKey: newKey)
+            App.valet.removeObject(forKey: oldKey)
+        }
+    }
+    static func migrateOneSetting(from oldKey: String, toInteger newKey: String) {
+        if let val = App.valet.string(forKey: oldKey), let intVal = Int(val) {
+            print("[state] migrate \(oldKey) = \(intVal) to newKey \(newKey)")
+            UserDefaults.standard.set(intVal, forKey: newKey)
+            App.valet.removeObject(forKey: oldKey)
+        }
     }
 }

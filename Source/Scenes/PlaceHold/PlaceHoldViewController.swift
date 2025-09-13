@@ -111,6 +111,7 @@ class PlaceHoldViewController: UIViewController {
 
         setupPartRow()
         setupPickupRow()
+        setupEmailRow()
         setupPhoneRow()
         setupSmsRow()
         setupCarrierRow()
@@ -145,14 +146,18 @@ class PlaceHoldViewController: UIViewController {
         carrierTextField.delegate = self
     }
 
+    func setupEmailRow() {
+        emailSwitch.addTarget(self, action: #selector(emailSwitchChanged(sender:)), for: .valueChanged)
+    }
+
     func setupPhoneRow() {
-        phoneSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+        phoneSwitch.addTarget(self, action: #selector(phoneSwitchChanged(sender:)), for: .valueChanged)
         phoneTextField.keyboardType = .phonePad
         phoneTextField.delegate = self
     }
 
     func setupSmsRow() {
-        smsSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+        smsSwitch.addTarget(self, action: #selector(smsSwitchChanged(sender:)), for: .valueChanged)
         smsNumberTextField.keyboardType = .phonePad
         smsNumberTextField.delegate = self
     }
@@ -296,16 +301,18 @@ class PlaceHoldViewController: UIViewController {
 
     func loadNotifyData() {
         if let val = Utils.coalesce(holdRecord?.hasEmailNotify,
+                                    AppState.bool(forKey: AppState.Boolean.holdNotifyByEmail),
                                     App.account?.defaultNotifyEmail) {
             emailSwitch.isOn = val
         }
 
         // Allow phone_notify to be set even if UX is not visible
         let phoneNumber = Utils.coalesce(holdRecord?.phoneNotify,
-                                         App.account?.notifyPhone,
-                                         App.valet.string(forKey: "PhoneNumber"))
+                                         AppState.string(forKey: AppState.Str.holdPhoneNumber),
+                                         App.account?.notifyPhone)
         phoneTextField.text = phoneNumber
         if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
+                                    AppState.bool(forKey: AppState.Boolean.holdNotifyByPhone),
                                     App.account?.defaultNotifyPhone),
             let str = phoneNumber,
             !str.isEmpty
@@ -314,10 +321,11 @@ class PlaceHoldViewController: UIViewController {
         }
 
         let smsNumber = Utils.coalesce(holdRecord?.smsNotify,
-                                       App.account?.smsNotify,
-                                       App.valet.string(forKey: "SMSNumber"))
+                                       AppState.string(forKey: AppState.Str.holdSMSNumber),
+                                       App.account?.smsNotify)
         smsNumberTextField.text = smsNumber
         if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
+                                    AppState.bool(forKey: AppState.Boolean.holdNotifyBySMS),
                                     App.account?.defaultNotifySMS),
             let str = smsNumber,
             !str.isEmpty
@@ -331,18 +339,12 @@ class PlaceHoldViewController: UIViewController {
         orgIsPickupLocation = Organization.getIsPickupLocation()
         orgIsPrimary = Organization.getIsPrimary()
 
-        var selectOrgIndex = 0
-        let defaultPickupLocation = Utils.coalesce(holdRecord?.pickupOrgId,
-                                                   App.account?.pickupOrgID)
-        for index in 0..<Organization.visibleOrgs.count {
-            let org = Organization.visibleOrgs[index]
-            if org.id == defaultPickupLocation {
-                selectOrgIndex = index
-            }
-        }
+        let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgId,
+                                                AppState.integer(forKey: AppState.Integer.holdPickupOrgID),
+                                                App.account?.pickupOrgID)
 
-        selectedOrgIndex = selectOrgIndex
-        pickupTextField.text = orgLabels[selectOrgIndex].trim()
+        selectedOrgIndex = Organization.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
+        pickupTextField.text = orgLabels[selectedOrgIndex].trim()
         pickupTextField.isUserInteractionEnabled = true
     }
 
@@ -351,22 +353,12 @@ class PlaceHoldViewController: UIViewController {
         carrierLabels.sort()
         carrierLabels.insert("---", at: 0)
 
-        var selectCarrierName: String?
-        var selectCarrierIndex = 0
-        if let defaultCarrierID = Utils.coalesce(holdRecord?.smsCarrier,
-                                                 App.account?.smsCarrier,
-                                                 toInt(App.valet.string(forKey: "SMSCarrier"))),
-            let defaultCarrier = SMSCarrier.find(byID: defaultCarrierID) {
-            selectCarrierName = defaultCarrier.name
-        }
-        for index in 0..<carrierLabels.count {
-            let carrier = carrierLabels[index]
-            if carrier == selectCarrierName {
-                selectCarrierIndex = index
-            }
-        }
+        let defaultCarrierID = Utils.coalesce(holdRecord?.smsCarrier,
+                                              AppState.integer(forKey: AppState.Integer.holdSMSCarrierID),
+                                              App.account?.smsCarrier)
 
-        selectedCarrierName = carrierLabels[selectCarrierIndex]
+        let selectedCarrier = SMSCarrier.find(byID: defaultCarrierID)
+        selectedCarrierName = selectedCarrier?.name ?? carrierLabels[0]
         carrierTextField.text = selectedCarrierName
         carrierTextField.isUserInteractionEnabled = true
     }
@@ -432,8 +424,18 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    @objc func switchChanged(sender: Any) {
+    @objc func emailSwitchChanged(sender: Any) {
+        AppState.set(bool: emailSwitch.isOn, forKey: AppState.Boolean.holdNotifyByEmail)
+    }
+
+    @objc func phoneSwitchChanged(sender: Any) {
         enableViewsWhenReady()
+        AppState.set(bool: phoneSwitch.isOn, forKey: AppState.Boolean.holdNotifyByPhone)
+    }
+
+    @objc func smsSwitchChanged(sender: Any) {
+        enableViewsWhenReady()
+        AppState.set(bool: smsSwitch.isOn, forKey: AppState.Boolean.holdNotifyBySMS)
     }
 
     func placeOrUpdateHold() {
@@ -468,27 +470,27 @@ class PlaceHoldViewController: UIViewController {
         var notifyCarrierID: Int? = nil
         if phoneSwitch.isOn {
             guard let phoneNotify = phoneTextField.text?.trim(), !phoneNotify.isEmpty else {
-                self.showAlert(title: "Error", message: "Phone number field cannot be empty")
+                self.showAlert(title: "Error", message: "Phone number cannot be empty")
                 return
             }
             notifyPhoneNumber = phoneNotify
             if App.config.enableHoldPhoneNotification {
-                App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
+                AppState.set(string: phoneNotify, forKey: AppState.Str.holdPhoneNumber)
             }
         }
         if smsSwitch.isOn {
             guard let smsNotify = smsNumberTextField.text?.trim(), !smsNotify.isEmpty else {
-                self.showAlert(title: "Error", message: "SMS phone number field cannot be empty")
+                self.showAlert(title: "Error", message: "SMS phone number cannot be empty")
                 return
             }
             guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else {
                 self.showAlert(title: "Error", message: "Please select a valid carrier")
                 return
             }
-            App.valet.set(string: String(carrier.id), forKey: "SMSCarrier")
             notifySMSNumber = smsNotify
-            App.valet.set(string: smsNotify, forKey: "SMSNumber")
             notifyCarrierID = carrier.id
+            AppState.set(string: smsNotify, forKey: AppState.Str.holdSMSNumber)
+            AppState.set(integer: carrier.id, forKey: AppState.Integer.holdSMSCarrierID)
         }
 
         if let hold = holdRecord {
