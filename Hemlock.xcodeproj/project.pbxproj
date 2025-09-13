@@ -1653,6 +1653,16 @@
 		D2D074972E74C2F4003DFCCF /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */; };
 		D2D074982E74C2F4003DFCCF /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */; };
 		D2D074992E74C2F4003DFCCF /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */; };
+		D2D0749B2E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D0749C2E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D0749D2E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D0749E2E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D0749F2E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D074A02E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D074A12E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D074A22E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D074A32E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D074A42E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
 		D2D8ABB42E42D78C00CB36C6 /* XOrgHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */; };
 		D2D8ABB52E42D78C00CB36C6 /* XOrgHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */; };
@@ -2234,6 +2244,7 @@
 		D2CC3EAF2C500CD700483CB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
+		D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickOneOption.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
 		D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgHours.swift; sourceTree = "<group>"; };
 		D2D8ABC02E42D84500CB36C6 /* EvergreenOrgHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenOrgHours.swift; sourceTree = "<group>"; };
@@ -2609,6 +2620,7 @@
 				FA37C3F820FC2A09003C2003 /* LocationPicker.swift */,
 				D22D026F2084F53E00DC1F5B /* MD5.swift */,
 				D29906952E73130500A3E0E2 /* PersistableOption.swift */,
+				D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */,
 				D226B60920ED519E00CA5B79 /* String+.swift */,
 				D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */,
 				D27DF20B21AB4B84002DCC47 /* String+subscript.swift */,
@@ -4084,6 +4096,7 @@
 				D210EBFC22B1EE55002FB5E0 /* IDLParser.swift in Sources */,
 				D210EBFD22B1EE55002FB5E0 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491329D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
+				D2D074A32E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300592E3E65AB0082C308 /* XUserService.swift in Sources */,
 				D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */,
 				D21090C624D7243F004FE532 /* MessageMap.swift in Sources */,
@@ -4150,6 +4163,7 @@
 				D23E9F7123B9200A0030F5C1 /* OptionsViewController.swift in Sources */,
 				D27D87BC2E565741006F3C5F /* XHoldPart.swift in Sources */,
 				D23E9F7223B9200A0030F5C1 /* MARCXMLParser.swift in Sources */,
+				D2D0749E2E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D23E9F7323B9200A0030F5C1 /* OSRFObject.swift in Sources */,
 				D23E9F7423B9200A0030F5C1 /* UIView+disclosureIndicator.swift in Sources */,
 				D2EA31372B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
@@ -4284,6 +4298,7 @@
 				D2477BBD24785A6B00FD4CF6 /* OptionsViewController.swift in Sources */,
 				D27D87B52E565741006F3C5F /* XHoldPart.swift in Sources */,
 				D2477BBE24785A6B00FD4CF6 /* MARCXMLParser.swift in Sources */,
+				D2D0749D2E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2477BBF24785A6B00FD4CF6 /* OSRFObject.swift in Sources */,
 				D2477BC024785A6B00FD4CF6 /* UIView+disclosureIndicator.swift in Sources */,
 				D2EA31312B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
@@ -4418,6 +4433,7 @@
 				D2572B2624AD7A13000BA698 /* MoAppConfiguration.swift in Sources */,
 				D27D87BB2E565741006F3C5F /* XHoldPart.swift in Sources */,
 				D2572AAD24AD7755000BA698 /* OptionsViewController.swift in Sources */,
+				D2D074A12E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2572AAE24AD7755000BA698 /* MARCXMLParser.swift in Sources */,
 				D2572AAF24AD7755000BA698 /* OSRFObject.swift in Sources */,
 				D2EA31322B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
@@ -4552,6 +4568,7 @@
 				D25EEC5128A1E8310090F108 /* OptionsViewController.swift in Sources */,
 				D27D87B62E565741006F3C5F /* XHoldPart.swift in Sources */,
 				D25EEC5228A1E8310090F108 /* MARCXMLParser.swift in Sources */,
+				D2D0749F2E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D25EEC5328A1E8310090F108 /* OSRFObject.swift in Sources */,
 				D25EEC5428A1E8310090F108 /* UIView+disclosureIndicator.swift in Sources */,
 				D2EA31352B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
@@ -4776,6 +4793,7 @@
 				D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */,
 				D27D87B82E565741006F3C5F /* XHoldPart.swift in Sources */,
 				D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
+				D2D0749B2E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300332E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BE297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
@@ -4909,6 +4927,7 @@
 				D27990E720DDD473003B451E /* OSRFClass.swift in Sources */,
 				D27D87BA2E565741006F3C5F /* XHoldPart.swift in Sources */,
 				D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
+				D2D074A22E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300312E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BF297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
@@ -5042,6 +5061,7 @@
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
 				D27D87B42E565741006F3C5F /* XHoldPart.swift in Sources */,
 				D24C3931254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
+				D2D0749C2E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C3002A2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D2BB66BD297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D284248021D0358200C7171C /* UIFont+smallCaps.swift in Sources */,
@@ -5085,6 +5105,7 @@
 				D287D4FE207AEF2B001AF644 /* LoginViewController.swift in Sources */,
 				D27D87B32E565741006F3C5F /* XHoldPart.swift in Sources */,
 				D20B2FE322CC309800F69848 /* MARCXMLParser.swift in Sources */,
+				D2D074A42E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D24D76922234418F00AFE50C /* UIColor+.swift in Sources */,
 				D2BCFCBB2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */,
 				D2EA31362B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
@@ -5327,6 +5348,7 @@
 				D234700024E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
 				D21981FC235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
 				D2BDA64522D176BD00D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
+				D2D074A02E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300542E3E65AB0082C308 /* XUserService.swift in Sources */,
 				D24D491929D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2BDA69F22D17A9100D9B60C /* AppFactory.swift in Sources */,

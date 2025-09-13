@@ -22,26 +22,17 @@ import UIKit
 class OptionsViewController: UIViewController {
     
     //MARK: - Properties
-    
+
     @IBOutlet weak var table: UITableView!
 
-    /// the set of (possibly padded) labels to display
-    var optionLabels: [String] = []
-
-    /// the set of underlying values corresponding to each label (if needed)
-    var optionValues: [String] = []
-
-    /// if non-empty, indicates whether each option is enabled; if empty, all options are enabled
-    var optionIsEnabled: [Bool] = []
-
-    /// if non-empty, indicates whether each option is primary (larger bold font); if empty, all options are normal font
-    var optionIsPrimary: [Bool] = []
+    /// descriptor for the option to be selected
+    var option: SelectableOption?
 
     /// the currently selected option
     var selectedPath: IndexPath?
 
     /// called when the user selects an option; passes the row index and trimmed label
-    var selectionChangedHandler: ((_ row: Int, _ label: String) -> Void)?
+    var selectionChangedHandler: ((_ row: Int, _ trimmedLabel: String) -> Void)?
 
     //MARK: - UIViewController
     
@@ -78,12 +69,12 @@ class OptionsViewController: UIViewController {
         } else {
             cell.accessoryType = .none
         }
-        if optionIsEnabled.count > indexPath.row {
-            cell.textLabel?.isEnabled = optionIsEnabled[indexPath.row]
-            cell.isUserInteractionEnabled = optionIsEnabled[indexPath.row]
+        if option!.optionIsEnabled.count > indexPath.row {
+            cell.textLabel?.isEnabled = option!.optionIsEnabled[indexPath.row]
+            cell.isUserInteractionEnabled = option!.optionIsEnabled[indexPath.row]
         }
-        if optionIsPrimary.count > indexPath.row {
-            cell.textLabel?.font = optionIsPrimary[indexPath.row]
+        if option!.optionIsPrimary.count > indexPath.row {
+            cell.textLabel?.font = option!.optionIsPrimary[indexPath.row]
                 ? UIFont.boldSystemFont(ofSize: 19.0)
                 : UIFont.systemFont(ofSize: 17.0)
         }
@@ -92,17 +83,17 @@ class OptionsViewController: UIViewController {
 
 extension OptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return optionLabels.count
+        return option!.optionLabels.count
     }
-    
+
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        return ""
 //    }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionsCell", for: indexPath)
         
-        cell.textLabel?.text = optionLabels[indexPath.row]
+        cell.textLabel?.text = option!.optionLabels[indexPath.row]
         updateViewCell(forCell: cell, indexPath: indexPath)
         
         return cell
@@ -111,7 +102,7 @@ extension OptionsViewController: UITableViewDataSource {
 
 extension OptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trimmedLabel = optionLabels[indexPath.row].trim()
+        let trimmedLabel = option!.optionLabels[indexPath.row].trim()
         selectedPath = indexPath
         updateCheckmarks()
         tableView.deselectRow(at: indexPath, animated: true)
