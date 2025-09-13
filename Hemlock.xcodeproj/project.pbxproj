@@ -1663,6 +1663,16 @@
 		D2D074A22E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
 		D2D074A32E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
 		D2D074A42E74D4A9003DFCCF /* PickOneOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */; };
+		D2D074A62E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074A72E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074A82E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074A92E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074AA2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074AB2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074AC2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074AD2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074AE2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D074AF2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
 		D2D8ABB42E42D78C00CB36C6 /* XOrgHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */; };
 		D2D8ABB52E42D78C00CB36C6 /* XOrgHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */; };
@@ -2245,6 +2255,7 @@
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
 		D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickOneOption.swift; sourceTree = "<group>"; };
+		D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
 		D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgHours.swift; sourceTree = "<group>"; };
 		D2D8ABC02E42D84500CB36C6 /* EvergreenOrgHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenOrgHours.swift; sourceTree = "<group>"; };
@@ -2891,6 +2902,7 @@
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
+				D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */,
 				D296EE0F213381FE009BDB12 /* Default-568h@2x.png */,
 				D22D0274208516D600DC1F5B /* LICENSE */,
 				D27EFD5A2094E1EB00D7E22E /* README.md */,
@@ -3448,6 +3460,7 @@
 				D2816CBC28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D28E04452BA12B8E001850C5 /* MainGrid.storyboard in Resources */,
 				D210EC2822B1EE55002FB5E0 /* CopyInfo.storyboard in Resources */,
+				D2D074AD2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D210EC2922B1EE55002FB5E0 /* Search.storyboard in Resources */,
 				D210EC2A22B1EE55002FB5E0 /* Documentation in Resources */,
 				D22894F929D9DB4B00D558BA /* DetailsPager.storyboard in Resources */,
@@ -3485,6 +3498,7 @@
 				D23E9FCC23B9200A0030F5C1 /* LICENSE.txt in Resources */,
 				D23E9FCD23B9200A0030F5C1 /* Holds.storyboard in Resources */,
 				D23E9FF123B924390030F5C1 /* sagecat.xcassets in Resources */,
+				D2D074AB2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D2816CC428B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D23E9FCE23B9200A0030F5C1 /* CopyInfo.storyboard in Resources */,
 				D23E9FCF23B9200A0030F5C1 /* Search.storyboard in Resources */,
@@ -3522,6 +3536,7 @@
 				D2477C1A24785A6B00FD4CF6 /* LICENSE.txt in Resources */,
 				D2477C1B24785A6B00FD4CF6 /* Holds.storyboard in Resources */,
 				D2477C1D24785A6B00FD4CF6 /* CopyInfo.storyboard in Resources */,
+				D2D074AF2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D2816CC028B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2477C1E24785A6B00FD4CF6 /* Search.storyboard in Resources */,
 				D2477C1F24785A6B00FD4CF6 /* Documentation in Resources */,
@@ -3560,6 +3575,7 @@
 				D2572B0D24AD7755000BA698 /* LICENSE.txt in Resources */,
 				D2572B0E24AD7755000BA698 /* Holds.storyboard in Resources */,
 				D293EC18297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2D074AE2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D2EA311A2B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D20F1A562B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2AA9D4F27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
@@ -3598,6 +3614,7 @@
 				D25EECB928A1E8310090F108 /* Holds.storyboard in Resources */,
 				D25EECBA28A1E8310090F108 /* BookBagDetails.storyboard in Resources */,
 				D293EC1B297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2D074A82E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D2EA311D2B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D20F1A592B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2647872291708AA00B672AC /* custom_strings.json in Resources */,
@@ -3636,6 +3653,7 @@
 				D21090D624D7275A004FE532 /* fail_part_msg_map.json in Resources */,
 				D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */,
 				D293EC15297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
+				D2D074A62E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D2EA31172B3F50FE004CEF6E /* History.storyboard in Resources */,
 				D20F1A532B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2AA9D4827383B75001E78DB /* BookBagDetails.storyboard in Resources */,
@@ -3670,6 +3688,7 @@
 			files = (
 				D20F1A542B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D27990FB20DDD473003B451E /* Launch.storyboard in Resources */,
+				D2D074AC2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D27990FD20DDD473003B451E /* Checkouts.storyboard in Resources */,
 				D27DF20321AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				D29C95F42599283A00CACDBD /* event_msg_map.json in Resources */,
@@ -3721,6 +3740,7 @@
 				D24628F8273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D20F1A522B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D29911DB248461C0007DB26C /* OrgDetails.storyboard in Resources */,
+				D2D074AA2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D233710F2A6C78830080294F /* Login.storyboard in Resources */,
 				D28424A821D0358200C7171C /* Default-568h@2x.png in Resources */,
 				D28424A921D0358200C7171C /* Fines.storyboard in Resources */,
@@ -3744,6 +3764,7 @@
 				D27DF20421AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				FACD142120CDB01C008F02D3 /* Holds.storyboard in Resources */,
 				D248CBE021211B050091D2E6 /* CopyInfo.storyboard in Resources */,
+				D2D074A92E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D2816CC328B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D2F390312241E5950089D745 /* LICENSE.txt in Resources */,
 				D29C96002599288100CACDBD /* event_msg_map.json in Resources */,
@@ -3795,6 +3816,7 @@
 				D2BDA67022D176BD00D9B60C /* Holds.storyboard in Resources */,
 				D293EC19297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D2EA311B2B3F50FE004CEF6E /* History.storyboard in Resources */,
+				D2D074A72E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */,
 				D20F1A572B924B7300C76FC0 /* NewPlaceHold.storyboard in Resources */,
 				D2AA9D4B27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
 				D2BDA67122D176BD00D9B60C /* CopyInfo.storyboard in Resources */,
