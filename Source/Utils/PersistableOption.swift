@@ -35,7 +35,7 @@ protocol SelectableOption {
     /// the set of (possibly padded) labels to display
     var optionLabels: [String] { get }
 
-    /// the set of underlying values corresponding to each label(if needed; may be empty
+    /// the set of underlying values corresponding to each label if needed; may be empty
     var optionValues: [String] { get }
 
     /// if non-empty, indicates whether each option is enabled; if empty, all options are enabled
