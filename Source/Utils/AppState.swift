@@ -39,6 +39,15 @@ class AppState {
         static let holdPickupOrgID = "pickupOrgID"
     }
 
+    static func sensitiveString(forKey key: String) -> String? {
+        // We use Valet for sensitive strings like phone numbers
+        if let value = App.valet.string(forKey: key) {
+            print("[state] Got sensitive \(key) = ***")
+            return value
+        }
+        return nil
+    }
+
     static func string(forKey key: String) -> String? {
         if let value = UserDefaults.standard.string(forKey: key) {
             print("[state] Got \(key) = \(value)")
@@ -65,6 +74,12 @@ class AppState {
         return nil
     }
 
+    static func set(sensitiveString string: String, forKey key: String) {
+        // We use Valet for sensitive strings like phone numbers
+        print("[state] Set sensitive \(key) to ***")
+        App.valet.set(string: string, forKey: key)
+    }
+
     static func set(string: String, forKey key: String) {
         print("[state] Set \(key) to \(string)")
         UserDefaults.standard.set(string, forKey: key)
@@ -84,8 +99,6 @@ class AppState {
     static func migrateLegacySettings() {
         migrateOneSetting(from: "sortBy", to: AppState.Str.listSortBy)
         migrateOneSetting(from: "sortDesc", toBool: AppState.Boolean.listSortDesc)
-        migrateOneSetting(from: "PhoneNumber", to: AppState.Str.holdPhoneNumber)
-        migrateOneSetting(from: "SMSNumber", to: AppState.Str.holdSMSNumber)
         migrateOneSetting(from: "SMSCarrier", toInteger: AppState.Integer.holdSMSCarrierID)
     }
     static func migrateOneSetting(from oldKey: String, to newKey: String) {

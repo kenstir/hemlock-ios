@@ -308,7 +308,7 @@ class PlaceHoldViewController: UIViewController {
 
         // Allow phone_notify to be set even if UX is not visible
         let phoneNumber = Utils.coalesce(holdRecord?.phoneNotify,
-                                         AppState.string(forKey: AppState.Str.holdPhoneNumber),
+                                         AppState.sensitiveString(forKey: AppState.Str.holdPhoneNumber),
                                          App.account?.notifyPhone)
         phoneTextField.text = phoneNumber
         if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
@@ -321,7 +321,7 @@ class PlaceHoldViewController: UIViewController {
         }
 
         let smsNumber = Utils.coalesce(holdRecord?.smsNotify,
-                                       AppState.string(forKey: AppState.Str.holdSMSNumber),
+                                       AppState.sensitiveString(forKey: AppState.Str.holdSMSNumber),
                                        App.account?.smsNotify)
         smsNumberTextField.text = smsNumber
         if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
@@ -469,17 +469,17 @@ class PlaceHoldViewController: UIViewController {
         var notifySMSNumber: String? = nil
         var notifyCarrierID: Int? = nil
         if phoneSwitch.isOn {
-            guard let phoneNotify = phoneTextField.text?.trim(), !phoneNotify.isEmpty else {
+            guard let phoneNumber = phoneTextField.text?.trim(), !phoneNumber.isEmpty else {
                 self.showAlert(title: "Error", message: "Phone number cannot be empty")
                 return
             }
-            notifyPhoneNumber = phoneNotify
+            notifyPhoneNumber = phoneNumber
             if App.config.enableHoldPhoneNotification {
-                AppState.set(string: phoneNotify, forKey: AppState.Str.holdPhoneNumber)
+                AppState.set(sensitiveString: phoneNumber, forKey: AppState.Str.holdPhoneNumber)
             }
         }
         if smsSwitch.isOn {
-            guard let smsNotify = smsNumberTextField.text?.trim(), !smsNotify.isEmpty else {
+            guard let smsNumber = smsNumberTextField.text?.trim(), !smsNumber.isEmpty else {
                 self.showAlert(title: "Error", message: "SMS phone number cannot be empty")
                 return
             }
@@ -487,9 +487,9 @@ class PlaceHoldViewController: UIViewController {
                 self.showAlert(title: "Error", message: "Please select a valid carrier")
                 return
             }
-            notifySMSNumber = smsNotify
+            notifySMSNumber = smsNumber
             notifyCarrierID = carrier.id
-            AppState.set(string: smsNotify, forKey: AppState.Str.holdSMSNumber)
+            AppState.set(sensitiveString: smsNumber, forKey: AppState.Str.holdSMSNumber)
             AppState.set(integer: carrier.id, forKey: AppState.Integer.holdSMSCarrierID)
         }
 
