@@ -251,7 +251,11 @@ class Organization {
     static func getSpinnerLabels() -> [String] {
         return orgs.compactMap { $0.opacVisible ? $0.spinnerLabel : nil }
     }
-    
+
+    static func getShortNames() -> [String] {
+        return orgs.compactMap { $0.opacVisible ? $0.shortname : nil }
+    }
+
     static func getIsPickupLocation() -> [Bool] {
         return orgs.compactMap { $0.opacVisible ? $0.isPickupLocation : nil }
     }

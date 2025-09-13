@@ -54,8 +54,8 @@ class BookBagDetailsViewController : UITableViewController {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
 
-        sortBy = App.valet.string(forKey: "sortBy") ?? "pubdate"
-        sortDescending = ((App.valet.string(forKey: "sortDesc") ?? "t") == "t")
+        sortBy = AppState.string(forKey: AppState.Str.listSortBy) ?? "pubdate"
+        sortDescending = AppState.bool(forKey: AppState.Boolean.listSortDesc) ?? true
 
         self.setupHomeButton()
         navigationItem.rightBarButtonItems?.append(editButtonItem)
@@ -124,7 +124,7 @@ class BookBagDetailsViewController : UITableViewController {
     
     func setPreferredSortOrder(_ sortBy: String) {
         self.sortBy = sortBy
-        App.valet.set(string: sortBy, forKey: "sortBy")
+        AppState.set(string: sortBy, forKey: AppState.Str.listSortBy)
         updateItems()
     }
 
@@ -132,8 +132,7 @@ class BookBagDetailsViewController : UITableViewController {
         sortDescending = !sortDescending
         let sortDirectionImage = loadAssetImage(named: (sortDescending ? "arrow_downward" : "arrow_upward"))
         sortOrderButton.image = sortDirectionImage
-        let val = (sortDescending ? "t" : "f")
-        App.valet.set(string: val, forKey: "sortDesc")
+        AppState.set(bool: sortDescending, forKey: AppState.Boolean.listSortDesc)
         updateItems()
     }
 

@@ -164,19 +164,19 @@ class OrgDetailsViewController: UIViewController {
             mapButton.isEnabled = false
         }
     }
-    
-    @objc func orgButtonPressed(sender: UIButton) {
-         guard orgLabels.count > 0 else { return }
-         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
-         
-         vc.title = "Library"
-         vc.optionLabels = orgLabels
-         vc.selectionChangedHandler = { index, _ in
-             let org = Organization.visibleOrgs[index]
-             self.orgID = org.id
-         }
 
-         self.navigationController?.pushViewController(vc, animated: true)
+    @objc func orgButtonPressed(sender: UIButton) {
+        guard orgLabels.count > 0 else { return }
+        guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
+
+        vc.title = "Library"
+        vc.option = PickOneOption(optionLabels: Organization.getSpinnerLabels(), optionValues: Organization.getShortNames(), optionIsPrimary: Organization.getIsPrimary())
+        vc.selectionChangedHandler = { index, _ in
+            let org = Organization.visibleOrgs[index]
+            self.orgID = org.id
+        }
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func webSiteButtonPressed(sender: UIButton) {

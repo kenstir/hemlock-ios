@@ -1,22 +1,18 @@
-/*
- * SearchViewController.swift
- *
- * Copyright (C) 2018 Kenneth H. Cox
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+//
+//  Copyright (c) 2025 Kenneth H. Cox
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 import os.log
@@ -29,19 +25,8 @@ struct SearchParameters {
     let sort: String?
 }
 
-class OptionsEntry {
-    var label: String
-    var value: String?
-    var index: Int?
-    init(_ label: String, value: String?, index: Int? = nil) {
-        self.label = label
-        self.value = value
-        self.index = index
-    }
-}
-
 class SearchViewController: UIViewController {
-    
+
     //MARK: - Properties
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -49,17 +34,10 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     
     weak var activityIndicator: UIActivityIndicatorView!
-    
-    static let searchKeywordKeyword = "keyword"
-    static let searchKeywordIdentifier = "identifier"
-    static let searchKeywordAuthor = "author"
-    let searchClassLabels = ["Keyword","Title","Author","Subject","Series","ISBN or UPC"]
-    let searchClassKeywords = [searchKeywordKeyword,"title",searchKeywordAuthor,"subject","series",searchKeywordIdentifier]
-    var selectedSearchClassIndex = 0
-    var formatLabels: [String] = []
-    var orgLabels: [String] = []
 
-    var options: [OptionsEntry] = []
+    var options: [StringOption] = []
+
+    // indexes into options array
     let searchClassIndex = 0
     let searchFormatIndex = 1
     let searchLocationIndex = 2
@@ -95,8 +73,6 @@ class SearchViewController: UIViewController {
         self.setupHomeButton()
         setupSearchBar()
         setupOptionsTable()
-        setupFormatPicker()
-        setupLocationPicker()
         setupSearchButton()
     }
     
@@ -125,38 +101,31 @@ class SearchViewController: UIViewController {
 
     func setupOptionsTable() {
         options = []
-        options.append(OptionsEntry("Search by", value: searchClassLabels[0]))
-        options.append(OptionsEntry("Limit to", value: nil))
-        options.append(OptionsEntry("Search within", value: nil))
-    }
+        options.append(StringOption(
+            key: AppState.Str.searchClass,
+            title: "Search by",
+            defaultValue: SearchClass.keyword,
+            optionLabels: SearchClass.getSpinnerLabels(),
+            optionValues: SearchClass.getSpinnerValues()))
+        options.append(StringOption(
+            key: AppState.Str.searchFormat,
+            title: "Limit to",
+            defaultValue: "",
+            optionLabels: CodedValueMap.searchFormatSpinnerLabels(),
+            optionValues: CodedValueMap.searchFormatSpinnerValues()))
+        options.append(StringOption(
+            key: AppState.Str.searchOrgShortName,
+            title: "Search within",
+            defaultValue: Organization.find(byId: App.account?.searchOrgID)?.shortname ?? "",
+            optionLabels: Organization.getSpinnerLabels(),
+            optionValues: Organization.getShortNames(),
+            optionIsPrimary: Organization.getIsPrimary()))
 
-    func setupFormatPicker() {
-        self.formatLabels = CodedValueMap.searchFormatSpinnerLabels()
-        if formatLabels.count == 0 {
-            return // we are early
-        }
-        
-        let entry = options[searchFormatIndex]
-        entry.value = formatLabels[0]
-        self.optionsTable.reloadData()
-    }
-
-    func setupLocationPicker() {
-        self.orgLabels = Organization.getSpinnerLabels()
-
-        var selectOrgIndex = 0
-        let defaultSearchLocation = App.account?.searchOrgID
-        for index in 0..<Organization.visibleOrgs.count {
-            let org = Organization.visibleOrgs[index]
-            if org.id == defaultSearchLocation {
-                selectOrgIndex = index
-            }
+        for option in options {
+            option.load()
         }
 
-        let entry = options[searchLocationIndex]
-        entry.value = orgLabels[selectOrgIndex].trim()
-        entry.index = selectOrgIndex
-        self.optionsTable.reloadData()
+        //optionsTable.reloadData()
     }
     
     func setupSearchButton() {
@@ -189,8 +158,7 @@ class SearchViewController: UIViewController {
     @MainActor
     func doSearch(byBarcode barcode: String) {
         let entry = options[searchClassIndex]
-        entry.index = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordIdentifier)
-        entry.value = searchClassLabels[entry.index ?? 0]
+        entry.select(byValue: SearchClass.identifier)
         self.optionsTable.reloadData()
         doSearch()
     }
@@ -198,12 +166,11 @@ class SearchViewController: UIViewController {
     @MainActor
     func doSearch(byAuthor author: String) {
         let entry = options[searchClassIndex]
-        entry.index = searchClassKeywords.firstIndex(of: SearchViewController.searchKeywordAuthor)
-        entry.value = searchClassLabels[entry.index ?? 0]
+        entry.select(byValue: SearchClass.author)
         self.optionsTable.reloadData()
         doSearch()
     }
-                                                       
+
     @objc func buttonPressed(sender: UIButton) {
         doSearch()
     }
@@ -214,27 +181,15 @@ class SearchViewController: UIViewController {
             self.showAlert(title: "Nothing to search for", message: "Search words cannot be empty")
             return
         }
-        guard let searchClassLabel = options[searchClassIndex].value,
-            let searchFormatLabel = options[searchFormatIndex].value,
-            let searchOrgIndex = options[searchLocationIndex].index else
-        {
-            self.showAlert(title: "Internal error", error: HemlockError.shouldNotHappen("Missing search class, format, or org"))
-            return
-        }
-        let searchClass = searchClass(forLabel: searchClassLabel)
-        let searchFormat = CodedValueMap.searchFormatCode(forLabel: searchFormatLabel)
-        let searchOrg = Organization.visibleOrgs[searchOrgIndex]
-        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg.shortname, sort: App.config.sort)
+        let searchClass = options[searchClassIndex].value
+        let searchFormat = options[searchFormatIndex].value
+        let searchOrg = options[searchLocationIndex].value
+        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg, sort: App.config.sort)
 
         if let vc = UIStoryboard(name: "Results", bundle: nil).instantiateInitialViewController() as? ResultsViewController {
             vc.searchParameters = params
             self.navigationController?.pushViewController(vc, animated: true)
         }
-    }
-
-    func searchClass(forLabel label: String) -> String {
-        let index = searchClassLabels.firstIndex(of: label) ?? 0
-        return searchClassKeywords[index]
     }
 }
 
@@ -305,12 +260,12 @@ extension SearchViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchOptionsCell", for: indexPath)
 
         let entry = options[indexPath.row]
-        cell.textLabel?.text = entry.label
-        cell.detailTextLabel?.text = entry.value
+        cell.textLabel?.text = entry.title
+        cell.detailTextLabel?.text = entry.description
         if indexPath.row == searchClassIndex {
-            os_log("[search] cellForRowAt value=%@", entry.value ?? "")
+            os_log("[search] cellForRowAt value=%@", entry.description)
         }
-        
+
         return cell
     }
 }
@@ -321,24 +276,14 @@ extension SearchViewController: UITableViewDelegate {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
         
         let entry = options[indexPath.row]
-        vc.title = entry.label
-        vc.selectedLabel = entry.value
-        switch indexPath.row {
-        case searchClassIndex:
-            vc.optionLabels = searchClassLabels
-        case searchFormatIndex:
-            vc.optionLabels = formatLabels
-        case searchLocationIndex:
-            vc.optionLabels = orgLabels
-            vc.optionIsPrimary = Organization.getIsPrimary()
-        default:
-            break
-        }
+        vc.title = entry.title
+        vc.option = entry
+        vc.selectedIndex = entry.selectedIndex
 
-        vc.selectionChangedHandler = { index, trimmedLabel in
-            entry.index = index
-            entry.value = trimmedLabel
-            os_log("[search] selection    value=%@, reload", entry.value ?? "")
+        vc.selectionChangedHandler = { index, _ in
+            os_log("[search] selection    index=%d", index)
+            entry.selectedIndex = index
+            entry.save()
             self.optionsTable.reloadData()
         }
 
