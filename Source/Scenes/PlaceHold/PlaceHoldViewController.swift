@@ -608,19 +608,9 @@ class PlaceHoldViewController: UIViewController {
         return HemlockError.unexpectedNetworkResponse(String(describing: obj))
     }
 
-    func makeVC(title: String, options: [String], selectedOption: String) -> OptionsViewController? {
+    func makeOptionVC(title: String) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
-        vc.optionLabels = options
-        vc.selectedPath = IndexPath(row: options.firstIndex(of: selectedOption) ?? 0, section: 0)
-        return vc
-    }
-
-    func makeVC(title: String, options: [String], selectedIndex: Int) -> OptionsViewController? {
-        guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
-        vc.title = title
-        vc.optionLabels = options
-        vc.selectedPath = IndexPath(row: selectedIndex, section: 0)
         return vc
     }
 }
@@ -635,17 +625,19 @@ extension PlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
         case pickupTextField:
-            guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedIndex: selectedOrgIndex) else { return true }
+            guard let vc = makeOptionVC(title: "Pickup Location") else { return true }
+            vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: orgIsPickupLocation, optionIsPrimary: orgIsPrimary)
+            vc.selectedPath = IndexPath(row: selectedOrgIndex, section: 0)
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedOrgIndex = index
                 self.pickupTextField.text = trimmedLabel
             }
-            vc.optionIsEnabled = self.orgIsPickupLocation
-            vc.optionIsPrimary = self.orgIsPrimary
             self.navigationController?.pushViewController(vc, animated: true)
             return false
         case carrierTextField:
-            guard let vc = makeVC(title: "SMS Carrier", options: carrierLabels, selectedOption: selectedCarrierName) else { return true }
+            guard let vc = makeOptionVC(title: "SMS Carrier") else { return true }
+            vc.option = PickOneOption(optionLabels: carrierLabels)
+            vc.selectedPath = IndexPath(row: carrierLabels.firstIndex(of: selectedCarrierName) ?? 0, section: 0)
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedCarrierName = trimmedLabel
                 self.carrierTextField.text = trimmedLabel
@@ -653,7 +645,9 @@ extension PlaceHoldViewController: UITextFieldDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
             return false
         case partTextField:
-            guard let vc = makeVC(title: "Select a part", options: partLabels, selectedOption: selectedPartLabel) else { return true }
+            guard let vc = makeOptionVC(title: "Select a part") else { return true }
+            vc.option = PickOneOption(optionLabels: partLabels)
+            vc.selectedPath = IndexPath(row: partLabels.firstIndex(of: selectedPartLabel) ?? 0, section: 0)
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedPartLabel = trimmedLabel
                 self.partTextField.text = trimmedLabel

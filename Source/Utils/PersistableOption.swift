@@ -20,72 +20,113 @@ protocol PersistableOption {
     /// the key used to persist the value
     var key: String { get }
 
-    /// title of the option in the UI
-    var title: String { get }
-
-    /// description of the option in the UI, i.e. the label describing the selected value
-    var description: String { get }
-
     /// value of the option used in the app and stored in persistence
     associatedtype Value: Codable
 
-    var defaultValue: Value { get }
-
-    var value: Value { get set }
-
     /// loads ``value`` from persistence if available, otherwise ``defaultValue``
-    func load() -> Void
+    func load() -> Value
 
     /// saves ``value`` to persistence
-    func save() -> Void
+    func save(_ value: Value) -> Void
 }
 
-/// a PersistableOption that facilitates using ``OptionsViewController`` to choose one of the available string values
-class StringOption: PersistableOption {
-    let key: String
-    let title: String
-    var description: String
+/// a string option that facilitates using ``OptionsViewController`` to choose one of the available string values.
+protocol SelectableOption {
+    /// the set of (possibly padded) labels to display
+    var optionLabels: [String] { get }
 
+    /// the set of underlying values corresponding to each label(if needed; may be empty
+    var optionValues: [String] { get }
+
+    /// if non-empty, indicates whether each option is enabled; if empty, all options are enabled
+    var optionIsEnabled: [Bool] { get }
+
+    /// if non-empty, indicates whether each option is displayed as primary, in a larger bold font; if empty, all options are normal font
+    var optionIsPrimary: [Bool] { get }
+}
+
+/// a string option that facilitates using ``OptionsViewController`` to choose one of the available string values.
+/// If ``key`` is non-empty, the value can be persisted using ``PersistableOption``.
+class StringOption: PersistableOption, SelectableOption {
     typealias Value = String
 
+    let key: String
+
+    /// title of the option in the UI
+    let title: String
+
+    /// the set of (possibly padded) labels to display
     let optionLabels: [String]
+
+    /// the set of underlying values corresponding to each label(if needed; may be empty
     let optionValues: [String]
+
+    /// if non-empty, indicates whether each option is enabled; if empty, all options are enabled
     let optionIsEnabled: [Bool]
+
+    /// if non-empty, indicates whether each option is displayed as primary, in a larger bold font; if empty, all options are normal font
     let optionIsPrimary: [Bool]
 
+    /// default value of the option used in the app
     let defaultValue: String
-    var value: String
+
+    /// index of the selected option in option arrays
     var selectedIndex: Int = 0
+
+    /// value of the option used in the app and stored in persistence
+    var value: String {
+        let values = (optionValues.isEmpty ? optionLabels : optionValues)
+        return values[selectedIndex]
+    }
+
+    /// description of the option in the UI, i.e. the label describing the selected value
+    var description: String {
+        optionLabels[selectedIndex].trim()
+    }
 
     init(key: String, title: String, defaultValue: String, optionLabels: [String], optionValues: [String] = [], optionIsEnabled: [Bool] = [], optionIsPrimary: [Bool] = []) {
         assert(!optionLabels.isEmpty, "optionLabels must not be empty")
+        assert(optionValues.isEmpty || optionValues.count == optionLabels.count)
+        assert(optionIsEnabled.isEmpty || optionIsEnabled.count == optionLabels.count)
+        assert(optionIsPrimary.isEmpty || optionIsPrimary.count == optionLabels.count)
+        assert(optionValues.contains(defaultValue) || optionLabels.contains(defaultValue))
+
         self.key = key
         self.title = title
         self.defaultValue = defaultValue
-        self.value = defaultValue
         self.optionLabels = optionLabels
         self.optionValues = optionValues
         self.optionIsEnabled = optionIsEnabled
         self.optionIsPrimary = optionIsPrimary
-        self.description = ""
+
+        select(byValue: defaultValue)
     }
 
-    func load() {
-        if let value = UserDefaults.standard.string(forKey: key) {
-            select(byValue: value)
-        } else {
-            select(byValue: defaultValue)
-        }
-    }
-
-    func save() {
-        UserDefaults.standard.set(self.value, forKey: key)
+    convenience init(key: String, title: String, defaultIndex: Int, optionLabels: [String], optionValues: [String] = [], optionIsEnabled: [Bool] = [], optionIsPrimary: [Bool] = []) {
+        let defaultValue = (optionValues.isEmpty ? optionLabels[defaultIndex] : optionValues[defaultIndex])
+        self.init(key: key, title: title, defaultValue: defaultValue, optionLabels: optionLabels, optionValues: optionValues, optionIsEnabled: optionIsEnabled, optionIsPrimary: optionIsPrimary)
     }
 
     func select(byValue selectedValue: String) {
         let values = (optionValues.isEmpty ? optionLabels : optionValues)
-        value = selectedValue
-        selectedIndex = values.firstIndex(of: value) ?? 0
-        description = optionLabels[selectedIndex].trim()
+        selectedIndex = values.firstIndex(of: selectedValue) ?? 0
+    }
+
+    @discardableResult
+    func load() -> String {
+        if let storedValue = UserDefaults.standard.string(forKey: key) {
+            select(byValue: storedValue)
+        } else {
+            select(byValue: defaultValue)
+        }
+        return self.value
+    }
+
+    internal func save(_ value: String) {
+        UserDefaults.standard.set(value, forKey: key)
+    }
+
+    func save() {
+        save(self.value)
     }
 }

@@ -125,7 +125,7 @@ class SearchViewController: UIViewController {
             option.load()
         }
 
-        optionsTable.reloadData()
+        //optionsTable.reloadData()
     }
     
     func setupSearchButton() {
@@ -277,17 +277,12 @@ extension SearchViewController: UITableViewDelegate {
         
         let entry = options[indexPath.row]
         vc.title = entry.title
-        vc.optionLabels = entry.optionLabels
-        vc.optionValues = entry.optionValues
-        vc.optionIsEnabled = entry.optionIsEnabled
-        vc.optionIsPrimary = entry.optionIsPrimary
+        vc.option = entry
         vc.selectedPath = IndexPath(row: entry.selectedIndex, section: 0)
 
-        vc.selectionChangedHandler = { index, trimmedLabel in
-            os_log("[search] selection    value=%@", trimmedLabel)
+        vc.selectionChangedHandler = { index, _ in
+            os_log("[search] selection    index=%d", index)
             entry.selectedIndex = index
-            entry.description = trimmedLabel
-            entry.value = entry.optionValues.isEmpty ? trimmedLabel : entry.optionValues[index]
             entry.save()
             self.optionsTable.reloadData()
         }
