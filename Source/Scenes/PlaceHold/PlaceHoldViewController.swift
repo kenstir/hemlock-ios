@@ -627,7 +627,7 @@ extension PlaceHoldViewController: UITextFieldDelegate {
         case pickupTextField:
             guard let vc = makeOptionVC(title: "Pickup Location") else { return true }
             vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: orgIsPickupLocation, optionIsPrimary: orgIsPrimary)
-            vc.selectedPath = IndexPath(row: selectedOrgIndex, section: 0)
+            vc.selectedIndex = selectedOrgIndex
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedOrgIndex = index
                 self.pickupTextField.text = trimmedLabel
@@ -637,7 +637,7 @@ extension PlaceHoldViewController: UITextFieldDelegate {
         case carrierTextField:
             guard let vc = makeOptionVC(title: "SMS Carrier") else { return true }
             vc.option = PickOneOption(optionLabels: carrierLabels)
-            vc.selectedPath = IndexPath(row: carrierLabels.firstIndex(of: selectedCarrierName) ?? 0, section: 0)
+            vc.selectedIndex = carrierLabels.firstIndex(of: selectedCarrierName)
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedCarrierName = trimmedLabel
                 self.carrierTextField.text = trimmedLabel
@@ -647,7 +647,7 @@ extension PlaceHoldViewController: UITextFieldDelegate {
         case partTextField:
             guard let vc = makeOptionVC(title: "Select a part") else { return true }
             vc.option = PickOneOption(optionLabels: partLabels)
-            vc.selectedPath = IndexPath(row: partLabels.firstIndex(of: selectedPartLabel) ?? 0, section: 0)
+            vc.selectedIndex = partLabels.firstIndex(of: selectedPartLabel)
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedPartLabel = trimmedLabel
                 self.partTextField.text = trimmedLabel
