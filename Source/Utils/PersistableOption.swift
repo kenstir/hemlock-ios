@@ -114,7 +114,7 @@ class StringOption: PersistableOption, SelectableOption {
 
     @discardableResult
     func load() -> String {
-        if let storedValue = UserDefaults.standard.string(forKey: key) {
+        if let storedValue = AppState.string(forKey: key) {
             select(byValue: storedValue)
         } else {
             select(byValue: defaultValue)
@@ -123,7 +123,7 @@ class StringOption: PersistableOption, SelectableOption {
     }
 
     internal func save(_ value: String) {
-        UserDefaults.standard.set(value, forKey: key)
+        AppState.set(string: value, forKey: key)
     }
 
     func save() {
