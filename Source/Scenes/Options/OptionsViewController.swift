@@ -26,7 +26,7 @@ class OptionsViewController: UIViewController {
     @IBOutlet weak var table: UITableView!
 
     /// descriptor for the option to be selected
-    var option: SelectableOption?
+    var option: SelectableOption!
 
     /// the currently selected option
     var selectedIndex: Int?
@@ -72,12 +72,12 @@ class OptionsViewController: UIViewController {
         } else {
             cell.accessoryType = .none
         }
-        if option!.optionIsEnabled.count > indexPath.row {
-            cell.textLabel?.isEnabled = option!.optionIsEnabled[indexPath.row]
-            cell.isUserInteractionEnabled = option!.optionIsEnabled[indexPath.row]
+        if option.optionIsEnabled.count > indexPath.row {
+            cell.textLabel?.isEnabled = option.optionIsEnabled[indexPath.row]
+            cell.isUserInteractionEnabled = option.optionIsEnabled[indexPath.row]
         }
-        if option!.optionIsPrimary.count > indexPath.row {
-            cell.textLabel?.font = option!.optionIsPrimary[indexPath.row]
+        if option.optionIsPrimary.count > indexPath.row {
+            cell.textLabel?.font = option.optionIsPrimary[indexPath.row]
                 ? UIFont.boldSystemFont(ofSize: 19.0)
                 : UIFont.systemFont(ofSize: 17.0)
         }
@@ -86,7 +86,7 @@ class OptionsViewController: UIViewController {
 
 extension OptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return option!.optionLabels.count
+        return option.optionLabels.count
     }
 
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -96,7 +96,7 @@ extension OptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionsCell", for: indexPath)
         
-        cell.textLabel?.text = option!.optionLabels[indexPath.row]
+        cell.textLabel?.text = option.optionLabels[indexPath.row]
         updateViewCell(forCell: cell, indexPath: indexPath)
         
         return cell
@@ -105,7 +105,7 @@ extension OptionsViewController: UITableViewDataSource {
 
 extension OptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trimmedLabel = option!.optionLabels[indexPath.row].trim()
+        let trimmedLabel = option.optionLabels[indexPath.row].trim()
         selectedIndex = indexPath.row
         updateCheckmarks()
         tableView.deselectRow(at: indexPath, animated: true)
