@@ -214,21 +214,21 @@ class EvergreenUserService: XUserService {
             throw HemlockError.sessionExpired
         }
 
-        // async: fetch the fines summary
-        let req1 = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, account.userID], shouldCache: false)
+        // first fetch the fines summary
+        let summaryReq = Gateway.makeRequest(service: API.actor, method: API.finesSummary, args: [authtoken, account.userID], shouldCache: false)
+        let summary = try await summaryReq.gatewayResponseAsync().asObjectOrNil()
+        if summary == nil {
+            // no fines
+            return PatronCharges(totalCharges: 0.0, totalPaid: 0.0, balanceOwed: 0.0, transactions: [])
+        }
 
-        // async: fetch the transactions
-        let req2 = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, account.userID], shouldCache: false)
-
-        // await both in parallel
-        async let summaryFuture = try req1.gatewayResponseAsync().asObject()
-        async let transactionsFuture = try req2.gatewayResponseAsync().asArray()
-        let (summary, transactions) = try await (summaryFuture, transactionsFuture)
-
+        // then fetch the transactions
+        let transactionsReq = Gateway.makeRequest(service: API.actor, method: API.transactionsWithCharges, args: [authtoken, account.userID], shouldCache: false)
+        let transactions = try await transactionsReq.gatewayResponseAsync().asArray()
         let charges = PatronCharges(
-            totalCharges: summary.getDouble("total_owed") ?? 0.0,
-            totalPaid: summary.getDouble("total_paid") ?? 0.0,
-            balanceOwed: summary.getDouble("balance_owed") ?? 0.0,
+            totalCharges: summary?.getDouble("total_owed") ?? 0.0,
+            totalPaid: summary?.getDouble("total_paid") ?? 0.0,
+            balanceOwed: summary?.getDouble("balance_owed") ?? 0.0,
             transactions: FineRecord.makeArray(transactions))
         return charges
     }
