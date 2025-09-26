@@ -22,16 +22,19 @@ import UIKit
 class OptionsViewController: UIViewController {
     
     //MARK: - Properties
-    
+
     @IBOutlet weak var table: UITableView!
-    
-    var optionLabels: [String] = []
-    var optionIsEnabled: [Bool] = []
-    var optionIsPrimary: [Bool] = []
-    var optionValues: [String] = []
-    var selectedPath: IndexPath?
-    var selectedLabel: String?
-    var selectionChangedHandler: ((_ row: Int, _ label: String) -> Void)?
+
+    /// descriptor for the option to be selected
+    var option: SelectableOption!
+
+    /// the currently selected option
+    var selectedIndex: Int?
+
+    /// called when the user selects an option; passes the row index and trimmed label
+    var selectionChangedHandler: ((_ index: Int, _ trimmedLabel: String) -> Void)?
+
+    static let postSelectionDelay = 0.200
 
     //MARK: - UIViewController
     
@@ -61,21 +64,20 @@ class OptionsViewController: UIViewController {
             updateViewCell(forCell: cell, indexPath: indexPath)
         }
     }
-    
+
     func updateViewCell(forCell cell: UITableViewCell, indexPath: IndexPath) {
+        let selectedPath = (selectedIndex != nil) ? IndexPath(row: selectedIndex!, section: 0) : nil
         if indexPath == selectedPath {
-            cell.accessoryType = .checkmark
-        } else if cell.textLabel?.text?.trim() == selectedLabel {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
         }
-        if optionIsEnabled.count > indexPath.row {
-            cell.textLabel?.isEnabled = optionIsEnabled[indexPath.row]
-            cell.isUserInteractionEnabled = optionIsEnabled[indexPath.row]
+        if option.optionIsEnabled.count > indexPath.row {
+            cell.textLabel?.isEnabled = option.optionIsEnabled[indexPath.row]
+            cell.isUserInteractionEnabled = option.optionIsEnabled[indexPath.row]
         }
-        if optionIsPrimary.count > indexPath.row {
-            cell.textLabel?.font = optionIsPrimary[indexPath.row]
+        if option.optionIsPrimary.count > indexPath.row {
+            cell.textLabel?.font = option.optionIsPrimary[indexPath.row]
                 ? UIFont.boldSystemFont(ofSize: 19.0)
                 : UIFont.systemFont(ofSize: 17.0)
         }
@@ -84,17 +86,17 @@ class OptionsViewController: UIViewController {
 
 extension OptionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return optionLabels.count
+        return option.optionLabels.count
     }
-    
+
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        return ""
 //    }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "optionsCell", for: indexPath)
         
-        cell.textLabel?.text = optionLabels[indexPath.row]
+        cell.textLabel?.text = option.optionLabels[indexPath.row]
         updateViewCell(forCell: cell, indexPath: indexPath)
         
         return cell
@@ -103,16 +105,14 @@ extension OptionsViewController: UITableViewDataSource {
 
 extension OptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trimmedLabel = optionLabels[indexPath.row].trim()
-        selectedLabel = trimmedLabel
-        selectedPath = indexPath
+        let trimmedLabel = option.optionLabels[indexPath.row].trim()
+        selectedIndex = indexPath.row
         updateCheckmarks()
         tableView.deselectRow(at: indexPath, animated: true)
         selectionChangedHandler?(indexPath.row, trimmedLabel)
 
         // navigate back after short delay for user to perceive the update
-        let delay = 0.200
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + OptionsViewController.postSelectionDelay) {
             self.navigationController?.popViewController(animated: true)
         }
     }

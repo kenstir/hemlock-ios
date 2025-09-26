@@ -57,8 +57,6 @@ class PlaceHoldViewController: UIViewController {
 
     var partLabels: [String] = []
     var orgLabels: [String] = []
-    var orgIsPickupLocation: [Bool] = []
-    var orgIsPrimary: [Bool] = []
     var carrierLabels: [String] = []
     var selectedPartLabel = ""
     var selectedOrgIndex = 0
@@ -111,6 +109,7 @@ class PlaceHoldViewController: UIViewController {
 
         setupPartRow()
         setupPickupRow()
+        setupEmailRow()
         setupPhoneRow()
         setupSmsRow()
         setupCarrierRow()
@@ -145,16 +144,22 @@ class PlaceHoldViewController: UIViewController {
         carrierTextField.delegate = self
     }
 
+    func setupEmailRow() {
+        emailSwitch.addTarget(self, action: #selector(emailSwitchChanged(sender:)), for: .valueChanged)
+    }
+
     func setupPhoneRow() {
-        phoneSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+        phoneSwitch.addTarget(self, action: #selector(phoneSwitchChanged(sender:)), for: .valueChanged)
         phoneTextField.keyboardType = .phonePad
         phoneTextField.delegate = self
+        phoneTextField.addTarget(self, action: #selector(phoneTextChanged), for: [.editingDidEnd, .editingDidEndOnExit])
     }
 
     func setupSmsRow() {
-        smsSwitch.addTarget(self, action: #selector(switchChanged(sender:)), for: .valueChanged)
+        smsSwitch.addTarget(self, action: #selector(smsSwitchChanged(sender:)), for: .valueChanged)
         smsNumberTextField.keyboardType = .phonePad
         smsNumberTextField.delegate = self
+        smsNumberTextField.addTarget(self, action: #selector(smsTextChanged), for: [.editingDidEnd, .editingDidEndOnExit])
     }
 
     func setupSuspendRow() {
@@ -276,6 +281,8 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
+    //MARK: - Options State Management
+
     func toInt(_ str: String?) -> Int? {
         if let s = str {
             return Int(s)
@@ -296,16 +303,18 @@ class PlaceHoldViewController: UIViewController {
 
     func loadNotifyData() {
         if let val = Utils.coalesce(holdRecord?.hasEmailNotify,
+                                    AppState.bool(forKey: AppState.Boolean.holdNotifyByEmail),
                                     App.account?.defaultNotifyEmail) {
             emailSwitch.isOn = val
         }
 
         // Allow phone_notify to be set even if UX is not visible
         let phoneNumber = Utils.coalesce(holdRecord?.phoneNotify,
-                                         App.account?.notifyPhone,
-                                         App.valet.string(forKey: "PhoneNumber"))
+                                         AppState.sensitiveString(forKey: AppState.Str.holdPhoneNumber),
+                                         App.account?.notifyPhone)
         phoneTextField.text = phoneNumber
         if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
+                                    AppState.bool(forKey: AppState.Boolean.holdNotifyByPhone),
                                     App.account?.defaultNotifyPhone),
             let str = phoneNumber,
             !str.isEmpty
@@ -314,10 +323,11 @@ class PlaceHoldViewController: UIViewController {
         }
 
         let smsNumber = Utils.coalesce(holdRecord?.smsNotify,
-                                       App.account?.smsNotify,
-                                       App.valet.string(forKey: "SMSNumber"))
+                                       AppState.sensitiveString(forKey: AppState.Str.holdSMSNumber),
+                                       App.account?.smsNotify)
         smsNumberTextField.text = smsNumber
         if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
+                                    AppState.bool(forKey: AppState.Boolean.holdNotifyBySMS),
                                     App.account?.defaultNotifySMS),
             let str = smsNumber,
             !str.isEmpty
@@ -326,47 +336,17 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    func loadOrgData() {
-        orgLabels = Organization.getSpinnerLabels()
-        orgIsPickupLocation = Organization.getIsPickupLocation()
-        orgIsPrimary = Organization.getIsPrimary()
-
-        var selectOrgIndex = 0
-        let defaultPickupLocation = Utils.coalesce(holdRecord?.pickupOrgId,
-                                                   App.account?.pickupOrgID)
-        for index in 0..<Organization.visibleOrgs.count {
-            let org = Organization.visibleOrgs[index]
-            if org.id == defaultPickupLocation {
-                selectOrgIndex = index
-            }
-        }
-
-        selectedOrgIndex = selectOrgIndex
-        pickupTextField.text = orgLabels[selectOrgIndex].trim()
-        pickupTextField.isUserInteractionEnabled = true
-    }
-
     func loadCarrierData() {
         carrierLabels = SMSCarrier.getSpinnerLabels()
         carrierLabels.sort()
         carrierLabels.insert("---", at: 0)
 
-        var selectCarrierName: String?
-        var selectCarrierIndex = 0
-        if let defaultCarrierID = Utils.coalesce(holdRecord?.smsCarrier,
-                                                 App.account?.smsCarrier,
-                                                 toInt(App.valet.string(forKey: "SMSCarrier"))),
-            let defaultCarrier = SMSCarrier.find(byID: defaultCarrierID) {
-            selectCarrierName = defaultCarrier.name
-        }
-        for index in 0..<carrierLabels.count {
-            let carrier = carrierLabels[index]
-            if carrier == selectCarrierName {
-                selectCarrierIndex = index
-            }
-        }
+        let defaultCarrierID = Utils.coalesce(holdRecord?.smsCarrier,
+                                              AppState.integer(forKey: AppState.Integer.holdSMSCarrierID),
+                                              App.account?.smsCarrier)
 
-        selectedCarrierName = carrierLabels[selectCarrierIndex]
+        let selectedCarrier = SMSCarrier.find(byID: defaultCarrierID)
+        selectedCarrierName = selectedCarrier?.name ?? carrierLabels[0]
         carrierTextField.text = selectedCarrierName
         carrierTextField.isUserInteractionEnabled = true
     }
@@ -432,9 +412,105 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    @objc func switchChanged(sender: Any) {
-        enableViewsWhenReady()
+    @objc func emailSwitchChanged(sender: Any) {
+        AppState.set(bool: emailSwitch.isOn, forKey: AppState.Boolean.holdNotifyByEmail)
     }
+
+    @objc func phoneSwitchChanged(sender: Any) {
+        enableViewsWhenReady()
+        AppState.set(bool: phoneSwitch.isOn, forKey: AppState.Boolean.holdNotifyByPhone)
+    }
+
+    @objc func smsSwitchChanged(sender: Any) {
+        enableViewsWhenReady()
+        AppState.set(bool: smsSwitch.isOn, forKey: AppState.Boolean.holdNotifyBySMS)
+    }
+
+    @objc func phoneTextChanged(sender: UITextField) {
+        if let phoneNumber = sender.text?.trim(), !phoneNumber.isEmpty {
+            AppState.set(sensitiveString: phoneNumber, forKey: AppState.Str.holdPhoneNumber)
+        }
+    }
+
+    @objc func smsTextChanged(sender: UITextField) {
+        if let smsNumber = sender.text?.trim(), !smsNumber.isEmpty {
+            AppState.set(sensitiveString: smsNumber, forKey: AppState.Str.holdSMSNumber)
+        }
+    }
+
+    func saveSelectedCarrier(byName name: String) {
+        if let carrier = SMSCarrier.find(byName: name) {
+            AppState.set(integer: carrier.id, forKey: AppState.Integer.holdSMSCarrierID)
+        }
+    }
+
+    //MARK: - Pickup Org Management
+
+    func loadOrgData() {
+        // The pickup org preference is handled differently from other preferences:
+        // * it always defaults to the account setting
+        // * changing it results in an JUST ONCE / ALWAYS alert
+        // * ALWAYS saves it back to the account
+        orgLabels = Organization.getSpinnerLabels()
+
+        let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgId,
+                                                App.account?.pickupOrgID)
+
+        selectedOrgIndex = Organization.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
+        let label = orgLabels[selectedOrgIndex].trim()
+        pickupTextField.text = label
+        print("[prefs] Pickup org: default is \(label)")
+
+        pickupTextField.isUserInteractionEnabled = true
+    }
+
+    func maybeChangePickupOrg(newIndex: Int, newLabel: String) {
+        let newOrg = Organization.visibleOrgs[newIndex]
+        print("[prefs] Pickup org: selected \(newOrg.name)")
+        guard newIndex != selectedOrgIndex else { return }
+
+        if newOrg.id == App.account?.pickupOrgID {
+            print("[prefs] Pickup org: same as account setting")
+            selectedOrgIndex = newIndex
+            pickupTextField.text = newLabel
+            return
+        }
+
+        let alertController = UIAlertController(title: "Change pickup location?", message: "Change pickup location to \(newOrg.name)?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("[prefs] Pickup org: cancel")
+        })
+        alertController.addAction(UIAlertAction(title: "Just once", style: .default) { _ in
+            print("[prefs] Pickup org: just once")
+            self.selectedOrgIndex = newIndex
+            self.pickupTextField.text = newLabel
+        })
+        alertController.addAction(UIAlertAction(title: "Always", style: .default) { _ in
+            print("[prefs] Pickup org: always")
+            self.selectedOrgIndex = newIndex
+            self.pickupTextField.text = newLabel
+            Task { await self.saveSelectedPickupOrg(org: newOrg) }
+        })
+
+        // iPad requires a popoverPresentationController
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = self.pickupTextField
+            popoverController.sourceRect = self.pickupTextField.bounds
+        }
+        self.present(alertController, animated: true)
+    }
+
+    @MainActor
+    func saveSelectedPickupOrg(org: Organization) async {
+        guard let account = App.account else { return }
+        do {
+            try await App.serviceConfig.userService.changePickupOrg(account: account, orgId: org.id)
+        } catch {
+            self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    //MARK: - Place/Update Hold
 
     func placeOrUpdateHold() {
         guard let authtoken = App.account?.authtoken,
@@ -467,27 +543,22 @@ class PlaceHoldViewController: UIViewController {
         var notifySMSNumber: String? = nil
         var notifyCarrierID: Int? = nil
         if phoneSwitch.isOn {
-            guard let phoneNotify = phoneTextField.text?.trim(), !phoneNotify.isEmpty else {
-                self.showAlert(title: "Error", message: "Phone number field cannot be empty")
+            guard let phoneNumber = phoneTextField.text?.trim(), !phoneNumber.isEmpty else {
+                self.showAlert(title: "Error", message: "Phone number cannot be empty")
                 return
             }
-            notifyPhoneNumber = phoneNotify
-            if App.config.enableHoldPhoneNotification {
-                App.valet.set(string: phoneNotify, forKey: "PhoneNumber")
-            }
+            notifyPhoneNumber = phoneNumber
         }
         if smsSwitch.isOn {
-            guard let smsNotify = smsNumberTextField.text?.trim(), !smsNotify.isEmpty else {
-                self.showAlert(title: "Error", message: "SMS phone number field cannot be empty")
+            guard let smsNumber = smsNumberTextField.text?.trim(), !smsNumber.isEmpty else {
+                self.showAlert(title: "Error", message: "SMS phone number cannot be empty")
                 return
             }
             guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else {
                 self.showAlert(title: "Error", message: "Please select a valid carrier")
                 return
             }
-            App.valet.set(string: String(carrier.id), forKey: "SMSCarrier")
-            notifySMSNumber = smsNotify
-            App.valet.set(string: smsNotify, forKey: "SMSNumber")
+            notifySMSNumber = smsNumber
             notifyCarrierID = carrier.id
         }
 
@@ -608,19 +679,9 @@ class PlaceHoldViewController: UIViewController {
         return HemlockError.unexpectedNetworkResponse(String(describing: obj))
     }
 
-    func makeVC(title: String, options: [String], selectedOption: String) -> OptionsViewController? {
+    func makeOptionVC(title: String) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title
-        vc.optionLabels = options
-        vc.selectedLabel = selectedOption
-        return vc
-    }
-
-    func makeVC(title: String, options: [String], selectedIndex: Int) -> OptionsViewController? {
-        guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
-        vc.title = title
-        vc.optionLabels = options
-        vc.selectedPath = IndexPath(row: selectedIndex, section: 0)
         return vc
     }
 }
@@ -635,25 +696,32 @@ extension PlaceHoldViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         switch textField {
         case pickupTextField:
-            guard let vc = makeVC(title: "Pickup Location", options: orgLabels, selectedIndex: selectedOrgIndex) else { return true }
+            guard let vc = makeOptionVC(title: "Pickup Location") else { return true }
+            vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: Organization.getIsPickupLocation(), optionIsPrimary: Organization.getIsPrimary())
+            vc.selectedIndex = selectedOrgIndex
             vc.selectionChangedHandler = { index, trimmedLabel in
-                self.selectedOrgIndex = index
-                self.pickupTextField.text = trimmedLabel
+                // postpone any possible alert until after OptionsVC is popped
+                DispatchQueue.main.asyncAfter(deadline: .now() + OptionsViewController.postSelectionDelay + 0.050) {
+                    self.maybeChangePickupOrg(newIndex: index, newLabel: trimmedLabel)
+                }
             }
-            vc.optionIsEnabled = self.orgIsPickupLocation
-            vc.optionIsPrimary = self.orgIsPrimary
             self.navigationController?.pushViewController(vc, animated: true)
             return false
         case carrierTextField:
-            guard let vc = makeVC(title: "SMS Carrier", options: carrierLabels, selectedOption: selectedCarrierName) else { return true }
+            guard let vc = makeOptionVC(title: "SMS Carrier") else { return true }
+            vc.option = PickOneOption(optionLabels: carrierLabels)
+            vc.selectedIndex = carrierLabels.firstIndex(of: selectedCarrierName)
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedCarrierName = trimmedLabel
                 self.carrierTextField.text = trimmedLabel
+                self.saveSelectedCarrier(byName: trimmedLabel)
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false
         case partTextField:
-            guard let vc = makeVC(title: "Select a part", options: partLabels, selectedOption: selectedPartLabel) else { return true }
+            guard let vc = makeOptionVC(title: "Select a part") else { return true }
+            vc.option = PickOneOption(optionLabels: partLabels)
+            vc.selectedIndex = partLabels.firstIndex(of: selectedPartLabel)
             vc.selectionChangedHandler = { index, trimmedLabel in
                 self.selectedPartLabel = trimmedLabel
                 self.partTextField.text = trimmedLabel

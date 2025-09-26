@@ -191,7 +191,7 @@ extension ResultsViewController : UITableViewDataSource {
             return "Searching..."
         } else if items.count == 0 {
             if let searchClass = searchParameters?.searchClass,
-               searchClass != SearchViewController.searchKeywordKeyword,
+               searchClass != SearchClass.keyword,
                let searchText = searchParameters?.text
             {
                 return "No results for \(searchClass): \(searchText)"

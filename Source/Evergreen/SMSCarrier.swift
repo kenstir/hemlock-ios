@@ -48,7 +48,7 @@ class SMSCarrier {
         return nil
     }
     
-    static func find(byID id: Int) -> SMSCarrier? {
+    static func find(byID id: Int?) -> SMSCarrier? {
         if let carrier = carriers.first(where: { $0.id == id }) {
             return carrier
         }
