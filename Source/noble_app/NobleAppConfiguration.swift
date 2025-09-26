@@ -19,7 +19,7 @@
 
 class NobleAppConfiguration: BaseAppConfiguration {
     override var title: String { return "NOBLE Libraries" }
-    override var url: String { return "https://evergreen.noblenet.org" }
+    override var url: String { return "https://evergreen-ils.noblenet.org" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var sort: String? { return "poprel" }
 
