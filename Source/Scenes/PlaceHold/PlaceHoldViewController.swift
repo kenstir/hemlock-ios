@@ -57,8 +57,6 @@ class PlaceHoldViewController: UIViewController {
 
     var partLabels: [String] = []
     var orgLabels: [String] = []
-    var orgIsPickupLocation: [Bool] = []
-    var orgIsPrimary: [Bool] = []
     var carrierLabels: [String] = []
     var selectedPartLabel = ""
     var selectedOrgIndex = 0
@@ -336,20 +334,6 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    func loadOrgData() {
-        orgLabels = Organization.getSpinnerLabels()
-        orgIsPickupLocation = Organization.getIsPickupLocation()
-        orgIsPrimary = Organization.getIsPrimary()
-
-        let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgId,
-                                                AppState.integer(forKey: AppState.Integer.holdPickupOrgID),
-                                                App.account?.pickupOrgID)
-
-        selectedOrgIndex = Organization.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
-        pickupTextField.text = orgLabels[selectedOrgIndex].trim()
-        pickupTextField.isUserInteractionEnabled = true
-    }
-
     func loadCarrierData() {
         carrierLabels = SMSCarrier.getSpinnerLabels()
         carrierLabels.sort()
@@ -452,21 +436,75 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    // Prompt to make sure the user intends to change the pickup location?
-    // This is an unusual action I think but at least for now I can't justify an alert.
-    func saveSelectedPickupOrg(org: Organization) {
-        /*
-        let alertController = UIAlertController(title: "Change pickup location?", message: "Are you sure you want to change your pickup location to \(selectedOrg.name)?", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alertController.addAction(UIAlertAction(title: "Change", style: .default) { action in
-        })
-        */
-        AppState.set(integer: org.id, forKey: AppState.Integer.holdPickupOrgID)
-    }
-
     func saveSelectedCarrier(byName name: String) {
         if let carrier = SMSCarrier.find(byName: name) {
             AppState.set(integer: carrier.id, forKey: AppState.Integer.holdSMSCarrierID)
+        }
+    }
+
+    //MARK: - Pickup Org
+
+    func loadOrgData() {
+        // The pickup org preference is handled differently from other preferences:
+        // * it always defaults to the account setting
+        // * changing it results in an JUST ONCE / ALWAYS alert
+        // * ALWAYS saves it back to the account
+        orgLabels = Organization.getSpinnerLabels()
+
+        let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgId,
+                                                App.account?.pickupOrgID)
+
+        selectedOrgIndex = Organization.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
+        let label = orgLabels[selectedOrgIndex].trim()
+        pickupTextField.text = label
+        print("[prefs] Pickup org: default is \(label)")
+
+        pickupTextField.isUserInteractionEnabled = true
+    }
+
+    func maybeChangePickupOrg(newIndex: Int, newLabel: String) {
+        let newOrg = Organization.visibleOrgs[newIndex]
+        print("[prefs] Pickup org: selected \(newOrg.name)")
+        guard newIndex != selectedOrgIndex else { return }
+
+        if newOrg.id == App.account?.pickupOrgID {
+            print("[prefs] Pickup org: same as account setting")
+            selectedOrgIndex = newIndex
+            pickupTextField.text = newLabel
+            return
+        }
+
+        let alertController = UIAlertController(title: "Change pickup location?", message: "Change pickup location to \(newOrg.name)?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("[prefs] Pickup org: cancel")
+        })
+        alertController.addAction(UIAlertAction(title: "Just once", style: .default) { _ in
+            print("[prefs] Pickup org: just once")
+            self.selectedOrgIndex = newIndex
+            self.pickupTextField.text = newLabel
+        })
+        alertController.addAction(UIAlertAction(title: "Always", style: .default) { _ in
+            print("[prefs] Pickup org: always")
+            self.selectedOrgIndex = newIndex
+            self.pickupTextField.text = newLabel
+            Task { await self.saveSelectedPickupOrg(org: newOrg) }
+        })
+
+        // iPad requires a popoverPresentationController
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = self.pickupTextField
+            popoverController.sourceRect = self.pickupTextField.bounds
+        }
+        self.present(alertController, animated: true)
+    }
+
+    @MainActor
+    func saveSelectedPickupOrg(org: Organization) async {
+        guard let account = App.account else { return }
+        do {
+            try await App.serviceConfig.userService.changePickupOrg(account: account, orgId: org.id)
+        } catch {
+            self.presentGatewayAlert(forError: error)
         }
     }
 
@@ -655,12 +693,13 @@ extension PlaceHoldViewController: UITextFieldDelegate {
         switch textField {
         case pickupTextField:
             guard let vc = makeOptionVC(title: "Pickup Location") else { return true }
-            vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: orgIsPickupLocation, optionIsPrimary: orgIsPrimary)
+            vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: Organization.getIsPickupLocation(), optionIsPrimary: Organization.getIsPrimary())
             vc.selectedIndex = selectedOrgIndex
             vc.selectionChangedHandler = { index, trimmedLabel in
-                self.selectedOrgIndex = index
-                self.pickupTextField.text = trimmedLabel
-                self.saveSelectedPickupOrg(org: Organization.visibleOrgs[index])
+                // postpone any possible alert until after OptionsVC is popped
+                DispatchQueue.main.asyncAfter(deadline: .now() + OptionsViewController.postSelectionDelay + 0.050) {
+                    self.maybeChangePickupOrg(newIndex: index, newLabel: trimmedLabel)
+                }
             }
             self.navigationController?.pushViewController(vc, animated: true)
             return false

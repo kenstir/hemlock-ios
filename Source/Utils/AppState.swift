@@ -36,7 +36,6 @@ class AppState {
     }
     class Integer {
         static let holdSMSCarrierID = "SMSCarrierID"
-        static let holdPickupOrgID = "pickupOrgID"
     }
 
     static func sensitiveString(forKey key: String) -> String? {

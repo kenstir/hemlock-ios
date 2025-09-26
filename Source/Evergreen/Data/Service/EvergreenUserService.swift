@@ -176,6 +176,14 @@ class EvergreenUserService: XUserService {
         let _ = try await req.gatewayResponseAsync().asString()
     }
 
+    func changePickupOrg(account: Account, orgId: Int) async throws {
+        guard let authtoken = account.authtoken, let userID = account.userID else { return }
+        let settings: JSONDictionary = [API.userSettingDefaultPickupLocation: orgId]
+        // return value doesn't matter, it either worked or it errored.
+        let _ = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
+        account.pickupOrgID = orgId
+    }
+
     //MARK: - Messages
 
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage] {

@@ -56,7 +56,10 @@ class Account {
     private(set) var userSettingCircHistoryStart: String?
 
     var notifyPhone: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }
-    var pickupOrgID: Int? { return userSettingDefaultPickupLocation ?? homeOrgID }
+    var pickupOrgID: Int? {
+        get { return userSettingDefaultPickupLocation ?? homeOrgID }
+        set { userSettingDefaultPickupLocation = newValue }
+    }
     var searchOrgID: Int? { return userSettingDefaultSearchLocation ?? homeOrgID }
     var smsCarrier: Int? { return userSettingDefaultSMSCarrier }
     var smsNotify: String? { return userSettingDefaultSMSNotify }
@@ -93,7 +96,7 @@ class Account {
         familyName = obj.getString("pref_family_name") ?? obj.getString("family_name")
         expireDate = obj.getDate("expire_date")
     }
-    
+
     // Fix stupid setting that is returned with extra quotes, e.g. Int 52 in
     // {"__c":"aus","__p":[1854914,"opac.default_sms_carrier",4212142,"\"52\""]}
     private func removeStupidExtraQuotes(_ value: String?) -> String? {
@@ -103,7 +106,7 @@ class Account {
             return nil
         }
     }
-    
+
     private func parseHoldNotifyValue(_ value: String) {
         // value is "|" or ":" separated, e.g. "email|sms" or "phone:email"
         defaultNotifyEmail = value.contains("email")

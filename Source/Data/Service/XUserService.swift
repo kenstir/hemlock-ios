@@ -34,6 +34,7 @@ protocol XUserService {
     func enableCheckoutHistory(account: Account) async throws -> Void
     func disableCheckoutHistory(account: Account) async throws -> Void
     func clearCheckoutHistory(account: Account) async throws -> Void
+    func changePickupOrg(account: Account, orgId: Int) async throws -> Void
 
     //MARK: - Messages
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage]

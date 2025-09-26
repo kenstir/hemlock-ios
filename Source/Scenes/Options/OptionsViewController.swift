@@ -34,6 +34,8 @@ class OptionsViewController: UIViewController {
     /// called when the user selects an option; passes the row index and trimmed label
     var selectionChangedHandler: ((_ index: Int, _ trimmedLabel: String) -> Void)?
 
+    static let postSelectionDelay = 0.200
+
     //MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -110,8 +112,7 @@ extension OptionsViewController: UITableViewDelegate {
         selectionChangedHandler?(indexPath.row, trimmedLabel)
 
         // navigate back after short delay for user to perceive the update
-        let delay = 0.200
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + OptionsViewController.postSelectionDelay) {
             self.navigationController?.popViewController(animated: true)
         }
     }
