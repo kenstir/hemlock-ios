@@ -281,6 +281,8 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
+    //MARK: - Options State Management
+
     func toInt(_ str: String?) -> Int? {
         if let s = str {
             return Int(s)
@@ -442,7 +444,7 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    //MARK: - Pickup Org
+    //MARK: - Pickup Org Management
 
     func loadOrgData() {
         // The pickup org preference is handled differently from other preferences:
@@ -507,6 +509,8 @@ class PlaceHoldViewController: UIViewController {
             self.presentGatewayAlert(forError: error)
         }
     }
+
+    //MARK: - Place/Update Hold
 
     func placeOrUpdateHold() {
         guard let authtoken = App.account?.authtoken,
