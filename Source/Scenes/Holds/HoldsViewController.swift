@@ -22,9 +22,9 @@ import UIKit
 import os.log
 
 class HoldsViewController: UIViewController {
-    
+
     //MARK: - Properties
-    
+
     @IBOutlet weak var holdsTable: UITableView!
     weak var activityIndicator: UIActivityIndicatorView!
 
@@ -168,11 +168,11 @@ class HoldsViewController: UIViewController {
 }
 
 extension HoldsViewController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if !didCompleteFetch {
             return ""
@@ -182,14 +182,13 @@ extension HoldsViewController: UITableViewDataSource {
             return "Items on hold: \(items.count)"
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "holdsCell", for: indexPath) as? HoldsTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
+        guard let item = getItem(indexPath) else { return cell }
 
-        //TODO: figure out how we crashed here once with Index out of range
-        let item = items[indexPath.row]
         cell.holdsTitleLabel.text = item.title
         cell.holdsAuthorLabel.text = item.author
         cell.holdsFormatLabel.text = item.format
@@ -200,9 +199,9 @@ extension HoldsViewController: UITableViewDataSource {
 }
 
 extension HoldsViewController: UITableViewDelegate {
-    
+
     //MARK: - UITableViewDelegate
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // build an action sheet to display the options
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -235,4 +234,3 @@ extension HoldsViewController: UITableViewDelegate {
         }
     }
 }
-
