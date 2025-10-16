@@ -58,6 +58,7 @@ class EvergreenOrgService: XOrgService {
         async let closuresResp = closuresReq.gatewayResponseAsync()
 
         // async 4: load address
+        // TODO: skip if org.addressID is nil
         let addressReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitAddressRetrieve, args: [org.addressID], shouldCache: false)
         async let addressResp = addressReq.gatewayResponseAsync()
 
