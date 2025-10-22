@@ -25,6 +25,14 @@ struct EvergreenOrgHours: XOrgHours {
     var day5Hours: String? { return hours(forDay: 5) }
     var day6Hours: String? { return hours(forDay: 6) }
 
+    var day0Note: String? { return obj?.getString("dow_0_note") }
+    var day1Note: String? { return obj?.getString("dow_1_note") }
+    var day2Note: String? { return obj?.getString("dow_2_note") }
+    var day3Note: String? { return obj?.getString("dow_3_note") }
+    var day4Note: String? { return obj?.getString("dow_4_note") }
+    var day5Note: String? { return obj?.getString("dow_5_note") }
+    var day6Note: String? { return obj?.getString("dow_6_note") }
+
     private var obj: OSRFObject?
 
     init(obj: OSRFObject?) {

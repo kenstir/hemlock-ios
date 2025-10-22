@@ -24,4 +24,12 @@ protocol XOrgHours {
     var day4Hours: String? { get }
     var day5Hours: String? { get }
     var day6Hours: String? { get }
+
+    var day0Note: String? { get }
+    var day1Note: String? { get }
+    var day2Note: String? { get }
+    var day3Note: String? { get }
+    var day4Note: String? { get }
+    var day5Note: String? { get }
+    var day6Note: String? { get }
 }
