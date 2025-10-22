@@ -26,6 +26,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var authorButton: UIButton!
     @IBOutlet weak var formatLabel: UILabel!
     @IBOutlet weak var pubinfoLabel: UILabel!
+    @IBOutlet weak var physicalDescriptionLabel: UILabel!
     @IBOutlet weak var copySummaryLabel: UILabel!
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var placeHoldButton: UIButton!
@@ -101,6 +102,7 @@ class DetailsViewController: UIViewController {
         titleLabel.text = record.title
         formatLabel.text = record.iconFormatLabel
         pubinfoLabel.text = record.pubinfo
+        physicalDescriptionLabel.text = record.physicalDescription
 
         Style.styleButton(asPlain: authorButton)
         authorButton.setTitle(record.author, for: .normal)
