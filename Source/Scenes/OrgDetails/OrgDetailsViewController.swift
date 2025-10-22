@@ -17,25 +17,32 @@
 import UIKit
 
 class OrgDetailsViewController: UIViewController {
-    
+
     //MARK: - Properties
 
     @IBOutlet weak var orgButton: UIButton!
     @IBOutlet weak var hoursHeader: UILabel!
     @IBOutlet weak var day0Stack: UIStackView!
     @IBOutlet weak var day0Hours: UILabel!
+    @IBOutlet weak var day0Note: UILabel!
     @IBOutlet weak var day1Stack: UIStackView!
     @IBOutlet weak var day1Hours: UILabel!
+    @IBOutlet weak var day1Note: UILabel!
     @IBOutlet weak var day2Stack: UIStackView!
     @IBOutlet weak var day2Hours: UILabel!
+    @IBOutlet weak var day2Note: UILabel!
     @IBOutlet weak var day3Stack: UIStackView!
     @IBOutlet weak var day3Hours: UILabel!
+    @IBOutlet weak var day3Note: UILabel!
     @IBOutlet weak var day4Stack: UIStackView!
     @IBOutlet weak var day4Hours: UILabel!
+    @IBOutlet weak var day4Note: UILabel!
     @IBOutlet weak var day5Stack: UIStackView!
     @IBOutlet weak var day5Hours: UILabel!
+    @IBOutlet weak var day5Note: UILabel!
     @IBOutlet weak var day6Stack: UIStackView!
     @IBOutlet weak var day6Hours: UILabel!
+    @IBOutlet weak var day6Note: UILabel!
     @IBOutlet weak var closuresStack: UIStackView!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
@@ -51,12 +58,12 @@ class OrgDetailsViewController: UIViewController {
     var orgLabels: [String] = []
 
     //MARK: - UIViewController
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -98,7 +105,7 @@ class OrgDetailsViewController: UIViewController {
         self.setupActionButtons()
         self.setupHoursViews()
     }
-    
+
     func setupActionButtons() {
         Style.styleButton(asOutline: orgButton)
         Style.styleButton(asPlain: webSiteButton)
@@ -116,7 +123,7 @@ class OrgDetailsViewController: UIViewController {
         phoneButton.isEnabled = false
         mapButton.isEnabled = false
     }
-    
+
     func setupHoursViews() {
         if App.config.enableHoursOfOperation {
             hoursHeader?.text = R.getString("Hours")
@@ -178,7 +185,7 @@ class OrgDetailsViewController: UIViewController {
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func webSiteButtonPressed(sender: UIButton) {
         let org = Organization.find(byId: orgID)
         guard let infoURL = org?.infoURL,
@@ -187,7 +194,7 @@ class OrgDetailsViewController: UIViewController {
 //        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
-    
+
     @objc func mapButtonPressed(sender: UIButton) {
         let org = Organization.find(byId: orgID)
         guard let addressObj = org?.addressObj,
@@ -205,7 +212,7 @@ class OrgDetailsViewController: UIViewController {
 //        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
-    
+
     @objc func phoneButtonPressed(sender: UIButton) {
         let org = Organization.find(byId: orgID)
         guard let number = org?.phoneNumber,
@@ -214,12 +221,12 @@ class OrgDetailsViewController: UIViewController {
 //        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
     }
-    
+
     func setupActivityIndicator() {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
     }
-    
+
     func hoursOfOperation(obj: OSRFObject?, day: Int) -> String? {
         guard let openApiStr = obj?.getString("dow_\(day)_open"),
             let closeApiStr = obj?.getString("dow_\(day)_close") else { return nil }
@@ -236,6 +243,10 @@ class OrgDetailsViewController: UIViewController {
         return nil
     }
 
+    func testNote(_ note: String?) -> String? {
+        return note
+    }
+
     func onHoursLoaded(_ org: Organization) {
         day0Hours.text = org.hours?.day0Hours
         day1Hours.text = org.hours?.day1Hours
@@ -244,6 +255,14 @@ class OrgDetailsViewController: UIViewController {
         day4Hours.text = org.hours?.day4Hours
         day5Hours.text = org.hours?.day5Hours
         day6Hours.text = org.hours?.day6Hours
+
+        day0Note.text = testNote(org.hours?.day0Note)
+        day1Note.text = testNote(org.hours?.day1Note)
+        day2Note.text = testNote(org.hours?.day2Note)
+        day3Note.text = testNote(org.hours?.day3Note)
+        day4Note.text = testNote(org.hours?.day4Note)
+        day5Note.text = testNote(org.hours?.day5Note)
+        day6Note.text = testNote(org.hours?.day6Note)
     }
 
     func onClosuresLoaded(_ org: Organization) {
@@ -259,22 +278,20 @@ class OrgDetailsViewController: UIViewController {
             closuresStack.addArrangedSubview(makeClosureRow(firstString: "No closures scheduled"))
             return
         }
-
-        // find out if any closures have date ranges; if so we need extra room
-        let anyClosuresWithDateRange = closures.contains { $0.toInfo().isDateRange }
+        closuresStack.addArrangedSubview(makeClosureRow(firstString: "Date", secondString: "Reason for Closure", isHeader: true))
 
         // add a row per closure
         for closure in closures {
-            closuresStack.addArrangedSubview(makeClosureRow(closure, useWideDateColumn: anyClosuresWithDateRange))
+            closuresStack.addArrangedSubview(makeClosureRow(closure))
         }
     }
 
-    func makeClosureRow(_ closure: XOrgClosure, useWideDateColumn wide: Bool) -> UIView {
+    func makeClosureRow(_ closure: XOrgClosure) -> UIView {
         let info = closure.toInfo()
-        return makeClosureRow(firstString: info.dateString, secondString: info.reason, useWideDateColumn: wide)
+        return makeClosureRow(firstString: info.dateString, secondString: info.reason)
     }
 
-    func makeClosureRow(firstString: String, secondString: String? = nil, useWideDateColumn wide: Bool = false) -> UIView {
+    func makeClosureRow(firstString: String, secondString: String? = nil, isHeader: Bool? = false) -> UIView {
 
         // create hstack to hold row
         let stackView = UIStackView()
@@ -291,20 +308,25 @@ class OrgDetailsViewController: UIViewController {
 
         // add first label
         let firstLabel = UILabel()
+        firstLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
+        if isHeader == true {
+            firstLabel.font = UIFont.boldSystemFont(ofSize: firstLabel.font.pointSize)
+        }
         firstLabel.text = firstString
         stackView.addArrangedSubview(firstLabel)
 
         if secondString != nil {
             // set constraints on first label only if we have a second
-            let width = (wide) ? 0.45 : 0.28
-            firstLabel.numberOfLines = (wide) ? 2 : 1
+            let width = 0.40
+            firstLabel.numberOfLines = 2
             firstLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: width).isActive = true
 
             // add second label
             let secondLabel = UILabel()
             //secondLabel.backgroundColor = UIColor.lightGray // hack to visualize layout
+            secondLabel.font = firstLabel.font
             secondLabel.text = secondString
-            secondLabel.numberOfLines = (wide) ? 2 : 1
+            secondLabel.numberOfLines = 0
             stackView.addArrangedSubview(secondLabel)
         }
 
@@ -338,7 +360,7 @@ class OrgDetailsViewController: UIViewController {
         }
         return line2
     }
-    
+
     func mapsURL(_ obj: OSRFObject) -> URL? {
         var addr = getAddressLine1(obj)
         addr.append(contentsOf: " ")

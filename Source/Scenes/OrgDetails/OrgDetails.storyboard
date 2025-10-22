@@ -25,7 +25,7 @@
                                 <rect key="frame" x="16" y="85" width="382" height="635"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="sTw-iW-qfV" userLabel="Content Stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="504"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="707"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ila-jE-fyz">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="37"/>
@@ -39,211 +39,232 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bxZ-Sa-qfM" userLabel="Day Stack">
-                                                <rect key="frame" x="0.0" y="61.33333333333335" width="382" height="20.333333333333336"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bxZ-Sa-qfM" userLabel="Day Stack">
+                                                <rect key="frame" x="0.0" y="61.333333333333343" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOa-Ub-FnV" userLabel="Spacer Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="rhb-cr-lGl"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sD1-vA-dxe">
-                                                        <rect key="frame" x="24" y="0.0" width="90" height="20.333333333333332"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="bJt-EH-Seq"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sD1-vA-dxe">
+                                                        <rect key="frame" x="24" y="0.0" width="70.666666666666671" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-LC-Vqh">
-                                                        <rect key="frame" x="122" y="0.0" width="260" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-LC-Vqh">
+                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="6.3333333333333286" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="-" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amW-FF-hId" userLabel="Day0 Note">
+                                                        <rect key="frame" x="117" y="0.0" width="265" height="14.333333333333334"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qNr-7K-8Gn" userLabel="Day Stack">
-                                                <rect key="frame" x="0.0" y="83.666666666666657" width="382" height="20.333333333333329"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qNr-7K-8Gn" userLabel="Day Stack">
+                                                <rect key="frame" x="0.0" y="113.33333333333334" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLl-U7-QNr" userLabel="Spacer Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="CAH-Ms-YPc"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Tuesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usj-uF-wg6">
-                                                        <rect key="frame" x="24" y="0.0" width="90" height="20.333333333333332"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="qFR-6f-GCO"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" text="Tuesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usj-uF-wg6">
+                                                        <rect key="frame" x="24" y="0.0" width="70.666666666666671" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-34-Xep">
-                                                        <rect key="frame" x="122" y="0.0" width="260" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-34-Xep">
+                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="6.3333333333333286" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="-" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uya-s6-Jgh" userLabel="Day1 Note">
+                                                        <rect key="frame" x="117" y="0.0" width="265" height="14.333333333333334"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jRa-y8-5Eb" userLabel="Day Stack">
-                                                <rect key="frame" x="0.0" y="106" width="382" height="20.333333333333329"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jRa-y8-5Eb" userLabel="Day Stack">
+                                                <rect key="frame" x="0.0" y="165.33333333333334" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPN-ch-dTl" userLabel="Spacer Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="cc5-hu-aSk"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaK-i8-hgZ">
-                                                        <rect key="frame" x="24" y="0.0" width="90" height="20.333333333333332"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="Kny-PS-jdJ"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" text="Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaK-i8-hgZ">
+                                                        <rect key="frame" x="24" y="0.0" width="70.666666666666671" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFB-so-CXv">
-                                                        <rect key="frame" x="122" y="0.0" width="260" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFB-so-CXv">
+                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="6.3333333333333286" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="-" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gB-AK-SE0" userLabel="Day2 Note">
+                                                        <rect key="frame" x="117" y="0.0" width="265" height="14.333333333333334"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hxu-hW-r7b" userLabel="Day Stack">
-                                                <rect key="frame" x="0.0" y="128.33333333333334" width="382" height="20.333333333333343"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hxu-hW-r7b" userLabel="Day Stack">
+                                                <rect key="frame" x="0.0" y="217.33333333333331" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njz-Eg-jKl" userLabel="Spacer Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="QDT-8Q-fu7"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v5-3s-YCY">
-                                                        <rect key="frame" x="24" y="0.0" width="90" height="20.333333333333332"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="T8c-WG-I9b"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v5-3s-YCY">
+                                                        <rect key="frame" x="24" y="0.0" width="70.666666666666671" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNs-RT-kSu">
-                                                        <rect key="frame" x="122" y="0.0" width="260" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNs-RT-kSu">
+                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="6.3333333333333286" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="-" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ap-TV-d0V" userLabel="Day3 Note">
+                                                        <rect key="frame" x="117" y="0.0" width="265" height="14.333333333333334"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-JG-zbR" userLabel="Day Stack">
-                                                <rect key="frame" x="0.0" y="150.66666666666666" width="382" height="20.333333333333343"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-JG-zbR" userLabel="Day Stack">
+                                                <rect key="frame" x="0.0" y="269.33333333333331" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbm-HG-a6M" userLabel="Spacer Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="GqL-0Y-FWO"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Friday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noF-Pc-PGO">
-                                                        <rect key="frame" x="24" y="0.0" width="90" height="20.333333333333332"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="cPz-Ql-uRn"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" text="Friday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noF-Pc-PGO">
+                                                        <rect key="frame" x="24" y="0.0" width="70.666666666666671" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFe-Jl-CBY">
-                                                        <rect key="frame" x="122" y="0.0" width="260" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFe-Jl-CBY">
+                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="6.3333333333333286" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="-" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hP-d0-mDT" userLabel="Day4 Note">
+                                                        <rect key="frame" x="117" y="0.0" width="265" height="14.333333333333334"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JlZ-YA-1qG" userLabel="Day Stack">
-                                                <rect key="frame" x="0.0" y="173" width="382" height="20.333333333333343"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JlZ-YA-1qG" userLabel="Day Stack">
+                                                <rect key="frame" x="0.0" y="321.33333333333331" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkq-tX-t4e" userLabel="Spacer Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="Jzd-dW-egM"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rn-5c-7ky">
-                                                        <rect key="frame" x="24" y="0.0" width="90" height="20.333333333333332"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="Mzp-bN-Xyx"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" text="Saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rn-5c-7ky">
+                                                        <rect key="frame" x="24" y="0.0" width="70.666666666666671" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDW-Aq-sRV">
-                                                        <rect key="frame" x="122" y="0.0" width="260" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDW-Aq-sRV">
+                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="6.3333333333333286" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="-" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eez-75-SEZ" userLabel="Day5 Note">
+                                                        <rect key="frame" x="117" y="0.0" width="265" height="14.333333333333334"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TBN-KI-mSc" userLabel="Day Stack">
-                                                <rect key="frame" x="0.0" y="195.33333333333331" width="382" height="20.333333333333343"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TBN-KI-mSc" userLabel="Day Stack">
+                                                <rect key="frame" x="0.0" y="373.33333333333331" width="382" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55E-gV-alZ" userLabel="Spacer Label">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="16" id="LEn-ap-b9m"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-rd-Npu">
-                                                        <rect key="frame" x="24" y="0.0" width="90" height="20.333333333333332"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="90" id="dAT-Y7-qFC"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" text="Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6j-rd-Npu">
+                                                        <rect key="frame" x="24" y="0.0" width="70.666666666666671" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7X-7f-Ntd">
-                                                        <rect key="frame" x="122" y="0.0" width="260" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7X-7f-Ntd">
+                                                        <rect key="frame" x="102.66666666666667" y="0.0" width="6.3333333333333286" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="-" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PZ-mG-dUj" userLabel="Day6 Note">
+                                                        <rect key="frame" x="117" y="0.0" width="265" height="14.333333333333334"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K47-Lg-OzL" userLabel="Spacer Label">
-                                                <rect key="frame" x="0.0" y="217.66666666666669" width="382" height="16"/>
+                                                <rect key="frame" x="0.0" y="425.33333333333331" width="382" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="Bys-xd-8MJ"/>
                                                 </constraints>
@@ -252,38 +273,38 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Upcoming Closures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPL-Dd-J98" userLabel="Closures Heading">
-                                                <rect key="frame" x="0.0" y="235.66666666666669" width="382" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="443.33333333333337" width="382" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-B1-dO1" userLabel="Closures Stack">
-                                                <rect key="frame" x="0.0" y="258" width="382" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="465.66666666666663" width="382" height="15.666666666666686"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kyw-Io-Eyx" userLabel="Closures Row">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.333333333333332"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="15.666666666666666"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imo-Cj-iLy" userLabel="Spacer Label">
-                                                                <rect key="frame" x="0.0" y="0.0" width="16" height="20.333333333333332"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="16" height="15.666666666666666"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="16" id="m9O-Lg-zAP"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWq-DL-z2n">
-                                                                <rect key="frame" x="24" y="0.0" width="90" height="20.333333333333332"/>
+                                                                <rect key="frame" x="24" y="0.0" width="90" height="15.666666666666666"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="90" id="d4n-A6-Ckc"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Reason for Closure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouf-hG-7td">
-                                                                <rect key="frame" x="122" y="0.0" width="260" height="20.333333333333332"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="122" y="0.0" width="260" height="15.666666666666666"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -292,7 +313,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyG-4l-UXk" userLabel="Spacer Label">
-                                                <rect key="frame" x="0.0" y="280.33333333333331" width="382" height="16"/>
+                                                <rect key="frame" x="0.0" y="483.33333333333337" width="382" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="MnD-kW-YE9"/>
                                                 </constraints>
@@ -301,13 +322,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF7-9a-FHh" userLabel="Contact Information Heading">
-                                                <rect key="frame" x="0.0" y="298.33333333333331" width="382" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="501.33333333333337" width="382" height="20.333333333333371"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c1W-kB-gat" userLabel="Email Stack">
-                                                <rect key="frame" x="0.0" y="320.66666666666669" width="382" height="30"/>
+                                                <rect key="frame" x="0.0" y="523.66666666666663" width="382" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sQ-8v-toi" userLabel="Spacer Label">
                                                         <rect key="frame" x="0.0" y="0.0" width="16" height="30"/>
@@ -333,7 +354,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="os5-YV-Rht" userLabel="Phone Stack">
-                                                <rect key="frame" x="0.0" y="352.66666666666669" width="382" height="30"/>
+                                                <rect key="frame" x="0.0" y="555.66666666666663" width="382" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klo-kP-ecd" userLabel="Spacer Label">
                                                         <rect key="frame" x="0.0" y="0.0" width="16" height="30"/>
@@ -359,7 +380,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXf-fJ-cd7" userLabel="Spacer Label">
-                                                <rect key="frame" x="0.0" y="384.66666666666669" width="382" height="8"/>
+                                                <rect key="frame" x="0.0" y="587.66666666666663" width="382" height="8"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="8" id="Pb7-Bl-Rau"/>
                                                 </constraints>
@@ -368,13 +389,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyW-06-PeP" userLabel="Address Heading">
-                                                <rect key="frame" x="0.0" y="394.66666666666669" width="382" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="597.66666666666663" width="382" height="20.333333333333371"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Lvk-75-Mmy" userLabel="Addr Line">
-                                                <rect key="frame" x="0.0" y="417" width="382" height="16"/>
+                                                <rect key="frame" x="0.0" y="620" width="382" height="16"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74N-jT-9NT" userLabel="Spacer Label">
                                                         <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -396,7 +417,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="yLr-Ks-d5f" userLabel="Addr Line">
-                                                <rect key="frame" x="0.0" y="435" width="382" height="16"/>
+                                                <rect key="frame" x="0.0" y="638" width="382" height="16"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVd-Dn-RVC" userLabel="Spacer Label">
                                                         <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -418,7 +439,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gOA-ZS-llh" userLabel="Addr Line">
-                                                <rect key="frame" x="0.0" y="453" width="382" height="16"/>
+                                                <rect key="frame" x="0.0" y="656" width="382" height="16"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXH-Ml-URL" userLabel="Spacer Label">
                                                         <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
@@ -440,11 +461,19 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmt-sd-WS0" userLabel="Map Button">
-                                                <rect key="frame" x="0.0" y="471" width="382" height="33"/>
+                                                <rect key="frame" x="0.0" y="674" width="382" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="Show map"/>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="FaK-i8-hgZ" firstAttribute="width" secondItem="Usj-uF-wg6" secondAttribute="width" id="CPN-qV-vPa"/>
+                                            <constraint firstItem="FaK-i8-hgZ" firstAttribute="width" secondItem="noF-Pc-PGO" secondAttribute="width" id="DcR-8c-h8j"/>
+                                            <constraint firstItem="FaK-i8-hgZ" firstAttribute="width" secondItem="sD1-vA-dxe" secondAttribute="width" id="QvU-sb-o66"/>
+                                            <constraint firstItem="FaK-i8-hgZ" firstAttribute="width" secondItem="7v5-3s-YCY" secondAttribute="width" id="iFj-KY-rre"/>
+                                            <constraint firstItem="FaK-i8-hgZ" firstAttribute="width" secondItem="F6j-rd-Npu" secondAttribute="width" id="lql-os-Q63"/>
+                                            <constraint firstItem="FaK-i8-hgZ" firstAttribute="width" secondItem="8Rn-5c-7ky" secondAttribute="width" id="o4F-Fs-WVM"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -475,18 +504,25 @@
                         <outlet property="addressLine2" destination="6h9-LL-79e" id="kom-8Z-8nw"/>
                         <outlet property="closuresStack" destination="GDo-B1-dO1" id="taS-aE-VtE"/>
                         <outlet property="day0Hours" destination="lfq-LC-Vqh" id="ygc-eJ-2qI"/>
+                        <outlet property="day0Note" destination="amW-FF-hId" id="AAN-Ua-0lz"/>
                         <outlet property="day0Stack" destination="bxZ-Sa-qfM" id="N0B-g0-W82"/>
                         <outlet property="day1Hours" destination="l2N-34-Xep" id="uEL-l9-eZR"/>
+                        <outlet property="day1Note" destination="Uya-s6-Jgh" id="uWf-uR-mvr"/>
                         <outlet property="day1Stack" destination="qNr-7K-8Gn" id="lyf-XX-2JE"/>
                         <outlet property="day2Hours" destination="mFB-so-CXv" id="a6v-1l-kmJ"/>
+                        <outlet property="day2Note" destination="3gB-AK-SE0" id="iBy-5R-NEo"/>
                         <outlet property="day2Stack" destination="jRa-y8-5Eb" id="b6T-l9-GnI"/>
                         <outlet property="day3Hours" destination="CNs-RT-kSu" id="775-Ks-waF"/>
+                        <outlet property="day3Note" destination="7Ap-TV-d0V" id="7Bw-nu-hks"/>
                         <outlet property="day3Stack" destination="hxu-hW-r7b" id="lFd-v7-jzc"/>
                         <outlet property="day4Hours" destination="yFe-Jl-CBY" id="0dn-AK-sAN"/>
+                        <outlet property="day4Note" destination="9hP-d0-mDT" id="mQ4-8Q-UrU"/>
                         <outlet property="day4Stack" destination="BOE-JG-zbR" id="Mas-xV-TLQ"/>
                         <outlet property="day5Hours" destination="ZDW-Aq-sRV" id="6Ua-rk-e88"/>
+                        <outlet property="day5Note" destination="Eez-75-SEZ" id="tX3-bZ-06W"/>
                         <outlet property="day5Stack" destination="JlZ-YA-1qG" id="tXG-w5-Q8l"/>
                         <outlet property="day6Hours" destination="M7X-7f-Ntd" id="lW2-d2-N6H"/>
+                        <outlet property="day6Note" destination="5PZ-mG-dUj" id="voE-Xk-hAQ"/>
                         <outlet property="day6Stack" destination="TBN-KI-mSc" id="iGM-sW-RPX"/>
                         <outlet property="emailButton" destination="kPo-aj-ktQ" id="OiI-ec-3ro"/>
                         <outlet property="hoursHeader" destination="wMg-ib-b6x" id="63R-CD-ajT"/>
