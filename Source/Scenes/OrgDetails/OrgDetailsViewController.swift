@@ -318,7 +318,7 @@ class OrgDetailsViewController: UIViewController {
         if secondString != nil {
             // set constraints on first label only if we have a second
             let width = 0.40
-            firstLabel.numberOfLines = 2
+            firstLabel.numberOfLines = 0
             firstLabel.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: width).isActive = true
 
             // add second label
