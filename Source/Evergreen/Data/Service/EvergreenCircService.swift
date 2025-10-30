@@ -31,18 +31,20 @@ class EvergreenCircService: XCircService {
         let circObj = try await circReq.gatewayResponseAsync().asObject()
         circRecord.setCircObj(circObj)
 
-        if let modsObj = try await fetchCopyMODS(copyId: circRecord.targetCopy) {
-            circRecord.setMetabibRecord(MBRecord(mvrObj: modsObj))
-        }
+        let modsObj = try await fetchCopyMODS(copyId: circRecord.targetCopy)
+        let record = MBRecord(mvrObj: modsObj)
+        circRecord.setMetabibRecord(record)
 
-        if let record = circRecord.metabibRecord {
+        if record.isPreCat {
+            let acpObj = try await fetchACP(id: circRecord.targetCopy)
+            circRecord.setAcpObj(acpObj)
+        } else {
             let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
             record.update(fromMraObj: mraObj)
         }
     }
 
-    private func fetchCopyMODS(copyId: Int) async throws -> OSRFObject? {
-        guard copyId != -1 else { return nil }
+    private func fetchCopyMODS(copyId: Int) async throws -> OSRFObject {
         let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [copyId], shouldCache: true)
         return try await req.gatewayResponseAsync().asObject()
     }

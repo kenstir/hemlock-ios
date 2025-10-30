@@ -276,20 +276,37 @@ extension CheckoutsViewController: UITableViewDataSource {
 extension CheckoutsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row >= 0 && indexPath.row < items.count else { return }
+
+        // Special toast when selecting pre-cat item
+        let selectedRecord = items[indexPath.row].metabibRecord
+        if selectedRecord?.isPreCat == true {
+            tableView.deselectRow(at: indexPath, animated: true)
+            self.navigationController?.view.makeToast("Item is not cataloged")
+            return
+        }
+
+        // Filter pre-cat items from details flow
         var records: [MBRecord] = []
         for item in items {
-            if let record = item.metabibRecord {
+            if let record = item.metabibRecord, !record.isPreCat {
                 records.append(record)
             }
         }
 
+        // Launch details flow with only one item if any pre-cat items exist, or else the positions could be off
+        if records.count != items.count {
+            records = []
+            if let record = selectedRecord {
+                records.append(record)
+            }
+        }
         if records.count > 0 {
             let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
             if let vc = XUtils.makeDetailsPager(items: records, selectedItem: indexPath.row, displayOptions: displayOptions) {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            // deselect row
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
