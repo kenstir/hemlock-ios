@@ -210,7 +210,7 @@ class AlamoTests: XCTestCase {
     func test_get_shouldCache() {
         // httpbin /cache/5 means cache for 5 seconds (Cache-Control: public, max-age=5)
         // Add a random arg to avoid any previous caching
-        let randomArg = randomString(ofLength: 4)
+        let randomArg = randomString(ofLength: 6)
         let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)&shouldCache=true")
 
         let firstWasCached = doRequest(url: url, shouldCache: true)
@@ -221,7 +221,7 @@ class AlamoTests: XCTestCase {
     }
 
     func test_get_shouldNotCache() {
-        let randomArg = randomString(ofLength: 4)
+        let randomArg = randomString(ofLength: 6)
         let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)&shouldCache=false")
 
         let firstWasCached = doRequest(url: url, shouldCache: false)
@@ -240,7 +240,7 @@ class AlamoTests: XCTestCase {
     }
 
     func test_asyncGet_shouldCache() async throws {
-        let randomArg = randomString(ofLength: 4)
+        let randomArg = randomString(ofLength: 6)
         let url = AlamoTests.serviceData.httpbinServerURL(path: "/cache/5?arg=\(randomArg)&asyncShouldCache=true")
 
         let firstWasCached = try await doRequestAsync(url: url, shouldCache: true)
