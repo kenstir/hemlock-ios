@@ -22,7 +22,7 @@ class HemlockAppConfiguration: BaseAppConfiguration {
     override var url: String { return "http://192.168.1.8" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
 
-    override var enableHoldPhoneNotification: Bool { return true }
+    override var enablePartHolds: Bool { return true }
     override var enableCopyInfoWebLinks: Bool { return true }
     override var needMARCRecord: Bool { return true }
     override var showOnlineAccessHostname: Bool { return true }
