@@ -89,7 +89,7 @@ class ResultsViewController: UIViewController {
             self.items = records
             Task {
                 await self.prefetchRecordDetails(records: records)
-                self.reloadData()
+                await MainActor.run { self.reloadData() }
             }
             self.didCompleteSearch = true
             self.logSearchEvent(numResults: records.count)
@@ -204,7 +204,7 @@ extension ResultsViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("\(Utils.tt) row=\(String(format: "%2d", indexPath.row)) cellForRowAt")
+        print("\(Utils.tt) row=\(String(format: "%-2d", indexPath.row)) cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as! ResultsTableViewCell
         guard items.count > indexPath.row else { return cell }
         let record = items[indexPath.row]
@@ -213,14 +213,13 @@ extension ResultsViewController : UITableViewDataSource {
         if record.isLoaded() {
             setCellMetadata(cell, forRecord: record)
         } else {
-            // Clear reused cells immediately or else it appears the titles
-            // change as you scroll fast
+            // Clear reused cells immediately or else the titles change as you scroll fast
             setCellMetadata(cell, forRecord: nil)
 
             // async load the metadata
             Task {
                 await record.prefetch()
-                self.setCellMetadata(cell, forRecord: record)
+                await MainActor.run { self.setCellMetadata(cell, forRecord: record) }
             }
         }
 

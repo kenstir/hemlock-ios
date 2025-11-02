@@ -82,7 +82,7 @@ class HistoryViewController: UITableViewController {
             Analytics.logEvent(event: Analytics.Event.historyLoad, parameters: [Analytics.Param.numItems: items.count])
             Task {
                 await prefetchCircDetails()
-                self.reloadData()
+                await MainActor.run { self.reloadData() }
             }
             self.didCompleteFetch = true
         } catch {
