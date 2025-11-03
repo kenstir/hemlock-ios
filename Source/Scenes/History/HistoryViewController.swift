@@ -205,19 +205,20 @@ class HistoryViewController: UITableViewController {
         guard items.count > indexPath.row else { return cell }
         let item = items[indexPath.row]
 
+        // load the data immediately if we have it
         if item.metabibRecord != nil {
             setCellMetadata(cell, forItem: item)
         } else {
-            // Clear reused cells immediately or else it appears the titles
-            // change as you scroll fast
+            // Clear reused cells immediately or else the titles change as you scroll fast
             setCellMetadata(cell, forItem: nil)
 
             // async load the metadata
             Task {
                 try? await App.serviceConfig.circService.loadHistoryDetails(historyRecord: item)
-                self.setCellMetadata(cell, forItem: item)
+                await MainActor.run { self.setCellMetadata(cell, forItem: item) }
             }
         }
+
 /*
         // async load the image
         // We cannot load the image here, because the bib record ID needs to be fetched
@@ -228,7 +229,6 @@ class HistoryViewController: UITableViewController {
         return cell
     }
 
-    @MainActor
     func setCellMetadata(_ cell: HistoryTableViewCell, forItem item: HistoryRecord?) {
         print("\(Utils.tt) setCellMetadata for \(item?.title ?? "")")
         cell.title.text = item?.title

@@ -209,7 +209,7 @@ extension ResultsViewController : UITableViewDataSource {
         guard items.count > indexPath.row else { return cell }
         let record = items[indexPath.row]
 
-        // load the data if not already loaded
+        // load the data immediately if we have it
         if record.isLoaded() {
             setCellMetadata(cell, forRecord: record)
         } else {
