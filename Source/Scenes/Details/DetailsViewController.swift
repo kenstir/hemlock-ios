@@ -109,8 +109,9 @@ class DetailsViewController: UIViewController {
         authorButton.addTarget(self, action: #selector(authorPressed(sender:)), for: .touchUpInside)
 
         // Reduce button padding so that author text aligns with title & format
-        // NB: does not seem to have any effect on iOS 16.4 simulator, but it works on iOS 12 h/w
-        //authorButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0.1, bottom: 0, right: 0.1)
+        var config = authorButton.configuration ?? UIButton.Configuration.plain()
+        config.contentInsets = NSDirectionalEdgeInsets(top: config.contentInsets.top, leading: 0.1, bottom: config.contentInsets.bottom, trailing: 0.1)
+        authorButton.configuration = config
     }
 
     private func setupOtherRecordLabels() {
@@ -163,7 +164,6 @@ class DetailsViewController: UIViewController {
     private func updateButtonViews() {
         print("updateButtonViews: title:\(record.title)")
         if record.isDeleted ?? false {
-            Style.styleButton(asOutline: placeHoldButton)
             placeHoldButton.isEnabled = false
             copyInfoButton.isEnabled = false
             addToListButton.isEnabled = false
@@ -181,11 +181,6 @@ class DetailsViewController: UIViewController {
         } else {
             placeHoldButton.isEnabled = false
             copyInfoButton.isEnabled = false
-        }
-        if placeHoldButton.isEnabled {
-            Style.styleButton(asInverse: placeHoldButton)
-        } else {
-            Style.styleButton(asOutline: placeHoldButton)
         }
 
         onlineAccessButton.isHidden = !(links.count > 0)

@@ -117,41 +117,25 @@ class Style {
 
     //MARK: - Button
 
-    static private func setButtonInsets(_ button: UIButton) {
-        if #available(iOS 15.0, *) {
-            button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-        } else {
-            button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        }
+    static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.inverseButtonColor) {
+        guard button.configuration == nil else { return }
+
+        button.configuration = .filled()
+        button.setNeedsUpdateConfiguration()
     }
 
-    static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.inverseButtonColor) {
-        button.backgroundColor = color
-        button.tintColor = .white
-        // Setting borderColor here improves an edge case where we style the Place Hold button
-        // asOutline when disabling it.
-        button.layer.borderColor = button.currentTitleColor.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = buttonCornerRadius
-        Style.setButtonInsets(button)
-    }
-    
     static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.buttonTintColor) {
-        button.backgroundColor = nil
-        button.tintColor = color
-        // Setting the borderColor to the currentTitleColor handles the case
-        // where the button is disabled.
-        button.layer.borderColor = button.currentTitleColor.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = buttonCornerRadius
-        Style.setButtonInsets(button)
+        guard button.configuration == nil else { return }
+
+        button.configuration = .gray()
+        button.setNeedsUpdateConfiguration()
     }
-    
+
     static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.buttonTintColor) {
-        button.backgroundColor = nil
-        button.tintColor = color
-        button.layer.cornerRadius = buttonCornerRadius
-        Style.setButtonInsets(button)
+        guard button.configuration == nil else { return }
+
+        button.configuration = .plain()
+        button.setNeedsUpdateConfiguration()
     }
 
     //MARK: - SearchBar
