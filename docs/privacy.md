@@ -7,7 +7,6 @@ redirect_from:
 # Privacy Policy
 
 This page outlines the privacy policy of Hemlock and related apps for iOS ("the app"):
-* [COOL Libraries](https://itunes.apple.com/us/app/cool-libraries/id1448198223)
 * [CW MARS Libraries](https://itunes.apple.com/us/app/cw-mars-libraries/id1434646418)
 * [Evergreen Indiana]
 * [Missouri Evergreen]

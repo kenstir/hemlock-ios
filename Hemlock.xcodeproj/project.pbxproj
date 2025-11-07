@@ -173,10 +173,6 @@
 		D213904A2C5006A7007C4EFD /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D21390492C5006A7007C4EFD /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D213904B2C5006BA007C4EFD /* FirebaseCrashlytics */; };
 		D213904E2C5006C6007C4EFD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D213904D2C5006C6007C4EFD /* FirebaseMessaging */; };
-		D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679E21D039BF0082358C /* CoolAppConfiguration.swift */; };
-		D21867A221D039BF0082358C /* CoolTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D218679F21D039BF0082358C /* CoolTheme.swift */; };
-		D21867A321D039BF0082358C /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21867A021D039BF0082358C /* AppFactory.swift */; };
-		D21867A521D039CE0082358C /* cool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21867A421D039CE0082358C /* cool.xcassets */; };
 		D21889F92D29E66700E8A1C3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D21889F82D29E66700E8A1C3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D21889FA2D29E67200E8A1C3 /* FirebaseCrashlytics */; };
 		D21981F8235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
@@ -2016,10 +2012,6 @@
 		D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornAppConfiguration.swift; sourceTree = "<group>"; };
 		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D210EC4B22B1F331002FB5E0 /* acorn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acorn.xcassets; sourceTree = "<group>"; };
-		D218679E21D039BF0082358C /* CoolAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolAppConfiguration.swift; sourceTree = "<group>"; };
-		D218679F21D039BF0082358C /* CoolTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolTheme.swift; sourceTree = "<group>"; };
-		D21867A021D039BF0082358C /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
-		D21867A421D039CE0082358C /* cool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cool.xcassets; sourceTree = "<group>"; };
 		D21981F7235BC7BC003AE531 /* CodedValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CodedValueMap.swift; path = Source/Evergreen/CodedValueMap.swift; sourceTree = SOURCE_ROOT; };
 		D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedValueMapTests.swift; sourceTree = "<group>"; };
 		D21FF9B82E706D760058E2D3 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -2148,7 +2140,6 @@
 		D283B0AE2E4269BD00AE5F43 /* XOrgService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgService.swift; sourceTree = "<group>"; };
 		D283B0BA2E426A3100AE5F43 /* EvergreenOrgService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenOrgService.swift; sourceTree = "<group>"; };
 		D28424B021D0358200C7171C /* COOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D28424B121D0358300C7171C /* CoolInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CoolInfo.plist; sourceTree = "<group>"; };
 		D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "grid-icons.xcassets"; sourceTree = "<group>"; };
 		D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPatronChargeRecord.swift; sourceTree = "<group>"; };
 		D2861B512E51593F00C61AD9 /* AsyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTests.swift; sourceTree = "<group>"; };
@@ -2595,18 +2586,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		D218679D21D039220082358C /* cool_app */ = {
-			isa = PBXGroup;
-			children = (
-				D21867A021D039BF0082358C /* AppFactory.swift */,
-				D218679E21D039BF0082358C /* CoolAppConfiguration.swift */,
-				D218679F21D039BF0082358C /* CoolTheme.swift */,
-				D28424B121D0358300C7171C /* CoolInfo.plist */,
-				D21867A421D039CE0082358C /* cool.xcassets */,
-			);
-			path = cool_app;
-			sourceTree = "<group>";
-		};
 		D21F683520D803F900D953C1 /* Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -2998,7 +2977,6 @@
 			isa = PBXGroup;
 			children = (
 				D210EC4222B1F1F6002FB5E0 /* acorn_app */,
-				D218679D21D039220082358C /* cool_app */,
 				D276DAE521336B9F007FAA31 /* cwmars_app */,
 				D279911220DDDC8C003B451E /* hemlock_app */,
 				D2477C2D24785C0300FD4CF6 /* indiana_app */,
@@ -3725,7 +3703,6 @@
 				D284249E21D0358200C7171C /* Launch.storyboard in Resources */,
 				D284249F21D0358200C7171C /* Checkouts.storyboard in Resources */,
 				D2F390332241E5950089D745 /* LICENSE.txt in Resources */,
-				D21867A521D039CE0082358C /* cool.xcassets in Resources */,
 				D28424A321D0358200C7171C /* Holds.storyboard in Resources */,
 				D2816CBD28B013C30060F688 /* ScanBarcode.storyboard in Resources */,
 				D28424A421D0358200C7171C /* CopyInfo.storyboard in Resources */,
@@ -4985,14 +4962,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2D8ABB92E42D78C00CB36C6 /* XOrgHours.swift in Sources */,
-				D21867A221D039BF0082358C /* CoolTheme.swift in Sources */,
 				D284244D21D0358200C7171C /* OSRFCoder.swift in Sources */,
 				D2EA312E2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D27C8AD52E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D2C3EA2229D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2EA31072B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D284244E21D0358200C7171C /* LoginViewController.swift in Sources */,
-				D21867A321D039BF0082358C /* AppFactory.swift in Sources */,
 				D2B302412E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D20B2FE522CC309800F69848 /* MARCXMLParser.swift in Sources */,
 				D24D76942234418F00AFE50C /* UIColor+.swift in Sources */,
@@ -5078,7 +5053,6 @@
 				D284247D21D0358200C7171C /* CopyLocationCounts.swift in Sources */,
 				D284247E21D0358200C7171C /* MBRecord.swift in Sources */,
 				D2CF924522471D210009C06A /* Utils.swift in Sources */,
-				D21867A121D039BF0082358C /* CoolAppConfiguration.swift in Sources */,
 				D23398842E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
 				D284247F21D0358200C7171C /* OSRFClass.swift in Sources */,
 				D27D87B42E565741006F3C5F /* XHoldPart.swift in Sources */,
