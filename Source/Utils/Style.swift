@@ -100,7 +100,7 @@ class Style {
     //MARK: - ActivityIndicator
     
     static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView, color: UIColor = App.theme.buttonTintColor) {
-        activityIndicator.color = color
+        //activityIndicator.color = color
     }
     
     //MARK: - AlertController
@@ -117,14 +117,14 @@ class Style {
 
     //MARK: - Button
 
-    static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.inverseButtonColor) {
+    static func styleButton(asInverse button: UIButton) {
         guard button.configuration == nil else { return }
 
         button.configuration = .filled()
         button.setNeedsUpdateConfiguration()
     }
 
-    static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.buttonTintColor) {
+    static func styleButton(asOutline button: UIButton) {
         guard button.configuration == nil else { return }
 
         button.configuration = .gray()
