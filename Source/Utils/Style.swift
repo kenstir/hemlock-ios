@@ -131,10 +131,15 @@ class Style {
         button.setNeedsUpdateConfiguration()
     }
 
-    static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.buttonTintColor) {
+    static func styleButton(asPlain button: UIButton, trimLeadingInset: Bool = false) {
         guard button.configuration == nil else { return }
 
-        button.configuration = .plain()
+        var config = UIButton.Configuration.plain()
+        if trimLeadingInset {
+            // Reduce insets so that the text aligns with other items in a VStack
+            config.contentInsets = NSDirectionalEdgeInsets(top: config.contentInsets.top, leading: 0.1, bottom: config.contentInsets.bottom, trailing: 0.1)
+        }
+        button.configuration = config
         button.setNeedsUpdateConfiguration()
     }
 

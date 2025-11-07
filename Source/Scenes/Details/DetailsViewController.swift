@@ -104,14 +104,9 @@ class DetailsViewController: UIViewController {
         pubinfoLabel.text = record.pubinfo
         physicalDescriptionLabel.text = record.physicalDescription
 
-        Style.styleButton(asPlain: authorButton)
+        Style.styleButton(asPlain: authorButton, trimLeadingInset: true)
         authorButton.setTitle(record.author, for: .normal)
         authorButton.addTarget(self, action: #selector(authorPressed(sender:)), for: .touchUpInside)
-
-        // Reduce button padding so that author text aligns with title & format
-        var config = authorButton.configuration ?? UIButton.Configuration.plain()
-        config.contentInsets = NSDirectionalEdgeInsets(top: config.contentInsets.top, leading: 0.1, bottom: config.contentInsets.bottom, trailing: 0.1)
-        authorButton.configuration = config
     }
 
     private func setupOtherRecordLabels() {
