@@ -23,9 +23,9 @@ class HemlockTheme: Theme {
     let barBackgroundColor = UIColor(rgb: 0x2e7b61)
     let barTextForegroundColor = UIColor.white
 
-    let inverseButtonColor = UIColor(rgb: 0x379676)
-    let buttonTintColor = UIColor(rgb: 0x2e7b61)
-    let mainButtonTintColor = UIColor(rgb: 0x2e7b61)
+    let accentColor = UIColor(named: "accentColor")!
+    let filledButtonColor = UIColor(named: "filledButtonColor")!
+    let mainButtonTintColor = UIColor(named: "accentColor")!
 
     let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
     let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red

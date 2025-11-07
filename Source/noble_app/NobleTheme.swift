@@ -23,9 +23,9 @@ class NobleTheme: Theme {
     let barBackgroundColor = UIColor(rgb: 0x002f6c)
     let barTextForegroundColor = UIColor.white
     
-    let inverseButtonColor = UIColor(rgb: 0x01579b)
-    let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray//UIColor(rgb: 0x002f6c)
-    let mainButtonTintColor = UIColor(rgb: 0x002f6c)
+    let accentColor = UIColor(named: "accentColor")!
+    let filledButtonColor = UIColor(named: "filledButtonColor")!
+    let mainButtonTintColor = UIColor(named: "accentColor")!
 
     let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
     let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red

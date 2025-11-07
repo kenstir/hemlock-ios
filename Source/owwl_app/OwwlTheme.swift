@@ -21,9 +21,9 @@ class OwwlTheme: Theme {
     let barBackgroundColor = UIColor(rgb: 0x003865)
     let barTextForegroundColor = UIColor.white
     
-    let inverseButtonColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
-    let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
-    let mainButtonTintColor = UIColor(named: "mainButtonTintColor") ?? UIColor.darkGray
+    let accentColor = UIColor(named: "accentColor")!
+    let filledButtonColor = UIColor(named: "filledButtonColor")!
+    let mainButtonTintColor = UIColor(named: "mainButtonTintColor")!
 
     let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
     let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red

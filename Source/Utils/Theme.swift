@@ -23,8 +23,8 @@ protocol Theme {
     var barBackgroundColor: UIColor { get }
     var barTextForegroundColor: UIColor { get }
 
-    var inverseButtonColor: UIColor { get }
-    var buttonTintColor: UIColor { get }
+    var accentColor: UIColor { get }
+    var filledButtonColor: UIColor { get }
     var mainButtonTintColor: UIColor { get }
 
     var alertTextColor: UIColor { get }

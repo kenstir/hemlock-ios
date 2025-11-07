@@ -99,8 +99,8 @@ class Style {
 
     //MARK: - ActivityIndicator
     
-    static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView, color: UIColor = App.theme.buttonTintColor) {
-        //activityIndicator.color = color
+    static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
+        //activityIndicator.color = App.theme.accentColor
     }
     
     //MARK: - AlertController
@@ -120,7 +120,9 @@ class Style {
     static func styleButton(asInverse button: UIButton) {
         guard button.configuration == nil else { return }
 
-        button.configuration = .filled()
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = App.theme.filledButtonColor
+        button.configuration = config
         button.setNeedsUpdateConfiguration()
     }
 
@@ -146,14 +148,14 @@ class Style {
     //MARK: - SearchBar
 
     static func styleSearchBar(_ searchBar: UISearchBar) {
-        searchBar.tintColor = App.theme.buttonTintColor
+        searchBar.tintColor = App.theme.accentColor
         searchBar.backgroundColor = systemBackground
     }
     
     //MARK: - SegmentedControl
     
 //    static func styleSegmentedControl(_ v: UISegmentedControl) {
-//        v.tintColor = App.theme.buttonTintColor
+//        v.tintColor = App.theme.accentColor
 //    }
     
     //MARK: - Table Header

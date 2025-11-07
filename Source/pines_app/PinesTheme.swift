@@ -23,9 +23,9 @@ class PinesTheme: Theme {
     let barBackgroundColor = UIColor(rgb: 0x2e7b61)
     let barTextForegroundColor = UIColor.white
 
-    let inverseButtonColor = UIColor(rgb: 0x379676)
-    let buttonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
-    let mainButtonTintColor = UIColor(named: "buttonTintColor") ?? UIColor.darkGray
+    let accentColor = UIColor(named: "accentColor")!
+    let filledButtonColor = UIColor(named: "filledButtonColor")!
+    let mainButtonTintColor = UIColor(named: "accentColor")!
 
     let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
     let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red
