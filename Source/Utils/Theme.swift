@@ -1,7 +1,5 @@
 //
-//  Theme.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -14,8 +12,7 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
@@ -23,10 +20,22 @@ protocol Theme {
     var barBackgroundColor: UIColor { get }
     var barTextForegroundColor: UIColor { get }
 
-    var inverseButtonColor: UIColor { get }
-    var buttonTintColor: UIColor { get }
+    var accentColor: UIColor { get }
+    var filledButtonColor: UIColor { get }
     var mainButtonTintColor: UIColor { get }
 
     var alertTextColor: UIColor { get }
     var warningTextColor: UIColor { get }
+}
+
+class BaseTheme: Theme {
+    var barBackgroundColor: UIColor { return UIColor.darkGray }
+    var barTextForegroundColor: UIColor { return UIColor.white }
+
+    var accentColor: UIColor { return UIColor(named: "accentColor")! }
+    var filledButtonColor: UIColor { return UIColor(named: "filledButtonColor")! }
+    var mainButtonTintColor: UIColor { return UIColor(named: "mainButtonTintColor") ?? UIColor(named: "accentColor")! }
+
+    var alertTextColor: UIColor { UIColor(named: "alertTextColor")! }
+    var warningTextColor: UIColor { UIColor(named: "warningTextColor")! }
 }

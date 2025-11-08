@@ -1,7 +1,5 @@
 //
-//  Style.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -14,8 +12,7 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
@@ -99,8 +96,8 @@ class Style {
 
     //MARK: - ActivityIndicator
     
-    static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView, color: UIColor = App.theme.buttonTintColor) {
-        activityIndicator.color = color
+    static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
+        //activityIndicator.color = App.theme.accentColor
     }
     
     //MARK: - AlertController
@@ -117,54 +114,45 @@ class Style {
 
     //MARK: - Button
 
-    static private func setButtonInsets(_ button: UIButton) {
-        if #available(iOS 15.0, *) {
-            button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-        } else {
-            button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        }
+    static func styleButton(asInverse button: UIButton) {
+        guard button.configuration == nil else { return }
+
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = App.theme.filledButtonColor
+        button.configuration = config
+        button.setNeedsUpdateConfiguration()
     }
 
-    static func styleButton(asInverse button: UIButton, color: UIColor = App.theme.inverseButtonColor) {
-        button.backgroundColor = color
-        button.tintColor = .white
-        // Setting borderColor here improves an edge case where we style the Place Hold button
-        // asOutline when disabling it.
-        button.layer.borderColor = button.currentTitleColor.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = buttonCornerRadius
-        Style.setButtonInsets(button)
+    static func styleButton(asOutline button: UIButton) {
+        guard button.configuration == nil else { return }
+
+        button.configuration = .gray()
+        button.setNeedsUpdateConfiguration()
     }
-    
-    static func styleButton(asOutline button: UIButton, color: UIColor = App.theme.buttonTintColor) {
-        button.backgroundColor = nil
-        button.tintColor = color
-        // Setting the borderColor to the currentTitleColor handles the case
-        // where the button is disabled.
-        button.layer.borderColor = button.currentTitleColor.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = buttonCornerRadius
-        Style.setButtonInsets(button)
-    }
-    
-    static func styleButton(asPlain button: UIButton, color: UIColor = App.theme.buttonTintColor) {
-        button.backgroundColor = nil
-        button.tintColor = color
-        button.layer.cornerRadius = buttonCornerRadius
-        Style.setButtonInsets(button)
+
+    static func styleButton(asPlain button: UIButton, trimLeadingInset: Bool = false) {
+        guard button.configuration == nil else { return }
+
+        var config = UIButton.Configuration.plain()
+        if trimLeadingInset {
+            // Reduce insets so that the text aligns with other items in a VStack
+            config.contentInsets = NSDirectionalEdgeInsets(top: config.contentInsets.top, leading: 0.1, bottom: config.contentInsets.bottom, trailing: 0.1)
+        }
+        button.configuration = config
+        button.setNeedsUpdateConfiguration()
     }
 
     //MARK: - SearchBar
 
     static func styleSearchBar(_ searchBar: UISearchBar) {
-        searchBar.tintColor = App.theme.buttonTintColor
+        searchBar.tintColor = App.theme.accentColor
         searchBar.backgroundColor = systemBackground
     }
     
     //MARK: - SegmentedControl
     
 //    static func styleSegmentedControl(_ v: UISegmentedControl) {
-//        v.tintColor = App.theme.buttonTintColor
+//        v.tintColor = App.theme.accentColor
 //    }
     
     //MARK: - Table Header

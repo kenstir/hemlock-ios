@@ -25,13 +25,7 @@ class NobleAppConfiguration: BaseAppConfiguration {
 
     override var needMARCRecord: Bool { return true }
     override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
-    override var enableMainGridScene: Bool {
-        if #available(iOS 14.0, *) {
-            return true
-        } else {
-            return false
-        }
-    }
+    override var enableMainGridScene: Bool { return true }
 
     override var searchLimit: Int { return 100 }
 }

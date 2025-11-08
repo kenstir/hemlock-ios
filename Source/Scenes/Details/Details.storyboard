@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2122.6666666666665"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2127"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWM-ue-s1z" userLabel="Header Row">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
@@ -41,10 +41,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-qv-0Sd" userLabel="Details Row">
-                                                <rect key="frame" x="0.0" y="132" width="414" height="260"/>
+                                                <rect key="frame" x="0.0" y="131.99999999999997" width="414" height="264.33333333333326"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pan-qW-bff" userLabel="Info VStack">
-                                                        <rect key="frame" x="8" y="8" width="298" height="244"/>
+                                                        <rect key="frame" x="8" y="8.0000000000000142" width="298" height="248.33333333333337"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Project Management" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obk-o5-m7w" userLabel="Title">
                                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="26.333333333333332"/>
@@ -53,30 +53,30 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qri-OI-tiU" userLabel="Author">
-                                                                <rect key="frame" x="0.0" y="30.333333333333346" width="298" height="34.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="30.333333333333343" width="298" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Button" titleAlignment="leading"/>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yZ-zo-Jvu" userLabel="Format">
-                                                                <rect key="frame" x="0.0" y="68.666666666666657" width="298" height="19.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="64.333333333333343" width="298" height="19.333333333333329"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2002" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tx-CH-1QU" userLabel="Pub Info">
-                                                                <rect key="frame" x="0.0" y="92" width="298" height="18"/>
+                                                                <rect key="frame" x="0.0" y="87.666666666666657" width="298" height="18"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="352 p., [1] folded leaf of plates : ill. (some col.) ; 23 cm." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djf-v9-nt4" userLabel="Physical Description">
-                                                                <rect key="frame" x="0.0" y="114" width="298" height="38"/>
+                                                                <rect key="frame" x="0.0" y="109.66666666666669" width="298" height="38"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-ek-CIH" userLabel="Spacer">
-                                                                <rect key="frame" x="0.0" y="156" width="298" height="88"/>
+                                                                <rect key="frame" x="0.0" y="151.66666666666669" width="298" height="96.666666666666686"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gWi-pz-Kbb" userLabel="Image VStack">
-                                                        <rect key="frame" x="306" y="4" width="100" height="252"/>
+                                                        <rect key="frame" x="306" y="4" width="100" height="256.33333333333331"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="fake_jacket_cover" translatesAutoresizingMaskIntoConstraints="NO" id="QDi-I0-XXM" userLabel="coverImage">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="160"/>
@@ -94,7 +94,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXp-aq-8TR" userLabel="Spacer">
-                                                                <rect key="frame" x="0.0" y="160" width="100" height="92"/>
+                                                                <rect key="frame" x="0.0" y="160" width="100" height="96.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -114,7 +114,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auB-BB-58U" userLabel="Copy Summary Row">
-                                                <rect key="frame" x="0.0" y="396" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="400.33333333333331" width="414" height="127.99999999999994"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35 of 35 copies available at All C/W MARS Libraries" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-G8-Vo6" userLabel="copySummaryLabel">
                                                         <rect key="frame" x="8" y="8" width="390" height="116"/>
@@ -132,25 +132,25 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dn7-it-hY2" userLabel="Button Row">
-                                                <rect key="frame" x="0.0" y="528" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="532.33333333333337" width="414" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2v2-vc-nQc">
                                                         <rect key="frame" x="8" y="4" width="398" height="120"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIB-Bu-drf" userLabel="placeHoldButton">
-                                                                <rect key="frame" x="0.0" y="43" width="130" height="34.333333333333343"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Place Hold"/>
+                                                                <rect key="frame" x="0.0" y="45" width="130" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Place Hold"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdB-UD-NMk" userLabel="copyInfoButton">
-                                                                <rect key="frame" x="134" y="43" width="130" height="34.333333333333343"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Copy Info"/>
+                                                                <rect key="frame" x="134" y="45" width="130" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Copy Info"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cm4-k6-feX" userLabel="addToListButton">
-                                                                <rect key="frame" x="268" y="43" width="130" height="34.333333333333343"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Add to List"/>
+                                                                <rect key="frame" x="268" y="45" width="130" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Add to List"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -164,7 +164,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKc-mX-5cJ" userLabel="Synopsis Row">
-                                                <rect key="frame" x="0.0" y="660.00000000000011" width="414" height="1066.666666666667"/>
+                                                <rect key="frame" x="0.0" y="664.33333333333337" width="414" height="1066.6666666666665"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOP-li-8kW" userLabel="synopsisLabel">
                                                         <rect key="frame" x="8" y="4" width="398" height="1054.6666666666667"/>
@@ -185,20 +185,20 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANV-7z-h9O" userLabel="Extras Row">
-                                                <rect key="frame" x="0.0" y="1730.6666666666667" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="1735" width="414" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gb7-D6-PDd">
                                                         <rect key="frame" x="8" y="4" width="398" height="120"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOX-gB-FRh" userLabel="onlineAccessButton">
-                                                                <rect key="frame" x="0.0" y="43" width="197" height="34.333333333333343"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Electronic Resources"/>
+                                                                <rect key="frame" x="0.0" y="45" width="197" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Electronic Resources"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15p-mJ-jvC" userLabel="extrasButton">
-                                                                <rect key="frame" x="201" y="43" width="197" height="34.333333333333343"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="Extras"/>
+                                                                <rect key="frame" x="201" y="45" width="197" height="30"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Extras"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -212,7 +212,7 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53N-CU-k5U" userLabel="Subject Row">
-                                                <rect key="frame" x="0.0" y="1862.6666666666667" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="1867" width="414" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="us2-Cp-1qY" userLabel="Subject HStack">
                                                         <rect key="frame" x="8" y="4" width="398" height="120"/>
@@ -241,7 +241,7 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDh-Vt-SVz" userLabel="ISBN Row">
-                                                <rect key="frame" x="0.0" y="1994.666666666667" width="414" height="128"/>
+                                                <rect key="frame" x="0.0" y="1999" width="414" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hAY-nG-UD7" userLabel="ISBN HStack">
                                                         <rect key="frame" x="8" y="4" width="398" height="120"/>
@@ -324,7 +324,7 @@ Cum sociis natoque penatibus et magnis dis. Platea dictumst quisque sagittis pur
     <resources>
         <image name="fake_jacket_cover" width="119.5" height="180"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
