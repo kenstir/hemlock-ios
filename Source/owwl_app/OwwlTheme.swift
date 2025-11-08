@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2022 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -12,19 +12,10 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
-class OwwlTheme: Theme {
-    let barBackgroundColor = UIColor(rgb: 0x003865)
-    let barTextForegroundColor = UIColor.white
-    
-    let accentColor = UIColor(named: "accentColor")!
-    let filledButtonColor = UIColor(named: "filledButtonColor")!
-    let mainButtonTintColor = UIColor(named: "mainButtonTintColor")!
-
-    let alertTextColor = UIColor(named: "alertTextColor") ?? UIColor.red
-    let warningTextColor = UIColor(named: "warningTextColor") ?? UIColor.red
+class OwwlTheme: BaseTheme {
+    override var barBackgroundColor: UIColor { return UIColor(rgb: 0x003865) }
 }
