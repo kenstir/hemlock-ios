@@ -119,7 +119,6 @@ class Style {
 
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = App.theme.filledButtonColor
-        print("\(App.theme.filledButtonColor)")
         button.configuration = config
         button.setNeedsUpdateConfiguration()
     }
