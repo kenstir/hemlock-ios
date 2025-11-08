@@ -64,7 +64,6 @@ class BookBagsViewController : UITableViewController {
             return //TODO: add analytics
         }
         
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         do {

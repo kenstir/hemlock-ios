@@ -71,7 +71,6 @@ class BookBagDetailsViewController : UITableViewController {
     func fetchData() async {
         guard let account = App.account, let bookBag = self.bookBag else { return }
 
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         do {

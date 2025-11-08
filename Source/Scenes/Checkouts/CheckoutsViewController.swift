@@ -74,7 +74,6 @@ class CheckoutsViewController: UIViewController {
     func fetchData() async {
         guard let account = App.account else { return }
 
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
         let startOfFetch = Date()
 
@@ -131,7 +130,6 @@ class CheckoutsViewController: UIViewController {
     @MainActor
     func renewItem(account: Account, targetCopy: Int) async {
 
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         do {
@@ -212,7 +210,6 @@ class CheckoutsViewController: UIViewController {
 
     @MainActor
     func enableCheckoutHistory(account: Account) async {
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         do {

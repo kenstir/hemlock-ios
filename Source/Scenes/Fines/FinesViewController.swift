@@ -121,7 +121,6 @@ class FinesViewController: UIViewController {
     func fetchData() async {
         guard let account = App.account else { return }
 
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         do {

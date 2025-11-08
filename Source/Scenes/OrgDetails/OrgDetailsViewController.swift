@@ -78,7 +78,6 @@ class OrgDetailsViewController: UIViewController {
               let orgID = self.orgID,
               let org = Organization.find(byId: orgID) else { return }
 
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         do {

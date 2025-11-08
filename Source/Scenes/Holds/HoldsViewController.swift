@@ -67,7 +67,6 @@ class HoldsViewController: UIViewController {
 
         let startOfFetch = Date()
 
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         do {

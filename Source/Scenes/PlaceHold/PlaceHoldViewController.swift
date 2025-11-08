@@ -239,7 +239,6 @@ class PlaceHoldViewController: UIViewController {
 
         let startOfFetch = Date()
 
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         do {
@@ -571,7 +570,6 @@ class PlaceHoldViewController: UIViewController {
 
     @MainActor
     func doPlaceHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
@@ -607,7 +605,6 @@ class PlaceHoldViewController: UIViewController {
 
     @MainActor
     func doUpdateHold(authtoken: String, holdRecord: HoldRecord, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
-        centerSubview(activityIndicator)
         activityIndicator.startAnimating()
 
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
