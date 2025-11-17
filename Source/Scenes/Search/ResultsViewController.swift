@@ -143,17 +143,7 @@ class ResultsViewController: UIViewController {
             showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing search parameters"))
             return nil
         }
-        var query = "\(sp.searchClass):\(sp.text)"
-        if let sf = sp.searchFormat, !sf.isEmpty {
-            query += " search_format(\(sf))"
-        }
-        if let org = sp.organizationShortName, !org.isEmpty {
-            query += " site(\(org))"
-        }
-        if let sort = sp.sort {
-            query += " sort(\(sort))"
-        }
-        return query
+        return App.serviceConfig.searchService.makeQueryString(searchText: sp.text, searchClass: sp.searchClass, searchFormat: sp.searchFormat, sort: sp.sort)
     }
 
     func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
