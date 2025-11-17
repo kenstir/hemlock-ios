@@ -18,7 +18,7 @@ import Foundation
 import os.log
 
 class EvergreenLoaderService: XLoaderService {
-    func loadStartupPrerequisites(options: LoadStartupOptions) async throws {
+    func loadStartupPrerequisites(options: XLoaderServiceOptions) async throws {
         let start = Date()
 
         // sync: cache keys must be established first, before IDL is loaded
