@@ -304,24 +304,23 @@ class EvergreenCircService: XCircService {
             "id": holdId,
             "pickup_lib": options.pickupOrgId,
             "frozen": options.suspended,
-
         ]
-        if let str = notifyPhoneNumber, !str.isEmpty {
+        if let str = options.phoneNotify, !str.isEmpty {
             complexParam["phone_notify"] = str
         }
-        if let str = notifySMSNumber, !str.isEmpty {
+        if let str = options.smsNotify, !str.isEmpty {
             complexParam["sms_notify"] = str
         }
-        if let carrierID = smsCarrierID {
+        if let carrierID = options.smsCarrierId {
             complexParam["sms_carrier"] = carrierID
         }
-        if let date = expirationDate {
+        if let date = options.expirationDate {
             complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
         }
-        if let date = thawDate {
+        if let date = options.thawDate {
             complexParam["thaw_date"] = OSRFObject.apiDateFormatter.string(from: date)
         }
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [authtoken, nil, complexParam], shouldCache: false)
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [account.authtoken, nil, complexParam], shouldCache: false)
         return try await req.gatewayResponseAsync()
     }
 

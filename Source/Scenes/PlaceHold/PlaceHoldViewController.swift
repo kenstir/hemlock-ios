@@ -509,8 +509,7 @@ class PlaceHoldViewController: UIViewController {
     //MARK: - Place/Update Hold
 
     func placeOrUpdateHold() {
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+        guard let account = App.account else
         {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
@@ -559,7 +558,7 @@ class PlaceHoldViewController: UIViewController {
         }
 
         if let hold = holdRecord {
-            Task { await doUpdateHold(authtoken: authtoken, holdRecord: hold, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID) }
+            Task { await doUpdateHold(account: account, holdRecord: hold, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID) }
         } else {
             Task { await doPlaceHold(account: account, holdType: holdType, targetID: targetID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID) }
         }
@@ -585,13 +584,13 @@ class PlaceHoldViewController: UIViewController {
     }
 
     @MainActor
-    func doUpdateHold(authtoken: String, holdRecord: HoldRecord, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
+    func doUpdateHold(account: Account, holdRecord: HoldRecord, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
         activityIndicator.startAnimating()
 
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
         do {
-            let options = XHoldUpdateOptions(pickupOrgId: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
-            let _ = try await App.serviceConfig.circService.updateHold(account: Account, holdId: holdRecord.id, withOptions: options)
+            let options = XHoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierId: notifyCarrierID, pickupOrgId: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
+            let _ = try await App.serviceConfig.circService.updateHold(account: account, holdId: holdRecord.id, withOptions: options)
             self.logUpdateHold(params: eventParams)
             self.valueChangedHandler?()
             self.navigationController?.view.makeToast("Hold successfully updated")
