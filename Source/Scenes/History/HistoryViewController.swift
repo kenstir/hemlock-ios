@@ -69,7 +69,7 @@ class HistoryViewController: UITableViewController {
               let authtoken = account.authtoken else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+            return
         }
 
         activityIndicator.startAnimating()
@@ -128,7 +128,7 @@ class HistoryViewController: UITableViewController {
         guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+            return
         }
 
         // prompt to disable history
