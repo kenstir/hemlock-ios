@@ -289,6 +289,32 @@ class EvergreenCircService: XCircService {
         <#code#>
     }
 
+    private func updateHoldImpl() async throws -> OSRFObject {
+        var complexParam: JSONDictionary = [
+            "id": holdRecord.id,
+            "email_notify": notifyByEmail,
+            "pickup_lib": pickupOrgID,
+            "frozen": suspendHold,
+        ]
+        if let str = notifyPhoneNumber, !str.isEmpty {
+            complexParam["phone_notify"] = str
+        }
+        if let str = notifySMSNumber, !str.isEmpty {
+            complexParam["sms_notify"] = str
+        }
+        if let carrierID = smsCarrierID {
+            complexParam["sms_carrier"] = carrierID
+        }
+        if let date = expirationDate {
+            complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
+        }
+        if let date = thawDate {
+            complexParam["thaw_date"] = OSRFObject.apiDateFormatter.string(from: date)
+        }
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [authtoken, nil, complexParam], shouldCache: false)
+        return try await req.gatewayResponseAsync()
+    }
+
     func cancelHold(account: Account, holdId: Int) async throws -> Bool {
         let note = "Cancelled by mobile app"
         let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [account.authtoken, holdId, nil, note], shouldCache: false)
