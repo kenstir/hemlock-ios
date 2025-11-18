@@ -21,7 +21,7 @@ protocol XSearchService {
 
     func fetchSearchResults(queryString: String, limit: Int) async throws -> XSearchResults
 
-    func fetchCopyLocationCounts(recordId: Int, orgId: Int, orgLevel: Int) async throws -> [CopyLocationCounts]
+    func fetchCopyLocationCounts(recordID: Int, orgID: Int, orgLevel: Int) async throws -> [CopyLocationCounts]
 }
 
 struct SearchParameters {

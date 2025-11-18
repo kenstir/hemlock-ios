@@ -26,7 +26,7 @@ class CopyInfoViewController: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var placeHoldButton: UIButton!
-    
+
     var org: Organization?
     var record: MBRecord?
     var items: [CopyLocationCounts] = []
@@ -58,17 +58,15 @@ class CopyInfoViewController: UIViewController {
 
     @MainActor
     func fetchData() async {
-        let searchOrg = self.org ?? Organization.find(byId: Organization.consortiumOrgID)
         guard let recordID = record?.id,
-            let org = searchOrg else
+              let org = self.org else
         {
             self.showAlert(title: "Error", error: HemlockError.shouldNotHappen("Missing record ID or search org"))
             return
         }
 
         do {
-            let resp = try await SearchService.fetchCopyLocationCounts(recordID: recordID, org: org)
-            self.items = CopyLocationCounts.makeArray(fromPayload: resp.payload)
+            self.items = try await App.serviceConfig.searchService.fetchCopyLocationCounts(recordID: recordID, orgID: org.id, orgLevel: org.level)
             self.updateItems()
         } catch {
             self.presentGatewayAlert(forError: error)

@@ -23,16 +23,6 @@ class SearchService {
         return try await req.gatewayResponseAsync().asArray()
     }
 
-    static func fetchCopyLocationCounts(recordID: Int, org: Organization?) async throws -> GatewayResponse {
-        var args: [Any] = [recordID]
-        if let searchOrg = org {
-            args.append(searchOrg.id)
-            args.append(searchOrg.level)
-        }
-        let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: args, shouldCache: false)
-        return try await req.gatewayResponseAsync()
-    }
-
     static func fetchHoldParts(recordID: Int) async throws -> [OSRFObject] {
         let param: JSONDictionary = [
             "record": recordID

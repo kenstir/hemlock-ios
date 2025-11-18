@@ -45,7 +45,11 @@ class EvergreenSearchService: XSearchService {
         return XSearchResults(totalMatches: count, records: records)
     }
 
-    func fetchCopyLocationCounts(recordId: Int, orgId: Int, orgLevel: Int) async throws -> [CopyLocationCounts] {
-        return []
+    func fetchCopyLocationCounts(recordID: Int, orgID: Int, orgLevel: Int) async throws -> [CopyLocationCounts] {
+        let args: [Any] = [recordID, orgID, orgLevel]
+        let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: args, shouldCache: false)
+        let resp = try await req.gatewayResponseAsync()
+
+        return CopyLocationCounts.makeArray(fromPayload: resp.payload)
     }
 }
