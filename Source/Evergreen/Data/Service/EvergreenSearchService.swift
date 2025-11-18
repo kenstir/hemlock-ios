@@ -25,7 +25,7 @@ class EvergreenSearchService: XSearchService {
         if let sf = sp.searchFormat, !sf.isEmpty {
             query += " search_format(\(sf))"
         }
-        if let org = sp.organizationShortName, !org.isEmpty {
+        if let org = sp.searchOrg, !org.isEmpty {
             query += " site(\(org))"
         }
         if let sort = sp.sort {

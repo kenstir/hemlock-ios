@@ -24,6 +24,14 @@ protocol XSearchService {
     func fetchCopyLocationCounts(recordId: Int, orgId: Int, orgLevel: Int) async throws -> [CopyLocationCounts]
 }
 
+struct SearchParameters {
+    let text: String
+    let searchClass: String
+    let searchFormat: String?
+    let searchOrg: String?
+    let sort: String?
+}
+
 class XSearchResults {
     /// total number of matches in the catalog, may be higher than the number of [records] if results were limited
     let totalMatches: Int

@@ -140,7 +140,7 @@ class ResultsViewController: UIViewController {
 
     func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
         guard let sp = searchParameters else { return }
-        let selectedOrg = Organization.find(byShortName: sp.organizationShortName)
+        let selectedOrg = Organization.find(byShortName: sp.searchOrg)
         let defaultOrg = Organization.find(byId: App.account?.searchOrgID)
         let homeOrg = Organization.find(byId: App.account?.homeOrgID)
         var params: [String: Any] = [
@@ -246,7 +246,7 @@ extension ResultsViewController : UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.organizationShortName)
+        let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.searchOrg)
         if let vc = XUtils.makeDetailsPager(items: items, selectedItem: indexPath.row, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }
