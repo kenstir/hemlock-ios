@@ -52,7 +52,7 @@ class PlaceHoldViewController: UIViewController {
 
     var record = MBRecord.dummyRecord
     var holdRecord: HoldRecord?
-    var parts: [OSRFObject] = []
+    var parts: [XHoldPart] = []
     var valueChangedHandler: (() -> Void)?
 
     var partLabels: [String] = []
@@ -263,8 +263,7 @@ class PlaceHoldViewController: UIViewController {
         }
         print("PlaceHold: \(record.title): fetching parts")
 
-        let parts = try await SearchService.fetchHoldParts(recordID: record.id)
-        self.parts = parts
+        self.parts = try await App.serviceConfig.circService.fetchHoldParts(targetId: record.id)
         if self.hasParts,
            App.config.enableTitleHoldOnItemWithParts,
            let pickupOrgID = account.pickupOrgID
@@ -353,10 +352,8 @@ class PlaceHoldViewController: UIViewController {
     func loadPartData() {
         let sentinelString = partRequired ? "---" : "- \(R.getString("Any part")) -"
         partLabels = [sentinelString]
-        for partObj in parts {
-            if let label = partObj.getString("label"), let _ = partObj.getInt("id") {
-                partLabels.append(label)
-            }
+        for part in parts {
+            partLabels.append(part.label)
         }
 
         selectedPartLabel = partLabels[0]
@@ -525,7 +522,7 @@ class PlaceHoldViewController: UIViewController {
         }
         var holdType: String
         var targetID: Int
-        let partID = parts.first(where: {$0.getString("label") == selectedPartLabel})?.getInt("id")
+        let partID = parts.first(where: {$0.label == selectedPartLabel})?.id
         if partRequired || partID != nil {
             holdType = API.holdTypePart
             guard let id = partID else {
