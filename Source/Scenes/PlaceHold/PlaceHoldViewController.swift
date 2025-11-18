@@ -509,8 +509,8 @@ class PlaceHoldViewController: UIViewController {
     //MARK: - Place/Update Hold
 
     func placeOrUpdateHold() {
-        guard let authtoken = App.account?.authtoken,
-            let userID = App.account?.userID else
+        guard let account = App.account,
+              let authtoken = account.authtoken else
         {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
@@ -561,43 +561,27 @@ class PlaceHoldViewController: UIViewController {
         if let hold = holdRecord {
             Task { await doUpdateHold(authtoken: authtoken, holdRecord: hold, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID) }
         } else {
-            Task { await doPlaceHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID) }
+            Task { await doPlaceHold(account: account, holdType: holdType, targetID: targetID, pickupOrg: pickupOrg, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, notifyCarrierID: notifyCarrierID) }
         }
     }
 
     @MainActor
-    func doPlaceHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
+    func doPlaceHold(account: Account, holdType: String, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
         activityIndicator.startAnimating()
 
         let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
         do {
-            let obj = try await CircService.placeHold(authtoken: authtoken, userID: userID, holdType: holdType, targetID: targetID, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, useOverride: App.config.enableHoldUseOverride)
-            if let _ = obj.getInt("result") {
-                // case 1: result is an Int - hold successful
-                self.logPlaceHold(params: eventParams)
-                self.valueChangedHandler?();
-                self.navigationController?.view.makeToast("Hold successfully placed")
-                self.navigationController?.popViewController(animated: true)
-                return
-            } else if let resultObj = obj.getAny("result") as? OSRFObject,
-                let eventObj = resultObj.getAny("last_event") as? OSRFObject
-            {
-                // case 2: result is an object with last_event - hold failed
-                throw self.makeHoldError(fromEventObj: eventObj)
-            } else if let resultArray = obj.getAny("result") as? [OSRFObject],
-                let eventObj = resultArray.first
-            {
-                // case 3: result is an array of ilsevent objects - hold failed
-                throw self.makeHoldError(fromEventObj: eventObj)
-            } else {
-                throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
-            }
+            let options = XHoldOptions(holdType: holdType, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierId: notifyCarrierID, pickupOrgId: pickupOrg.id)
+            let _ = try await App.serviceConfig.circService.placeHold(account: account, targetId: targetID, withOptions: options)
+            self.logPlaceHold(params: eventParams)
+            self.valueChangedHandler?()
+            self.navigationController?.view.makeToast("Hold successfully placed")
+            self.navigationController?.popViewController(animated: true)
         } catch {
+            activityIndicator.stopAnimating()
             self.logPlaceHold(withError: error, params: eventParams)
             self.presentGatewayAlert(forError: error)
         }
-
-        activityIndicator.stopAnimating()
     }
 
     @MainActor
@@ -606,11 +590,13 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
         do {
+            let options = XHoldUpdateOptions(pickupOrgId: pickupOrg.id, )
+            let _ = try await App.serviceConfig.circService.updateHold(account: Account, holdId: holdRecord.id, withOptions: <#T##XHoldUpdateOptions#>)
             let resp = try await CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendSwitch.isOn, thawDate: thawDate)
             if let _ = resp.str {
                 // case 1: result is String - update successful
                 self.logUpdateHold(params: eventParams)
-                self.valueChangedHandler?();
+                self.valueChangedHandler?()
                 self.navigationController?.view.makeToast("Hold successfully updated")
                 self.navigationController?.popViewController(animated: true)
                 return

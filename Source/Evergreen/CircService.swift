@@ -20,33 +20,6 @@
 import Foundation
 
 class CircService {
-    static func placeHold(authtoken: String, userID: Int, holdType: String, targetID: Int, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, useOverride: Bool) async throws -> OSRFObject {
-        var complexParam: JSONDictionary = [
-            "email_notify": notifyByEmail,
-            "hold_type": holdType,
-            "patronid": userID,
-            "pickup_lib": pickupOrgID,
-        ]
-        if let phoneNumber = notifyPhoneNumber,
-            !phoneNumber.isEmpty
-        {
-            complexParam["phone_notify"] = phoneNumber
-        }
-        if let smsNumber = notifySMSNumber,
-            !smsNumber.isEmpty,
-            let carrierID = smsCarrierID
-        {
-            complexParam["sms_notify"] = smsNumber
-            complexParam["sms_carrier"] = carrierID
-        }
-        if let date = expirationDate {
-            complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
-        }
-        let method = useOverride ? API.holdTestAndCreateOverride : API.holdTestAndCreate
-        let req = Gateway.makeRequest(service: API.circ, method: method, args: [authtoken, complexParam, [targetID]], shouldCache: false)
-        return try await req.gatewayResponseAsync().asObject()
-    }
-
     static func updateHold(authtoken: String, holdRecord: HoldRecord, pickupOrgID: Int, notifyByEmail: Bool, notifyPhoneNumber: String?, notifySMSNumber: String?, smsCarrierID: Int?, expirationDate: Date?, suspendHold: Bool, thawDate: Date?) async throws -> GatewayResponse {
         var complexParam: JSONDictionary = [
             "id": holdRecord.id,
