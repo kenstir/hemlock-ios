@@ -22,5 +22,6 @@ class EvergreenServiceConfig: ServiceConfig {
     var biblioService: any XBiblioService = EvergreenBiblioService()
     var circService: any XCircService = EvergreenCircService()
     var orgService: any XOrgService = EvergreenOrgService()
+    var searchService: any XSearchService = EvergreenSearchService()
     var userService: any XUserService = EvergreenUserService()
 }

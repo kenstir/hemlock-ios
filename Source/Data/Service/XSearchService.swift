@@ -17,22 +17,24 @@
 import Foundation
 
 protocol XSearchService {
-    func makeQueryString(searchText: String, searchClass: String?, searchFormat: String?, sort: String?) -> String
+    func makeQueryString(searchParameters: SearchParameters) -> String
 
-    func searchCatalog(queryString: String, limit: Int) async throws -> XSearchResults
+    func fetchSearchResults(queryString: String, limit: Int) async throws -> XSearchResults
 
     func fetchCopyLocationCounts(recordId: Int, orgId: Int, orgLevel: Int) async throws -> [CopyLocationCounts]
 }
 
-protocol XSearchResults {
-    /// number of results returned
-    var numResults: Int { get }
-
-    /// total number of matches in the catalog, may be higher than [numResults] if results were limited
-    var totalMatches: Int { get }
+class XSearchResults {
+    /// total number of matches in the catalog, may be higher than the number of [records] if results were limited
+    let totalMatches: Int
 
     /// matching records
     ///
     /// these records are skeletons, and do not have Details, Attributes, or CopyCounts loaded
-    var records: [MBRecord] { get }
+    let records: [AsyncRecord]
+
+    init(totalMatches: Int, records: [AsyncRecord]) {
+        self.totalMatches = totalMatches
+        self.records = records
+    }
 }

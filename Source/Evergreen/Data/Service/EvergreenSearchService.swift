@@ -17,8 +17,11 @@
 import Foundation
 
 class EvergreenSearchService: XSearchService {
-    func makeQueryString(searchText: String, searchClass: String, searchFormat: String?, sort: String?) -> String {
-        var query = "\(searchClass):\(searchText)"
+    func makeQueryString(searchParameters sp: SearchParameters) -> String {
+        // Taken with a grain of salt from
+        // https://wiki.evergreen-ils.org/doku.php?id=documentation:technical:search_grammar
+        // e.g. "title:Harry Potter chamber of secrets search_format(book) site(MARLBORO)"
+        var query = "\(sp.searchClass):\(sp.text)"
         if let sf = sp.searchFormat, !sf.isEmpty {
             query += " search_format(\(sf))"
         }
@@ -30,12 +33,19 @@ class EvergreenSearchService: XSearchService {
         }
         return query
     }
-    
-    func searchCatalog(queryString: String, limit: Int) async throws -> any XSearchResults {
-        <#code#>
+
+    func fetchSearchResults(queryString: String, limit: Int) async throws -> XSearchResults {
+        let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
+//            if query.contains("throw") { throw HemlockError.shouldNotHappen("Testing error handling") }
+        let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, queryString, 1], shouldCache: true)
+        let obj = try await req.gatewayResponseAsync().asObjectOrNil()
+
+        let count = obj?.getInt("count") ?? 0
+        let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
+        return XSearchResults(totalMatches: count, records: records)
     }
-    
+
     func fetchCopyLocationCounts(recordId: Int, orgId: Int, orgLevel: Int) async throws -> [CopyLocationCounts] {
-        <#code#>
+        return []
     }
 }

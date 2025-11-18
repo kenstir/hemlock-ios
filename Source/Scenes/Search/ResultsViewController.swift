@@ -72,27 +72,22 @@ class ResultsViewController: UIViewController {
 
         guard let query = getQueryString() else { return }
 
-        //centerSubview(activityIndicator)
         activityIndicator.startAnimating()
         startOfSearch = Date()
 
         // search
         do {
-            let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
-//            if query.contains("throw") { throw HemlockError.shouldNotHappen("Testing error handling") }
-            let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1], shouldCache: true)
-            let obj = try await req.gatewayResponseAsync().asObjectOrNil()
-
+            let results = try await App.serviceConfig.searchService.fetchSearchResults(queryString: query, limit: App.config.searchLimit)
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
             os_log("query.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
-            let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
-            self.items = records
+
+            self.items = results.records
             Task {
-                await self.prefetchRecordDetails(records: records)
+                await self.prefetchRecordDetails(records: results.records)
                 await MainActor.run { self.reloadData() }
             }
             self.didCompleteSearch = true
-            self.logSearchEvent(numResults: records.count)
+            self.logSearchEvent(numResults: results.records.count)
         } catch {
             self.didCompleteSearch = true
             self.updateTableSectionHeader(onError: error)
@@ -135,15 +130,12 @@ class ResultsViewController: UIViewController {
         tableView.reloadData()
     }
 
-    // Build query string, taken with a grain of salt from
-    // https://wiki.evergreen-ils.org/doku.php?id=documentation:technical:search_grammar
-    // e.g. "title:Harry Potter chamber of secrets search_format(book) site(MARLBORO)"
     func getQueryString() -> String? {
         guard let sp = searchParameters else {
             showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing search parameters"))
             return nil
         }
-        return App.serviceConfig.searchService.makeQueryString(searchText: sp.text, searchClass: sp.searchClass, searchFormat: sp.searchFormat, sort: sp.sort)
+        return App.serviceConfig.searchService.makeQueryString(searchParameters: sp)
     }
 
     func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
