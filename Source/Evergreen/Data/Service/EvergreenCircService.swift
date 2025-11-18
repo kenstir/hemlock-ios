@@ -210,8 +210,16 @@ class EvergreenCircService: XCircService {
     }
 
     func fetchHoldParts(targetId: Int) async throws -> [XHoldPart] {
-        let parts = try await SearchService.fetchHoldParts(recordID: targetId)
+        let parts = try await fetchHoldPartsImpl(recordID: targetId)
         return parts.map { XHoldPart(id: $0.getInt("id") ?? -1, label: $0.getString("label") ?? "Unknown part") }
+    }
+
+    private func fetchHoldPartsImpl(recordID: Int) async throws -> [OSRFObject] {
+        let param: JSONDictionary = [
+            "record": recordID
+        ]
+        let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param], shouldCache: true)
+        return try await req.gatewayResponseAsync().asArray()
     }
 
     func fetchTitleHoldIsPossible(account: Account, targetId: Int, pickupOrgId: Int) async throws -> Bool {

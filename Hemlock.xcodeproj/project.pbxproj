@@ -140,7 +140,6 @@
 		D210EC1022B1EE55002FB5E0 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainListViewController.swift */; };
 		D210EC1122B1EE55002FB5E0 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
-		D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D210EC1422B1EE55002FB5E0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D210EC2222B1EE55002FB5E0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D210EC2322B1EE55002FB5E0 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
@@ -350,7 +349,6 @@
 		D23E9FB623B9200A0030F5C1 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainListViewController.swift */; };
 		D23E9FB723B9200A0030F5C1 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
-		D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D23E9FCA23B9200A0030F5C1 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D23E9FCB23B9200A0030F5C1 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
@@ -464,7 +462,6 @@
 		D2477C0724785A6B00FD4CF6 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainListViewController.swift */; };
 		D2477C0824785A6B00FD4CF6 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
-		D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2477C0B24785A6B00FD4CF6 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D2477C1824785A6B00FD4CF6 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2477C1924785A6B00FD4CF6 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
@@ -604,7 +601,6 @@
 		D2572AFA24AD7755000BA698 /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
 		D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D2572AFC24AD7755000BA698 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
-		D2572AFD24AD7755000BA698 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2572AFE24AD7755000BA698 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D2572B0B24AD7755000BA698 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2572B0C24AD7755000BA698 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
@@ -714,7 +710,6 @@
 		D25EECA528A1E8310090F108 /* OrgDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29911E3248464AD007DB26C /* OrgDetailsViewController.swift */; };
 		D25EECA628A1E8310090F108 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D25EECA728A1E8310090F108 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
-		D25EECA828A1E8310090F108 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D25EECA928A1E8310090F108 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D25EECB628A1E8310090F108 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D25EECB728A1E8310090F108 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
@@ -748,8 +743,6 @@
 		D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
 		D2647872291708AA00B672AC /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D2647871291708AA00B672AC /* custom_strings.json */; };
-		D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
-		D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
@@ -801,7 +794,6 @@
 		D276DAC121336B20007FAA31 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28290F720E6F770008EBE4B /* Style.swift */; };
 		D276DAC221336B20007FAA31 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainListViewController.swift */; };
 		D276DAC321336B20007FAA31 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
-		D276DAC421336B20007FAA31 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D276DAC521336B20007FAA31 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D276DAD221336B20007FAA31 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D276DAD321336B20007FAA31 /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
@@ -1377,7 +1369,6 @@
 		D2BDA65922D176BD00D9B60C /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246990320A9D80E0006DFF9 /* MainListViewController.swift */; };
 		D2BDA65A22D176BD00D9B60C /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
-		D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E3210CDE4700C56047 /* SearchService.swift */; };
 		D2BDA65D22D176BD00D9B60C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D51B207AEF3D001AF644 /* Account.swift */; };
 		D2BDA66B22D176BD00D9B60C /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D504207AEF2C001AF644 /* Launch.storyboard */; };
 		D2BDA66D22D176BD00D9B60C /* Checkouts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2211B0320CF68590043947B /* Checkouts.storyboard */; };
@@ -1943,7 +1934,6 @@
 		D2616761220BA1AF0071E1A5 /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
 		D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCounts.swift; sourceTree = "<group>"; };
 		D2647871291708AA00B672AC /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
-		D267E4E3210CDE4700C56047 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		D267E4E6210D17F900C56047 /* CopyCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCount.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		D270C4082091FCAA00D27159 /* IDLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDLParser.swift; sourceTree = "<group>"; };
@@ -2494,7 +2484,6 @@
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
 				D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */,
 				D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */,
-				D267E4E3210CDE4700C56047 /* SearchService.swift */,
 				D2C24A32210178DD0028180B /* SMSCarrier.swift */,
 			);
 			path = Evergreen;
@@ -3910,7 +3899,6 @@
 				D210EC1222B1EE55002FB5E0 /* String+subscript.swift in Sources */,
 				D2B3023B2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D2C3004E2E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
-				D210EC1322B1EE55002FB5E0 /* SearchService.swift in Sources */,
 				D210EC1422B1EE55002FB5E0 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4043,7 +4031,6 @@
 				D23E9FB723B9200A0030F5C1 /* CopyCount.swift in Sources */,
 				D23E9FB823B9200A0030F5C1 /* String+subscript.swift in Sources */,
 				D2C300302E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
-				D23E9FB923B9200A0030F5C1 /* SearchService.swift in Sources */,
 				D2EBBB702ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D2C300202E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D299069B2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
@@ -4180,7 +4167,6 @@
 				D2477C0824785A6B00FD4CF6 /* CopyCount.swift in Sources */,
 				D2477C0924785A6B00FD4CF6 /* String+subscript.swift in Sources */,
 				D2C3002F2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
-				D2477C0A24785A6B00FD4CF6 /* SearchService.swift in Sources */,
 				D2EBBB742ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D2C300252E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D29906992E73130500A3E0E2 /* PersistableOption.swift in Sources */,
@@ -4317,7 +4303,6 @@
 				D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */,
 				D2572AFC24AD7755000BA698 /* String+subscript.swift in Sources */,
 				D2C3002D2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
-				D2572AFD24AD7755000BA698 /* SearchService.swift in Sources */,
 				D2EBBB762ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D2C300212E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D29906962E73130500A3E0E2 /* PersistableOption.swift in Sources */,
@@ -4452,7 +4437,6 @@
 				D21FF9B92E706D760058E2D3 /* AppState.swift in Sources */,
 				D25EECA628A1E8310090F108 /* CopyCount.swift in Sources */,
 				D25EECA728A1E8310090F108 /* String+subscript.swift in Sources */,
-				D25EECA828A1E8310090F108 /* SearchService.swift in Sources */,
 				D2C3002C2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
 				D25EECD828A1EB2E0090F108 /* AppFactory.swift in Sources */,
 				D2EBBB732ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
@@ -4592,7 +4576,6 @@
 				D2346FFD24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
 				D276DAC321336B20007FAA31 /* CopyCount.swift in Sources */,
 				D27DF20E21AB4B84002DCC47 /* String+subscript.swift in Sources */,
-				D276DAC421336B20007FAA31 /* SearchService.swift in Sources */,
 				D276DAC521336B20007FAA31 /* Account.swift in Sources */,
 				D2029B5D297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2E3B2CA2E526A4700EBFCF0 /* XCircService.swift in Sources */,
@@ -4728,7 +4711,6 @@
 				D2346FFE24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
 				D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */,
 				D27DF20C21AB4B84002DCC47 /* String+subscript.swift in Sources */,
-				D267E4E4210CDE4700C56047 /* SearchService.swift in Sources */,
 				D27990EF20DDD473003B451E /* Account.swift in Sources */,
 				D2029B5E297DBF89000FF4C1 /* MessageDetailsViewController.swift in Sources */,
 				D2E3B2CD2E526A4700EBFCF0 /* XCircService.swift in Sources */,
@@ -4863,7 +4845,6 @@
 				D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */,
 				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D2C3002E2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
-				D267E4E5210CDE4700C56047 /* SearchService.swift in Sources */,
 				D2EBBB6F2ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D2C3001F2E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D299069D2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
@@ -5044,7 +5025,6 @@
 				D2BDA65B22D176BD00D9B60C /* String+subscript.swift in Sources */,
 				D2B3023C2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D2C3004D2E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
-				D2BDA65C22D176BD00D9B60C /* SearchService.swift in Sources */,
 				D2BDA65D22D176BD00D9B60C /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -48,8 +48,13 @@ class EvergreenBiblioService: XBiblioService {
     }
 
     func loadRecordCopyCounts(forRecord record: MBRecord, orgId: Int) async throws {
-        let array = try await SearchService.fetchCopyCount(recordID: record.id, orgID: orgId)
+        let array = try await fetchCopyCount(recordID: record.id, orgID: orgId)
         let copyCounts = CopyCount.makeArray(fromArray: array)
         record.setCopyCounts(copyCounts)
+    }
+
+    private func fetchCopyCount(recordID: Int, orgID: Int) async throws -> [OSRFObject] {
+        let req = Gateway.makeRequest(service: API.search, method: API.copyCount, args: [orgID, recordID], shouldCache: false)
+        return try await req.gatewayResponseAsync().asArray()
     }
 }
