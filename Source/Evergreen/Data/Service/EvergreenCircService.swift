@@ -286,15 +286,25 @@ class EvergreenCircService: XCircService {
     }
 
     func updateHold(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> Bool {
-        <#code#>
+        let resp = try await updateHoldImpl(account: account, holdId: holdId, withOptions: options)
+        if let _ = resp.str {
+            // case 1: result is String - update successful
+            print("ok")
+        } else if let err = resp.error {
+            print("error: \(err)")
+            throw err
+        } else {
+            throw HemlockError.serverError("expected string, received \(resp.description)")
+        }
+        return true
     }
 
-    private func updateHoldImpl() async throws -> OSRFObject {
+    private func updateHoldImpl(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> GatewayResponse {
         var complexParam: JSONDictionary = [
-            "id": holdRecord.id,
-            "email_notify": notifyByEmail,
-            "pickup_lib": pickupOrgID,
-            "frozen": suspendHold,
+            "id": holdId,
+            "pickup_lib": options.pickupOrgId,
+            "frozen": options.suspended,
+
         ]
         if let str = notifyPhoneNumber, !str.isEmpty {
             complexParam["phone_notify"] = str

@@ -33,6 +33,9 @@ struct XHoldOptions {
 /// Options for updating a hold
 struct XHoldUpdateOptions {
     var pickupOrgId: Int
+    let notifyByEmail: Bool
+    let smsNotify: String?
+    let smsCarrierId: Int?
     var expirationDate: Date? = nil
     var suspended: Bool = false
     var thawDate: Date? = nil

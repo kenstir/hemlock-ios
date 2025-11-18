@@ -590,27 +590,17 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
         do {
-            let options = XHoldUpdateOptions(pickupOrgId: pickupOrg.id, )
-            let _ = try await App.serviceConfig.circService.updateHold(account: Account, holdId: holdRecord.id, withOptions: <#T##XHoldUpdateOptions#>)
-            let resp = try await CircService.updateHold(authtoken: authtoken, holdRecord: holdRecord, pickupOrgID: pickupOrg.id, notifyByEmail: emailSwitch.isOn, notifyPhoneNumber: notifyPhoneNumber, notifySMSNumber: notifySMSNumber, smsCarrierID: notifyCarrierID, expirationDate: expirationDate, suspendHold: suspendSwitch.isOn, thawDate: thawDate)
-            if let _ = resp.str {
-                // case 1: result is String - update successful
-                self.logUpdateHold(params: eventParams)
-                self.valueChangedHandler?()
-                self.navigationController?.view.makeToast("Hold successfully updated")
-                self.navigationController?.popViewController(animated: true)
-                return
-            } else if let err = resp.error {
-                throw err
-            } else {
-                throw HemlockError.serverError("expected string, received \(resp.description)")
-            }
+            let options = XHoldUpdateOptions(pickupOrgId: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
+            let _ = try await App.serviceConfig.circService.updateHold(account: Account, holdId: holdRecord.id, withOptions: options)
+            self.logUpdateHold(params: eventParams)
+            self.valueChangedHandler?()
+            self.navigationController?.view.makeToast("Hold successfully updated")
+            self.navigationController?.popViewController(animated: true)
         } catch {
+            activityIndicator.stopAnimating()
             self.logUpdateHold(withError: error, params: eventParams)
             self.presentGatewayAlert(forError: error)
         }
-
-        activityIndicator.stopAnimating()
     }
 
     private func placeHoldEventParams(selectedOrg: Organization) -> [String: Any] {
