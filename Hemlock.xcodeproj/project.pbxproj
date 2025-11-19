@@ -130,7 +130,6 @@
 		D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
-		D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D210EC0B22B1EE55002FB5E0 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D210EC0C22B1EE55002FB5E0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
 		D210EC0D22B1EE55002FB5E0 /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
@@ -337,7 +336,6 @@
 		D23E9FAC23B9200A0030F5C1 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D23E9FAD23B9200A0030F5C1 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D23E9FAE23B9200A0030F5C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
-		D23E9FAF23B9200A0030F5C1 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D23E9FB023B9200A0030F5C1 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
 		D23E9FB123B9200A0030F5C1 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D23E9FB223B9200A0030F5C1 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
@@ -447,7 +445,6 @@
 		D2477BFB24785A6B00FD4CF6 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D2477BFC24785A6B00FD4CF6 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D2477BFD24785A6B00FD4CF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
-		D2477BFE24785A6B00FD4CF6 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D2477BFF24785A6B00FD4CF6 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2477C0024785A6B00FD4CF6 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
 		D2477C0124785A6B00FD4CF6 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
@@ -584,7 +581,6 @@
 		D2572AEC24AD7755000BA698 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D2572AED24AD7755000BA698 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D2572AEE24AD7755000BA698 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
-		D2572AEF24AD7755000BA698 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D2572AF024AD7755000BA698 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2572AF124AD7755000BA698 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
 		D2572AF224AD7755000BA698 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
@@ -691,7 +687,6 @@
 		D25EEC9428A1E8310090F108 /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D25EEC9528A1E8310090F108 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D25EEC9628A1E8310090F108 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
-		D25EEC9728A1E8310090F108 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D25EEC9828A1E8310090F108 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D25EEC9928A1E8310090F108 /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
 		D25EEC9A28A1E8310090F108 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
@@ -781,7 +776,6 @@
 		D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
-		D276DABC21336B20007FAA31 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D276DABE21336B20007FAA31 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D276DABF21336B20007FAA31 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
 		D276DAC021336B20007FAA31 /* CheckoutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20D14D520B78CD8008F66B0 /* CheckoutsTableViewCell.swift */; };
@@ -1292,8 +1286,6 @@
 		D2BB66C5297CA2BF007E19E7 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB66B0297CA2BE007E19E7 /* MessagesViewController.swift */; };
 		D2BB66C6297CA2BF007E19E7 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB66B0297CA2BE007E19E7 /* MessagesViewController.swift */; };
 		D2BBA99820F19CA400B25146 /* OrganizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99720F19CA400B25146 /* OrganizationTests.swift */; };
-		D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
-		D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D2BCFCBA2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */; };
 		D2BCFCBB2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */; };
 		D2BCFCBC2210D6EC00EE0C90 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */; };
@@ -1350,7 +1342,6 @@
 		D2BDA64D22D176BD00D9B60C /* BarcodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */; };
 		D2BDA64F22D176BD00D9B60C /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
 		D2BDA65022D176BD00D9B60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FB207AEF2B001AF644 /* AppDelegate.swift */; };
-		D2BDA65122D176BD00D9B60C /* ActorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BBA99920F29F0E00B25146 /* ActorService.swift */; };
 		D2BDA65222D176BD00D9B60C /* RecordAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */; };
 		D2BDA65422D176BD00D9B60C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D2BDA65522D176BD00D9B60C /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
@@ -2033,7 +2024,6 @@
 		D2BB66AF297CA2BE007E19E7 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		D2BB66B0297CA2BE007E19E7 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		D2BBA99720F19CA400B25146 /* OrganizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTests.swift; sourceTree = "<group>"; };
-		D2BBA99920F29F0E00B25146 /* ActorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorService.swift; sourceTree = "<group>"; };
 		D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		D2BDA67F22D176BD00D9B60C /* NOBLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOBLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BDA68022D176BD00D9B60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2454,7 +2444,6 @@
 				D23398852E3BC3DB00CBDAEB /* Gateway+Async.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
 				D287D51B207AEF3D001AF644 /* Account.swift */,
-				D2BBA99920F29F0E00B25146 /* ActorService.swift */,
 				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D21981F7235BC7BC003AE531 /* CodedValueMap.swift */,
 				D267E4E6210D17F900C56047 /* CopyCount.swift */,
@@ -3856,7 +3845,6 @@
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
 				D210EC0822B1EE55002FB5E0 /* AppDelegate.swift in Sources */,
 				D27D87C72E565792006F3C5F /* XHoldOptions.swift in Sources */,
-				D210EC0922B1EE55002FB5E0 /* ActorService.swift in Sources */,
 				D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D2E3B2D72E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D20B300022CFD91900F69848 /* RecordAttributes.swift in Sources */,
@@ -3995,7 +3983,6 @@
 				D23E9FAC23B9200A0030F5C1 /* BarcodeUtils.swift in Sources */,
 				D23E9FAD23B9200A0030F5C1 /* FineRecord.swift in Sources */,
 				D23E9FAE23B9200A0030F5C1 /* AppDelegate.swift in Sources */,
-				D23E9FAF23B9200A0030F5C1 /* ActorService.swift in Sources */,
 				D2CAFBC7246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D23E9FB023B9200A0030F5C1 /* RecordAttributes.swift in Sources */,
 				D2D8ABBC2E42D78C00CB36C6 /* XOrgHours.swift in Sources */,
@@ -4130,7 +4117,6 @@
 				D2477BFB24785A6B00FD4CF6 /* BarcodeUtils.swift in Sources */,
 				D2477BFC24785A6B00FD4CF6 /* FineRecord.swift in Sources */,
 				D2477BFD24785A6B00FD4CF6 /* AppDelegate.swift in Sources */,
-				D2477BFE24785A6B00FD4CF6 /* ActorService.swift in Sources */,
 				D2477BFF24785A6B00FD4CF6 /* CredentialManager.swift in Sources */,
 				D2477C0024785A6B00FD4CF6 /* RecordAttributes.swift in Sources */,
 				D2D8ABB52E42D78C00CB36C6 /* XOrgHours.swift in Sources */,
@@ -4263,7 +4249,6 @@
 				D2572AEC24AD7755000BA698 /* BarcodeUtils.swift in Sources */,
 				D2572AED24AD7755000BA698 /* FineRecord.swift in Sources */,
 				D2572AEE24AD7755000BA698 /* AppDelegate.swift in Sources */,
-				D2572AEF24AD7755000BA698 /* ActorService.swift in Sources */,
 				D2572AF024AD7755000BA698 /* CredentialManager.swift in Sources */,
 				D2572AF124AD7755000BA698 /* RecordAttributes.swift in Sources */,
 				D2572AF224AD7755000BA698 /* Gateway.swift in Sources */,
@@ -4399,7 +4384,6 @@
 				D25EEC9428A1E8310090F108 /* BarcodeUtils.swift in Sources */,
 				D25EEC9528A1E8310090F108 /* FineRecord.swift in Sources */,
 				D25EEC9628A1E8310090F108 /* AppDelegate.swift in Sources */,
-				D25EEC9728A1E8310090F108 /* ActorService.swift in Sources */,
 				D25EEC9828A1E8310090F108 /* CredentialManager.swift in Sources */,
 				D25EEC9928A1E8310090F108 /* RecordAttributes.swift in Sources */,
 				D25EEC9A28A1E8310090F108 /* Gateway.swift in Sources */,
@@ -4547,7 +4531,6 @@
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
 				D22074BC2ECBCEF1003E9163 /* XSearchService.swift in Sources */,
 				D2462904273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
-				D276DABC21336B20007FAA31 /* ActorService.swift in Sources */,
 				D24D492129D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D20B2FFE22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D276DABE21336B20007FAA31 /* Gateway.swift in Sources */,
@@ -4681,7 +4664,6 @@
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
 				D22074B72ECBCEF1003E9163 /* XSearchService.swift in Sources */,
 				D2462905273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
-				D2BBA99A20F29F0E00B25146 /* ActorService.swift in Sources */,
 				D24D492229D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D20B2FFC22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D27990EB20DDD473003B451E /* Gateway.swift in Sources */,
@@ -4803,7 +4785,6 @@
 				D27DF20921AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
-				D2BBA99B20F2A49F00B25146 /* ActorService.swift in Sources */,
 				D2CAFBC6246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D20B2FFD22CFD91900F69848 /* RecordAttributes.swift in Sources */,
 				D2D8ABB82E42D78C00CB36C6 /* XOrgHours.swift in Sources */,
@@ -4974,7 +4955,6 @@
 				D2BDA64F22D176BD00D9B60C /* FineRecord.swift in Sources */,
 				D2BDA65022D176BD00D9B60C /* AppDelegate.swift in Sources */,
 				D27D87C22E565792006F3C5F /* XHoldOptions.swift in Sources */,
-				D2BDA65122D176BD00D9B60C /* ActorService.swift in Sources */,
 				D2BDA65222D176BD00D9B60C /* RecordAttributes.swift in Sources */,
 				D2E3B2D32E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D2CAFBC4246B7C3900A56945 /* CredentialManager.swift in Sources */,

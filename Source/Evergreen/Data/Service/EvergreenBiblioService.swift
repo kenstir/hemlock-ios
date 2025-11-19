@@ -24,13 +24,13 @@ class EvergreenBiblioService: XBiblioService {
     func loadRecordDetails(forRecord record: MBRecord, needMARC: Bool) async throws -> Void {
         // load MODS and MARC data for the record, but only if it wasn't already done
         try await withThrowingTaskGroup(of: Void.self) { group in
-            if !record.hasMODS {
+            if !record.hasMetadata {
                 group.addTask {
                     let modsObj = try await EvergreenAsync.fetchRecordMODS(id: record.id)
                     record.setMvrObj(modsObj)
                 }
             }
-            if !record.hasMARC {
+            if needMARC && !record.hasMARC {
                 group.addTask {
                     let breObj = try await EvergreenAsync.fetchBRE(id: record.id)
                     record.update(fromBreObj: breObj)
@@ -41,7 +41,7 @@ class EvergreenBiblioService: XBiblioService {
     }
 
     func loadRecordAttributes(forRecord record: MBRecord) async throws {
-        if !record.hasAttrs {
+        if !record.hasAttributes {
             let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
             record.update(fromMraObj: mraObj)
         }

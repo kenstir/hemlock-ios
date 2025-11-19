@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2023 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -12,8 +12,7 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 import os.log
@@ -65,8 +64,7 @@ class HistoryViewController: UITableViewController {
 
     @MainActor
     func fetchData() async {
-        guard let account = App.account,
-              let authtoken = account.authtoken else
+        guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
@@ -76,8 +74,7 @@ class HistoryViewController: UITableViewController {
         startOfFetch = Date()
 
         do {
-            let objList = try await ActorService.fetchCheckoutHistory(authtoken: authtoken)
-            self.items = HistoryRecord.makeArray(objList)
+            self.items = try await App.serviceConfig.circService.fetchCheckoutHistory(account: account)
             Analytics.logEvent(event: Analytics.Event.historyLoad, parameters: [Analytics.Param.numItems: items.count])
             Task {
                 await prefetchCircDetails()

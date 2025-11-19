@@ -66,11 +66,21 @@ class EvergreenLoaderService: XLoaderService {
     }
 
     private func loadOrgTypes() async throws {
-        try await ActorService.loadOrgTypesAsync()
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTypesRetrieve, args: [], shouldCache: true)
+        let array = try await req.gatewayResponseAsync().asArray()
+        // TODO: make mt-safe, remove await
+        await MainActor.run {
+            OrgType.loadOrgTypes(fromArray: array)
+        }
     }
 
     private func loadOrgTree() async throws {
-        try await ActorService.loadOrgTreeAsync()
+        let req = Gateway.makeRequest(service: API.actor, method: API.orgTreeRetrieve, args: [], shouldCache: true)
+        let obj = try await req.gatewayResponseAsync().asObject()
+        // TODO: make mt-safe, remove await
+        try await MainActor.run {
+            try Organization.loadOrganizations(fromObj: obj)
+        }
     }
 
     private var copyStatusesLoaded = false
