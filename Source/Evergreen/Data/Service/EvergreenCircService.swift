@@ -85,7 +85,9 @@ class EvergreenCircService: XCircService {
     }
 
     func fetchCheckoutHistory(account: Account) async throws -> [HistoryRecord] {
-        throw HemlockError.notImplemented
+        let req = Gateway.makeRequest(service: API.actor, method: API.checkoutHistory, args: [account.authtoken], shouldCache: false)
+        let array = try await req.gatewayResponseAsync().asMaybeEmptyArray()
+        return HistoryRecord.makeArray(array)
     }
 
     func loadHistoryDetails(historyRecord: HistoryRecord) async throws {

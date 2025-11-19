@@ -34,13 +34,13 @@ class AsyncRecord: MBRecord {
     //MARK: - Functions
 
     func isLoaded() -> Bool {
-        return hasMODS && hasAttrs
+        return hasMetadata && hasAttributes
     }
 
     /// `prefetch` does asynchronous prefetching of details and attributes.
     ///  It does not throw because we use it for preloading table rows.
     func prefetch() async -> Void {
-        print("\(Utils.tt) row=\(String(format: "%2d", row)) prefetch hasMODS=\(self.hasMODS) hasAttrs=\(self.hasAttrs)")
+        print("\(Utils.tt) row=\(String(format: "%2d", row)) prefetch hasMetadata=\(self.hasMetadata) hasAttrs=\(self.hasAttributes)")
 
         async let details: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: self, needMARC: false)
         async let attrs: Void = App.serviceConfig.biblioService.loadRecordAttributes(forRecord: self)

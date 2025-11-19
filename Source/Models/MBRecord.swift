@@ -22,9 +22,9 @@ class MBRecord {
 
     var id: Int
     private(set) var mvrObj: OSRFObject?
-    var hasMODS: Bool { return mvrObj != nil }
+    var hasMetadata: Bool { return mvrObj != nil }
     private(set) var attrs: [String: String]? // from MRA object
-    var hasAttrs: Bool { return attrs != nil }
+    var hasAttributes: Bool { return attrs != nil }
     private(set) var marcRecord: MARCRecord?
     var hasMARC: Bool { return marcRecord != nil }
     private(set) var marcIsDeleted: Bool?
