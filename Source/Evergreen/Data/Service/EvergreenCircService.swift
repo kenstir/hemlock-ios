@@ -286,20 +286,12 @@ class EvergreenCircService: XCircService {
     }
 
     func updateHold(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> Bool {
-        let resp = try await updateHoldImpl(account: account, holdId: holdId, withOptions: options)
-        if let _ = resp.str {
-            // case 1: result is String - update successful
-            print("ok")
-        } else if let err = resp.error {
-            print("error: \(err)")
-            throw err
-        } else {
-            throw HemlockError.serverError("expected string, received \(resp.description)")
-        }
+        // update hold returns the holdId as a string, but we don't need it
+        let _ = try await updateHoldImpl(account: account, holdId: holdId, withOptions: options)
         return true
     }
 
-    private func updateHoldImpl(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> GatewayResponse {
+    private func updateHoldImpl(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> String {
         var complexParam: JSONDictionary = [
             "id": holdId,
             "email_notify": options.notifyByEmail,
@@ -322,7 +314,7 @@ class EvergreenCircService: XCircService {
             complexParam["thaw_date"] = OSRFObject.apiDateFormatter.string(from: date)
         }
         let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [account.authtoken, nil, complexParam], shouldCache: false)
-        return try await req.gatewayResponseAsync()
+        return try await req.gatewayResponseAsync().asString()
     }
 
     func cancelHold(account: Account, holdId: Int) async throws -> Bool {
