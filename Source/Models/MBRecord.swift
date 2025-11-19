@@ -16,8 +16,48 @@
 
 import Foundation
 
+protocol BibRecord: AnyObject {
+    // properties
+    var id: Int { get set }
+    var mvrObj: OSRFObject? { get }
+    var hasMetadata: Bool { get }
+    var attrs: [String: String]? { get }
+    var hasAttributes: Bool { get }
+    var marcRecord: MARCRecord? { get }
+    var hasMARC: Bool { get }
+    var marcIsDeleted: Bool? { get }
+    var copyCounts: [CopyCount]? { get }
+
+    var title: String { get }
+    var author: String { get }
+    var iconFormatLabel: String { get }
+    var edition: String? { get }
+    var isbn: String { get }
+    var firstOnlineLocationInMVR: String? { get }
+    var physicalDescription: String { get }
+    var pubdate: String { get }
+    var pubinfo: String { get }
+    var synopsis: String { get }
+    var subject: String { get }
+    var titleSortKey: String { get }
+    var nonFilingCharacters: Int? { get }
+    var isDeleted: Bool? { get }
+    var isPreCat: Bool { get }
+
+    // instance methods
+    func setMvrObj(_ obj: OSRFObject)
+    func update(fromMraObj obj: OSRFObject?)
+    func update(fromBreObj obj: OSRFObject)
+    func setCopyCounts(_ counts: [CopyCount])
+    func totalCopies(atOrgID orgID: Int?) -> Int
+
+    // static methods
+    static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord]
+    static func getIdsList(fromQueryObj theobj: OSRFObject?) -> [Int]
+}
+
 /// Metabib Record
-class MBRecord {
+class MBRecord: BibRecord {
     private let lock = NSRecursiveLock()
 
     var id: Int
@@ -93,7 +133,7 @@ class MBRecord {
 
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id
-        self.mvrObj = mvrObj        
+        self.mvrObj = mvrObj
     }
     init(mvrObj: OSRFObject) {
         self.id = mvrObj.getInt("doc_id") ?? -1
