@@ -35,8 +35,7 @@ class EvergreenSearchService: XSearchService {
     }
 
     func fetchSearchResults(queryString: String, limit: Int) async throws -> XSearchResults {
-        let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
-//            if query.contains("throw") { throw HemlockError.shouldNotHappen("Testing error handling") }
+        let options: [String: Int] = ["limit": limit, "offset": 0]
         let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, queryString, 1], shouldCache: true)
         let obj = try await req.gatewayResponseAsync().asObjectOrNil()
 
