@@ -16,48 +16,35 @@
 
 import Foundation
 
-protocol BibRecord: AnyObject {
-    // properties
+protocol AbstractBibRecord: AnyObject {
     var id: Int { get set }
-    var mvrObj: OSRFObject? { get }
-    var hasMetadata: Bool { get }
-    var attrs: [String: String]? { get }
-    var hasAttributes: Bool { get }
-    var marcRecord: MARCRecord? { get }
-    var hasMARC: Bool { get }
-    var marcIsDeleted: Bool? { get }
-    var copyCounts: [CopyCount]? { get }
 
-    var title: String { get }
     var author: String { get }
     var iconFormatLabel: String { get }
-    var edition: String? { get }
     var isbn: String { get }
-    var firstOnlineLocationInMVR: String? { get }
     var physicalDescription: String { get }
     var pubdate: String { get }
     var pubinfo: String { get }
-    var synopsis: String { get }
     var subject: String { get }
+    var synopsis: String { get }
+    var title: String { get }
     var titleSortKey: String { get }
-    var nonFilingCharacters: Int? { get }
-    var isDeleted: Bool? { get }
+
+    var hasAttributes: Bool { get }
+    var hasMetadata: Bool { get }
+    var hasMARC: Bool { get }
+    var isDeleted: Bool { get }
     var isPreCat: Bool { get }
 
-    // instance methods
-    func setMvrObj(_ obj: OSRFObject)
-    func update(fromMraObj obj: OSRFObject?)
-    func update(fromBreObj obj: OSRFObject)
-    func setCopyCounts(_ counts: [CopyCount])
-    func totalCopies(atOrgID orgID: Int?) -> Int
+    var attrs: [String: String]? { get }
+    var marcRecord: MARCRecord? { get }
+    var copyCounts: [CopyCount]? { get }
 
-    // static methods
-    static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord]
-    static func getIdsList(fromQueryObj theobj: OSRFObject?) -> [Int]
+    func totalCopies(atOrgID orgID: Int?) -> Int
 }
 
-/// Metabib Record
-class MBRecord: BibRecord {
+/// Bib Record
+class MBRecord: AbstractBibRecord {
     private let lock = NSRecursiveLock()
 
     var id: Int
@@ -100,7 +87,7 @@ class MBRecord: BibRecord {
 //    }
     var titleSortKey: String {
         if marcRecord != nil {
-            let skip = nonFilingCharacters ?? 0
+            let skip = titleNonFilingCharacters ?? 0
             if skip > 0 {
                 let substr = title.uppercased().dropFirst(skip)
                 return String(substr).trim()
@@ -109,7 +96,7 @@ class MBRecord: BibRecord {
         }
         return Utils.titleSortKey(title)
     }
-    var nonFilingCharacters: Int? {
+    var titleNonFilingCharacters: Int? {
         if let datafields = marcRecord?.datafields {
             for df in datafields {
                 if df.isTitleStatement {
@@ -176,6 +163,7 @@ class MBRecord: BibRecord {
     }
 
     func totalCopies(atOrgID orgID: Int?) -> Int {
+        // ??? .last seems wrong, Android looks for orgID, but maybe for EG it's always correct
         if let copyCount = copyCounts?.last {
             return copyCount.count
         }
