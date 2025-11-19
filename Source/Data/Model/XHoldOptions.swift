@@ -19,6 +19,7 @@ import Foundation
 /// Options for placing a hold.
 struct XHoldOptions {
     let holdType: String
+    let useOverride: Bool
     let notifyByEmail: Bool
     let phoneNotify: String?
     let smsNotify: String?
@@ -27,7 +28,6 @@ struct XHoldOptions {
     let expirationDate: Date? = nil
     let suspended: Bool = false
     let thawDate: Date? = nil
-    let useOverride: Bool = false
 }
 
 /// Options for updating a hold

@@ -570,7 +570,7 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
         do {
-            let options = XHoldOptions(holdType: holdType, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierId: notifyCarrierID, pickupOrgId: pickupOrg.id)
+            let options = XHoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierId: notifyCarrierID, pickupOrgId: pickupOrg.id)
             let _ = try await App.serviceConfig.circService.placeHold(account: account, targetId: targetID, withOptions: options)
             self.logPlaceHold(params: eventParams)
             self.valueChangedHandler?()
