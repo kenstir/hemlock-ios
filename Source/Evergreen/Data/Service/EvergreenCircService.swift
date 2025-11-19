@@ -18,6 +18,7 @@ import Foundation
 import os.log
 
 class EvergreenCircService: XCircService {
+
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "Circ")
 
     func fetchCheckouts(account: Account) async throws -> [CircRecord] {
@@ -210,7 +211,11 @@ class EvergreenCircService: XCircService {
     }
 
     func fetchHoldParts(targetId: Int) async throws -> [XHoldPart] {
-        let parts = try await SearchService.fetchHoldParts(recordID: targetId)
+        let param: JSONDictionary = [
+            "record": targetId
+        ]
+        let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param], shouldCache: true)
+        let parts = try await req.gatewayResponseAsync().asArray()
         return parts.map { XHoldPart(id: $0.getInt("id") ?? -1, label: $0.getString("label") ?? "Unknown part") }
     }
 
@@ -230,7 +235,95 @@ class EvergreenCircService: XCircService {
     }
 
     func placeHold(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> Bool {
-        throw HemlockError.notImplemented
+        let obj = try await placeHoldImpl(account: account, targetId: targetId, withOptions: options)
+
+        // Retaining old error handling code here, but maybe it's not needed and GatewayResponse.asObject() handles it?
+        // If not, it should.
+        if let _ = obj.getInt("result") {
+            return true
+        } else if let resultObj = obj.getAny("result") as? OSRFObject,
+            let eventObj = resultObj.getAny("last_event") as? OSRFObject
+        {
+            // case 2: result is an object with last_event - hold failed
+            throw makeHoldError(fromEventObj: eventObj)
+        } else if let resultArray = obj.getAny("result") as? [OSRFObject],
+            let eventObj = resultArray.first
+        {
+            // case 3: result is an array of ilsevent objects - hold failed
+            throw makeHoldError(fromEventObj: eventObj)
+        } else {
+            throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
+        }
+    }
+
+    private func makeHoldError(fromEventObj obj: OSRFObject) -> Error {
+        if let ilsevent = obj.getInt("ilsevent"),
+            let textcode = obj.getString("textcode"),
+            let desc = obj.getString("desc")
+        {
+            let failpart = obj.getObject("payload")?.getString("fail_part")
+            return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc, failpart: failpart)
+        }
+        return HemlockError.unexpectedNetworkResponse(String(describing: obj))
+    }
+
+    private func placeHoldImpl(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> OSRFObject {
+        var complexParam: JSONDictionary = [
+            "email_notify": options.notifyByEmail,
+            "hold_type": options.holdType,
+            "patronid": account.userID,
+            "pickup_lib": options.pickupOrgId,
+        ]
+        if let phoneNumber = options.phoneNotify,
+            !phoneNumber.isEmpty
+        {
+            complexParam["phone_notify"] = phoneNumber
+        }
+        if let smsNumber = options.smsNotify,
+           !smsNumber.isEmpty,
+           let carrierID = options.smsCarrierId
+        {
+            complexParam["sms_notify"] = smsNumber
+            complexParam["sms_carrier"] = carrierID
+        }
+        if let date = options.expirationDate {
+            complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
+        }
+        let method = options.useOverride ? API.holdTestAndCreateOverride : API.holdTestAndCreate
+        let req = Gateway.makeRequest(service: API.circ, method: method, args: [account.authtoken, complexParam, [targetId]], shouldCache: false)
+        return try await req.gatewayResponseAsync().asObject()
+    }
+
+    func updateHold(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> Bool {
+        // update hold returns the holdId as a string, but we don't need it
+        let _ = try await updateHoldImpl(account: account, holdId: holdId, withOptions: options)
+        return true
+    }
+
+    private func updateHoldImpl(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> String {
+        var complexParam: JSONDictionary = [
+            "id": holdId,
+            "email_notify": options.notifyByEmail,
+            "pickup_lib": options.pickupOrgId,
+            "frozen": options.suspended,
+        ]
+        if let str = options.phoneNotify, !str.isEmpty {
+            complexParam["phone_notify"] = str
+        }
+        if let str = options.smsNotify, !str.isEmpty {
+            complexParam["sms_notify"] = str
+        }
+        if let carrierID = options.smsCarrierId {
+            complexParam["sms_carrier"] = carrierID
+        }
+        if let date = options.expirationDate {
+            complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
+        }
+        if let date = options.thawDate {
+            complexParam["thaw_date"] = OSRFObject.apiDateFormatter.string(from: date)
+        }
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdUpdate, args: [account.authtoken, nil, complexParam], shouldCache: false)
+        return try await req.gatewayResponseAsync().asString()
     }
 
     func cancelHold(account: Account, holdId: Int) async throws -> Bool {

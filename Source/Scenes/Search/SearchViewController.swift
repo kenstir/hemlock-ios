@@ -17,14 +17,6 @@
 import UIKit
 import os.log
 
-struct SearchParameters {
-    let text: String
-    let searchClass: String
-    let searchFormat: String?
-    let organizationShortName: String?
-    let sort: String?
-}
-
 class SearchViewController: UIViewController {
 
     //MARK: - Properties
@@ -184,7 +176,7 @@ class SearchViewController: UIViewController {
         let searchClass = options[searchClassIndex].value
         let searchFormat = options[searchFormatIndex].value
         let searchOrg = options[searchLocationIndex].value
-        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, organizationShortName: searchOrg, sort: App.config.sort)
+        let params = SearchParameters(text: searchText, searchClass: searchClass, searchFormat: searchFormat, searchOrg: searchOrg, sort: App.config.sort)
 
         if let vc = UIStoryboard(name: "Results", bundle: nil).instantiateInitialViewController() as? ResultsViewController {
             vc.searchParameters = params

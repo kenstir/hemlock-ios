@@ -121,17 +121,12 @@ class HoldsViewController: UIViewController {
     @objc func cancelHoldPressed(_ indexPath: IndexPath) {
         guard let hold = getItem(indexPath) else { return }
         guard let account = App.account else { return }
-        guard let holdID = hold.id else {
-            self.showAlert(title: "Internal Error", error: HemlockError.unexpectedNetworkResponse("Hold record has no ID"))
-            //TODO: analytics
-            return
-        }
 
         // confirm action
         let alertController = UIAlertController(title: "Cancel hold?", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Keep Hold", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Cancel Hold", style: .default) { action in
-            Task { await self.cancelHold(account: account, holdID: holdID) }
+            Task { await self.cancelHold(account: account, holdID: hold.id) }
         })
         self.present(alertController, animated: true)
     }

@@ -57,7 +57,7 @@ class MessageDetailsViewController: UIViewController {
         guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+            return
         }
         guard let messageID = message?.id else { return }
 
@@ -82,7 +82,7 @@ class MessageDetailsViewController: UIViewController {
         guard let account = App.account else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+            return
         }
         guard let messageID = message?.id else { return }
 

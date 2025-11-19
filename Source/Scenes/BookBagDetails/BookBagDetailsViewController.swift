@@ -193,7 +193,7 @@ class BookBagDetailsViewController : UITableViewController {
         guard let account = App.account, let bookBag = self.bookBag else
         {
             presentGatewayAlert(forError: HemlockError.sessionExpired)
-            return //TODO: add analytics
+            return
         }
 
         let item = sortedItems[indexPath.row]

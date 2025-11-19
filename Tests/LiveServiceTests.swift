@@ -126,7 +126,7 @@ class LiveServiceTests: XCTestCase {
             return
         }
         let service = EvergreenLoaderService()
-        try await service.loadStartupPrerequisites(options: LoadStartupOptions(
+        try await service.loadStartupPrerequisites(options: XLoaderServiceOptions(
             clientCacheKey: Bundle.appVersionUrlSafe, useHierarchicalOrgTree: true
         ))
         LiveServiceTests.prerequisitesLoaded = true

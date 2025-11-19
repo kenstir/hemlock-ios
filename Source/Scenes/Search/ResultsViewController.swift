@@ -72,27 +72,22 @@ class ResultsViewController: UIViewController {
 
         guard let query = getQueryString() else { return }
 
-        //centerSubview(activityIndicator)
         activityIndicator.startAnimating()
         startOfSearch = Date()
 
         // search
         do {
-            let options: [String: Int] = ["limit": App.config.searchLimit, "offset": 0]
-//            if query.contains("throw") { throw HemlockError.shouldNotHappen("Testing error handling") }
-            let req = Gateway.makeRequest(service: API.search, method: API.multiclassQuery, args: [options, query, 1], shouldCache: true)
-            let obj = try await req.gatewayResponseAsync().asObjectOrNil()
-
+            let results = try await App.serviceConfig.searchService.fetchSearchResults(queryString: query, limit: App.config.searchLimit)
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
             os_log("query.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
-            let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
-            self.items = records
+
+            self.items = results.records
             Task {
-                await self.prefetchRecordDetails(records: records)
+                await self.prefetchRecordDetails(records: results.records)
                 await MainActor.run { self.reloadData() }
             }
             self.didCompleteSearch = true
-            self.logSearchEvent(numResults: records.count)
+            self.logSearchEvent(numResults: results.records.count)
         } catch {
             self.didCompleteSearch = true
             self.updateTableSectionHeader(onError: error)
@@ -135,30 +130,17 @@ class ResultsViewController: UIViewController {
         tableView.reloadData()
     }
 
-    // Build query string, taken with a grain of salt from
-    // https://wiki.evergreen-ils.org/doku.php?id=documentation:technical:search_grammar
-    // e.g. "title:Harry Potter chamber of secrets search_format(book) site(MARLBORO)"
     func getQueryString() -> String? {
         guard let sp = searchParameters else {
             showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing search parameters"))
             return nil
         }
-        var query = "\(sp.searchClass):\(sp.text)"
-        if let sf = sp.searchFormat, !sf.isEmpty {
-            query += " search_format(\(sf))"
-        }
-        if let org = sp.organizationShortName, !org.isEmpty {
-            query += " site(\(org))"
-        }
-        if let sort = sp.sort {
-            query += " sort(\(sort))"
-        }
-        return query
+        return App.serviceConfig.searchService.makeQueryString(searchParameters: sp)
     }
 
     func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
         guard let sp = searchParameters else { return }
-        let selectedOrg = Organization.find(byShortName: sp.organizationShortName)
+        let selectedOrg = Organization.find(byShortName: sp.searchOrg)
         let defaultOrg = Organization.find(byId: App.account?.searchOrgID)
         let homeOrg = Organization.find(byId: App.account?.homeOrgID)
         var params: [String: Any] = [
@@ -264,7 +246,7 @@ extension ResultsViewController : UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.organizationShortName)
+        let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: searchParameters?.searchOrg)
         if let vc = XUtils.makeDetailsPager(items: items, selectedItem: indexPath.row, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }

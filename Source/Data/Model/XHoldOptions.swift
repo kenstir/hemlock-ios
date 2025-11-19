@@ -16,16 +16,28 @@
 
 import Foundation
 
-/// Options for placing or updating a hold.  Properties marked as `var` can be modified for updateHold.
+/// Options for placing a hold.
 struct XHoldOptions {
     let holdType: String
-    let emailNotify: Bool
+    let useOverride: Bool
+    let notifyByEmail: Bool
     let phoneNotify: String?
     let smsNotify: String?
     let smsCarrierId: Int?
-    let useOverride: Bool = false
-    var pickupOrgId: Int
-    var expirationDate: Date? = nil
-    var suspended: Bool = false
-    var thawDate: Date? = nil
+    let pickupOrgId: Int
+    let expirationDate: Date? = nil
+    let suspended: Bool = false
+    let thawDate: Date? = nil
+}
+
+/// Options for updating a hold
+struct XHoldUpdateOptions {
+    let notifyByEmail: Bool
+    let phoneNotify: String?
+    let smsNotify: String?
+    let smsCarrierId: Int?
+    let pickupOrgId: Int
+    let expirationDate: Date?
+    let suspended: Bool
+    let thawDate: Date?
 }

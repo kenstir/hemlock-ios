@@ -49,6 +49,9 @@ protocol XCircService {
     /// Places a hold
     func placeHold(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> Bool
 
+    /// Updates an existing hold with new options.
+    func updateHold(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> Bool
+
     /// Cancels a hold
     func cancelHold(account: Account, holdId: Int) async throws -> Bool
 }

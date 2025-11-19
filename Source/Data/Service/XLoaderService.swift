@@ -16,12 +16,12 @@
 
 import Foundation
 
-struct LoadStartupOptions {
+struct XLoaderServiceOptions {
     let clientCacheKey: String
     let useHierarchicalOrgTree: Bool
 }
 
 protocol XLoaderService {
-    func loadStartupPrerequisites(options: LoadStartupOptions) async throws -> Void
+    func loadStartupPrerequisites(options: XLoaderServiceOptions) async throws -> Void
     func loadPlaceHoldPrerequisites() async throws -> Void
 }

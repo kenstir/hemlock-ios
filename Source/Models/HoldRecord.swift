@@ -46,7 +46,7 @@ class HoldRecord {
         }
     }
 
-    var id: Int? { return ahrObj.getInt("id") }
+    var id: Int { return ahrObj.getInt("id") ?? -1 }
     var target: Int? { return ahrObj.getID("target") }
     var holdType: String? { return ahrObj.getString("hold_type") }
     var hasEmailNotify: Bool? { return ahrObj.getBool("email_notify") }
@@ -123,12 +123,6 @@ class HoldRecord {
     
     init(obj: OSRFObject) {
         self.ahrObj = obj
-    }
-
-    /// mt-safe
-    func setAhrObj(_ obj: OSRFObject) {
-        lock.lock(); defer { lock.unlock() }
-        ahrObj = obj
     }
 
     /// mt-safe
