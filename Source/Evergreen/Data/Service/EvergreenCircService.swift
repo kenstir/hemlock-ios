@@ -302,6 +302,7 @@ class EvergreenCircService: XCircService {
     private func updateHoldImpl(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> GatewayResponse {
         var complexParam: JSONDictionary = [
             "id": holdId,
+            "email_notify": options.notifyByEmail,
             "pickup_lib": options.pickupOrgId,
             "frozen": options.suspended,
         ]
