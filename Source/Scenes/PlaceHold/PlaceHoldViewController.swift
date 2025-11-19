@@ -572,6 +572,7 @@ class PlaceHoldViewController: UIViewController {
         do {
             let options = XHoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierId: notifyCarrierID, pickupOrgId: pickupOrg.id)
             let _ = try await App.serviceConfig.circService.placeHold(account: account, targetId: targetID, withOptions: options)
+            activityIndicator.stopAnimating()
             self.logPlaceHold(params: eventParams)
             self.valueChangedHandler?()
             self.navigationController?.view.makeToast("Hold successfully placed")
@@ -591,6 +592,7 @@ class PlaceHoldViewController: UIViewController {
         do {
             let options = XHoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierId: notifyCarrierID, pickupOrgId: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
             let _ = try await App.serviceConfig.circService.updateHold(account: account, holdId: holdRecord.id, withOptions: options)
+            activityIndicator.stopAnimating()
             self.logUpdateHold(params: eventParams)
             self.valueChangedHandler?()
             self.navigationController?.view.makeToast("Hold successfully updated")
