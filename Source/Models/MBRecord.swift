@@ -106,11 +106,11 @@ class MBRecord: AbstractBibRecord {
         }
         return nil
     }
-    var isDeleted: Bool? {
+    var isDeleted: Bool {
         if let val = marcIsDeleted {
             return val
         }
-        return nil
+        return false
     }
     var isPreCat: Bool {
         return id == -1

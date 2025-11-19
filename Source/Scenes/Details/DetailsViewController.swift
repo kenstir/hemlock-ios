@@ -124,7 +124,7 @@ class DetailsViewController: UIViewController {
 
     private func setupCopySummary() {
         var str = ""
-        if record.isDeleted ?? false {
+        if record.isDeleted {
             str = "[ item is marked deleted in the database ]"
         } else if App.behavior.isOnlineResource(record: record) {
             if let onlineLocation = record.firstOnlineLocationInMVR,
@@ -158,7 +158,7 @@ class DetailsViewController: UIViewController {
 
     private func updateButtonViews() {
         print("updateButtonViews: title:\(record.title)")
-        if record.isDeleted ?? false {
+        if record.isDeleted {
             placeHoldButton.isEnabled = false
             copyInfoButton.isEnabled = false
             addToListButton.isEnabled = false
