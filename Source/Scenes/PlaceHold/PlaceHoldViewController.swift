@@ -639,17 +639,6 @@ class PlaceHoldViewController: UIViewController {
         Analytics.logEvent(event: Analytics.Event.updateHold, parameters: eventParams)
     }
 
-    func makeHoldError(fromEventObj obj: OSRFObject) -> Error {
-        if let ilsevent = obj.getInt("ilsevent"),
-            let textcode = obj.getString("textcode"),
-            let desc = obj.getString("desc")
-        {
-            let failpart = obj.getObject("payload")?.getString("fail_part")
-            return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc, failpart: failpart)
-        }
-        return HemlockError.unexpectedNetworkResponse(String(describing: obj))
-    }
-
     func makeOptionVC(title: String) -> OptionsViewController? {
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return nil }
         vc.title = title

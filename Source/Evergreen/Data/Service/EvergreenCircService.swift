@@ -236,26 +236,35 @@ class EvergreenCircService: XCircService {
 
     func placeHold(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> Bool {
         let obj = try await placeHoldImpl(account: account, targetId: targetId, withOptions: options)
-        // ASSUMING that all variants of place hold failure are converted to errors with asObject
-        // if not we need to fix it?
-        print("obj: \(obj.dict)")
+
+        // Retaining old error handling code here, but maybe it's not needed and GatewayResponse.asObject() handles it?
+        // If not, it should.
         if let _ = obj.getInt("result") {
-            // case 1: result is an Int - hold successful
-            print("true")
+            return true
         } else if let resultObj = obj.getAny("result") as? OSRFObject,
             let eventObj = resultObj.getAny("last_event") as? OSRFObject
         {
             // case 2: result is an object with last_event - hold failed
-            print("error: \(eventObj)")
+            throw makeHoldError(fromEventObj: eventObj)
         } else if let resultArray = obj.getAny("result") as? [OSRFObject],
             let eventObj = resultArray.first
         {
             // case 3: result is an array of ilsevent objects - hold failed
-            print("error: \(eventObj)")
+            throw makeHoldError(fromEventObj: eventObj)
         } else {
-            print("unexpected: \(String(describing: obj.dict))")
+            throw HemlockError.unexpectedNetworkResponse(String(describing: obj.dict))
         }
-        return true
+    }
+
+    private func makeHoldError(fromEventObj obj: OSRFObject) -> Error {
+        if let ilsevent = obj.getInt("ilsevent"),
+            let textcode = obj.getString("textcode"),
+            let desc = obj.getString("desc")
+        {
+            let failpart = obj.getObject("payload")?.getString("fail_part")
+            return GatewayError.event(ilsevent: ilsevent, textcode: textcode, desc: desc, failpart: failpart)
+        }
+        return HemlockError.unexpectedNetworkResponse(String(describing: obj))
     }
 
     private func placeHoldImpl(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> OSRFObject {
