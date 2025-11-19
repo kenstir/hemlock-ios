@@ -23,11 +23,11 @@ struct XHoldOptions {
     let phoneNotify: String?
     let smsNotify: String?
     let smsCarrierId: Int?
+    let pickupOrgId: Int
+    let expirationDate: Date? = nil
+    let suspended: Bool = false
+    let thawDate: Date? = nil
     let useOverride: Bool = false
-    var pickupOrgId: Int
-    var expirationDate: Date? = nil
-    var suspended: Bool = false
-    var thawDate: Date? = nil
 }
 
 /// Options for updating a hold
