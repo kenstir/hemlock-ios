@@ -17,8 +17,8 @@
 import Foundation
 
 protocol XBiblioService {
-    func imageUrl(forRecord record: MBRecord) -> String?
-    func loadRecordDetails(forRecord record: MBRecord, needMARC: Bool) async throws -> Void
-    func loadRecordAttributes(forRecord record: MBRecord) async throws -> Void
-    func loadRecordCopyCounts(forRecord record: MBRecord, orgId: Int) async throws -> Void
+    func imageUrl(forRecord record: BibRecord) -> String?
+    func loadRecordDetails(forRecord record: BibRecord, needMARC: Bool) async throws -> Void
+    func loadRecordAttributes(forRecord record: BibRecord) async throws -> Void
+    func loadRecordCopyCounts(forRecord record: BibRecord, orgId: Int) async throws -> Void
 }

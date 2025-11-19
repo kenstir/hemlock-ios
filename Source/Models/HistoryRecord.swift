@@ -23,7 +23,7 @@ class HistoryRecord {
 
     let id: Int
     let auchObj: OSRFObject
-    private(set) var metabibRecord: MBRecord?
+    private(set) var metabibRecord: BibRecord?
 
     var title: String {
         if let title = metabibRecord?.title, !title.isEmpty { return title }
@@ -51,7 +51,7 @@ class HistoryRecord {
     }
 
     /// mt-safe
-    func setBibRecord(_ record: MBRecord?) {
+    func setBibRecord(_ record: BibRecord?) {
         lock.lock(); defer { lock.unlock() }
         self.metabibRecord = record
     }

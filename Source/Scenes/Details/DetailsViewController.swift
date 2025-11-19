@@ -39,7 +39,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
 
-    var record = MBRecord.dummyRecord
+    var record = BibRecord.dummyRecord
     var row: Int = 0
     var count: Int = 0
     var displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
@@ -48,7 +48,7 @@ class DetailsViewController: UIViewController {
 
     //MARK: - Lifecycle
 
-    static func make(record: MBRecord, row: Int, count: Int, displayOptions: RecordDisplayOptions) -> DetailsViewController? {
+    static func make(record: BibRecord, row: Int, count: Int, displayOptions: RecordDisplayOptions) -> DetailsViewController? {
         if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController() as? DetailsViewController {
             vc.record = record
             vc.row = row

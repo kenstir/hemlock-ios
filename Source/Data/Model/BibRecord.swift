@@ -14,26 +14,29 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
+protocol BibRecord: AnyObject {
+    var id: Int { get set }
 
-protocol XPatronChargeRecord {
+    var author: String { get }
+    var iconFormatLabel: String { get }
+    var isbn: String { get }
+    var physicalDescription: String { get }
+    var pubdate: String { get }
+    var pubinfo: String { get }
+    var subject: String { get }
+    var synopsis: String { get }
     var title: String { get }
-    var subtitle: String { get }
-    var balanceOwed: Double? { get }
-    var status: String { get }
-    var record: BibRecord? { get }
-}
+    var titleSortKey: String { get }
 
-class PatronCharges {
-    let totalCharges: Double
-    let totalPaid: Double
-    let balanceOwed: Double
-    let transactions: [XPatronChargeRecord]
+    var hasAttributes: Bool { get }
+    var hasMetadata: Bool { get }
+    var hasMARC: Bool { get }
+    var isDeleted: Bool { get }
+    var isPreCat: Bool { get }
 
-    init(totalCharges: Double, totalPaid: Double, balanceOwed: Double, transactions: [XPatronChargeRecord]) {
-        self.totalCharges = totalCharges
-        self.totalPaid = totalPaid
-        self.balanceOwed = balanceOwed
-        self.transactions = transactions
-    }
+    var attrs: [String: String]? { get }
+    var marcRecord: MARCRecord? { get }
+    var copyCounts: [CopyCount]? { get }
+
+    func totalCopies(atOrgID orgID: Int?) -> Int
 }

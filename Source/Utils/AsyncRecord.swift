@@ -17,7 +17,7 @@
 import os.log
 
 /// AsyncRecord adds asynchronous loading to MBRecord for prefetching.
-class AsyncRecord: MBRecord {
+class AsyncRecord: BibRecord {
 
     //MARK: - Properties
 
@@ -50,7 +50,7 @@ class AsyncRecord: MBRecord {
     //MARK: - Static Functions
 
     static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [AsyncRecord] {
-        let recordIds = MBRecord.getIdsList(fromQueryObj: theobj)
+        let recordIds = BibRecord.getIdsList(fromQueryObj: theobj)
         var ret: [AsyncRecord] = []
         for (row, id) in recordIds.enumerated() {
             ret.append(AsyncRecord(id: id, row: row))

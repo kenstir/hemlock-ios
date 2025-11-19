@@ -25,7 +25,7 @@ class HoldRecord {
     //MARK: - Properties
 
     private(set) var ahrObj: OSRFObject
-    private(set) var metabibRecord: MBRecord?
+    private(set) var metabibRecord: BibRecord?
     private(set) var qstatsObj: OSRFObject?
     private(set) var label: String? // if the hold is a "P" type, this is the part label
 
@@ -126,7 +126,7 @@ class HoldRecord {
     }
 
     /// mt-safe
-    func setMetabibRecord(_ record: MBRecord) {
+    func setMetabibRecord(_ record: BibRecord) {
         lock.lock(); defer { lock.unlock() }
         metabibRecord = record
     }

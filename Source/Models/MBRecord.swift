@@ -16,35 +16,8 @@
 
 import Foundation
 
-protocol AbstractBibRecord: AnyObject {
-    var id: Int { get set }
 
-    var author: String { get }
-    var iconFormatLabel: String { get }
-    var isbn: String { get }
-    var physicalDescription: String { get }
-    var pubdate: String { get }
-    var pubinfo: String { get }
-    var subject: String { get }
-    var synopsis: String { get }
-    var title: String { get }
-    var titleSortKey: String { get }
-
-    var hasAttributes: Bool { get }
-    var hasMetadata: Bool { get }
-    var hasMARC: Bool { get }
-    var isDeleted: Bool { get }
-    var isPreCat: Bool { get }
-
-    var attrs: [String: String]? { get }
-    var marcRecord: MARCRecord? { get }
-    var copyCounts: [CopyCount]? { get }
-
-    func totalCopies(atOrgID orgID: Int?) -> Int
-}
-
-/// Bib Record
-class MBRecord: AbstractBibRecord {
+class MBRecord: BibRecord {
     private let lock = NSRecursiveLock()
 
     var id: Int
@@ -116,7 +89,7 @@ class MBRecord: AbstractBibRecord {
         return id == -1
     }
 
-    static let dummyRecord = MBRecord(id: -1)
+    static let dummyRecord = BibRecord(id: -1)
 
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id
@@ -173,11 +146,11 @@ class MBRecord: AbstractBibRecord {
     //MARK: - Static functions
 
     // Create array of skeleton records from the multiclassQuery response object.
-    static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord] {
-        var records: [MBRecord] = []
+    static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [BibRecord] {
+        var records: [BibRecord] = []
 
         for id in getIdsList(fromQueryObj: theobj) {
-            records.append(MBRecord(id: id))
+            records.append(BibRecord(id: id))
         }
         return records
     }

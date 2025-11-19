@@ -17,11 +17,11 @@
 import Foundation
 
 class EvergreenBiblioService: XBiblioService {
-    func imageUrl(forRecord record: MBRecord) -> String? {
+    func imageUrl(forRecord record: BibRecord) -> String? {
         return nil
     }
 
-    func loadRecordDetails(forRecord record: MBRecord, needMARC: Bool) async throws -> Void {
+    func loadRecordDetails(forRecord record: BibRecord, needMARC: Bool) async throws -> Void {
         // load MODS and MARC data for the record, but only if it wasn't already done
         try await withThrowingTaskGroup(of: Void.self) { group in
             if !record.hasMetadata {
@@ -40,14 +40,14 @@ class EvergreenBiblioService: XBiblioService {
         }
     }
 
-    func loadRecordAttributes(forRecord record: MBRecord) async throws {
+    func loadRecordAttributes(forRecord record: BibRecord) async throws {
         if !record.hasAttributes {
             let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
             record.update(fromMraObj: mraObj)
         }
     }
 
-    func loadRecordCopyCounts(forRecord record: MBRecord, orgId: Int) async throws {
+    func loadRecordCopyCounts(forRecord record: BibRecord, orgId: Int) async throws {
         let array = try await fetchCopyCount(recordID: record.id, orgID: orgId)
         let copyCounts = CopyCount.makeArray(fromArray: array)
         record.setCopyCounts(copyCounts)

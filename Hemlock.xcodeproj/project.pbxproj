@@ -1495,6 +1495,15 @@
 		D2D074AD2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
 		D2D074AE2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
 		D2D074AF2E75CD12003DFCCF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */; };
+		D2D102022ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
+		D2D102032ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
+		D2D102042ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
+		D2D102052ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
+		D2D102062ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
+		D2D102072ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
+		D2D102082ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
+		D2D102092ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
+		D2D1020A2ECE79660089FE94 /* BibRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D102012ECE79660089FE94 /* BibRecord.swift */; };
 		D2D49BFF20A91328000B3A27 /* LiveServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */; };
 		D2D8ABB42E42D78C00CB36C6 /* XOrgHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */; };
 		D2D8ABB52E42D78C00CB36C6 /* XOrgHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */; };
@@ -2051,6 +2060,7 @@
 		D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
 		D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickOneOption.swift; sourceTree = "<group>"; };
 		D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D2D102012ECE79660089FE94 /* BibRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibRecord.swift; sourceTree = "<group>"; };
 		D2D49BFE20A91328000B3A27 /* LiveServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveServiceTests.swift; sourceTree = "<group>"; };
 		D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgHours.swift; sourceTree = "<group>"; };
 		D2D8ABC02E42D84500CB36C6 /* EvergreenOrgHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenOrgHours.swift; sourceTree = "<group>"; };
@@ -2634,6 +2644,7 @@
 		D28032302E3BAF3F00B05638 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D2D102012ECE79660089FE94 /* BibRecord.swift */,
 				D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */,
 				D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */,
 				D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */,
@@ -3775,6 +3786,7 @@
 				D283B0C12E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D20B2FEC22CC359000F69848 /* MARCRecord.swift in Sources */,
 				D210EBD922B1EE55002FB5E0 /* String+.swift in Sources */,
+				D2D102042ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D210EBDA22B1EE55002FB5E0 /* AppConfiguration.swift in Sources */,
 				D210EC4422B1F23D002FB5E0 /* AppFactory.swift in Sources */,
 				D210EBDB22B1EE55002FB5E0 /* FinesViewController.swift in Sources */,
@@ -3969,6 +3981,7 @@
 				D23E9FA023B9200A0030F5C1 /* LocationPicker.swift in Sources */,
 				D23E9FA123B9200A0030F5C1 /* IDLParser.swift in Sources */,
 				D233986E2E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
+				D2D1020A2ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D23E9FA223B9200A0030F5C1 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491D29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
@@ -4103,6 +4116,7 @@
 				D2477C3624786CCF00FD4CF6 /* IndianaAppBehavior.swift in Sources */,
 				D2477C3524786CCF00FD4CF6 /* IndianaAppConfiguration.swift in Sources */,
 				D23398722E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
+				D2D102032ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */,
 				D24D491729D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */,
@@ -4237,6 +4251,7 @@
 				D2572AE324AD7755000BA698 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D2572AE424AD7755000BA698 /* CodedValueMap.swift in Sources */,
 				D23398782E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
+				D2D102072ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D24D491829D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */,
 				D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */,
@@ -4371,6 +4386,7 @@
 				D25EEC8828A1E8310090F108 /* UIBarButtonItem+Badge.swift in Sources */,
 				D25EEC8928A1E8310090F108 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D23398752E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
+				D2D102022ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D25EEC8A28A1E8310090F108 /* CodedValueMap.swift in Sources */,
 				D24D491B29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D25EEC8C28A1E8310090F108 /* CopyLocationCounts.swift in Sources */,
@@ -4520,6 +4536,7 @@
 				D24C3932254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2D0749B2E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300332E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
+				D2D102082ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D2BB66BE297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D283B0BD2E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
@@ -4653,6 +4670,7 @@
 				D24C3933254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2D074A22E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300312E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,
+				D2D102092ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D2BB66BF297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */,
 				D283B0C22E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
@@ -4771,6 +4789,7 @@
 				FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */,
 				FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D23398772E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
+				D2D102052ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D2A6C581221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491C29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
@@ -4885,6 +4904,7 @@
 				D283B0C42E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
 				D2BDA61C22D176BD00D9B60C /* MARCRecord.swift in Sources */,
 				D2BDA61E22D176BD00D9B60C /* String+.swift in Sources */,
+				D2D102062ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D2BDA61F22D176BD00D9B60C /* AppConfiguration.swift in Sources */,
 				D2BDA62122D176BD00D9B60C /* FinesViewController.swift in Sources */,
 				D2BDA62222D176BD00D9B60C /* API.swift in Sources */,

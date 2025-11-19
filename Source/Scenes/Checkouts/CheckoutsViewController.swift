@@ -284,7 +284,7 @@ extension CheckoutsViewController: UITableViewDelegate {
         }
 
         // Filter pre-cat items from details flow
-        var records: [MBRecord] = []
+        var records: [BibRecord] = []
         for item in items {
             if let record = item.metabibRecord, !record.isPreCat {
                 records.append(record)

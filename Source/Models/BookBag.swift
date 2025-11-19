@@ -40,7 +40,7 @@ class BookBag : Identifiable {
     
     func initVisibleIds(fromQueryObj obj: OSRFObject) {
         filterToVisibleRecords = true
-        visibleRecordIds = MBRecord.getIdsList(fromQueryObj: obj)
+        visibleRecordIds = BibRecord.getIdsList(fromQueryObj: obj)
     }
     
     func distinctBy(_ array: [OSRFObject], selector: (OSRFObject) -> Int?) -> [OSRFObject] {

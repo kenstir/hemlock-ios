@@ -50,7 +50,7 @@ class PlaceHoldViewController: UIViewController {
 
     @IBOutlet var labels: [UILabel]!
 
-    var record = MBRecord.dummyRecord
+    var record = BibRecord.dummyRecord
     var holdRecord: HoldRecord?
     var parts: [XHoldPart] = []
     var valueChangedHandler: (() -> Void)?
@@ -74,7 +74,7 @@ class PlaceHoldViewController: UIViewController {
 
     //MARK: - Lifecycle
 
-    static func make(record: MBRecord, holdRecord: HoldRecord? = nil, valueChangedHandler: (() -> Void)? = nil) -> PlaceHoldViewController? {
+    static func make(record: BibRecord, holdRecord: HoldRecord? = nil, valueChangedHandler: (() -> Void)? = nil) -> PlaceHoldViewController? {
         if let vc = UIStoryboard(name: "NewPlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController {
             vc.record = record
             vc.holdRecord = holdRecord
