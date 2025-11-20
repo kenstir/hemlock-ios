@@ -22,7 +22,7 @@ import Foundation
 import UIKit
 
 class XUtils {
-    static func makeDetailsPager(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> UIViewController? {
+    static func makeDetailsPager(items: [BibRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> UIViewController? {
         return DetailsPagerViewController.make(items: items, selectedItem: selectedItem, displayOptions: displayOptions)
     }
 }

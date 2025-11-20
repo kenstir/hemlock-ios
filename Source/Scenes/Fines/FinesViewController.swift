@@ -211,7 +211,7 @@ extension FinesViewController: UITableViewDelegate {
         let currentFine = fines[indexPath.row]
         let currentRecord = currentFine.record
 
-        var records: [MBRecord] = []
+        var records: [BibRecord] = []
         for fine in fines {
             if let record = fine.record, !record.isPreCat {
                 records.append(record)

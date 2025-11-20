@@ -39,9 +39,9 @@ class XSearchResults {
     /// matching records
     ///
     /// these records are skeletons, and do not have Details, Attributes, or CopyCounts loaded
-    let records: [AsyncRecord]
+    let records: [BibRecord]
 
-    init(totalMatches: Int, records: [AsyncRecord]) {
+    init(totalMatches: Int, records: [BibRecord]) {
         self.totalMatches = totalMatches
         self.records = records
     }

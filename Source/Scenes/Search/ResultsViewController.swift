@@ -26,8 +26,8 @@ class ResultsViewController: UIViewController {
     weak var activityIndicator: UIActivityIndicatorView!
 
     var searchParameters: SearchParameters?
-    var items: [AsyncRecord] = []
-    var selectedItem: AsyncRecord?
+    var items: [BibRecord] = []
+    var selectedItem: BibRecord?
     var startOfSearch = Date()
     var didCompleteSearch = false
 
@@ -99,7 +99,7 @@ class ResultsViewController: UIViewController {
     }
 
     @MainActor
-    func prefetchRecordDetails(records: [AsyncRecord]) async {
+    func prefetchRecordDetails(records: [BibRecord]) async {
         // Select subset of records to preload in a batch, or else they will get loaded
         // individually on demand by cellForRowAt.
         let maxRecordsToPreload = 7 // best estimate is 6 on screen + 1 partial
@@ -215,7 +215,7 @@ extension ResultsViewController : UITableViewDataSource {
         return cell
     }
 
-    func setCellMetadata(_ cell: ResultsTableViewCell, forRecord record: AsyncRecord?) {
+    func setCellMetadata(_ cell: ResultsTableViewCell, forRecord record: BibRecord?) {
         cell.title.text = record?.title
         cell.author.text = record?.author
         cell.format.text = record?.iconFormatLabel

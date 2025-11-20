@@ -16,8 +16,7 @@
 
 import Foundation
 
-/// Metabib Record
-class MBRecord {
+class MBRecord: BibRecord {
     private let lock = NSRecursiveLock()
 
     var id: Int
@@ -35,7 +34,7 @@ class MBRecord {
     var iconFormatLabel: String { return CodedValueMap.iconFormatLabel(forCode: attrs?["icon_format"]) }
     var edition: String? { return mvrObj?.getString("edition") }
     var isbn: String { return mvrObj?.getString("isbn") ?? "" }
-    var firstOnlineLocationInMVR: String? {
+    var firstOnlineLocation: String? {
         if let arr = mvrObj?.getAny("online_loc") as? [String] {
             return arr.first
         }
@@ -60,7 +59,7 @@ class MBRecord {
 //    }
     var titleSortKey: String {
         if marcRecord != nil {
-            let skip = nonFilingCharacters ?? 0
+            let skip = titleNonFilingCharacters ?? 0
             if skip > 0 {
                 let substr = title.uppercased().dropFirst(skip)
                 return String(substr).trim()
@@ -69,7 +68,7 @@ class MBRecord {
         }
         return Utils.titleSortKey(title)
     }
-    var nonFilingCharacters: Int? {
+    var titleNonFilingCharacters: Int? {
         if let datafields = marcRecord?.datafields {
             for df in datafields {
                 if df.isTitleStatement {
@@ -79,21 +78,19 @@ class MBRecord {
         }
         return nil
     }
-    var isDeleted: Bool? {
+    var isDeleted: Bool {
         if let val = marcIsDeleted {
             return val
         }
-        return nil
+        return false
     }
     var isPreCat: Bool {
         return id == -1
     }
 
-    static let dummyRecord = MBRecord(id: -1)
-
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id
-        self.mvrObj = mvrObj        
+        self.mvrObj = mvrObj
     }
     init(mvrObj: OSRFObject) {
         self.id = mvrObj.getInt("doc_id") ?? -1
@@ -136,7 +133,7 @@ class MBRecord {
     }
 
     func totalCopies(atOrgID orgID: Int?) -> Int {
-        if let copyCount = copyCounts?.last {
+        if let copyCount = copyCounts?.first(where: { $0.orgID == orgID }) {
             return copyCount.count
         }
         return 0
@@ -145,8 +142,8 @@ class MBRecord {
     //MARK: - Static functions
 
     // Create array of skeleton records from the multiclassQuery response object.
-    static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [MBRecord] {
-        var records: [MBRecord] = []
+    static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [BibRecord] {
+        var records: [BibRecord] = []
 
         for id in getIdsList(fromQueryObj: theobj) {
             records.append(MBRecord(id: id))

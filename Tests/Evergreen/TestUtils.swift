@@ -24,7 +24,7 @@ class TestAppBehavior: BaseAppBehavior {
         return isVisibleViaLocatedURI(datafield, orgShortName: orgShortName);
     }
 
-    override func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+    override func onlineLocations(record: BibRecord, forSearchOrg orgShortName: String?) -> [Link] {
         return getOnlineLocationsFromMARC(record: record, forSearchOrg: orgShortName)
     }
 }

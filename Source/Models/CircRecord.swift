@@ -22,7 +22,7 @@ class CircRecord {
 
     let id: Int
     private(set) var circObj: OSRFObject?
-    private(set) var metabibRecord: MBRecord?
+    private(set) var metabibRecord: BibRecord?
     private(set) var acpObj: OSRFObject?
 
     var title: String {
@@ -71,7 +71,7 @@ class CircRecord {
     }
 
     /// mt-safe
-    func setMetabibRecord(_ record: MBRecord) {
+    func setMetabibRecord(_ record: BibRecord) {
         lock.lock(); defer { lock.unlock() }
         metabibRecord = record
     }

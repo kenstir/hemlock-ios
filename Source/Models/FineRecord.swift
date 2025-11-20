@@ -62,7 +62,7 @@ class FineRecord: XPatronChargeRecord {
         }
         return "fines accruing"
     }
-    var record: MBRecord?
+    var record: BibRecord?
 
     //MARK: - Functions
 

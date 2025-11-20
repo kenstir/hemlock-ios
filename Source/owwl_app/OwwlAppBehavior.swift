@@ -16,7 +16,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 class OwwlAppBehavior: BaseAppBehavior {
-    override func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+    override func onlineLocations(record: BibRecord, forSearchOrg orgShortName: String?) -> [Link] {
         return getOnlineLocationsFromMARC(record: record, forSearchOrg: orgShortName)
     }
 

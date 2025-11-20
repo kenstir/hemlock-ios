@@ -25,8 +25,8 @@ struct RecordDisplayOptions {
 /// A page displaying an MBRecord that knows its place in the list
 class Page {
     let index: Int
-    let record: MBRecord
-    init(index: Int, record: MBRecord) {
+    let record: BibRecord
+    init(index: Int, record: BibRecord) {
         self.index = index
         self.record = record
     }
@@ -46,7 +46,7 @@ class DetailsPagerViewController: UIPageViewController {
 
     //MARK: - Lifecycle
 
-    static func make(items: [MBRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> DetailsPagerViewController? {
+    static func make(items: [BibRecord], selectedItem: Int, displayOptions: RecordDisplayOptions) -> DetailsPagerViewController? {
         if let vc = UIStoryboard(name: "DetailsPager", bundle: nil).instantiateInitialViewController() as? DetailsPagerViewController {
             for (row, item) in items.enumerated() {
                 vc.pages.append(Page(index: row, record: item))

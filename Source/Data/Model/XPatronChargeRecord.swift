@@ -21,7 +21,7 @@ protocol XPatronChargeRecord {
     var subtitle: String { get }
     var balanceOwed: Double? { get }
     var status: String { get }
-    var record: MBRecord? { get }
+    var record: BibRecord? { get }
 }
 
 class PatronCharges {

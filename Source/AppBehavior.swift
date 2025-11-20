@@ -18,8 +18,8 @@
 import Foundation
 
 protocol AppBehavior {
-    func isOnlineResource(record: MBRecord) -> Bool
-    func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link]
+    func isOnlineResource(record: BibRecord) -> Bool
+    func onlineLocations(record: BibRecord, forSearchOrg orgShortName: String?) -> [Link]
 }
 
 class BaseAppBehavior: AppBehavior {
@@ -36,7 +36,7 @@ class BaseAppBehavior: AppBehavior {
         return label.hasPrefix("E-")
     }
     
-    func isOnlineResource(record: MBRecord) -> Bool {
+    func isOnlineResource(record: BibRecord) -> Bool {
         if let item_form = record.attrs?["item_form"] {
             if item_form == "o" || item_form == "s" {
                 return true
@@ -72,7 +72,7 @@ class BaseAppBehavior: AppBehavior {
         return false
     }
 
-    func getOnlineLocationsFromMARC(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+    func getOnlineLocationsFromMARC(record: BibRecord, forSearchOrg orgShortName: String?) -> [Link] {
         if let marcRecord = record.marcRecord {
             return getLinks(fromMarcRecord: marcRecord, forSearchOrg: orgShortName)
         }
@@ -101,9 +101,9 @@ class BaseAppBehavior: AppBehavior {
         return links
     }
 
-    func onlineLocations(record: MBRecord, forSearchOrg orgShortName: String?) -> [Link] {
+    func onlineLocations(record: BibRecord, forSearchOrg orgShortName: String?) -> [Link] {
         var links: [Link] = []
-        if let online_loc = record.firstOnlineLocationInMVR {
+        if let online_loc = record.firstOnlineLocation {
             links.append(Link(href: online_loc, text: ""))
         }
         return links

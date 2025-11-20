@@ -39,7 +39,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
 
-    var record = MBRecord.dummyRecord
+    var record: BibRecord!
     var row: Int = 0
     var count: Int = 0
     var displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
@@ -48,7 +48,7 @@ class DetailsViewController: UIViewController {
 
     //MARK: - Lifecycle
 
-    static func make(record: MBRecord, row: Int, count: Int, displayOptions: RecordDisplayOptions) -> DetailsViewController? {
+    static func make(record: BibRecord, row: Int, count: Int, displayOptions: RecordDisplayOptions) -> DetailsViewController? {
         if let vc = UIStoryboard(name: "Details", bundle: nil).instantiateInitialViewController() as? DetailsViewController {
             vc.record = record
             vc.row = row
@@ -124,10 +124,10 @@ class DetailsViewController: UIViewController {
 
     private func setupCopySummary() {
         var str = ""
-        if record.isDeleted ?? false {
+        if record.isDeleted {
             str = "[ item is marked deleted in the database ]"
         } else if App.behavior.isOnlineResource(record: record) {
-            if let onlineLocation = record.firstOnlineLocationInMVR,
+            if let onlineLocation = record.firstOnlineLocation,
                 let host = URL(string: onlineLocation)?.host,
                 App.config.showOnlineAccessHostname
             {
@@ -158,7 +158,7 @@ class DetailsViewController: UIViewController {
 
     private func updateButtonViews() {
         print("updateButtonViews: title:\(record.title)")
-        if record.isDeleted ?? false {
+        if record.isDeleted {
             placeHoldButton.isEnabled = false
             copyInfoButton.isEnabled = false
             addToListButton.isEnabled = false
@@ -193,21 +193,14 @@ class DetailsViewController: UIViewController {
         Style.styleButton(asPlain: extrasButton)
     }
 
-    func have(_ val: Any?) -> String {
-        if val != nil {
-            return "YES"
-        }
-        return "nil"
-    }
-
     @MainActor
     func fetchData() async {
         let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
 
         do {
-            print("record.mvrObj:     \(have(record.mvrObj))")
-            print("record.attrs:      \(have(record.attrs))")
-            print("record.marcRecord: \(have(record.marcRecord))")
+            print("record.hasAttrs:    \(record.hasAttributes)")
+            print("record.hasMARC:     \(record.hasMARC)")
+            print("record.hasMetadata: \(record.hasMetadata)")
             async let details: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
             async let attrs: Void = App.serviceConfig.biblioService.loadRecordAttributes(forRecord: record)
             async let ccounts: Void = App.serviceConfig.biblioService.loadRecordCopyCounts(forRecord: record, orgId: orgID)

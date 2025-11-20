@@ -22,7 +22,7 @@ import Foundation
 
 class BookBagItem {
     var cbrebiObj: OSRFObject
-    var metabibRecord: MBRecord
+    var metabibRecord: BibRecord
 
     var id: Int {
         return cbrebiObj.getInt("id") ?? -1

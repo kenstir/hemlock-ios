@@ -202,7 +202,7 @@ class HistoryViewController: UITableViewController {
         let item = items[indexPath.row]
 
         // load the data immediately if we have it
-        if item.metabibRecord != nil {
+        if item.bibRecord != nil {
             setCellMetadata(cell, forItem: item)
         } else {
             // Clear reused cells immediately or else the titles change as you scroll fast
@@ -232,7 +232,7 @@ class HistoryViewController: UITableViewController {
         cell.checkoutDate.text = "Checkout Date: \(item?.checkoutDateLabel ?? "")"
         cell.returnDate.text = "Returned Date: \(item?.returnedDateLabel ?? "")"
         // async load the image
-        if let recordId = item?.metabibRecord?.id,
+        if let recordId = item?.bibRecord?.id,
             let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(recordId)) {
             cell.coverImage.pin_setImage(from: url)
         } else {
@@ -243,7 +243,7 @@ class HistoryViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let displayOptions = RecordDisplayOptions(enablePlaceHold: true, orgShortName: nil)
-        let records = items.compactMap { $0.metabibRecord }
+        let records = items.compactMap { $0.bibRecord }
         if let vc = XUtils.makeDetailsPager(items: records, selectedItem: indexPath.row, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }

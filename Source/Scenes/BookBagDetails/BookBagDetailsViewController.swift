@@ -227,7 +227,7 @@ class BookBagDetailsViewController : UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var records: [MBRecord] = []
+        var records: [BibRecord] = []
         for item in sortedItems {
             records.append(item.metabibRecord)
         }

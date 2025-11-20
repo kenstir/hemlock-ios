@@ -28,7 +28,7 @@ class CopyInfoViewController: UIViewController {
     @IBOutlet weak var placeHoldButton: UIButton!
 
     var org: Organization?
-    var record: MBRecord?
+    var record: BibRecord?
     var items: [CopyLocationCounts] = []
     var didCompleteFetch = false
     
