@@ -2321,7 +2321,6 @@
 				D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
-				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
 				D2BB6689297C813A007E19E7 /* PatronMessage.swift */,
 				D2A627D42BDAC308005BB11F /* PushNotification.swift */,
@@ -2645,6 +2644,7 @@
 			isa = PBXGroup;
 			children = (
 				D2D102012ECE79660089FE94 /* BibRecord.swift */,
+				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */,
 				D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */,
 				D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */,
