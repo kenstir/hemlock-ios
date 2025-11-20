@@ -133,8 +133,6 @@ class MBRecord: BibRecord {
     }
 
     func totalCopies(atOrgID orgID: Int?) -> Int {
-        // ??? .last seems wrong, Android looks for orgID, but maybe for EG it's always correct
-        //if let copyCount = copyCounts?.last {
         if let copyCount = copyCounts?.first(where: { $0.orgID == orgID }) {
             return copyCount.count
         }
