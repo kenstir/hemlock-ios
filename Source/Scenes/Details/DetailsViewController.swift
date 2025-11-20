@@ -193,13 +193,6 @@ class DetailsViewController: UIViewController {
         Style.styleButton(asPlain: extrasButton)
     }
 
-    func have(_ val: Any?) -> String {
-        if val != nil {
-            return "YES"
-        }
-        return "nil"
-    }
-
     @MainActor
     func fetchData() async {
         let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID

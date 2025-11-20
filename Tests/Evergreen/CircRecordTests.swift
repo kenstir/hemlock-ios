@@ -65,7 +65,7 @@ class CircRecordTests: XCTestCase {
         ])
         let circRecord = CircRecord(id: 93108558)
         circRecord.setCircObj(circObj)
-        circRecord.setMetabibRecord(BibRecord(id: 1234, mvrObj: mvrObj))
+        circRecord.setMetabibRecord(MBRecord(id: 1234, mvrObj: mvrObj))
 
         XCTAssertEqual("The Testaments", circRecord.title)
         XCTAssertEqual("Margaret Atwood", circRecord.author)
@@ -97,7 +97,7 @@ class CircRecordTests: XCTestCase {
         ])
         let circRecord = CircRecord(id: 1)
         circRecord.setCircObj(circObj)
-        circRecord.setMetabibRecord(BibRecord(id: -1, mvrObj: mvrObj))
+        circRecord.setMetabibRecord(MBRecord(id: -1, mvrObj: mvrObj))
         circRecord.setAcpObj(acpObj)
         
         XCTAssertEqual("SEO TEST", circRecord.title)
