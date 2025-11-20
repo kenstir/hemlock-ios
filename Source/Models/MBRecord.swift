@@ -16,7 +16,6 @@
 
 import Foundation
 
-
 class MBRecord: BibRecord {
     private let lock = NSRecursiveLock()
 
@@ -35,7 +34,7 @@ class MBRecord: BibRecord {
     var iconFormatLabel: String { return CodedValueMap.iconFormatLabel(forCode: attrs?["icon_format"]) }
     var edition: String? { return mvrObj?.getString("edition") }
     var isbn: String { return mvrObj?.getString("isbn") ?? "" }
-    var firstOnlineLocationInMVR: String? {
+    var firstOnlineLocation: String? {
         if let arr = mvrObj?.getAny("online_loc") as? [String] {
             return arr.first
         }
@@ -89,8 +88,6 @@ class MBRecord: BibRecord {
         return id == -1
     }
 
-    static let dummyRecord = BibRecord(id: -1)
-
     init(id: Int, mvrObj: OSRFObject? = nil) {
         self.id = id
         self.mvrObj = mvrObj
@@ -137,7 +134,8 @@ class MBRecord: BibRecord {
 
     func totalCopies(atOrgID orgID: Int?) -> Int {
         // ??? .last seems wrong, Android looks for orgID, but maybe for EG it's always correct
-        if let copyCount = copyCounts?.last {
+        //if let copyCount = copyCounts?.last {
+        if let copyCount = copyCounts?.first(where: { $0.orgID == orgID }) {
             return copyCount.count
         }
         return 0
@@ -150,7 +148,7 @@ class MBRecord: BibRecord {
         var records: [BibRecord] = []
 
         for id in getIdsList(fromQueryObj: theobj) {
-            records.append(BibRecord(id: id))
+            records.append(MBRecord(id: id))
         }
         return records
     }

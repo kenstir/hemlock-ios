@@ -33,7 +33,7 @@ class EvergreenCircService: XCircService {
         circRecord.setCircObj(circObj)
 
         let modsObj = try await fetchCopyMODS(copyId: circRecord.targetCopy)
-        let record = BibRecord(mvrObj: modsObj)
+        let record = MBRecord(mvrObj: modsObj)
         circRecord.setMetabibRecord(record)
 
         if record.isPreCat {
@@ -94,7 +94,7 @@ class EvergreenCircService: XCircService {
         let targetCopy = historyRecord.targetCopy
         let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [targetCopy], shouldCache: true)
         let modsObj = try await req.gatewayResponseAsync().asObject()
-        historyRecord.setBibRecord(BibRecord(mvrObj: modsObj))
+        historyRecord.setBibRecord(MBRecord(mvrObj: modsObj))
     }
 
     func fetchHolds(account: Account) async throws -> [HoldRecord] {
@@ -141,7 +141,7 @@ class EvergreenCircService: XCircService {
         async let mraTask = EvergreenAsync.fetchMRA(id: holdTarget)
         let (obj, mraObj) = try await (modsTask, mraTask)
 
-        let record = BibRecord(id: holdTarget, mvrObj: obj)
+        let record = MBRecord(id: holdTarget, mvrObj: obj)
         record.update(fromMraObj: mraObj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=T done", log: log, type: .info, holdTarget)
@@ -150,7 +150,7 @@ class EvergreenCircService: XCircService {
     func loadMetarecordHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=M start", log: log, type: .info, holdTarget)
         let obj = try await EvergreenAsync.fetchMetarecordMODS(id: holdTarget)
-        let record = BibRecord(id: obj.getInt("tcn") ?? -1, mvrObj: obj)
+        let record = MBRecord(id: obj.getInt("tcn") ?? -1, mvrObj: obj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=M done", log: log, type: .info, holdTarget)
     }
@@ -164,7 +164,7 @@ class EvergreenCircService: XCircService {
         hold.setLabel(obj.getString("label"))
 
         let modsObj = try await EvergreenAsync.fetchRecordMODS(id: target)
-        let record = BibRecord(mvrObj: modsObj)
+        let record = MBRecord(mvrObj: modsObj)
         let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
         record.update(fromMraObj: mraObj)
         hold.setMetabibRecord(record)
@@ -184,7 +184,7 @@ class EvergreenCircService: XCircService {
         }
 
         let modsObj = try await EvergreenAsync.fetchRecordMODS(id: id)
-        let record = BibRecord(mvrObj: modsObj)
+        let record = MBRecord(mvrObj: modsObj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=C done", log: log, type: .info, holdTarget)
     }
@@ -197,7 +197,7 @@ class EvergreenCircService: XCircService {
         }
 
         let modsObj = try await EvergreenAsync.fetchRecordMODS(id: id)
-        let record = BibRecord(mvrObj: modsObj)
+        let record = MBRecord(mvrObj: modsObj)
         hold.setMetabibRecord(record)
         os_log("[hold] target=%d holdType=V done", log: log, type: .info, holdTarget)
     }

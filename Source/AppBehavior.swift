@@ -103,7 +103,7 @@ class BaseAppBehavior: AppBehavior {
 
     func onlineLocations(record: BibRecord, forSearchOrg orgShortName: String?) -> [Link] {
         var links: [Link] = []
-        if let online_loc = record.firstOnlineLocationInMVR {
+        if let online_loc = record.firstOnlineLocation {
             links.append(Link(href: online_loc, text: ""))
         }
         return links

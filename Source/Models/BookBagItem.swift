@@ -34,7 +34,7 @@ class BookBagItem {
     init(cbrebiObj: OSRFObject) {
         self.cbrebiObj = cbrebiObj
         let targetId = cbrebiObj.getInt("target_biblio_record_entry") ?? -1
-        self.metabibRecord = BibRecord(id: targetId)
+        self.metabibRecord = MBRecord(id: targetId)
     }
 
 }

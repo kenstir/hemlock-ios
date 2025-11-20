@@ -40,7 +40,7 @@ class EvergreenSearchService: XSearchService {
         let obj = try await req.gatewayResponseAsync().asObjectOrNil()
 
         let count = obj?.getInt("count") ?? 0
-        let records: [AsyncRecord] = AsyncRecord.makeArray(fromQueryResponse: obj)
+        let records = MBRecord.makeArray(fromQueryResponse: obj)
         return XSearchResults(totalMatches: count, records: records)
     }
 

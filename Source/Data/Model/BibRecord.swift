@@ -18,6 +18,7 @@ protocol BibRecord: AnyObject {
     var id: Int { get set }
 
     var author: String { get }
+    var firstOnlineLocation: String? { get }
     var iconFormatLabel: String { get }
     var isbn: String { get }
     var physicalDescription: String { get }

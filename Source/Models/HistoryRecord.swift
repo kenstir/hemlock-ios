@@ -23,19 +23,19 @@ class HistoryRecord {
 
     let id: Int
     let auchObj: OSRFObject
-    private(set) var metabibRecord: BibRecord?
+    private(set) var bibRecord: BibRecord?
 
     var title: String {
-        if let title = metabibRecord?.title, !title.isEmpty { return title }
+        if let title = bibRecord?.title, !title.isEmpty { return title }
 //        if let title = acpObj?.getString("dummy_title"), !title.isEmpty { return title }
         return "Unknown Title"
     }
     var author: String {
-        if let author = metabibRecord?.author, !author.isEmpty { return author }
+        if let author = bibRecord?.author, !author.isEmpty { return author }
 //        if let author = acpObj?.getString("dummy_author"), !author.isEmpty { return author }
         return ""
     }
-    var format: String { return metabibRecord?.iconFormatLabel ?? "" }
+    var format: String { return bibRecord?.iconFormatLabel ?? "" }
     var dueDate: Date? { return auchObj.getDate("due_date") }
     var dueDateLabel: String { return auchObj.getDateLabel("due_date") ?? "Unknown" }
     var checkoutDate: Date? { return auchObj.getDate("xact_start") }
@@ -47,13 +47,13 @@ class HistoryRecord {
     init(id: Int, obj: OSRFObject) {
         self.id = id
         self.auchObj = obj
-        self.metabibRecord = nil
+        self.bibRecord = nil
     }
 
     /// mt-safe
     func setBibRecord(_ record: BibRecord?) {
         lock.lock(); defer { lock.unlock() }
-        self.metabibRecord = record
+        self.bibRecord = record
     }
 
     static func makeArray(_ objects: [OSRFObject]) -> [HistoryRecord] {

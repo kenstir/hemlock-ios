@@ -71,7 +71,7 @@ class FineRecord: XPatronChargeRecord {
         self.circObj = circObj
         if let mvrObj = mvrObj {
             self.mvrObj = mvrObj
-            self.record = BibRecord(mvrObj: mvrObj)
+            self.record = MBRecord(mvrObj: mvrObj)
         }
     }
 

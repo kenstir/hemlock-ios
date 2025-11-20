@@ -50,7 +50,7 @@ class PlaceHoldViewController: UIViewController {
 
     @IBOutlet var labels: [UILabel]!
 
-    var record = BibRecord.dummyRecord
+    var record: BibRecord!
     var holdRecord: HoldRecord?
     var parts: [XHoldPart] = []
     var valueChangedHandler: (() -> Void)?

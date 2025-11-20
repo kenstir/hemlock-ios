@@ -975,15 +975,15 @@
 		D28F5E6929CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6A29CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
 		D28F5E6B29CF89BB00FAAAD6 /* Thread+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */; };
-		D28F5E6D29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
-		D28F5E6F29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
-		D28F5E7029CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
-		D28F5E7129CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
-		D28F5E7229CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
-		D28F5E7329CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
-		D28F5E7529CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
-		D28F5E7629CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
-		D28F5E7729CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */; };
+		D28F5E6D29CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
+		D28F5E6F29CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
+		D28F5E7029CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
+		D28F5E7129CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
+		D28F5E7229CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
+		D28F5E7329CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
+		D28F5E7529CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
+		D28F5E7629CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
+		D28F5E7729CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
 		D290A4032D29E52E00A08A6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */; };
 		D2931A9F272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
@@ -1979,7 +1979,7 @@
 		D28E04482BA234AB001850C5 /* MainGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGridViewCell.swift; sourceTree = "<group>"; };
 		D28E044A2BA3A26F001850C5 /* MainBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBaseViewController.swift; sourceTree = "<group>"; };
 		D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+.swift"; sourceTree = "<group>"; };
-		D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRecord.swift; sourceTree = "<group>"; };
+		D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BibRecord+prefetch.swift"; sourceTree = "<group>"; };
 		D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* ZBookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagsView.swift; sourceTree = "<group>"; };
 		D2931A93272DE25D00CBA5AA /* ZBookBagDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagDetailsView.swift; sourceTree = "<group>"; };
@@ -2403,7 +2403,7 @@
 			children = (
 				D22AE118221B75FC0089C196 /* AFSession+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
-				D28F5E6C29CF8E0700FAAAD6 /* AsyncRecord.swift */,
+				D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
 				D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
@@ -3778,7 +3778,7 @@
 				D2EBBB752ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D22074BD2ECBCEF1003E9163 /* XSearchService.swift in Sources */,
 				D210EBD422B1EE55002FB5E0 /* Organization.swift in Sources */,
-				D28F5E6D29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E6D29CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D210EBD522B1EE55002FB5E0 /* MainTableViewCell.swift in Sources */,
 				D210EBD622B1EE55002FB5E0 /* HoldRecord.swift in Sources */,
 				D210EBD722B1EE55002FB5E0 /* Bundle+.swift in Sources */,
@@ -3916,7 +3916,7 @@
 				D2B302432E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D23E9FEC23B923B80030F5C1 /* AppFactory.swift in Sources */,
 				D27C8ACE2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
-				D28F5E7729CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E7729CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D2D8ABC42E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2483F3C2E5923C100D850CA /* EvergreenAsync.swift in Sources */,
 				D2A627DF2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4051,7 +4051,7 @@
 				D2B302402E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D2477BC424785A6B00FD4CF6 /* MainTableViewCell.swift in Sources */,
 				D27C8AD42E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
-				D28F5E7129CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E7129CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D2D8ABC12E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2483F3E2E5923C100D850CA /* EvergreenAsync.swift in Sources */,
 				D2A627D92BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4186,7 +4186,7 @@
 				D2B3023F2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D2572AB224AD7755000BA698 /* Organization.swift in Sources */,
 				D27C8ACF2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
-				D28F5E7229CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E7229CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D2D8ABC32E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2483F3F2E5923C100D850CA /* EvergreenAsync.swift in Sources */,
 				D2A627DA2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4321,7 +4321,7 @@
 				D2B302422E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D25EECD928A1EB2E0090F108 /* OwwlTheme.swift in Sources */,
 				D27C8AD02E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
-				D28F5E7529CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E7529CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D2D8ABC92E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2483F402E5923C100D850CA /* EvergreenAsync.swift in Sources */,
 				D2A627DD2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4464,7 +4464,7 @@
 				D2BB66B3297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2C300652E3E660A0082C308 /* EvergreenUserService.swift in Sources */,
 				D2A81798224699C700340074 /* Bundle+.swift in Sources */,
-				D28F5E6F29CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E6F29CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D2CAFBC2246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D276DA9421336B20007FAA31 /* String+.swift in Sources */,
 				D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */,
@@ -4598,7 +4598,7 @@
 				D27990D120DDD473003B451E /* HoldRecord.swift in Sources */,
 				D2C300672E3E660A0082C308 /* EvergreenUserService.swift in Sources */,
 				D2A81796224699C700340074 /* Bundle+.swift in Sources */,
-				D28F5E7029CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E7029CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D2CAFBC3246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D226B60A20ED519E00CA5B79 /* String+.swift in Sources */,
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
@@ -4724,7 +4724,7 @@
 				D2B3023A2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */,
 				D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */,
 				D27C8ACC2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
-				D28F5E7629CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E7629CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D2D8ABC62E42D84500CB36C6 /* EvergreenOrgHours.swift in Sources */,
 				D2483F3A2E5923C100D850CA /* EvergreenAsync.swift in Sources */,
 				D2A627DE2BDAC308005BB11F /* PushNotification.swift in Sources */,
@@ -4895,7 +4895,7 @@
 				D2BDA61722D176BD00D9B60C /* Organization.swift in Sources */,
 				D2EBBB712ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D22074BA2ECBCEF1003E9163 /* XSearchService.swift in Sources */,
-				D28F5E7329CF8E0700FAAAD6 /* AsyncRecord.swift in Sources */,
+				D28F5E7329CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */,
 				D2A627DB2BDAC308005BB11F /* PushNotification.swift in Sources */,
 				D2BDA61822D176BD00D9B60C /* MainTableViewCell.swift in Sources */,
 				D2BDA61922D176BD00D9B60C /* HoldRecord.swift in Sources */,
