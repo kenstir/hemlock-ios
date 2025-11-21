@@ -55,7 +55,7 @@ class EvergreenBiblioService: XBiblioService {
         guard let record = bibRecord as? MBRecord else { throw HemlockError.internalError("Expected MBRecord, got \(type(of: bibRecord))") }
 
         let array = try await fetchCopyCount(recordID: record.id, orgID: orgId)
-        let copyCounts = CopyCount.makeArray(fromArray: array)
+        let copyCounts = EvergreenCopyCount.makeArray(fromArray: array)
         record.setCopyCounts(copyCounts)
     }
 

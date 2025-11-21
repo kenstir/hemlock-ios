@@ -1465,6 +1465,15 @@
 		D2CAFBC7246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
 		D2CAFBC9246B842C00A56945 /* CredentialManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */; };
 		D2CC3EB02C500CD700483CB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2CC3EAF2C500CD700483CB6 /* GoogleService-Info.plist */; };
+		D2CDCCF72ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCCF82ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCCF92ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCCFA2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCCFB2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCCFC2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCCFD2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCCFE2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCCFF2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
 		D2CF924222471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2CF924322471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2CF924422471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -2056,6 +2065,7 @@
 		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
 		D2CC3EAF2C500CD700483CB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenCopyCount.swift; sourceTree = "<group>"; };
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
 		D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickOneOption.swift; sourceTree = "<group>"; };
@@ -2321,7 +2331,6 @@
 				D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
-				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
 				D2BB6689297C813A007E19E7 /* PatronMessage.swift */,
 				D2A627D42BDAC308005BB11F /* PushNotification.swift */,
 			);
@@ -2455,7 +2464,6 @@
 				D287D51B207AEF3D001AF644 /* Account.swift */,
 				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D21981F7235BC7BC003AE531 /* CodedValueMap.swift */,
-				D267E4E6210D17F900C56047 /* CopyCount.swift */,
 				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
@@ -2644,6 +2652,7 @@
 			isa = PBXGroup;
 			children = (
 				D2D102012ECE79660089FE94 /* BibRecord.swift */,
+				D267E4E6210D17F900C56047 /* CopyCount.swift */,
 				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */,
 				D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */,
@@ -2862,6 +2871,8 @@
 		D2D8ABBF2E42D83600CB36C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
+				D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */,
 				D2D8ABC02E42D84500CB36C6 /* EvergreenOrgHours.swift */,
 			);
 			path = Model;
@@ -3811,6 +3822,7 @@
 				D2BB668A297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D210EBE922B1EE55002FB5E0 /* SearchViewController.swift in Sources */,
 				D246290D273732DC000DC659 /* BookBagsViewController.swift in Sources */,
+				D2CDCCFB2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 				D210EBEB22B1EE55002FB5E0 /* AFSession+.swift in Sources */,
 				D210EBEC22B1EE55002FB5E0 /* HoldsViewController.swift in Sources */,
 				D210EBED22B1EE55002FB5E0 /* CopyInfoTableViewCell.swift in Sources */,
@@ -4023,6 +4035,7 @@
 				D299069B2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2DA2E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */,
+				D2CDCCF72ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4158,6 +4171,7 @@
 				D29906992E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D42E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D2477C0B24785A6B00FD4CF6 /* Account.swift in Sources */,
+				D2CDCCF92ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4293,6 +4307,7 @@
 				D29906962E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2DC2E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D2572AFE24AD7755000BA698 /* Account.swift in Sources */,
+				D2CDCCFD2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4428,6 +4443,7 @@
 				D299069C2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D82E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D25EECA928A1E8310090F108 /* Account.swift in Sources */,
+				D2CDCCF82ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4493,6 +4509,7 @@
 				D276DAA021336B20007FAA31 /* SMSCarrier.swift in Sources */,
 				D2E3B2D52E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D24D491529D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
+				D2CDCCFC2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 				D276DAA221336B20007FAA31 /* HemlockError.swift in Sources */,
 				D2F390362241E5950089D745 /* RingBuffer.swift in Sources */,
 				D296EE0C21338030009BDB12 /* CWMarsAppConfiguration.swift in Sources */,
@@ -4627,6 +4644,7 @@
 				D24D491629D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2E3B2D22E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D2A74B1921289F2E001D4B0F /* HemlockAppConfiguration.swift in Sources */,
+				D2CDCCFE2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 				D2F390342241E5950089D745 /* RingBuffer.swift in Sources */,
 				D27990DA20DDD473003B451E /* HemlockError.swift in Sources */,
 				D27990DB20DDD473003B451E /* SearchViewController.swift in Sources */,
@@ -4831,6 +4849,7 @@
 				D299069D2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D62E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
+				D2CDCCFA2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4929,6 +4948,7 @@
 				D2BDA62E22D176BD00D9B60C /* HemlockError.swift in Sources */,
 				D2BB6690297C813A007E19E7 /* PatronMessage.swift in Sources */,
 				D2BDA63022D176BD00D9B60C /* SearchViewController.swift in Sources */,
+				D2CDCCFF2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 				D2BDA63222D176BD00D9B60C /* AFSession+.swift in Sources */,
 				D2462912273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2BDA63322D176BD00D9B60C /* HoldsViewController.swift in Sources */,
