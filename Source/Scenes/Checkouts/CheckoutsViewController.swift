@@ -272,7 +272,7 @@ extension CheckoutsViewController: UITableViewDelegate {
         guard indexPath.row >= 0 && indexPath.row < items.count else { return }
 
         // Special toast when selecting pre-cat item
-        let selectedRecord = items[indexPath.row].metabibRecord
+        let selectedRecord = items[indexPath.row].record
         if selectedRecord?.isPreCat == true {
             tableView.deselectRow(at: indexPath, animated: true)
             self.navigationController?.view.makeToast("Item is not cataloged")
@@ -282,7 +282,7 @@ extension CheckoutsViewController: UITableViewDelegate {
         // Filter pre-cat items from details flow
         var records: [BibRecord] = []
         for item in items {
-            if let record = item.metabibRecord, !record.isPreCat {
+            if let record = item.record, !record.isPreCat {
                 records.append(record)
             }
         }

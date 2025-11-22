@@ -21,21 +21,21 @@ class EvergreenCircRecord: CircRecord {
 
     let id: Int
     private(set) var circObj: OSRFObject?
-    private(set) var metabibRecord: BibRecord?
+    private(set) var record: BibRecord?
     private(set) var acpObj: OSRFObject?
 
     var title: String {
-        if let title = metabibRecord?.title, !title.isEmpty { return title }
+        if let title = record?.title, !title.isEmpty { return title }
         if let title = acpObj?.getString("dummy_title"), !title.isEmpty { return title }
         return "Unknown Title"
 
     }
     var author: String {
-        if let author = metabibRecord?.author, !author.isEmpty { return author }
+        if let author = record?.author, !author.isEmpty { return author }
         if let author = acpObj?.getString("dummy_author"), !author.isEmpty { return author }
         return ""
     }
-    var format: String { return metabibRecord?.iconFormatLabel ?? "" }
+    var format: String { return record?.iconFormatLabel ?? "" }
     var dueDate: Date? { return circObj?.getDate("due_date") }
     var dueDateLabel: String { return circObj?.getDateLabel("due_date") ?? "Unknown" }
     var renewalsRemaining: Int { return circObj?.getInt("renewal_remaining") ?? 0 }
@@ -72,7 +72,7 @@ class EvergreenCircRecord: CircRecord {
     /// mt-safe
     func setMetabibRecord(_ record: BibRecord) {
         lock.lock(); defer { lock.unlock() }
-        metabibRecord = record
+        record = record
     }
 
     /// mt-safe

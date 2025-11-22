@@ -28,6 +28,5 @@ protocol CircRecord {
     var wasAutoRenewed: Bool { get }
     var isOverdue: Bool { get }
     var isDueSoon: Bool { get }
-    var metabibRecord: BibRecord? { get }
+    var record: BibRecord? { get }
 }
-
