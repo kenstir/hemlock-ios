@@ -35,6 +35,7 @@ class EvergreenCircRecord: CircRecord {
         if let author = acpObj?.getString("dummy_author"), !author.isEmpty { return author }
         return ""
     }
+    var format: String { return metabibRecord?.iconFormatLabel ?? "" }
     var dueDate: Date? { return circObj?.getDate("due_date") }
     var dueDateLabel: String { return circObj?.getDateLabel("due_date") ?? "Unknown" }
     var renewalsRemaining: Int { return circObj?.getInt("renewal_remaining") ?? 0 }

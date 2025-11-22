@@ -251,7 +251,7 @@ extension CheckoutsViewController: UITableViewDataSource {
 
         cell.title.text = item.title
         cell.author.text = item.author
-        cell.format.text = item.metabibRecord?.iconFormatLabel
+        cell.format.text = item.format
         cell.renewals.text = "Renewals left: " + String(item.renewalsRemaining)
         cell.dueDate.attributedText = dueDateText(item)
 

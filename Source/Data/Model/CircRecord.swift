@@ -20,6 +20,7 @@ protocol CircRecord {
     var targetCopy: Int { get }
     var title: String { get }
     var author: String { get }
+    var format: String { get }
     var dueDate: Date? { get }
     var dueDateLabel: String { get }
     var renewalsRemaining: Int { get }
