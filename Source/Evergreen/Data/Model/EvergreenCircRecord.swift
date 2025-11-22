@@ -16,8 +16,7 @@
 
 import Foundation
 
-/// A `CircRecord` is a record of an item in circulation
-class CircRecord {
+class EvergreenCircRecord: CircRecord {
     private let lock = NSRecursiveLock()
 
     let id: Int
@@ -29,14 +28,13 @@ class CircRecord {
         if let title = metabibRecord?.title, !title.isEmpty { return title }
         if let title = acpObj?.getString("dummy_title"), !title.isEmpty { return title }
         return "Unknown Title"
-        
+
     }
     var author: String {
         if let author = metabibRecord?.author, !author.isEmpty { return author }
         if let author = acpObj?.getString("dummy_author"), !author.isEmpty { return author }
         return ""
     }
-    var format: String { return metabibRecord?.iconFormatLabel ?? "" }
     var dueDate: Date? { return circObj?.getDate("due_date") }
     var dueDateLabel: String { return circObj?.getDateLabel("due_date") ?? "Unknown" }
     var renewalsRemaining: Int { return circObj?.getInt("renewal_remaining") ?? 0 }
@@ -59,7 +57,7 @@ class CircRecord {
         let now = Date()
         return now > thresholdDate
     }
-    
+
     init(id: Int) {
         self.id = id
     }
@@ -86,7 +84,7 @@ class CircRecord {
         let ids = obj.getIDList("overdue") + obj.getIDList("out")
         var records: [CircRecord] = []
         for id in ids {
-            records.append(CircRecord(id: id))
+            records.append(EvergreenCircRecord(id: id))
         }
         return records
     }

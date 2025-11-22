@@ -192,6 +192,15 @@
 		D226B60820ED468100CA5B79 /* String+splitOnRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */; };
 		D226B60A20ED519E00CA5B79 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
 		D226B60B20ED519E00CA5B79 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226B60920ED519E00CA5B79 /* String+.swift */; };
+		D228682D2ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
+		D228682E2ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
+		D228682F2ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
+		D22868302ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
+		D22868312ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
+		D22868322ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
+		D22868332ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
+		D22868342ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
+		D22868352ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
 		D22894F929D9DB4B00D558BA /* DetailsPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */; };
 		D22894FB29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */; };
 		D22894FC29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */; };
@@ -1474,6 +1483,15 @@
 		D2CDCCFD2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
 		D2CDCCFE2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
 		D2CDCCFF2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */; };
+		D2CDCD012ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
+		D2CDCD022ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
+		D2CDCD032ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
+		D2CDCD042ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
+		D2CDCD052ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
+		D2CDCD062ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
+		D2CDCD072ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
+		D2CDCD082ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
+		D2CDCD092ED0B7E500B733E1 /* TypeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */; };
 		D2CF924222471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2CF924322471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2CF924422471D210009C06A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -1846,6 +1864,7 @@
 		D22438AD20D35CC000D098D0 /* HoldRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecord.swift; sourceTree = "<group>"; };
 		D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+splitOnRegex.swift"; sourceTree = "<group>"; };
 		D226B60920ED519E00CA5B79 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenCircRecord.swift; sourceTree = "<group>"; };
 		D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsPager.storyboard; sourceTree = "<group>"; };
 		D228FB6420D33402001A7E31 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		D229310A2D30A623009BE70F /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
@@ -2066,6 +2085,7 @@
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
 		D2CC3EAF2C500CD700483CB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenCopyCount.swift; sourceTree = "<group>"; };
+		D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeHelpers.swift; sourceTree = "<group>"; };
 		D2CF924122471D210009C06A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
 		D2D0749A2E74D4A9003DFCCF /* PickOneOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickOneOption.swift; sourceTree = "<group>"; };
@@ -2327,7 +2347,6 @@
 			children = (
 				D2931AA9272DE83200CBA5AA /* BookBag.swift */,
 				D2931A9E272DE56500CBA5AA /* BookBagItem.swift */,
-				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
 				D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
@@ -2411,6 +2430,7 @@
 			children = (
 				D22AE118221B75FC0089C196 /* AFSession+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
+				D21FF9B82E706D760058E2D3 /* AppState.swift */,
 				D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
 				D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */,
@@ -2426,6 +2446,7 @@
 				D28290F720E6F770008EBE4B /* Style.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
 				D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */,
+				D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */,
 				D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */,
 				D24D76902234418F00AFE50C /* UIColor+.swift */,
 				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
@@ -2436,7 +2457,6 @@
 				D24C392F254B9FA400ECAE64 /* URLRequest+.swift */,
 				D2CF924122471D210009C06A /* Utils.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
-				D21FF9B82E706D760058E2D3 /* AppState.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2652,6 +2672,7 @@
 			isa = PBXGroup;
 			children = (
 				D2D102012ECE79660089FE94 /* BibRecord.swift */,
+				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
 				D267E4E6210D17F900C56047 /* CopyCount.swift */,
 				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
 				D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */,
@@ -2872,6 +2893,7 @@
 			isa = PBXGroup;
 			children = (
 				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
+				D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */,
 				D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */,
 				D2D8ABC02E42D84500CB36C6 /* EvergreenOrgHours.swift */,
 			);
@@ -3858,6 +3880,7 @@
 				D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */,
 				D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */,
 				D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */,
+				D2CDCD042ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D24C3930254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D21FF9BB2E706D760058E2D3 /* AppState.swift in Sources */,
 				D210EC0522B1EE55002FB5E0 /* UIFont+smallCaps.swift in Sources */,
@@ -3876,6 +3899,7 @@
 				D27C8ACD2E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D23398672E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D210EC0C22B1EE55002FB5E0 /* UIViewController+.swift in Sources */,
+				D22868352ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D210EC0D22B1EE55002FB5E0 /* CheckoutsTableViewCell.swift in Sources */,
 				D283B0B52E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D29906982E73130500A3E0E2 /* PersistableOption.swift in Sources */,
@@ -3994,6 +4018,7 @@
 				D23E9FA123B9200A0030F5C1 /* IDLParser.swift in Sources */,
 				D233986E2E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2D1020A2ECE79660089FE94 /* BibRecord.swift in Sources */,
+				D2CDCD052ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D23E9FA223B9200A0030F5C1 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491D29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
@@ -4022,6 +4047,7 @@
 				D298386A2B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5927383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA312B2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
+				D228682D2ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainListViewController.swift in Sources */,
 				D2D074982E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -4130,6 +4156,7 @@
 				D2477C3524786CCF00FD4CF6 /* IndianaAppConfiguration.swift in Sources */,
 				D23398722E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2D102032ECE79660089FE94 /* BibRecord.swift in Sources */,
+				D2CDCD032ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */,
 				D24D491729D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */,
@@ -4158,6 +4185,7 @@
 				D29838642B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5527383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31252B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
+				D22868312ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */,
 				D2477C0724785A6B00FD4CF6 /* MainListViewController.swift in Sources */,
 				D2D074942E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -4266,6 +4294,7 @@
 				D2572AE424AD7755000BA698 /* CodedValueMap.swift in Sources */,
 				D23398782E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2D102072ECE79660089FE94 /* BibRecord.swift in Sources */,
+				D2CDCD012ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D24D491829D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */,
 				D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */,
@@ -4294,6 +4323,7 @@
 				D29838652B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5A27383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31262B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
+				D22868302ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D2572AF724AD7755000BA698 /* Style.swift in Sources */,
 				D2572AF924AD7755000BA698 /* MainListViewController.swift in Sources */,
 				D2D074902E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -4402,6 +4432,7 @@
 				D25EEC8928A1E8310090F108 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D23398752E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2D102022ECE79660089FE94 /* BibRecord.swift in Sources */,
+				D2CDCD072ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D25EEC8A28A1E8310090F108 /* CodedValueMap.swift in Sources */,
 				D24D491B29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D25EEC8C28A1E8310090F108 /* CopyLocationCounts.swift in Sources */,
@@ -4430,6 +4461,7 @@
 				D29838682B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D25EECA228A1E8310090F108 /* Style.swift in Sources */,
 				D2EA31292B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
+				D22868332ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D25EECA428A1E8310090F108 /* MainListViewController.swift in Sources */,
 				D25EECA528A1E8310090F108 /* OrgDetailsViewController.swift in Sources */,
 				D2D074962E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -4564,6 +4596,7 @@
 				D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D276DABB21336B20007FAA31 /* AppDelegate.swift in Sources */,
 				D22074BC2ECBCEF1003E9163 /* XSearchService.swift in Sources */,
+				D2CDCD082ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D2462904273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D24D492129D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D20B2FFE22CFD91900F69848 /* RecordAttributes.swift in Sources */,
@@ -4573,6 +4606,7 @@
 				D28164B6213C7D99000B64B4 /* UIScrollView+.swift in Sources */,
 				D276DAC121336B20007FAA31 /* Style.swift in Sources */,
 				D276DAC221336B20007FAA31 /* MainListViewController.swift in Sources */,
+				D22868342ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D2346FFD24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
 				D276DAC321336B20007FAA31 /* CopyCount.swift in Sources */,
 				D27DF20E21AB4B84002DCC47 /* String+subscript.swift in Sources */,
@@ -4699,6 +4733,7 @@
 				D2931AA2272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D27990EA20DDD473003B451E /* AppDelegate.swift in Sources */,
 				D22074B72ECBCEF1003E9163 /* XSearchService.swift in Sources */,
+				D2CDCD062ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D2462905273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
 				D24D492229D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D20B2FFC22CFD91900F69848 /* RecordAttributes.swift in Sources */,
@@ -4708,6 +4743,7 @@
 				D28164B4213C7D99000B64B4 /* UIScrollView+.swift in Sources */,
 				D28290F820E6F770008EBE4B /* Style.swift in Sources */,
 				D27990EE20DDD473003B451E /* MainListViewController.swift in Sources */,
+				D228682E2ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D2346FFE24E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
 				D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */,
 				D27DF20C21AB4B84002DCC47 /* String+subscript.swift in Sources */,
@@ -4808,6 +4844,7 @@
 				FA37C3FA20FC2A09003C2003 /* LocationPicker.swift in Sources */,
 				D23398772E3BB3EA00CBDAEB /* XLoaderService.swift in Sources */,
 				D2D102052ECE79660089FE94 /* BibRecord.swift in Sources */,
+				D2CDCD022ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D2A6C581221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D24D491C29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
@@ -4836,6 +4873,7 @@
 				D29838692B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5827383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA312A2B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
+				D22868322ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainListViewController.swift in Sources */,
 				D2D074932E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -4984,6 +5022,7 @@
 				D2BDA64722D176BD00D9B60C /* CopyLocationCounts.swift in Sources */,
 				D21090CB24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2BDA64822D176BD00D9B60C /* MBRecord.swift in Sources */,
+				D2CDCD092ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D2BDA64922D176BD00D9B60C /* Utils.swift in Sources */,
 				D21FF9BC2E706D760058E2D3 /* AppState.swift in Sources */,
 				D2BDA64A22D176BD00D9B60C /* OSRFClass.swift in Sources */,
@@ -5002,6 +5041,7 @@
 				D27C8AD22E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D233986B2E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2BDA65522D176BD00D9B60C /* UIViewController+.swift in Sources */,
+				D228682F2ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */,
 				D2BDA65622D176BD00D9B60C /* CheckoutsTableViewCell.swift in Sources */,
 				D283B0B72E4269BD00AE5F43 /* XOrgService.swift in Sources */,
 				D29906972E73130500A3E0E2 /* PersistableOption.swift in Sources */,

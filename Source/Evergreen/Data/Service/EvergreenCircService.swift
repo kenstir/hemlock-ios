@@ -24,10 +24,12 @@ class EvergreenCircService: XCircService {
     func fetchCheckouts(account: Account) async throws -> [CircRecord] {
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [account.authtoken, account.userID], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
-        return CircRecord.makeArray(fromObj: obj)
+        return EvergreenCircRecord.makeArray(fromObj: obj)
     }
 
-    func loadCheckoutDetails(account: Account, circRecord: CircRecord) async throws {
+    func loadCheckoutDetails(account: Account, circRecord abstractRecord: CircRecord) async throws {
+        let circRecord: EvergreenCircRecord = try requireType(abstractRecord)
+
         let circReq = Gateway.makeRequest(service: API.circ, method: API.circRetrieve, args: [account.authtoken, circRecord.id], shouldCache: false)
         let circObj = try await circReq.gatewayResponseAsync().asObject()
         circRecord.setCircObj(circObj)

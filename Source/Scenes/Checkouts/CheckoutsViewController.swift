@@ -113,16 +113,12 @@ class CheckoutsViewController: UIViewController {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
-        guard let targetCopy = item.circObj?.getID("target_copy") else {
-            self.showAlert(title: "Error", error: HemlockError.shouldNotHappen("Circulation record \(item.id) has no target_copy"))
-            return
-        }
 
         // confirm renew action
         let alertController = UIAlertController(title: "Renew item?", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "Renew", style: .default) { action in
-            Task { await self.renewItem(account: account, targetCopy: targetCopy) }
+            Task { await self.renewItem(account: account, targetCopy: item.targetCopy) }
         })
         self.present(alertController, animated: true)
     }
@@ -255,7 +251,7 @@ extension CheckoutsViewController: UITableViewDataSource {
 
         cell.title.text = item.title
         cell.author.text = item.author
-        cell.format.text = item.format
+        cell.format.text = item.metabibRecord?.iconFormatLabel
         cell.renewals.text = "Renewals left: " + String(item.renewalsRemaining)
         cell.dueDate.attributedText = dueDateText(item)
 
