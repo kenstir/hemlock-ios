@@ -14,8 +14,6 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
-
 // Summary of the available/total copies in an org unit
 protocol CopyCount {
     var orgID: Int { get }
