@@ -14,6 +14,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
+import Foundation
+
 /// Options for placing a hold.
 struct XHoldOptions {
     let holdType: String
