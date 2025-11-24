@@ -19,7 +19,7 @@ import Foundation
 class MBRecord: BibRecord {
     private let lock = NSRecursiveLock()
 
-    var id: Int
+    let id: Int
     private(set) var mvrObj: OSRFObject?
     var hasMetadata: Bool { return mvrObj != nil }
     private(set) var attrs: [String: String]? // from MRA object

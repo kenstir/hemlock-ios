@@ -14,8 +14,6 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
-
 class XHoldPart {
     let id: Int
     let label: String

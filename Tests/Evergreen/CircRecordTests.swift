@@ -39,7 +39,7 @@ class CircRecordTests: XCTestCase {
             "target_copy": 19314463,
             "due_date": "2020-02-05T23:59:59-0500",
         ])
-        let circRecord = CircRecord(id: 93108558)
+        let circRecord = EvergreenCircRecord(id: 93108558)
         circRecord.setCircObj(circObj)
 
         XCTAssertEqual("Unknown Title", circRecord.title)
@@ -63,7 +63,7 @@ class CircRecordTests: XCTestCase {
             "title": "The Testaments",
             "author": "Margaret Atwood"
         ])
-        let circRecord = CircRecord(id: 93108558)
+        let circRecord = EvergreenCircRecord(id: 93108558)
         circRecord.setCircObj(circObj)
         circRecord.setMetabibRecord(MBRecord(id: 1234, mvrObj: mvrObj))
 
@@ -95,7 +95,7 @@ class CircRecordTests: XCTestCase {
             "dummy_title": "SEO TEST",
             "status": 1
         ])
-        let circRecord = CircRecord(id: 1)
+        let circRecord = EvergreenCircRecord(id: 1)
         circRecord.setCircObj(circObj)
         circRecord.setMetabibRecord(MBRecord(id: -1, mvrObj: mvrObj))
         circRecord.setAcpObj(acpObj)

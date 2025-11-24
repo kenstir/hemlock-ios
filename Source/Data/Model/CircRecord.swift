@@ -14,24 +14,19 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-protocol XPatronChargeRecord {
+/// A `CircRecord` is a record of an item in circulation
+protocol CircRecord {
+    var id: Int { get }
+    var targetCopy: Int { get }
     var title: String { get }
-    var subtitle: String { get }
-    var balanceOwed: Double? { get }
-    var status: String { get }
+    var author: String { get }
+    var format: String { get }
+    var dueDate: Date? { get }
+    var dueDateLabel: String { get }
+    var renewalsRemaining: Int { get }
+    var autoRenewals: Int { get }
+    var wasAutoRenewed: Bool { get }
+    var isOverdue: Bool { get }
+    var isDueSoon: Bool { get }
     var record: BibRecord? { get }
-}
-
-class PatronCharges {
-    let totalCharges: Double
-    let totalPaid: Double
-    let balanceOwed: Double
-    let transactions: [XPatronChargeRecord]
-
-    init(totalCharges: Double, totalPaid: Double, balanceOwed: Double, transactions: [XPatronChargeRecord]) {
-        self.totalCharges = totalCharges
-        self.totalPaid = totalPaid
-        self.balanceOwed = balanceOwed
-        self.transactions = transactions
-    }
 }

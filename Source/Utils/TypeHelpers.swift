@@ -14,24 +14,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-protocol XPatronChargeRecord {
-    var title: String { get }
-    var subtitle: String { get }
-    var balanceOwed: Double? { get }
-    var status: String { get }
-    var record: BibRecord? { get }
-}
+import Foundation
 
-class PatronCharges {
-    let totalCharges: Double
-    let totalPaid: Double
-    let balanceOwed: Double
-    let transactions: [XPatronChargeRecord]
-
-    init(totalCharges: Double, totalPaid: Double, balanceOwed: Double, transactions: [XPatronChargeRecord]) {
-        self.totalCharges = totalCharges
-        self.totalPaid = totalPaid
-        self.balanceOwed = balanceOwed
-        self.transactions = transactions
+/// require arg to be of specific concrete type or throw
+func requireType<T>(_ value: Any) throws -> T {
+    if let v = value as? T {
+        return v
     }
+
+    let expected = String(describing: T.self)
+    let actual = String(describing: type(of: value))
+    throw HemlockError.internalError("Type mismatch: expected \(expected), got \(actual)")
 }

@@ -14,24 +14,9 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-protocol XPatronChargeRecord {
-    var title: String { get }
-    var subtitle: String { get }
-    var balanceOwed: Double? { get }
-    var status: String { get }
-    var record: BibRecord? { get }
-}
-
-class PatronCharges {
-    let totalCharges: Double
-    let totalPaid: Double
-    let balanceOwed: Double
-    let transactions: [XPatronChargeRecord]
-
-    init(totalCharges: Double, totalPaid: Double, balanceOwed: Double, transactions: [XPatronChargeRecord]) {
-        self.totalCharges = totalCharges
-        self.totalPaid = totalPaid
-        self.balanceOwed = balanceOwed
-        self.transactions = transactions
-    }
+// Summary of the available/total copies in an org unit
+protocol CopyCount {
+    var orgID: Int { get }
+    var available: Int { get }
+    var count: Int { get }
 }
