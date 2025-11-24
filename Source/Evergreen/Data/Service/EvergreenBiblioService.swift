@@ -22,7 +22,7 @@ class EvergreenBiblioService: XBiblioService {
     }
 
     func loadRecordDetails(forRecord bibRecord: BibRecord, needMARC: Bool) async throws -> Void {
-        guard let record = bibRecord as? MBRecord else { throw HemlockError.internalError("Expected MBRecord, got \(type(of: bibRecord))") }
+        let record: MBRecord = try requireType(bibRecord)
 
         // load MODS and MARC data for the record, but only if it wasn't already done
         try await withThrowingTaskGroup(of: Void.self) { group in
@@ -43,7 +43,7 @@ class EvergreenBiblioService: XBiblioService {
     }
 
     func loadRecordAttributes(forRecord bibRecord: BibRecord) async throws {
-        guard let record = bibRecord as? MBRecord else { throw HemlockError.internalError("Expected MBRecord, got \(type(of: bibRecord))") }
+        let record: MBRecord = try requireType(bibRecord)
 
         if !record.hasAttributes {
             let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
@@ -52,7 +52,7 @@ class EvergreenBiblioService: XBiblioService {
     }
 
     func loadRecordCopyCounts(forRecord bibRecord: BibRecord, orgId: Int) async throws {
-        guard let record = bibRecord as? MBRecord else { throw HemlockError.internalError("Expected MBRecord, got \(type(of: bibRecord))") }
+        let record: MBRecord = try requireType(bibRecord)
 
         let array = try await fetchCopyCount(recordID: record.id, orgID: orgId)
         let copyCounts = EvergreenCopyCount.makeArray(fromArray: array)
