@@ -21,7 +21,7 @@ class BookBagsViewController : UITableViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
-    var items: [BookBag] = []
+    var items: [XPatronList] = []
     var didCompleteFetch = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
 
@@ -68,7 +68,7 @@ class BookBagsViewController : UITableViewController {
 
         do {
             try await App.serviceConfig.userService.loadPatronLists(account: account)
-            os_log("fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
+            os_log("[lists] fetched %d bookbags", log: self.log, type: .info, account.bookBags.count)
 
             try await withThrowingTaskGroup(of: Void.self) { group in
                 for bookBag in account.bookBags {
@@ -136,7 +136,7 @@ class BookBagsViewController : UITableViewController {
     }
 
     func updateItems() {
-        if let items = App.account?.bookBags {
+        if let items = App.account?.patronLists {
             self.items = items
             tableView.reloadData()
         }

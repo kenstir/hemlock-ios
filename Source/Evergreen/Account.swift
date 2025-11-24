@@ -17,7 +17,11 @@
 import Foundation
 import os.log
 
-class Account {
+protocol XAccount {
+    var patronLists: [XPatronList] { get }
+}
+
+class Account: XAccount {
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Account")
     private let lock = NSRecursiveLock()
 
@@ -35,6 +39,7 @@ class Account {
     private(set) var defaultNotifyPhone: Bool?
     private(set) var defaultNotifySMS: Bool?
     private(set) var bookBags: [BookBag] = []
+    var patronLists: [any XPatronList] { return bookBags } //hack
     private(set) var bookBagsEverLoaded = false
 
     var displayName: String {

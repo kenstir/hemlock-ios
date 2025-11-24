@@ -21,8 +21,8 @@ class BookBagDetailsViewController : UITableViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
-    var bookBag: BookBag?
-    var sortedItems: [BookBagItem] = []
+    var bookBag: XPatronList?
+    var sortedItems: [XListItem] = []
     var sortBy: String = ""
     var sortDescending = false
     var sortOrderButton = UIBarButtonItem()
@@ -94,8 +94,8 @@ class BookBagDetailsViewController : UITableViewController {
         activityIndicator.stopAnimating()
     }
 
-    func loadItemDetails(forItem item: BookBagItem) async throws -> Void {
-        try await App.serviceConfig.biblioService.loadRecordDetails(forRecord: item.metabibRecord, needMARC: App.config.needMARCRecord)
+    func loadItemDetails(forItem item: XListItem) async throws -> Void {
+        try await App.serviceConfig.biblioService.loadRecordDetails(forRecord: item.record, needMARC: App.config.needMARCRecord)
     }
 
     @objc func sortButtonPressed(sender: UIBarButtonItem) {
@@ -153,26 +153,26 @@ class BookBagDetailsViewController : UITableViewController {
         tableView.reloadData()
     }
 
-    func authorSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
+    func authorSortComparator(_ a: XListItem, _ b: XListItem, descending: Bool) -> Bool {
         if (descending) {
-            return a.metabibRecord.author > b.metabibRecord.author
+            return a.record.author > b.record.author
         } else {
-            return a.metabibRecord.author < b.metabibRecord.author
+            return a.record.author < b.record.author
         }
     }
 
-    func titleSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
-        let akey = a.metabibRecord.titleSortKey
-        let bkey = b.metabibRecord.titleSortKey
+    func titleSortComparator(_ a: XListItem, _ b: XListItem, descending: Bool) -> Bool {
+        let akey = a.record.titleSortKey
+        let bkey = b.record.titleSortKey
         let order = descending ? ComparisonResult.orderedDescending : ComparisonResult.orderedAscending
         return akey.compare(bkey, locale: .current) == order
     }
 
-    func pubdateSortComparator(_ a: BookBagItem, _ b: BookBagItem, descending: Bool) -> Bool {
+    func pubdateSortComparator(_ a: XListItem, _ b: XListItem, descending: Bool) -> Bool {
         if (descending) {
-            return Utils.pubdateSortKey(a.metabibRecord.pubdate) ?? 0 > Utils.pubdateSortKey(b.metabibRecord.pubdate) ?? 0
+            return Utils.pubdateSortKey(a.record.pubdate) ?? 0 > Utils.pubdateSortKey(b.record.pubdate) ?? 0
         } else {
-            return Utils.pubdateSortKey(a.metabibRecord.pubdate) ?? 0 < Utils.pubdateSortKey(b.metabibRecord.pubdate) ?? 0
+            return Utils.pubdateSortKey(a.record.pubdate) ?? 0 < Utils.pubdateSortKey(b.record.pubdate) ?? 0
         }
     }
 
@@ -201,7 +201,7 @@ class BookBagDetailsViewController : UITableViewController {
     }
 
     @MainActor
-    func deleteItem(account: Account, bookBag: BookBag, item: BookBagItem) async {
+    func deleteItem(account: Account, bookBag: XPatronList, item: XListItem) async {
         do {
             try await App.serviceConfig.userService.removeItemFromPatronList(account: account, listId: bookBag.id, itemId: item.id)
             Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
@@ -219,9 +219,9 @@ class BookBagDetailsViewController : UITableViewController {
         }
 
         let item = sortedItems[indexPath.row]
-        cell.title.text = item.metabibRecord.title
-        cell.author.text = item.metabibRecord.author
-        cell.format.text = item.metabibRecord.iconFormatLabel
+        cell.title.text = item.record.title
+        cell.author.text = item.record.author
+        cell.format.text = item.record.iconFormatLabel
 
         return cell
     }
@@ -229,7 +229,7 @@ class BookBagDetailsViewController : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var records: [BibRecord] = []
         for item in sortedItems {
-            records.append(item.metabibRecord)
+            records.append(item.record)
         }
 
         if records.count > 0 {
