@@ -72,7 +72,7 @@ class EvergreenCircRecord: CircRecord {
     /// mt-safe
     func setMetabibRecord(_ record: BibRecord) {
         lock.lock(); defer { lock.unlock() }
-        record = record
+        self.record = record
     }
 
     /// mt-safe

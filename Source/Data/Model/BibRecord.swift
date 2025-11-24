@@ -15,7 +15,7 @@
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 protocol BibRecord: AnyObject {
-    var id: Int { get set }
+    var id: Int { get }
 
     var author: String { get }
     var firstOnlineLocation: String? { get }
