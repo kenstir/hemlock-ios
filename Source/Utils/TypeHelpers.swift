@@ -17,13 +17,12 @@
 import Foundation
 
 /// require arg to be of specific concrete type or throw
-func requireType<T>(_ value: Any, as type: T.Type = T.self) throws -> T {
+func requireType<T>(_ value: Any) throws -> T {
     if let v = value as? T {
         return v
     }
-#if DEBUG
-    preconditionFailure("Expected (T.self), got (type(of: value))")
-#else
-    throw HemlockError.internalError("Expected (T.self), got (type(of: value))")
-#endif
+
+    let expected = String(describing: T.self)
+    let actual = String(describing: type(of: value))
+    throw HemlockError.internalError("Type mismatch: expected \(expected), got \(actual)")
 }
