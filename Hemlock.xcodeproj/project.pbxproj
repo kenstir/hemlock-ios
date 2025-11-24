@@ -201,7 +201,6 @@
 		D22868332ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
 		D22868342ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
 		D22868352ED13B3200E2DAEB /* EvergreenCircRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */; };
-		D228684B2ED4CA5200E2DAEB /* TypeHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228684A2ED4CA5200E2DAEB /* TypeHelpersTests.swift */; };
 		D22868372ED4C34400E2DAEB /* XPatronList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22868362ED4C34400E2DAEB /* XPatronList.swift */; };
 		D22868382ED4C34400E2DAEB /* XPatronList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22868362ED4C34400E2DAEB /* XPatronList.swift */; };
 		D22868392ED4C34400E2DAEB /* XPatronList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22868362ED4C34400E2DAEB /* XPatronList.swift */; };
@@ -211,6 +210,7 @@
 		D228683D2ED4C34400E2DAEB /* XPatronList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22868362ED4C34400E2DAEB /* XPatronList.swift */; };
 		D228683E2ED4C34400E2DAEB /* XPatronList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22868362ED4C34400E2DAEB /* XPatronList.swift */; };
 		D228683F2ED4C34400E2DAEB /* XPatronList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22868362ED4C34400E2DAEB /* XPatronList.swift */; };
+		D228684B2ED4CA5200E2DAEB /* TypeHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D228684A2ED4CA5200E2DAEB /* TypeHelpersTests.swift */; };
 		D22894F929D9DB4B00D558BA /* DetailsPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */; };
 		D22894FB29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */; };
 		D22894FC29D9DB4B00D558BA /* DetailsPager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */; };
@@ -1875,8 +1875,8 @@
 		D226B60620ED468100CA5B79 /* String+splitOnRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+splitOnRegex.swift"; sourceTree = "<group>"; };
 		D226B60920ED519E00CA5B79 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenCircRecord.swift; sourceTree = "<group>"; };
-		D228684A2ED4CA5200E2DAEB /* TypeHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeHelpersTests.swift; sourceTree = "<group>"; };
 		D22868362ED4C34400E2DAEB /* XPatronList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPatronList.swift; sourceTree = "<group>"; };
+		D228684A2ED4CA5200E2DAEB /* TypeHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeHelpersTests.swift; sourceTree = "<group>"; };
 		D22894F829D9DB4B00D558BA /* DetailsPager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsPager.storyboard; sourceTree = "<group>"; };
 		D228FB6420D33402001A7E31 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		D229310A2D30A623009BE70F /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
@@ -2357,8 +2357,6 @@
 		D212DB1020C3717200267503 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D2931AA9272DE83200CBA5AA /* BookBag.swift */,
-				D2931A9E272DE56500CBA5AA /* BookBagItem.swift */,
 				D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
@@ -2906,10 +2904,12 @@
 		D2D8ABBF2E42D83600CB36C6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
+				D2931AA9272DE83200CBA5AA /* BookBag.swift */,
+				D2931A9E272DE56500CBA5AA /* BookBagItem.swift */,
 				D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */,
 				D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */,
 				D2D8ABC02E42D84500CB36C6 /* EvergreenOrgHours.swift */,
+				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
