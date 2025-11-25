@@ -32,7 +32,7 @@ class HoldRecordTests: XCTestCase {
         let holdableFormats = """
             {"0":[{"_attr":"mr_hold_format","_val":"book"},{"_attr":"mr_hold_format","_val":"lpbook"}],"1":[{"_attr":"item_lang","_val":"eng"}]}
             """
-        let formats = HoldRecord.parseHoldableFormats(holdableFormats: holdableFormats)
+        let formats = EvergreenHoldRecord.parseHoldableFormats(holdableFormats: holdableFormats)
         XCTAssertEqual(2, formats.count)
         XCTAssertEqual(["book","lpbook"], formats)
     }

@@ -104,7 +104,7 @@ class EvergreenCircService: XCircService {
     func fetchHolds(account: Account) async throws -> [HoldRecord] {
         let req = Gateway.makeRequest(service: API.circ, method: API.holdsRetrieve, args: [account.authtoken, account.userID], shouldCache: false)
         let array = try await req.gatewayResponseAsync().asArray()
-        return HoldRecord.makeArray(array)
+        return EvergreenHoldRecord.makeArray(array)
     }
 
     func loadHoldDetails(account: Account, hold: HoldRecord) async throws {
@@ -114,9 +114,10 @@ class EvergreenCircService: XCircService {
         {
             return
         }
+        let hold: EvergreenHoldRecord = try requireType(hold)
 
         // Determine which function to call based on the hold type
-        var loadFunc: (_ hold: HoldRecord, _ holdTarget: Int, _ authtoken: String) async throws -> Void
+        var loadFunc: (_ hold: EvergreenHoldRecord, _ holdTarget: Int, _ authtoken: String) async throws -> Void
         if holdType == API.holdTypeTitle {
             loadFunc = loadTitleHoldTargetDetails
         } else if hold.holdType == API.holdTypeMetarecord {
@@ -139,7 +140,7 @@ class EvergreenCircService: XCircService {
         _ = try await (details, qstats)
     }
 
-    func loadTitleHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
+    func loadTitleHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=T start", log: log, type: .info, holdTarget)
         async let modsTask = EvergreenAsync.fetchRecordMODS(id: holdTarget)
         async let mraTask = EvergreenAsync.fetchMRA(id: holdTarget)
@@ -151,7 +152,7 @@ class EvergreenCircService: XCircService {
         os_log("[hold] target=%d holdType=T done", log: log, type: .info, holdTarget)
     }
 
-    func loadMetarecordHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
+    func loadMetarecordHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=M start", log: log, type: .info, holdTarget)
         let obj = try await EvergreenAsync.fetchMetarecordMODS(id: holdTarget)
         let record = MBRecord(id: obj.getInt("tcn") ?? -1, mvrObj: obj)
@@ -159,7 +160,7 @@ class EvergreenCircService: XCircService {
         os_log("[hold] target=%d holdType=M done", log: log, type: .info, holdTarget)
     }
 
-    func loadPartHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
+    func loadPartHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=P start", log: log, type: .info, holdTarget)
         let obj = try await fetchBMP(holdTarget: holdTarget)
         guard let target = obj.getInt("record") else {
@@ -175,7 +176,7 @@ class EvergreenCircService: XCircService {
         os_log("[hold] target=%d holdType=P done", log: log, type: .info, holdTarget)
     }
 
-    func loadCopyHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
+    func loadCopyHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=C start", log: log, type: .info, holdTarget)
         let acpObj = try await fetchACP(id: holdTarget)
         guard let callNumber = acpObj.getID("call_number") else {
@@ -193,7 +194,7 @@ class EvergreenCircService: XCircService {
         os_log("[hold] target=%d holdType=C done", log: log, type: .info, holdTarget)
     }
 
-    func loadVolumeHoldTargetDetails(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
+    func loadVolumeHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
         os_log("[hold] target=%d holdType=V start", log: log, type: .info, holdTarget)
         let acnObj = try await fetchACN(id: holdTarget)
         guard let id = acnObj.getID("record") else {
@@ -206,7 +207,7 @@ class EvergreenCircService: XCircService {
         os_log("[hold] target=%d holdType=V done", log: log, type: .info, holdTarget)
     }
 
-    func loadHoldQueueStats(hold: HoldRecord, holdTarget: Int, authtoken: String) async throws {
+    func loadHoldQueueStats(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
         guard let id = hold.ahrObj.getID("id") else { return }
 
         os_log("[hold] target=%d qstats start", log: log, type: .info, holdTarget)

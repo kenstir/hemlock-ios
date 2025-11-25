@@ -16,23 +16,23 @@
 
 import Foundation
 
-class HoldRecord {
+class EvergreenHoldRecord: HoldRecord {
     private let lock = NSRecursiveLock()
 
     //MARK: - Properties
 
     private(set) var ahrObj: OSRFObject
-    private(set) var metabibRecord: BibRecord?
+    private(set) var record: BibRecord?
     private(set) var qstatsObj: OSRFObject?
     private(set) var label: String? // if the hold is a "P" type, this is the part label
 
-    var author: String { return metabibRecord?.author ?? "" }
+    var author: String { return record?.author ?? "" }
     var format: String {
         if holdType == "M" { return metarecordHoldFormatLabel() }
-        return metabibRecord?.iconFormatLabel ?? ""
+        return record?.iconFormatLabel ?? ""
     }
     var title: String {
-        if let title = metabibRecord?.title {
+        if let title = record?.title {
             if let l = label {
                 return "\(title) (\(l))"
             } else {
@@ -125,7 +125,7 @@ class HoldRecord {
     /// mt-safe
     func setMetabibRecord(_ record: BibRecord) {
         lock.lock(); defer { lock.unlock() }
-        metabibRecord = record
+        self.record = record
     }
 
     /// mt-safe
@@ -143,13 +143,13 @@ class HoldRecord {
     static func makeArray(_ objects: [OSRFObject]) -> [HoldRecord] {
         var ret: [HoldRecord] = []
         for obj in objects {
-            ret.append(HoldRecord(obj: obj))
+            ret.append(EvergreenHoldRecord(obj: obj))
         }
         return ret
     }
-    
+
     func metarecordHoldFormatLabel() -> String {
-        let formats = HoldRecord.parseHoldableFormats(holdableFormats: ahrObj.getString("holdable_formats"))
+        let formats = EvergreenHoldRecord.parseHoldableFormats(holdableFormats: ahrObj.getString("holdable_formats"))
         let iconFormats = formats.map { CodedValueMap.iconFormatLabel(forCode: $0) }
         return iconFormats.joined(separator: " or ")
     }
