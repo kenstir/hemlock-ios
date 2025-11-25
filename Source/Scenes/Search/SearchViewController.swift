@@ -83,10 +83,7 @@ class SearchViewController: UIViewController {
         //if UIScreen.main.bounds.height < 667
         searchBar.returnKeyType = .done
 
-        var image = loadAssetImage(named: "barcode_scan")
-        if #available(iOS 13.0, *) {
-            image = image?.withTintColor(Style.secondaryLabelColor)
-        }
+        let image = loadAssetImage(named: "barcode_scan")
         searchBar.showsBookmarkButton = true
         searchBar.setImage(image, for: .bookmark, state: .normal)
     }
