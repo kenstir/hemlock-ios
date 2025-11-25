@@ -89,10 +89,12 @@ class EvergreenCircService: XCircService {
     func fetchCheckoutHistory(account: Account) async throws -> [HistoryRecord] {
         let req = Gateway.makeRequest(service: API.actor, method: API.checkoutHistory, args: [account.authtoken], shouldCache: false)
         let array = try await req.gatewayResponseAsync().asMaybeEmptyArray()
-        return HistoryRecord.makeArray(array)
+        return EvergreenHistoryRecord.makeArray(array)
     }
 
     func loadHistoryDetails(historyRecord: HistoryRecord) async throws {
+        let historyRecord: EvergreenHistoryRecord = try requireType(historyRecord)
+
         let targetCopy = historyRecord.targetCopy
         let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [targetCopy], shouldCache: true)
         let modsObj = try await req.gatewayResponseAsync().asObject()
