@@ -2369,7 +2369,6 @@
 			children = (
 				D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
-				D2A627D42BDAC308005BB11F /* PushNotification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2768,13 +2767,14 @@
 		D287D4FA207AEF2B001AF644 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D280322F2E3BAF2C00B05638 /* Data */,
-				D2AA9D5C27383EF3001E78DB /* Apps */,
-				D21090D224D72721004FE532 /* core */,
 				D228FB6420D33402001A7E31 /* App.swift */,
 				D20B2FF522CF976200F69848 /* AppBehavior.swift */,
 				D2A74B1321289D63001D4B0F /* AppConfiguration.swift */,
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
+				D2A627D42BDAC308005BB11F /* PushNotification.swift */,
+				D2AA9D5C27383EF3001E78DB /* Apps */,
+				D21090D224D72721004FE532 /* core */,
+				D280322F2E3BAF2C00B05638 /* Data */,
 				D22D027620857DFE00DC1F5B /* Evergreen */,
 				D212DB1020C3717200267503 /* Models */,
 				D212DB1120C3726F00267503 /* Scenes */,
