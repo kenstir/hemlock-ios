@@ -1004,6 +1004,15 @@
 		D28F5E7629CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
 		D28F5E7729CF8E0700FAAAD6 /* BibRecord+prefetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */; };
 		D290A4032D29E52E00A08A6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */; };
+		D29273582ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
+		D29273592ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
+		D292735A2ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
+		D292735B2ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
+		D292735C2ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
+		D292735D2ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
+		D292735E2ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
+		D292735F2ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
+		D29273602ED5293F004CAD82 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29273572ED5293F004CAD82 /* PatronMessage.swift */; };
 		D2931A9F272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA1272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
 		D2931AA2272DE56500CBA5AA /* BookBagItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2931A9E272DE56500CBA5AA /* BookBagItem.swift */; };
@@ -1277,15 +1286,15 @@
 		D2B3024E2E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B302452E4D589D006C3BE6 /* EvergreenOrgClosure.swift */; };
 		D2B3024F2E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B302452E4D589D006C3BE6 /* EvergreenOrgClosure.swift */; };
 		D2B5A8AD2363DBFD0099CCDF /* PinesAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */; };
-		D2BB668A297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
-		D2BB668C297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
-		D2BB668D297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
-		D2BB668E297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
-		D2BB668F297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
-		D2BB6690297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
-		D2BB6692297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
-		D2BB6693297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
-		D2BB6694297C813A007E19E7 /* PatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* PatronMessage.swift */; };
+		D2BB668A297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
+		D2BB668C297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
+		D2BB668D297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
+		D2BB668E297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
+		D2BB668F297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
+		D2BB6690297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
+		D2BB6692297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
+		D2BB6693297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
+		D2BB6694297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */; };
 		D2BB66B1297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB66AF297CA2BE007E19E7 /* MessagesTableViewCell.swift */; };
 		D2BB66B3297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB66AF297CA2BE007E19E7 /* MessagesTableViewCell.swift */; };
 		D2BB66B4297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB66AF297CA2BE007E19E7 /* MessagesTableViewCell.swift */; };
@@ -2021,6 +2030,7 @@
 		D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+.swift"; sourceTree = "<group>"; };
 		D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BibRecord+prefetch.swift"; sourceTree = "<group>"; };
 		D290A4022D29E52E00A08A6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D29273572ED5293F004CAD82 /* PatronMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronMessage.swift; sourceTree = "<group>"; };
 		D2931A87272DB6D800CBA5AA /* ZBookBagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagsView.swift; sourceTree = "<group>"; };
 		D2931A93272DE25D00CBA5AA /* ZBookBagDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBookBagDetailsView.swift; sourceTree = "<group>"; };
 		D2931A9E272DE56500CBA5AA /* BookBagItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagItem.swift; sourceTree = "<group>"; };
@@ -2069,7 +2079,7 @@
 		D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgClosure.swift; sourceTree = "<group>"; };
 		D2B302452E4D589D006C3BE6 /* EvergreenOrgClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenOrgClosure.swift; sourceTree = "<group>"; };
 		D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesAppBehavior.swift; sourceTree = "<group>"; };
-		D2BB6689297C813A007E19E7 /* PatronMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronMessage.swift; sourceTree = "<group>"; };
+		D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenPatronMessage.swift; sourceTree = "<group>"; };
 		D2BB66AF297CA2BE007E19E7 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		D2BB66B0297CA2BE007E19E7 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		D2BBA99720F19CA400B25146 /* OrganizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTests.swift; sourceTree = "<group>"; };
@@ -2358,9 +2368,7 @@
 			isa = PBXGroup;
 			children = (
 				D2EA31052B3F2C67004CEF6E /* HistoryRecord.swift */,
-				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				D22438AD20D35CC000D098D0 /* HoldRecord.swift */,
-				D2BB6689297C813A007E19E7 /* PatronMessage.swift */,
 				D2A627D42BDAC308005BB11F /* PushNotification.swift */,
 			);
 			path = Models;
@@ -2692,6 +2700,7 @@
 				D2D8ABB32E42D78C00CB36C6 /* XOrgHours.swift */,
 				D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */,
 				D22868362ED4C34400E2DAEB /* XPatronList.swift */,
+				D29273572ED5293F004CAD82 /* PatronMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2909,6 +2918,8 @@
 				D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */,
 				D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */,
 				D2D8ABC02E42D84500CB36C6 /* EvergreenOrgHours.swift */,
+				D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */,
+				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
 			);
 			path = Model;
@@ -3843,6 +3854,7 @@
 				D210EBDE22B1EE55002FB5E0 /* HoldsTableViewCell.swift in Sources */,
 				D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */,
 				D210EBDF22B1EE55002FB5E0 /* CopyStatus.swift in Sources */,
+				D29273582ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D2EA31062B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D210EBE122B1EE55002FB5E0 /* App.swift in Sources */,
 				D210EBE222B1EE55002FB5E0 /* Library.swift in Sources */,
@@ -3856,7 +3868,7 @@
 				D210EBE522B1EE55002FB5E0 /* SMSCarrier.swift in Sources */,
 				D210EBE622B1EE55002FB5E0 /* RingBuffer.swift in Sources */,
 				D210EBE722B1EE55002FB5E0 /* HemlockError.swift in Sources */,
-				D2BB668A297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB668A297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D210EBE922B1EE55002FB5E0 /* SearchViewController.swift in Sources */,
 				D246290D273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2CDCCFB2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
@@ -4004,7 +4016,7 @@
 				D2BB66BB297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D23E9F8B23B9200A0030F5C1 /* HemlockError.swift in Sources */,
 				D23E9F8D23B9200A0030F5C1 /* SearchViewController.swift in Sources */,
-				D2BB6694297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB6694297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D23E9F8F23B9200A0030F5C1 /* AFSession+.swift in Sources */,
 				D23E9F9023B9200A0030F5C1 /* HoldsViewController.swift in Sources */,
 				D2462915273732DC000DC659 /* BookBagsViewController.swift in Sources */,
@@ -4067,6 +4079,7 @@
 				D23E9FB523B9200A0030F5C1 /* Style.swift in Sources */,
 				D23E9FB623B9200A0030F5C1 /* MainListViewController.swift in Sources */,
 				D2D074982E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D29273592ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D21FF9C02E706D760058E2D3 /* AppState.swift in Sources */,
 				D29911EC248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D23E9FB723B9200A0030F5C1 /* CopyCount.swift in Sources */,
@@ -4143,7 +4156,7 @@
 				D2BB66B5297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2477BD724785A6B00FD4CF6 /* HemlockError.swift in Sources */,
 				D2477BD924785A6B00FD4CF6 /* SearchViewController.swift in Sources */,
-				D2BB668E297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB668E297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D2477BDB24785A6B00FD4CF6 /* AFSession+.swift in Sources */,
 				D2477BDC24785A6B00FD4CF6 /* HoldsViewController.swift in Sources */,
 				D2462911273732DC000DC659 /* BookBagsViewController.swift in Sources */,
@@ -4206,6 +4219,7 @@
 				D2477C0624785A6B00FD4CF6 /* Style.swift in Sources */,
 				D2477C0724785A6B00FD4CF6 /* MainListViewController.swift in Sources */,
 				D2D074942E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D292735C2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D21FF9BA2E706D760058E2D3 /* AppState.swift in Sources */,
 				D29911E8248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2477C0824785A6B00FD4CF6 /* CopyCount.swift in Sources */,
@@ -4282,7 +4296,7 @@
 				D2BB66B6297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2572AC724AD7755000BA698 /* HemlockError.swift in Sources */,
 				D2572AC924AD7755000BA698 /* SearchViewController.swift in Sources */,
-				D2BB668F297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB668F297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D2572ACB24AD7755000BA698 /* AFSession+.swift in Sources */,
 				D2572ACC24AD7755000BA698 /* HoldsViewController.swift in Sources */,
 				D2462916273732DC000DC659 /* BookBagsViewController.swift in Sources */,
@@ -4345,6 +4359,7 @@
 				D2572AF724AD7755000BA698 /* Style.swift in Sources */,
 				D2572AF924AD7755000BA698 /* MainListViewController.swift in Sources */,
 				D2D074902E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D29273602ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D21FF9BD2E706D760058E2D3 /* AppState.swift in Sources */,
 				D2572AFA24AD7755000BA698 /* OrgDetailsViewController.swift in Sources */,
 				D2572AFB24AD7755000BA698 /* CopyCount.swift in Sources */,
@@ -4421,7 +4436,7 @@
 				D2BB66B9297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D25EEC6A28A1E8310090F108 /* RingBuffer.swift in Sources */,
 				D25EEC6B28A1E8310090F108 /* HemlockError.swift in Sources */,
-				D2BB6692297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB6692297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D25EEC6D28A1E8310090F108 /* SearchViewController.swift in Sources */,
 				D25EEC6F28A1E8310090F108 /* AFSession+.swift in Sources */,
 				D25EEC7028A1E8310090F108 /* HoldsViewController.swift in Sources */,
@@ -4484,6 +4499,7 @@
 				D25EECA428A1E8310090F108 /* MainListViewController.swift in Sources */,
 				D25EECA528A1E8310090F108 /* OrgDetailsViewController.swift in Sources */,
 				D2D074962E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D292735D2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D21FF9B92E706D760058E2D3 /* AppState.swift in Sources */,
 				D25EECA628A1E8310090F108 /* CopyCount.swift in Sources */,
 				D25EECA728A1E8310090F108 /* String+subscript.swift in Sources */,
@@ -4556,7 +4572,7 @@
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
 				D2C300412E3D5AF90082C308 /* ServiceConfig.swift in Sources */,
-				D2BB668C297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB668C297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D276DAA021336B20007FAA31 /* SMSCarrier.swift in Sources */,
 				D2E3B2D52E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D24D491529D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
@@ -4573,6 +4589,7 @@
 				D27C8AC52E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
 				D29838622B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
+				D292735B2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D2AA9D5327383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D20B2FF822CF976200F69848 /* AppBehavior.swift in Sources */,
 				D2C3EA2F29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
@@ -4692,7 +4709,7 @@
 				D233988F2E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
 				D2EA31242B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
-				D2BB668D297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB668D297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D2C300402E3D5AF90082C308 /* ServiceConfig.swift in Sources */,
 				D2C24A33210178DD0028180B /* SMSCarrier.swift in Sources */,
 				D24D491629D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
@@ -4711,6 +4728,7 @@
 				D27C8AC22E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2AA9D5427383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D29838632B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
+				D292735F2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D20B2FF622CF976200F69848 /* AppBehavior.swift in Sources */,
 				D2C3EA3029D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
@@ -4836,7 +4854,7 @@
 				D2BB66BA297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
 				D2F390352241E5950089D745 /* RingBuffer.swift in Sources */,
-				D2BB6693297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB6693297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D279911A20DDE160003B451E /* AppFactory.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
 				D2462914273732DC000DC659 /* BookBagsViewController.swift in Sources */,
@@ -4899,6 +4917,7 @@
 				D28290F920E6F7DF008EBE4B /* Style.swift in Sources */,
 				D246990420A9D80E0006DFF9 /* MainListViewController.swift in Sources */,
 				D2D074932E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D292735E2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D21FF9BF2E706D760058E2D3 /* AppState.swift in Sources */,
 				D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */,
@@ -4994,6 +5013,7 @@
 				D2BDA62622D176BD00D9B60C /* CopyStatus.swift in Sources */,
 				D2BDA69D22D17A9100D9B60C /* NobleAppConfiguration.swift in Sources */,
 				D2BDA62822D176BD00D9B60C /* App.swift in Sources */,
+				D292735A2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D2EA310C2B3F2C67004CEF6E /* HistoryRecord.swift in Sources */,
 				D2BDA62922D176BD00D9B60C /* Library.swift in Sources */,
 				D28E04512BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
@@ -5008,7 +5028,7 @@
 				D25E7CE92D0A284800AD1A2A /* MainGridViewController.swift in Sources */,
 				D2BDA62D22D176BD00D9B60C /* RingBuffer.swift in Sources */,
 				D2BDA62E22D176BD00D9B60C /* HemlockError.swift in Sources */,
-				D2BB6690297C813A007E19E7 /* PatronMessage.swift in Sources */,
+				D2BB6690297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D2BDA63022D176BD00D9B60C /* SearchViewController.swift in Sources */,
 				D2CDCCFF2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 				D2BDA63222D176BD00D9B60C /* AFSession+.swift in Sources */,
