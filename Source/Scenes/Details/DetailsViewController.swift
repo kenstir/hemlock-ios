@@ -141,7 +141,7 @@ class DetailsViewController: UIViewController {
                 str = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
             }
         }
-        copySummaryLabel.attributedText = Style.makeString(str, ofSize: Style.calloutSize)
+        copySummaryLabel.text = str
     }
 
     private func setupButtons() {
