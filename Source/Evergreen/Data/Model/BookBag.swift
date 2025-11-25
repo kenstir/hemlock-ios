@@ -20,16 +20,19 @@
 
 import Foundation
 
-class BookBag : Identifiable {
-    var id: Int
+class BookBag: XPatronList, Identifiable {
+    let id: Int
     var name: String
     var obj: OSRFObject
-    var items: [BookBagItem] = []
+    var items: [XListItem] = []
     var filterToVisibleRecords = false
     var visibleRecordIds: [Int] = []
 
     var description: String? {
         return obj.getString("description")
+    }
+    var isPublic: Bool {
+        return obj.getBool("pub") ?? false
     }
 
     init(id: Int, name: String, obj: OSRFObject) {
@@ -37,7 +40,7 @@ class BookBag : Identifiable {
         self.name = name
         self.obj = obj
     }
-    
+
     func initVisibleIds(fromQueryObj obj: OSRFObject) {
         filterToVisibleRecords = true
         visibleRecordIds = MBRecord.getIdsList(fromQueryObj: obj)

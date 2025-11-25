@@ -58,8 +58,10 @@ class EvergreenUserService: XUserService {
         account.loadBookBags(fromArray: objects)
     }
 
-    func loadPatronListItems(account: Account, patronList: BookBag) async throws {
+    func loadPatronListItems(account: Account, patronList: XPatronList) async throws {
         print("\(Utils.tt) \(patronList.id) loadPatronListItems")
+        let bookBag: BookBag = try requireType(patronList)
+
         guard let authtoken = account.authtoken else {
             throw HemlockError.sessionExpired
         }
@@ -77,8 +79,8 @@ class EvergreenUserService: XUserService {
         // TODO: make mt-safe, remove await
         await MainActor.run {
             print("\(Utils.tt) \(patronList.id) about to call .loadItems()")
-            patronList.initVisibleIds(fromQueryObj: queryObj)
-            patronList.loadItems(fromFleshedObj: allItemsObj)
+            bookBag.initVisibleIds(fromQueryObj: queryObj)
+            bookBag.loadItems(fromFleshedObj: allItemsObj)
         }
     }
 
@@ -96,7 +98,7 @@ class EvergreenUserService: XUserService {
         ], netClass: "cbreb")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[bookbag] createBag %@ result %@", name, str)
+        os_log("[lists] createBag %@ result %@", name, str)
     }
 
     func deletePatronList(account: Account, listId: Int) async throws {
@@ -105,7 +107,7 @@ class EvergreenUserService: XUserService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, listId], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[bookbag] bag %d deleteBag result %@", listId, str)
+        os_log("[lists] bag %d deleteBag result %@", listId, str)
     }
 
     func addItemToPatronList(account: Account, listId: Int, recordId: Int) async throws {
@@ -119,7 +121,7 @@ class EvergreenUserService: XUserService {
         ], netClass: "cbrebi")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerItemCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[bookbag] addItem %d result %@", listId, str)
+        os_log("[lists] addItem %d result %@", listId, str)
     }
 
     func removeItemFromPatronList(account: Account, listId: Int, itemId: Int) async throws {
@@ -128,7 +130,7 @@ class EvergreenUserService: XUserService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, itemId], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[bookbag] removeItem %d result %@", itemId, str)
+        os_log("[lists] removeItem %d result %@", itemId, str)
     }
 
     //MARK: - User Settings
@@ -189,7 +191,7 @@ class EvergreenUserService: XUserService {
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage] {
         let req = Gateway.makeRequest(service: API.actor, method: API.messagesRetrieve, args: [account.authtoken, account.userID], shouldCache: false)
         let objects = try await req.gatewayResponseAsync().asArray()
-        return PatronMessage.makeArray(objects)
+        return EvergreenPatronMessage.makeArray(objects)
     }
 
     private func markMessageAction(account: Account, messageID: Int, action: String) async throws {

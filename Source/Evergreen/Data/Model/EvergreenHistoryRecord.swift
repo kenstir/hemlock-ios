@@ -1,5 +1,5 @@
 //
-//  Copyright (C) 2023 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -12,30 +12,28 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
 
-/// A `HistoryRecord` is an item from the patron's circulation history
-class HistoryRecord {
+class EvergreenHistoryRecord: HistoryRecord {
     private let lock = NSRecursiveLock()
 
     let id: Int
     let auchObj: OSRFObject
-    private(set) var bibRecord: BibRecord?
+    private(set) var record: BibRecord?
 
     var title: String {
-        if let title = bibRecord?.title, !title.isEmpty { return title }
+        if let title = record?.title, !title.isEmpty { return title }
 //        if let title = acpObj?.getString("dummy_title"), !title.isEmpty { return title }
         return "Unknown Title"
     }
     var author: String {
-        if let author = bibRecord?.author, !author.isEmpty { return author }
+        if let author = record?.author, !author.isEmpty { return author }
 //        if let author = acpObj?.getString("dummy_author"), !author.isEmpty { return author }
         return ""
     }
-    var format: String { return bibRecord?.iconFormatLabel ?? "" }
+    var format: String { return record?.iconFormatLabel ?? "" }
     var dueDate: Date? { return auchObj.getDate("due_date") }
     var dueDateLabel: String { return auchObj.getDateLabel("due_date") ?? "Unknown" }
     var checkoutDate: Date? { return auchObj.getDate("xact_start") }
@@ -47,20 +45,20 @@ class HistoryRecord {
     init(id: Int, obj: OSRFObject) {
         self.id = id
         self.auchObj = obj
-        self.bibRecord = nil
+        self.record = nil
     }
 
     /// mt-safe
     func setBibRecord(_ record: BibRecord?) {
         lock.lock(); defer { lock.unlock() }
-        self.bibRecord = record
+        self.record = record
     }
 
     static func makeArray(_ objects: [OSRFObject]) -> [HistoryRecord] {
         var ret: [HistoryRecord] = []
         for obj in objects {
             if let id = obj.getInt("id") {
-                ret.append(HistoryRecord(id: id, obj: obj))
+                ret.append(EvergreenHistoryRecord(id: id, obj: obj))
             }
         }
         return ret

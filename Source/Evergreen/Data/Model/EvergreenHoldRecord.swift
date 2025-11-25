@@ -1,7 +1,5 @@
 //
-//  HoldRecord.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (c) 2025 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -14,28 +12,27 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
 
-class HoldRecord {
+class EvergreenHoldRecord: HoldRecord {
     private let lock = NSRecursiveLock()
 
     //MARK: - Properties
 
     private(set) var ahrObj: OSRFObject
-    private(set) var metabibRecord: BibRecord?
+    private(set) var record: BibRecord?
     private(set) var qstatsObj: OSRFObject?
     private(set) var label: String? // if the hold is a "P" type, this is the part label
 
-    var author: String { return metabibRecord?.author ?? "" }
+    var author: String { return record?.author ?? "" }
     var format: String {
         if holdType == "M" { return metarecordHoldFormatLabel() }
-        return metabibRecord?.iconFormatLabel ?? ""
+        return record?.iconFormatLabel ?? ""
     }
     var title: String {
-        if let title = metabibRecord?.title {
+        if let title = record?.title {
             if let l = label {
                 return "\(title) (\(l))"
             } else {
@@ -128,7 +125,7 @@ class HoldRecord {
     /// mt-safe
     func setMetabibRecord(_ record: BibRecord) {
         lock.lock(); defer { lock.unlock() }
-        metabibRecord = record
+        self.record = record
     }
 
     /// mt-safe
@@ -146,13 +143,13 @@ class HoldRecord {
     static func makeArray(_ objects: [OSRFObject]) -> [HoldRecord] {
         var ret: [HoldRecord] = []
         for obj in objects {
-            ret.append(HoldRecord(obj: obj))
+            ret.append(EvergreenHoldRecord(obj: obj))
         }
         return ret
     }
-    
+
     func metarecordHoldFormatLabel() -> String {
-        let formats = HoldRecord.parseHoldableFormats(holdableFormats: ahrObj.getString("holdable_formats"))
+        let formats = EvergreenHoldRecord.parseHoldableFormats(holdableFormats: ahrObj.getString("holdable_formats"))
         let iconFormats = formats.map { CodedValueMap.iconFormatLabel(forCode: $0) }
         return iconFormats.joined(separator: " or ")
     }

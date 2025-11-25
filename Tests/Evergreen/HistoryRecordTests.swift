@@ -39,7 +39,7 @@ class HistoryRecordTests: XCTestCase {
     ], netClass: "auch")
 
     func test_makeArray() {
-        let objs = HistoryRecord.makeArray([unreturnedObj, returnedObj])
+        let objs = EvergreenHistoryRecord.makeArray([unreturnedObj, returnedObj])
         XCTAssertEqual(2, objs.count)
         XCTAssertEqual(9297488, objs.first?.id)
         XCTAssertEqual("Unknown Title", objs.first?.title)

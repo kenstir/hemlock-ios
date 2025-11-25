@@ -105,7 +105,7 @@ class HoldsViewController: UIViewController {
     func showDetails(_ indexPath: IndexPath) {
         guard let hold = getItem(indexPath) else { return }
         let displayOptions = RecordDisplayOptions(enablePlaceHold: false, orgShortName: nil)
-        if let record = hold.metabibRecord,
+        if let record = hold.record,
            let vc = XUtils.makeDetailsPager(items: [record], selectedItem: 0, displayOptions: displayOptions) {
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -113,7 +113,7 @@ class HoldsViewController: UIViewController {
 
     func editHold(_ indexPath: IndexPath) {
         guard let hold = getItem(indexPath) else { return }
-        guard let record = hold.metabibRecord else { return }
+        guard let record = hold.record else { return }
         guard let vc = PlaceHoldViewController.make(record: record, holdRecord: hold, valueChangedHandler: { self.didCompleteFetch = false }) else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }

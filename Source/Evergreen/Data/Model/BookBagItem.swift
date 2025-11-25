@@ -20,21 +20,14 @@
 
 import Foundation
 
-class BookBagItem {
-    var cbrebiObj: OSRFObject
-    var metabibRecord: BibRecord
-
-    var id: Int {
-        return cbrebiObj.getInt("id") ?? -1
-    }
-    var targetId: Int {
-        return cbrebiObj.getInt("target_biblio_record_entry") ?? -1
-    }
+class BookBagItem: XListItem {
+    let id: Int
+    let targetId: Int
+    let record: BibRecord
 
     init(cbrebiObj: OSRFObject) {
-        self.cbrebiObj = cbrebiObj
-        let targetId = cbrebiObj.getInt("target_biblio_record_entry") ?? -1
-        self.metabibRecord = MBRecord(id: targetId)
+        self.id = cbrebiObj.getInt("id") ?? -1
+        self.targetId = cbrebiObj.getInt("target_biblio_record_entry") ?? -1
+        self.record = MBRecord(id: targetId)
     }
-
 }

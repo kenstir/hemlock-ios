@@ -23,7 +23,7 @@ protocol XUserService {
 
     //MARK: - Patron Lists
     func loadPatronLists(account: Account) async throws -> Void
-    func loadPatronListItems(account: Account, patronList: BookBag) async throws -> Void
+    func loadPatronListItems(account: Account, patronList: XPatronList) async throws -> Void
     func createPatronList(account: Account, name: String, description: String) async throws -> Void
     func deletePatronList(account: Account, listId: Int) async throws -> Void
     func addItemToPatronList(account: Account, listId: Int, recordId: Int) async throws -> Void
