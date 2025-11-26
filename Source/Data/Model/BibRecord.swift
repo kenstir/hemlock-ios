@@ -39,5 +39,5 @@ protocol BibRecord: AnyObject {
     var marcRecord: MARCRecord? { get }
     var copyCounts: [CopyCount]? { get }
 
-    func totalCopies(atOrgID orgID: Int?) -> Int
+    func copyCount(atOrgID: Int) -> CopyCount?
 }

@@ -134,11 +134,9 @@ class DetailsViewController: UIViewController {
                 str = host
             }
         } else {
-            if let copyCounts = record.copyCounts,
-                let copyCount = copyCounts.last,
-                let orgName = Organization.find(byId: copyCount.orgID)?.name
-            {
-                str = "\(copyCount.available) of \(copyCount.count) copies available at \(orgName)"
+            if let org = Organization.find(byShortName: displayOptions.orgShortName) ?? Organization.consortium(),
+                let copyCount = record.copyCount(atOrgID: org.id) {
+                str = "\(copyCount.available) of \(copyCount.count) copies available at \(org.name)"
             }
         }
         copySummaryLabel.text = str
@@ -157,17 +155,17 @@ class DetailsViewController: UIViewController {
     }
 
     private func updateButtonViews() {
-        print("updateButtonViews: title:\(record.title)")
         if record.isDeleted {
+            print("updateButtonViews: title:\(record.title) deleted")
             placeHoldButton.isEnabled = false
             copyInfoButton.isEnabled = false
             addToListButton.isEnabled = false
             return
         }
 
-        let org = Organization.find(byShortName: displayOptions.orgShortName)
+        let org = Organization.find(byShortName: displayOptions.orgShortName) ?? Organization.consortium()
         let links = App.behavior.onlineLocations(record: record, forSearchOrg: org?.shortname)
-        let numCopies = record.totalCopies(atOrgID: org?.id)
+        let numCopies = record.copyCount(atOrgID: org?.id ?? Organization.consortiumOrgID)?.count ?? 0
         print("updateButtonViews: title:\(record.title) links:\(links.count) copies:\(numCopies)")
 
         if numCopies > 0 {

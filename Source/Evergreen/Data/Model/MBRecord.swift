@@ -132,11 +132,8 @@ class MBRecord: BibRecord {
         self.copyCounts = counts
     }
 
-    func totalCopies(atOrgID orgID: Int?) -> Int {
-        if let copyCount = copyCounts?.first(where: { $0.orgID == orgID }) {
-            return copyCount.count
-        }
-        return 0
+    func copyCount(atOrgID orgID: Int) -> CopyCount? {
+        return copyCounts?.first(where: { $0.orgID == orgID })
     }
 
     //MARK: - Static functions
