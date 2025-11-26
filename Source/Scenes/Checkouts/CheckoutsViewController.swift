@@ -61,6 +61,7 @@ class CheckoutsViewController: UIViewController {
         if App.config.enableCheckoutHistory {
             let image = loadAssetImage(named: "history")
             let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(historyButtonPressed(sender:)))
+            button.accessibilityLabel = "Checkout history"
             navigationItem.rightBarButtonItems?.append(button)
         }
     }
