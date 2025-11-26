@@ -305,12 +305,19 @@ class OrgDetailsViewController: UIViewController {
         spacerLabel.widthAnchor.constraint(equalToConstant: 16.0).isActive = true
         stackView.addArrangedSubview(spacerLabel)
 
+        // get an accessible font
+        var font = UIFont.preferredFont(forTextStyle: .footnote)
+        if isHeader == true {
+            let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .footnote)
+            if let boldDescriptor = descriptor.withSymbolicTraits(.traitBold) {
+                font = UIFont(descriptor: boldDescriptor, size: 0.0)
+            }
+        }
+
         // add first label
         let firstLabel = UILabel()
-        firstLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
-        if isHeader == true {
-            firstLabel.font = UIFont.boldSystemFont(ofSize: firstLabel.font.pointSize)
-        }
+        firstLabel.font = font
+        firstLabel.adjustsFontForContentSizeCategory = true
         firstLabel.text = firstString
         stackView.addArrangedSubview(firstLabel)
 
@@ -323,7 +330,8 @@ class OrgDetailsViewController: UIViewController {
             // add second label
             let secondLabel = UILabel()
             //secondLabel.backgroundColor = UIColor.lightGray // hack to visualize layout
-            secondLabel.font = firstLabel.font
+            secondLabel.font = font
+            secondLabel.adjustsFontForContentSizeCategory = true
             secondLabel.text = secondString
             secondLabel.numberOfLines = 0
             stackView.addArrangedSubview(secondLabel)
