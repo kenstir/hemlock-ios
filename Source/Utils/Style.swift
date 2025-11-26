@@ -149,12 +149,6 @@ class Style {
         searchBar.backgroundColor = systemBackground
     }
 
-    //MARK: - SegmentedControl
-
-//    static func styleSegmentedControl(_ v: UISegmentedControl) {
-//        v.tintColor = App.theme.accentColor
-//    }
-
     //MARK: - Table Header
 
     static func styleLabel(asTableHeader v: UILabel) {
@@ -177,17 +171,4 @@ class Style {
         v.insertSubview(bgView, at: 0)
         bgView.pin(to: v)
     }
-
-//    //MARK: - Attributed Strings
-//
-//    static func makeTitleString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
-//        // Create a base font at the requested size and scale it for Dynamic Type using an appropriate text style.
-//        let baseFont = UIFont.systemFont(ofSize: size, weight: .semibold)
-//        let scaledFont = UIFontMetrics(forTextStyle: .headline).scaledFont(for: baseFont)
-//        let attrs: [NSAttributedString.Key: Any] = [
-//            .foregroundColor: Style.labelColor,
-//            .font: scaledFont
-//        ]
-//        return NSAttributedString(string: str, attributes: attrs)
-//    }
 }
