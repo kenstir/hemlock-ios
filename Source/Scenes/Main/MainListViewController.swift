@@ -129,8 +129,10 @@ class MainListViewController: MainBaseViewController {
             messagesButton.isEnabled = false
             messagesButton.isAccessibilityElement = false
         }
+        messagesButton.accessibilityLabel = "Messages"
         accountButton.target = self
         accountButton.action = #selector(accountButtonPressed(sender:))
+        accountButton.accessibilityLabel = "Accounts"
         Style.styleBarButton(accountButton)
         if App.config.enableMainSceneBottomToolbar {
             Style.styleButton(asPlain: fullCatalogButton)

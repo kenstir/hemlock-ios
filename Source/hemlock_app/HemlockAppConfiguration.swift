@@ -24,6 +24,7 @@ class HemlockAppConfiguration: BaseAppConfiguration {
 
     override var enablePartHolds: Bool { return true }
     override var enableCopyInfoWebLinks: Bool { return true }
+    override var enableMessages: Bool { return true }
     override var needMARCRecord: Bool { return true }
     override var showOnlineAccessHostname: Bool { return true }
 

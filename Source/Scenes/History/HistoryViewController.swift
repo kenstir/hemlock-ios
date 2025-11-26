@@ -59,6 +59,7 @@ class HistoryViewController: UITableViewController {
 
         let image = loadAssetImage(named: "baseline_history_toggle_off_white_24pt")
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(historyButtonPressed(sender:)))
+        button.accessibilityLabel = "Disable checkout history"
         navigationItem.rightBarButtonItems?.append(button)
     }
 

@@ -17,9 +17,9 @@
 import UIKit
 
 class Style {
-    
+
     //MARK: - Fonts
-    
+
     // Size reference: https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography
     class var titleSize: CGFloat { return UIFont.preferredFont(forTextStyle: .title2).pointSize } // 22
     class var subtitleSize: CGFloat { return UIFont.preferredFont(forTextStyle: .title3).pointSize } // 20
@@ -37,7 +37,7 @@ class Style {
     static let buttonCornerRadius = 6.0
 
     //MARK: - Colors
-    
+
     class var systemBackground: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemBackground
@@ -45,7 +45,7 @@ class Style {
             return UIColor.white
         }
     }
-    
+
     class var systemGroupedBackground: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemGroupedBackground
@@ -53,7 +53,7 @@ class Style {
             return UIColor.groupTableViewBackground
         }
     }
-    
+
     class var secondarySystemGroupedBackground: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.secondarySystemGroupedBackground
@@ -69,7 +69,7 @@ class Style {
             return UIColor.black
         }
     }
-    
+
     class var secondaryLabelColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.secondaryLabel
@@ -77,7 +77,7 @@ class Style {
             return UIColor.darkGray
         }
     }
-    
+
     class var tertiaryLabelColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.tertiaryLabel
@@ -85,7 +85,7 @@ class Style {
             return UIColor.darkGray
         }
     }
-    
+
     class var separatorColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.separator
@@ -95,19 +95,19 @@ class Style {
     }
 
     //MARK: - ActivityIndicator
-    
+
     static func styleActivityIndicator(_ activityIndicator: UIActivityIndicatorView) {
         //activityIndicator.color = App.theme.accentColor
     }
-    
+
     //MARK: - AlertController
-    
+
     static func styleAlertController(_ alertController: UIAlertController) {
         // if you customize this, verify adequate contrast in dark mode
     }
-    
+
     //MARK: - BarButtonItem
-    
+
     static func styleBarButton(_ button: UIBarButtonItem) {
         button.tintColor = App.theme.barTextForegroundColor
     }
@@ -148,19 +148,16 @@ class Style {
         searchBar.tintColor = App.theme.accentColor
         searchBar.backgroundColor = systemBackground
     }
-    
-    //MARK: - SegmentedControl
-    
-//    static func styleSegmentedControl(_ v: UISegmentedControl) {
-//        v.tintColor = App.theme.accentColor
-//    }
-    
+
     //MARK: - Table Header
 
     static func styleLabel(asTableHeader v: UILabel) {
         v.textColor = Style.secondaryLabelColor
         v.backgroundColor = Style.systemGroupedBackground
-        v.font = UIFont.systemFont(ofSize: calloutSize, weight: .light).withSmallCaps
+        // Create the small-caps font and scale it for Dynamic Type
+        let baseFont = UIFont.systemFont(ofSize: calloutSize, weight: .light).withSmallCaps
+        v.font = UIFontMetrics(forTextStyle: .callout).scaledFont(for: baseFont)
+        v.adjustsFontForContentSizeCategory = true
     }
 
     static func styleView(asTableHeader v: UIView) {
@@ -173,28 +170,5 @@ class Style {
         bgView.translatesAutoresizingMaskIntoConstraints = false
         v.insertSubview(bgView, at: 0)
         bgView.pin(to: v)
-    }
-    
-    //MARK: - Attributed Strings
-
-    static func makeTitleString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: Style.labelColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .semibold)]
-        return NSAttributedString(string: str, attributes: attrs)
-    }
-
-    static func makeSubtitleString(_ str: String, ofSize size: CGFloat = 14) -> NSAttributedString {
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: Style.secondaryLabelColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size)]
-        return NSAttributedString(string: str, attributes: attrs)
-    }
-
-    static func makeString(_ str: String, ofSize size: CGFloat = 16) -> NSAttributedString {
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: Style.labelColor,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: .regular)]
-        return NSAttributedString(string: str, attributes: attrs)
     }
 }
