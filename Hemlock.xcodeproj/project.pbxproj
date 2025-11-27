@@ -2346,7 +2346,7 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		D21090D224D72721004FE532 /* core */ = {
+		D21090D224D72721004FE532 /* shared */ = {
 			isa = PBXGroup;
 			children = (
 				D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */,
@@ -2354,7 +2354,7 @@
 				D21090D324D7275A004FE532 /* fail_part_msg_map.json */,
 				D28AE26124FDD9B200960E9E /* strings.json */,
 			);
-			path = core;
+			path = shared;
 			sourceTree = "<group>";
 		};
 		D210EC4222B1F1F6002FB5E0 /* acorn_app */ = {
@@ -2786,7 +2786,6 @@
 				D287D4FB207AEF2B001AF644 /* AppDelegate.swift */,
 				D2A627D42BDAC308005BB11F /* PushNotification.swift */,
 				D2AA9D5C27383EF3001E78DB /* Apps */,
-				D21090D224D72721004FE532 /* core */,
 				D280322F2E3BAF2C00B05638 /* Data */,
 				D22D027620857DFE00DC1F5B /* Evergreen */,
 				D212DB1120C3726F00267503 /* Scenes */,
@@ -2847,6 +2846,7 @@
 				D25EECD128A1EA760090F108 /* owwl_app */,
 				D2D49BFB20A90CA9000B3A27 /* pines_app */,
 				D23E9FE723B923480030F5C1 /* sagecat_app */,
+				D21090D224D72721004FE532 /* shared */,
 			);
 			name = Apps;
 			sourceTree = "<group>";
