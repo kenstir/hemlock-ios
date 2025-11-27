@@ -5,7 +5,7 @@ I had a lot of trouble handling the virtual keyboard, e.g. it would appear and o
 ## UIKit
 
 Adding scroll views is way harder than it should be.  Follow this guide: https://useyourloaf.com/blog/scroll-view-layouts-with-interface-builder/
-or better yet, copy the most recent working VC with a scroll view (right now that is NewPlaceHold).
+or better yet, copy the most recent working VC with a scroll view (right now that is PlaceHold).
 
 ### Create View Hierarchy
 * Create a ScrollView as the only child of the top View
