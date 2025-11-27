@@ -543,6 +543,8 @@ class PlaceHoldViewController: UIViewController {
                 return
             }
             notifyPhoneNumber = phoneNumber
+        } else if isEditHold {
+            notifyPhoneNumber = nil
         }
         if smsSwitch.isOn {
             guard let smsNumber = smsNumberTextField.text?.trim(), !smsNumber.isEmpty else {
@@ -555,6 +557,9 @@ class PlaceHoldViewController: UIViewController {
             }
             notifySMSNumber = smsNumber
             notifyCarrierID = carrier.id
+        } else if isEditHold {
+            notifySMSNumber = nil
+            notifyCarrierID = nil
         }
 
         if let hold = holdRecord {

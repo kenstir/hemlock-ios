@@ -310,19 +310,13 @@ class EvergreenCircService: XCircService {
     private func updateHoldImpl(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> String {
         var complexParam: JSONDictionary = [
             "id": holdId,
-            "email_notify": options.notifyByEmail,
             "pickup_lib": options.pickupOrgId,
+            "email_notify": options.notifyByEmail,
+            "phone_notify": options.phoneNotify,
+            "sms_notify": options.smsNotify,
+            "sms_carrier": options.smsCarrierId,
             "frozen": options.suspended,
         ]
-        if let str = options.phoneNotify, !str.isEmpty {
-            complexParam["phone_notify"] = str
-        }
-        if let str = options.smsNotify, !str.isEmpty {
-            complexParam["sms_notify"] = str
-        }
-        if let carrierID = options.smsCarrierId {
-            complexParam["sms_carrier"] = carrierID
-        }
         if let date = options.expirationDate {
             complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
         }
