@@ -25,6 +25,7 @@ protocol AppConfiguration {
     var detailsExtraLinkText: String? { get }
     var detailsExtraLinkQuery: String? { get }
     var detailsExtraLinkFragment: String? { get }
+    var payChargesUrl: String? { get }
 
     var enableCheckoutHistory: Bool { get }
     var enableHierarchicalOrgTree: Bool { get }
@@ -62,6 +63,7 @@ class BaseAppConfiguration: AppConfiguration {
     var detailsExtraLinkText: String? { return nil }
     var detailsExtraLinkQuery: String? { return nil }
     var detailsExtraLinkFragment: String? { return nil }
+    var payChargesUrl: String? { return nil }
 
     var enableCheckoutHistory: Bool { return true }
     var enableHierarchicalOrgTree: Bool { return true }

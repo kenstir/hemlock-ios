@@ -19,6 +19,7 @@ import Alamofire
 import os.log
 
 class EvergreenUserService: XUserService {
+
     //MARK: - Session Management
 
     func loadSession(account: Account) async throws {
@@ -241,5 +242,20 @@ class EvergreenUserService: XUserService {
             balanceOwed: summary?.getDouble("balance_owed") ?? 0.0,
             transactions: FineRecord.makeArray(transactions))
         return charges
+    }
+
+    func payChargesUrl(account: Account) -> String {
+        var url = App.library?.url ?? ""
+        url += "/eg/opac/myopac/charges"
+        return url
+    }
+
+    func isPayChargesEnabled(account: Account) -> Bool {
+        if let homeOrgID = account.homeOrgID,
+           let homeOrg = Organization.find(byId: homeOrgID),
+           homeOrg.isPaymentAllowedSetting == true {
+            return true
+        }
+        return false
     }
 }
