@@ -1909,7 +1909,7 @@
 		D229310A2D30A623009BE70F /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D22A7FF12D680A39003C5F20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D22AE118221B75FC0089C196 /* AFSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AFSession+.swift"; sourceTree = "<group>"; };
-		D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hemlock-Bridging-Header.h"; sourceTree = "<group>"; };
+		D22D02612083CDF700DC1F5B /* ZX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZX-Bridging-Header.h"; sourceTree = "<group>"; };
 		D22D02682083EA7600DC1F5B /* GatewayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayTests.swift; sourceTree = "<group>"; };
 		D22D026F2084F53E00DC1F5B /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		D22D0272208506C500DC1F5B /* MD5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Tests.swift; sourceTree = "<group>"; };
@@ -2320,13 +2320,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D2096E15244BAC2000627FF5 /* hemlock-pro-assets */ = {
+		D2096E15244BAC2000627FF5 /* ProAssets */ = {
 			isa = PBXGroup;
 			children = (
 				D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */,
 				D2540DF12B9F8F3B0063B0C5 /* acorn-pro.xcassets */,
 			);
-			path = "hemlock-pro-assets";
+			path = "ProAssets";
 			sourceTree = "<group>";
 		};
 		D20BDB752214B84F00BB6A5F /* Options */ = {
@@ -2753,8 +2753,8 @@
 				D287D50F207AEF2D001AF644 /* Tests */,
 				D287D4F9207AEF2B001AF644 /* Products */,
 				D231B52520815EAC00478D25 /* Frameworks */,
-				D2096E15244BAC2000627FF5 /* hemlock-pro-assets */,
-				D22D02612083CDF700DC1F5B /* Hemlock-Bridging-Header.h */,
+				D2096E15244BAC2000627FF5 /* ProAssets */,
+				D22D02612083CDF700DC1F5B /* ZX-Bridging-Header.h */,
 				D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */,
 				D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */,
 			);
@@ -5210,7 +5210,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5238,7 +5238,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.bibliomation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5264,7 +5264,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.sagecat;
 				PRODUCT_NAME = SageCat;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5291,7 +5291,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.sagecat;
 				PRODUCT_NAME = SageCat;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5317,7 +5317,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.indiana;
 				PRODUCT_NAME = "Evergreen Indiana";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5344,7 +5344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.indiana;
 				PRODUCT_NAME = "Evergreen Indiana";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5372,7 +5372,7 @@
 				PRODUCT_NAME = "Missouri Evergreen";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5401,7 +5401,7 @@
 				PRODUCT_NAME = "Missouri Evergreen";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5427,7 +5427,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.owwl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5454,7 +5454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.owwl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5480,7 +5480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cwmars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5507,7 +5507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.cwmars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5532,7 +5532,7 @@
 				MARKETING_VERSION = 4.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.hemlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5558,7 +5558,7 @@
 				MARKETING_VERSION = 4.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.hemlock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5703,7 +5703,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5733,7 +5733,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5803,7 +5803,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.noble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5830,7 +5830,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.noble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
-				SWIFT_OBJC_BRIDGING_HEADER = "Hemlock-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
