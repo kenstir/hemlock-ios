@@ -44,4 +44,6 @@ protocol XUserService {
 
     //MARK: - Charges (Fines)
     func fetchPatronCharges(account: Account) async throws -> PatronCharges
+    func payChargesUrl(account: Account) -> String
+    func isPayChargesEnabled(account: Account) -> Bool
 }

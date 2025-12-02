@@ -22,6 +22,7 @@ class NobleAppConfiguration: BaseAppConfiguration {
     override var url: String { return "https://evergreen-ils.noblenet.org" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var sort: String? { return "poprel" }
+    override var payChargesUrl: String? { return "https://catalog.noblenet.org/MyAccount/Fines" }
 
     override var needMARCRecord: Bool { return true }
     override var alwaysUseActionSheetForOnlineLinks: Bool { return true }

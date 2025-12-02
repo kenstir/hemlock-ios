@@ -139,11 +139,10 @@ class FinesViewController: UIViewController {
     }
 
     func updatePayFinesButton() {
+        guard let account = App.account else { return }
         if App.config.enablePayFines,
-            let homeOrgID = App.account?.homeOrgID,
-            let homeOrg = Organization.find(byId: homeOrgID),
-            let isPaymentAllowed = homeOrg.isPaymentAllowedSetting,
-            isPaymentAllowed && anyBalanceOwed
+           App.serviceConfig.userService.isPayChargesEnabled(account: account),
+           anyBalanceOwed
         {
             Style.styleButton(asInverse: payFinesButton)
             payFinesButton.isEnabled = true
@@ -152,10 +151,9 @@ class FinesViewController: UIViewController {
     }
 
     @objc func payFinesButtonPressed(_ sender: Any) {
-        if let baseurl_string = App.library?.url,
-            let url = URL(string: baseurl_string + "/eg/opac/myopac/main_payment_form#pay_fines_now") {
-            UIApplication.shared.open(url)
-        }
+        guard let account = App.account else { return }
+        let url = App.config.payChargesUrl ?? App.serviceConfig.userService.payChargesUrl(account: account)
+        launchURL(url: url)
     }
 
     func updateCharges(withCharges charges: PatronCharges) {
