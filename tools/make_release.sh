@@ -10,6 +10,7 @@ proj="Hemlock.xcodeproj/project.pbxproj"
 
 set -e
 
+# determine scheme name
 # TODO: align scheme names with app names
 scheme=
 case "$app" in
@@ -31,7 +32,7 @@ fi
 username=$(cat Secrets/transport.username)
 password=$(cat Secrets/transport.password)
 
-# Scrape version strings
+# scrape version strings
 
 version=$(tools/fl print_build_info | awk '/version:/ {print $NF}')
 build=$(tools/fl print_build_info | awk '/build:/ {print $NF}')
