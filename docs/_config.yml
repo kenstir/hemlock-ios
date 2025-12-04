@@ -1,5 +1,0 @@
-theme: jekyll-theme-slate
-plugins:
-  - jekyll-redirect-from
-whitelist:
-  - jekyll-redirect-from
