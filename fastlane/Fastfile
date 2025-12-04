@@ -18,17 +18,9 @@ lane :dumpvars do
   UI.message("hello")
 end
 
-lane :test do
-  run_tests(
-    scheme: "PINES",
-    project: "Hemlock.xcodeproj",
-    device: "iPhone 16 Pro"
-  )
-end
-
+desc "Increment build number"
 lane :build do
-  build_app(
-    scheme: "PINES",
-    project: "Hemlock.xcodeproj"
+  increment_build_number(
+    skip_info_plist: true
   )
 end
