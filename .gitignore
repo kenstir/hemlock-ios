@@ -7,9 +7,17 @@
 /Carthage
 /update.log
 
-# exclude test data
+# exclude secrets and test data
+Secrets/**
 TestConfig/**
 TestUserData/**
 
 # Firebase creds
 GoogleService-Info.plist
+
+# Fastlane
+**/fastlane/README.md
+**/report.xml
+
+# Build artifacts
+/build/**

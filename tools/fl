@@ -1,0 +1,10 @@
+#!/bin/bash -
+
+export FASTLANE_GEM_REQUIREMENT_MESSAGE=""
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+exec fastlane "$@"
+
+# 2025-12-04: 'bundle exec' did not work with brew-installed fastlane
+#exec bundle exec fastlane "$@"
