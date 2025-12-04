@@ -18,3 +18,6 @@ GoogleService-Info.plist
 # Fastlane
 **/fastlane/README.md
 **/report.xml
+
+# Build artifacts
+/build/**

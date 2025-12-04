@@ -10,60 +10,29 @@ proj="Hemlock.xcodeproj/project.pbxproj"
 
 set -e
 
-## find the plist identifier of the XCBuildConfiguration Release section for the given app
+## Scrape version strings from Xcode >> project Hemlock >> Build Settings >> Versioning
 
-buildver=$(cat "$proj" \
-    | sed -ne '/Begin XCBuildConfiguration section/,/End XCBuildConfiguration section/ p' \
-    | awk '
-    BEGIN {
-        app_matches = 0
-    }
+version=$(fgrep 'MARKETING_VERSION =' "$proj" | uniq | awk '{print $NF}')
+version_uniq=$(fgrep -c 'MARKETING_VERSION =' "$proj" | uniq | wc -l)
+if [ "$version_uniq" != 1 ]; then
+    echo >&2 "Marketing Version should be set only once at the project level"
+    fgrep 'MARKETING_VERSION =' "$proj"
+    exit 1
+fi
 
-    # Store the identifier of Debug or Release blocks
-    /[A-F0-9]+ \/\* (Debug|Release) \*\// {
-        IDENT = $1
-        #print NR, $0
-    }
+build=$(fgrep 'CURRENT_PROJECT_VERSION =' "$proj" | uniq | awk '{print $NF}')
+build_uniq=$(fgrep -c 'CURRENT_PROJECT_VERSION = ' "$proj" | uniq | wc -l)
+if [ "$build_uniq" ]; then
+    echo >&2 "Current Project Version should be set only once at the project level"
+    fgrep 'CURRENT_PROJECT_VERSION =' "$proj"
+    exit 1
+fi
 
-    # If the app matches, we are in the right block
-    /INFOPLIST_FILE.*\/'$app'_app/ {
-        #print NR, $0
-        #print IDENT
-        app_matches = 1
-    }
-
-    # Get out at the end of the match block
-    /};/ {
-        if (app_matches) {
-           #print NR, $0
-           exit
-        }
-    }
-
-    # Extract BUILD (includes semicolon)
-    /CURRENT_PROJECT_VERSION = / {
-        BUILD = $3
-    }
-
-    # Extract VERSION (includes semicolon)
-    /MARKETING_VERSION = / {
-        VERSION = $3
-    }
-
-    END {
-        if (app_matches) {
-            print "BUILD=" BUILD
-            print "VERSION=" VERSION
-        } else {
-            print "false"
-        }
-    }
-')
-
-echo "$buildver"
-eval "$buildver" || { echo >&2 failed to parse BUILD and VERSION; exit 1; }
-test -n "$BUILD"
-test -n "$VERSION"
+echo "vers:  $version"
+echo "build: $build"
+test -n "$build"
+test -n "$version"
+exit 1
 
 ## Construct a tag and tag it
 
