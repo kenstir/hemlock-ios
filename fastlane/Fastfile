@@ -13,9 +13,12 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-desc "Description of what the lane does"
-lane :dumpvars do
-  UI.message("hello")
+desc "Print build info"
+lane :print_build_info do
+  version = get_version_number(target: "Hemlock")
+  build = get_build_number()
+  UI.message("version: #{version}")
+  UI.message("build:   #{build}")
 end
 
 desc "Increment build number"
