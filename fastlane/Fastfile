@@ -10,20 +10,66 @@
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
 
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+#-----------------------------------------
+# funcs
+
+def get_version_info(path = "../Hemlock.xcodeproj/project.pbxproj")
+  content = File.read(path)
+
+  m = content.match(/(MARKETING_VERSION = )(\d+)\.(\d+)\.(\d+);/)
+  UI.user_error!("\"MARKETING_VERSION\" not found in #{path}") unless m
+
+  major  = m[2]
+  minor  = m[3]
+  patch  = m[4]
+  version = "#{major}.#{minor}.#{patch}"
+
+  m = content.match(/(CURRENT_PROJECT_VERSION = )(\d+);/)
+  UI.user_error!("\"CURRENT_PROJECT_VERSION\" not found in #{path}") unless m
+
+  build = m[2]
+
+  return version, build
+end
+
+#-----------------------------------------
+# lanes
 
 desc "Print build info"
 lane :print_build_info do
+  # Interestingly, fastlane can read the version + build numbers,
+  # but it cannot bump them.  I originally centralized the build
+  # strings because of fastlane issues :(  So we will use the
+  # technique of scraping the .pbxproj file.
+
+  # These are the fastlane documented ways
   version = get_version_number(target: "Hemlock")
   build = get_build_number()
   UI.message("version: #{version}")
   UI.message("build:   #{build}")
+
+  # These are the ways we are using
+  version, build = get_version_info()
+  UI.message("version: #{version}")
+  UI.message("build:   #{build}")
 end
 
-# TODO: implement same lanes as Android for major/minor/patch/build
-desc "Increment build number"
-lane :build do
+lane :bump_version_major do
+  # fails
+  increment_version_number(bump_type: "major")
+end
+
+lane :bump_version_minor do
+  # fails
+  increment_version_number(bump_type: "minor")
+end
+
+lane :bump_version_patch do
+  # fails
+  increment_version_number(bump_type: "patch")
+end
+
+lane :bump_version_build do
   increment_build_number(
     skip_info_plist: true
   )
