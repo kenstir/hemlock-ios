@@ -155,7 +155,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: MessagingDelegate {
     /// called by FCM when the notification token is available
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("[fcm] fetched fcm token: \(fcmToken ?? "(nil)")")
+        print("[fcm] fetched token=\"\(fcmToken ?? "(nil)")\"")
         App.fcmNotificationToken = fcmToken
     }
 }

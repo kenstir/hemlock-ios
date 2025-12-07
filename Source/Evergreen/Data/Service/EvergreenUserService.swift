@@ -142,10 +142,9 @@ class EvergreenUserService: XUserService {
             API.userSettingHemlockPushNotificationData: token,
             API.userSettingHemlockPushNotificationEnabled: true
         ]
-        let str = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
+        let _ = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
         // `str` doesn't matter, it either worked or it errored.
-        // TODO: do we have anything to do here?
-        print("[fcm] token updated str=\(str)")
+        print("[fcm] token updated")
     }
 
     func enableCheckoutHistory(account: Account) async throws {
