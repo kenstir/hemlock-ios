@@ -21,6 +21,7 @@ lane :print_build_info do
   UI.message("build:   #{build}")
 end
 
+# TODO: implement same lanes as Android for major/minor/patch/build
 desc "Increment build number"
 lane :build do
   increment_build_number(
