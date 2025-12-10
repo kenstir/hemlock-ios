@@ -5198,7 +5198,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = H23XR6LSB9;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/acorn_app/Info.plist";
+				INFOPLIST_FILE = Source/acorn_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5225,7 +5225,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = H23XR6LSB9;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/acorn_app/Info.plist";
+				INFOPLIST_FILE = Source/acorn_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5249,7 +5249,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/sagecat_app/Info.plist";
+				INFOPLIST_FILE = Source/sagecat_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5274,7 +5274,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/sagecat_app/Info.plist";
+				INFOPLIST_FILE = Source/sagecat_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5298,7 +5298,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/indiana_app/Info.plist";
+				INFOPLIST_FILE = Source/indiana_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5323,7 +5323,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/indiana_app/Info.plist";
+				INFOPLIST_FILE = Source/indiana_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5348,7 +5348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MC84U89M34;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/mo_app/Info.plist";
+				INFOPLIST_FILE = Source/mo_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5375,7 +5375,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MC84U89M34;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/mo_app/Info.plist";
+				INFOPLIST_FILE = Source/mo_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5400,7 +5400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/owwl_app/Info.plist";
+				INFOPLIST_FILE = Source/owwl_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5425,7 +5425,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/owwl_app/Info.plist";
+				INFOPLIST_FILE = Source/owwl_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5449,7 +5449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
+				INFOPLIST_FILE = Source/cwmars_app/CWMARSInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5474,7 +5474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/cwmars_app/CWMARSInfo.plist";
+				INFOPLIST_FILE = Source/cwmars_app/CWMARSInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5498,7 +5498,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/HemlockInfo.plist";
+				INFOPLIST_FILE = Source/hemlock_app/HemlockInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5522,7 +5522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/hemlock_app/HemlockInfo.plist";
+				INFOPLIST_FILE = Source/hemlock_app/HemlockInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5590,7 +5590,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 4.2.0;
+				MARKETING_VERSION = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -5647,7 +5647,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 4.2.0;
+				MARKETING_VERSION = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -5667,7 +5667,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/PINESInfo.plist";
+				INFOPLIST_FILE = Source/pines_app/PINESInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5695,7 +5695,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/pines_app/PINESInfo.plist";
+				INFOPLIST_FILE = Source/pines_app/PINESInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5764,7 +5764,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/noble_app/Info.plist";
+				INFOPLIST_FILE = Source/noble_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5789,7 +5789,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/noble_app/Info.plist";
+				INFOPLIST_FILE = Source/noble_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

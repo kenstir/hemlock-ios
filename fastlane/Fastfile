@@ -35,42 +35,45 @@ end
 #-----------------------------------------
 # lanes
 
-desc "Print build info"
+desc "Print version and build info"
 lane :print_build_info do
-  # Interestingly, fastlane can read the version + build numbers,
-  # but it cannot bump them.  I originally centralized the build
-  # strings because of fastlane issues :(  So we will use the
-  # technique of scraping the .pbxproj file.
-
-  # These are the fastlane documented ways
   version = get_version_number(target: "Hemlock")
   build = get_build_number()
   UI.message("version: #{version}")
   UI.message("build:   #{build}")
+end
 
-  # These are the ways we are using
-  version, build = get_version_info()
-  UI.message("version: #{version}")
-  UI.message("build:   #{build}")
+desc "For one time use"
+lane :set_version_explicitly do
+  increment_version_number(version_number: "4.2.0")
+  increment_build_number(build_number: "4")
 end
 
 lane :bump_version_major do
-  # fails
   increment_version_number(bump_type: "major")
+  increment_build_number(build_number: "1")
 end
 
 lane :bump_version_minor do
-  # fails
   increment_version_number(bump_type: "minor")
+  increment_build_number(build_number: "1")
 end
 
 lane :bump_version_patch do
-  # fails
   increment_version_number(bump_type: "patch")
+  increment_build_number(build_number: "1")
 end
 
 lane :bump_version_build do
-  increment_build_number(
-    skip_info_plist: true
-  )
+  increment_build_number()
+end
+
+lane :t do
+  tag = "pines_4.2.0.4"
+  msg = "4.2.0.4"
+  if git_tag_exists(tag: tag, remote: true)
+    UI.user_error!("tag already exists: #{tag}")
+  end
+  UI.message("tag: #{tag}")
+  UI.message("msg: #{msg}")
 end
