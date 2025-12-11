@@ -42,6 +42,9 @@ lane :print_build_info do
   UI.message("version: #{version}")
   UI.message("build:   #{build}")
 end
+lane :v do
+  print_build_info
+end
 
 desc "For one time use"
 lane :set_version_explicitly do
