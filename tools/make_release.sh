@@ -10,18 +10,9 @@ proj="Hemlock.xcodeproj/project.pbxproj"
 
 set -e
 
-# determine scheme name
-# TODO: align scheme names with app names
-scheme=
-case "$app" in
-indiana)  scheme=Indiana;;
-mo)       scheme=Missouri;;
-noble)    scheme=NOBLE;;
-pines)    scheme=PINES;;
-sagecat)  scheme=SageCat;;
-owwl)     scheme=OWWL;;
-*)        scheme="$app";;
-esac
+# scheme name is now the same as the app
+
+scheme="$app"
 
 # collect other metadata from Secrets/
 
