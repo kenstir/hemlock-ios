@@ -9,6 +9,7 @@
 * Install ruby
   ```
   rbenv install 3.4.7
+  rbenv global 3.4.7
   ```
 * Install fastlane
   ```
