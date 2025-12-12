@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D2BDA60922D176BD00D9B60C"
-               BuildableName = "NOBLE.app"
-               BlueprintName = "NOBLE"
+               BuildableName = "noble.app"
+               BlueprintName = "noble"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2BDA60922D176BD00D9B60C"
-            BuildableName = "NOBLE.app"
-            BlueprintName = "NOBLE"
+            BuildableName = "noble.app"
+            BlueprintName = "noble"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -78,8 +78,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2BDA60922D176BD00D9B60C"
-            BuildableName = "NOBLE.app"
-            BlueprintName = "NOBLE"
+            BuildableName = "noble.app"
+            BlueprintName = "noble"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -105,8 +105,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2BDA60922D176BD00D9B60C"
-            BuildableName = "NOBLE.app"
-            BlueprintName = "NOBLE"
+            BuildableName = "noble.app"
+            BlueprintName = "noble"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

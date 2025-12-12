@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D2572AA524AD7755000BA698"
                BuildableName = "Missouri Evergreen.app"
-               BlueprintName = "Missouri"
+               BlueprintName = "mo"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -70,7 +70,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2572AA524AD7755000BA698"
             BuildableName = "Missouri Evergreen.app"
-            BlueprintName = "Missouri"
+            BlueprintName = "mo"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -97,7 +97,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2572AA524AD7755000BA698"
             BuildableName = "Missouri Evergreen.app"
-            BlueprintName = "Missouri"
+            BlueprintName = "mo"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
