@@ -11,28 +11,6 @@
 #
 
 #-----------------------------------------
-# funcs
-
-def get_version_info(path = "../Hemlock.xcodeproj/project.pbxproj")
-  content = File.read(path)
-
-  m = content.match(/(MARKETING_VERSION = )(\d+)\.(\d+)\.(\d+);/)
-  UI.user_error!("\"MARKETING_VERSION\" not found in #{path}") unless m
-
-  major  = m[2]
-  minor  = m[3]
-  patch  = m[4]
-  version = "#{major}.#{minor}.#{patch}"
-
-  m = content.match(/(CURRENT_PROJECT_VERSION = )(\d+);/)
-  UI.user_error!("\"CURRENT_PROJECT_VERSION\" not found in #{path}") unless m
-
-  build = m[2]
-
-  return version, build
-end
-
-#-----------------------------------------
 # lanes
 
 desc "Print version and build info"
