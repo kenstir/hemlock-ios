@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D23E9F6923B9200A0030F5C1"
-               BuildableName = "SageCat.app"
-               BlueprintName = "SageCat"
+               BlueprintIdentifier = "D2572AA524AD7755000BA698"
+               BuildableName = "Missouri Evergreen.app"
+               BlueprintName = "mo"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -68,9 +68,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D23E9F6923B9200A0030F5C1"
-            BuildableName = "SageCat.app"
-            BlueprintName = "SageCat"
+            BlueprintIdentifier = "D2572AA524AD7755000BA698"
+            BuildableName = "Missouri Evergreen.app"
+            BlueprintName = "mo"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,9 +95,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D23E9F6923B9200A0030F5C1"
-            BuildableName = "SageCat.app"
-            BlueprintName = "SageCat"
+            BlueprintIdentifier = "D2572AA524AD7755000BA698"
+            BuildableName = "Missouri Evergreen.app"
+            BlueprintName = "mo"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
-               BuildableName = "PINES.app"
-               BlueprintName = "PINES"
+               BlueprintIdentifier = "D27990CA20DDD473003B451E"
+               BuildableName = "hemlock.app"
+               BlueprintName = "hemlock"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,15 +27,6 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
-            BuildableName = "PINES.app"
-            BlueprintName = "PINES"
-            ReferencedContainer = "container:Hemlock.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -63,22 +54,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
-            BuildableName = "PINES.app"
-            BlueprintName = "PINES"
+            BlueprintIdentifier = "D27990CA20DDD473003B451E"
+            BuildableName = "hemlock.app"
+            BlueprintName = "hemlock"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-FIRDebugEnabled"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-FIRDebugDisabled"
-            isEnabled = "NO">
-         </CommandLineArgument>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -86,23 +67,13 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
-            BuildableName = "PINES.app"
-            BlueprintName = "PINES"
-            ReferencedContainer = "container:Hemlock.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "PINES"
+      customArchiveName = "Hemlock"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

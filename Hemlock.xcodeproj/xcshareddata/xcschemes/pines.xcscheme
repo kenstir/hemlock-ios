@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D2477BB524785A6B00FD4CF6"
-               BuildableName = "Evergreen Indiana.app"
-               BlueprintName = "Indiana"
+               BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
+               BuildableName = "pines.app"
+               BlueprintName = "pines"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
+            BuildableName = "pines.app"
+            BlueprintName = "pines"
+            ReferencedContainer = "container:Hemlock.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -54,9 +63,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D2477BB524785A6B00FD4CF6"
-            BuildableName = "Evergreen Indiana.app"
-            BlueprintName = "Indiana"
+            BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
+            BuildableName = "pines.app"
+            BlueprintName = "pines"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,9 +90,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D2477BB524785A6B00FD4CF6"
-            BuildableName = "Evergreen Indiana.app"
-            BlueprintName = "Indiana"
+            BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
+            BuildableName = "pines.app"
+            BlueprintName = "pines"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -93,6 +102,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "PINES"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

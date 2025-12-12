@@ -3,6 +3,8 @@
 ## UNRELEASED -- 4.3.0
 
 * internal: Upgrade firebase-ios-sdk to 12.0 to fix rare crashes
+* internal: Use fastlane to manage version numbers
+* internal: Standardize names of app files, targets, and schemes
 
 ## 4.2.0
 

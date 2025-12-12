@@ -10,21 +10,104 @@
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
 
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+#-----------------------------------------
+# funcs
 
-desc "Print build info"
-lane :print_build_info do
-  version = get_version_number(target: "Hemlock")
+# Returns absolute path to repo root
+def get_repo_root
+  File.expand_path("..", __dir__)
+end
+
+# Returns [tag, message] for use in annotated tag
+def get_tag_info(app)
+  version = get_version_number(target: app)
   build = get_build_number()
+
+  tag = "#{app}_#{version}.#{build}"
+  msg = tag
+  return tag, msg
+end
+
+#-----------------------------------------
+# lanes for special cases
+
+desc "Set version and build numbers explicitly"
+lane :set_version_explicitly do |options|
+  increment_version_number(version_number: "4.2.0")
+  increment_build_number(build_number: "4")
+end
+
+desc "Dump vars for testing"
+lane :dumpvars do
+  repo_root = get_repo_root()
+  UI.message("repo_root:   #{repo_root}")
+end
+
+#-----------------------------------------
+# lanes
+
+desc "Print version and build info"
+lane :print_build_info do |options|
+  # use target hemlock here, but they are all the same
+  target = options[:target] || "hemlock"
+  version = get_version_number(target: target)
+  build = get_build_number()
+  UI.message("target:  #{target}")
   UI.message("version: #{version}")
   UI.message("build:   #{build}")
 end
+lane :v do
+  print_build_info
+end
 
-# TODO: implement same lanes as Android for major/minor/patch/build
-desc "Increment build number"
-lane :build do
-  increment_build_number(
-    skip_info_plist: true
+lane :bump_version_major do
+  increment_version_number(bump_type: "major")
+  increment_build_number(build_number: "1")
+end
+
+lane :bump_version_minor do
+  increment_version_number(bump_type: "minor")
+  increment_build_number(build_number: "1")
+end
+
+lane :bump_version_patch do
+  increment_version_number(bump_type: "patch")
+  increment_build_number(build_number: "1")
+end
+
+lane :bump_version_build do
+  increment_build_number()
+end
+
+desc "Make release IPA and upload to TestFlight"
+lane :make_release do |options|
+  app = options[:app]
+  UI.user_error!("app: option is required") unless app
+
+  Dir.chdir("..") do
+    sh("tools/make_release.sh", app)
+  end
+end
+
+desc "Create new beta release and tag it"
+lane :beta do |options|
+  app = options[:app]
+  UI.user_error!("app: option is required") unless app
+
+  tag, msg = get_tag_info(app)
+  if git_tag_exists(tag: tag, remote: true)
+    UI.user_error!("tag already exists: #{tag}")
+  end
+  UI.message("tag: #{tag}")
+  UI.message("msg: #{msg}")
+
+  make_release(options)
+
+  add_git_tag(
+    tag: tag,
+    message: msg,
+    grouping: nil
   )
+  push_git_tags(tag: tag)
+
 end
