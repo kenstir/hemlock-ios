@@ -1,5 +1,9 @@
 # iOS Release Notes
 
+## UNRELEASED -- 4.3.0
+
+* internal: Upgrade firebase-ios-sdk to 12.0 to fix rare crashes
+
 ## 4.2.0
 
 ### New
