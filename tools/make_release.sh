@@ -1,4 +1,12 @@
 #!/bin/sh
+#
+# make_release.sh -
+#
+#       Make release IPA and upload to TestFlight
+#
+#       Intended for use by fastlane
+#
+# usage: tools/fl make_release app:pines
 
 if [ $# -ne 1 ]; then
     echo "usage: $0 app_name"
@@ -23,30 +31,16 @@ fi
 username=$(cat Secrets/transport.username)
 password=$(cat Secrets/transport.password)
 
-# scrape version strings
-
-version=$(tools/fl print_build_info | awk '/version:/ {print $NF}')
-build=$(tools/fl print_build_info | awk '/build:/ {print $NF}')
-
-tag=${app}_${version}.${build}
-msg="${tag}"
-
 # trust but verify
 
-echo "vers:     $version"
-echo "build:    $build"
-echo "tag:      $tag"
 echo "teamid:   $teamid"
 echo "username: $username"
-test -n "$build"
-test -n "$version"
-test -n "$tag"
 test -n "$teamid"
 test -n "$username"
 test -n "$password"
 
 echo ""
-read -p "Continue ?" ans
+#read -p "Continue ?" ans
 
 # build .xcarchive
 
@@ -72,10 +66,3 @@ xcodebuild -exportArchive \
     -u "$username" \
     -p "$password" \
     -v eXtreme
-
-# tag it
-
-git commit "$proj" -m "$msg" || true
-git tag -a -m "$msg" $tag
-git push
-git push origin $tag
