@@ -1,6 +1,6 @@
 [submodule "hemlock-pro-assets"]
-	path = ProAssets
+	path = Assets/Pro
 	url = git@github.com:kenstir/hemlock-pro-assets.git
 [submodule "hemlock-assets"]
-	path = FreeAssets
+	path = Assets/OpenSource
 	url = https://github.com/kenstir/hemlock-assets.git
