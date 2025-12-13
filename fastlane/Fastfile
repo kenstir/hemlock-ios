@@ -43,8 +43,13 @@ lane :dumpvars do
   UI.message("repo_root:   #{repo_root}")
 end
 
+desc "Noop for time trials"
+lane :noop do
+  UI.message("noop")
+end
+
 #-----------------------------------------
-# lanes
+# maintaining version numbers
 
 desc "Print version and build info"
 lane :print_build_info do |options|
@@ -78,6 +83,9 @@ end
 lane :bump_version_build do
   increment_build_number()
 end
+
+#-----------------------------------------
+# building and releasing
 
 desc "Make release IPA and upload to TestFlight"
 lane :make_release do |options|
