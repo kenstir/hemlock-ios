@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D25EEC4828A1E8310090F108"
-               BuildableName = "owwl.app"
+               BuildableName = "OWWL.app"
                BlueprintName = "owwl"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D25EEC4828A1E8310090F108"
-            BuildableName = "owwl.app"
+            BuildableName = "OWWL.app"
             BlueprintName = "owwl"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D25EEC4828A1E8310090F108"
-            BuildableName = "owwl.app"
+            BuildableName = "OWWL.app"
             BlueprintName = "owwl"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>

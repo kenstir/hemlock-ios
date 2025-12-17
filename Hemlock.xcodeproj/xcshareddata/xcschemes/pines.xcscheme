@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
-               BuildableName = "pines.app"
+               BuildableName = "PINES.app"
                BlueprintName = "pines"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
-            BuildableName = "pines.app"
+            BuildableName = "PINES.app"
             BlueprintName = "pines"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
-            BuildableName = "pines.app"
+            BuildableName = "PINES.app"
             BlueprintName = "pines"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
@@ -91,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D287D4F7207AEF2B001AF644"
-            BuildableName = "pines.app"
+            BuildableName = "PINES.app"
             BlueprintName = "pines"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>

@@ -1981,7 +1981,7 @@
 		D25D97212E38412400DBFD65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D25D97282E3963C100DBFD65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D25D972F2E3984BB00DBFD65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D25EECCF28A1E8310090F108 /* owwl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = owwl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D25EECCF28A1E8310090F108 /* OWWL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWWL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25EECD028A1E8310090F108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D25EECD228A1EB2D0090F108 /* OwwlAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwwlAppBehavior.swift; sourceTree = "<group>"; };
 		D25EECD328A1EB2D0090F108 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
@@ -1998,7 +1998,7 @@
 		D276DAE221336B20007FAA31 /* cwmars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cwmars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D276DAE321336B20007FAA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D276DAE621336BE3007FAA31 /* cwmars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cwmars.xcassets; sourceTree = "<group>"; };
-		D279910A20DDD473003B451E /* hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D279910B20DDD473003B451E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D279910E20DDD760003B451E /* hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hemlock.xcassets; sourceTree = "<group>"; };
 		D279911020DDD77F003B451E /* pines.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = pines.xcassets; sourceTree = "<group>"; };
@@ -2025,7 +2025,7 @@
 		D2844F142D0A1B02000F7E2A /* grid-icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "grid-icons.xcassets"; sourceTree = "<group>"; };
 		D2861B452E514BDA00C61AD9 /* XPatronChargeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPatronChargeRecord.swift; sourceTree = "<group>"; };
 		D2861B512E51593F00C61AD9 /* AsyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTests.swift; sourceTree = "<group>"; };
-		D287D4F8207AEF2B001AF644 /* pines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pines.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D287D4F8207AEF2B001AF644 /* PINES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D287D4FB207AEF2B001AF644 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D287D4FD207AEF2B001AF644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D287D500207AEF2B001AF644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainList.storyboard; sourceTree = "<group>"; };
@@ -2104,7 +2104,7 @@
 		D2BB66B0297CA2BE007E19E7 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		D2BBA99720F19CA400B25146 /* OrganizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationTests.swift; sourceTree = "<group>"; };
 		D2BCFCB92210D6EC00EE0C90 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		D2BDA67F22D176BD00D9B60C /* noble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noble.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2BDA67F22D176BD00D9B60C /* NOBLE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOBLE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2BDA68022D176BD00D9B60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2BDA69622D17A8400D9B60C /* noble.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = noble.xcassets; sourceTree = "<group>"; };
 		D2BDA69822D17A9000D9B60C /* NobleTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NobleTheme.swift; sourceTree = "<group>"; };
@@ -2763,16 +2763,16 @@
 		D287D4F9207AEF2B001AF644 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D287D4F8207AEF2B001AF644 /* pines.app */,
+				D287D4F8207AEF2B001AF644 /* PINES.app */,
 				D287D50C207AEF2D001AF644 /* HemlockTests.xctest */,
-				D279910A20DDD473003B451E /* hemlock.app */,
+				D279910A20DDD473003B451E /* Hemlock.app */,
 				D276DAE221336B20007FAA31 /* cwmars.app */,
 				D210EC3622B1EE55002FB5E0 /* acorn.app */,
-				D2BDA67F22D176BD00D9B60C /* noble.app */,
+				D2BDA67F22D176BD00D9B60C /* NOBLE.app */,
 				D23E9FDD23B9200A0030F5C1 /* SageCat.app */,
 				D2477C2B24785A6B00FD4CF6 /* Evergreen Indiana.app */,
 				D2572B1F24AD7755000BA698 /* Missouri Evergreen.app */,
-				D25EECCF28A1E8310090F108 /* owwl.app */,
+				D25EECCF28A1E8310090F108 /* OWWL.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3107,7 +3107,7 @@
 			);
 			name = owwl;
 			productName = Hemlock;
-			productReference = D25EECCF28A1E8310090F108 /* owwl.app */;
+			productReference = D25EECCF28A1E8310090F108 /* OWWL.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D276DA8321336B20007FAA31 /* cwmars */ = {
@@ -3148,7 +3148,7 @@
 			);
 			name = hemlock;
 			productName = Hemlock;
-			productReference = D279910A20DDD473003B451E /* hemlock.app */;
+			productReference = D279910A20DDD473003B451E /* Hemlock.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D287D4F7207AEF2B001AF644 /* pines */ = {
@@ -3172,7 +3172,7 @@
 				D23A1C9A2EE614CE003A673E /* FirebaseAnalyticsCore */,
 			);
 			productName = Hemlock;
-			productReference = D287D4F8207AEF2B001AF644 /* pines.app */;
+			productReference = D287D4F8207AEF2B001AF644 /* PINES.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D287D50B207AEF2D001AF644 /* HemlockTests */ = {
@@ -3214,7 +3214,7 @@
 				D23A1CA02EE6156B003A673E /* FirebaseAnalyticsCore */,
 			);
 			productName = Hemlock;
-			productReference = D2BDA67F22D176BD00D9B60C /* noble.app */;
+			productReference = D2BDA67F22D176BD00D9B60C /* NOBLE.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -5407,7 +5407,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.owwl;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OWWL;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5432,7 +5432,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.owwl;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OWWL;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -5505,7 +5505,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.hemlock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hemlock;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -5529,7 +5529,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.hemlock;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hemlock;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5674,7 +5674,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PINES;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
@@ -5702,7 +5702,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PINES;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
@@ -5771,7 +5771,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.noble;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NOBLE;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5796,7 +5796,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.noble;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NOBLE;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

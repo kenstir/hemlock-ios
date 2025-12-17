@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D27990CA20DDD473003B451E"
-               BuildableName = "hemlock.app"
+               BuildableName = "Hemlock.app"
                BlueprintName = "hemlock"
                ReferencedContainer = "container:Hemlock.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D27990CA20DDD473003B451E"
-            BuildableName = "hemlock.app"
+            BuildableName = "Hemlock.app"
             BlueprintName = "hemlock"
             ReferencedContainer = "container:Hemlock.xcodeproj">
          </BuildableReference>
