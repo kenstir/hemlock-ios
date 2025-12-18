@@ -6,6 +6,8 @@
 * noble: Enable part holds
 
 ### Fixed
+* Fixed blank Address in Library Info when library has an address
+* Fixed wrong Email in Library Info if library doesn't have an email address
 * internal: Upgrade firebase-ios-sdk to 12.0 to fix rare crashes
 * internal: Use fastlane to manage version numbers
 * internal: Standardize names of app files, targets, and schemes

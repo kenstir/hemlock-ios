@@ -95,7 +95,6 @@ class OrgDetailsViewController: UIViewController {
         onOrgLoaded(org)
         onHoursLoaded(org)
         onClosuresLoaded(org)
-        onAddressLoaded(org)
     }
 
     func setupViews() {
@@ -103,6 +102,7 @@ class OrgDetailsViewController: UIViewController {
         self.setupHomeButton()
         self.setupActionButtons()
         self.setupHoursViews()
+        self.setupAddress(org: nil)
     }
 
     func setupActionButtons() {
@@ -113,14 +113,16 @@ class OrgDetailsViewController: UIViewController {
         Style.styleButton(asPlain: phoneButton, trimLeadingInset: true)
         orgButton.addTarget(self, action: #selector(orgButtonPressed(sender:)), for: .touchUpInside)
         webSiteButton.addTarget(self, action: #selector(webSiteButtonPressed(sender:)), for: .touchUpInside)
-        mapButton.addTarget(self, action: #selector(mapButtonPressed(sender:)), for: .touchUpInside)
         emailButton.addTarget(self, action: #selector(emailButtonPressed(sender:)), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonPressed(sender:)), for: .touchUpInside)
+        mapButton.addTarget(self, action: #selector(mapButtonPressed(sender:)), for: .touchUpInside)
         orgButton.isEnabled = false
         webSiteButton.isEnabled = false
         emailButton.isEnabled = false
         phoneButton.isEnabled = false
         mapButton.isEnabled = false
+        emailButton.setTitleEx(nil)
+        phoneButton.setTitleEx(nil)
     }
 
     func setupHoursViews() {
@@ -138,6 +140,16 @@ class OrgDetailsViewController: UIViewController {
         }
     }
 
+    func setupAddress(org: Organization?) {
+        if let obj = org?.addressObj {
+            addressLine1.text = getAddressLine1(obj)
+            addressLine2.text = getAddressLine2(obj)
+        } else {
+            addressLine1.text = ""
+            addressLine2.text = ""
+        }
+    }
+
     func onOrgLoaded(_ org: Organization) {
         orgButton.isEnabled = true
         orgButton.setTitle(org.name, for: .normal)
@@ -149,22 +161,20 @@ class OrgDetailsViewController: UIViewController {
         }
         if let email = org.email, !email.isEmpty {
             emailButton.isEnabled = true
-            emailButton.setTitle(email, for: .normal)
+            emailButton.setTitleEx(email)
         } else {
             emailButton.isEnabled = false
-            emailButton.setTitle(nil, for: .normal)
+            emailButton.setTitleEx(nil)
         }
         if let number = org.phoneNumber, !number.isEmpty {
             phoneButton.isEnabled = true
-            phoneButton.setTitle(number, for: .normal)
+            phoneButton.setTitleEx(number)
         } else {
             phoneButton.isEnabled = false
-            phoneButton.setTitle(nil, for: .normal)
+            phoneButton.setTitleEx(nil)
         }
-    }
-
-    func onAddressLoaded(_ org: Organization) {
-        if let obj = org.addressObj, let _ = mapsURL(obj) {
+        setupAddress(org: org)
+        if let _ = mapsURL(org: org) {
             mapButton.isEnabled = true
         } else {
             mapButton.isEnabled = false
@@ -196,8 +206,7 @@ class OrgDetailsViewController: UIViewController {
 
     @objc func mapButtonPressed(sender: UIButton) {
         let org = Organization.find(byId: orgID)
-        guard let addressObj = org?.addressObj,
-            let url = mapsURL(addressObj) else { return }
+        guard let url = mapsURL(org: org) else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)
 //        print("canOpen: \(canOpen)")
         UIApplication.shared.open(url)
@@ -368,22 +377,14 @@ class OrgDetailsViewController: UIViewController {
         return line2
     }
 
-    func mapsURL(_ obj: OSRFObject) -> URL? {
+    func mapsURL(org: Organization?) -> URL? {
+        guard let obj = org?.addressObj else { return nil }
         var addr = getAddressLine1(obj)
         addr.append(contentsOf: " ")
         addr.append(contentsOf: getAddressLine2(obj))
         guard var c = URLComponents(string: "https://maps.apple.com/") else { return nil }
         c.queryItems = [URLQueryItem(name: "q", value: addr)]
         return c.url
-    }
-
-    func onAddressLoaded(_ aoaObj: OSRFObject?) {
-        let org = Organization.find(byId: orgID)
-        org?.addressObj = aoaObj
-        guard let obj = aoaObj else { return }
-
-        addressLine1.text = getAddressLine1(obj)
-        addressLine2.text = getAddressLine2(obj)
     }
 
     func onOrgTreeLoaded() {

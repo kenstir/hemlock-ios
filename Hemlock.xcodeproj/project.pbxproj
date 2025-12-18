@@ -1677,6 +1677,16 @@
 		D2F390352241E5950089D745 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3902F2241E5950089D745 /* RingBuffer.swift */; };
 		D2F390362241E5950089D745 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3902F2241E5950089D745 /* RingBuffer.swift */; };
 		D2F390392241E6090089D745 /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F390382241E6090089D745 /* RingBufferTests.swift */; };
+		D2F5573A2EF380F8003BE964 /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F557392EF380EE003BE964 /* custom_strings.json */; };
+		D2F5573C2EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F5573D2EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F5573E2EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F5573F2EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F557402EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F557412EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F557422EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F557432EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F557442EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
 		D2FFED6C2DA97BDC0017377E /* CopyLocationCountsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFED6B2DA97BCE0017377E /* CopyLocationCountsTests.swift */; };
 		FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
 		FA37C3F920FC2A09003C2003 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
@@ -2154,6 +2164,8 @@
 		D2F3902E2241E5950089D745 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D2F3902F2241E5950089D745 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		D2F390382241E6090089D745 /* RingBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
+		D2F557392EF380EE003BE964 /* custom_strings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
+		D2F5573B2EF38E27003BE964 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		D2FFED6B2DA97BCE0017377E /* CopyLocationCountsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCountsTests.swift; sourceTree = "<group>"; };
 		FA273D0420D884D8009B152F /* FinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesTableViewCell.swift; sourceTree = "<group>"; };
 		FA37C3F820FC2A09003C2003 /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
@@ -2485,6 +2497,7 @@
 				D24C392F254B9FA400ECAE64 /* URLRequest+.swift */,
 				D2CF924122471D210009C06A /* Utils.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
+				D2F5573B2EF38E27003BE964 /* UIButton+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2657,6 +2670,7 @@
 		D276DAE521336B9F007FAA31 /* cwmars_app */ = {
 			isa = PBXGroup;
 			children = (
+				D2F557392EF380EE003BE964 /* custom_strings.json */,
 				D296EE0A2133802F009BDB12 /* AppFactory.swift */,
 				D296EE092133802F009BDB12 /* CwmarsAppConfiguration.swift */,
 				D296EE0B21338030009BDB12 /* CwmarsTheme.swift */,
@@ -2866,13 +2880,13 @@
 		D2BDA69522D17A4E00D9B60C /* noble_app */ = {
 			isa = PBXGroup;
 			children = (
-				D2C7F2E22CB2052F00CA46B0 /* GoogleService-Info.plist */,
 				D28AE27024FDDD8800960E9E /* custom_strings.json */,
 				D2BDA69B22D17A9100D9B60C /* AppFactory.swift */,
 				D2BDA69A22D17A9000D9B60C /* NobleAppBehavior.swift */,
 				D2BDA69922D17A9000D9B60C /* NobleAppConfiguration.swift */,
 				D2BDA69822D17A9000D9B60C /* NobleTheme.swift */,
 				D2BDA68022D176BD00D9B60C /* Info.plist */,
+				D2C7F2E22CB2052F00CA46B0 /* GoogleService-Info.plist */,
 				D2BDA69622D17A8400D9B60C /* noble.xcassets */,
 			);
 			path = noble_app;
@@ -3502,6 +3516,7 @@
 				D27DF20521AA3D81002DCC47 /* ShowCard.storyboard in Resources */,
 				D2616764220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D2096E17244BACD800627FF5 /* cwmars-pro.xcassets in Resources */,
+				D2F5573A2EF380F8003BE964 /* custom_strings.json in Resources */,
 				D296EE10213381FE009BDB12 /* Default-568h@2x.png in Resources */,
 				D276DADB21336B20007FAA31 /* Fines.storyboard in Resources */,
 				D22D0C952243104600DBB31A /* SendEmail.storyboard in Resources */,
@@ -3957,6 +3972,7 @@
 				D29838602B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5127383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
 				D2EA31212B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
+				D2F5573E2EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D28E04492BA234AB001850C5 /* MainGridViewCell.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainListViewController.swift in Sources */,
@@ -4029,6 +4045,7 @@
 				D2931AA7272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D23E9F8A23B9200A0030F5C1 /* RingBuffer.swift in Sources */,
 				D2C300552E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D2F557442EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D27C8AC72E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66BB297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D23E9F8B23B9200A0030F5C1 /* HemlockError.swift in Sources */,
@@ -4171,6 +4188,7 @@
 				D2931AA3272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2477BD624785A6B00FD4CF6 /* RingBuffer.swift in Sources */,
 				D2C300512E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D2F5573F2EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D27C8AC42E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66B5297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2477BD724785A6B00FD4CF6 /* HemlockError.swift in Sources */,
@@ -4313,6 +4331,7 @@
 				D2931AA8272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2572AC624AD7755000BA698 /* RingBuffer.swift in Sources */,
 				D2C300532E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D2F557422EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D27C8ACA2E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66B6297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2572AC724AD7755000BA698 /* HemlockError.swift in Sources */,
@@ -4455,6 +4474,7 @@
 				D25EEC6828A1E8310090F108 /* SMSCarrier.swift in Sources */,
 				D25EEC6928A1E8310090F108 /* BookBagItem.swift in Sources */,
 				D2C3005A2E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D2F5573C2EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D27C8AC02E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66B9297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D25EEC6A28A1E8310090F108 /* RingBuffer.swift in Sources */,
@@ -4546,6 +4566,7 @@
 				D276DA8921336B20007FAA31 /* OSRFCoder.swift in Sources */,
 				D2EBBB772ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D276DA8A21336B20007FAA31 /* LoginViewController.swift in Sources */,
+				D2F557402EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D2EA312F2B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D27C8AD12E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D2C3EA2329D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
@@ -4687,6 +4708,7 @@
 				FAA9E31921962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D2EBBB722ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D2C3EA2429D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
+				D2F557412EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D2EA31302B3F59EE004CEF6E /* HistoryTableViewCell.swift in Sources */,
 				D27C8AD62E4FE8EA00367643 /* EvergreenBiblioService.swift in Sources */,
 				D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */,
@@ -4879,6 +4901,7 @@
 				D2931AA6272DE56500CBA5AA /* BookBagItem.swift in Sources */,
 				D2C24A34210178DD0028180B /* SMSCarrier.swift in Sources */,
 				D2C300522E3E65AB0082C308 /* XUserService.swift in Sources */,
+				D2F557432EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D27C8AC62E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2BB66BA297CA2BF007E19E7 /* MessagesTableViewCell.swift in Sources */,
 				D2318BD820CC44FA00A027EE /* HemlockError.swift in Sources */,
@@ -5132,6 +5155,7 @@
 				D2BB66C2297CA2BF007E19E7 /* MessagesViewController.swift in Sources */,
 				D29838662B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D2AA9D5627383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2F5573D2EF38E27003BE964 /* UIButton+.swift in Sources */,
 				D2EA31272B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainListViewController.swift in Sources */,
