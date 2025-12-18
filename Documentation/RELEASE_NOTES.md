@@ -3,7 +3,7 @@
 ## 4.3.0
 
 ### New
-* noble: Enable part holds
+* noble: Enable holds on items with parts
 
 ### Fixed
 * Fixed blank Address in Library Info when library has an address
