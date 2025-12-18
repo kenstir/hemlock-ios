@@ -2,10 +2,8 @@
 
 ## 4.3.0
 
-### New
-* noble: Enable holds on items with parts
-
 ### Fixed
+* Fixed issue preventing placing holds on items with parts
 * Fixed blank Address in Library Info when library has an address
 * Fixed wrong Email in Library Info if library doesn't have an email address
 * internal: Upgrade firebase-ios-sdk to 12.0 to fix rare crashes
