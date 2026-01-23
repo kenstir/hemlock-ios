@@ -1,5 +1,10 @@
 # iOS Release Notes
 
+## UNRELEASED
+
+### Fixed
+* Fixed bug preventing placing hold on item with part label having a leading space
+
 ## 4.3.0
 
 ### Fixed

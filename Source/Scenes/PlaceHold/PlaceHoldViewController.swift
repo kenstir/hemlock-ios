@@ -688,7 +688,7 @@ extension PlaceHoldViewController: UITextFieldDelegate {
             vc.option = PickOneOption(optionLabels: partLabels)
             vc.selectedIndex = partLabels.firstIndex(of: selectedPartLabel)
             vc.selectionChangedHandler = { index, trimmedLabel in
-                self.selectedPartLabel = trimmedLabel
+                self.selectedPartLabel = self.partLabels[index]
                 self.partTextField.text = trimmedLabel
             }
             self.navigationController?.pushViewController(vc, animated: true)
