@@ -13,6 +13,12 @@
 #-----------------------------------------
 # funcs
 
+def bail_if_tag_exists(tag)
+  if git_tag_exists(tag: tag, remote: true)
+    UI.user_error!("tag already exists: #{tag}")
+  end
+end
+
 # Returns absolute path to repo root
 def get_repo_root
   File.expand_path("..", __dir__)
@@ -103,19 +109,24 @@ lane :beta do |options|
   UI.user_error!("app: option is required") unless app
 
   tag, msg = get_tag_info(app)
-  if git_tag_exists(tag: tag, remote: true)
-    UI.user_error!("tag already exists: #{tag}")
-  end
-  UI.message("tag: #{tag}")
-  UI.message("msg: #{msg}")
+  bail_if_tag_exists(tag)
 
   make_release(options)
 
+  tag_release(options)
+
+end
+
+desc "Tag release that was manually uploaded"
+lane :tag_release do |options|
+  app = options[:app]
+  UI.user_error!("app: option is required") unless app
+
+  tag, msg = get_tag_info(app)
   add_git_tag(
     tag: tag,
     message: msg,
     grouping: nil
   )
   push_git_tags(tag: tag)
-
 end
