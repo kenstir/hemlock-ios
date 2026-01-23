@@ -91,7 +91,8 @@ class AlamoTests: XCTestCase {
     // fetch the libraries.json file from evergreen-ils.org and decode it
     func test_responseData() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = AF.request(App.directoryURL)
+        let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
+        let request = AF.request(directoryURL)
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")

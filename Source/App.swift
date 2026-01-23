@@ -48,9 +48,6 @@ class App {
     /// TODO: make this injectable
     static var serviceConfig: ServiceConfig = EvergreenServiceConfig()
 
-    /// the URL of the JSON directory of library systems available for use in the Hemlock app
-    static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
-
     /// the valet saves things in the iOS keychain
     static let valet = Valet.valet(with: Identifier(nonEmpty: "Hemlock")!, accessibility: .whenUnlockedThisDeviceOnly)
 

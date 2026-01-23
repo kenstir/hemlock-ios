@@ -33,7 +33,7 @@ class Analytics {
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Analytics")
     static let lock = NSRecursiveLock()
     static var buf = RingBuffer<String>(count: 256)
-    //    static let maxBytesShown = 512
+//    static let maxBytesShown = 512
     static let maxBytesShown = 128
 
     class Event {
