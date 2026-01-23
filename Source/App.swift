@@ -60,18 +60,12 @@ class App {
     static func logout() {
         credentialManager.removeCredential(forUsername: account?.username)
         account?.clear()
-        unloadIDL()
     }
 
     // Clear the active account and switch credentials
     static func switchCredential(credential: Credential?) {
         credentialManager.setActive(credential: credential)
         account?.clear()
-        //unloadIDL()  // I do not see why we would want to do this here
-    }
-
-    static func unloadIDL() {
-        App.idlLoaded = false
     }
 
     static func loadIDL(fromData data: Data) -> Bool {

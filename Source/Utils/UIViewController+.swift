@@ -141,7 +141,6 @@ extension UIViewController {
     /// handle error in async operations by presenting the appropriate alert
     func presentGatewayAlert(forError error: Error, title: String = "Error") {
         if isSessionExpired(error: error) {
-            App.unloadIDL()
             self.showSessionExpiredAlert(error, relogHandler: {
                 self.popToLogin()
             })
