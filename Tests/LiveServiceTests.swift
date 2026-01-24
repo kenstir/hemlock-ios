@@ -173,7 +173,7 @@ class LiveServiceTests: XCTestCase {
 
     func test_loadStartupPrerequisites() async throws {
         try await once_loadStartupPrerequisites()
-        XCTAssertTrue(App.idlLoaded ?? false, "IDL should be loaded")
+        XCTAssertTrue(OSRFCoder.registryCount() > 0, "IDL should be loaded")
     }
 
     // Test that parseIDL registers exactly as many netClasses as we asked for

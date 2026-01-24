@@ -39,7 +39,6 @@ class App {
     static var config: AppConfiguration!
     static var behavior: AppBehavior!
     static var library: Library?
-    static var idlLoaded: Bool?
     static var account: Account?
     static var fcmNotificationToken: String?
     static var launchCount: Int = 0
@@ -66,13 +65,6 @@ class App {
     static func switchCredential(credential: Credential?) {
         credentialManager.setActive(credential: credential)
         account?.clear()
-    }
-
-    static func loadIDL(fromData data: Data) -> Bool {
-        let parser = IDLParser(data: data)
-        let ok = parser.parse()
-        App.idlLoaded = ok
-        return ok
     }
 
     static func printLaunchInfo() {
