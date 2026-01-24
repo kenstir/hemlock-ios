@@ -545,6 +545,7 @@
 		D24D76932234418F00AFE50C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D76902234418F00AFE50C /* UIColor+.swift */; };
 		D24D87A32B730D2200F1B77E /* AppBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D87A22B730D2200F1B77E /* AppBehaviorTests.swift */; };
 		D24D87A52B769FC800F1B77E /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D87A42B769FC800F1B77E /* TestUtils.swift */; };
+		D24E08C52F25240700995751 /* TestServiceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E08C42F25240700995751 /* TestServiceData.swift */; };
 		D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2723F616C000D11662 /* CircRecordTests.swift */; };
 		D252DA2A23F6382000D11662 /* HoldRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252DA2923F6382000D11662 /* HoldRecordTests.swift */; };
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
@@ -1974,6 +1975,7 @@
 		D24D76902234418F00AFE50C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		D24D87A22B730D2200F1B77E /* AppBehaviorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBehaviorTests.swift; sourceTree = "<group>"; };
 		D24D87A42B769FC800F1B77E /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		D24E08C42F25240700995751 /* TestServiceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestServiceData.swift; sourceTree = "<group>"; };
 		D252DA2723F616C000D11662 /* CircRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecordTests.swift; sourceTree = "<group>"; };
 		D252DA2923F6382000D11662 /* HoldRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecordTests.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -2822,6 +2824,7 @@
 				D20EE9D72094BC9100AF261D /* MiscTests.swift */,
 				D287D512207AEF2D001AF644 /* Info.plist */,
 				D2F390382241E6090089D745 /* RingBufferTests.swift */,
+				D24E08C42F25240700995751 /* TestServiceData.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -5020,6 +5023,7 @@
 				D2861B522E51593F00C61AD9 /* AsyncTests.swift in Sources */,
 				D2C7150B2B98CAC000A1F585 /* JSONUtilsTests.swift in Sources */,
 				D28AE26024FDD6F000960E9E /* MessageMapTests.swift in Sources */,
+				D24E08C52F25240700995751 /* TestServiceData.swift in Sources */,
 				D252DA2823F616C000D11662 /* CircRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
