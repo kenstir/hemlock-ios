@@ -4,6 +4,7 @@
 
 ### Fixed
 * Fixed bug preventing placing hold on item with part label having a leading space
+* Fixed issue where hemlock.cache_key was ignored
 
 ## 4.3.0
 

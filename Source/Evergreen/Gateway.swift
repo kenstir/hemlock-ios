@@ -66,8 +66,9 @@ class Gateway {
 
         if let val = serverHemlockCacheKey {
             serverCacheKey = "\(serverVersion)-\(val)"
+        } else {
+            serverCacheKey = serverVersion
         }
-        serverCacheKey = serverVersion
     }
 
     /// an encoding that serializes parameters as param=1&param=2
