@@ -122,7 +122,7 @@
 		D210EBFB22B1EE55002FB5E0 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		D210EBFC22B1EE55002FB5E0 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D210EBFD22B1EE55002FB5E0 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
-		D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D210EBFF22B1EE55002FB5E0 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D210EC0322B1EE55002FB5E0 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
@@ -352,7 +352,7 @@
 		D23E9FA123B9200A0030F5C1 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D23E9FA223B9200A0030F5C1 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
-		D23E9FA523B9200A0030F5C1 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D23E9FA523B9200A0030F5C1 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D23E9FA923B9200A0030F5C1 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
@@ -461,7 +461,7 @@
 		D2477BF124785A6B00FD4CF6 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D2477BF224785A6B00FD4CF6 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
-		D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D2477BF524785A6B00FD4CF6 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D2477BF624785A6B00FD4CF6 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2477BF724785A6B00FD4CF6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2477BF824785A6B00FD4CF6 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
@@ -625,7 +625,7 @@
 		D2572AE224AD7755000BA698 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D2572AE324AD7755000BA698 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D2572AE424AD7755000BA698 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
-		D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D2572AE624AD7755000BA698 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2572AE824AD7755000BA698 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2572AE924AD7755000BA698 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
@@ -726,7 +726,7 @@
 		D25EEC8828A1E8310090F108 /* UIBarButtonItem+Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */; };
 		D25EEC8928A1E8310090F108 /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
 		D25EEC8A28A1E8310090F108 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
-		D25EEC8C28A1E8310090F108 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D25EEC8C28A1E8310090F108 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D25EEC8D28A1E8310090F108 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D25EEC8E28A1E8310090F108 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
 		D25EEC8F28A1E8310090F108 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
@@ -779,8 +779,8 @@
 		D2616762220BA1AF0071E1A5 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2616761220BA1AF0071E1A5 /* Options.storyboard */; };
 		D2616763220BA1AF0071E1A5 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2616761220BA1AF0071E1A5 /* Options.storyboard */; };
 		D2616764220BA1AF0071E1A5 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2616761220BA1AF0071E1A5 /* Options.storyboard */; };
-		D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
-		D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D263C2A72113DDFE00C35352 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
+		D263C2A82115564B00C35352 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D2647872291708AA00B672AC /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D2647871291708AA00B672AC /* custom_strings.json */; };
 		D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
@@ -820,7 +820,7 @@
 		D276DAB221336B20007FAA31 /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
 		D276DAB321336B20007FAA31 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		D276DAB421336B20007FAA31 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
-		D276DAB621336B20007FAA31 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D276DAB621336B20007FAA31 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D276DAB821336B20007FAA31 /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
 		D276DAB921336B20007FAA31 /* FineRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196520CEEE1200085255 /* FineRecord.swift */; };
@@ -1410,7 +1410,7 @@
 		D2BDA64322D176BD00D9B60C /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37C3F820FC2A09003C2003 /* LocationPicker.swift */; };
 		D2BDA64422D176BD00D9B60C /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D2BDA64522D176BD00D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */; };
-		D2BDA64722D176BD00D9B60C /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */; };
+		D2BDA64722D176BD00D9B60C /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D2BDA64822D176BD00D9B60C /* MBRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64C95F20E04D34009973E5 /* MBRecord.swift */; };
 		D2BDA64922D176BD00D9B60C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF924122471D210009C06A /* Utils.swift */; };
 		D2BDA64A22D176BD00D9B60C /* OSRFClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72132092691A00E90952 /* OSRFClass.swift */; };
@@ -2032,7 +2032,7 @@
 		D25EECD628A1EB2D0090F108 /* OwwlAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwwlAppConfiguration.swift; sourceTree = "<group>"; };
 		D260755720E0860300795124 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		D2616761220BA1AF0071E1A5 /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
-		D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCounts.swift; sourceTree = "<group>"; };
+		D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenCopyLocationCounts.swift; sourceTree = "<group>"; };
 		D2647871291708AA00B672AC /* custom_strings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = custom_strings.json; sourceTree = "<group>"; };
 		D267E4E6210D17F900C56047 /* CopyCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyCount.swift; sourceTree = "<group>"; };
 		D26A146920B2029900DDA97C /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
@@ -2558,7 +2558,6 @@
 				D287D51B207AEF3D001AF644 /* Account.swift */,
 				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D21981F7235BC7BC003AE531 /* CodedValueMap.swift */,
-				D263C2A62113DDFE00C35352 /* CopyLocationCounts.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
 				D26A146920B2029900DDA97C /* Gateway.swift */,
 				D22D027720857E4C00DC1F5B /* GatewayResponse.swift */,
@@ -2987,6 +2986,7 @@
 				D2931A9E272DE56500CBA5AA /* BookBagItem.swift */,
 				D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */,
 				D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */,
+				D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */,
 				D2EA31052B3F2C67004CEF6E /* EvergreenHistoryRecord.swift */,
 				D22438AD20D35CC000D098D0 /* EvergreenHoldRecord.swift */,
 				D2D8ABC02E42D84500CB36C6 /* EvergreenOrgHours.swift */,
@@ -3979,7 +3979,7 @@
 				D24D491329D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2D074A32E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300592E3E65AB0082C308 /* XUserService.swift in Sources */,
-				D210EBFF22B1EE55002FB5E0 /* CopyLocationCounts.swift in Sources */,
+				D210EBFF22B1EE55002FB5E0 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D21090C624D7243F004FE532 /* MessageMap.swift in Sources */,
 				D210EC0022B1EE55002FB5E0 /* MBRecord.swift in Sources */,
 				D210EC0122B1EE55002FB5E0 /* Utils.swift in Sources */,
@@ -4135,7 +4135,7 @@
 				D24D491D29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
 				D21090CE24D7243F004FE532 /* MessageMap.swift in Sources */,
-				D23E9FA523B9200A0030F5C1 /* CopyLocationCounts.swift in Sources */,
+				D23E9FA523B9200A0030F5C1 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D2C300472E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
 				D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */,
 				D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */,
@@ -4279,7 +4279,7 @@
 				D2CDCD032ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D2477BF324785A6B00FD4CF6 /* CodedValueMap.swift in Sources */,
 				D24D491729D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
-				D2477BF524785A6B00FD4CF6 /* CopyLocationCounts.swift in Sources */,
+				D2477BF524785A6B00FD4CF6 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D21090CA24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2477BF624785A6B00FD4CF6 /* MBRecord.swift in Sources */,
 				D2C300482E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
@@ -4424,7 +4424,7 @@
 				D2D102072ECE79660089FE94 /* BibRecord.swift in Sources */,
 				D2CDCD012ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D24D491829D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
-				D2572AE624AD7755000BA698 /* CopyLocationCounts.swift in Sources */,
+				D2572AE624AD7755000BA698 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */,
 				D21090CF24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2572AE824AD7755000BA698 /* Utils.swift in Sources */,
@@ -4571,7 +4571,7 @@
 				D2CDCD072ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
 				D25EEC8A28A1E8310090F108 /* CodedValueMap.swift in Sources */,
 				D24D491B29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
-				D25EEC8C28A1E8310090F108 /* CopyLocationCounts.swift in Sources */,
+				D25EEC8C28A1E8310090F108 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D25EEC8D28A1E8310090F108 /* MBRecord.swift in Sources */,
 				D25EEC8E28A1E8310090F108 /* MessageMap.swift in Sources */,
 				D2C3004B2E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
@@ -4720,7 +4720,7 @@
 				D233985C2E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2A6C582221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D276DAB421336B20007FAA31 /* IDLParser.swift in Sources */,
-				D276DAB621336B20007FAA31 /* CopyLocationCounts.swift in Sources */,
+				D276DAB621336B20007FAA31 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D2CF924422471D210009C06A /* Utils.swift in Sources */,
 				D276DAB721336B20007FAA31 /* MBRecord.swift in Sources */,
 				D233987F2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
@@ -4865,7 +4865,7 @@
 				D23398582E3BB23F00CBDAEB /* XAuthService.swift in Sources */,
 				D2A6C580221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D27990E320DDD473003B451E /* IDLParser.swift in Sources */,
-				D263C2A72113DDFE00C35352 /* CopyLocationCounts.swift in Sources */,
+				D263C2A72113DDFE00C35352 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D2CF924222471D210009C06A /* Utils.swift in Sources */,
 				FA64C96020E04D34009973E5 /* MBRecord.swift in Sources */,
 				D233987C2E3BB64F00CBDAEB /* EvergreenAuthService.swift in Sources */,
@@ -5009,7 +5009,7 @@
 				D24D491C29D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D21090CD24D7243F004FE532 /* MessageMap.swift in Sources */,
-				D263C2A82115564B00C35352 /* CopyLocationCounts.swift in Sources */,
+				D263C2A82115564B00C35352 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D2C300452E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
 				D2CF924322471D210009C06A /* Utils.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
@@ -5189,7 +5189,7 @@
 				D2C300542E3E65AB0082C308 /* XUserService.swift in Sources */,
 				D24D491929D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2BDA69F22D17A9100D9B60C /* AppFactory.swift in Sources */,
-				D2BDA64722D176BD00D9B60C /* CopyLocationCounts.swift in Sources */,
+				D2BDA64722D176BD00D9B60C /* EvergreenCopyLocationCounts.swift in Sources */,
 				D21090CB24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2BDA64822D176BD00D9B60C /* MBRecord.swift in Sources */,
 				D2CDCD092ED0B7E500B733E1 /* TypeHelpers.swift in Sources */,
