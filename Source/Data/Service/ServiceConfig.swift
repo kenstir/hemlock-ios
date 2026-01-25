@@ -21,6 +21,7 @@ protocol ServiceConfig {
     var authService: XAuthService { get }
     var biblioService: XBiblioService { get }
     var circService: XCircService { get }
+    var consortiumService: ConsortiumService { get }
     var orgService: XOrgService { get }
     var searchService: XSearchService { get }
     var userService: XUserService { get }

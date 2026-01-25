@@ -134,7 +134,7 @@ class DetailsViewController: UIViewController {
                 str = host
             }
         } else {
-            if let org = Organization.find(byShortName: displayOptions.orgShortName) ?? Organization.consortium(),
+            if let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium,
                 let copyCount = record.copyCount(atOrgID: org.id) {
                 str = "\(copyCount.available) of \(copyCount.count) copies available at \(org.name)"
             }
@@ -163,7 +163,7 @@ class DetailsViewController: UIViewController {
             return
         }
 
-        let org = Organization.find(byShortName: displayOptions.orgShortName) ?? Organization.consortium()
+        let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium
         let links = App.behavior.onlineLocations(record: record, forSearchOrg: org?.shortname)
         let numCopies = record.copyCount(atOrgID: org?.id ?? Organization.consortiumOrgID)?.count ?? 0
         print("updateButtonViews: title:\(record.title) links:\(links.count) copies:\(numCopies)")
@@ -247,7 +247,7 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func copyInfoPressed(sender: Any) {
-        let org = Organization.find(byShortName: self.displayOptions.orgShortName) ?? Organization.consortium()
+        let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium
         guard let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController() as? CopyInfoViewController else { return }
 
         vc.org = org

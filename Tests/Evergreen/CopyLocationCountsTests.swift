@@ -24,7 +24,9 @@ class CopyLocationCountsTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        //TestUtils.loadSampleOrgTypes()
         TestUtils.loadExampleOrgs()
+        //TestUtils.loadSampleCopyStatus()
     }
 
     func test_ignoreCopyFromNonVisibleOrg() {
@@ -38,7 +40,8 @@ class CopyLocationCountsTests: XCTestCase {
             XCTFail("Failed to parse JSON array")
             return
         }
-        let copyLocationCounts = CopyLocationCounts.makeArray(fromPayload: arr)
+        let items = EvergreenCopyLocationCounts.makeArray(fromPayload: arr)
+        let copyLocationCounts = visibleCopyLocationCounts(from: items)
         XCTAssertEqual(2, copyLocationCounts.count)
         XCTAssertEqual(4, copyLocationCounts[0].orgID)
         XCTAssertEqual(5, copyLocationCounts[1].orgID)

@@ -21,9 +21,9 @@ import UIKit
 import os.log
 
 class CopyInfoViewController: UIViewController {
-    
+
     //MARK: - Properties
-    
+
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var placeHoldButton: UIButton!
 
@@ -31,27 +31,27 @@ class CopyInfoViewController: UIViewController {
     var record: BibRecord?
     var items: [CopyLocationCounts] = []
     var didCompleteFetch = false
-    
+
     //MARK: - UIViewController
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Task { await self.fetchData() }
     }
-    
+
     //MARK: - Functions
-    
+
     func setupViews() {
         table.delegate = self
         table.dataSource = self
         table.tableFooterView = UIView() // prevent display of ghost rows at end of table
         self.setupHomeButton()
-        
+
         Style.styleButton(asInverse: placeHoldButton)
         placeHoldButton.addTarget(self, action: #selector(placeHoldPressed(sender:)), for: .touchUpInside)
     }
@@ -66,14 +66,15 @@ class CopyInfoViewController: UIViewController {
         }
 
         do {
-            self.items = try await App.serviceConfig.searchService.fetchCopyLocationCounts(recordID: recordID, orgID: org.id, orgLevel: org.level)
-            self.updateItems()
+            let items = try await App.serviceConfig.searchService.fetchCopyLocationCounts(recordID: recordID, orgID: org.id, orgLevel: org.level)
+            self.updateItems(withCopyLocationCounts: items)
         } catch {
             self.presentGatewayAlert(forError: error)
         }
     }
 
-    func updateItems() {
+    func updateItems(withCopyLocationCounts items: [CopyLocationCounts]) {
+        self.items = visibleCopyLocationCounts(from: items)
         self.didCompleteFetch = true
         table.reloadData()
     }
@@ -88,28 +89,29 @@ class CopyInfoViewController: UIViewController {
 //MARK: - UITableViewDataSource
 
 extension CopyInfoViewController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return record?.title
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "copyInfoCell", for: indexPath) as? CopyInfoTableViewCell else {
             fatalError("dequeued cell of wrong class!")
         }
-        
+
         let item = items[indexPath.row]
-        cell.headingLabel.text = item.copyInfoHeading
-        cell.subheadingLabel.text = item.copyInfoSubheading
+        let label = item.copyLocationLabel
+        cell.headingLabel.text = label.heading
+        cell.subheadingLabel.text = label.subhead
         cell.locationLabel.text = item.shelvingLocation
         cell.callNumberLabel.text = item.callNumber
         cell.copyInfoLabel.text = item.countsByStatusLabel
         cell.accessoryType = (App.config.enableCopyInfoWebLinks ? .disclosureIndicator : .none)
-        
+
         return cell
     }
 }
@@ -117,11 +119,11 @@ extension CopyInfoViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 
 extension CopyInfoViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return App.config.enableCopyInfoWebLinks
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
         if let vc = UIStoryboard(name: "OrgDetails", bundle: nil).instantiateInitialViewController() as? OrgDetailsViewController {
@@ -130,4 +132,3 @@ extension CopyInfoViewController: UITableViewDelegate {
         }
     }
 }
-
