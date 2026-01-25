@@ -17,18 +17,6 @@
 
 import Foundation
 
-/// summary of copies at a specific shelving location at a specific org, by status
-protocol CopyLocationCounts {
-    var orgID: Int { get }
-
-    var shelvingLocation: String { get }
-
-    var callNumber: String { get }
-
-    /// newline-separated list of "count status" labels, e.g. "1 Available\n1 Checked out"
-    var countsByStatusLabel: String { get }
-}
-
 class EvergreenCopyLocationCounts: CopyLocationCounts {
     let orgID: Int
     let callNumberPrefix: String?

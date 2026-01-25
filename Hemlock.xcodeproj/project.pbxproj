@@ -1315,6 +1315,15 @@
 		D2AA9D652738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
 		D2AA9D662738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
 		D2AA9D672738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */; };
+		D2AE784B2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
+		D2AE784C2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
+		D2AE784D2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
+		D2AE784E2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
+		D2AE784F2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
+		D2AE78502F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
+		D2AE78512F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
+		D2AE78522F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
+		D2AE78532F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */; };
 		D2B3023A2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */; };
 		D2B3023B2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */; };
 		D2B3023C2E4D2B15006C3BE6 /* XOrgClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */; };
@@ -2138,6 +2147,7 @@
 		D2AA9D4527383B75001E78DB /* BookBagDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookBagDetails.storyboard; sourceTree = "<group>"; };
 		D2AA9D5027383C41001E78DB /* BookBagDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBagDetailsViewController.swift; sourceTree = "<group>"; };
 		D2AA9D5D2738752E001E78DB /* BookBagDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCounts.swift; sourceTree = "<group>"; };
 		D2B302392E4D2B15006C3BE6 /* XOrgClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOrgClosure.swift; sourceTree = "<group>"; };
 		D2B302452E4D589D006C3BE6 /* EvergreenOrgClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenOrgClosure.swift; sourceTree = "<group>"; };
 		D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinesAppBehavior.swift; sourceTree = "<group>"; };
@@ -2755,6 +2765,7 @@
 				D2D102012ECE79660089FE94 /* BibRecord.swift */,
 				D20D14D020B783C1008F66B0 /* CircRecord.swift */,
 				D267E4E6210D17F900C56047 /* CopyCount.swift */,
+				D2AE784A2F26E0050062C4B9 /* CopyLocationCounts.swift */,
 				D231B52B2083C08000478D25 /* Library.swift */,
 				D20B2FEF22CE7BF500F69848 /* Link.swift */,
 				D20B2FE722CC359000F69848 /* MARCRecord.swift */,
@@ -4022,6 +4033,7 @@
 				D28E04492BA234AB001850C5 /* MainGridViewCell.swift in Sources */,
 				D210EC0F22B1EE55002FB5E0 /* Style.swift in Sources */,
 				D210EC1022B1EE55002FB5E0 /* MainListViewController.swift in Sources */,
+				D2AE78512F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D2861B4E2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D29911E4248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D210EC1122B1EE55002FB5E0 /* CopyCount.swift in Sources */,
@@ -4040,6 +4052,7 @@
 				D23E9F6B23B9200A0030F5C1 /* OSRFCoder.swift in Sources */,
 				D27D87C12E565792006F3C5F /* XHoldOptions.swift in Sources */,
 				D246290A273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D2AE784C2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D24D492929D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D23E9F6C23B9200A0030F5C1 /* LoginViewController.swift in Sources */,
 				D23E9F7023B9200A0030F5C1 /* UIColor+.swift in Sources */,
@@ -4186,6 +4199,7 @@
 				D2477BB724785A6B00FD4CF6 /* OSRFCoder.swift in Sources */,
 				D27D87C02E565792006F3C5F /* XHoldOptions.swift in Sources */,
 				D2462906273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D2AE784E2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D24D492329D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2477BB824785A6B00FD4CF6 /* LoginViewController.swift in Sources */,
 				D2477BBC24785A6B00FD4CF6 /* UIColor+.swift in Sources */,
@@ -4332,6 +4346,7 @@
 				D2572AA724AD7755000BA698 /* OSRFCoder.swift in Sources */,
 				D27D87C62E565792006F3C5F /* XHoldOptions.swift in Sources */,
 				D246290B273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D2AE784F2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D24D492429D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D2572AA824AD7755000BA698 /* LoginViewController.swift in Sources */,
 				D2572AAC24AD7755000BA698 /* UIColor+.swift in Sources */,
@@ -4478,6 +4493,7 @@
 				D25EEC4A28A1E8310090F108 /* OSRFCoder.swift in Sources */,
 				D27D87C82E565792006F3C5F /* XHoldOptions.swift in Sources */,
 				D25EEC4B28A1E8310090F108 /* BookBagsTableViewCell.swift in Sources */,
+				D2AE78522F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D24D492729D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				D25EEC4C28A1E8310090F108 /* LoginViewController.swift in Sources */,
 				D25EEC4F28A1E8310090F108 /* UIColor+.swift in Sources */,
@@ -4695,6 +4711,7 @@
 				D2861B462E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D27C8AC52E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D276DAA721336B20007FAA31 /* CopyInfoTableViewCell.swift in Sources */,
+				D2AE784B2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D29838622B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D292735B2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D2AA9D5327383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
@@ -4840,6 +4857,7 @@
 				D2861B502E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D27C8AC22E4FE84900367643 /* XBiblioService.swift in Sources */,
 				D2AA9D5427383C41001E78DB /* BookBagDetailsViewController.swift in Sources */,
+				D2AE78532F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D29838632B9106B50060C3A6 /* PlaceHoldViewController.swift in Sources */,
 				D292735F2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D20B2FF622CF976200F69848 /* AppBehavior.swift in Sources */,
@@ -4914,6 +4932,7 @@
 				D2A74B1721289E8E001D4B0F /* PinesAppConfiguration.swift in Sources */,
 				D27D87C42E565792006F3C5F /* XHoldOptions.swift in Sources */,
 				D2462909273724B1000DC659 /* BookBagsTableViewCell.swift in Sources */,
+				D2AE78502F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D24D492829D0B7AA00EB9C8A /* ResultsTableViewCell.swift in Sources */,
 				FAA9E31A21962296006BA666 /* ShowCardViewController.swift in Sources */,
 				D29C7210209248F500E90952 /* OSRFCoder.swift in Sources */,
@@ -5230,6 +5249,7 @@
 				D2EA31272B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D2BDA69C22D17A9100D9B60C /* NobleTheme.swift in Sources */,
 				D2BDA65922D176BD00D9B60C /* MainListViewController.swift in Sources */,
+				D2AE784D2F26E0050062C4B9 /* CopyLocationCounts.swift in Sources */,
 				D2861B4A2E514BDA00C61AD9 /* XPatronChargeRecord.swift in Sources */,
 				D29911E9248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2BDA65A22D176BD00D9B60C /* CopyCount.swift in Sources */,
