@@ -20,6 +20,10 @@ struct CopyLocationLabel {
 }
 
 extension CopyLocationCounts {
+    /// generate heading and subhead for copy location display
+    ///
+    /// if grouping by system, heading is system name and subhead is branch name
+    /// otherwise heading is branch name and subhead is empty
     var copyLocationLabel: CopyLocationLabel {
         var heading = ""
         var subhead = ""
@@ -38,8 +42,9 @@ extension CopyLocationCounts {
 }
 
 /// sort and filter copy location counts for display
+///
 /// - Parameter array: array of CopyLocationCounts
-/// - Returns: array filtered to visible orgs, sorted by org name or parent org name
+/// - Returns: array filtered to visible orgs and sorted
 func visibleCopyLocationCounts(from array: [CopyLocationCounts]) -> [CopyLocationCounts] {
     var ret: [CopyLocationCounts] = []
     let consortiumService = App.serviceConfig.consortiumService
