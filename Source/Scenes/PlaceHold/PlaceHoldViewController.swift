@@ -659,10 +659,12 @@ extension PlaceHoldViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let consortiumService = App.serviceConfig.consortiumService
+
         switch textField {
         case pickupTextField:
             guard let vc = makeOptionVC(title: "Pickup Location") else { return true }
-            vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: Organization.getIsPickupLocation(), optionIsPrimary: Organization.getIsPrimary())
+            vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: consortiumService.orgSpinnerIsPickupLocationFlags, optionIsPrimary: consortiumService.orgSpinnerIsPrimaryFlags)
             vc.selectedIndex = selectedOrgIndex
             vc.selectionChangedHandler = { index, trimmedLabel in
                 // postpone any possible alert until after OptionsVC is popped

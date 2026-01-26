@@ -32,7 +32,7 @@ protocol ConsortiumService {
     /// search format option labels
     var searchFormatSpinnerLabels: [String] { get }
 
-    /// search format option values corresponding to `searchFormatSpinnerLabels`
+    /// search format option values; parallel array to `searchFormatSpinnerLabels`
     var searchFormatSpinnerValues: [String] { get }
 
     /// SMS carrier option labels
@@ -44,10 +44,13 @@ protocol ConsortiumService {
     /// visible organizations labels for use when selecting an org
     var orgSpinnerLabels: [String] { get }
 
-    /// org short names corresponding to `orgSpinnerLabels`
+    /// org short names; parallel array to `orgSpinnerLabels`
     var orgSpinnerShortNames: [String] { get }
 
-    /// whether each org is primary (bold) corresponding to `orgSpinnerLabels`
+    /// whether each org is a pickup location; parallel array to `orgSpinnerLabels`
+    var orgSpinnerIsPickupLocationFlags: [Bool] { get }
+
+    /// whether each org is primary (bold); parallel array to `orgSpinnerLabels`
     var orgSpinnerIsPrimaryFlags: [Bool] { get }
 
     /// Logs details about all loaded orgs for debugging

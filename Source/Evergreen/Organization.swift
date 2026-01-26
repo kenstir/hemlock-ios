@@ -263,7 +263,7 @@ class Organization {
         return orgs.compactMap { $0.opacVisible ? $0.isPickupLocation : nil }
     }
 
-    static func getIsPrimary() -> [Bool] {
+    static func getIsPrimaryFlags() -> [Bool] {
         return orgs.compactMap { $0.opacVisible ? !$0.canHaveUsers : nil }
     }
 

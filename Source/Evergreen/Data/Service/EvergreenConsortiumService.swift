@@ -38,7 +38,9 @@ class EvergreenConsortiumService: ConsortiumService {
 
     var orgSpinnerShortNames: [String] { return Organization.getShortNames() }
 
-    var orgSpinnerIsPrimaryFlags: [Bool] { return Organization.getIsPrimary() }
+    var orgSpinnerIsPickupLocationFlags: [Bool] { return Organization.getIsPickupLocation() }
+
+    var orgSpinnerIsPrimaryFlags: [Bool] { return Organization.getIsPrimaryFlags() }
 
     func dumpOrgStats() {
         Organization.dumpOrgStats()
