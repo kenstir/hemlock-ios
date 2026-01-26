@@ -21,7 +21,7 @@ class BookBagsViewController : UITableViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
-    var items: [XPatronList] = []
+    var items: [PatronList] = []
     var didCompleteFetch = false
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
 

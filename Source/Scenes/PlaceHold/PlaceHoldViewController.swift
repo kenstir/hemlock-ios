@@ -52,7 +52,7 @@ class PlaceHoldViewController: UIViewController {
 
     var record: BibRecord!
     var holdRecord: HoldRecord?
-    var parts: [XHoldPart] = []
+    var parts: [HoldPart] = []
     var valueChangedHandler: (() -> Void)?
 
     var partLabels: [String] = []
@@ -575,7 +575,7 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
         do {
-            let options = XHoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
+            let options = HoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
             let _ = try await App.serviceConfig.circService.placeHold(account: account, targetID: targetID, withOptions: options)
             activityIndicator.stopAnimating()
             self.logPlaceHold(params: eventParams)
@@ -595,7 +595,7 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
         do {
-            let options = XHoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
+            let options = HoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
             let _ = try await App.serviceConfig.circService.updateHold(account: account, holdID: holdRecord.id, withOptions: options)
             activityIndicator.stopAnimating()
             self.logUpdateHold(params: eventParams)

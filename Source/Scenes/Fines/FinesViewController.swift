@@ -37,7 +37,7 @@ class FinesViewController: UIViewController {
     weak var activityIndicator: UIActivityIndicatorView!
 
     var anyBalanceOwed = false
-    var fines: [XPatronChargeRecord] = []
+    var fines: [PatronChargeRecord] = []
 
     //MARK: - UIViewController
 
@@ -164,7 +164,7 @@ class FinesViewController: UIViewController {
         loadTransactions(fines: charges.transactions)
     }
 
-    func loadTransactions(fines: [XPatronChargeRecord]) {
+    func loadTransactions(fines: [PatronChargeRecord]) {
         self.fines = fines
         for fine in fines {
             print("-----------------------")

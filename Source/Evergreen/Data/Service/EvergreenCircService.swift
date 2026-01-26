@@ -17,7 +17,7 @@
 import Foundation
 import os.log
 
-class EvergreenCircService: XCircService {
+class EvergreenCircService: CircService {
 
     let log = OSLog(subsystem: Bundle.appIdentifier, category: "Circ")
 
@@ -217,13 +217,13 @@ class EvergreenCircService: XCircService {
         os_log("[hold] target=%d qstats done", log: log, type: .info, holdTarget)
     }
 
-    func fetchHoldParts(targetID: Int) async throws -> [XHoldPart] {
+    func fetchHoldParts(targetID: Int) async throws -> [HoldPart] {
         let param: JSONDictionary = [
             "record": targetID
         ]
         let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param], shouldCache: true)
         let parts = try await req.gatewayResponseAsync().asArray()
-        return parts.map { XHoldPart(id: $0.getInt("id") ?? -1, label: $0.getString("label") ?? "Unknown part") }
+        return parts.map { HoldPart(id: $0.getInt("id") ?? -1, label: $0.getString("label") ?? "Unknown part") }
     }
 
     func fetchTitleHoldIsPossible(account: Account, targetID: Int, pickupOrgID: Int) async throws -> Bool {
@@ -241,7 +241,7 @@ class EvergreenCircService: XCircService {
         return true
     }
 
-    func placeHold(account: Account, targetID: Int, withOptions options: XHoldOptions) async throws -> Bool {
+    func placeHold(account: Account, targetID: Int, withOptions options: HoldOptions) async throws -> Bool {
         let obj = try await placeHoldImpl(account: account, targetId: targetID, withOptions: options)
 
         // Retaining old error handling code here, but maybe it's not needed and GatewayResponse.asObject() handles it?
@@ -274,7 +274,7 @@ class EvergreenCircService: XCircService {
         return HemlockError.unexpectedNetworkResponse(String(describing: obj))
     }
 
-    private func placeHoldImpl(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> OSRFObject {
+    private func placeHoldImpl(account: Account, targetId: Int, withOptions options: HoldOptions) async throws -> OSRFObject {
         var complexParam: JSONDictionary = [
             "email_notify": options.notifyByEmail,
             "hold_type": options.holdType,
@@ -301,13 +301,13 @@ class EvergreenCircService: XCircService {
         return try await req.gatewayResponseAsync().asObject()
     }
 
-    func updateHold(account: Account, holdID: Int, withOptions options: XHoldUpdateOptions) async throws -> Bool {
+    func updateHold(account: Account, holdID: Int, withOptions options: HoldUpdateOptions) async throws -> Bool {
         // update hold returns the holdId as a string, but we don't need it
         let _ = try await updateHoldImpl(account: account, holdID: holdID, withOptions: options)
         return true
     }
 
-    private func updateHoldImpl(account: Account, holdID: Int, withOptions options: XHoldUpdateOptions) async throws -> String {
+    private func updateHoldImpl(account: Account, holdID: Int, withOptions options: HoldUpdateOptions) async throws -> String {
         var complexParam: JSONDictionary = [
             "id": holdID,
             "pickup_lib": options.pickupOrgID,

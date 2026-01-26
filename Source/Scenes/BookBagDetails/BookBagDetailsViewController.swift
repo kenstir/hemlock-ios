@@ -21,8 +21,8 @@ class BookBagDetailsViewController : UITableViewController {
 
     weak var activityIndicator: UIActivityIndicatorView!
 
-    var bookBag: XPatronList?
-    var sortedItems: [XListItem] = []
+    var bookBag: PatronList?
+    var sortedItems: [ListItem] = []
     var sortBy: String = ""
     var sortDescending = false
     var sortOrderButton = UIBarButtonItem()
@@ -94,7 +94,7 @@ class BookBagDetailsViewController : UITableViewController {
         activityIndicator.stopAnimating()
     }
 
-    func loadItemDetails(forItem item: XListItem) async throws -> Void {
+    func loadItemDetails(forItem item: ListItem) async throws -> Void {
         try await App.serviceConfig.biblioService.loadRecordDetails(forRecord: item.record, needMARC: App.config.needMARCRecord)
     }
 
@@ -153,7 +153,7 @@ class BookBagDetailsViewController : UITableViewController {
         tableView.reloadData()
     }
 
-    func authorSortComparator(_ a: XListItem, _ b: XListItem, descending: Bool) -> Bool {
+    func authorSortComparator(_ a: ListItem, _ b: ListItem, descending: Bool) -> Bool {
         if (descending) {
             return a.record.author > b.record.author
         } else {
@@ -161,14 +161,14 @@ class BookBagDetailsViewController : UITableViewController {
         }
     }
 
-    func titleSortComparator(_ a: XListItem, _ b: XListItem, descending: Bool) -> Bool {
+    func titleSortComparator(_ a: ListItem, _ b: ListItem, descending: Bool) -> Bool {
         let akey = a.record.titleSortKey
         let bkey = b.record.titleSortKey
         let order = descending ? ComparisonResult.orderedDescending : ComparisonResult.orderedAscending
         return akey.compare(bkey, locale: .current) == order
     }
 
-    func pubdateSortComparator(_ a: XListItem, _ b: XListItem, descending: Bool) -> Bool {
+    func pubdateSortComparator(_ a: ListItem, _ b: ListItem, descending: Bool) -> Bool {
         if (descending) {
             return Utils.pubdateSortKey(a.record.pubdate) ?? 0 > Utils.pubdateSortKey(b.record.pubdate) ?? 0
         } else {
@@ -201,7 +201,7 @@ class BookBagDetailsViewController : UITableViewController {
     }
 
     @MainActor
-    func deleteItem(account: Account, bookBag: XPatronList, item: XListItem) async {
+    func deleteItem(account: Account, bookBag: PatronList, item: ListItem) async {
         do {
             try await App.serviceConfig.userService.removeItemFromPatronList(account: account, listId: bookBag.id, itemId: item.id)
             Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: Analytics.Value.ok])

@@ -17,12 +17,12 @@
 import Foundation
 
 protocol ServiceConfig {
-    var loaderService: XLoaderService { get }
-    var authService: XAuthService { get }
-    var biblioService: XBiblioService { get }
-    var circService: XCircService { get }
+    var loaderService: LoaderService { get }
+    var authService: AuthService { get }
+    var biblioService: BiblioService { get }
+    var circService: CircService { get }
     var consortiumService: ConsortiumService { get }
-    var orgService: XOrgService { get }
-    var searchService: XSearchService { get }
-    var userService: XUserService { get }
+    var orgService: OrgService { get }
+    var searchService: SearchService { get }
+    var userService: UserService { get }
 }

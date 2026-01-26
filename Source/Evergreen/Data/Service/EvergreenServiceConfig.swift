@@ -17,12 +17,12 @@
 import Foundation
 
 class EvergreenServiceConfig: ServiceConfig {
-    var loaderService: any XLoaderService = EvergreenLoaderService()
-    var authService: any XAuthService = EvergreenAuthService()
-    var biblioService: any XBiblioService = EvergreenBiblioService()
-    var circService: any XCircService = EvergreenCircService()
+    var loaderService: any LoaderService = EvergreenLoaderService()
+    var authService: any AuthService = EvergreenAuthService()
+    var biblioService: any BiblioService = EvergreenBiblioService()
+    var circService: any CircService = EvergreenCircService()
     var consortiumService: any ConsortiumService = EvergreenConsortiumService()
-    var orgService: any XOrgService = EvergreenOrgService()
-    var searchService: any XSearchService = EvergreenSearchService()
-    var userService: any XUserService = EvergreenUserService()
+    var orgService: any OrgService = EvergreenOrgService()
+    var searchService: any SearchService = EvergreenSearchService()
+    var userService: any UserService = EvergreenUserService()
 }

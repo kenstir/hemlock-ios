@@ -14,12 +14,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-class XHoldPart {
-    let id: Int
-    let label: String
+import Foundation
 
-    init(id: Int, label: String) {
-        self.id = id
-        self.label = label
-    }
+protocol BiblioService {
+    func imageUrl(forRecord record: BibRecord) -> String?
+    func loadRecordDetails(forRecord record: BibRecord, needMARC: Bool) async throws -> Void
+    func loadRecordAttributes(forRecord record: BibRecord) async throws -> Void
+    func loadRecordCopyCounts(forRecord record: BibRecord, orgID: Int) async throws -> Void
 }

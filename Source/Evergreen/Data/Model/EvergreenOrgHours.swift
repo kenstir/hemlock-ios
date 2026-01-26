@@ -16,7 +16,7 @@
 
 import Foundation
 
-struct EvergreenOrgHours: XOrgHours {
+struct EvergreenOrgHours: OrgHours {
     var day0Hours: String? { return hours(forDay: 0) }
     var day1Hours: String? { return hours(forDay: 1) }
     var day2Hours: String? { return hours(forDay: 2) }

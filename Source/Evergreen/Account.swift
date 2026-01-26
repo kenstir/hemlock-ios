@@ -35,7 +35,7 @@ class Account {
     private(set) var defaultNotifyPhone: Bool?
     private(set) var defaultNotifySMS: Bool?
     private(set) var bookBags: [BookBag] = []
-    var patronLists: [any XPatronList] { return bookBags } //hack until I factor out Account model
+    var patronLists: [any PatronList] { return bookBags } //hack until I factor out Account model
     private(set) var bookBagsEverLoaded = false
 
     var displayName: String {

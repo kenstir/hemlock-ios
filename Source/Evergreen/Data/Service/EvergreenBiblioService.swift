@@ -16,7 +16,7 @@
 
 import Foundation
 
-class EvergreenBiblioService: XBiblioService {
+class EvergreenBiblioService: BiblioService {
     func imageUrl(forRecord record: BibRecord) -> String? {
         return nil
     }

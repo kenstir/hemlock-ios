@@ -294,7 +294,7 @@ class OrgDetailsViewController: UIViewController {
         }
     }
 
-    func makeClosureRow(_ closure: XOrgClosure) -> UIView {
+    func makeClosureRow(_ closure: OrgClosure) -> UIView {
         let info = closure.toInfo()
         return makeClosureRow(firstString: info.dateString, secondString: info.reason)
     }

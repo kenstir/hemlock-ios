@@ -93,7 +93,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator.startAnimating()
 
         do {
-            let options = XLoaderServiceOptions(clientCacheKey: Bundle.appVersionUrlSafe,
+            let options = LoaderServiceOptions(clientCacheKey: Bundle.appVersionUrlSafe,
                                              useHierarchicalOrgTree: App.config.enableHierarchicalOrgTree)
             try await App.serviceConfig.loaderService.loadStartupPrerequisites(options: options)
 

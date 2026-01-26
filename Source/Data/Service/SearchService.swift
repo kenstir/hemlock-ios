@@ -16,7 +16,7 @@
 
 import Foundation
 
-protocol XSearchService {
+protocol SearchService {
     func makeQueryString(searchParameters: SearchParameters) -> String
 
     func fetchSearchResults(queryString: String, limit: Int) async throws -> XSearchResults

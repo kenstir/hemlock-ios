@@ -80,9 +80,9 @@ class Organization {
     let ouType: Int
     let opacVisible: Bool
 
-    var hours: XOrgHours? = nil
+    var hours: OrgHours? = nil
     var addressObj: OSRFObject? = nil
-    var closures: [XOrgClosure] = []
+    var closures: [OrgClosure] = []
 
     var aouObj: OSRFObject
     var parent: Int? { return aouObj.getInt("parent_ou") }

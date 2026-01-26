@@ -19,7 +19,7 @@
 
 import Foundation
 
-class FineRecord: XPatronChargeRecord {
+class FineRecord: PatronChargeRecord {
 
     //MARK: - Properties
 
@@ -77,8 +77,8 @@ class FineRecord: XPatronChargeRecord {
 
     //MARK: - Static Functions
 
-    static func makeArray(_ objects: [OSRFObject]) -> [XPatronChargeRecord] {
-        var ret: [XPatronChargeRecord] = []
+    static func makeArray(_ objects: [OSRFObject]) -> [PatronChargeRecord] {
+        var ret: [PatronChargeRecord] = []
         for obj in objects {
             if let mbtsObj = obj.getObject("transaction") {
                 let circObj = obj.getObject("circ")
