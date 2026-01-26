@@ -29,14 +29,18 @@ protocol ConsortiumService {
     /// last searched organization
     var selectedOrganization: Organization? { get }
 
+    /// all visible organizations
     var visibleOrgs: [Organization] { get }
 
     /// Logs details about all loaded orgs for debugging
     func dumpOrgStats() -> Void
 
-    func find(byId id: Int?) -> Organization?
+    /// find an organization by its ID
+    func find(byID id: Int?) -> Organization?
 
+    /// find an organization by its short name
     func find(byShortName shortname: String?) -> Organization?
 
+    /// find an organization by its full name
     func find(byName name: String?) -> Organization?
 }
