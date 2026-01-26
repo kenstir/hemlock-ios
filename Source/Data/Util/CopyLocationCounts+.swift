@@ -37,6 +37,9 @@ extension CopyLocationCounts {
     }
 }
 
+/// sort and filter copy location counts for display
+/// - Parameter array: array of CopyLocationCounts
+/// - Returns: array filtered to visible orgs, sorted by org name or parent org name
 func visibleCopyLocationCounts(from array: [CopyLocationCounts]) -> [CopyLocationCounts] {
     var ret: [CopyLocationCounts] = []
     let consortiumService = App.serviceConfig.consortiumService
