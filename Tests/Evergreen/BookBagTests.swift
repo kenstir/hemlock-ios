@@ -63,7 +63,7 @@ class BookBagTests: XCTestCase {
         
         bookBag.loadItems(fromFleshedObj: fleshedCbrebObj)
         XCTAssertEqual(51454078, bookBag.items.first?.id)
-        XCTAssertEqual(2914107, bookBag.items.first?.targetId)
+        XCTAssertEqual(2914107, bookBag.items.first?.targetID)
     }
     
     func test_filterToVisibleRecords() {
