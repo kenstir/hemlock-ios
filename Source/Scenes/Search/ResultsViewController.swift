@@ -141,8 +141,8 @@ class ResultsViewController: UIViewController {
     func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
         guard let sp = searchParameters else { return }
         let selectedOrg = Organization.find(byShortName: sp.searchOrg)
-        let defaultOrg = Organization.find(byId: App.account?.searchOrgID)
-        let homeOrg = Organization.find(byId: App.account?.homeOrgID)
+        let defaultOrg = Organization.find(byID: App.account?.searchOrgID)
+        let homeOrg = Organization.find(byID: App.account?.homeOrgID)
         var params: [String: Any] = [
             Analytics.Param.searchClass: sp.searchClass,
             Analytics.Param.searchFormat: sp.searchFormat ?? Analytics.Value.unset,

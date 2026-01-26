@@ -201,7 +201,7 @@ class DetailsViewController: UIViewController {
             print("record.hasMetadata: \(record.hasMetadata)")
             async let details: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
             async let attrs: Void = App.serviceConfig.biblioService.loadRecordAttributes(forRecord: record)
-            async let ccounts: Void = App.serviceConfig.biblioService.loadRecordCopyCounts(forRecord: record, orgId: orgID)
+            async let ccounts: Void = App.serviceConfig.biblioService.loadRecordCopyCounts(forRecord: record, orgID: orgID)
             let _ = try await (details, attrs, ccounts)
         } catch {
             presentGatewayAlert(forError: error)

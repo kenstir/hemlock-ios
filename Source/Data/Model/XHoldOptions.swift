@@ -23,8 +23,8 @@ struct XHoldOptions {
     let notifyByEmail: Bool
     let phoneNotify: String?
     let smsNotify: String?
-    let smsCarrierId: Int?
-    let pickupOrgId: Int
+    let smsCarrierID: Int?
+    let pickupOrgID: Int
     let expirationDate: Date? = nil
     let suspended: Bool = false
     let thawDate: Date? = nil
@@ -35,8 +35,8 @@ struct XHoldUpdateOptions {
     let notifyByEmail: Bool
     let phoneNotify: String?
     let smsNotify: String?
-    let smsCarrierId: Int?
-    let pickupOrgId: Int
+    let smsCarrierID: Int?
+    let pickupOrgID: Int
     let expirationDate: Date?
     let suspended: Bool
     let thawDate: Date?

@@ -51,10 +51,10 @@ class EvergreenBiblioService: XBiblioService {
         }
     }
 
-    func loadRecordCopyCounts(forRecord bibRecord: BibRecord, orgId: Int) async throws {
+    func loadRecordCopyCounts(forRecord bibRecord: BibRecord, orgID: Int) async throws {
         let record: MBRecord = try requireType(bibRecord)
 
-        let array = try await fetchCopyCount(recordID: record.id, orgID: orgId)
+        let array = try await fetchCopyCount(recordID: record.id, orgID: orgID)
         let copyCounts = EvergreenCopyCount.makeArray(fromArray: array)
         record.setCopyCounts(copyCounts)
     }

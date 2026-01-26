@@ -62,7 +62,7 @@ class EvergreenHoldRecord: HoldRecord {
     }
     var smsNotify: String? { return ahrObj.getString("sms_notify") }
     var smsCarrier: Int? { return ahrObj.getInt("sms_carrier") }
-    var pickupOrgId: Int? { return ahrObj.getInt("pickup_lib") }
+    var pickupOrgID: Int? { return ahrObj.getInt("pickup_lib") }
     var expireDate: Date? { return ahrObj.getDate("expire_time") }
     var shelfExpireDate: Date? { return ahrObj.getDate("shelf_expire_time") }
     var thawDate: Date? { return ahrObj.getDate("thaw_date") }
@@ -98,12 +98,12 @@ class EvergreenHoldRecord: HoldRecord {
         }
     }
     var pickupOrgName: String? {
-        return Organization.find(byId: pickupOrgId)?.name
+        return Organization.find(byID: pickupOrgID)?.name
     }
     var transitFrom: String {
         if let transit = ahrObj.getObject("transit"),
             let source = transit.getInt("source"),
-            let org = Organization.find(byId: source) {
+            let org = Organization.find(byID: source) {
             return org.name
         }
         return "unknown"

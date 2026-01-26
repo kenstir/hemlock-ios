@@ -24,6 +24,6 @@ protocol XPatronList {
 
 protocol XListItem {
     var id: Int { get }
-    var targetId: Int { get }
+    var targetID: Int { get }
     var record: BibRecord { get }
 }

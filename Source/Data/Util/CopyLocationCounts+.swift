@@ -23,11 +23,11 @@ extension CopyLocationCounts {
     var copyLocationLabel: CopyLocationLabel {
         var heading = ""
         var subhead = ""
-        if let org = Organization.find(byId: orgID) {
+        if let org = Organization.find(byID: orgID) {
             heading = org.name
             if App.config.groupCopyInfoBySystem,
                 let parentID = org.parent,
-                let parent = Organization.find(byId: parentID)
+                let parent = Organization.find(byID: parentID)
             {
                 heading = parent.name
                 subhead = org.name
@@ -43,7 +43,7 @@ func visibleCopyLocationCounts(from array: [CopyLocationCounts]) -> [CopyLocatio
 
     // if a branch is not opac visible, its copies should not be visible
     for elem in array {
-        if let org = consortiumService.find(byId: elem.orgID),
+        if let org = consortiumService.find(byID: elem.orgID),
            org.opacVisible
         {
             ret.append(elem)
@@ -53,13 +53,13 @@ func visibleCopyLocationCounts(from array: [CopyLocationCounts]) -> [CopyLocatio
     if App.config.groupCopyInfoBySystem {
         // sort by system, then by branch, like http://gapines.org/eg/opac/record/5700567?locg=1
         ret.sort {
-            guard let a = consortiumService.find(byId: $0.orgID),
-                let b = consortiumService.find(byId: $1.orgID) else { return true }
+            guard let a = consortiumService.find(byID: $0.orgID),
+                let b = consortiumService.find(byID: $1.orgID) else { return true }
 
             if let aParent = a.parent,
-                let aParentOrg = consortiumService.find(byId: aParent),
+                let aParentOrg = consortiumService.find(byID: aParent),
                 let bParent = b.parent,
-                let bParentOrg = consortiumService.find(byId: bParent),
+                let bParentOrg = consortiumService.find(byID: bParent),
                 aParent != bParent
             {
                 return aParentOrg.name < bParentOrg.name
@@ -68,8 +68,8 @@ func visibleCopyLocationCounts(from array: [CopyLocationCounts]) -> [CopyLocatio
         }
     } else {
         ret.sort {
-            guard let a = consortiumService.find(byId: $0.orgID),
-                let b = consortiumService.find(byId: $1.orgID) else { return true }
+            guard let a = consortiumService.find(byID: $0.orgID),
+                let b = consortiumService.find(byID: $1.orgID) else { return true }
 
             return a.name < b.name
         }

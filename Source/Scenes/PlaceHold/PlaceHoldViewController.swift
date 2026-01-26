@@ -263,14 +263,14 @@ class PlaceHoldViewController: UIViewController {
         }
         print("PlaceHold: \(record.title): fetching parts")
 
-        self.parts = try await App.serviceConfig.circService.fetchHoldParts(targetId: record.id)
+        self.parts = try await App.serviceConfig.circService.fetchHoldParts(targetID: record.id)
         if self.hasParts,
            App.config.enableTitleHoldOnItemWithParts,
            let pickupOrgID = account.pickupOrgID
         {
             print("PlaceHold: \(self.record.title): checking titleHoldIsPossible")
             do {
-                let _ = try await App.serviceConfig.circService.fetchTitleHoldIsPossible(account: account, targetId: self.record.id, pickupOrgId: pickupOrgID)
+                let _ = try await App.serviceConfig.circService.fetchTitleHoldIsPossible(account: account, targetID: self.record.id, pickupOrgID: pickupOrgID)
                 self.titleHoldIsPossible = true
             } catch {
                 self.titleHoldIsPossible = false
@@ -449,7 +449,7 @@ class PlaceHoldViewController: UIViewController {
         // * ALWAYS saves it back to the account
         orgLabels = Organization.getSpinnerLabels()
 
-        let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgId,
+        let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgID,
                                                 App.account?.pickupOrgID)
 
         selectedOrgIndex = Organization.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
@@ -575,8 +575,8 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
         do {
-            let options = XHoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierId: notifyCarrierID, pickupOrgId: pickupOrg.id)
-            let _ = try await App.serviceConfig.circService.placeHold(account: account, targetId: targetID, withOptions: options)
+            let options = XHoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
+            let _ = try await App.serviceConfig.circService.placeHold(account: account, targetID: targetID, withOptions: options)
             activityIndicator.stopAnimating()
             self.logPlaceHold(params: eventParams)
             self.valueChangedHandler?()
@@ -595,8 +595,8 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
         do {
-            let options = XHoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierId: notifyCarrierID, pickupOrgId: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
-            let _ = try await App.serviceConfig.circService.updateHold(account: account, holdId: holdRecord.id, withOptions: options)
+            let options = XHoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
+            let _ = try await App.serviceConfig.circService.updateHold(account: account, holdID: holdRecord.id, withOptions: options)
             activityIndicator.stopAnimating()
             self.logUpdateHold(params: eventParams)
             self.valueChangedHandler?()
@@ -615,8 +615,8 @@ class PlaceHoldViewController: UIViewController {
         if phoneSwitch.isOn { notifyTypes.append("phone") }
         if smsSwitch.isOn { notifyTypes.append("sms") }
 
-        let defaultOrg = Organization.find(byId: App.account?.pickupOrgID)
-        let homeOrg = Organization.find(byId: App.account?.homeOrgID)
+        let defaultOrg = Organization.find(byID: App.account?.pickupOrgID)
+        let homeOrg = Organization.find(byID: App.account?.homeOrgID)
 
         return [
             Analytics.Param.holdNotify: notifyTypes.joined(separator: "|"),

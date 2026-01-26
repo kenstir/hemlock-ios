@@ -32,8 +32,8 @@ class EvergreenConsortiumService: ConsortiumService {
         Organization.dumpOrgStats()
     }
 
-    func find(byId id: Int?) -> Organization? {
-        return Organization.find(byId: id)
+    func find(byID id: Int?) -> Organization? {
+        return Organization.find(byID: id)
     }
 
     func find(byShortName shortname: String?) -> Organization? {

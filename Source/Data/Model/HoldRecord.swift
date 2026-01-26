@@ -30,7 +30,7 @@ protocol HoldRecord {
     var hasSmsNotify: Bool? { get }
     var smsNotify: String? { get }
     var smsCarrier: Int? { get }
-    var pickupOrgId: Int? { get }
+    var pickupOrgID: Int? { get }
     var expireDate: Date? { get }
     var thawDate: Date? { get }
     var isSuspended: Bool? { get }

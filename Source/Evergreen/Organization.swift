@@ -55,7 +55,7 @@ class OrgType {
         orgTypes = OrgType.makeArray(objects)
     }
     
-    static func find(byId id: Int) -> OrgType? {
+    static func find(byID id: Int) -> OrgType? {
         if let orgType = orgTypes.first(where: { $0.id == id }) {
             return orgType
         }
@@ -111,7 +111,7 @@ class Organization {
         return id == Organization.consortiumOrgID
     }
     var orgType: OrgType? {
-        return OrgType.find(byId: ouType)
+        return OrgType.find(byID: ouType)
     }
     var spinnerLabel: String {
         if App.config.enableHierarchicalOrgTree {
@@ -227,7 +227,7 @@ class Organization {
         return nil
     }
 
-    static func find(byId id: Int?) -> Organization? {
+    static func find(byID id: Int?) -> Organization? {
         if let org = orgs.first(where: { $0.id == id }) {
             return org
         }
@@ -235,7 +235,7 @@ class Organization {
     }
     
     static func consortium() -> Organization? {
-        return find(byId: consortiumOrgID)
+        return find(byID: consortiumOrgID)
     }
     
     static func ancestors(byShortName shortname: String?) -> [String] {
@@ -243,7 +243,7 @@ class Organization {
         var org: Organization? = find(byShortName: shortname)
         while let o = org {
             shortnames.append(o.shortname)
-            org = find(byId: o.parent)
+            org = find(byID: o.parent)
         }
         return shortnames
     }

@@ -22,12 +22,12 @@ import Foundation
 
 class BookBagItem: XListItem {
     let id: Int
-    let targetId: Int
+    let targetID: Int
     let record: BibRecord
 
     init(cbrebiObj: OSRFObject) {
         self.id = cbrebiObj.getInt("id") ?? -1
-        self.targetId = cbrebiObj.getInt("target_biblio_record_entry") ?? -1
-        self.record = MBRecord(id: targetId)
+        self.targetID = cbrebiObj.getInt("target_biblio_record_entry") ?? -1
+        self.record = MBRecord(id: targetID)
     }
 }

@@ -251,7 +251,7 @@ class EvergreenUserService: XUserService {
 
     func isPayChargesEnabled(account: Account) -> Bool {
         if let homeOrgID = account.homeOrgID,
-           let homeOrg = Organization.find(byId: homeOrgID),
+           let homeOrg = Organization.find(byID: homeOrgID),
            homeOrg.isPaymentAllowedSetting == true {
             return true
         }

@@ -134,7 +134,7 @@ class HoldsViewController: UIViewController {
     @MainActor
     func cancelHold(account: Account, holdID: Int) async {
         do {
-            let _ = try await App.serviceConfig.circService.cancelHold(account: account, holdId: holdID)
+            let _ = try await App.serviceConfig.circService.cancelHold(account: account, holdID: holdID)
             self.logCancelHold()
             self.navigationController?.view.makeToast("Hold cancelled")
             self.didCompleteFetch = false
