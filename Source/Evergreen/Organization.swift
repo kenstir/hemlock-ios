@@ -98,6 +98,9 @@ class Organization {
     var infoURL: String?
     var meetingRoomsURL: String?
     var museumPassesURL: String?
+    var canHaveUsers: Bool {
+        return orgType?.canHaveUsers ?? true
+    }
     var isPickupLocation: Bool {
         if let val = isPickupLocationSetting {
             return val
@@ -259,19 +262,9 @@ class Organization {
     static func getIsPickupLocation() -> [Bool] {
         return orgs.compactMap { $0.opacVisible ? $0.isPickupLocation : nil }
     }
-    
+
     static func getIsPrimary() -> [Bool] {
-        return orgs.compactMap {
-            if $0.opacVisible {
-                if let canHaveUsers = $0.orgType?.canHaveUsers {
-                    return !canHaveUsers
-                } else {
-                    return true
-                }
-            } else {
-                return nil
-            }
-        }
+        return orgs.compactMap { $0.opacVisible ? !$0.canHaveUsers : nil }
     }
 
 //    static func getShortName(forName name: String?) -> String? {

@@ -27,11 +27,12 @@ extension CopyLocationCounts {
     var copyLocationLabel: CopyLocationLabel {
         var heading = ""
         var subhead = ""
-        if let org = Organization.find(byID: orgID) {
+        let consortiumService = App.serviceConfig.consortiumService
+        if let org = consortiumService.find(byID: orgID) {
             heading = org.name
             if App.config.groupCopyInfoBySystem,
                 let parentID = org.parent,
-                let parent = Organization.find(byID: parentID)
+                let parent = consortiumService.find(byID: parentID)
             {
                 heading = parent.name
                 subhead = org.name

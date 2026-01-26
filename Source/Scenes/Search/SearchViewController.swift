@@ -89,6 +89,7 @@ class SearchViewController: UIViewController {
     }
 
     func setupOptionsTable() {
+        let consortiumService = App.serviceConfig.consortiumService
         options = []
         options.append(StringOption(
             key: AppState.Str.searchClass,
@@ -100,15 +101,15 @@ class SearchViewController: UIViewController {
             key: AppState.Str.searchFormat,
             title: "Limit to",
             defaultValue: "",
-            optionLabels: CodedValueMap.searchFormatSpinnerLabels(),
-            optionValues: CodedValueMap.searchFormatSpinnerValues()))
+            optionLabels: consortiumService.searchFormatSpinnerLabels,
+            optionValues: consortiumService.searchFormatSpinnerValues))
         options.append(StringOption(
             key: AppState.Str.searchOrgShortName,
             title: "Search within",
-            defaultValue: Organization.find(byID: App.account?.searchOrgID)?.shortname ?? "",
-            optionLabels: Organization.getSpinnerLabels(),
-            optionValues: Organization.getShortNames(),
-            optionIsPrimary: Organization.getIsPrimary()))
+            defaultValue: consortiumService.find(byID: App.account?.searchOrgID)?.shortname ?? "",
+            optionLabels: consortiumService.orgSpinnerLabels,
+            optionValues: consortiumService.orgSpinnerShortNames,
+            optionIsPrimary: consortiumService.orgSpinnerIsPrimaryFlags))
 
         for option in options {
             option.load()

@@ -173,7 +173,7 @@ class MainListViewController: MainBaseViewController {
     }
 
     func onHomeOrgSettingsLoaded(homeOrgID orgID: Int) {
-        if let org = Organization.find(byID: orgID),
+        if let org = App.serviceConfig.consortiumService.find(byID: orgID),
            let eventsURL = org.eventsURL,
            !eventsURL.isEmpty,
            let url = URL(string: eventsURL)

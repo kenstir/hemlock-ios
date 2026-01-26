@@ -18,7 +18,7 @@ import Foundation
 
 protocol ConsortiumService {
     /// an ID to use for the consortium as a whole, when needed
-    var consortiumId: Int { get }
+    var consortiumOrgID: Int { get }
 
     /// is SMS notifications enabled for all orgs?
     var isSmsEnabled: Bool { get }
@@ -29,8 +29,26 @@ protocol ConsortiumService {
     /// last searched organization
     var selectedOrganization: Organization? { get }
 
+    /// search format option labels
+    var searchFormatSpinnerLabels: [String] { get }
+
+    /// search format option values corresponding to `searchFormatSpinnerLabels`
+    var searchFormatSpinnerValues: [String] { get }
+
+    /// SMS carrier option labels
+    var smsCarrierSpinnerLabels: [String] { get }
+
     /// all visible organizations
     var visibleOrgs: [Organization] { get }
+
+    /// visible organizations labels for use when selecting an org
+    var orgSpinnerLabels: [String] { get }
+
+    /// org short names corresponding to `orgSpinnerLabels`
+    var orgSpinnerShortNames: [String] { get }
+
+    /// whether each org is primary (bold) corresponding to `orgSpinnerLabels`
+    var orgSpinnerIsPrimaryFlags: [Bool] { get }
 
     /// Logs details about all loaded orgs for debugging
     func dumpOrgStats() -> Void

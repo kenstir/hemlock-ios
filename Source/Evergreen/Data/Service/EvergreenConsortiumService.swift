@@ -18,7 +18,7 @@ import Foundation
 import os.log
 
 class EvergreenConsortiumService: ConsortiumService {
-    var consortiumId: Int { return Organization.consortiumOrgID }
+    var consortiumOrgID: Int { return Organization.consortiumOrgID }
 
     var isSmsEnabled: Bool { return Organization.isSMSEnabledSetting }
 
@@ -26,7 +26,19 @@ class EvergreenConsortiumService: ConsortiumService {
 
     var selectedOrganization: Organization? = nil
 
+    var searchFormatSpinnerLabels: [String] { return CodedValueMap.searchFormatSpinnerLabels() }
+
+    var searchFormatSpinnerValues: [String] { return CodedValueMap.searchFormatSpinnerValues() }
+
+    var smsCarrierSpinnerLabels: [String] { return SMSCarrier.getSpinnerLabels() }
+
     var visibleOrgs: [Organization] { return Organization.visibleOrgs }
+
+    var orgSpinnerLabels: [String] { return Organization.getSpinnerLabels() }
+
+    var orgSpinnerShortNames: [String] { return Organization.getShortNames() }
+
+    var orgSpinnerIsPrimaryFlags: [Bool] { return Organization.getIsPrimary() }
 
     func dumpOrgStats() {
         Organization.dumpOrgStats()

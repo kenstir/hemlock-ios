@@ -615,8 +615,8 @@ class PlaceHoldViewController: UIViewController {
         if phoneSwitch.isOn { notifyTypes.append("phone") }
         if smsSwitch.isOn { notifyTypes.append("sms") }
 
-        let defaultOrg = Organization.find(byID: App.account?.pickupOrgID)
-        let homeOrg = Organization.find(byID: App.account?.homeOrgID)
+        let defaultOrg = App.serviceConfig.consortiumService.find(byID: App.account?.pickupOrgID)
+        let homeOrg = App.serviceConfig.consortiumService.find(byID: App.account?.homeOrgID)
 
         return [
             Analytics.Param.holdNotify: notifyTypes.joined(separator: "|"),
