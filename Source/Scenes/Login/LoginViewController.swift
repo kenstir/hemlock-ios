@@ -197,8 +197,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func logSuccessfulLogin(account: Account, numCredentials: Int) {
-        let homeOrg = Organization.find(byId: account.homeOrgID)
-        let parentOrg = Organization.find(byId: homeOrg?.parent)
+        let homeOrg = Organization.find(byID: account.homeOrgID)
+        let parentOrg = Organization.find(byID: homeOrg?.parent)
         Analytics.setUserProperty(value: homeOrg?.shortname, forName: Analytics.UserProperty.homeOrg)
         Analytics.setUserProperty(value: parentOrg?.shortname, forName: Analytics.UserProperty.parentOrg)
         Analytics.logEvent(event: Analytics.Event.login, parameters: [

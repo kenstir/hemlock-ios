@@ -61,8 +61,14 @@ class EvergreenLoaderService: XLoaderService {
         let data = try await req.gatewayDataResponseAsync()
         // TODO: make mt-safe, remove await
         await MainActor.run {
-            let _ = App.loadIDL(fromData: data)
+            let _ = loadIDL(fromData: data)
         }
+    }
+
+    private func loadIDL(fromData data: Data) -> Bool {
+        let parser = IDLParser(data: data)
+        let ok = parser.parse()
+        return ok
     }
 
     private func loadOrgTypes() async throws {

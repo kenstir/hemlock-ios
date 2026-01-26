@@ -105,7 +105,7 @@ class SearchViewController: UIViewController {
         options.append(StringOption(
             key: AppState.Str.searchOrgShortName,
             title: "Search within",
-            defaultValue: Organization.find(byId: App.account?.searchOrgID)?.shortname ?? "",
+            defaultValue: Organization.find(byID: App.account?.searchOrgID)?.shortname ?? "",
             optionLabels: Organization.getSpinnerLabels(),
             optionValues: Organization.getShortNames(),
             optionIsPrimary: Organization.getIsPrimary()))

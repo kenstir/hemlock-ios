@@ -217,32 +217,32 @@ class EvergreenCircService: XCircService {
         os_log("[hold] target=%d qstats done", log: log, type: .info, holdTarget)
     }
 
-    func fetchHoldParts(targetId: Int) async throws -> [XHoldPart] {
+    func fetchHoldParts(targetID: Int) async throws -> [XHoldPart] {
         let param: JSONDictionary = [
-            "record": targetId
+            "record": targetID
         ]
         let req = Gateway.makeRequest(service: API.search, method: API.holdParts, args: [param], shouldCache: true)
         let parts = try await req.gatewayResponseAsync().asArray()
         return parts.map { XHoldPart(id: $0.getInt("id") ?? -1, label: $0.getString("label") ?? "Unknown part") }
     }
 
-    func fetchTitleHoldIsPossible(account: Account, targetId: Int, pickupOrgId: Int) async throws -> Bool {
+    func fetchTitleHoldIsPossible(account: Account, targetID: Int, pickupOrgID: Int) async throws -> Bool {
         let complexParam: JSONDictionary = [
             "patronid": account.userID,
-            "pickup_lib": pickupOrgId,
+            "pickup_lib": pickupOrgID,
             "hold_type": API.holdTypeTitle,
-            "titleid": targetId,
+            "titleid": targetID,
         ]
         let req = Gateway.makeRequest(service: API.circ, method: API.titleHoldIsPossible, args: [account.authtoken, complexParam], shouldCache: false)
         // The response is a JSON object with details, e.g. "success":1.  But if a title hold is not possible,
         // the response includes an event, and asObject() will throw.
         let _ = try await req.gatewayResponseAsync().asObject()
-        os_log("[hold] target=%d titleHoldIsPossible=true", log: log, type: .info, targetId)
+        os_log("[hold] target=%d titleHoldIsPossible=true", log: log, type: .info, targetID)
         return true
     }
 
-    func placeHold(account: Account, targetId: Int, withOptions options: XHoldOptions) async throws -> Bool {
-        let obj = try await placeHoldImpl(account: account, targetId: targetId, withOptions: options)
+    func placeHold(account: Account, targetID: Int, withOptions options: XHoldOptions) async throws -> Bool {
+        let obj = try await placeHoldImpl(account: account, targetId: targetID, withOptions: options)
 
         // Retaining old error handling code here, but maybe it's not needed and GatewayResponse.asObject() handles it?
         // If not, it should.
@@ -279,7 +279,7 @@ class EvergreenCircService: XCircService {
             "email_notify": options.notifyByEmail,
             "hold_type": options.holdType,
             "patronid": account.userID,
-            "pickup_lib": options.pickupOrgId,
+            "pickup_lib": options.pickupOrgID,
         ]
         if let phoneNumber = options.phoneNotify,
             !phoneNumber.isEmpty
@@ -288,7 +288,7 @@ class EvergreenCircService: XCircService {
         }
         if let smsNumber = options.smsNotify,
            !smsNumber.isEmpty,
-           let carrierID = options.smsCarrierId
+           let carrierID = options.smsCarrierID
         {
             complexParam["sms_notify"] = smsNumber
             complexParam["sms_carrier"] = carrierID
@@ -301,20 +301,20 @@ class EvergreenCircService: XCircService {
         return try await req.gatewayResponseAsync().asObject()
     }
 
-    func updateHold(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> Bool {
+    func updateHold(account: Account, holdID: Int, withOptions options: XHoldUpdateOptions) async throws -> Bool {
         // update hold returns the holdId as a string, but we don't need it
-        let _ = try await updateHoldImpl(account: account, holdId: holdId, withOptions: options)
+        let _ = try await updateHoldImpl(account: account, holdID: holdID, withOptions: options)
         return true
     }
 
-    private func updateHoldImpl(account: Account, holdId: Int, withOptions options: XHoldUpdateOptions) async throws -> String {
+    private func updateHoldImpl(account: Account, holdID: Int, withOptions options: XHoldUpdateOptions) async throws -> String {
         var complexParam: JSONDictionary = [
-            "id": holdId,
-            "pickup_lib": options.pickupOrgId,
+            "id": holdID,
+            "pickup_lib": options.pickupOrgID,
             "email_notify": options.notifyByEmail,
             "phone_notify": options.phoneNotify,
             "sms_notify": options.smsNotify,
-            "sms_carrier": options.smsCarrierId,
+            "sms_carrier": options.smsCarrierID,
             "frozen": options.suspended,
         ]
         if let date = options.expirationDate {
@@ -327,12 +327,12 @@ class EvergreenCircService: XCircService {
         return try await req.gatewayResponseAsync().asString()
     }
 
-    func cancelHold(account: Account, holdId: Int) async throws -> Bool {
+    func cancelHold(account: Account, holdID: Int) async throws -> Bool {
         let note = "Cancelled by mobile app"
-        let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [account.authtoken, holdId, nil, note], shouldCache: false)
+        let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [account.authtoken, holdID, nil, note], shouldCache: false)
         // holdCancel returns "1" on success, and an error event if it fails.
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[hold] id=%d holdCancel result=%@", log: log, type: .info, holdId, str)
+        os_log("[hold] id=%d holdCancel result=%@", log: log, type: .info, holdID, str)
         return true
     }
 }

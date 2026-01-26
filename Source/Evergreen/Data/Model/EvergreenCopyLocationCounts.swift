@@ -1,6 +1,4 @@
 //
-//  CopyLocationCounts.swift
-//
 //  Copyright (C) 2018 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
@@ -19,16 +17,13 @@
 
 import Foundation
 
-// Details of the copies in an org unit; location, call number, and status
-class CopyLocationCounts {
+class EvergreenCopyLocationCounts: CopyLocationCounts {
     let orgID: Int
     let callNumberPrefix: String?
     let callNumberLabel: String?
     let callNumberSuffix: String?
     let shelvingLocation: String
     var countsByStatus: [(Int, Int)] = [] // (copyStatusID, count)
-    var copyInfoHeading: String = "Unknown Location"
-    var copyInfoSubheading: String = ""
 
     var callNumber: String {
         var ret = ""
@@ -81,23 +76,12 @@ class CopyLocationCounts {
                 let copyLocation = a[4] as? String,
                 let countsByStatus = a[5] as? [String: Int]
             {
-                let copyLocationCount = CopyLocationCounts(orgID: orgID, callNumberPrefix: callNumberPrefix, callNumberLabel: callNumberLabel, callNumberSuffix: callNumberSuffix, location: copyLocation)
+                let copyLocationCount = EvergreenCopyLocationCounts(orgID: orgID, callNumberPrefix: callNumberPrefix, callNumberLabel: callNumberLabel, callNumberSuffix: callNumberSuffix, location: copyLocation)
                 copyLocationCounts.append(copyLocationCount)
                 for (copyStatusIDString, copyCount) in countsByStatus {
                     if let copyStatusID = Int(copyStatusIDString) {
                         copyLocationCount.countsByStatus.append((copyStatusID, copyCount))
                         //print("\(copyStatusID) -> \(copyCount)")
-                    }
-                }
-                if let org = Organization.find(byId: orgID) {
-                    copyLocationCount.copyInfoHeading = org.name
-                    copyLocationCount.copyInfoSubheading = ""
-                    if App.config.groupCopyInfoBySystem,
-                        let parentID = org.parent,
-                        let parent = Organization.find(byId: parentID)
-                    {
-                        copyLocationCount.copyInfoHeading = parent.name
-                        copyLocationCount.copyInfoSubheading = org.name
                     }
                 }
             } else {
@@ -106,58 +90,6 @@ class CopyLocationCounts {
             }
         }
         
-        return CopyLocationCounts.sortArray(copyLocationCounts)
-    }
-    
-    private static func sortArray(_ array: [CopyLocationCounts]) -> [CopyLocationCounts] {
-        var ret: [CopyLocationCounts] = []
-
-        // if a branch is not opac visible, its copies should not be visible
-        for elem in array {
-            if let org = Organization.find(byId: elem.orgID),
-               org.opacVisible
-            {
-                ret.append(elem)
-            }
-        }
-        
-//        print("--------------before sorting")
-//        for elem in ret {
-//            print("\(elem.copyInfoHeading)")
-//            print("    \(elem.copyInfoSubheading)")
-//        }
-
-        if App.config.groupCopyInfoBySystem {
-            // sort by system, then by branch, like http://gapines.org/eg/opac/record/5700567?locg=1
-            ret.sort {
-                guard let a = Organization.find(byId: $0.orgID),
-                    let b = Organization.find(byId: $1.orgID) else { return true }
-
-                if let aParent = a.parent,
-                    let aParentOrg = Organization.find(byId: aParent),
-                    let bParent = b.parent,
-                    let bParentOrg = Organization.find(byId: bParent),
-                    aParent != bParent
-                {
-                    return aParentOrg.name < bParentOrg.name
-                }
-                return a.name < b.name
-            }
-        } else {
-            ret.sort {
-                guard let a = Organization.find(byId: $0.orgID),
-                    let b = Organization.find(byId: $1.orgID) else { return true }
-                
-                return a.name < b.name
-            }
-        }
-        
-//        print("--------------after sorting")
-//        for elem in ret {
-//            print("\(elem.copyInfoHeading)")
-//            print("    \(elem.copyInfoSubheading)")
-//        }
-
-        return ret
+        return copyLocationCounts
     }
 }

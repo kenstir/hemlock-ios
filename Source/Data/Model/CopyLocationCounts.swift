@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2025 Kenneth H. Cox
+//  Copyright (c) 2026 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -14,15 +14,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
+/// summary of copies at a specific shelving location at a specific org, by status
+protocol CopyLocationCounts {
+    var orgID: Int { get }
 
-class EvergreenServiceConfig: ServiceConfig {
-    var loaderService: any XLoaderService = EvergreenLoaderService()
-    var authService: any XAuthService = EvergreenAuthService()
-    var biblioService: any XBiblioService = EvergreenBiblioService()
-    var circService: any XCircService = EvergreenCircService()
-    var consortiumService: any ConsortiumService = EvergreenConsortiumService()
-    var orgService: any XOrgService = EvergreenOrgService()
-    var searchService: any XSearchService = EvergreenSearchService()
-    var userService: any XUserService = EvergreenUserService()
+    var shelvingLocation: String { get }
+
+    var callNumber: String { get }
+
+    /// newline-separated list of "count status" labels, e.g. "1 Available\n1 Checked out"
+    var countsByStatusLabel: String { get }
 }

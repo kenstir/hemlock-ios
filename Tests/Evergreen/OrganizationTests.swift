@@ -84,34 +84,34 @@ class OrganizationTests: XCTestCase {
     func test_loadOrgTypes() {
         XCTAssertEqual(OrgType.orgTypes.count, 3)
 
-        let orgType = OrgType.find(byId: 1)
+        let orgType = OrgType.find(byID: 1)
         XCTAssertEqual(orgType?.canHaveUsers, false)
         XCTAssertEqual(orgType?.canHaveVols, false)
         XCTAssertEqual(orgType?.label, "All Libraries")
         
-        let notype = OrgType.find(byId: 999)
+        let notype = OrgType.find(byID: 999)
         XCTAssertNil(notype)
     }
 
     func test_findOrg() {
-        let org = Organization.find(byId: 1)
+        let org = Organization.find(byID: 1)
         XCTAssertEqual(org?.shortname, "CONS")
 
         let cons = Organization.consortium()
         XCTAssertEqual(cons?.id, 1)
 
-        let system = Organization.find(byId: 28)
+        let system = Organization.find(byID: 28)
         XCTAssertEqual(system?.shortname, "BETSYS")
         XCTAssertEqual(system?.orgType?.canHaveUsers, false)
         XCTAssertEqual(system?.orgType?.canHaveVols, false)
 
-        let lib = Organization.find(byId: 29)
+        let lib = Organization.find(byID: 29)
         XCTAssertEqual(lib?.name, "Bethel Public Library")
         XCTAssertEqual(lib?.shortname, "BETHEL")
         XCTAssertEqual(lib?.orgType?.canHaveUsers, true)
         XCTAssertEqual(lib?.orgType?.canHaveVols, true)
         
-        let nolib = Organization.find(byId: 999)
+        let nolib = Organization.find(byID: 999)
         XCTAssertNil(nolib)
     }
 
@@ -144,7 +144,7 @@ class OrganizationTests: XCTestCase {
     func test_orgDimensionKey() {
         let branchOrg = Organization.find(byShortName: "BETHEL")
         let systemOrg = Organization.find(byShortName: "BETSYS")
-        let consortiumOrg = Organization.find(byId: 1)
+        let consortiumOrg = Organization.find(byID: 1)
 
         XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: nil, homeOrg: nil), "null")
         XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: branchOrg, homeOrg: branchOrg), "default")

@@ -18,7 +18,7 @@ import Foundation
 
 class EvergreenOrgService: XOrgService {
     func loadOrgSettings(forOrgID orgID: Int) async throws {
-        guard let org = Organization.find(byId: orgID) else {
+        guard let org = Organization.find(byID: orgID) else {
             throw HemlockError.internalError("org \(orgID) not found")
         }
 
@@ -40,7 +40,7 @@ class EvergreenOrgService: XOrgService {
     }
 
     func loadOrgDetails(account: Account, forOrgID orgID: Int) async throws {
-        guard let org = Organization.find(byId: orgID) else {
+        guard let org = Organization.find(byID: orgID) else {
             throw HemlockError.internalError("org \(orgID) not found")
         }
 

@@ -83,7 +83,7 @@ class MainGridViewController: MainBaseViewController {
     }
 
     func onHomeOrgSettingsLoaded(homeOrgID orgID: Int) {
-        let org = Organization.find(byId: orgID)
+        let org = Organization.find(byID: orgID)
         self.loadButtons(forOrg: org)
         self.collectionView.reloadData()
     }

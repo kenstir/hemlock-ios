@@ -39,7 +39,6 @@ class App {
     static var config: AppConfiguration!
     static var behavior: AppBehavior!
     static var library: Library?
-    static var idlLoaded: Bool?
     static var account: Account?
     static var fcmNotificationToken: String?
     static var launchCount: Int = 0
@@ -47,9 +46,6 @@ class App {
 
     /// TODO: make this injectable
     static var serviceConfig: ServiceConfig = EvergreenServiceConfig()
-
-    /// the URL of the JSON directory of library systems available for use in the Hemlock app
-    static let directoryURL = "https://evergreen-ils.org/directory/libraries.json"
 
     /// the valet saves things in the iOS keychain
     static let valet = Valet.valet(with: Identifier(nonEmpty: "Hemlock")!, accessibility: .whenUnlockedThisDeviceOnly)
@@ -63,25 +59,12 @@ class App {
     static func logout() {
         credentialManager.removeCredential(forUsername: account?.username)
         account?.clear()
-        unloadIDL()
     }
 
     // Clear the active account and switch credentials
     static func switchCredential(credential: Credential?) {
         credentialManager.setActive(credential: credential)
         account?.clear()
-        //unloadIDL()  // I do not see why we would want to do this here
-    }
-
-    static func unloadIDL() {
-        App.idlLoaded = false
-    }
-
-    static func loadIDL(fromData data: Data) -> Bool {
-        let parser = IDLParser(data: data)
-        let ok = parser.parse()
-        App.idlLoaded = ok
-        return ok
     }
 
     static func printLaunchInfo() {

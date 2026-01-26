@@ -76,7 +76,7 @@ class OrgDetailsViewController: UIViewController {
     func fetchData() async {
         guard let account = App.account,
               let orgID = self.orgID,
-              let org = Organization.find(byId: orgID) else { return }
+              let org = Organization.find(byID: orgID) else { return }
 
         activityIndicator.startAnimating()
 
@@ -196,7 +196,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     @objc func webSiteButtonPressed(sender: UIButton) {
-        let org = Organization.find(byId: orgID)
+        let org = Organization.find(byID: orgID)
         guard let infoURL = org?.infoURL,
             let url = URL(string: infoURL) else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)
@@ -205,7 +205,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     @objc func mapButtonPressed(sender: UIButton) {
-        let org = Organization.find(byId: orgID)
+        let org = Organization.find(byID: orgID)
         guard let url = mapsURL(org: org) else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)
 //        print("canOpen: \(canOpen)")
@@ -213,7 +213,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     @objc func emailButtonPressed(sender: UIButton) {
-        let org = Organization.find(byId: orgID)
+        let org = Organization.find(byID: orgID)
         guard let email = org?.email,
             let url = URL(string: "mailto:\(email)") else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)
@@ -222,7 +222,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     @objc func phoneButtonPressed(sender: UIButton) {
-        let org = Organization.find(byId: orgID)
+        let org = Organization.find(byID: orgID)
         guard let number = org?.phoneNumber,
             let url = URL(string: "tel:\(number)") else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)

@@ -22,43 +22,6 @@ import Alamofire
 import Foundation
 @testable import Hemlock
 
-struct TestServiceData {
-    static let configFile = "TestUserData/testServiceData" // .json
-
-    var httpbinServer = "https://httpbin.org"
-
-    var error: String? = nil
-
-    static func make(fromBundle bundle: Bundle) -> TestServiceData {
-        var serviceData = TestServiceData()
-
-        // read json file
-        guard let path = bundle.path(forResource: TestServiceData.configFile, ofType: "json") else {
-            return serviceData
-        }
-        guard
-            let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
-            let json = try? JSONSerialization.jsonObject(with: data),
-            let jsonObject = json as? [String: Any] else
-        {
-            fatalError("invalid JSON data in \(TestServiceData.configFile).json, see TestUserData/README.md")
-        }
-        if let httpbinServer = jsonObject["httpbinServer"] as? String {
-            serviceData.httpbinServer = httpbinServer
-        }
-        return serviceData
-    }
-
-    func httpbinServerURL(path: String? = nil) -> String {
-        return httpbinServer + (path ?? "/get")
-    }
-
-    func httpbinServerPostURL() -> String {
-        return httpbinServerURL(path: "/post")
-    }
-
-}
-
 class AlamoTests: XCTestCase {
     let gatewayEncoding = URLEncoding(arrayEncoding: .noBrackets, boolEncoding: .numeric)
 
@@ -88,27 +51,21 @@ class AlamoTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
 
-    // fetch the libraries.json file from evergreen-ils.org and decode it
     func test_responseData() {
         let expectation = XCTestExpectation(description: "async response")
-        let request = AF.request(App.directoryURL)
+        let request = AF.request(AlamoTests.serviceData.httpbinServerURL())
         print("request:  \(request.description)")
         request.responseData { response in
             print("response: \(response.description)")
             switch response.result {
             case .success(let data):
-                if let json = try? JSONSerialization.jsonObject(with: data),
-                    let libraries = json as? [JSONDictionary] {
-                    //debugPrint(json)
-                    for library in libraries {
-                        let name = JSONUtils.getString(library, key: "directory_name")
-                        XCTAssertNotNil(name)
-                        let url = JSONUtils.getString(library, key: "url")
-                        XCTAssertNotNil(url)
-                        print("name = \(name ?? ""), url = \(url ?? "")")
-                    }
+                if let json = try? JSONSerialization.jsonObject(with: data) as? JSONDictionary {
+                    debugPrint(json)
+                    let origin = JSONUtils.getString(json, key: "origin")
+                    print("origin = \(origin ?? "")")
+                    XCTAssertNotNil(origin)
                 } else {
-                    XCTFail("unable to decode response as array of dict")
+                    XCTFail("unable to decode response as object")
                 }
             case .failure(let error):
                 XCTFail(error.localizedDescription)

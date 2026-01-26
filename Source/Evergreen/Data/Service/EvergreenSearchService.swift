@@ -49,6 +49,6 @@ class EvergreenSearchService: XSearchService {
         let req = Gateway.makeRequest(service: API.search, method: API.copyLocationCounts, args: args, shouldCache: false)
         let resp = try await req.gatewayResponseAsync()
 
-        return CopyLocationCounts.makeArray(fromPayload: resp.payload)
+        return EvergreenCopyLocationCounts.makeArray(fromPayload: resp.payload)
     }
 }
