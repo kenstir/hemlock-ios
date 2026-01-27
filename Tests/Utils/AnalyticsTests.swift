@@ -53,9 +53,10 @@ class AnalyticsTests: XCTestCase {
     }
 
     func test_orgDimension() {
-        let CONS = Organization.find(byShortName: "CONS")
-        let BR1 = Organization.find(byShortName: "BR1")
-        let BR2 = Organization.find(byShortName: "BR2")
+        let consortiumService = App.serviceConfig.consortiumService
+        let CONS = consortiumService.find(byShortName: "CONS")
+        let BR1 = consortiumService.find(byShortName: "BR1")
+        let BR2 = consortiumService.find(byShortName: "BR2")
 
         XCTAssertEqual("null",
                        Analytics.orgDimension(selectedOrg: BR1, defaultOrg: nil, homeOrg: nil))

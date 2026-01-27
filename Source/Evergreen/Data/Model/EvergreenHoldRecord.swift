@@ -98,12 +98,12 @@ class EvergreenHoldRecord: HoldRecord {
         }
     }
     var pickupOrgName: String? {
-        return Organization.find(byID: pickupOrgID)?.name
+        return EvergreenOrganization.find(byID: pickupOrgID)?.name
     }
     var transitFrom: String {
         if let transit = ahrObj.getObject("transit"),
             let source = transit.getInt("source"),
-            let org = Organization.find(byID: source) {
+            let org = EvergreenOrganization.find(byID: source) {
             return org.name
         }
         return "unknown"

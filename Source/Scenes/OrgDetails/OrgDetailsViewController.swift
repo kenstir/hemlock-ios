@@ -102,7 +102,7 @@ class OrgDetailsViewController: UIViewController {
         self.setupHomeButton()
         self.setupActionButtons()
         self.setupHoursViews()
-        self.setupAddress(org: nil)
+        self.setupAddressLabels(org: nil)
     }
 
     func setupActionButtons() {
@@ -140,14 +140,9 @@ class OrgDetailsViewController: UIViewController {
         }
     }
 
-    func setupAddress(org: Organization?) {
-        if let obj = org?.addressObj {
-            addressLine1.text = getAddressLine1(obj)
-            addressLine2.text = getAddressLine2(obj)
-        } else {
-            addressLine1.text = ""
-            addressLine2.text = ""
-        }
+    func setupAddressLabels(org: Organization?) {
+        addressLine1.text = org?.addressForLabelLine1 ?? ""
+        addressLine2.text = org?.addressForLabelLine2 ?? ""
     }
 
     func onOrgLoaded(_ org: Organization) {
@@ -173,7 +168,7 @@ class OrgDetailsViewController: UIViewController {
             phoneButton.isEnabled = false
             phoneButton.setTitleEx(nil)
         }
-        setupAddress(org: org)
+        setupAddressLabels(org: org)
         if let _ = mapsURL(org: org) {
             mapButton.isEnabled = true
         } else {
@@ -189,7 +184,7 @@ class OrgDetailsViewController: UIViewController {
         vc.title = "Library"
         vc.option = PickOneOption(optionLabels: consortiumService.orgSpinnerLabels, optionValues: consortiumService.orgSpinnerShortNames, optionIsPrimary: consortiumService.orgSpinnerIsPrimaryFlags)
         vc.selectionChangedHandler = { index, _ in
-            let org = Organization.visibleOrgs[index]
+            let org = consortiumService.visibleOrgs[index]
             self.orgID = org.id
         }
 
@@ -350,45 +345,14 @@ class OrgDetailsViewController: UIViewController {
         return stackView
     }
 
-    func getAddressLine1(_ obj: OSRFObject) -> String {
-        var line1 = ""
-        if let s = obj.getString("street1") {
-            line1.append(contentsOf: s)
-        }
-        if let s = obj.getString("street2"), !s.isEmpty {
-            line1.append(contentsOf: " ")
-            line1.append(contentsOf: s)
-        }
-        return line1
-    }
-
-    func getAddressLine2(_ obj: OSRFObject) -> String {
-        var line2 = ""
-        if let s = obj.getString("city"), !s.isEmpty {
-            line2.append(contentsOf: s)
-        }
-        if let s = obj.getString("state"), !s.isEmpty {
-            line2.append(contentsOf: ", ")
-            line2.append(contentsOf: s)
-        }
-        if let s = obj.getString("post_code"), !s.isEmpty {
-            line2.append(contentsOf: " ")
-            line2.append(contentsOf: s)
-        }
-        return line2
-    }
-
     func mapsURL(org: Organization?) -> URL? {
-        guard let obj = org?.addressObj else { return nil }
-        var addr = getAddressLine1(obj)
-        addr.append(contentsOf: " ")
-        addr.append(contentsOf: getAddressLine2(obj))
+        guard let addr = org?.addressForNavigation else { return nil }
         guard var c = URLComponents(string: "https://maps.apple.com/") else { return nil }
         c.queryItems = [URLQueryItem(name: "q", value: addr)]
         return c.url
     }
 
     func onOrgTreeLoaded() {
-        orgLabels = Organization.getSpinnerLabels()
+        orgLabels = App.serviceConfig.consortiumService.orgSpinnerLabels
     }
 }

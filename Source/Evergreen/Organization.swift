@@ -63,12 +63,39 @@ class OrgType {
     }
 }
 
-class Organization {
+protocol Organization {
+    var id: Int { get }
+    var level: Int { get }
+    var name: String { get }
+    var shortname: String { get }
+    var opacVisible: Bool { get }
+    var parent: Int? { get }
+
+    var hours: OrgHours? { get }
+    var closures: [OrgClosure] { get }
+
+    var email: String? { get }
+    var phoneNumber: String? { get }
+    var addressForNavigation: String? { get }
+    var addressForLabelLine1: String? { get }
+    var addressForLabelLine2: String? { get }
+    var eresourcesURL: String? { get }
+    var eventsURL: String? { get }
+    var infoURL: String? { get }
+    var meetingRoomsURL: String? { get }
+    var museumPassesURL: String? { get }
+
+    var spinnerLabel: String { get }
+    var isPickupLocation: Bool { get }
+    var canHaveUsers: Bool { get }
+}
+
+class EvergreenOrganization: Organization {
     static private var orgs: [Organization] = []
     static var isSMSEnabledSetting = false
     static var consortiumOrgID = 1 // as defaulted in Open-ILS code
     static var visibleOrgs: [Organization] {
-        return Organization.orgs.compactMap { $0.opacVisible ? $0 : nil }
+        return EvergreenOrganization.orgs.compactMap { $0.opacVisible ? $0 : nil }
     }
 
     private let lock = NSRecursiveLock()
@@ -81,9 +108,9 @@ class Organization {
     let opacVisible: Bool
 
     var hours: OrgHours? = nil
-    var addressObj: OSRFObject? = nil
     var closures: [OrgClosure] = []
 
+    var addressObj: OSRFObject? = nil
     var aouObj: OSRFObject
     var parent: Int? { return aouObj.getInt("parent_ou") }
     var addressID: Int? { return aouObj.getInt("mailing_address") }
@@ -111,7 +138,7 @@ class Organization {
         return true // should not happen
     }
     var isConsortium: Bool {
-        return id == Organization.consortiumOrgID
+        return id == EvergreenOrganization.consortiumOrgID
     }
     var orgType: OrgType? {
         return OrgType.find(byID: ouType)
@@ -122,6 +149,21 @@ class Organization {
         } else {
             return name
         }
+    }
+    var addressForNavigation: String? {
+        guard let obj = addressObj else { return nil }
+        var addr = getAddressLine1(obj)
+        addr.append(contentsOf: " ")
+        addr.append(contentsOf: getAddressLine2(obj))
+        return addr
+    }
+    var addressForLabelLine1: String? {
+        guard let obj = addressObj else { return nil }
+        return getAddressLine1(obj)
+    }
+    var addressForLabelLine2: String? {
+        guard let obj = addressObj else { return nil }
+        return getAddressLine2(obj)
     }
 
     init(id: Int, level: Int, name: String, shortname: String, ouType: Int, opacVisible: Bool, aouObj obj: OSRFObject) {
@@ -157,30 +199,30 @@ class Organization {
     func loadSettings(fromObj obj: OSRFObject)  {
         lock.lock(); defer { lock.unlock() }
 
-        if let val = Organization.ousGetBool(obj, API.settingCreditPaymentsAllow) {
+        if let val = EvergreenOrganization.ousGetBool(obj, API.settingCreditPaymentsAllow) {
             self.isPaymentAllowedSetting = val
         }
-        if let val = Organization.ousGetBool(obj, API.settingNotPickupLib) {
+        if let val = EvergreenOrganization.ousGetBool(obj, API.settingNotPickupLib) {
             self.isPickupLocationSetting = !val
         }
-        if let val = Organization.ousGetString(obj, API.settingInfoURL) {
+        if let val = EvergreenOrganization.ousGetString(obj, API.settingInfoURL) {
             self.infoURL = val
         }
-        if let val = Organization.ousGetString(obj, API.settingHemlockEresourcesURL) {
+        if let val = EvergreenOrganization.ousGetString(obj, API.settingHemlockEresourcesURL) {
             self.eresourcesURL = val
         }
-        if let val = Organization.ousGetString(obj, API.settingHemlockEventsURL) {
+        if let val = EvergreenOrganization.ousGetString(obj, API.settingHemlockEventsURL) {
             self.eventsURL = val
         }
-        if let val = Organization.ousGetString(obj, API.settingHemlockMeetingRoomsURL)  {
+        if let val = EvergreenOrganization.ousGetString(obj, API.settingHemlockMeetingRoomsURL)  {
             self.meetingRoomsURL = val
         }
-        if let val = Organization.ousGetString(obj, API.settingHemlockMuseumPassesURL) {
+        if let val = EvergreenOrganization.ousGetString(obj, API.settingHemlockMuseumPassesURL) {
             self.museumPassesURL = val
         }
-        if let val = Organization.ousGetBool(obj, API.settingSMSEnable) {
+        if let val = EvergreenOrganization.ousGetBool(obj, API.settingSMSEnable) {
             // this setting is only queried on the top-level org
-            Organization.isSMSEnabledSetting = val
+            EvergreenOrganization.isSMSEnabledSetting = val
         }
         self.areSettingsLoaded = true
     }
@@ -212,6 +254,34 @@ class Organization {
         lock.lock(); defer { lock.unlock() }
 
         closures = EvergreenOrgClosure.makeArray(array)
+    }
+
+    func getAddressLine1(_ obj: OSRFObject) -> String {
+        var line1 = ""
+        if let s = obj.getString("street1") {
+            line1.append(contentsOf: s)
+        }
+        if let s = obj.getString("street2"), !s.isEmpty {
+            line1.append(contentsOf: " ")
+            line1.append(contentsOf: s)
+        }
+        return line1
+    }
+
+    func getAddressLine2(_ obj: OSRFObject) -> String {
+        var line2 = ""
+        if let s = obj.getString("city"), !s.isEmpty {
+            line2.append(contentsOf: s)
+        }
+        if let s = obj.getString("state"), !s.isEmpty {
+            line2.append(contentsOf: ", ")
+            line2.append(contentsOf: s)
+        }
+        if let s = obj.getString("post_code"), !s.isEmpty {
+            line2.append(contentsOf: " ")
+            line2.append(contentsOf: s)
+        }
+        return line2
     }
 
     //MARK: - Static functions
@@ -302,7 +372,7 @@ class Organization {
         {
             throw HemlockError.unexpectedNetworkResponse("decoding org tree")
         }
-        let org = Organization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
+        let org = EvergreenOrganization(id: id, level: level, name: name.trim(), shortname: shortname.trim(), ouType: ouType, opacVisible: opacVisible, aouObj: obj)
         self.orgs.append(org)
 
         let prefix = String(repeating: "   ", count: level)

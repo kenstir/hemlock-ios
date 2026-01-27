@@ -78,7 +78,7 @@ class OrganizationTests: XCTestCase {
             "opac_visible": "t",
             "parent_ou": nil,
         "children": [systemObj]])
-        try? Organization.loadOrganizations(fromObj: consortiumObj)
+        try? EvergreenOrganization.loadOrganizations(fromObj: consortiumObj)
     }
 
     func test_loadOrgTypes() {
@@ -94,57 +94,55 @@ class OrganizationTests: XCTestCase {
     }
 
     func test_findOrg() {
-        let org = Organization.find(byID: 1)
+        let org = EvergreenOrganization.find(byID: 1)
         XCTAssertEqual(org?.shortname, "CONS")
 
-        let cons = Organization.consortium()
+        let cons = EvergreenOrganization.consortium()
         XCTAssertEqual(cons?.id, 1)
 
-        let system = Organization.find(byID: 28)
+        let system = EvergreenOrganization.find(byID: 28)
         XCTAssertEqual(system?.shortname, "BETSYS")
-        XCTAssertEqual(system?.orgType?.canHaveUsers, false)
-        XCTAssertEqual(system?.orgType?.canHaveVols, false)
+        XCTAssertEqual(system?.canHaveUsers, false)
 
-        let lib = Organization.find(byID: 29)
+        let lib = EvergreenOrganization.find(byID: 29)
         XCTAssertEqual(lib?.name, "Bethel Public Library")
         XCTAssertEqual(lib?.shortname, "BETHEL")
-        XCTAssertEqual(lib?.orgType?.canHaveUsers, true)
-        XCTAssertEqual(lib?.orgType?.canHaveVols, true)
-        
-        let nolib = Organization.find(byID: 999)
+        XCTAssertEqual(lib?.canHaveUsers, true)
+
+        let nolib = EvergreenOrganization.find(byID: 999)
         XCTAssertNil(nolib)
     }
 
     func test_findOrgByShortName() {
-        let lib = Organization.find(byShortName: "BETHEL")
+        let lib = EvergreenOrganization.find(byShortName: "BETHEL")
         XCTAssertEqual(29, lib?.id)
         
-        let nolib = Organization.find(byShortName: "XYZZY")
+        let nolib = EvergreenOrganization.find(byShortName: "XYZZY")
         XCTAssertNil(nolib)
     }
 
     func test_spinnerLabels() {
-        let labels = Organization.getSpinnerLabels()
+        let labels = EvergreenOrganization.getSpinnerLabels()
         XCTAssertEqual(labels, ["Bibliomation", "   Bethel Public Library"])
         
         // check that the position of an org in the spinner labels is
         // the same as the position of that org in the orgs array
-        let orgFromSpinner = Organization.find(byName: labels.last?.trim())
+        let orgFromSpinner = EvergreenOrganization.find(byName: labels.last?.trim())
         XCTAssertEqual(orgFromSpinner?.name, "Bethel Public Library")
-        let orgFromGlobal = Organization.visibleOrgs[labels.endIndex-1]
+        let orgFromGlobal = EvergreenOrganization.visibleOrgs[labels.endIndex-1]
         XCTAssertEqual(orgFromGlobal.name, "Bethel Public Library")
         XCTAssertEqual(orgFromSpinner?.id, orgFromGlobal.id)
     }
 
     func test_orgAncestry() {
-        let ancestors = Organization.ancestors(byShortName: "BETHEL")
+        let ancestors = EvergreenOrganization.ancestors(byShortName: "BETHEL")
         XCTAssertEqual(ancestors, ["BETHEL", "BETSYS", "CONS"])
     }
 
     func test_orgDimensionKey() {
-        let branchOrg = Organization.find(byShortName: "BETHEL")
-        let systemOrg = Organization.find(byShortName: "BETSYS")
-        let consortiumOrg = Organization.find(byID: 1)
+        let branchOrg = EvergreenOrganization.find(byShortName: "BETHEL")
+        let systemOrg = EvergreenOrganization.find(byShortName: "BETSYS")
+        let consortiumOrg = EvergreenOrganization.find(byID: 1)
 
         XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: nil, homeOrg: nil), "null")
         XCTAssertEqual(Analytics.orgDimension(selectedOrg: branchOrg, defaultOrg: branchOrg, homeOrg: branchOrg), "default")

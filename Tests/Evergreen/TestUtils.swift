@@ -19,7 +19,7 @@ import XCTest
 import Foundation
 @testable import Hemlock
 
-class TestAppBehavior: BaseAppBehavior {
+class TestAppBehavior: EvergreenAppBehavior {
     override func isVisibleToOrg(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
         return isVisibleViaLocatedURI(datafield, orgShortName: orgShortName);
     }
@@ -88,7 +88,7 @@ class TestUtils {
             "opac_visible": "t",
             "parent_ou": nil,
             "children": [sys1, sys2]])
-        try? Organization.loadOrganizations(fromObj: cons)
+        try? EvergreenOrganization.loadOrganizations(fromObj: cons)
     }
 
     static func loadMARCRecord(fromBundle bundle: Bundle, fileBaseName: String) -> MARCRecord {

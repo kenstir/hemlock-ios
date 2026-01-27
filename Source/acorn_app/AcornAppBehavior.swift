@@ -17,7 +17,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class AcornAppBehavior: BaseAppBehavior {
+class AcornAppBehavior: EvergreenAppBehavior {
     override func isOnlineResource(record: BibRecord) -> Bool {
         if let item_form = record.attrs?["item_form"] {
             if item_form == "o" {
