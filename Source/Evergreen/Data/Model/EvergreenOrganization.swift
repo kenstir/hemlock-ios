@@ -63,33 +63,6 @@ class OrgType {
     }
 }
 
-protocol Organization {
-    var id: Int { get }
-    var level: Int { get }
-    var name: String { get }
-    var shortname: String { get }
-    var opacVisible: Bool { get }
-    var parent: Int? { get }
-
-    var hours: OrgHours? { get }
-    var closures: [OrgClosure] { get }
-
-    var email: String? { get }
-    var phoneNumber: String? { get }
-    var addressForNavigation: String? { get }
-    var addressForLabelLine1: String? { get }
-    var addressForLabelLine2: String? { get }
-    var eresourcesURL: String? { get }
-    var eventsURL: String? { get }
-    var infoURL: String? { get }
-    var meetingRoomsURL: String? { get }
-    var museumPassesURL: String? { get }
-
-    var spinnerLabel: String { get }
-    var isPickupLocation: Bool { get }
-    var canHaveUsers: Bool { get }
-}
-
 class EvergreenOrganization: Organization {
     static private var orgs: [Organization] = []
     static var isSMSEnabledSetting = false
