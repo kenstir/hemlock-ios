@@ -16,28 +16,6 @@
 
 import Foundation
 
-/// Options for placing a hold.
-struct XHoldOptions {
-    let holdType: String
-    let useOverride: Bool
-    let notifyByEmail: Bool
-    let phoneNotify: String?
-    let smsNotify: String?
-    let smsCarrierID: Int?
-    let pickupOrgID: Int
-    let expirationDate: Date? = nil
-    let suspended: Bool = false
-    let thawDate: Date? = nil
-}
-
-/// Options for updating a hold
-struct XHoldUpdateOptions {
-    let notifyByEmail: Bool
-    let phoneNotify: String?
-    let smsNotify: String?
-    let smsCarrierID: Int?
-    let pickupOrgID: Int
-    let expirationDate: Date?
-    let suspended: Bool
-    let thawDate: Date?
+protocol AuthService {
+    func fetchAuthToken(credential: Credential) async throws -> String
 }

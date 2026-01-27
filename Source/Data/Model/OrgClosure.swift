@@ -14,16 +14,18 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-protocol XPatronList {
-    var id: Int { get }
-    var name: String { get }
-    var description: String? { get }
-    var isPublic: Bool { get }
-    var items: [XListItem] { get set }
+import Foundation
+
+struct OrgClosureInfo {
+    let dateString: String
+    let reason: String
+    let isDateRange: Bool
 }
 
-protocol XListItem {
-    var id: Int { get }
-    var targetID: Int { get }
-    var record: BibRecord { get }
+protocol OrgClosure {
+    var start: Date { get }
+    var end: Date { get }
+    var reason: String { get }
+
+    func toInfo() -> OrgClosureInfo
 }

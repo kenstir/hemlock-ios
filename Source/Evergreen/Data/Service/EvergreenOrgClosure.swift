@@ -16,7 +16,7 @@
 
 import Foundation
 
-class EvergreenOrgClosure: XOrgClosure {
+class EvergreenOrgClosure: OrgClosure {
     let start: Date
     let end: Date
     let reason: String

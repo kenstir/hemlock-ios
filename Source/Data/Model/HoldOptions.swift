@@ -16,12 +16,28 @@
 
 import Foundation
 
-struct XLoaderServiceOptions {
-    let clientCacheKey: String
-    let useHierarchicalOrgTree: Bool
+/// Options for placing a hold.
+struct HoldOptions {
+    let holdType: String
+    let useOverride: Bool
+    let notifyByEmail: Bool
+    let phoneNotify: String?
+    let smsNotify: String?
+    let smsCarrierID: Int?
+    let pickupOrgID: Int
+    let expirationDate: Date? = nil
+    let suspended: Bool = false
+    let thawDate: Date? = nil
 }
 
-protocol XLoaderService {
-    func loadStartupPrerequisites(options: XLoaderServiceOptions) async throws -> Void
-    func loadPlaceHoldPrerequisites() async throws -> Void
+/// Options for updating a hold
+struct HoldUpdateOptions {
+    let notifyByEmail: Bool
+    let phoneNotify: String?
+    let smsNotify: String?
+    let smsCarrierID: Int?
+    let pickupOrgID: Int
+    let expirationDate: Date?
+    let suspended: Bool
+    let thawDate: Date?
 }

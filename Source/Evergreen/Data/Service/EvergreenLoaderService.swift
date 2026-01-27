@@ -17,8 +17,8 @@
 import Foundation
 import os.log
 
-class EvergreenLoaderService: XLoaderService {
-    func loadStartupPrerequisites(options: XLoaderServiceOptions) async throws {
+class EvergreenLoaderService: LoaderService {
+    func loadStartupPrerequisites(options: LoaderServiceOptions) async throws {
         let start = Date()
 
         // sync: cache keys must be established first, before IDL is loaded
@@ -46,13 +46,13 @@ class EvergreenLoaderService: XLoaderService {
         let versionReq = Gateway.makeRequest(service: API.actor, method: API.ilsVersion, args: [], shouldCache: false)
 
         let settings = [API.settingHemlockCacheKey]
-        let cacheKeyReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [Organization.consortiumOrgID, settings, API.anonymousAuthToken], shouldCache: false)
+        let cacheKeyReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [EvergreenOrganization.consortiumOrgID, settings, API.anonymousAuthToken], shouldCache: false)
 
         // await both responses in parallel
         async let versionResp = try versionReq.gatewayResponseAsync()
         async let settingsResp = try cacheKeyReq.gatewayResponseAsync()
         let (version, settingsObj) = try await (versionResp.asString(), settingsResp.asObject())
-        let settingsVal = Organization.ousGetString(settingsObj, API.settingHemlockCacheKey)
+        let settingsVal = EvergreenOrganization.ousGetString(settingsObj, API.settingHemlockCacheKey)
         Gateway.setServerCacheKey(serverVersion: version, serverHemlockCacheKey: settingsVal)
     }
 
@@ -85,7 +85,7 @@ class EvergreenLoaderService: XLoaderService {
         let obj = try await req.gatewayResponseAsync().asObject()
         // TODO: make mt-safe, remove await
         try await MainActor.run {
-            try Organization.loadOrganizations(fromObj: obj)
+            try EvergreenOrganization.loadOrganizations(fromObj: obj)
         }
     }
 
@@ -121,8 +121,10 @@ class EvergreenLoaderService: XLoaderService {
     func loadPlaceHoldPrerequisites() async throws {
         try await withThrowingTaskGroup(of: Void.self) { group in
             group.addTask { try await self.loadSMSCarriersAsync() }
-            for org in Organization.visibleOrgs {
-                if !org.areSettingsLoaded {
+            for visibleOrg in EvergreenOrganization.visibleOrgs {
+                if let org = visibleOrg as? EvergreenOrganization,
+                   !org.areSettingsLoaded
+                {
                     group.addTask {
                         try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: org.id)
                     }

@@ -14,7 +14,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-protocol XPatronChargeRecord {
+protocol PatronChargeRecord {
     var title: String { get }
     var subtitle: String { get }
     var balanceOwed: Double? { get }
@@ -26,9 +26,9 @@ class PatronCharges {
     let totalCharges: Double
     let totalPaid: Double
     let balanceOwed: Double
-    let transactions: [XPatronChargeRecord]
+    let transactions: [PatronChargeRecord]
 
-    init(totalCharges: Double, totalPaid: Double, balanceOwed: Double, transactions: [XPatronChargeRecord]) {
+    init(totalCharges: Double, totalPaid: Double, balanceOwed: Double, transactions: [PatronChargeRecord]) {
         self.totalCharges = totalCharges
         self.totalPaid = totalPaid
         self.balanceOwed = balanceOwed

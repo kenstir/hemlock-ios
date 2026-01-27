@@ -52,7 +52,7 @@ class PlaceHoldViewController: UIViewController {
 
     var record: BibRecord!
     var holdRecord: HoldRecord?
-    var parts: [XHoldPart] = []
+    var parts: [HoldPart] = []
     var valueChangedHandler: (() -> Void)?
 
     var partLabels: [String] = []
@@ -296,7 +296,7 @@ class PlaceHoldViewController: UIViewController {
         loadCarrierData()
         loadExpirationData()
         enableViewsWhenReady()
-        Organization.dumpOrgStats()
+        App.serviceConfig.consortiumService.dumpOrgStats()
     }
 
     func loadNotifyData() {
@@ -447,12 +447,13 @@ class PlaceHoldViewController: UIViewController {
         // * it always defaults to the account setting
         // * changing it results in an JUST ONCE / ALWAYS alert
         // * ALWAYS saves it back to the account
-        orgLabels = Organization.getSpinnerLabels()
+        let consortiumService = App.serviceConfig.consortiumService
+        orgLabels = consortiumService.orgSpinnerLabels
 
         let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgID,
                                                 App.account?.pickupOrgID)
 
-        selectedOrgIndex = Organization.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
+        selectedOrgIndex = consortiumService.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
         let label = orgLabels[selectedOrgIndex].trim()
         pickupTextField.text = label
         print("[prefs] Pickup org: default is \(label)")
@@ -461,7 +462,8 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func maybeChangePickupOrg(newIndex: Int, newLabel: String) {
-        let newOrg = Organization.visibleOrgs[newIndex]
+        let consortiumService = App.serviceConfig.consortiumService
+        let newOrg = consortiumService.visibleOrgs[newIndex]
         print("[prefs] Pickup org: selected \(newOrg.name)")
         guard newIndex != selectedOrgIndex else { return }
 
@@ -514,7 +516,7 @@ class PlaceHoldViewController: UIViewController {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
-        let pickupOrg = Organization.visibleOrgs[selectedOrgIndex]
+        let pickupOrg = App.serviceConfig.consortiumService.visibleOrgs[selectedOrgIndex]
         if !pickupOrg.isPickupLocation {
             self.showAlert(title: "Not a pickup location", message: "You cannot pick up items at \(pickupOrg.name)")
             return
@@ -575,7 +577,7 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
         do {
-            let options = XHoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
+            let options = HoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
             let _ = try await App.serviceConfig.circService.placeHold(account: account, targetID: targetID, withOptions: options)
             activityIndicator.stopAnimating()
             self.logPlaceHold(params: eventParams)
@@ -595,7 +597,7 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
         do {
-            let options = XHoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
+            let options = HoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
             let _ = try await App.serviceConfig.circService.updateHold(account: account, holdID: holdRecord.id, withOptions: options)
             activityIndicator.stopAnimating()
             self.logUpdateHold(params: eventParams)
@@ -615,8 +617,8 @@ class PlaceHoldViewController: UIViewController {
         if phoneSwitch.isOn { notifyTypes.append("phone") }
         if smsSwitch.isOn { notifyTypes.append("sms") }
 
-        let defaultOrg = Organization.find(byID: App.account?.pickupOrgID)
-        let homeOrg = Organization.find(byID: App.account?.homeOrgID)
+        let defaultOrg = App.serviceConfig.consortiumService.find(byID: App.account?.pickupOrgID)
+        let homeOrg = App.serviceConfig.consortiumService.find(byID: App.account?.homeOrgID)
 
         return [
             Analytics.Param.holdNotify: notifyTypes.joined(separator: "|"),
@@ -659,10 +661,12 @@ extension PlaceHoldViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let consortiumService = App.serviceConfig.consortiumService
+
         switch textField {
         case pickupTextField:
             guard let vc = makeOptionVC(title: "Pickup Location") else { return true }
-            vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: Organization.getIsPickupLocation(), optionIsPrimary: Organization.getIsPrimary())
+            vc.option = PickOneOption(optionLabels: orgLabels, optionIsEnabled: consortiumService.orgSpinnerIsPickupLocationFlags, optionIsPrimary: consortiumService.orgSpinnerIsPrimaryFlags)
             vc.selectedIndex = selectedOrgIndex
             vc.selectionChangedHandler = { index, trimmedLabel in
                 // postpone any possible alert until after OptionsVC is popped

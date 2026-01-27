@@ -18,7 +18,7 @@ import Foundation
 import Alamofire
 import os.log
 
-class EvergreenUserService: XUserService {
+class EvergreenUserService: UserService {
 
     //MARK: - Session Management
 
@@ -59,7 +59,7 @@ class EvergreenUserService: XUserService {
         account.loadBookBags(fromArray: objects)
     }
 
-    func loadPatronListItems(account: Account, patronList: XPatronList) async throws {
+    func loadPatronListItems(account: Account, patronList: PatronList) async throws {
         print("\(Utils.tt) \(patronList.id) loadPatronListItems")
         let bookBag: BookBag = try requireType(patronList)
 
@@ -251,8 +251,8 @@ class EvergreenUserService: XUserService {
 
     func isPayChargesEnabled(account: Account) -> Bool {
         if let homeOrgID = account.homeOrgID,
-           let homeOrg = Organization.find(byID: homeOrgID),
-           homeOrg.isPaymentAllowedSetting == true {
+           let homeOrg = EvergreenOrganization.find(byID: homeOrgID),
+           homeOrg.isPaymentEnabled {
             return true
         }
         return false

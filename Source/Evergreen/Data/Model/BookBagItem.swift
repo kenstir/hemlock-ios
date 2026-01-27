@@ -20,7 +20,7 @@
 
 import Foundation
 
-class BookBagItem: XListItem {
+class BookBagItem: ListItem {
     let id: Int
     let targetID: Int
     let record: BibRecord

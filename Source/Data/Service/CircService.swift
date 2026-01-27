@@ -16,7 +16,7 @@
 
 import Foundation
 
-protocol XCircService {
+protocol CircService {
     /// Fetches the current checkouts
     ///
     /// Returns a list of skeleton records, that must be fleshed out with loadCheckoutDetails.
@@ -41,16 +41,16 @@ protocol XCircService {
     func loadHoldDetails(account: Account, hold: HoldRecord) async throws -> Void
 
     /// Fetches the parts available to place a hold
-    func fetchHoldParts(targetID: Int) async throws -> [XHoldPart]
+    func fetchHoldParts(targetID: Int) async throws -> [HoldPart]
 
     /// Fetches whether a title hold is possible for the given item with parts for the specified pickup library
     func fetchTitleHoldIsPossible(account: Account, targetID: Int, pickupOrgID: Int) async throws -> Bool
 
     /// Places a hold
-    func placeHold(account: Account, targetID: Int, withOptions options: XHoldOptions) async throws -> Bool
+    func placeHold(account: Account, targetID: Int, withOptions options: HoldOptions) async throws -> Bool
 
     /// Updates an existing hold with new options.
-    func updateHold(account: Account, holdID: Int, withOptions options: XHoldUpdateOptions) async throws -> Bool
+    func updateHold(account: Account, holdID: Int, withOptions options: HoldUpdateOptions) async throws -> Bool
 
     /// Cancels a hold
     func cancelHold(account: Account, holdID: Int) async throws -> Bool

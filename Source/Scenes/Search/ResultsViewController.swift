@@ -140,9 +140,10 @@ class ResultsViewController: UIViewController {
 
     func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
         guard let sp = searchParameters else { return }
-        let selectedOrg = Organization.find(byShortName: sp.searchOrg)
-        let defaultOrg = Organization.find(byID: App.account?.searchOrgID)
-        let homeOrg = Organization.find(byID: App.account?.homeOrgID)
+        let consortiumService = App.serviceConfig.consortiumService
+        let selectedOrg = consortiumService.find(byShortName: sp.searchOrg)
+        let defaultOrg = consortiumService.find(byID: App.account?.searchOrgID)
+        let homeOrg = consortiumService.find(byID: App.account?.homeOrgID)
         var params: [String: Any] = [
             Analytics.Param.searchClass: sp.searchClass,
             Analytics.Param.searchFormat: sp.searchFormat ?? Analytics.Value.unset,

@@ -18,29 +18,43 @@ import Foundation
 import os.log
 
 class EvergreenConsortiumService: ConsortiumService {
-    var consortiumId: Int { return Organization.consortiumOrgID }
+    var consortiumOrgID: Int { return EvergreenOrganization.consortiumOrgID }
 
-    var isSmsEnabled: Bool { return Organization.isSMSEnabledSetting }
+    var isSmsEnabled: Bool { return EvergreenOrganization.isSMSEnabledSetting }
 
-    var consortium: Organization? { return Organization.consortium() }
+    var consortium: Organization? { return EvergreenOrganization.consortium() }
 
     var selectedOrganization: Organization? = nil
 
-    var visibleOrgs: [Organization] { return Organization.visibleOrgs }
+    var searchFormatSpinnerLabels: [String] { return CodedValueMap.searchFormatSpinnerLabels() }
+
+    var searchFormatSpinnerValues: [String] { return CodedValueMap.searchFormatSpinnerValues() }
+
+    var smsCarrierSpinnerLabels: [String] { return SMSCarrier.getSpinnerLabels() }
+
+    var visibleOrgs: [Organization] { return EvergreenOrganization.visibleOrgs }
+
+    var orgSpinnerLabels: [String] { return EvergreenOrganization.getSpinnerLabels() }
+
+    var orgSpinnerShortNames: [String] { return EvergreenOrganization.getShortNames() }
+
+    var orgSpinnerIsPickupLocationFlags: [Bool] { return EvergreenOrganization.getIsPickupLocation() }
+
+    var orgSpinnerIsPrimaryFlags: [Bool] { return EvergreenOrganization.getIsPrimaryFlags() }
 
     func dumpOrgStats() {
-        Organization.dumpOrgStats()
+        EvergreenOrganization.dumpOrgStats()
     }
 
     func find(byID id: Int?) -> Organization? {
-        return Organization.find(byID: id)
+        return EvergreenOrganization.find(byID: id)
     }
 
     func find(byShortName shortname: String?) -> Organization? {
-        return Organization.find(byShortName: shortname)
+        return EvergreenOrganization.find(byShortName: shortname)
     }
 
     func find(byName name: String?) -> Organization? {
-        return Organization.find(byName: name)
+        return EvergreenOrganization.find(byName: name)
     }
 }

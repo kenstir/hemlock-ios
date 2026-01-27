@@ -17,7 +17,7 @@
 import Foundation
 import os.log
 
-class EvergreenAuthService: XAuthService {
+class EvergreenAuthService: AuthService {
     func fetchAuthToken(credential: Credential) async throws -> String {
         // step 1: get nonce
         let req = Gateway.makeRequest(service: API.auth, method: API.authInit, args: [credential.username], shouldCache: false)

@@ -165,7 +165,7 @@ class DetailsViewController: UIViewController {
 
         let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium
         let links = App.behavior.onlineLocations(record: record, forSearchOrg: org?.shortname)
-        let numCopies = record.copyCount(atOrgID: org?.id ?? Organization.consortiumOrgID)?.count ?? 0
+        let numCopies = record.copyCount(atOrgID: org?.id ?? App.serviceConfig.consortiumService.consortiumOrgID)?.count ?? 0
         print("updateButtonViews: title:\(record.title) links:\(links.count) copies:\(numCopies)")
 
         if numCopies > 0 {
@@ -193,7 +193,8 @@ class DetailsViewController: UIViewController {
 
     @MainActor
     func fetchData() async {
-        let orgID = Organization.find(byShortName: displayOptions.orgShortName)?.id ?? Organization.consortiumOrgID
+        let consortiumService = App.serviceConfig.consortiumService
+        let orgID = consortiumService.find(byShortName: displayOptions.orgShortName)?.id ?? consortiumService.consortiumOrgID
 
         do {
             print("record.hasAttrs:    \(record.hasAttributes)")

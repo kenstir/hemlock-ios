@@ -15,7 +15,7 @@
 //  along with this program; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-class PinesAppBehavior: BaseAppBehavior {
+class PinesAppBehavior: EvergreenAppBehavior {
     
     override func isVisibleToOrg(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
         return isVisibleViaLocatedURI(datafield, orgShortName: orgShortName);

@@ -14,9 +14,12 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
+class HoldPart {
+    let id: Int
+    let label: String
 
-protocol XOrgService {
-    func loadOrgSettings(forOrgID orgID: Int) async throws -> Void
-    func loadOrgDetails(account: Account, forOrgID orgID: Int) async throws -> Void
+    init(id: Int, label: String) {
+        self.id = id
+        self.label = label
+    }
 }

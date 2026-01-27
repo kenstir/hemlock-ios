@@ -16,6 +16,12 @@
 
 import Foundation
 
-protocol XAuthService {
-    func fetchAuthToken(credential: Credential) async throws -> String
+struct LoaderServiceOptions {
+    let clientCacheKey: String
+    let useHierarchicalOrgTree: Bool
+}
+
+protocol LoaderService {
+    func loadStartupPrerequisites(options: LoaderServiceOptions) async throws -> Void
+    func loadPlaceHoldPrerequisites() async throws -> Void
 }

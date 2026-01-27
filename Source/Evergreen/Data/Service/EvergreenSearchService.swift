@@ -16,7 +16,7 @@
 
 import Foundation
 
-class EvergreenSearchService: XSearchService {
+class EvergreenSearchService: SearchService {
     func makeQueryString(searchParameters sp: SearchParameters) -> String {
         // Taken with a grain of salt from
         // https://wiki.evergreen-ils.org/doku.php?id=documentation:technical:search_grammar

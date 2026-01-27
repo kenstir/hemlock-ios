@@ -20,11 +20,11 @@
 
 import Foundation
 
-class BookBag: XPatronList, Identifiable {
+class BookBag: PatronList, Identifiable {
     let id: Int
     var name: String
     var obj: OSRFObject
-    var items: [XListItem] = []
+    var items: [ListItem] = []
     var filterToVisibleRecords = false
     var visibleRecordIds: [Int] = []
 

@@ -14,18 +14,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
+protocol OrgHours {
+    var day0Hours: String? { get }
+    var day1Hours: String? { get }
+    var day2Hours: String? { get }
+    var day3Hours: String? { get }
+    var day4Hours: String? { get }
+    var day5Hours: String? { get }
+    var day6Hours: String? { get }
 
-struct OrgClosureInfo {
-    let dateString: String
-    let reason: String
-    let isDateRange: Bool
-}
-
-protocol XOrgClosure {
-    var start: Date { get }
-    var end: Date { get }
-    var reason: String { get }
-
-    func toInfo() -> OrgClosureInfo
+    var day0Note: String? { get }
+    var day1Note: String? { get }
+    var day2Note: String? { get }
+    var day3Note: String? { get }
+    var day4Note: String? { get }
+    var day5Note: String? { get }
+    var day6Note: String? { get }
 }
