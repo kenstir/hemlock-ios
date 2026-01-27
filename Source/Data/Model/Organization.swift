@@ -37,6 +37,7 @@ protocol Organization {
     var museumPassesURL: String? { get }
 
     var spinnerLabel: String { get }
+    var isPaymentEnabled: Bool { get }
     var isPickupLocation: Bool { get }
     var canHaveUsers: Bool { get }
 }

@@ -93,6 +93,7 @@ class EvergreenOrganization: Organization {
     var areSettingsLoaded = false
     var isPickupLocationSetting: Bool?
     var isPaymentAllowedSetting: Bool?
+    var isPaymentEnabled: Bool { return isPaymentAllowedSetting ?? false }
     var eresourcesURL: String?
     var eventsURL: String?
     var infoURL: String?
