@@ -61,14 +61,10 @@ class Gateway {
         clientCacheKey = val
     }
     static private(set) var serverCacheKey: String = String(CACurrentMediaTime().truncatingRemainder(dividingBy: 1))
-    static func setServerCacheKey(serverVersion: String, serverHemlockCacheKey: String?) {
+    static func setServerCacheKey(_ val: String) {
         lock.lock(); defer { lock.unlock() }
 
-        if let val = serverHemlockCacheKey {
-            serverCacheKey = "\(serverVersion)-\(val)"
-        } else {
-            serverCacheKey = serverVersion
-        }
+        serverCacheKey = val
     }
 
     /// an encoding that serializes parameters as param=1&param=2

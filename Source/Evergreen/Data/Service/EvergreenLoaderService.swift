@@ -23,7 +23,8 @@ class EvergreenLoaderService: LoaderService {
 
         // sync: cache keys must be established first, before IDL is loaded
         Gateway.setClientCacheKey(options.clientCacheKey)
-        try await loadServerCacheKey()
+        let serverCacheKey = try await loadGlobalOrgSettings()
+        Gateway.setServerCacheKey(serverCacheKey)
 
         // sync: load the IDL next, because everything else depends on it
         try await loadIDL()
@@ -41,19 +42,37 @@ class EvergreenLoaderService: LoaderService {
         os_log("startup.elapsed: %.3f", log: Gateway.log, type: .info, -start.timeIntervalSinceNow)
     }
 
-    private func loadServerCacheKey() async throws {
+    private func loadGlobalOrgSettings() async throws -> String {
         // async: launch these two in parallel
         let versionReq = Gateway.makeRequest(service: API.actor, method: API.ilsVersion, args: [], shouldCache: false)
 
-        let settings = [API.settingHemlockCacheKey]
-        let cacheKeyReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [EvergreenOrganization.consortiumOrgID, settings, API.anonymousAuthToken], shouldCache: false)
+        let settings = [
+            API.settingHemlockCacheKey,
+            API.settingAlertBannerShow,
+            API.settingAlertBannerText,
+            API.settingSMSEnable,
+        ]
+        let settingsReq = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [EvergreenOrganization.consortiumOrgID, settings, API.anonymousAuthToken], shouldCache: false)
 
         // await both responses in parallel
         async let versionResp = try versionReq.gatewayResponseAsync()
-        async let settingsResp = try cacheKeyReq.gatewayResponseAsync()
+        async let settingsResp = try settingsReq.gatewayResponseAsync()
         let (version, settingsObj) = try await (versionResp.asString(), settingsResp.asObject())
-        let settingsVal = EvergreenOrganization.ousGetString(settingsObj, API.settingHemlockCacheKey)
-        Gateway.setServerCacheKey(serverVersion: version, serverHemlockCacheKey: settingsVal)
+
+        // parse out the settings values
+        let hemlockCacheKey = EvergreenOrganization.ousGetString(settingsObj, API.settingHemlockCacheKey)
+        EvergreenOrganization.alertBannerText = EvergreenOrganization.ousGetString(settingsObj, API.settingAlertBannerText)
+        EvergreenOrganization.alertBannerShow = EvergreenOrganization.ousGetBool(settingsObj, API.settingAlertBannerShow) ?? false
+        EvergreenOrganization.isSMSEnabledSetting = EvergreenOrganization.ousGetBool(settingsObj, API.settingSMSEnable) ?? false
+
+        // include the hemlockCacheKey in the serverCacheKey if set
+        let serverCacheKey: String
+        if let val = hemlockCacheKey {
+            serverCacheKey = "\(version)-\(val)"
+        } else {
+            serverCacheKey = version
+        }
+        return serverCacheKey
     }
 
     private func loadIDL() async throws {

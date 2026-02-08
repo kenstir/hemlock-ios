@@ -23,6 +23,9 @@ protocol ConsortiumService {
     /// is SMS notifications enabled for all orgs?
     var isSmsEnabled: Bool { get }
 
+    /// system alert banner
+    var alertBanner: String? { get }
+
     /// org at the highest scope
     var consortium: Organization? { get }
 

@@ -51,6 +51,9 @@ struct API {
     static let orgUnitHoursClosedRetrieve = "open-ils.actor.org_unit.closed.retrieve.all"
     static let orgUnitAddressRetrieve = "open-ils.actor.org_unit.address.retrieve"
     static let patronSettingsUpdate = "open-ils.actor.patron.settings.update"
+    static let settingAlertBannerShow = "opac.alert_banner_show" // bool
+    static let settingAlertBannerText = "opac.alert_banner_text"
+    static let settingAlertBannerType = "opac.alert_banner_type" // success|info|warning|danger - unused
     static let settingSMSEnable = "sms.enable"
     static let settingNotPickupLib = "opac.holds.org_unit_not_pickup_lib"
     static let settingCreditPaymentsAllow = "credit.payments.allow"

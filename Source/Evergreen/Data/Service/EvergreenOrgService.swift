@@ -22,7 +22,7 @@ class EvergreenOrgService: OrgService {
             throw HemlockError.internalError("org \(orgID) not found")
         }
 
-        var settings = [
+        let settings = [
             API.settingCreditPaymentsAllow,
             API.settingInfoURL,
             API.settingNotPickupLib,
@@ -31,9 +31,6 @@ class EvergreenOrgService: OrgService {
             API.settingHemlockMeetingRoomsURL,
             API.settingHemlockMuseumPassesURL,
         ]
-        if org.parent == nil {
-            settings.append(API.settingSMSEnable)
-        }
         let req = Gateway.makeRequest(service: API.actor, method: API.orgUnitSettingBatch, args: [org.id, settings, API.anonymousAuthToken], shouldCache: true)
         let obj = try await req.gatewayResponseAsync().asObject()
         org.loadSettings(fromObj: obj)

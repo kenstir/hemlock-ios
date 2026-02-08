@@ -66,6 +66,8 @@ class OrgType {
 class EvergreenOrganization: Organization {
     static private var orgs: [Organization] = []
     static var isSMSEnabledSetting = false
+    static var alertBannerShow = false
+    static var alertBannerText: String? = nil
     static var consortiumOrgID = 1 // as defaulted in Open-ILS code
     static var visibleOrgs: [Organization] {
         return EvergreenOrganization.orgs.compactMap { $0.opacVisible ? $0 : nil }
@@ -193,10 +195,6 @@ class EvergreenOrganization: Organization {
         }
         if let val = EvergreenOrganization.ousGetString(obj, API.settingHemlockMuseumPassesURL) {
             self.museumPassesURL = val
-        }
-        if let val = EvergreenOrganization.ousGetBool(obj, API.settingSMSEnable) {
-            // this setting is only queried on the top-level org
-            EvergreenOrganization.isSMSEnabledSetting = val
         }
         self.areSettingsLoaded = true
     }

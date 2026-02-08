@@ -22,6 +22,10 @@ class EvergreenConsortiumService: ConsortiumService {
 
     var isSmsEnabled: Bool { return EvergreenOrganization.isSMSEnabledSetting }
 
+    var alertBanner: String? {
+        return EvergreenOrganization.alertBannerShow ? EvergreenOrganization.alertBannerText : nil
+    }
+
     var consortium: Organization? { return EvergreenOrganization.consortium() }
 
     var selectedOrganization: Organization? = nil
