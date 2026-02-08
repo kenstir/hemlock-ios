@@ -21,6 +21,8 @@ import os.log
 
 class MainBaseViewController: UIViewController {
     private let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
+    private var didShowSystemAlert = false
+    private var systemAlertPending = false
 
     //MARK: - UIViewController
 
@@ -28,8 +30,11 @@ class MainBaseViewController: UIViewController {
         super.viewDidLoad()
 #if USE_FCM
         registerForRuntimeNotifications()
-        handleLaunchNotification()
+        let didHandleNotification = handleLaunchNotification()
+#else
+        let didHandleNotification = false
 #endif
+        systemAlertPending = !didHandleNotification && App.serviceConfig.consortiumService.alertBanner != nil
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +43,14 @@ class MainBaseViewController: UIViewController {
         // cause func to be called when returning to app, e.g. from browser
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive),
                                                name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard systemAlertPending && !didShowSystemAlert else { return }
+        systemAlertPending = false
+        didShowSystemAlert = true
+        DispatchQueue.main.async { self.showSystemAlert() }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -126,5 +139,14 @@ class MainBaseViewController: UIViewController {
         App.logout()
         App.credentialManager.clearAllCredentials()
         self.popToLogin()
+    }
+
+    func showSystemAlert() {
+        guard let msg = App.serviceConfig.consortiumService.alertBanner else { return }
+        let alertController = UIAlertController(title: "System Alert", message: msg, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alertController, animated: true)
+
+        // TODO: handle ipad popoverController
     }
 }

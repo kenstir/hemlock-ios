@@ -190,21 +190,24 @@ extension UIViewController {
 
     @objc func handleRuntimeNotification(notification: NSNotification) {
         print("[fcm] handleRuntimeNotification")
-        handleNotification(userInfo: notification.userInfo)
+        let _ = handleNotification(userInfo: notification.userInfo)
     }
 
     /// if the app was launched from a notification, start the desired VC
-    func handleLaunchNotification() {
+    func handleLaunchNotification() -> Bool {
         App.printLaunchInfo()
-        handleNotification(userInfo: App.launchNotificationUserInfo)
+        return handleNotification(userInfo: App.launchNotificationUserInfo)
     }
 
-    func handleNotification(userInfo: [AnyHashable: Any]?) {
-        guard let info = userInfo else { return }
+    /// returns true if a notification was handled and caused a VC to be pushed
+    func handleNotification(userInfo: [AnyHashable: Any]?) -> Bool {
+        guard let info = userInfo else { return false }
         let notification = PushNotification(userInfo: info)
         if notification.isNotGeneral {
             pushVC(fromStoryboard: getStoryboardForNotificationType(notification))
+            return true
         }
+        return false
     }
 
     func getStoryboardForNotificationType(_ notification: PushNotification) -> String {
