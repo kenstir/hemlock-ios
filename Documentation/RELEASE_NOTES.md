@@ -1,10 +1,14 @@
 # iOS Release Notes
 
-## UNRELEASED
+## 4.4.0
+
+### New
+* If the public catalog has an alert banner showing, display the same message in a dialog on app startup
 
 ### Fixed
 * Fixed bug preventing placing hold on item with part label having a leading space
 * Fixed issue where hemlock.cache_key was ignored
+* internal: Fix data abstraction leaks (#76 #77)
 
 ## 4.3.0
 
