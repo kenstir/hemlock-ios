@@ -3,7 +3,7 @@
 ## 4.4.0
 
 ### New
-* If the public catalog has an alert banner showing, display the same message in a dialog on app startup
+* Show public catalog alert banner as a dialog in the app
 
 ### Fixed
 * Fixed bug preventing placing hold on item with part label having a leading space
