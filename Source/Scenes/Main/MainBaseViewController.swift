@@ -153,10 +153,16 @@ class MainBaseViewController: UIViewController {
     }
 
     func systemAlertIsSquelched(_ msg: String) -> Bool {
+        let messageMD5 = md5(msg)
+        if let squelchedMD5 = AppState.string(forKey: AppState.Str.alertBannerSquelchedMD5),
+           squelchedMD5 == messageMD5 {
+            return true
+        }
         return false
     }
 
     func squelchSystemAlert(_ msg: String) {
-
+        let messageMD5 = md5(msg)
+        AppState.set(string: messageMD5, forKey: AppState.Str.alertBannerSquelchedMD5)
     }
 }
