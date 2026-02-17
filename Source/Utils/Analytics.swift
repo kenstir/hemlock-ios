@@ -118,7 +118,7 @@ class Analytics {
         return "username"
     }
 
-    /// Returns "true" or "false" to use as a value in `logEvent`
+    /// Returns "true" or "false" to use as a value sent to analytics
     ///
     /// This is necessary because FA does not have real booleans, reports them as 0/1, and omits 0 values,
     /// resulting in missing dimension panels in the FA Events UI.
