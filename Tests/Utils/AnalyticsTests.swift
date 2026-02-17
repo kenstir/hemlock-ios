@@ -69,4 +69,9 @@ class AnalyticsTests: XCTestCase {
         XCTAssertEqual("home",
                        Analytics.orgDimension(selectedOrg: BR1, defaultOrg: BR2, homeOrg: BR1))
     }
+
+    func test_boolValue() {
+        XCTAssertEqual("true", Analytics.boolValue(true))
+        XCTAssertEqual("false", Analytics.boolValue(false))
+    }
 }
