@@ -3,7 +3,6 @@ import CryptoKit
 // md5_new implementation courtesy of
 // https://stackoverflow.com/questions/69491476/cc-md5-is-deprecated-first-deprecated-in-ios-13-0-this-function-is-cryptogr
 // implicitly released under the CC by-SA license
-@available(iOS 13.0, *)
 func md5_new(_ string: String) -> String {
     let data = string.data(using: .utf8)!
     let digestData = Insecure.MD5.hash(data: data)

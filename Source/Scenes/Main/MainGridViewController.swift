@@ -19,7 +19,6 @@
 import UIKit
 import os.log
 
-@available(iOS 14.0, *)
 class MainGridViewController: MainBaseViewController {
 
     //MARK: - fields
@@ -151,7 +150,6 @@ class MainGridViewController: MainBaseViewController {
 }
 
 //MARK: - UICollectionViewDataSource
-@available(iOS 14.0, *)
 extension MainGridViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return buttonItems.count
@@ -180,7 +178,6 @@ extension MainGridViewController: UICollectionViewDataSource {
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-@available(iOS 14.0, *)
 extension MainGridViewController: UICollectionViewDelegateFlowLayout {
     private func buttonSize(forSection section: Int) -> CGSize {
         let itemsPerRow: CGFloat = (section == 0) ? mainButtonsPerRow : secondaryButtonsPerRow
@@ -224,7 +221,6 @@ extension MainGridViewController: UICollectionViewDelegateFlowLayout {
 }
 
 //MARK: - UICollectionViewDelegate
-@available(iOS 14.0, *)
 extension MainGridViewController: UICollectionViewDelegate {
     private func deselectAllItems(_ collectionView: UICollectionView) {
         guard let selectedItems = collectionView.indexPathsForSelectedItems else { return }
