@@ -1,5 +1,11 @@
 # iOS Release Notes
 
+## 4.4.1
+
+### Fixed
+* internal: Change analytics param multiple_accounts to be a string user property, and change all other bool values to strings
+* internal: Upgrade fastlane to 2.232.1
+
 ## 4.4.0
 
 ### New

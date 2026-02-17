@@ -201,11 +201,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let parentOrg = App.serviceConfig.consortiumService.find(byID: homeOrg?.parent)
         Analytics.setUserProperty(value: homeOrg?.shortname, forName: Analytics.UserProperty.homeOrg)
         Analytics.setUserProperty(value: parentOrg?.shortname, forName: Analytics.UserProperty.parentOrg)
+        Analytics.setUserProperty(value: Analytics.boolValue(numCredentials > 1), forName: Analytics.UserProperty.multipleAccounts)
         Analytics.logEvent(event: Analytics.Event.login, parameters: [
             Analytics.Param.result: Analytics.Value.ok,
             Analytics.Param.loginType: Analytics.loginTypeDimension(username: account.username, barcode: account.barcode),
             Analytics.Param.numAccounts: numCredentials,
-            Analytics.Param.multipleAccounts: numCredentials > 1
         ])
     }
 

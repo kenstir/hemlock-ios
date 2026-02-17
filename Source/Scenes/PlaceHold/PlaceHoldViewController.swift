@@ -595,7 +595,7 @@ class PlaceHoldViewController: UIViewController {
     func doUpdateHold(account: Account, holdRecord: HoldRecord, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
         activityIndicator.startAnimating()
 
-        let eventParams: [String: Any] = [Analytics.Param.holdSuspend: suspendSwitch.isOn]
+        let eventParams: [String: Any] = [Analytics.Param.holdSuspend: Analytics.boolValue(suspendSwitch.isOn)]
         do {
             let options = HoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
             let _ = try await App.serviceConfig.circService.updateHold(account: account, holdID: holdRecord.id, withOptions: options)

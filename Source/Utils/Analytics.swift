@@ -53,7 +53,7 @@ class Analytics {
         // these need to be registered in FA as Custom Dimensions w/ scope=Event
         static let holdNotify = "hold_notify"
         static let holdPickupKey = "hold_pickup" // { home | other }
-        static let holdSuspend = "hold_suspend"
+        static let holdSuspend = "hold_suspend" // bool
         static let loginType = "login_type" // { barcode | username }
         static let result = "result"
         static let searchClass = "search_class"
@@ -67,14 +67,12 @@ class Analytics {
         static let numResults = "num_results"
         static let searchTermNumUniqueWords = "search_term_uniq_words"
         static let searchTermAverageWordLengthX10 = "search_term_avg_word_len_x10"
-
-        // boolean params do not need to be registered
-        static let multipleAccounts = "multiple_accounts"
     }
 
     class UserProperty {
         // these need to be registered in FA as Custom Dimensions w/ scope=User
         static let homeOrg = "user_home_org"
+        static let multipleAccounts = "user_multiple_accounts" // bool
         static let parentOrg = "user_parent_org"
     }
 
@@ -118,6 +116,14 @@ class Analytics {
             return "barcode"
         }
         return "username"
+    }
+
+    /// Returns "true" or "false" to use as a value in `logEvent`
+    ///
+    /// This is necessary because FA does not have real booleans, reports them as 0/1, and omits 0 values,
+    /// resulting in missing dimension panels in the FA Events UI.
+    static func boolValue(_ value: Bool) -> String {
+        return value ? "true" : "false"
     }
 
     static func searchTermParameters(searchTerm: String) -> [String: Int] {
