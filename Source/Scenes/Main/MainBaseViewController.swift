@@ -143,8 +143,20 @@ class MainBaseViewController: UIViewController {
 
     func showSystemAlert() {
         guard let msg = App.serviceConfig.consortiumService.alertBanner else { return }
+        guard !systemAlertIsSquelched(msg) else { return }
         let alertController = UIAlertController(title: "System Alert", message: msg, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        alertController.addAction(UIAlertAction(title: "Don't show again", style: .default) { action in
+            self.squelchSystemAlert(msg)
+        })
         self.present(alertController, animated: true)
+    }
+
+    func systemAlertIsSquelched(_ msg: String) -> Bool {
+        return false
+    }
+
+    func squelchSystemAlert(_ msg: String) {
+
     }
 }
