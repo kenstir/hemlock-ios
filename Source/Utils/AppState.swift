@@ -18,6 +18,7 @@ import Foundation
 
 class AppState {
     class Str {
+        static let alertBannerSquelchedMD5 = "alert_squelched" // String; md5 of last squelched alert banner
         static let holdPhoneNumber = "phoneNumber"
         static let holdSMSNumber = "SMSNumber"
 

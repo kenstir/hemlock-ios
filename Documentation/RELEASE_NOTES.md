@@ -2,6 +2,9 @@
 
 ## 4.4.1
 
+### New
+* Add "Don't show again" option to system alert dialog
+
 ### Fixed
 * internal: Change analytics param multiple_accounts to be a string user property, and change all other bool values to strings
 * internal: Upgrade fastlane to 2.232.1

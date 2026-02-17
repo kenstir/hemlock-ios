@@ -18,7 +18,6 @@
 
 import UIKit
 
-@available(iOS 14.0, *)
 class MainGridViewCell: UICollectionViewListCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
