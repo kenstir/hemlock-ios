@@ -47,6 +47,7 @@ class Analytics {
         static let updateHold = "hold_update"
         static let login = "login_v2"
         static let search = "search" // FirebaseAnalytics.AnalyticsEventSearch
+        static let fcmTokenUpdate = "notification_token_update" // starts with "notification" to group it with related events in FA
     }
 
     class Param {
