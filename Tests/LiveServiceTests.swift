@@ -36,10 +36,10 @@ class TestConfig {
 
 /// the test account server state, so we don't have to login for every test
 class TestState {
-    var account: Account
+    var account: EvergreenAccount
 
     init(username: String, password: String) {
-        self.account = Account(username, password: password)
+        self.account = EvergreenAccount(username, password: password, authToken: nil)
     }
 }
 
