@@ -75,6 +75,7 @@ class Analytics {
         static let homeOrg = "user_home_org"
         static let multipleAccounts = "user_multiple_accounts" // bool
         static let parentOrg = "user_parent_org"
+        static let fcmNotificationPermitted = "user_notification_perm" // { granted | denied }
     }
 
     class Value {
