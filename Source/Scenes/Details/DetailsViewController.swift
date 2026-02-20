@@ -257,8 +257,8 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func addToListPressed(sender: Any) {
-        // TODO: load bookbags if not already loaded
-        if App.account?.bookBagsEverLoaded == true {
+        // skip loading if already loaded
+        if App.account?.patronListsEverLoaded == true {
             addToList()
             return
         }
@@ -284,8 +284,8 @@ class DetailsViewController: UIViewController {
     }
 
     func addToList() {
-        guard let bookBags = App.account?.bookBags,
-              bookBags.count > 0 else
+        guard let patronLists = App.account?.patronLists,
+              patronLists.count > 0 else
         {
             navigationController?.view.makeToast("No lists")
             return
@@ -294,9 +294,9 @@ class DetailsViewController: UIViewController {
         // Build an action sheet to display the options
         let alertController = UIAlertController(title: "Add to List", message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
-        for bookBag in bookBags {
-            alertController.addAction(UIAlertAction(title: bookBag.name, style: .default) { action in
-                Task { await self.addItem(toBookBag: bookBag) }
+        for list in patronLists {
+            alertController.addAction(UIAlertAction(title: list.name, style: .default) { action in
+                Task { await self.addItem(toList: list) }
             })
         }
 //        alertController.addAction(UIAlertAction(title: "Add to New List", style: .default) { action in
@@ -313,11 +313,11 @@ class DetailsViewController: UIViewController {
     }
 
     @MainActor
-    func addItem(toBookBag bookBag: BookBag) async {
+    func addItem(toList patronList: PatronList) async {
         guard let account = App.account else { return }
 
         do {
-            try await App.serviceConfig.userService.addItemToPatronList(account: account, listId: bookBag.id, recordId: record.id)
+            try await App.serviceConfig.userService.addItemToPatronList(account: account, listId: patronList.id, recordId: record.id)
             Analytics.logEvent(event: Analytics.Event.bookbagAddItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.navigationController?.view.makeToast("Item added to list")
         } catch {

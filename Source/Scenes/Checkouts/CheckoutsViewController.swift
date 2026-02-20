@@ -191,7 +191,7 @@ class CheckoutsViewController: UIViewController {
             return
         }
 
-        if account.userSettingCircHistoryStart != nil {
+        if account.circHistoryStart != nil {
             showHistoryVC()
             return
         }

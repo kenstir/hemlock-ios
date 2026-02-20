@@ -22,6 +22,8 @@ protocol Account {
     var username: String { get }
     var authtoken: String? { get }
     var homeOrgID: Int? { get }
+    var searchOrgID: Int? { get }
+    var pickupOrgID: Int? { get }
     var barcode: String? { get }
     var expireDate: Date? { get }
     var notifyByEmail: Bool { get }
@@ -30,12 +32,14 @@ protocol Account {
     var smsCarrier: Int? { get }
     var smsNumber: String? { get }
     var patronLists: [any PatronList] { get }
+    var patronListsEverLoaded: Bool { get }
 
     var circHistoryStart: String? { get set }
     var savedPushNotificationData: String? { get set }
     var savedPushNotificationEnabled: Bool { get set }
 
-    func clear() -> Void
+    func clear()
+    func removePatronList(at index: Int)
 }
 
 class EvergreenAccount : Account {
@@ -55,6 +59,7 @@ class EvergreenAccount : Account {
     var smsCarrier: Int? { return userSettingDefaultSMSCarrier }
     var smsNumber: String? { return userSettingDefaultSMSNotify }
     var patronLists: [any PatronList] { return bookBags }
+    private(set) var patronListsEverLoaded = false
 
     private var _circHistoryStart: String?
     var circHistoryStart: String? {
@@ -88,7 +93,6 @@ class EvergreenAccount : Account {
     private var firstGivenName: String?
     private var familyName: String?
     private(set) var bookBags: [BookBag] = []
-    private(set) var bookBagsEverLoaded = false
 
     var displayName: String {
         if username == barcode,
@@ -131,7 +135,7 @@ class EvergreenAccount : Account {
         self.dayPhone = nil
         self.userSettingsLoaded = false
         self.bookBags = []
-        self.bookBagsEverLoaded = false
+        self.patronListsEverLoaded = false
     }
 
     /// mt-safe
@@ -234,11 +238,11 @@ class EvergreenAccount : Account {
 
         bookBags = BookBag.makeArray(objects)
         Analytics.logEvent(event: Analytics.Event.bookbagsLoad, parameters: [Analytics.Param.numItems: bookBags.count])
-        bookBagsEverLoaded = true
+        patronListsEverLoaded = true
     }
 
     /// mt-safe
-    func removeBookBag(at index: Int) {
+    func removePatronList(at index: Int) {
         lock.lock(); defer { lock.unlock() }
 
         guard index >= 0 && index < bookBags.count else {
