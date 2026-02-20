@@ -68,11 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 #if USE_FCM
     private func notificationOptions() -> UNNotificationPresentationOptions {
-        if #available(iOS 14.0, *) {
-            return [[.banner]]
-        } else {
-            return [[.alert]]
-        }
+        return [[.banner]]
     }
 
     private func authorizationOptions() -> UNAuthorizationOptions {
@@ -90,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: authorizationOptions(), completionHandler: { allowed, _ in
             print("[fcm] allowed is \(allowed)")
+            Analytics.setUserProperty(value: allowed ? "granted" : "denied", forName: Analytics.UserProperty.fcmNotificationPermitted)
         })
 
         application.registerForRemoteNotifications()
