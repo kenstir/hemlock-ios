@@ -20,6 +20,20 @@ import os.log
 
 class EvergreenUserService: UserService {
 
+    //MARK: - Factory and Utility Methods
+
+    func makeAccount(username: String, password: String, authToken: String) -> Account {
+        return EvergreenAccount(username, password: password, authToken: authToken)
+    }
+
+    func payFinesUrl(account: Account) -> String {
+        return "TODO"
+    }
+
+    func isPayFinesEnabled(account: Account) -> Bool {
+        return true
+    }
+
     //MARK: - Session Management
 
     func loadSession(account: Account) async throws {

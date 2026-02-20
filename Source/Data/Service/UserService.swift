@@ -17,6 +17,12 @@
 import Foundation
 
 protocol UserService {
+
+    //MARK: - Factory and Utility Methods
+    func makeAccount(username: String, password: String, authToken: String) -> Account
+    func payFinesUrl(account: Account) -> String
+    func isPayFinesEnabled(account: Account) -> Bool
+
     //MARK: - Session Management
     func loadSession(account: Account) async throws -> Void
     func deleteSession(account: Account) async throws -> Void

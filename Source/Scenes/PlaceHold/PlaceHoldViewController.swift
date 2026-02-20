@@ -302,18 +302,18 @@ class PlaceHoldViewController: UIViewController {
     func loadNotifyData() {
         if let val = Utils.coalesce(holdRecord?.hasEmailNotify,
                                     AppState.bool(forKey: AppState.Boolean.holdNotifyByEmail),
-                                    App.account?.defaultNotifyEmail) {
+                                    App.account?.notifyByEmail) {
             emailSwitch.isOn = val
         }
 
         // Allow phone_notify to be set even if UX is not visible
         let phoneNumber = Utils.coalesce(holdRecord?.phoneNotify,
                                          AppState.sensitiveString(forKey: AppState.Str.holdPhoneNumber),
-                                         App.account?.notifyPhone)
+                                         App.account?.phoneNumber)
         phoneTextField.text = phoneNumber
         if let val = Utils.coalesce(holdRecord?.hasPhoneNotify,
                                     AppState.bool(forKey: AppState.Boolean.holdNotifyByPhone),
-                                    App.account?.defaultNotifyPhone),
+                                    App.account?.notifyByPhone),
             let str = phoneNumber,
             !str.isEmpty
         {
@@ -322,11 +322,11 @@ class PlaceHoldViewController: UIViewController {
 
         let smsNumber = Utils.coalesce(holdRecord?.smsNotify,
                                        AppState.sensitiveString(forKey: AppState.Str.holdSMSNumber),
-                                       App.account?.smsNotify)
+                                       App.account?.smsNumber)
         smsNumberTextField.text = smsNumber
         if let val = Utils.coalesce(holdRecord?.hasSmsNotify,
                                     AppState.bool(forKey: AppState.Boolean.holdNotifyBySMS),
-                                    App.account?.defaultNotifySMS),
+                                    App.account?.notifyBySMS),
             let str = smsNumber,
             !str.isEmpty
         {

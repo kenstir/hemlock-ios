@@ -20,17 +20,24 @@ import os.log
 protocol Account {
     var userID: Int? { get }
     var username: String { get }
+    var password: String { get }
     var authtoken: String? { get }
+    var barcode: String? { get }
+    var displayName: String { get }
+    var phoneNumber: String? { get }
+    var smsNumber: String? { get }
+
     var homeOrgID: Int? { get }
     var searchOrgID: Int? { get }
     var pickupOrgID: Int? { get }
-    var barcode: String? { get }
+    var smsCarrier: Int? { get }
+
     var expireDate: Date? { get }
+
     var notifyByEmail: Bool { get }
     var notifyByPhone: Bool { get }
     var notifyBySMS: Bool { get }
-    var smsCarrier: Int? { get }
-    var smsNumber: String? { get }
+
     var patronLists: [any PatronList] { get }
     var patronListsEverLoaded: Bool { get }
 
@@ -50,50 +57,7 @@ class EvergreenAccount : Account {
     let username: String
     private(set) var password: String
     private(set) var authtoken: String?
-    private(set) var homeOrgID: Int?
     private(set) var barcode: String?
-    private(set) var expireDate: Date?
-    private(set) var notifyByEmail: Bool = false
-    private(set) var notifyByPhone: Bool = false
-    private(set) var notifyBySMS: Bool = false
-    var smsCarrier: Int? { return userSettingDefaultSMSCarrier }
-    var smsNumber: String? { return userSettingDefaultSMSNotify }
-    var patronLists: [any PatronList] { return bookBags }
-    private(set) var patronListsEverLoaded = false
-
-    private var _circHistoryStart: String?
-    var circHistoryStart: String? {
-        get { return _circHistoryStart }
-        set {
-            lock.lock(); defer { lock.unlock() }
-            _circHistoryStart = newValue
-        }
-    }
-
-    private var _savedPushNotificationData: String?
-    var savedPushNotificationData: String? {
-        get { return _savedPushNotificationData }
-        set {
-            lock.lock(); defer { lock.unlock() }
-            _savedPushNotificationData = newValue
-        }
-    }
-
-    private var _savedPushNotificationEnabled: Bool = false
-    var savedPushNotificationEnabled: Bool {
-        get { return _savedPushNotificationEnabled }
-        set {
-            lock.lock(); defer { lock.unlock() }
-            _savedPushNotificationEnabled = newValue
-        }
-    }
-
-    // -- UNREVIEWED --
-    private var dayPhone: String?
-    private var firstGivenName: String?
-    private var familyName: String?
-    private(set) var bookBags: [BookBag] = []
-
     var displayName: String {
         if username == barcode,
             let first = firstGivenName,
@@ -103,24 +67,74 @@ class EvergreenAccount : Account {
             return username
         }
     }
+    var phoneNumber: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }
+    var smsNumber: String? { return userSettingDefaultSMSNotify }
 
-    private var userSettingsLoaded = false
+    private(set) var homeOrgID: Int?
+    var searchOrgID: Int? { return userSettingDefaultSearchLocation ?? homeOrgID }
+    var pickupOrgID: Int? {
+        get { return userSettingDefaultPickupLocation ?? homeOrgID }
+        set { userSettingDefaultPickupLocation = newValue }
+    }
+    var smsCarrier: Int? { return userSettingDefaultSMSCarrier }
+
+    private(set) var expireDate: Date?
+
+    private(set) var notifyByEmail: Bool = false
+    private(set) var notifyByPhone: Bool = false
+    private(set) var notifyBySMS: Bool = false
+
+    var patronLists: [any PatronList] { return bookBags }
+    private(set) var patronListsEverLoaded = false
+
+    private var _circHistoryStart: String?
+    var circHistoryStart: String? {
+        get {
+            return _circHistoryStart
+        }
+        set {
+            lock.lock(); defer { lock.unlock() }
+            _circHistoryStart = newValue
+        }
+    }
+
+    private var _savedPushNotificationData: String?
+    var savedPushNotificationData: String? {
+        get {
+            return _savedPushNotificationData
+        }
+        set {
+            lock.lock(); defer { lock.unlock() }
+            _savedPushNotificationData = newValue
+        }
+    }
+
+    private var _savedPushNotificationEnabled: Bool = false
+    var savedPushNotificationEnabled: Bool {
+        get {
+            return _savedPushNotificationEnabled
+        }
+        set {
+            lock.lock(); defer { lock.unlock() }
+            _savedPushNotificationEnabled = newValue
+        }
+    }
+
+    private var dayPhone: String?
+    private var firstGivenName: String?
+    private var familyName: String?
+    private(set) var bookBags: [BookBag] = []
+
     private var userSettingDefaultPickupLocation: Int?
     private var userSettingDefaultPhone: String?
     private var userSettingDefaultSearchLocation: Int?
     private var userSettingDefaultSMSCarrier: Int?
     private var userSettingDefaultSMSNotify: String?
 
-    var notifyPhone: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }
-    var pickupOrgID: Int? {
-        get { return userSettingDefaultPickupLocation ?? homeOrgID }
-        set { userSettingDefaultPickupLocation = newValue }
-    }
-    var searchOrgID: Int? { return userSettingDefaultSearchLocation ?? homeOrgID }
-
-    init(_ username: String, password: String) {
+    init(_ username: String, password: String, authToken: String?) {
         self.username = username
         self.password = password
+        self.authtoken = authToken
     }
 
     /// mt-safe
@@ -133,7 +147,6 @@ class EvergreenAccount : Account {
         self.homeOrgID = nil
         self.barcode = nil
         self.dayPhone = nil
-        self.userSettingsLoaded = false
         self.bookBags = []
         self.patronListsEverLoaded = false
     }
@@ -226,7 +239,6 @@ class EvergreenAccount : Account {
             }
         }
         parseHoldNotifyValue(holdNotifySetting)
-        userSettingsLoaded = true
 
         Task { await maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled) }
         os_log(.info, log: EvergreenAccount.log, "loadUserSettings finished")

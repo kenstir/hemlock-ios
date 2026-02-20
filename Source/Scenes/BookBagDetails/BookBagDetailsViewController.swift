@@ -75,7 +75,7 @@ class BookBagDetailsViewController : UITableViewController {
 
         do {
             try await App.serviceConfig.userService.loadPatronListItems(account: account, patronList: bookBag)
-            os_log("fetched %d items", log: self.log, type: .info, account.bookBags.count)
+            os_log("fetched %d items", log: self.log, type: .info, bookBag.items.count)
 
             try await withThrowingTaskGroup(of: Void.self) { group in
                 for item in bookBag.items {
