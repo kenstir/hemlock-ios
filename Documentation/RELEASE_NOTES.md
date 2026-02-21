@@ -1,5 +1,8 @@
 # iOS Release Notes
 
+## UNRELEASED
+* internal: Fix data abstraction leaks (#80 #81 #82)
+
 ## 4.4.1
 
 ### New
