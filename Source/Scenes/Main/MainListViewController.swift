@@ -164,7 +164,7 @@ class MainListViewController: MainBaseViewController {
         guard let orgID = App.account?.homeOrgID else { return }
 
         do {
-            try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: orgID)
+            try await App.svc.org.loadOrgSettings(forOrgID: orgID)
             didFetchHomeOrgSettings = true
             onHomeOrgSettingsLoaded(homeOrgID: orgID)
         } catch {
@@ -173,7 +173,7 @@ class MainListViewController: MainBaseViewController {
     }
 
     func onHomeOrgSettingsLoaded(homeOrgID orgID: Int) {
-        if let org = App.serviceConfig.consortiumService.find(byID: orgID),
+        if let org = App.svc.consortium.find(byID: orgID),
            let eventsURL = org.eventsURL,
            !eventsURL.isEmpty,
            let url = URL(string: eventsURL)
@@ -190,7 +190,7 @@ class MainListViewController: MainBaseViewController {
     func fetchMessages(account: Account) async {
 
         do {
-            let messages = try await App.serviceConfig.userService.fetchPatronMessages(account: account)
+            let messages = try await App.svc.user.fetchPatronMessages(account: account)
             self.updateMessagesBadge(messages: messages)
         } catch {
             self.presentGatewayAlert(forError: error)

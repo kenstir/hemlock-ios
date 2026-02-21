@@ -27,7 +27,7 @@ extension CopyLocationCounts {
     var copyLocationLabel: CopyLocationLabel {
         var heading = ""
         var subhead = ""
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
         if let org = consortiumService.find(byID: orgID) {
             heading = org.name
             if App.config.groupCopyInfoBySystem,
@@ -48,7 +48,7 @@ extension CopyLocationCounts {
 /// - Returns: array filtered to visible orgs and sorted
 func visibleCopyLocationCounts(from array: [CopyLocationCounts]) -> [CopyLocationCounts] {
     var ret: [CopyLocationCounts] = []
-    let consortiumService = App.serviceConfig.consortiumService
+    let consortiumService = App.svc.consortium
 
     // if a branch is not opac visible, its copies should not be visible
     for elem in array {

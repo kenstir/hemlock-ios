@@ -79,12 +79,12 @@ class CheckoutsViewController: UIViewController {
         let startOfFetch = Date()
 
         do {
-            let checkouts = try await App.serviceConfig.circService.fetchCheckouts(account: account)
+            let checkouts = try await App.svc.circ.fetchCheckouts(account: account)
 
             try await withThrowingTaskGroup(of: Void.self) { group in
                 for circRecord in checkouts {
                     group.addTask {
-                        try await App.serviceConfig.circService.loadCheckoutDetails(account: account, circRecord: circRecord)
+                        try await App.svc.circ.loadCheckoutDetails(account: account, circRecord: circRecord)
                     }
                 }
                 try await group.waitForAll()
@@ -130,7 +130,7 @@ class CheckoutsViewController: UIViewController {
         activityIndicator.startAnimating()
 
         do {
-            let _ = try await App.serviceConfig.circService.renewCheckout(account: account, targetCopy: targetCopy)
+            let _ = try await App.svc.circ.renewCheckout(account: account, targetCopy: targetCopy)
 
             self.navigationController?.view.makeToast("Item renewed")
             Task { await self.fetchData() }
@@ -210,7 +210,7 @@ class CheckoutsViewController: UIViewController {
         activityIndicator.startAnimating()
 
         do {
-            try await App.serviceConfig.userService.enableCheckoutHistory(account: account)
+            try await App.svc.user.enableCheckoutHistory(account: account)
             self.showAlert(title: "Success", message: "Items you check out from now on will appear in your history.")
         } catch {
             self.presentGatewayAlert(forError: error)

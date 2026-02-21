@@ -77,7 +77,7 @@ class ResultsViewController: UIViewController {
 
         // search
         do {
-            let results = try await App.serviceConfig.searchService.fetchSearchResults(queryString: query, limit: App.config.searchLimit)
+            let results = try await App.svc.search.fetchSearchResults(queryString: query, limit: App.config.searchLimit)
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
             os_log("query.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
 
@@ -135,12 +135,12 @@ class ResultsViewController: UIViewController {
             showAlert(title: "Internal Error", error: HemlockError.shouldNotHappen("Missing search parameters"))
             return nil
         }
-        return App.serviceConfig.searchService.makeQueryString(searchParameters: sp)
+        return App.svc.search.makeQueryString(searchParameters: sp)
     }
 
     func logSearchEvent(withError error: Error? = nil, numResults: Int = 0) {
         guard let sp = searchParameters else { return }
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
         let selectedOrg = consortiumService.find(byShortName: sp.searchOrg)
         let defaultOrg = consortiumService.find(byID: App.account?.searchOrgID)
         let homeOrg = consortiumService.find(byID: App.account?.homeOrgID)

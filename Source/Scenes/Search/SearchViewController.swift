@@ -89,7 +89,7 @@ class SearchViewController: UIViewController {
     }
 
     func setupOptionsTable() {
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
         options = []
         options.append(StringOption(
             key: AppState.Str.searchClass,

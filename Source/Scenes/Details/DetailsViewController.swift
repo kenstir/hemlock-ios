@@ -134,7 +134,7 @@ class DetailsViewController: UIViewController {
                 str = host
             }
         } else {
-            if let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium,
+            if let org = App.svc.consortium.find(byShortName: displayOptions.orgShortName) ?? App.svc.consortium.consortium,
                 let copyCount = record.copyCount(atOrgID: org.id) {
                 str = "\(copyCount.available) of \(copyCount.count) copies available at \(org.name)"
             }
@@ -163,9 +163,9 @@ class DetailsViewController: UIViewController {
             return
         }
 
-        let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium
+        let org = App.svc.consortium.find(byShortName: displayOptions.orgShortName) ?? App.svc.consortium.consortium
         let links = App.behavior.onlineLocations(record: record, forSearchOrg: org?.shortname)
-        let numCopies = record.copyCount(atOrgID: org?.id ?? App.serviceConfig.consortiumService.consortiumOrgID)?.count ?? 0
+        let numCopies = record.copyCount(atOrgID: org?.id ?? App.svc.consortium.consortiumOrgID)?.count ?? 0
         print("updateButtonViews: title:\(record.title) links:\(links.count) copies:\(numCopies)")
 
         if numCopies > 0 {
@@ -193,16 +193,16 @@ class DetailsViewController: UIViewController {
 
     @MainActor
     func fetchData() async {
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
         let orgID = consortiumService.find(byShortName: displayOptions.orgShortName)?.id ?? consortiumService.consortiumOrgID
 
         do {
             print("record.hasAttrs:    \(record.hasAttributes)")
             print("record.hasMARC:     \(record.hasMARC)")
             print("record.hasMetadata: \(record.hasMetadata)")
-            async let details: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
-            async let attrs: Void = App.serviceConfig.biblioService.loadRecordAttributes(forRecord: record)
-            async let ccounts: Void = App.serviceConfig.biblioService.loadRecordCopyCounts(forRecord: record, orgID: orgID)
+            async let details: Void = App.svc.biblio.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
+            async let attrs: Void = App.svc.biblio.loadRecordAttributes(forRecord: record)
+            async let ccounts: Void = App.svc.biblio.loadRecordCopyCounts(forRecord: record, orgID: orgID)
             let _ = try await (details, attrs, ccounts)
         } catch {
             presentGatewayAlert(forError: error)
@@ -248,7 +248,7 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func copyInfoPressed(sender: Any) {
-        let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium
+        let org = App.svc.consortium.find(byShortName: displayOptions.orgShortName) ?? App.svc.consortium.consortium
         guard let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController() as? CopyInfoViewController else { return }
 
         vc.org = org
@@ -276,7 +276,7 @@ class DetailsViewController: UIViewController {
     @MainActor
     func fetchPatronLists(account: Account) async {
         do {
-            try await App.serviceConfig.userService.loadPatronLists(account: account)
+            try await App.svc.user.loadPatronLists(account: account)
             self.addToList()
         } catch {
             presentGatewayAlert(forError: error, title: "Error fetching lists")
@@ -317,7 +317,7 @@ class DetailsViewController: UIViewController {
         guard let account = App.account else { return }
 
         do {
-            try await App.serviceConfig.userService.addItemToPatronList(account: account, listId: patronList.id, recordId: record.id)
+            try await App.svc.user.addItemToPatronList(account: account, listId: patronList.id, recordId: record.id)
             Analytics.logEvent(event: Analytics.Event.bookbagAddItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.navigationController?.view.makeToast("Item added to list")
         } catch {

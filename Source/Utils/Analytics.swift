@@ -107,7 +107,7 @@ class Analytics {
         if selectedOrg.id == homeOrg.id {
             return "home"
         }
-        if selectedOrg.id == App.serviceConfig.consortiumService.consortiumOrgID {
+        if selectedOrg.id == App.svc.consortium.consortiumOrgID {
             return selectedOrg.shortname
         }
         return "other"

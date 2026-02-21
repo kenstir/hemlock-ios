@@ -67,13 +67,13 @@ class BookBagsViewController : UITableViewController {
         activityIndicator.startAnimating()
 
         do {
-            try await App.serviceConfig.userService.loadPatronLists(account: account)
+            try await App.svc.user.loadPatronLists(account: account)
             os_log("[lists] fetched %d lists", log: self.log, type: .info, account.patronLists.count)
 
             try await withThrowingTaskGroup(of: Void.self) { group in
                 for list in account.patronLists {
                     group.addTask {
-                        try await App.serviceConfig.userService.loadPatronListItems(account: account, patronList: list)
+                        try await App.svc.user.loadPatronListItems(account: account, patronList: list)
                     }
                 }
                 try await group.waitForAll()
@@ -116,7 +116,7 @@ class BookBagsViewController : UITableViewController {
         }
 
         do {
-            try await App.serviceConfig.userService.createPatronList(account: account, name: name, description: description ?? "")
+            try await App.svc.user.createPatronList(account: account, name: name, description: description ?? "")
             self.navigationController?.view.makeToast("List created")
             await self.fetchData()
         } catch {
@@ -127,7 +127,7 @@ class BookBagsViewController : UITableViewController {
     @MainActor
     func deleteList(account: Account, listId: Int, indexPath: IndexPath) async {
         do {
-            try await App.serviceConfig.userService.deletePatronList(account: account, listId: listId)
+            try await App.svc.user.deletePatronList(account: account, listId: listId)
             account.removePatronList(at: indexPath.row)
             self.updateItems()
         } catch {

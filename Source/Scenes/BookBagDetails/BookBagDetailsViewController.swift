@@ -74,7 +74,7 @@ class BookBagDetailsViewController : UITableViewController {
         activityIndicator.startAnimating()
 
         do {
-            try await App.serviceConfig.userService.loadPatronListItems(account: account, patronList: bookBag)
+            try await App.svc.user.loadPatronListItems(account: account, patronList: bookBag)
             os_log("fetched %d items", log: self.log, type: .info, bookBag.items.count)
 
             try await withThrowingTaskGroup(of: Void.self) { group in
@@ -95,7 +95,7 @@ class BookBagDetailsViewController : UITableViewController {
     }
 
     func loadItemDetails(forItem item: ListItem) async throws -> Void {
-        try await App.serviceConfig.biblioService.loadRecordDetails(forRecord: item.record, needMARC: App.config.needMARCRecord)
+        try await App.svc.biblio.loadRecordDetails(forRecord: item.record, needMARC: App.config.needMARCRecord)
     }
 
     @objc func sortButtonPressed(sender: UIBarButtonItem) {
@@ -203,7 +203,7 @@ class BookBagDetailsViewController : UITableViewController {
     @MainActor
     func deleteItem(account: Account, bookBag: PatronList, item: ListItem) async {
         do {
-            try await App.serviceConfig.userService.removeItemFromPatronList(account: account, listId: bookBag.id, itemId: item.id)
+            try await App.svc.user.removeItemFromPatronList(account: account, listId: bookBag.id, itemId: item.id)
             Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.bookBag?.items.removeAll(where: { $0.id == item.id })
             self.updateItems()
