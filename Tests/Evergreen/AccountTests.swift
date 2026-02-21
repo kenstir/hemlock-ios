@@ -25,7 +25,7 @@ class AccountTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = Account("hemlock", password: "***")
+        sut = EvergreenAccount("hemlock", password: "***", authToken: "f1d0f00d")
     }
     
     override func tearDown() {
@@ -35,12 +35,6 @@ class AccountTests: XCTestCase {
     func test_Account_init() {
         XCTAssertEqual(sut.username, "hemlock")
         XCTAssertEqual(sut.password, "***")
-    }
-    
-    func test_authtoken() {
-        XCTAssertNil(sut.authtoken)
-        sut.setAuthToken("f1d0f00d")
-        XCTAssertNotNil(sut.authtoken)
         XCTAssertEqual(sut.authtoken, "f1d0f00d")
     }
 }

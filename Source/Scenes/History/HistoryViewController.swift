@@ -165,7 +165,7 @@ class HistoryViewController: UITableViewController {
         } else {
             message = "\(items.count) items checked out"
         }
-        if let start = App.account?.userSettingCircHistoryStart {
+        if let start = App.account?.circHistoryStart {
             message += " since \(start)"
         }
         return message

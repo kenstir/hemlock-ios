@@ -20,9 +20,17 @@ import os.log
 
 class EvergreenUserService: UserService {
 
+    //MARK: - Factory Methods
+
+    func makeAccount(username: String, password: String, authToken: String) -> Account {
+        return EvergreenAccount(username, password: password, authToken: authToken)
+    }
+
     //MARK: - Session Management
 
     func loadSession(account: Account) async throws {
+        let account: EvergreenAccount = try requireType(account)
+
         // authGetSession must be called first, before any other API calls taking an authtoken.
         let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [account.authtoken], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
@@ -33,6 +41,8 @@ class EvergreenUserService: UserService {
     }
 
     private func loadUserSettings(account: Account) async throws {
+        let account: EvergreenAccount = try requireType(account)
+
         let fields = ["card", "settings"]
         let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [account.authtoken, account.userID, fields], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
@@ -42,6 +52,8 @@ class EvergreenUserService: UserService {
     }
 
     func deleteSession(account: Account) async throws {
+        let account: EvergreenAccount = try requireType(account)
+
         let req = Gateway.makeRequest(service: API.auth, method: API.authDeleteSession, args: [account.authtoken], shouldCache: false)
         let _ = try await req.gatewayResponseAsync().asString()
 
@@ -52,6 +64,8 @@ class EvergreenUserService: UserService {
     //MARK: - Patron Lists (Book Bags)
 
     func loadPatronLists(account: Account) async throws {
+        let account: EvergreenAccount = try requireType(account)
+
         print("\(Utils.tt) loadPatronLists")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [account.authtoken, account.userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
         let objects = try await req.gatewayResponseAsync().asArray()
@@ -61,8 +75,8 @@ class EvergreenUserService: UserService {
 
     func loadPatronListItems(account: Account, patronList: PatronList) async throws {
         print("\(Utils.tt) \(patronList.id) loadPatronListItems")
+        let account: EvergreenAccount = try requireType(account)
         let bookBag: BookBag = try requireType(patronList)
-
         guard let authtoken = account.authtoken else {
             throw HemlockError.sessionExpired
         }
@@ -148,21 +162,23 @@ class EvergreenUserService: UserService {
     }
 
     func enableCheckoutHistory(account: Account) async throws {
+        let account: EvergreenAccount = try requireType(account)
         guard let authtoken = account.authtoken, let userID = account.userID else { return }
         let dateString = OSRFObject.apiDayOnlyFormatter.string(from: Date())
         let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
         // return value doesn't matter, it either worked or it errored.
         let _ = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
-        account.setCircHistoryStart(dateString)
+        account.circHistoryStart = dateString
     }
 
     func disableCheckoutHistory(account: Account) async throws {
+        let account: EvergreenAccount = try requireType(account)
         guard let authtoken = account.authtoken, let userID = account.userID else { return }
         let dateString: String? = nil
         let settings: JSONDictionary = [API.userSettingCircHistoryStart: dateString]
         // return value doesn't matter, it either worked or it errored.
         let _ = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
-        account.setCircHistoryStart(dateString)
+        account.circHistoryStart = dateString
     }
 
     private func updatePatronSettings(authtoken: String, userID: Int, settings: JSONDictionary) async throws -> String {
@@ -179,6 +195,7 @@ class EvergreenUserService: UserService {
     }
 
     func changePickupOrg(account: Account, orgId: Int) async throws {
+        let account: EvergreenAccount = try requireType(account)
         guard let authtoken = account.authtoken, let userID = account.userID else { return }
         let settings: JSONDictionary = [API.userSettingDefaultPickupLocation: orgId]
         // return value doesn't matter, it either worked or it errored.

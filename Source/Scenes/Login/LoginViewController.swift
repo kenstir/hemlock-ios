@@ -170,10 +170,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         activityIndicator.startAnimating()
 
         var credential = Credential(username: username, password: password)
-        let account = Account(username, password: password)
         do {
             let authtoken = try await App.serviceConfig.authService.fetchAuthToken(credential: credential)
-            account.setAuthToken(authtoken)
+            let account = App.serviceConfig.userService.makeAccount(username: username, password: password, authToken: authtoken)
 
             try await App.serviceConfig.userService.loadSession(account: account)
 
