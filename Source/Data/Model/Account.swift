@@ -27,7 +27,7 @@ protocol Account: AnyObject {
     var homeOrgID: Int? { get }
     var searchOrgID: Int? { get }
     var pickupOrgID: Int? { get }
-    var smsCarrier: Int? { get }
+    var smsCarrierID: Int? { get }
 
     var expireDate: Date? { get }
 

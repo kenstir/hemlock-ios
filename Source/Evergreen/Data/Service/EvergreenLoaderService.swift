@@ -164,7 +164,7 @@ class EvergreenLoaderService: LoaderService {
         let array = try await req.gatewayResponseAsync().asArray()
         // TODO: make mt-safe, remove await
         await MainActor.run {
-            SMSCarrier.loadSMSCarriers(fromArray: array)
+            EvergreenSMSCarrier.loadSMSCarriers(fromArray: array)
             carriersLoaded = true
         }
     }
