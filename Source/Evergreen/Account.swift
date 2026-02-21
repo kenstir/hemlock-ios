@@ -17,7 +17,7 @@
 import Foundation
 import os.log
 
-protocol Account {
+protocol Account: AnyObject {
     var userID: Int? { get }
     var username: String { get }
     var password: String { get }
