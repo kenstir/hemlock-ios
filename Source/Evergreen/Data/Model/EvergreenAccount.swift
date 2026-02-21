@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2025 Kenneth H. Cox
+//  Copyright (c) 2026 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -17,43 +17,10 @@
 import Foundation
 import os.log
 
-protocol Account: AnyObject {
-    var userID: Int? { get }
-    var username: String { get }
-    var password: String { get }
-    var authtoken: String? { get }
-    var barcode: String? { get }
-    var displayName: String { get }
-    var phoneNumber: String? { get }
-    var smsNumber: String? { get }
-
-    var homeOrgID: Int? { get }
-    var searchOrgID: Int? { get }
-    var pickupOrgID: Int? { get }
-    var smsCarrier: Int? { get }
-
-    var expireDate: Date? { get }
-
-    var notifyByEmail: Bool { get }
-    var notifyByPhone: Bool { get }
-    var notifyBySMS: Bool { get }
-
-    var patronLists: [any PatronList] { get }
-    var patronListsEverLoaded: Bool { get }
-
-    var circHistoryStart: String? { get set }
-    var savedPushNotificationData: String? { get set }
-    var savedPushNotificationEnabled: Bool { get set }
-
-    func clear()
-    func removePatronList(at index: Int)
-}
-
 class EvergreenAccount : Account {
     static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Account")
     private let lock = NSRecursiveLock()
 
-    private(set) var userID: Int?
     let username: String
     private(set) var password: String
     private(set) var authtoken: String?
@@ -70,6 +37,7 @@ class EvergreenAccount : Account {
     var phoneNumber: String? { return Utils.coalesce(userSettingDefaultPhone, dayPhone) }
     var smsNumber: String? { return userSettingDefaultSMSNotify }
 
+    private(set) var userID: Int?
     private(set) var homeOrgID: Int?
     var searchOrgID: Int? { return userSettingDefaultSearchLocation ?? homeOrgID }
     var pickupOrgID: Int? {
@@ -143,12 +111,21 @@ class EvergreenAccount : Account {
 
         self.password = ""
         self.authtoken = nil
+        self.barcode = nil
+
         self.userID = nil
         self.homeOrgID = nil
-        self.barcode = nil
-        self.dayPhone = nil
+
         self.bookBags = []
         self.patronListsEverLoaded = false
+
+        self.circHistoryStart = nil
+        self.savedPushNotificationData = nil
+        self.savedPushNotificationEnabled = false
+        self.dayPhone = nil
+
+        self.userSettingDefaultSMSCarrier = nil
+        self.userSettingDefaultSMSNotify = nil
     }
 
     /// mt-safe
