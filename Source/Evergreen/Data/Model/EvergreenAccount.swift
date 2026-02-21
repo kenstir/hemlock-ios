@@ -44,7 +44,7 @@ class EvergreenAccount : Account {
         get { return userSettingDefaultPickupLocation ?? homeOrgID }
         set { userSettingDefaultPickupLocation = newValue }
     }
-    var smsCarrier: Int? { return userSettingDefaultSMSCarrier }
+    var smsCarrierID: Int? { return userSettingDefaultSMSCarrier }
 
     private(set) var expireDate: Date?
 

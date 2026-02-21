@@ -1688,6 +1688,15 @@
 		D2E7E30E2F4943BB0066D52B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3072F4943BB0066D52B /* SMSCarrier.swift */; };
 		D2E7E30F2F4943BB0066D52B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3072F4943BB0066D52B /* SMSCarrier.swift */; };
 		D2E7E3102F4943BB0066D52B /* SMSCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3072F4943BB0066D52B /* SMSCarrier.swift */; };
+		D2E7E3122F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
+		D2E7E3132F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
+		D2E7E3142F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
+		D2E7E3152F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
+		D2E7E3162F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
+		D2E7E3172F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
+		D2E7E3182F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
+		D2E7E3192F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
+		D2E7E31A2F4A28350066D52B /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E3112F4A28350066D52B /* Collection+.swift */; };
 		D2EA31062B3F2C67004CEF6E /* EvergreenHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* EvergreenHistoryRecord.swift */; };
 		D2EA31082B3F2C67004CEF6E /* EvergreenHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* EvergreenHistoryRecord.swift */; };
 		D2EA31092B3F2C67004CEF6E /* EvergreenHistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA31052B3F2C67004CEF6E /* EvergreenHistoryRecord.swift */; };
@@ -2236,6 +2245,7 @@
 		D2E4090B2BD310AE00148FD5 /* pines.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pines.entitlements; sourceTree = "<group>"; };
 		D2E7E2FD2F493FE70066D52B /* EvergreenAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenAccount.swift; sourceTree = "<group>"; };
 		D2E7E3072F4943BB0066D52B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
+		D2E7E3112F4A28350066D52B /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 		D2EA31052B3F2C67004CEF6E /* EvergreenHistoryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenHistoryRecord.swift; sourceTree = "<group>"; };
 		D2EA31112B3F3C20004CEF6E /* HistoryRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordTests.swift; sourceTree = "<group>"; };
 		D2EA31142B3F50FE004CEF6E /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
@@ -2555,6 +2565,7 @@
 				D21FF9B82E706D760058E2D3 /* AppState.swift */,
 				D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
+				D2E7E3112F4A28350066D52B /* Collection+.swift */,
 				D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
 				D2A73B1E246CB54000874620 /* JSONUtils.swift */,
@@ -4033,6 +4044,7 @@
 				D24E08DF2F25680100995751 /* CopyLocationCounts+.swift in Sources */,
 				D210EBFC22B1EE55002FB5E0 /* IDLParser.swift in Sources */,
 				D210EBFD22B1EE55002FB5E0 /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
+				D2E7E3132F4A28350066D52B /* Collection+.swift in Sources */,
 				D24D491329D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
 				D2D074A32E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300592E3E65AB0082C308 /* UserService.swift in Sources */,
@@ -4183,6 +4195,7 @@
 				D23E9FEF23B923B80030F5C1 /* SagecatTheme.swift in Sources */,
 				D23E9F9B23B9200A0030F5C1 /* Theme.swift in Sources */,
 				D23E9F9C23B9200A0030F5C1 /* XUtils.swift in Sources */,
+				D2E7E3172F4A28350066D52B /* Collection+.swift in Sources */,
 				D23E9F9D23B9200A0030F5C1 /* Analytics.swift in Sources */,
 				D2C3EA2B29D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D23E9FED23B923B80030F5C1 /* SagecatAppBehavior.swift in Sources */,
@@ -4334,6 +4347,7 @@
 				D2477BEA24785A6B00FD4CF6 /* XUtils.swift in Sources */,
 				D2477BEB24785A6B00FD4CF6 /* Analytics.swift in Sources */,
 				D2477BEE24785A6B00FD4CF6 /* MD5.swift in Sources */,
+				D2E7E3192F4A28350066D52B /* Collection+.swift in Sources */,
 				D2477BEF24785A6B00FD4CF6 /* FinesTableViewCell.swift in Sources */,
 				D2C3EA2529D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2477BF024785A6B00FD4CF6 /* LocationPicker.swift in Sources */,
@@ -4485,6 +4499,7 @@
 				D2572ADB24AD7755000BA698 /* XUtils.swift in Sources */,
 				D2572B2724AD7A13000BA698 /* AppFactory.swift in Sources */,
 				D2572ADC24AD7755000BA698 /* Analytics.swift in Sources */,
+				D2E7E31A2F4A28350066D52B /* Collection+.swift in Sources */,
 				D2572ADF24AD7755000BA698 /* MD5.swift in Sources */,
 				D2C3EA2629D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2572AE024AD7755000BA698 /* FinesTableViewCell.swift in Sources */,
@@ -4636,6 +4651,7 @@
 				D25EEC7F28A1E8310090F108 /* Theme.swift in Sources */,
 				D25EEC8028A1E8310090F108 /* XUtils.swift in Sources */,
 				D25EEC8228A1E8310090F108 /* Analytics.swift in Sources */,
+				D2E7E3152F4A28350066D52B /* Collection+.swift in Sources */,
 				D25EEC8428A1E8310090F108 /* MD5.swift in Sources */,
 				D2C3EA2929D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D25EECD728A1EB2E0090F108 /* OwwlAppBehavior.swift in Sources */,
@@ -4784,6 +4800,7 @@
 				D2C3EA2F29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2E7E3032F493FE70066D52B /* EvergreenAccount.swift in Sources */,
 				D276DAA821336B20007FAA31 /* CopyInfoViewController.swift in Sources */,
+				D2E7E3122F4A28350066D52B /* Collection+.swift in Sources */,
 				D22D0C9A2243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D276DAA921336B20007FAA31 /* UIView+UYLExtensions.swift in Sources */,
 				D21FF9C22E706D760058E2D3 /* AppState.swift in Sources */,
@@ -4934,6 +4951,7 @@
 				D248CBDC2120EA1A0091D2E6 /* CopyInfoViewController.swift in Sources */,
 				D2E7E3012F493FE70066D52B /* EvergreenAccount.swift in Sources */,
 				D28290F520E5CF48008EBE4B /* UIView+UYLExtensions.swift in Sources */,
+				D2E7E3162F4A28350066D52B /* Collection+.swift in Sources */,
 				D22D0C982243107600DBB31A /* SendEmailViewController.swift in Sources */,
 				D27990DD20DDD473003B451E /* CircRecord.swift in Sources */,
 				D21FF9C12E706D760058E2D3 /* AppState.swift in Sources */,
@@ -5087,6 +5105,7 @@
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
+				D2E7E3182F4A28350066D52B /* Collection+.swift in Sources */,
 				D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */,
 				D2C3EA2A29D88DC000583A96 /* DetailsPagerViewController.swift in Sources */,
 				D2DF196820CEF68700085255 /* Analytics.swift in Sources */,
@@ -5281,6 +5300,7 @@
 				D24E08DE2F25680100995751 /* CopyLocationCounts+.swift in Sources */,
 				D234700024E8B71400FF4433 /* UIBarButtonItem+Badge.swift in Sources */,
 				D21981FC235BC7BC003AE531 /* CodedValueMap.swift in Sources */,
+				D2E7E3142F4A28350066D52B /* Collection+.swift in Sources */,
 				D2BDA64522D176BD00D9B60C /* ZXMultiFormatWriter+SafeEncode.m in Sources */,
 				D2D074A02E74D4A9003DFCCF /* PickOneOption.swift in Sources */,
 				D2C300542E3E65AB0082C308 /* UserService.swift in Sources */,

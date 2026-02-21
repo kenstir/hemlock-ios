@@ -33,7 +33,7 @@ class EvergreenSMSCarrier: SMSCarrier {
         for obj in objects {
             if let id = obj.getInt("id"),
                 let name = obj.getString("name") {
-                carriers.append(SMSCarrier(id: id, name: name))
+                carriers.append(EvergreenSMSCarrier(id: id, name: name))
             }
         }
     }

@@ -34,7 +34,9 @@ class EvergreenConsortiumService: ConsortiumService {
 
     var searchFormatSpinnerValues: [String] { return CodedValueMap.searchFormatSpinnerValues() }
 
-    var smsCarrierSpinnerLabels: [String] { return SMSCarrier.getSpinnerLabels() }
+    var smsCarriers: [any SMSCarrier] { return EvergreenSMSCarrier.carriers }
+
+    var smsCarrierSpinnerLabels: [String] { return EvergreenSMSCarrier.getSpinnerLabels() }
 
     var visibleOrgs: [Organization] { return EvergreenOrganization.visibleOrgs }
 

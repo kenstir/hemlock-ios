@@ -335,15 +335,15 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func loadCarrierData() {
-        carrierLabels = SMSCarrier.getSpinnerLabels()
+        carrierLabels = App.serviceConfig.consortiumService.smsCarrierSpinnerLabels
         carrierLabels.sort()
         carrierLabels.insert("---", at: 0)
 
         let defaultCarrierID = Utils.coalesce(holdRecord?.smsCarrier,
                                               AppState.integer(forKey: AppState.Integer.holdSMSCarrierID),
-                                              App.account?.smsCarrier)
+                                              App.account?.smsCarrierID)
 
-        let selectedCarrier = SMSCarrier.find(byID: defaultCarrierID)
+        let selectedCarrier = App.serviceConfig.consortiumService.smsCarriers.first(where: { $0.id == defaultCarrierID })
         selectedCarrierName = selectedCarrier?.name ?? carrierLabels[0]
         carrierTextField.text = selectedCarrierName
         carrierTextField.isUserInteractionEnabled = true
@@ -435,7 +435,7 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func saveSelectedCarrier(byName name: String) {
-        if let carrier = SMSCarrier.find(byName: name) {
+        if let carrier = App.serviceConfig.consortiumService.smsCarriers.first(where: { $0.name == name }) {
             AppState.set(integer: carrier.id, forKey: AppState.Integer.holdSMSCarrierID)
         }
     }
@@ -553,7 +553,7 @@ class PlaceHoldViewController: UIViewController {
                 self.showAlert(title: "Error", message: "SMS phone number cannot be empty")
                 return
             }
-            guard let carrier = SMSCarrier.find(byName: self.selectedCarrierName) else {
+            guard let carrier = App.serviceConfig.consortiumService.smsCarriers.first(where: { $0.name == selectedCarrierName }) else {
                 self.showAlert(title: "Error", message: "Please select a valid carrier")
                 return
             }

@@ -38,6 +38,9 @@ protocol ConsortiumService {
     /// search format option values; parallel array to `searchFormatSpinnerLabels`
     var searchFormatSpinnerValues: [String] { get }
 
+    /// SMS carriers
+    var smsCarriers: [SMSCarrier] { get }
+
     /// SMS carrier option labels
     var smsCarrierSpinnerLabels: [String] { get }
 
