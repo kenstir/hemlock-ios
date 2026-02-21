@@ -19,6 +19,7 @@ protocol Account: AnyObject {
     var password: String { get }
     var authtoken: String? { get }
     var barcode: String? { get }
+    var expireDateLabel: String? { get }
     var displayName: String { get }
     var phoneNumber: String? { get }
     var smsNumber: String? { get }

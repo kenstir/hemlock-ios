@@ -25,6 +25,13 @@ class EvergreenAccount : Account {
     private(set) var password: String
     private(set) var authtoken: String?
     private(set) var barcode: String?
+    var expireDateLabel: String? {
+        if let expireDate = expireDate {
+            return OSRFObject.outputDateFormatter.string(from: expireDate)
+        } else {
+            return nil
+        }
+    }
     var displayName: String {
         if username == barcode,
             let first = firstGivenName,

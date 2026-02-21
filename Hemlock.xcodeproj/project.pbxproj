@@ -3048,6 +3048,7 @@
 			children = (
 				D2931AA9272DE83200CBA5AA /* BookBag.swift */,
 				D2931A9E272DE56500CBA5AA /* BookBagItem.swift */,
+				D2E7E2FD2F493FE70066D52B /* EvergreenAccount.swift */,
 				D228682C2ED13B3200E2DAEB /* EvergreenCircRecord.swift */,
 				D2CDCCF62ECFD9A400B733E1 /* EvergreenCopyCount.swift */,
 				D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */,
@@ -3058,7 +3059,6 @@
 				D2BB6689297C813A007E19E7 /* EvergreenPatronMessage.swift */,
 				D2DF196520CEEE1200085255 /* FineRecord.swift */,
 				FA64C95F20E04D34009973E5 /* MBRecord.swift */,
-				D2E7E2FD2F493FE70066D52B /* EvergreenAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
