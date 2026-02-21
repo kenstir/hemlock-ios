@@ -145,7 +145,7 @@ class EvergreenLoaderService: LoaderService {
                    !org.areSettingsLoaded
                 {
                     group.addTask {
-                        try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: org.id)
+                        try await App.svc.org.loadOrgSettings(forOrgID: org.id)
                     }
                 }
             }

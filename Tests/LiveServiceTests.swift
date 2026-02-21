@@ -192,10 +192,10 @@ class LiveServiceTests: XCTestCase {
     func test_orgTree() async throws {
         try await once_loadStartupPrerequisites()
 
-        let org = App.serviceConfig.consortiumService.find(byID: 1)
+        let org = App.svc.consortium.find(byID: 1)
         XCTAssertNotNil(org)
         XCTAssertNotNil(org?.name)
-        let consortium = App.serviceConfig.consortiumService.find(byID: App.serviceConfig.consortiumService.consortiumOrgID)
+        let consortium = App.svc.consortium.find(byID: App.svc.consortium.consortiumOrgID)
         XCTAssertNotNil(consortium)
         XCTAssertEqual(1, consortium?.id)
     }

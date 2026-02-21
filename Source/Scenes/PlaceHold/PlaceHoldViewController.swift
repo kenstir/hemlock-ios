@@ -242,7 +242,7 @@ class PlaceHoldViewController: UIViewController {
         activityIndicator.startAnimating()
 
         do {
-            async let prereq: Void = App.serviceConfig.loaderService.loadPlaceHoldPrerequisites()
+            async let prereq: Void = App.svc.loader.loadPlaceHoldPrerequisites()
             async let parts: Void = fetchPartsData(account: account)
             _ = try await (prereq, parts)
             self.didCompleteFetch = true
@@ -263,14 +263,14 @@ class PlaceHoldViewController: UIViewController {
         }
         print("PlaceHold: \(record.title): fetching parts")
 
-        self.parts = try await App.serviceConfig.circService.fetchHoldParts(targetID: record.id)
+        self.parts = try await App.svc.circ.fetchHoldParts(targetID: record.id)
         if self.hasParts,
            App.config.enableTitleHoldOnItemWithParts,
            let pickupOrgID = account.pickupOrgID
         {
             print("PlaceHold: \(self.record.title): checking titleHoldIsPossible")
             do {
-                let _ = try await App.serviceConfig.circService.fetchTitleHoldIsPossible(account: account, targetID: self.record.id, pickupOrgID: pickupOrgID)
+                let _ = try await App.svc.circ.fetchTitleHoldIsPossible(account: account, targetID: self.record.id, pickupOrgID: pickupOrgID)
                 self.titleHoldIsPossible = true
             } catch {
                 self.titleHoldIsPossible = false
@@ -296,7 +296,7 @@ class PlaceHoldViewController: UIViewController {
         loadCarrierData()
         loadExpirationData()
         enableViewsWhenReady()
-        App.serviceConfig.consortiumService.dumpOrgStats()
+        App.svc.consortium.dumpOrgStats()
     }
 
     func loadNotifyData() {
@@ -335,7 +335,7 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func loadCarrierData() {
-        carrierLabels = App.serviceConfig.consortiumService.smsCarrierSpinnerLabels
+        carrierLabels = App.svc.consortium.smsCarrierSpinnerLabels
         carrierLabels.sort()
         carrierLabels.insert("---", at: 0)
 
@@ -343,7 +343,7 @@ class PlaceHoldViewController: UIViewController {
                                               AppState.integer(forKey: AppState.Integer.holdSMSCarrierID),
                                               App.account?.smsCarrierID)
 
-        let selectedCarrier = App.serviceConfig.consortiumService.smsCarriers.first(where: { $0.id == defaultCarrierID })
+        let selectedCarrier = App.svc.consortium.smsCarriers.first(where: { $0.id == defaultCarrierID })
         selectedCarrierName = selectedCarrier?.name ?? carrierLabels[0]
         carrierTextField.text = selectedCarrierName
         carrierTextField.isUserInteractionEnabled = true
@@ -435,7 +435,7 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func saveSelectedCarrier(byName name: String) {
-        if let carrier = App.serviceConfig.consortiumService.smsCarriers.first(where: { $0.name == name }) {
+        if let carrier = App.svc.consortium.smsCarriers.first(where: { $0.name == name }) {
             AppState.set(integer: carrier.id, forKey: AppState.Integer.holdSMSCarrierID)
         }
     }
@@ -447,7 +447,7 @@ class PlaceHoldViewController: UIViewController {
         // * it always defaults to the account setting
         // * changing it results in an JUST ONCE / ALWAYS alert
         // * ALWAYS saves it back to the account
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
         orgLabels = consortiumService.orgSpinnerLabels
 
         let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgID,
@@ -462,7 +462,7 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func maybeChangePickupOrg(newIndex: Int, newLabel: String) {
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
         let newOrg = consortiumService.visibleOrgs[newIndex]
         print("[prefs] Pickup org: selected \(newOrg.name)")
         guard newIndex != selectedOrgIndex else { return }
@@ -502,7 +502,7 @@ class PlaceHoldViewController: UIViewController {
     func saveSelectedPickupOrg(org: Organization) async {
         guard let account = App.account else { return }
         do {
-            try await App.serviceConfig.userService.changePickupOrg(account: account, orgId: org.id)
+            try await App.svc.user.changePickupOrg(account: account, orgId: org.id)
         } catch {
             self.presentGatewayAlert(forError: error)
         }
@@ -516,7 +516,7 @@ class PlaceHoldViewController: UIViewController {
             self.presentGatewayAlert(forError: HemlockError.sessionExpired)
             return
         }
-        let pickupOrg = App.serviceConfig.consortiumService.visibleOrgs[selectedOrgIndex]
+        let pickupOrg = App.svc.consortium.visibleOrgs[selectedOrgIndex]
         if !pickupOrg.isPickupLocation {
             self.showAlert(title: "Not a pickup location", message: "You cannot pick up items at \(pickupOrg.name)")
             return
@@ -553,7 +553,7 @@ class PlaceHoldViewController: UIViewController {
                 self.showAlert(title: "Error", message: "SMS phone number cannot be empty")
                 return
             }
-            guard let carrier = App.serviceConfig.consortiumService.smsCarriers.first(where: { $0.name == selectedCarrierName }) else {
+            guard let carrier = App.svc.consortium.smsCarriers.first(where: { $0.name == selectedCarrierName }) else {
                 self.showAlert(title: "Error", message: "Please select a valid carrier")
                 return
             }
@@ -578,7 +578,7 @@ class PlaceHoldViewController: UIViewController {
         let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
         do {
             let options = HoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
-            let _ = try await App.serviceConfig.circService.placeHold(account: account, targetID: targetID, withOptions: options)
+            let _ = try await App.svc.circ.placeHold(account: account, targetID: targetID, withOptions: options)
             activityIndicator.stopAnimating()
             self.logPlaceHold(params: eventParams)
             self.valueChangedHandler?()
@@ -598,7 +598,7 @@ class PlaceHoldViewController: UIViewController {
         let eventParams: [String: Any] = [Analytics.Param.holdSuspend: Analytics.boolValue(suspendSwitch.isOn)]
         do {
             let options = HoldUpdateOptions(notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id, expirationDate: expirationDate, suspended: suspendSwitch.isOn, thawDate: thawDate)
-            let _ = try await App.serviceConfig.circService.updateHold(account: account, holdID: holdRecord.id, withOptions: options)
+            let _ = try await App.svc.circ.updateHold(account: account, holdID: holdRecord.id, withOptions: options)
             activityIndicator.stopAnimating()
             self.logUpdateHold(params: eventParams)
             self.valueChangedHandler?()
@@ -617,8 +617,8 @@ class PlaceHoldViewController: UIViewController {
         if phoneSwitch.isOn { notifyTypes.append("phone") }
         if smsSwitch.isOn { notifyTypes.append("sms") }
 
-        let defaultOrg = App.serviceConfig.consortiumService.find(byID: App.account?.pickupOrgID)
-        let homeOrg = App.serviceConfig.consortiumService.find(byID: App.account?.homeOrgID)
+        let defaultOrg = App.svc.consortium.find(byID: App.account?.pickupOrgID)
+        let homeOrg = App.svc.consortium.find(byID: App.account?.homeOrgID)
 
         return [
             Analytics.Param.holdNotify: notifyTypes.joined(separator: "|"),
@@ -661,7 +661,7 @@ extension PlaceHoldViewController: UITextFieldDelegate {
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
 
         switch textField {
         case pickupTextField:

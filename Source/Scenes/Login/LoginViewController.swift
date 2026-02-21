@@ -95,7 +95,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         do {
             let options = LoaderServiceOptions(clientCacheKey: Bundle.appVersionUrlSafe,
                                              useHierarchicalOrgTree: App.config.enableHierarchicalOrgTree)
-            try await App.serviceConfig.loaderService.loadStartupPrerequisites(options: options)
+            try await App.svc.loader.loadStartupPrerequisites(options: options)
 
             self.loginButton.isEnabled = true
             self.didCompleteFetch = true
@@ -171,10 +171,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         var credential = Credential(username: username, password: password)
         do {
-            let authtoken = try await App.serviceConfig.authService.fetchAuthToken(credential: credential)
-            let account = App.serviceConfig.userService.makeAccount(username: username, password: password, authToken: authtoken)
+            let authtoken = try await App.svc.auth.fetchAuthToken(credential: credential)
+            let account = App.svc.user.makeAccount(username: username, password: password, authToken: authtoken)
 
-            try await App.serviceConfig.userService.loadSession(account: account)
+            try await App.svc.user.loadSession(account: account)
 
             credential.displayName = account.displayName
             self.onSuccessfulLogin(account: account, credential: credential)
@@ -196,8 +196,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func logSuccessfulLogin(account: Account, numCredentials: Int) {
-        let homeOrg = App.serviceConfig.consortiumService.find(byID: account.homeOrgID)
-        let parentOrg = App.serviceConfig.consortiumService.find(byID: homeOrg?.parent)
+        let homeOrg = App.svc.consortium.find(byID: account.homeOrgID)
+        let parentOrg = App.svc.consortium.find(byID: homeOrg?.parent)
         Analytics.setUserProperty(value: homeOrg?.shortname, forName: Analytics.UserProperty.homeOrg)
         Analytics.setUserProperty(value: parentOrg?.shortname, forName: Analytics.UserProperty.parentOrg)
         Analytics.setUserProperty(value: Analytics.boolValue(numCredentials > 1), forName: Analytics.UserProperty.multipleAccounts)

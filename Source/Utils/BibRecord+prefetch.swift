@@ -28,8 +28,8 @@ extension BibRecord {
     func prefetch() async -> Void {
         print("\(Utils.tt) id=\(String(format: "%7d", id)) prefetch hasMetadata=\(self.hasMetadata) hasAttrs=\(self.hasAttributes)")
 
-        async let details: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: self, needMARC: false)
-        async let attrs: Void = App.serviceConfig.biblioService.loadRecordAttributes(forRecord: self)
+        async let details: Void = App.svc.biblio.loadRecordDetails(forRecord: self, needMARC: false)
+        async let attrs: Void = App.svc.biblio.loadRecordAttributes(forRecord: self)
         let _ = try? await (details, attrs)
     }
 }

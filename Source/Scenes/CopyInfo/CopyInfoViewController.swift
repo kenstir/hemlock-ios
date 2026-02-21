@@ -66,7 +66,7 @@ class CopyInfoViewController: UIViewController {
         }
 
         do {
-            let items = try await App.serviceConfig.searchService.fetchCopyLocationCounts(recordID: recordID, orgID: org.id, orgLevel: org.level)
+            let items = try await App.svc.search.fetchCopyLocationCounts(recordID: recordID, orgID: org.id, orgLevel: org.level)
             self.updateItems(withCopyLocationCounts: items)
         } catch {
             self.presentGatewayAlert(forError: error)

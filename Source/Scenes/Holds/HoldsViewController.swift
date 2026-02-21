@@ -70,7 +70,7 @@ class HoldsViewController: UIViewController {
         activityIndicator.startAnimating()
 
         do {
-            items = try await App.serviceConfig.circService.fetchHolds(account: account)
+            items = try await App.svc.circ.fetchHolds(account: account)
             try await loadHoldDetails(account: account)
 
             self.didCompleteFetch = true
@@ -89,7 +89,7 @@ class HoldsViewController: UIViewController {
         try await withThrowingTaskGroup(of: Void.self) { group in
             for hold in self.items {
                 group.addTask {
-                    try await App.serviceConfig.circService.loadHoldDetails(account: account, hold: hold)
+                    try await App.svc.circ.loadHoldDetails(account: account, hold: hold)
                 }
             }
             try await group.waitForAll()
@@ -134,7 +134,7 @@ class HoldsViewController: UIViewController {
     @MainActor
     func cancelHold(account: Account, holdID: Int) async {
         do {
-            let _ = try await App.serviceConfig.circService.cancelHold(account: account, holdID: holdID)
+            let _ = try await App.svc.circ.cancelHold(account: account, holdID: holdID)
             self.logCancelHold()
             self.navigationController?.view.makeToast("Hold cancelled")
             self.didCompleteFetch = false

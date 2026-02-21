@@ -167,7 +167,7 @@ class EvergreenAccount : Account {
         {
             print("[fcm] updating stored token")
             do {
-                try await App.serviceConfig.userService.updatePushNotificationToken(account: self, token: currentFCMToken)
+                try await App.svc.user.updatePushNotificationToken(account: self, token: currentFCMToken)
                 Analytics.logEvent(event: Analytics.Event.fcmTokenUpdate, parameters: [Analytics.Param.result: Analytics.Value.ok])
             } catch {
                 Analytics.logEvent(event: Analytics.Event.fcmTokenUpdate, parameters: [Analytics.Param.result: error.localizedDescription])
