@@ -927,7 +927,7 @@
 		D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D27DF20E21AB4B84002DCC47 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27DF20B21AB4B84002DCC47 /* String+subscript.swift */; };
 		D27EFD5C2094E46400D7E22E /* Documentation in Resources */ = {isa = PBXBuildFile; fileRef = D27EFD5B2094E46400D7E22E /* Documentation */; };
-		D2806A9121B33F6000F308F4 /* BarcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2806A9021B33F6000F308F4 /* BarcodeTests.swift */; };
+		D2806A9121B33F6000F308F4 /* BarcodeUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2806A9021B33F6000F308F4 /* BarcodeUtilsTests.swift */; };
 		D28164B0213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D28164B1213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
 		D28164B2213C502D000B64B4 /* UIFont+smallCaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */; };
@@ -2109,7 +2109,7 @@
 		D27DF20B21AB4B84002DCC47 /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
 		D27EFD5A2094E1EB00D7E22E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		D27EFD5B2094E46400D7E22E /* Documentation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Documentation; sourceTree = "<group>"; };
-		D2806A9021B33F6000F308F4 /* BarcodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeTests.swift; sourceTree = "<group>"; };
+		D2806A9021B33F6000F308F4 /* BarcodeUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeUtilsTests.swift; sourceTree = "<group>"; };
 		D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+smallCaps.swift"; sourceTree = "<group>"; };
 		D28164B3213C7D99000B64B4 /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		D2816CBB28B013C30060F688 /* ScanBarcode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanBarcode.storyboard; sourceTree = "<group>"; };
@@ -2563,6 +2563,7 @@
 				D22AE118221B75FC0089C196 /* AFSession+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D21FF9B82E706D760058E2D3 /* AppState.swift */,
+				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
 				D2E7E3112F4A28350066D52B /* Collection+.swift */,
@@ -2600,6 +2601,7 @@
 			children = (
 				D2861B512E51593F00C61AD9 /* AsyncTests.swift */,
 				D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */,
+				D2806A9021B33F6000F308F4 /* BarcodeUtilsTests.swift */,
 				D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */,
 				D22D0272208506C500DC1F5B /* MD5Tests.swift */,
 				D259671824511CA90076267D /* UtilsTests.swift */,
@@ -2616,7 +2618,6 @@
 				D2C3001D2E3C02220082C308 /* GatewayResponse+.swift */,
 				D23398852E3BC3DB00CBDAEB /* Gateway+Async.swift */,
 				D287D51F207AF88E001AF644 /* API.swift */,
-				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D21981F7235BC7BC003AE531 /* CodedValueMap.swift */,
 				D2D93CF4210AB6F1004306D8 /* CopyStatus.swift */,
 				D2AE78542F2818830062C4B9 /* EvergreenAppBehavior.swift */,
@@ -2639,7 +2640,6 @@
 			children = (
 				D287D51D207AEF54001AF644 /* AccountTests.swift */,
 				D24D87A22B730D2200F1B77E /* AppBehaviorTests.swift */,
-				D2806A9021B33F6000F308F4 /* BarcodeTests.swift */,
 				D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */,
 				D252DA2723F616C000D11662 /* CircRecordTests.swift */,
 				D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */,
@@ -5178,7 +5178,7 @@
 				D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */,
 				D228684B2ED4CA5200E2DAEB /* TypeHelpersTests.swift in Sources */,
 				D24D87A32B730D2200F1B77E /* AppBehaviorTests.swift in Sources */,
-				D2806A9121B33F6000F308F4 /* BarcodeTests.swift in Sources */,
+				D2806A9121B33F6000F308F4 /* BarcodeUtilsTests.swift in Sources */,
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
