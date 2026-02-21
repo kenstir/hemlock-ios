@@ -19,6 +19,7 @@
 
 import Foundation
 
+// TODO: factor out protocol and derive Evergreen implementation
 class SMSCarrier {
     
     static var carriers: [SMSCarrier] = []

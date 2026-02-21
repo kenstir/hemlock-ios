@@ -2608,7 +2608,6 @@
 				D29C720F209248F500E90952 /* OSRFCoder.swift */,
 				D29C72152093A2C000E90952 /* OSRFObject.swift */,
 				D20B2FFB22CFD91900F69848 /* RecordAttributes.swift */,
-				D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */,
 				D2C24A32210178DD0028180B /* SMSCarrier.swift */,
 			);
 			path = Evergreen;
@@ -2809,6 +2808,7 @@
 				D2861B452E514BDA00C61AD9 /* PatronChargeRecord.swift */,
 				D22868362ED4C34400E2DAEB /* PatronList.swift */,
 				D29273572ED5293F004CAD82 /* PatronMessage.swift */,
+				D2D0748F2E74C2F4003DFCCF /* SearchClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
