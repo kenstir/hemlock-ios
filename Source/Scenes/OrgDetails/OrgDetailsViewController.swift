@@ -231,22 +231,6 @@ class OrgDetailsViewController: UIViewController {
         Style.styleActivityIndicator(activityIndicator)
     }
 
-    func hoursOfOperation(obj: OSRFObject?, day: Int) -> String? {
-        guard let openApiStr = obj?.getString("dow_\(day)_open"),
-            let closeApiStr = obj?.getString("dow_\(day)_close") else { return nil }
-        if openApiStr == closeApiStr {
-            return "closed"
-        }
-        if let openDate = OSRFObject.apiHoursFormatter.date(from: openApiStr),
-            let closeDate = OSRFObject.apiHoursFormatter.date(from: closeApiStr)
-        {
-            let openStr = OSRFObject.outputHoursFormatter.string(from: openDate)
-            let closeStr = OSRFObject.outputHoursFormatter.string(from: closeDate)
-            return "\(openStr) - \(closeStr)"
-        }
-        return nil
-    }
-
     func testNote(_ note: String?) -> String? {
         return note
     }
