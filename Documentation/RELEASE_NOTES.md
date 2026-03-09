@@ -1,6 +1,12 @@
 # iOS Release Notes
 
 ## UNRELEASED
+
+### New
+* cwmars: Add "More information" button to Item Details screen, which links to an expanded
+  description with series details and read-alike recommendations
+
+### Fixed
 * internal: Fix data abstraction leaks (#80 #81 #82)
 
 ## 4.4.1
