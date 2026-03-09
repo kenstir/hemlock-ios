@@ -44,6 +44,7 @@ class StringExtensionTests: XCTestCase {
         let template = "Missing {key}"
         XCTAssertThrowsError(try template.expandTemplate(values: [:])) { error in
             print("Error: \(error.localizedDescription)")
+            XCTAssertTrue(error is TemplateError)
         }
     }
 }

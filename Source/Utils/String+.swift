@@ -61,7 +61,7 @@ extension String {
 
     /// Returns a string with tokens of the form `{key}` replaced with the corresponding value from `values`.
     ///
-    /// - Throws: `TemplateError.missingValue(key:)` if a key in the template is not present in the map.
+    /// - Throws: `TemplateError.missingValue(key:template:)` if a key in the template is not present in the map.
     func expandTemplate(values: [String: String]) throws -> String {
         let pattern = "\\{([a-zA-Z0-9_]+)\\}"
         let regex = try NSRegularExpression(pattern: pattern)
