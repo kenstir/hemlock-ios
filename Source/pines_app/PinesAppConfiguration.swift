@@ -26,8 +26,7 @@ class PinesAppConfiguration: BaseAppConfiguration {
 
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var detailsExtraLinkText: String? { return "More Information" }
-    override var detailsExtraLinkQuery: String? { return nil }
-    override var detailsExtraLinkFragment: String? { return "awards" }
+    override var detailsExtraLinkURLTemplate: String? { return "{baseURL}/eg/opac/record/{recordID}#awards" }
 
     override var enableHoldShowQueuePosition: Bool { return false }
     override var enableHoldShowExpiration: Bool { return true }

@@ -158,6 +158,7 @@
 		D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* acorn.xcassets */; };
 		D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D213904B2C5006BA007C4EFD /* FirebaseCrashlytics */; };
 		D213904E2C5006C6007C4EFD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D213904D2C5006C6007C4EFD /* FirebaseMessaging */; };
+		D21735852F5F5F53002C8046 /* String+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21735842F5F5F53002C8046 /* String+Tests.swift */; };
 		D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D21889FA2D29E67200E8A1C3 /* FirebaseCrashlytics */; };
 		D21981F8235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
 		D21981FA235BC7BC003AE531 /* CodedValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21981F7235BC7BC003AE531 /* CodedValueMap.swift */; };
@@ -1984,6 +1985,7 @@
 		D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcornAppConfiguration.swift; sourceTree = "<group>"; };
 		D210EC4922B1F2D2002FB5E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D210EC4B22B1F331002FB5E0 /* acorn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = acorn.xcassets; sourceTree = "<group>"; };
+		D21735842F5F5F53002C8046 /* String+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Tests.swift"; sourceTree = "<group>"; };
 		D21981F7235BC7BC003AE531 /* CodedValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CodedValueMap.swift; path = Source/Evergreen/CodedValueMap.swift; sourceTree = SOURCE_ROOT; };
 		D21981FF235BCE45003AE531 /* CodedValueMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedValueMapTests.swift; sourceTree = "<group>"; };
 		D21FF9B82E706D760058E2D3 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -2599,14 +2601,15 @@
 		D22D0271208506A700DC1F5B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				D2861B512E51593F00C61AD9 /* AsyncTests.swift */,
 				D22D0C8A22425E6500DBB31A /* AnalyticsTests.swift */,
+				D2861B512E51593F00C61AD9 /* AsyncTests.swift */,
 				D2806A9021B33F6000F308F4 /* BarcodeUtilsTests.swift */,
 				D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */,
-				D22D0272208506C500DC1F5B /* MD5Tests.swift */,
-				D259671824511CA90076267D /* UtilsTests.swift */,
 				D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */,
+				D22D0272208506C500DC1F5B /* MD5Tests.swift */,
+				D21735842F5F5F53002C8046 /* String+Tests.swift */,
 				D228684A2ED4CA5200E2DAEB /* TypeHelpersTests.swift */,
+				D259671824511CA90076267D /* UtilsTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -5173,6 +5176,7 @@
 			files = (
 				D231B52E2083C1E500478D25 /* LibraryTests.swift in Sources */,
 				D2385E2C2091400D00FE0C89 /* IDLParserTests.swift in Sources */,
+				D21735852F5F5F53002C8046 /* String+Tests.swift in Sources */,
 				D20B300422CFF8BA00F69848 /* RecordAttributesTests.swift in Sources */,
 				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
 				D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */,

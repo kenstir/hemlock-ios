@@ -219,7 +219,7 @@ class DetailsViewController: UIViewController {
 
         // If there's only one link, open it without ceremony
         if links.count == 1 && !App.config.alwaysUseActionSheetForOnlineLinks {
-            openOnlineLocation(vc: self, href: links[0].href)
+            launchURL(url: links[0].href)
             return
         }
 
@@ -228,7 +228,7 @@ class DetailsViewController: UIViewController {
         Style.styleAlertController(alertController)
         for link in links {
             alertController.addAction(UIAlertAction(title: link.text, style: .default) { action in
-                self.openOnlineLocation(vc: self, href: link.href)
+                self.launchURL(url: link.href)
             })
         }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -335,21 +335,18 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func extrasPressed(sender: Any) {
-        var url = App.config.url + "/eg/opac/record/" + String(record.id)
-        if let q = App.config.detailsExtraLinkQuery {
-            url += "?" + q
-        }
-        if let fragment = App.config.detailsExtraLinkFragment {
-            url += "#" + fragment
-        }
-        self.openOnlineLocation(vc: self, href: url)
-    }
-
-    func openOnlineLocation(vc: UIViewController, href: String) {
-        guard let url = URL(string: href) else {
-            vc.showAlert(title: "Error parsing URL", message: "Unable to parse online location \(href)")
+        guard let template = App.config.detailsExtraLinkURLTemplate else {
+            self.showAlert(title: "Internal Error", message: "No URL configured in detailsExtraLinkURLTemplate")
             return
         }
-        UIApplication.shared.open(url)
+        do {
+            let url = try template.expandTemplate(values: [
+                "recordID": String(record.id),
+                "baseURL": App.config.url,
+            ])
+            self.launchURL(url: url)
+        } catch {
+            self.showAlert(title: "Internal Error", error: error)
+        }
     }
 }
