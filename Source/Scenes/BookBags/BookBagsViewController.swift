@@ -125,9 +125,9 @@ class BookBagsViewController : UITableViewController {
     }
 
     @MainActor
-    func deleteList(account: Account, listId: Int, indexPath: IndexPath) async {
+    func deleteList(account: Account, listID: Int, indexPath: IndexPath) async {
         do {
-            try await App.svc.user.deletePatronList(account: account, listId: listId)
+            try await App.svc.user.deletePatronList(account: account, listID: listID)
             account.removePatronList(at: indexPath.row)
             self.updateItems()
         } catch {
@@ -174,7 +174,7 @@ class BookBagsViewController : UITableViewController {
         let alertController = UIAlertController(title: "Delete list?", message: nil, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { action in
-            Task { await self.deleteList(account: account, listId: item.id, indexPath: indexPath) }
+            Task { await self.deleteList(account: account, listID: item.id, indexPath: indexPath) }
         })
         self.present(alertController, animated: true)
     }

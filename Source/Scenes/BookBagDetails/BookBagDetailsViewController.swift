@@ -203,7 +203,7 @@ class BookBagDetailsViewController : UITableViewController {
     @MainActor
     func deleteItem(account: Account, bookBag: PatronList, item: ListItem) async {
         do {
-            try await App.svc.user.removeItemFromPatronList(account: account, listId: bookBag.id, itemId: item.id)
+            try await App.svc.user.removeItemFromPatronList(account: account, listID: bookBag.id, itemID: item.id)
             Analytics.logEvent(event: Analytics.Event.bookbagDeleteItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.bookBag?.items.removeAll(where: { $0.id == item.id })
             self.updateItems()

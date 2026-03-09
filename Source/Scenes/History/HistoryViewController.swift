@@ -233,8 +233,8 @@ class HistoryViewController: UITableViewController {
         cell.checkoutDate.text = "Checkout Date: \(item?.checkoutDateLabel ?? "")"
         cell.returnDate.text = "Returned Date: \(item?.returnedDateLabel ?? "")"
         // async load the image
-        if let recordId = item?.record?.id,
-            let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(recordId)) {
+        if let recordID = item?.record?.id,
+            let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(recordID)) {
             cell.coverImage.pin_setImage(from: url)
         } else {
             let url: URL? = nil

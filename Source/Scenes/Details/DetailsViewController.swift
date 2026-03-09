@@ -317,7 +317,7 @@ class DetailsViewController: UIViewController {
         guard let account = App.account else { return }
 
         do {
-            try await App.svc.user.addItemToPatronList(account: account, listId: patronList.id, recordId: record.id)
+            try await App.svc.user.addItemToPatronList(account: account, listID: patronList.id, recordID: record.id)
             Analytics.logEvent(event: Analytics.Event.bookbagAddItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.navigationController?.view.makeToast("Item added to list")
         } catch {

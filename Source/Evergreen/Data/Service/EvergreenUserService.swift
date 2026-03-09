@@ -94,7 +94,7 @@ class EvergreenUserService: UserService {
         // TODO: make mt-safe, remove await
         await MainActor.run {
             print("\(Utils.tt) \(patronList.id) about to call .loadItems()")
-            bookBag.initVisibleIds(fromQueryObj: queryObj)
+            bookBag.initVisibleRecords(fromQueryObj: queryObj)
             bookBag.loadItems(fromFleshedObj: allItemsObj)
         }
     }
@@ -116,36 +116,36 @@ class EvergreenUserService: UserService {
         os_log("[lists] createBag %@ result %@", name, str)
     }
 
-    func deletePatronList(account: Account, listId: Int) async throws {
+    func deletePatronList(account: Account, listID: Int) async throws {
         guard let authtoken = account.authtoken else {
             throw HemlockError.sessionExpired
         }
-        let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, listId], shouldCache: false)
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, listID], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[lists] bag %d deleteBag result %@", listId, str)
+        os_log("[lists] bag %d deleteBag result %@", listID, str)
     }
 
-    func addItemToPatronList(account: Account, listId: Int, recordId: Int) async throws {
+    func addItemToPatronList(account: Account, listID: Int, recordID: Int) async throws {
         guard let authtoken = account.authtoken else {
             throw HemlockError.sessionExpired
         }
         let obj = OSRFObject([
-            "bucket": listId,
-            "target_biblio_record_entry": recordId,
+            "bucket": listID,
+            "target_biblio_record_entry": recordID,
             "id": nil,
         ], netClass: "cbrebi")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerItemCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[lists] addItem %d result %@", listId, str)
+        os_log("[lists] addItem %d result %@", listID, str)
     }
 
-    func removeItemFromPatronList(account: Account, listId: Int, itemId: Int) async throws {
+    func removeItemFromPatronList(account: Account, listID: Int, itemID: Int) async throws {
         guard let authtoken = account.authtoken else {
             throw HemlockError.sessionExpired
         }
-        let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, itemId], shouldCache: false)
+        let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, itemID], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[lists] removeItem %d result %@", itemId, str)
+        os_log("[lists] removeItem %d result %@", itemID, str)
     }
 
     //MARK: - User Settings
@@ -194,13 +194,13 @@ class EvergreenUserService: UserService {
         let _ = try await req.gatewayResponseAsync().asString()
     }
 
-    func changePickupOrg(account: Account, orgId: Int) async throws {
+    func changePickupOrg(account: Account, orgID: Int) async throws {
         let account: EvergreenAccount = try requireType(account)
         guard let authtoken = account.authtoken, let userID = account.userID else { return }
-        let settings: JSONDictionary = [API.userSettingDefaultPickupLocation: orgId]
+        let settings: JSONDictionary = [API.userSettingDefaultPickupLocation: orgID]
         // return value doesn't matter, it either worked or it errored.
         let _ = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
-        account.pickupOrgID = orgId
+        account.pickupOrgID = orgID
     }
 
     //MARK: - Messages

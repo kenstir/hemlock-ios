@@ -142,7 +142,7 @@ class MBRecord: BibRecord {
     static func makeArray(fromQueryResponse theobj: OSRFObject?) -> [BibRecord] {
         var records: [BibRecord] = []
 
-        for id in getIdsList(fromQueryObj: theobj) {
+        for id in getIDList(fromQueryObj: theobj) {
             records.append(MBRecord(id: id))
         }
         return records
@@ -153,7 +153,7 @@ class MBRecord: BibRecord {
     //   [[32673,null,"0.0"],[886843,null,"0.0"]]      // integer id,?,?
     //   [["503610",null,"0.0"],["502717",null,"0.0"]] // string id,?,?
     //   [["1805532"],["2385399"]]                     // string id only
-    static func getIdsList(fromQueryObj theobj: OSRFObject?) -> [Int] {
+    static func getIDList(fromQueryObj theobj: OSRFObject?) -> [Int] {
         var ret: [Int] = []
 
         // early exit if there are no results

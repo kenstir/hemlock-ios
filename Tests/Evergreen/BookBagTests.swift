@@ -69,23 +69,23 @@ class BookBagTests: XCTestCase {
     func test_filterToVisibleRecords() {
         let bookBag = BookBag.makeArray([cbrebObj]).first!
         
-        let recordId = 2914107
+        let recordID = 2914107
         let queryPayload = OSRFObject([
             "count": 1,
-            "ids": [[recordId, "2", "4.0"] as [Any]],
+            "ids": [[recordID, "2", "4.0"] as [Any]],
         ])
         let emptyQueryPayload = OSRFObject([
             "count": 1,
             "ids": [] as [Any],
         ])
 
-        // case 1: recordId is visible
-        bookBag.initVisibleIds(fromQueryObj: queryPayload)
+        // case 1: recordID is visible
+        bookBag.initVisibleRecords(fromQueryObj: queryPayload)
         bookBag.loadItems(fromFleshedObj: fleshedCbrebObj)
         XCTAssertEqual(1, bookBag.items.count)
 
-        // case 2: recordId is not visible
-        bookBag.initVisibleIds(fromQueryObj: emptyQueryPayload)
+        // case 2: recordID is not visible
+        bookBag.initVisibleRecords(fromQueryObj: emptyQueryPayload)
         bookBag.loadItems(fromFleshedObj: fleshedCbrebObj)
         XCTAssertEqual(0, bookBag.items.count)
     }

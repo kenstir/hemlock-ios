@@ -502,7 +502,7 @@ class PlaceHoldViewController: UIViewController {
     func saveSelectedPickupOrg(org: Organization) async {
         guard let account = App.account else { return }
         do {
-            try await App.svc.user.changePickupOrg(account: account, orgId: org.id)
+            try await App.svc.user.changePickupOrg(account: account, orgID: org.id)
         } catch {
             self.presentGatewayAlert(forError: error)
         }
