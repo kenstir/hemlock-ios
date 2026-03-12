@@ -1,6 +1,6 @@
 # iOS Release Notes
 
-## 4.5.0 (TENTATIVE -- UNRELEASED)
+## 4.5.0
 
 ### New
 * cwmars: Add "More information" button to Item Details screen, which links to an expanded
