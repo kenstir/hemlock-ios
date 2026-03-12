@@ -17,6 +17,10 @@
 import Foundation
 
 protocol UserService {
+
+    //MARK: - Factory and Utility Methods
+    func makeAccount(username: String, password: String, authToken: String) -> Account
+
     //MARK: - Session Management
     func loadSession(account: Account) async throws -> Void
     func deleteSession(account: Account) async throws -> Void
@@ -25,16 +29,16 @@ protocol UserService {
     func loadPatronLists(account: Account) async throws -> Void
     func loadPatronListItems(account: Account, patronList: PatronList) async throws -> Void
     func createPatronList(account: Account, name: String, description: String) async throws -> Void
-    func deletePatronList(account: Account, listId: Int) async throws -> Void
-    func addItemToPatronList(account: Account, listId: Int, recordId: Int) async throws -> Void
-    func removeItemFromPatronList(account: Account, listId: Int, itemId: Int) async throws -> Void
+    func deletePatronList(account: Account, listID: Int) async throws -> Void
+    func addItemToPatronList(account: Account, listID: Int, recordID: Int) async throws -> Void
+    func removeItemFromPatronList(account: Account, listID: Int, itemID: Int) async throws -> Void
 
     //MARK: - User Settings
     func updatePushNotificationToken(account: Account, token: String?) async throws -> Void
     func enableCheckoutHistory(account: Account) async throws -> Void
     func disableCheckoutHistory(account: Account) async throws -> Void
     func clearCheckoutHistory(account: Account) async throws -> Void
-    func changePickupOrg(account: Account, orgId: Int) async throws -> Void
+    func changePickupOrg(account: Account, orgID: Int) async throws -> Void
 
     //MARK: - Messages
     func fetchPatronMessages(account: Account) async throws -> [PatronMessage]

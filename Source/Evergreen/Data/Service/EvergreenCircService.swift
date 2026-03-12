@@ -34,7 +34,7 @@ class EvergreenCircService: CircService {
         let circObj = try await circReq.gatewayResponseAsync().asObject()
         circRecord.setCircObj(circObj)
 
-        let modsObj = try await fetchCopyMODS(copyId: circRecord.targetCopy)
+        let modsObj = try await fetchCopyMODS(copyID: circRecord.targetCopy)
         let record = MBRecord(mvrObj: modsObj)
         circRecord.setMetabibRecord(record)
 
@@ -47,8 +47,8 @@ class EvergreenCircService: CircService {
         }
     }
 
-    private func fetchCopyMODS(copyId: Int) async throws -> OSRFObject {
-        let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [copyId], shouldCache: true)
+    private func fetchCopyMODS(copyID: Int) async throws -> OSRFObject {
+        let req = Gateway.makeRequest(service: API.search, method: API.modsFromCopy, args: [copyID], shouldCache: true)
         return try await req.gatewayResponseAsync().asObject()
     }
 
@@ -242,7 +242,7 @@ class EvergreenCircService: CircService {
     }
 
     func placeHold(account: Account, targetID: Int, withOptions options: HoldOptions) async throws -> Bool {
-        let obj = try await placeHoldImpl(account: account, targetId: targetID, withOptions: options)
+        let obj = try await placeHoldImpl(account: account, targetID: targetID, withOptions: options)
 
         // Retaining old error handling code here, but maybe it's not needed and GatewayResponse.asObject() handles it?
         // If not, it should.
@@ -274,7 +274,7 @@ class EvergreenCircService: CircService {
         return HemlockError.unexpectedNetworkResponse(String(describing: obj))
     }
 
-    private func placeHoldImpl(account: Account, targetId: Int, withOptions options: HoldOptions) async throws -> OSRFObject {
+    private func placeHoldImpl(account: Account, targetID: Int, withOptions options: HoldOptions) async throws -> OSRFObject {
         var complexParam: JSONDictionary = [
             "email_notify": options.notifyByEmail,
             "hold_type": options.holdType,
@@ -297,12 +297,12 @@ class EvergreenCircService: CircService {
             complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
         }
         let method = options.useOverride ? API.holdTestAndCreateOverride : API.holdTestAndCreate
-        let req = Gateway.makeRequest(service: API.circ, method: method, args: [account.authtoken, complexParam, [targetId]], shouldCache: false)
+        let req = Gateway.makeRequest(service: API.circ, method: method, args: [account.authtoken, complexParam, [targetID]], shouldCache: false)
         return try await req.gatewayResponseAsync().asObject()
     }
 
     func updateHold(account: Account, holdID: Int, withOptions options: HoldUpdateOptions) async throws -> Bool {
-        // update hold returns the holdId as a string, but we don't need it
+        // update hold returns the holdID as a string, but we don't need it
         let _ = try await updateHoldImpl(account: account, holdID: holdID, withOptions: options)
         return true
     }

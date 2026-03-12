@@ -94,8 +94,7 @@ class ShowCardViewController: UIViewController {
         }
         barcodeLabel.text = BarcodeUtils.displayLabel(barcode, format: App.config.barcodeFormat)
         barcodeImage.image = UIImage(cgImage: cgimage)
-        if let date = account.expireDate {
-            let dateStr = OSRFObject.outputDateFormatter.string(from: date)
+        if let dateStr = account.expireDateLabel {
             barcodeWarningLabel.text = "Expires: \(dateStr)"
             barcodeWarningLabel.isHidden = false
         }

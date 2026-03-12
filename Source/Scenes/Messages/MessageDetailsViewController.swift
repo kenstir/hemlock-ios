@@ -61,7 +61,7 @@ class MessageDetailsViewController: UIViewController {
         guard let messageID = message?.id else { return }
 
         do {
-            try await App.serviceConfig.userService.markMessageRead(account: account, messageID: messageID)
+            try await App.svc.user.markMessageRead(account: account, messageID: messageID)
         } catch {
             self.presentGatewayAlert(forError: error, title: "Error marking message read")
         }
@@ -70,7 +70,7 @@ class MessageDetailsViewController: UIViewController {
     @MainActor
     func markMessageUnread(account: Account, messageID: Int) async {
         do {
-            try await App.serviceConfig.userService.markMessageUnread(account: account, messageID: messageID)
+            try await App.svc.user.markMessageUnread(account: account, messageID: messageID)
 
         } catch {
             self.presentGatewayAlert(forError: error, title: "Error marking message unread")

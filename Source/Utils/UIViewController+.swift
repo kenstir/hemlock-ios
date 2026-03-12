@@ -176,9 +176,11 @@ extension UIViewController {
 
     /// open URL
     func launchURL(url: String) {
-        if let u = URL(string: url) {
-            UIApplication.shared.open(u)
+        guard let u = URL(string: url) else {
+            showAlert(title: "Invalid URL", message: "Can't parse URL: \(url)")
+            return
         }
+        UIApplication.shared.open(u)
     }
 
     //MARK: - FCM Functions

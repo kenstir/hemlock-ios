@@ -113,7 +113,7 @@ class FinesViewController: UIViewController {
 
     func fetchHomeOrgSettings(account: Account) async throws {
         if let homeOrgID = account.homeOrgID {
-            try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: homeOrgID)
+            try await App.svc.org.loadOrgSettings(forOrgID: homeOrgID)
         }
     }
 
@@ -124,7 +124,7 @@ class FinesViewController: UIViewController {
         activityIndicator.startAnimating()
 
         do {
-            async let chargesFuture = App.serviceConfig.userService.fetchPatronCharges(account: account)
+            async let chargesFuture = App.svc.user.fetchPatronCharges(account: account)
 
             let (_, charges) = try await (fetchHomeOrgSettings(account: account), chargesFuture)
 
@@ -141,7 +141,7 @@ class FinesViewController: UIViewController {
     func updatePayFinesButton() {
         guard let account = App.account else { return }
         if App.config.enablePayFines,
-           App.serviceConfig.userService.isPayChargesEnabled(account: account),
+           App.svc.user.isPayChargesEnabled(account: account),
            anyBalanceOwed
         {
             Style.styleButton(asInverse: payFinesButton)
@@ -152,7 +152,7 @@ class FinesViewController: UIViewController {
 
     @objc func payFinesButtonPressed(_ sender: Any) {
         guard let account = App.account else { return }
-        let url = App.config.payChargesUrl ?? App.serviceConfig.userService.payChargesUrl(account: account)
+        let url = App.config.payChargesUrl ?? App.svc.user.payChargesUrl(account: account)
         launchURL(url: url)
     }
 

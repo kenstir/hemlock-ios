@@ -23,8 +23,8 @@ protocol AppConfiguration {
     var bugReportEmailAddress: String { get }
     var sort: String? { get }
     var detailsExtraLinkText: String? { get }
-    var detailsExtraLinkQuery: String? { get }
-    var detailsExtraLinkFragment: String? { get }
+    /// template for extra link on details screen, with optional placeholders `{recordID}` and `{baseURL}`
+    var detailsExtraLinkURLTemplate: String? { get }
     var payChargesUrl: String? { get }
 
     var enableCheckoutHistory: Bool { get }
@@ -61,8 +61,7 @@ class BaseAppConfiguration: AppConfiguration {
     var bugReportEmailAddress: String { return "" }
     var sort: String? { return nil }
     var detailsExtraLinkText: String? { return nil }
-    var detailsExtraLinkQuery: String? { return nil }
-    var detailsExtraLinkFragment: String? { return nil }
+    var detailsExtraLinkURLTemplate: String? { return nil }
     var payChargesUrl: String? { return nil }
 
     var enableCheckoutHistory: Bool { return true }

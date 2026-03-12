@@ -145,7 +145,7 @@ class EvergreenLoaderService: LoaderService {
                    !org.areSettingsLoaded
                 {
                     group.addTask {
-                        try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: org.id)
+                        try await App.svc.org.loadOrgSettings(forOrgID: org.id)
                     }
                 }
             }
@@ -164,7 +164,7 @@ class EvergreenLoaderService: LoaderService {
         let array = try await req.gatewayResponseAsync().asArray()
         // TODO: make mt-safe, remove await
         await MainActor.run {
-            SMSCarrier.loadSMSCarriers(fromArray: array)
+            EvergreenSMSCarrier.loadSMSCarriers(fromArray: array)
             carriersLoaded = true
         }
     }

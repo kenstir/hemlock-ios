@@ -1,22 +1,18 @@
-/*
- * BookBagTests.swift
- *
- * Copyright (C) 2021 Kenneth H. Cox
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+//
+//  Copyright (c) 2026 Kenneth H. Cox
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import XCTest
 @testable import Hemlock
@@ -69,23 +65,23 @@ class BookBagTests: XCTestCase {
     func test_filterToVisibleRecords() {
         let bookBag = BookBag.makeArray([cbrebObj]).first!
         
-        let recordId = 2914107
+        let recordID = 2914107
         let queryPayload = OSRFObject([
             "count": 1,
-            "ids": [[recordId, "2", "4.0"] as [Any]],
+            "ids": [[recordID, "2", "4.0"] as [Any]],
         ])
         let emptyQueryPayload = OSRFObject([
             "count": 1,
             "ids": [] as [Any],
         ])
 
-        // case 1: recordId is visible
-        bookBag.initVisibleIds(fromQueryObj: queryPayload)
+        // case 1: recordID is visible
+        bookBag.initVisibleRecords(fromQueryObj: queryPayload)
         bookBag.loadItems(fromFleshedObj: fleshedCbrebObj)
         XCTAssertEqual(1, bookBag.items.count)
 
-        // case 2: recordId is not visible
-        bookBag.initVisibleIds(fromQueryObj: emptyQueryPayload)
+        // case 2: recordID is not visible
+        bookBag.initVisibleRecords(fromQueryObj: emptyQueryPayload)
         bookBag.loadItems(fromFleshedObj: fleshedCbrebObj)
         XCTAssertEqual(0, bookBag.items.count)
     }

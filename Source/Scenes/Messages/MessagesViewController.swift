@@ -64,7 +64,7 @@ class MessagesViewController: UITableViewController {
         activityIndicator.startAnimating()
 
         do {
-            let messages = try await App.serviceConfig.userService.fetchPatronMessages(account: account)
+            let messages = try await App.svc.user.fetchPatronMessages(account: account)
             self.didCompleteFetch = true
             self.updateItems(messages: messages)
         } catch {
@@ -82,7 +82,7 @@ class MessagesViewController: UITableViewController {
     @MainActor
     func markMessageDeleted(account: Account, message: PatronMessage) async {
         do {
-            try await App.serviceConfig.userService.markMessageDeleted(account: account, messageID: message.id)
+            try await App.svc.user.markMessageDeleted(account: account, messageID: message.id)
             await self.fetchData()
         } catch {
             self.presentGatewayAlert(forError: error, title: "Error deleting message")

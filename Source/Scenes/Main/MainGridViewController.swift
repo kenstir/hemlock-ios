@@ -73,7 +73,7 @@ class MainGridViewController: MainBaseViewController {
         guard let orgID = App.account?.homeOrgID else { return }
 
         do {
-            try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: orgID)
+            try await App.svc.org.loadOrgSettings(forOrgID: orgID)
             didFetchHomeOrgSettings = true
             onHomeOrgSettingsLoaded(homeOrgID: orgID)
         } catch {
@@ -82,7 +82,7 @@ class MainGridViewController: MainBaseViewController {
     }
 
     func onHomeOrgSettingsLoaded(homeOrgID orgID: Int) {
-        let org = App.serviceConfig.consortiumService.find(byID: orgID)
+        let org = App.svc.consortium.find(byID: orgID)
         self.loadButtons(forOrg: org)
         self.collectionView.reloadData()
     }

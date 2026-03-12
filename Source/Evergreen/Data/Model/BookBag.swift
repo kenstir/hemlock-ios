@@ -26,7 +26,7 @@ class BookBag: PatronList, Identifiable {
     var obj: OSRFObject
     var items: [ListItem] = []
     var filterToVisibleRecords = false
-    var visibleRecordIds: [Int] = []
+    var visibleRecordIDs: [Int] = []
 
     var description: String? {
         return obj.getString("description")
@@ -41,9 +41,9 @@ class BookBag: PatronList, Identifiable {
         self.obj = obj
     }
 
-    func initVisibleIds(fromQueryObj obj: OSRFObject) {
+    func initVisibleRecords(fromQueryObj obj: OSRFObject) {
         filterToVisibleRecords = true
-        visibleRecordIds = MBRecord.getIdsList(fromQueryObj: obj)
+        visibleRecordIDs = MBRecord.getIDList(fromQueryObj: obj)
     }
 
     func distinctBy(_ array: [OSRFObject], selector: (OSRFObject) -> Int?) -> [OSRFObject] {
@@ -68,8 +68,8 @@ class BookBag: PatronList, Identifiable {
                 if !filterToVisibleRecords {
                     items.append(BookBagItem(cbrebiObj: item))
                 } else {
-                    if let targetId = item.getInt("target_biblio_record_entry"),
-                        visibleRecordIds.contains(targetId)
+                    if let targetID = item.getInt("target_biblio_record_entry"),
+                        visibleRecordIDs.contains(targetID)
                     {
                         items.append(BookBagItem(cbrebiObj: item))
                     }

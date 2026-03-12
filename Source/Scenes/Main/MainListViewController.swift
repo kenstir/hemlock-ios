@@ -96,19 +96,6 @@ class MainListViewController: MainBaseViewController {
 //            let vc = UIHostingController(rootView: BookBagsView(bookBags: account.bookBags))
 //            self.navigationController?.pushViewController(vc, animated: true)
 //        }))
-        // Shortcut to Place Hold
-//        buttons.append(ButtonAction("Place Hold", "holds", {
-//            let record = MBRecord(id: 4674474, mvrObj: OSRFObject([
-//                "doc_id": 4674474,
-//                "tcn": 4674474,
-//                "title": "Discipline is destiny : the power of self-control",
-//                "author": "Holiday, Ryan"
-//            ]))
-//            record.attrs = ["icon_format": "book"]
-//            if let vc = PlaceHoldViewController.make(record: record) {
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//        }))
         // Shortcut to Search Results
 //        buttons.append(("Prepared query", "", {
 //            if let vc = UIStoryboard(name: "Results", bundle: nil).instantiateInitialViewController() as? ResultsViewController {
@@ -164,7 +151,7 @@ class MainListViewController: MainBaseViewController {
         guard let orgID = App.account?.homeOrgID else { return }
 
         do {
-            try await App.serviceConfig.orgService.loadOrgSettings(forOrgID: orgID)
+            try await App.svc.org.loadOrgSettings(forOrgID: orgID)
             didFetchHomeOrgSettings = true
             onHomeOrgSettingsLoaded(homeOrgID: orgID)
         } catch {
@@ -173,7 +160,7 @@ class MainListViewController: MainBaseViewController {
     }
 
     func onHomeOrgSettingsLoaded(homeOrgID orgID: Int) {
-        if let org = App.serviceConfig.consortiumService.find(byID: orgID),
+        if let org = App.svc.consortium.find(byID: orgID),
            let eventsURL = org.eventsURL,
            !eventsURL.isEmpty,
            let url = URL(string: eventsURL)
@@ -190,7 +177,7 @@ class MainListViewController: MainBaseViewController {
     func fetchMessages(account: Account) async {
 
         do {
-            let messages = try await App.serviceConfig.userService.fetchPatronMessages(account: account)
+            let messages = try await App.svc.user.fetchPatronMessages(account: account)
             self.updateMessagesBadge(messages: messages)
         } catch {
             self.presentGatewayAlert(forError: error)

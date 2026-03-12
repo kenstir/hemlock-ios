@@ -34,7 +34,7 @@ class MainBaseViewController: UIViewController {
 #else
         let didHandleNotification = false
 #endif
-        systemAlertPending = !didHandleNotification && App.serviceConfig.consortiumService.alertBanner != nil
+        systemAlertPending = !didHandleNotification && App.svc.consortium.alertBanner != nil
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -142,7 +142,7 @@ class MainBaseViewController: UIViewController {
     }
 
     func showSystemAlert() {
-        guard let msg = App.serviceConfig.consortiumService.alertBanner else { return }
+        guard let msg = App.svc.consortium.alertBanner else { return }
         guard !systemAlertIsSquelched(msg) else { return }
         let alertController = UIAlertController(title: "System Alert", message: msg, preferredStyle: .alert)
         Style.styleAlertController(alertController)

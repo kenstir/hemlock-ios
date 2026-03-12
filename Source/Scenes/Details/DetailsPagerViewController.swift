@@ -1,4 +1,5 @@
-//  Copyright (C) 2023 Kenneth H. Cox
+//
+//  Copyright (c) 2026 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -11,18 +12,17 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
 
-/// Display options related to an MBRecord
+/// Display options related to a BibRecord
 struct RecordDisplayOptions {
     let enablePlaceHold: Bool
     let orgShortName: String?
 }
 
-/// A page displaying an MBRecord that knows its place in the list
+/// A page displaying a BibRecord that knows its place in the list
 class Page {
     let index: Int
     let record: BibRecord

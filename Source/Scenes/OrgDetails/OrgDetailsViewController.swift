@@ -76,14 +76,14 @@ class OrgDetailsViewController: UIViewController {
     func fetchData() async {
         guard let account = App.account,
               let orgID = self.orgID,
-              let org = App.serviceConfig.consortiumService.find(byID: orgID) else { return }
+              let org = App.svc.consortium.find(byID: orgID) else { return }
 
         activityIndicator.startAnimating()
 
         do {
             _ = try await (
-                App.serviceConfig.orgService.loadOrgSettings(forOrgID: orgID),
-                App.serviceConfig.orgService.loadOrgDetails(account: account, forOrgID: orgID)
+                App.svc.org.loadOrgSettings(forOrgID: orgID),
+                App.svc.org.loadOrgDetails(account: account, forOrgID: orgID)
             )
         } catch {
             self.presentGatewayAlert(forError: error)
@@ -179,7 +179,7 @@ class OrgDetailsViewController: UIViewController {
     @objc func orgButtonPressed(sender: UIButton) {
         guard orgLabels.count > 0 else { return }
         guard let vc = UIStoryboard(name: "Options", bundle: nil).instantiateInitialViewController() as? OptionsViewController else { return }
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
 
         vc.title = "Library"
         vc.option = PickOneOption(optionLabels: consortiumService.orgSpinnerLabels, optionValues: consortiumService.orgSpinnerShortNames, optionIsPrimary: consortiumService.orgSpinnerIsPrimaryFlags)
@@ -192,7 +192,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     @objc func webSiteButtonPressed(sender: UIButton) {
-        let org = App.serviceConfig.consortiumService.find(byID: orgID)
+        let org = App.svc.consortium.find(byID: orgID)
         guard let infoURL = org?.infoURL,
             let url = URL(string: infoURL) else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)
@@ -201,7 +201,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     @objc func mapButtonPressed(sender: UIButton) {
-        let org = App.serviceConfig.consortiumService.find(byID: orgID)
+        let org = App.svc.consortium.find(byID: orgID)
         guard let url = mapsURL(org: org) else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)
 //        print("canOpen: \(canOpen)")
@@ -209,7 +209,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     @objc func emailButtonPressed(sender: UIButton) {
-        let org = App.serviceConfig.consortiumService.find(byID: orgID)
+        let org = App.svc.consortium.find(byID: orgID)
         guard let email = org?.email,
             let url = URL(string: "mailto:\(email)") else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)
@@ -218,7 +218,7 @@ class OrgDetailsViewController: UIViewController {
     }
 
     @objc func phoneButtonPressed(sender: UIButton) {
-        let org = App.serviceConfig.consortiumService.find(byID: orgID)
+        let org = App.svc.consortium.find(byID: orgID)
         guard let number = org?.phoneNumber,
             let url = URL(string: "tel:\(number)") else { return }
 //        let canOpen = UIApplication.shared.canOpenURL(url)
@@ -229,22 +229,6 @@ class OrgDetailsViewController: UIViewController {
     func setupActivityIndicator() {
         activityIndicator = addActivityIndicator()
         Style.styleActivityIndicator(activityIndicator)
-    }
-
-    func hoursOfOperation(obj: OSRFObject?, day: Int) -> String? {
-        guard let openApiStr = obj?.getString("dow_\(day)_open"),
-            let closeApiStr = obj?.getString("dow_\(day)_close") else { return nil }
-        if openApiStr == closeApiStr {
-            return "closed"
-        }
-        if let openDate = OSRFObject.apiHoursFormatter.date(from: openApiStr),
-            let closeDate = OSRFObject.apiHoursFormatter.date(from: closeApiStr)
-        {
-            let openStr = OSRFObject.outputHoursFormatter.string(from: openDate)
-            let closeStr = OSRFObject.outputHoursFormatter.string(from: closeDate)
-            return "\(openStr) - \(closeStr)"
-        }
-        return nil
     }
 
     func testNote(_ note: String?) -> String? {
@@ -353,6 +337,6 @@ class OrgDetailsViewController: UIViewController {
     }
 
     func onOrgTreeLoaded() {
-        orgLabels = App.serviceConfig.consortiumService.orgSpinnerLabels
+        orgLabels = App.svc.consortium.orgSpinnerLabels
     }
 }

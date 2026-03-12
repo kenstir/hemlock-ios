@@ -134,7 +134,7 @@ class DetailsViewController: UIViewController {
                 str = host
             }
         } else {
-            if let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium,
+            if let org = App.svc.consortium.find(byShortName: displayOptions.orgShortName) ?? App.svc.consortium.consortium,
                 let copyCount = record.copyCount(atOrgID: org.id) {
                 str = "\(copyCount.available) of \(copyCount.count) copies available at \(org.name)"
             }
@@ -163,9 +163,9 @@ class DetailsViewController: UIViewController {
             return
         }
 
-        let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium
+        let org = App.svc.consortium.find(byShortName: displayOptions.orgShortName) ?? App.svc.consortium.consortium
         let links = App.behavior.onlineLocations(record: record, forSearchOrg: org?.shortname)
-        let numCopies = record.copyCount(atOrgID: org?.id ?? App.serviceConfig.consortiumService.consortiumOrgID)?.count ?? 0
+        let numCopies = record.copyCount(atOrgID: org?.id ?? App.svc.consortium.consortiumOrgID)?.count ?? 0
         print("updateButtonViews: title:\(record.title) links:\(links.count) copies:\(numCopies)")
 
         if numCopies > 0 {
@@ -193,16 +193,16 @@ class DetailsViewController: UIViewController {
 
     @MainActor
     func fetchData() async {
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
         let orgID = consortiumService.find(byShortName: displayOptions.orgShortName)?.id ?? consortiumService.consortiumOrgID
 
         do {
             print("record.hasAttrs:    \(record.hasAttributes)")
             print("record.hasMARC:     \(record.hasMARC)")
             print("record.hasMetadata: \(record.hasMetadata)")
-            async let details: Void = App.serviceConfig.biblioService.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
-            async let attrs: Void = App.serviceConfig.biblioService.loadRecordAttributes(forRecord: record)
-            async let ccounts: Void = App.serviceConfig.biblioService.loadRecordCopyCounts(forRecord: record, orgID: orgID)
+            async let details: Void = App.svc.biblio.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
+            async let attrs: Void = App.svc.biblio.loadRecordAttributes(forRecord: record)
+            async let ccounts: Void = App.svc.biblio.loadRecordCopyCounts(forRecord: record, orgID: orgID)
             let _ = try await (details, attrs, ccounts)
         } catch {
             presentGatewayAlert(forError: error)
@@ -219,7 +219,7 @@ class DetailsViewController: UIViewController {
 
         // If there's only one link, open it without ceremony
         if links.count == 1 && !App.config.alwaysUseActionSheetForOnlineLinks {
-            openOnlineLocation(vc: self, href: links[0].href)
+            launchURL(url: links[0].href)
             return
         }
 
@@ -228,7 +228,7 @@ class DetailsViewController: UIViewController {
         Style.styleAlertController(alertController)
         for link in links {
             alertController.addAction(UIAlertAction(title: link.text, style: .default) { action in
-                self.openOnlineLocation(vc: self, href: link.href)
+                self.launchURL(url: link.href)
             })
         }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -248,7 +248,7 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func copyInfoPressed(sender: Any) {
-        let org = App.serviceConfig.consortiumService.find(byShortName: displayOptions.orgShortName) ?? App.serviceConfig.consortiumService.consortium
+        let org = App.svc.consortium.find(byShortName: displayOptions.orgShortName) ?? App.svc.consortium.consortium
         guard let vc = UIStoryboard(name: "CopyInfo", bundle: nil).instantiateInitialViewController() as? CopyInfoViewController else { return }
 
         vc.org = org
@@ -257,8 +257,8 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func addToListPressed(sender: Any) {
-        // TODO: load bookbags if not already loaded
-        if App.account?.bookBagsEverLoaded == true {
+        // skip loading if already loaded
+        if App.account?.patronListsEverLoaded == true {
             addToList()
             return
         }
@@ -276,7 +276,7 @@ class DetailsViewController: UIViewController {
     @MainActor
     func fetchPatronLists(account: Account) async {
         do {
-            try await App.serviceConfig.userService.loadPatronLists(account: account)
+            try await App.svc.user.loadPatronLists(account: account)
             self.addToList()
         } catch {
             presentGatewayAlert(forError: error, title: "Error fetching lists")
@@ -284,8 +284,8 @@ class DetailsViewController: UIViewController {
     }
 
     func addToList() {
-        guard let bookBags = App.account?.bookBags,
-              bookBags.count > 0 else
+        guard let patronLists = App.account?.patronLists,
+              patronLists.count > 0 else
         {
             navigationController?.view.makeToast("No lists")
             return
@@ -294,9 +294,9 @@ class DetailsViewController: UIViewController {
         // Build an action sheet to display the options
         let alertController = UIAlertController(title: "Add to List", message: nil, preferredStyle: .actionSheet)
         Style.styleAlertController(alertController)
-        for bookBag in bookBags {
-            alertController.addAction(UIAlertAction(title: bookBag.name, style: .default) { action in
-                Task { await self.addItem(toBookBag: bookBag) }
+        for list in patronLists {
+            alertController.addAction(UIAlertAction(title: list.name, style: .default) { action in
+                Task { await self.addItem(toList: list) }
             })
         }
 //        alertController.addAction(UIAlertAction(title: "Add to New List", style: .default) { action in
@@ -313,11 +313,11 @@ class DetailsViewController: UIViewController {
     }
 
     @MainActor
-    func addItem(toBookBag bookBag: BookBag) async {
+    func addItem(toList patronList: PatronList) async {
         guard let account = App.account else { return }
 
         do {
-            try await App.serviceConfig.userService.addItemToPatronList(account: account, listId: bookBag.id, recordId: record.id)
+            try await App.svc.user.addItemToPatronList(account: account, listID: patronList.id, recordID: record.id)
             Analytics.logEvent(event: Analytics.Event.bookbagAddItem, parameters: [Analytics.Param.result: Analytics.Value.ok])
             self.navigationController?.view.makeToast("Item added to list")
         } catch {
@@ -335,21 +335,18 @@ class DetailsViewController: UIViewController {
     }
 
     @objc func extrasPressed(sender: Any) {
-        var url = App.config.url + "/eg/opac/record/" + String(record.id)
-        if let q = App.config.detailsExtraLinkQuery {
-            url += "?" + q
-        }
-        if let fragment = App.config.detailsExtraLinkFragment {
-            url += "#" + fragment
-        }
-        self.openOnlineLocation(vc: self, href: url)
-    }
-
-    func openOnlineLocation(vc: UIViewController, href: String) {
-        guard let url = URL(string: href) else {
-            vc.showAlert(title: "Error parsing URL", message: "Unable to parse online location \(href)")
+        guard let template = App.config.detailsExtraLinkURLTemplate else {
+            self.showAlert(title: "Internal Error", message: "No URL configured in detailsExtraLinkURLTemplate")
             return
         }
-        UIApplication.shared.open(url)
+        do {
+            let url = try template.expandTemplate(values: [
+                "recordID": String(record.id),
+                "baseURL": App.config.url,
+            ])
+            self.launchURL(url: url)
+        } catch {
+            self.showAlert(title: "Internal Error", error: error)
+        }
     }
 }

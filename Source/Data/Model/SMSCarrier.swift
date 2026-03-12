@@ -1,5 +1,5 @@
 //
-//  Copyright (c) 2025 Kenneth H. Cox
+//  Copyright (c) 2026 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -14,15 +14,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
-import Foundation
-
-protocol ServiceConfig {
-    var loader: LoaderService { get }
-    var auth: AuthService { get }
-    var biblio: BiblioService { get }
-    var circ: CircService { get }
-    var consortium: ConsortiumService { get }
-    var org: OrgService { get }
-    var search: SearchService { get }
-    var user: UserService { get }
+protocol SMSCarrier {
+    var id: Int { get }
+    var name: String { get }
 }

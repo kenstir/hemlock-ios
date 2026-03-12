@@ -53,7 +53,7 @@ class AnalyticsTests: XCTestCase {
     }
 
     func test_orgDimension() {
-        let consortiumService = App.serviceConfig.consortiumService
+        let consortiumService = App.svc.consortium
         let CONS = consortiumService.find(byShortName: "CONS")
         let BR1 = consortiumService.find(byShortName: "BR1")
         let BR2 = consortiumService.find(byShortName: "BR2")

@@ -75,7 +75,7 @@ class HistoryViewController: UITableViewController {
         startOfFetch = Date()
 
         do {
-            self.items = try await App.serviceConfig.circService.fetchCheckoutHistory(account: account)
+            self.items = try await App.svc.circ.fetchCheckoutHistory(account: account)
             Analytics.logEvent(event: Analytics.Event.historyLoad, parameters: [Analytics.Param.numItems: items.count])
             Task {
                 await prefetchCircDetails()
@@ -101,7 +101,7 @@ class HistoryViewController: UITableViewController {
         //let preloadItems = items.prefix(maxRecordsToPreload)
         let preloadItems = items
 
-        let circService = App.serviceConfig.circService
+        let circService = App.svc.circ
         await withTaskGroup(of: Void.self) { group in
             for item in preloadItems {
                 group.addTask {
@@ -141,8 +141,8 @@ class HistoryViewController: UITableViewController {
     @MainActor
     func disableCheckoutHistory(account: Account) async {
         do {
-            try await App.serviceConfig.userService.disableCheckoutHistory(account: account)
-            try await App.serviceConfig.userService.clearCheckoutHistory(account: account)
+            try await App.svc.user.disableCheckoutHistory(account: account)
+            try await App.svc.user.clearCheckoutHistory(account: account)
             self.navigationController?.popViewController(animated: true)
         } catch {
             self.presentGatewayAlert(forError: error)
@@ -165,7 +165,7 @@ class HistoryViewController: UITableViewController {
         } else {
             message = "\(items.count) items checked out"
         }
-        if let start = App.account?.userSettingCircHistoryStart {
+        if let start = App.account?.circHistoryStart {
             message += " since \(start)"
         }
         return message
@@ -211,7 +211,7 @@ class HistoryViewController: UITableViewController {
 
             // async load the metadata
             Task {
-                try? await App.serviceConfig.circService.loadHistoryDetails(historyRecord: item)
+                try? await App.svc.circ.loadHistoryDetails(historyRecord: item)
                 await MainActor.run { self.setCellMetadata(cell, forItem: item) }
             }
         }
@@ -233,8 +233,8 @@ class HistoryViewController: UITableViewController {
         cell.checkoutDate.text = "Checkout Date: \(item?.checkoutDateLabel ?? "")"
         cell.returnDate.text = "Returned Date: \(item?.returnedDateLabel ?? "")"
         // async load the image
-        if let recordId = item?.record?.id,
-            let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(recordId)) {
+        if let recordID = item?.record?.id,
+            let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(recordID)) {
             cell.coverImage.pin_setImage(from: url)
         } else {
             let url: URL? = nil

@@ -29,7 +29,7 @@ def get_tag_info(app)
   version = get_version_number(target: app)
   build = get_build_number()
 
-  tag = "#{app}_#{version}.#{build}"
+  tag = "#{app}_v#{version}.#{build}"
   msg = tag
   return tag, msg
 end

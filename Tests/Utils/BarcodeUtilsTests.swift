@@ -21,7 +21,7 @@ import XCTest
 import ZXingObjC
 @testable import Hemlock
 
-class BarcodeTests: XCTestCase {
+class BarcodeUtilsTests: XCTestCase {
     let width: Int32 = 400
     let height: Int32 = 200
     let supportedFormats: [BarcodeFormat] = [.Codabar, .Code39]
