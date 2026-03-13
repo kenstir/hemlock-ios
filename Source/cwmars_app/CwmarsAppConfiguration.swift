@@ -22,7 +22,7 @@ class CWMarsAppConfiguration: BaseAppConfiguration {
     override var url: String { return "https://bark.cwmars.org" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var detailsExtraLinkText: String? { return "More Information" }
-    override var detailsExtraLinkURLTemplate: String? { return "https://catalog.cwmars.org/Record/{recordID}#novelistPanelBody" }
+    override var detailsExtraLinkURLTemplate: String? { return "https://catalog.cwmars.org/Record/{record_id}#novelistPanelBody" }
 
     override var enableHierarchicalOrgTree: Bool { return false }
     override var enablePartHolds: Bool { return true }

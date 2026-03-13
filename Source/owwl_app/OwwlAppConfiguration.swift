@@ -19,6 +19,8 @@ class OwwlAppConfiguration: BaseAppConfiguration {
     override var title: String { return "OWWL" }
     override var url: String { return "https://evergreen.owwl.org/" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
+    override var detailsExtraLinkText: String? { return "More Information" }
+    override var detailsExtraLinkURLTemplate: String? { return "https://search.owwl.org/Record/{record_id}#more-details-accordion" }
 
     override var enableHoldPhoneNotification: Bool { return true }
     override var enableHoldUseOverride: Bool { return true }

@@ -3,8 +3,7 @@
 ## 4.5.0
 
 ### New
-* cwmars: Add "More information" button to Item Details screen, which links to an expanded
-  description with series details and read-alike recommendations
+* Add "More information" button to Item Details screen (acorn, cwmars, indiana, owwl)
 
 ### Fixed
 * internal: Fix data abstraction leaks (#80 #81 #82)

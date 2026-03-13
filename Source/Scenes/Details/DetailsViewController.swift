@@ -341,8 +341,8 @@ class DetailsViewController: UIViewController {
         }
         do {
             let url = try template.expandTemplate(values: [
-                "recordID": String(record.id),
-                "baseURL": App.config.url,
+                "record_id": String(record.id),
+                "base_url": App.config.url,
             ])
             self.launchURL(url: url)
         } catch {

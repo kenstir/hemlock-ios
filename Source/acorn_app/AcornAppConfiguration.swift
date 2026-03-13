@@ -24,6 +24,8 @@ class AcornAppConfiguration: BaseAppConfiguration {
 //    override var title: String { return "Acorn Catalog TEST" }
 
     override var bugReportEmailAddress: String { return "acornapp@biblio.org" }
+    override var detailsExtraLinkText: String? { return "More Information" }
+    override var detailsExtraLinkURLTemplate: String? { return "{baseURL}/eg/opac/record/{recordID}#syndetics_unbound" }
 
     override var enableHoldPhoneNotification: Bool { return true }
     override var enablePartHolds: Bool { return true }

@@ -26,8 +26,8 @@ class StringExtensionTests: XCTestCase {
 
     func test_expandTemplate() {
         let cases = [
-            Case(template: "{baseURL}/record/{recordID}#awards",
-                 values: ["baseURL": "https://example.com", "recordID": "1"],
+            Case(template: "{base_url}/record/{record_id}#awards",
+                 values: ["base_url": "https://example.com", "record_id": "1"],
                  expected: "https://example.com/record/1#awards"),
             Case(template: "{id}?{id}#{id}", values: ["id": "1"], expected: "1?1#1"),
             Case(template: "beginning_{s}_end", values: ["s": "middle"], expected: "beginning_middle_end"),
