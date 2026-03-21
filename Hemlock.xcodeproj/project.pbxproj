@@ -5476,7 +5476,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.sagecat;
-				PRODUCT_NAME = SageCat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5501,7 +5501,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.sagecat;
-				PRODUCT_NAME = SageCat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -5525,7 +5525,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.indiana;
-				PRODUCT_NAME = "Evergreen Indiana";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5550,7 +5550,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.indiana;
-				PRODUCT_NAME = "Evergreen Indiana";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -5575,7 +5575,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.mo;
-				PRODUCT_NAME = "Missouri Evergreen";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
@@ -5602,7 +5602,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.mo;
-				PRODUCT_NAME = "Missouri Evergreen";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
@@ -5627,7 +5627,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.owwl;
-				PRODUCT_NAME = OWWL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5652,7 +5652,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.owwl;
-				PRODUCT_NAME = OWWL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -5894,7 +5894,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
-				PRODUCT_NAME = PINES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
@@ -5922,7 +5922,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
-				PRODUCT_NAME = PINES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
@@ -5991,7 +5991,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.noble;
-				PRODUCT_NAME = NOBLE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -6016,7 +6016,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.noble;
-				PRODUCT_NAME = NOBLE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FA;
 				SWIFT_OBJC_BRIDGING_HEADER = "ZX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
