@@ -6,6 +6,7 @@
 * Add "More information" button to Item Details screen (acorn, cwmars, indiana, owwl)
 
 ### Fixed
+* Fixed bug where bottom safe area was white in dark mode and let the lists display all the way to the bottom edge
 * internal: Fix data abstraction leaks (#80 #81 #82)
 
 ## 4.4.1
