@@ -22,7 +22,7 @@ class IndianaAppConfiguration: BaseAppConfiguration {
     override var url: String { return "https://evergreen.lib.in.us" }
     override var bugReportEmailAddress: String { return "kenstir.apps@gmail.com" }
     override var detailsExtraLinkText: String? { return "More Information" }
-    override var detailsExtraLinkURLTemplate: String? { return "{baseURL}/eg/opac/record/{record_id}#rdetail_extras_div" }
+    override var detailsExtraLinkURLTemplate: String? { return "{base_url}/eg/opac/record/{record_id}#rdetail_extras_div" }
 
     override var enableHoldShowExpiration: Bool { return false }
     override var enableHoldPhoneNotification: Bool { return true }
