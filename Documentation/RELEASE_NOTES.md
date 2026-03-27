@@ -4,6 +4,7 @@
 
 ### New
 * Add "More information" button to Item Details screen (acorn, cwmars, indiana, owwl)
+* acorn: Trim link title of electronic resources and always show popup for links
 
 ### Fixed
 * Fixed screens where bottom safe area was white in dark mode and the list did not display all the way to the bottom edge

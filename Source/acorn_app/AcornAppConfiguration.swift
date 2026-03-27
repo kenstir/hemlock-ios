@@ -34,6 +34,7 @@ class AcornAppConfiguration: BaseAppConfiguration {
     override var enableCopyInfoWebLinks: Bool { return true }
     override var needMARCRecord: Bool { return true }
     override var showOnlineAccessHostname: Bool { return true }
+    override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
     override var haveColorButtonImages: Bool { return true }
 
     override var searchLimit: Int { return 100 }

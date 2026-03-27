@@ -41,7 +41,12 @@ class AcornAppBehavior: EvergreenAppBehavior {
     
     // Trim the link text for a better mobile UX
     override func trimLinkText(_ text: String) -> String {
-        return text.replacingOccurrences(of: "Click here to download.", with: "").trim().trimTrailing(".")
+        return text.replacingOccurrences(of: "Click here to download.", with: "")
+            .replacingOccurrences(of: "click here", with: "")
+            .removePrefix("To see ")
+            .trim()
+            .trimTrailing(".")
+            .trimTrailing(",")
     }
     
     override func isVisibleToOrg(_ datafield: MARCDatafield, orgShortName: String?) -> Bool {
