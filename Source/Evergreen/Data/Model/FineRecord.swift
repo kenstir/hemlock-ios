@@ -53,15 +53,23 @@ class FineRecord: PatronChargeRecord {
             return ""
         }
         if let circObj = circObj {
-            let stopFinesReason = circObj.getString("stop_fines")
-            if stopFinesReason == "MAXFINES" {
-                return "maximum fine"
-            } else if stopFinesReason == "CHECKIN" {
-                return "returned"
-            } else if stopFinesReason == "RENEW" {
-                return "renewed"
-            } else if stopFinesReason == nil {
+            let stopFines = circObj.getString("stop_fines")
+            if stopFines == nil {
                 return "fines accruing"
+            } else if stopFines == "MAXFINES" {
+                return "maximum fine"
+            } else if stopFines == "CHECKIN" {
+                return "returned"
+            } else if stopFines == "RENEW" {
+                return "renewed"
+            } else if stopFines == "LOST" {
+                return "lost"
+            } else if stopFines == "LONGOVERDUE" {
+                return "long overdue"
+            } else if stopFines == "CLAIMSRETURNED" {
+                return "returned"
+            } else if stopFines == "CLAIMSNEVERCHECKEDOUT" {
+                return "never checked out"
             }
         }
         return ""
