@@ -49,33 +49,22 @@ class FineRecord: PatronChargeRecord {
         return mbtsObj.getDouble("balance_owed")
     }
     var status: String {
-        //print("title:\(title)")
-        print("    xact_type:    \(mbtsObj.getString("xact_type") ?? "")")
-        print("    balance_owed: \(balanceOwed ?? 0.0)")
-        print("    max_fine:     \(circObj?.getDouble("max_fine") ?? 0.0)")
-        print("    checkin_time: \(circObj?.getDate("checkin_time") ?? Date())")
-        print("    stop_fines:   \(circObj?.getString("stop_fines") ?? "")")
-        guard let _ = self.mvrObj else {
+        if mbtsObj.getString("xact_type") != "circulation" {
             return ""
         }
-        if let stopFinesReason = self.circObj?.getString("stop_fines") {
-            if stopFinesReason == "RENEW" {
-                return "renewed"
+        if let circObj = circObj {
+            let stopFinesReason = circObj.getString("stop_fines")
+            if stopFinesReason == "MAXFINES" {
+                return "maximum fine"
             } else if stopFinesReason == "CHECKIN" {
                 return "returned"
-            } else {
-                return ""
+            } else if stopFinesReason == "RENEW" {
+                return "renewed"
+            } else if stopFinesReason == nil {
+                return "fines accruing"
             }
         }
-//        if let _ = self.circObj?.getDate("checkin_time") {
-//            return "returned"
-//        }
-        if let balance = self.balanceOwed,
-            let maxFine = self.circObj?.getDouble("max_fine"),
-            balance >= maxFine {
-            return "maximum fine"
-        }
-        return "fines accruing"
+        return ""
     }
     var record: BibRecord?
 
