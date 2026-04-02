@@ -47,6 +47,7 @@ protocol AppConfiguration {
     var enableCopyInfoWebLinks: Bool { get }
     var needMARCRecord: Bool { get }
     var showOnlineAccessHostname: Bool { get }
+    var showFineStatusLabel: Bool { get }
     var alwaysUseActionSheetForOnlineLinks: Bool { get }
     var haveColorButtonImages: Bool { get }
 
@@ -83,6 +84,7 @@ class BaseAppConfiguration: AppConfiguration {
     var enableCopyInfoWebLinks: Bool { return false }
     var needMARCRecord: Bool { return false }
     var showOnlineAccessHostname: Bool { return false }
+    var showFineStatusLabel: Bool { return true }
     var alwaysUseActionSheetForOnlineLinks: Bool { return false }
     var haveColorButtonImages: Bool { return false }
 

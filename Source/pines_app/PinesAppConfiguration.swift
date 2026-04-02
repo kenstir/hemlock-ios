@@ -39,6 +39,7 @@ class PinesAppConfiguration: BaseAppConfiguration {
     override var groupCopyInfoBySystem: Bool { return true }
     override var enableCopyInfoWebLinks: Bool { return true }
     override var needMARCRecord: Bool { return true }
+    override var showFineStatusLabel: Bool { return false }
     override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
 
     override var searchLimit: Int { return 100 }

@@ -194,7 +194,7 @@ extension FinesViewController: UITableViewDataSource {
         cell.finesTitle?.text = fine.title
         cell.finesSubtitle?.text = fine.subtitle
         cell.finesValue?.text = String(format: "$ %.2f ", fine.balanceOwed ?? 0.0)
-        cell.finesStatus?.text = fine.status
+        cell.finesStatus?.text = App.config.showFineStatusLabel ? fine.status : ""
 
         return cell
     }

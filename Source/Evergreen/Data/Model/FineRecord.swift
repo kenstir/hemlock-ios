@@ -49,18 +49,30 @@ class FineRecord: PatronChargeRecord {
         return mbtsObj.getDouble("balance_owed")
     }
     var status: String {
-        guard let _ = self.mvrObj else {
+        if mbtsObj.getString("xact_type") != "circulation" {
             return ""
         }
-        if let _ = self.circObj?.getDate("checkin_time") {
-            return "returned"
+        if let circObj = circObj {
+            let stopFines = circObj.getString("stop_fines")
+            if stopFines == nil {
+                return "fines accruing"
+            } else if stopFines == "MAXFINES" {
+                return "maximum fine"
+            } else if stopFines == "CHECKIN" {
+                return "returned"
+            } else if stopFines == "RENEW" {
+                return "renewed"
+            } else if stopFines == "LOST" {
+                return "lost"
+            } else if stopFines == "LONGOVERDUE" {
+                return "long overdue"
+            } else if stopFines == "CLAIMSRETURNED" {
+                return "returned"
+            } else if stopFines == "CLAIMSNEVERCHECKEDOUT" {
+                return "never checked out"
+            }
         }
-        if let balance = self.balanceOwed,
-            let maxFine = self.circObj?.getDouble("max_fine"),
-            balance > maxFine {
-            return "maximum fine"
-        }
-        return "fines accruing"
+        return ""
     }
     var record: BibRecord?
 
