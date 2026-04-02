@@ -1,5 +1,11 @@
 # iOS Release Notes
 
+## 4.5.1
+
+### Fixed
+* Fix fine status labels and add option to disable (#84)
+* pines: Disable fine status labels
+
 ## 4.5.0
 
 ### New
