@@ -1,4 +1,3 @@
-github "Alamofire/Alamofire" == 5.10.2
 github "kenstir/PINOperation" == 1.2.4-kenstir.1
 github "kenstir/PINCache" == 3.0.6-kenstir.3
 github "kenstir/PINRemoteImage" == 3.0.5-kenstir.5
