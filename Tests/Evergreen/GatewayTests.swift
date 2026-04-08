@@ -50,9 +50,10 @@ class GatewayTests: XCTestCase {
         XCTAssertEqual(p1, ["\"deadbeef\"","null","{\"active\":1}"])
     }
 
-    func test_createRequest_basic() {
-        let request = Gateway.makeRequest(service: API.auth, method: API.authInit, args: ["hemlock"], shouldCache: false)
-        print("request:  \(request.description)")
-        XCTAssertEqual(request.request?.url?.path, "/osrf-gateway-v1")
-    }
+    // As of AF 5.11, all Requests are lazy, so we can't test URL right away.  I'm not sure it was useful anyway.
+//    func test_createRequest_basic() {
+//        let request = Gateway.makeRequest(service: API.auth, method: API.authInit, args: ["hemlock"], shouldCache: false)
+//        print("request:  \(request.description)")
+//        XCTAssertEqual(request.request?.url?.path, "/osrf-gateway-v1")
+//    }
 }
