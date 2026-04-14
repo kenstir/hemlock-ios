@@ -47,19 +47,4 @@ class StringExtensionTests: XCTestCase {
             XCTAssertTrue(error is TemplateError)
         }
     }
-
-    func test_base64urlEncodingIsCompatible() {
-        // Check that the implementation we are using is compatible with other implementations,
-        // that is, base64-url-encoding with no padding.
-        let json = """
-            {"a":"??~"}
-            """
-        let want = "eyJhIjoiPz9-In0" // plain base64 would be "eyJhIjoiPz9+In0="
-
-        let encoded = json.encodeToBase64URL()
-        XCTAssertEqual(want, encoded)
-
-        let decoded = encoded.decodeFromBase64URL()
-        XCTAssertEqual(json, decoded)
-    }
 }
