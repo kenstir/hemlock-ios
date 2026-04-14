@@ -18,13 +18,14 @@ import XCTest
 @testable import Hemlock
 
 class TokenStoreTests: XCTestCase {
-    let now = Int64(Date().timeIntervalSince1970)
+    var now: Int64 = 0
     var expiredTime: Int64 = 0
     var needsRefreshTime: Int64 = 0
 
     override func setUp() {
         super.setUp()
 
+        now = Int64(Date().timeIntervalSince1970)
         expiredTime = now - TokenStore.tokenExpirationSeconds - 60
         needsRefreshTime = now - TokenStore.tokenRefreshIntervalSeconds - 60
     }
