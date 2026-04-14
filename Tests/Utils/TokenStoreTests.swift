@@ -27,6 +27,33 @@ class TokenStoreTests: XCTestCase {
         expiredTime = now - TokenStore.tokenExpirationSeconds - 60
     }
 
+    /// true if the timestamp is within a few seconds of now, to allow for some slop in testing.
+    /// Will fail if you stop in the debugger.
+    func timeIsApproximatelyNow(_ timestamp: Int64) -> Bool {
+        return abs(timestamp - now) < 5
+    }
+
+    func test_base64url_encodingIsCompatible() {
+        // Check that the implementation we are using is compatible with other implementations,
+        // that is, base64-url-encoding with no padding.
+        let json = """
+            {"a":"??~"}
+            """
+        let want = "eyJhIjoiPz9-In0" // plain base64 would be "eyJhIjoiPz9+In0="
+
+        let encoded = json.encodeToBase64URL()
+        XCTAssertEqual(want, encoded)
+
+        let decoded = encoded.decodeFromBase64URL()
+        XCTAssertEqual(json, decoded)
+    }
+
+    func test_base64url_decodeFromInvalid() {
+        let input = "x"
+        let decoded = input.decodeFromBase64URL()
+        XCTAssertNil(decoded)
+    }
+
     func test_initFromString_v1() {
         let pushNotificationData = "old-v1-token"
 
@@ -35,7 +62,7 @@ class TokenStoreTests: XCTestCase {
         XCTAssertTrue(ts.isModified)
         XCTAssertEqual(ts.entries.count, 1)
         XCTAssertEqual("old-v1-token", ts.entries.first?.token)
-        XCTAssertTrue(abs(ts.entries.first!.addedAt - now) < 5)
+        XCTAssertTrue(timeIsApproximatelyNow(ts.entries.first!.addedAt))
 
         let json = try? JSONEncoder().encode(ts)
         print("json: \(String(data: json!, encoding: .utf8)!)")
