@@ -40,7 +40,8 @@ class TokenStore: Codable {
     var currentToken: String? = nil
     var isModified = false
 
-    func loadEntries(fromStoredData storedData: String?) {
+    /// Initializes the TokenStore from a string, either a plain PN token (v1) or a base64url-encoded JSON TS object (v2)
+    func initialize(fromString storedData: String?) {
         entries = []
         isModified = false
 
@@ -75,6 +76,11 @@ class TokenStore: Codable {
             entries.removeFirst()
         }
         isModified = true
+    }
+
+    func encodeToString() -> String {
+        let data = try? JSONEncoder().encode(self)
+        return data?.base64urlEncodedString() ?? ""
     }
 
     func dumpEntries() {

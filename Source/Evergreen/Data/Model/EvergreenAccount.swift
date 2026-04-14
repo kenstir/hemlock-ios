@@ -169,7 +169,7 @@ class EvergreenAccount : Account {
     /// If what we have in the app is different, we need to update the user setting in Evergreen
     func maybeUpdateUserSettings(storedData: String?, storedEnabledFlag: Bool) async {
         // let ts = TokenStore()
-        // ts.loadEntries(fromStoredData: storedData)
+        // ts.initialize(fromString: storedData)
         // ts.addCurrentToken(token: App.fcmNotificationToken)
 
         print("[fcm] stored token was: \(storedData ?? "(nil)")")

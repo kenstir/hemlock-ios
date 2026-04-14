@@ -45,6 +45,10 @@ extension String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
+    func trimAllWhitespace() -> String {
+        return self.components(separatedBy: .whitespacesAndNewlines).joined()
+    }
+
     func trimTrailing(_ suffixChar: Character) -> String {
         var s = self
         let suffix = "" + [suffixChar]

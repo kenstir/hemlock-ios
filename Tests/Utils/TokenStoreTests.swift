@@ -39,13 +39,13 @@ class TokenStoreTests: XCTestCase {
         let json = """
             {"a":"??~"}
             """
-        let want = "eyJhIjoiPz9-In0" // plain base64 would be "eyJhIjoiPz9+In0="
+        let expected = "eyJhIjoiPz9-In0" // plain base64 would be "eyJhIjoiPz9+In0="
 
         let encoded = json.encodeToBase64URL()
-        XCTAssertEqual(want, encoded)
+        XCTAssertEqual(encoded, expected)
 
         let decoded = encoded.decodeFromBase64URL()
-        XCTAssertEqual(json, decoded)
+        XCTAssertEqual(decoded, json)
     }
 
     func test_base64url_decodeFromInvalid() {
@@ -58,14 +58,32 @@ class TokenStoreTests: XCTestCase {
         let pushNotificationData = "old-v1-token"
 
         let ts = TokenStore()
-        ts.loadEntries(fromStoredData: pushNotificationData)
+        ts.initialize(fromString: pushNotificationData)
         XCTAssertTrue(ts.isModified)
         XCTAssertEqual(ts.entries.count, 1)
-        XCTAssertEqual("old-v1-token", ts.entries.first?.token)
+        XCTAssertEqual(ts.entries.first?.token, "old-v1-token")
         XCTAssertTrue(timeIsApproximatelyNow(ts.entries.first!.addedAt))
+    }
 
-        let json = try? JSONEncoder().encode(ts)
-        print("json: \(String(data: json!, encoding: .utf8)!)")
-        print("stop here")
+    func test_initFromString_v2() {
+        let json = """
+            {
+                "entries": [
+                    {"token": "token-1", "added_at": 1775060400},
+                    {"token": "token-2", "added_at": 1775060410}
+                ]
+            }
+            """.trimAllWhitespace()
+        let encoded = json.encodeToBase64URL()
+
+        let ts = TokenStore()
+        ts.initialize(fromString: encoded)
+        XCTAssertFalse(ts.isModified)
+        XCTAssertEqual(ts.entries.count, 2)
+        XCTAssertEqual(ts.entries[0].token, "token-1")
+        XCTAssertEqual(ts.entries[0].addedAt, 1775060400)
+
+        let reencoded = ts.encodeToString()
+        XCTAssertEqual(reencoded, encoded)
     }
 }
