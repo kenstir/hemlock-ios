@@ -61,8 +61,29 @@ class TokenStoreTests: XCTestCase {
         ts.initialize(fromString: pushNotificationData)
         XCTAssertTrue(ts.isModified)
         XCTAssertEqual(ts.entries.count, 1)
-        XCTAssertEqual(ts.entries.first?.token, "old-v1-token")
+        XCTAssertEqual(ts.entries.first?.token, pushNotificationData)
         XCTAssertTrue(timeIsApproximatelyNow(ts.entries.first!.addedAt))
+    }
+
+    func test_initFromString_v1LooksLikeV2() {
+        let pushNotificationData = TokenStore.v2EncodedTokenPrefix + "old-v1-token"
+
+        let ts = TokenStore()
+        ts.initialize(fromString: pushNotificationData)
+        XCTAssertTrue(ts.isModified)
+        XCTAssertEqual(ts.entries.count, 1)
+        XCTAssertEqual(ts.entries.first?.token, pushNotificationData)
+        XCTAssertTrue(timeIsApproximatelyNow(ts.entries.first!.addedAt))
+    }
+
+    func test_initFromString_empty() {
+        let testData: [String?] = [nil, ""]
+        for pushNotificationData in testData {
+            let ts = TokenStore()
+            ts.initialize(fromString: pushNotificationData)
+            XCTAssertFalse(ts.isModified)
+            XCTAssertTrue(ts.entries.isEmpty)
+        }
     }
 
     func test_initFromString_v2() {
@@ -86,5 +107,9 @@ class TokenStoreTests: XCTestCase {
 
         let reencoded = ts.encodeToString()
         XCTAssertEqual(reencoded, encoded)
+    }
+
+    func test_initFromString_removesExpiredToken() {
+        
     }
 }
