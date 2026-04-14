@@ -126,4 +126,43 @@ class TokenStoreTests: XCTestCase {
         XCTAssertEqual(ts.entries.count, 1)
         XCTAssertEqual(ts.entries[0].token, "token-2")
     }
+
+    func makeNewFullTokenStore() -> TokenStore {
+        let ts = TokenStore()
+        for i in 1...TokenStore.maxEntries {
+            ts.entries.append(TokenEntry(token: "token-\(i)", addedAt: now))
+        }
+        return ts
+    }
+
+    func test_addCurrentToken_overflows() {
+        let ts = makeNewFullTokenStore()
+        XCTAssertFalse(ts.isModified)
+        XCTAssertEqual(ts.entries.count, TokenStore.maxEntries)
+
+        // adding a new token removes the first one
+        ts.addCurrentToken("new-token")
+        XCTAssertTrue(ts.isModified)
+        XCTAssertEqual(ts.entries.count, TokenStore.maxEntries)
+        XCTAssertEqual(ts.entries[0].token, "token-2")
+        XCTAssertEqual(ts.entries[TokenStore.maxEntries - 1].token, "new-token")
+    }
+
+    func test_addCurrentToken_noRefresh() {
+        let ts = makeNewFullTokenStore()
+        XCTAssertFalse(ts.isModified)
+        XCTAssertEqual(ts.entries.count, TokenStore.maxEntries)
+
+        // adding an existing token within the refresh interval
+        // leaves it in place and does not update its timestamp
+        let indexBefore = ts.entries.firstIndex(where: { $0.token == "token-3" })
+        XCTAssertNotNil(indexBefore)
+        let addedAt = ts.entries[indexBefore!].addedAt
+        ts.addCurrentToken("token-3")
+        XCTAssertFalse(ts.isModified)
+        XCTAssertEqual(ts.entries.count, TokenStore.maxEntries)
+        let indexAfter = ts.entries.firstIndex(where: { $0.token == "token-3" })
+        XCTAssertEqual(indexAfter, indexBefore)
+        XCTAssertEqual(ts.entries[indexAfter!].addedAt, addedAt)
+    }
 }
