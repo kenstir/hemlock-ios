@@ -41,16 +41,28 @@ class TokenStore: Codable {
     var isModified = false
 
     /// Initializes the TokenStore from a string, either a plain PN token (v1) or a base64url-encoded JSON TS object (v2)
-    func initialize(fromString storedData: String?) {
+    func initialize(fromString storedString: String?) {
         entries = []
         isModified = false
 
-        guard let data = storedData, !data.isEmpty else { return }
+        guard let str = storedString, !str.isEmpty else { return }
 
-        // TODO:
         // if it looks like a v2 encoded object, try to decode it
+        if str.hasPrefix(TokenStore.v2EncodedTokenPrefix),
+           let data = Data(base64urlEncoded: str),
+           initialize(fromData: data) {
+            return
+        }
 
-        addCurrentToken(data)
+        addCurrentToken(str)
+    }
+
+    private func initialize(fromData data: Data) -> Bool {
+        guard let ts = try? JSONDecoder().decode(TokenStore.self, from: data) else {
+            return false
+        }
+        self.entries.append(contentsOf: ts.entries)
+        return true
     }
 
     func addCurrentToken(_ token: String) {
@@ -79,7 +91,11 @@ class TokenStore: Codable {
     }
 
     func encodeToString() -> String {
-        let data = try? JSONEncoder().encode(self)
+        // use sortedKeys to simplify testing
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .sortedKeys
+
+        let data = try? encoder.encode(self)
         return data?.base64urlEncodedString() ?? ""
     }
 

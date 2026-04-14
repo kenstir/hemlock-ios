@@ -66,11 +66,12 @@ class TokenStoreTests: XCTestCase {
     }
 
     func test_initFromString_v2() {
+        // NB: the object keys are sorted to simplify testing
         let json = """
             {
                 "entries": [
-                    {"token": "token-1", "added_at": 1775060400},
-                    {"token": "token-2", "added_at": 1775060410}
+                    {"added_at": 1775060400, "token": "token-1"},
+                    {"added_at": 1775060410, "token": "token-2"}
                 ]
             }
             """.trimAllWhitespace()
