@@ -20,11 +20,13 @@ import XCTest
 class TokenStoreTests: XCTestCase {
     let now = Int64(Date().timeIntervalSince1970)
     var expiredTime: Int64 = 0
+    var needsRefreshTime: Int64 = 0
 
     override func setUp() {
         super.setUp()
 
         expiredTime = now - TokenStore.tokenExpirationSeconds - 60
+        needsRefreshTime = now - TokenStore.tokenRefreshIntervalSeconds - 60
     }
 
     /// true if the timestamp is within a few seconds of now, to allow for some slop in testing.
@@ -164,5 +166,20 @@ class TokenStoreTests: XCTestCase {
         let indexAfter = ts.entries.firstIndex(where: { $0.token == "token-3" })
         XCTAssertEqual(indexAfter, indexBefore)
         XCTAssertEqual(ts.entries[indexAfter!].addedAt, addedAt)
+    }
+
+    func test_addCurrentToken_withRefresh() {
+        let ts = TokenStore()
+        ts.entries.append(TokenEntry(token: "token-1", addedAt: needsRefreshTime))
+        ts.entries.append(TokenEntry(token: "token-2", addedAt: now - 60))
+        XCTAssertFalse(ts.isModified)
+
+        // adding a token needing refresh moves it to the end with a new timestamp
+        ts.addCurrentToken("token-1")
+        XCTAssertTrue(ts.isModified)
+        XCTAssertEqual(ts.entries.count, 2)
+        let indexAfter = ts.entries.firstIndex(where: { $0.token == "token-1"} )
+        XCTAssertEqual(indexAfter, 1)
+        XCTAssertTrue(timeIsApproximatelyNow(ts.entries[indexAfter!].addedAt))
     }
 }
