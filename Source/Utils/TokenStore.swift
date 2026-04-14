@@ -61,7 +61,12 @@ class TokenStore: Codable {
         guard let ts = try? JSONDecoder().decode(TokenStore.self, from: data) else {
             return false
         }
-        self.entries.append(contentsOf: ts.entries)
+
+        // keep only non-expired entries
+        let now = Int64(Date().timeIntervalSince1970)
+        self.entries = ts.entries.filter { now - $0.addedAt < TokenStore.tokenExpirationSeconds }
+        self.isModified = (self.entries.count != ts.entries.count)
+
         return true
     }
 
