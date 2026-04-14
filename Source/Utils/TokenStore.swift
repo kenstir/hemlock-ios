@@ -77,7 +77,7 @@ class TokenStore: Codable {
         // check if token exists and if it needs to be refreshed
         if let currentEntry = entries.first(where: { $0.token == token }) {
             if now - currentEntry.addedAt > TokenStore.tokenRefreshIntervalSeconds {
-                // exists but needs to be refreshed, remove and re-add
+                // exists but needs to be refreshed; remove and re-add
                 entries.removeAll(where: { $0.token == token })
                 pushToken(token, addedAt: now)
             }
