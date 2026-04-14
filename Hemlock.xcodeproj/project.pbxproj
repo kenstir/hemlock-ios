@@ -851,6 +851,16 @@
 		D27889382F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
 		D27889392F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
 		D278893A2F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D278893C2F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D278893D2F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D278893E2F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D278893F2F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889402F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889412F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889422F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889432F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889442F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889462F8DA538001CA1DF /* TokenStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889452F8DA538001CA1DF /* TokenStoreTests.swift */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
@@ -2107,6 +2117,8 @@
 		D276DAE321336B20007FAA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D276DAE621336BE3007FAA31 /* cwmars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cwmars.xcassets; sourceTree = "<group>"; };
 		D27889312F8D9AF7001CA1DF /* Data+base64url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+base64url.swift"; sourceTree = "<group>"; };
+		D278893B2F8D9D0E001CA1DF /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
+		D27889452F8DA538001CA1DF /* TokenStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStoreTests.swift; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D279910B20DDD473003B451E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D279910E20DDD760003B451E /* hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hemlock.xcassets; sourceTree = "<group>"; };
@@ -2595,6 +2607,7 @@
 				D28290F720E6F770008EBE4B /* Style.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
 				D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */,
+				D278893B2F8D9D0E001CA1DF /* TokenStore.swift */,
 				D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */,
 				D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */,
 				D2F5573B2EF38E27003BE964 /* UIButton+.swift */,
@@ -2623,6 +2636,7 @@
 				D21735842F5F5F53002C8046 /* String+Tests.swift */,
 				D228684A2ED4CA5200E2DAEB /* TypeHelpersTests.swift */,
 				D259671824511CA90076267D /* UtilsTests.swift */,
+				D27889452F8DA538001CA1DF /* TokenStoreTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -4078,6 +4092,7 @@
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
 				D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */,
 				D2D074912E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D278893C2F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D28E044B2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D23398862E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
@@ -4240,6 +4255,7 @@
 				D24E08D22F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D23E9FAC23B9200A0030F5C1 /* BarcodeUtils.swift in Sources */,
 				D23E9FAD23B9200A0030F5C1 /* FineRecord.swift in Sources */,
+				D27889422F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D23E9FAE23B9200A0030F5C1 /* AppDelegate.swift in Sources */,
 				D2CAFBC7246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D23E9FB023B9200A0030F5C1 /* RecordAttributes.swift in Sources */,
@@ -4393,6 +4409,7 @@
 				D24E08D82F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D2477BFB24785A6B00FD4CF6 /* BarcodeUtils.swift in Sources */,
 				D2477BFC24785A6B00FD4CF6 /* FineRecord.swift in Sources */,
+				D278893F2F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D2477BFD24785A6B00FD4CF6 /* AppDelegate.swift in Sources */,
 				D2477BFF24785A6B00FD4CF6 /* CredentialManager.swift in Sources */,
 				D2477C0024785A6B00FD4CF6 /* RecordAttributes.swift in Sources */,
@@ -4546,6 +4563,7 @@
 				D24E08D72F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D2572AEE24AD7755000BA698 /* AppDelegate.swift in Sources */,
 				D2572AF024AD7755000BA698 /* CredentialManager.swift in Sources */,
+				D27889442F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D2572AF124AD7755000BA698 /* RecordAttributes.swift in Sources */,
 				D2572AF224AD7755000BA698 /* Gateway.swift in Sources */,
 				D2572AF324AD7755000BA698 /* UIViewController+.swift in Sources */,
@@ -4699,6 +4717,7 @@
 				D24E08D52F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D25EEC9528A1E8310090F108 /* FineRecord.swift in Sources */,
 				D25EEC9628A1E8310090F108 /* AppDelegate.swift in Sources */,
+				D278893D2F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D25EEC9828A1E8310090F108 /* CredentialManager.swift in Sources */,
 				D25EEC9928A1E8310090F108 /* RecordAttributes.swift in Sources */,
 				D25EEC9A28A1E8310090F108 /* Gateway.swift in Sources */,
@@ -4834,6 +4853,7 @@
 				D24E08CC2F25274100995751 /* ConsortiumService.swift in Sources */,
 				D276DAAC21336B20007FAA31 /* Theme.swift in Sources */,
 				D276DAAE21336B20007FAA31 /* XUtils.swift in Sources */,
+				D278893E2F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D283B0B42E4269BD00AE5F43 /* OrgService.swift in Sources */,
 				D276DAAF21336B20007FAA31 /* Analytics.swift in Sources */,
 				D276DAB121336B20007FAA31 /* MD5.swift in Sources */,
@@ -4986,6 +5006,7 @@
 				D24E08CA2F25274100995751 /* ConsortiumService.swift in Sources */,
 				D2DE83EC20F5AC280027FAA1 /* XUtils.swift in Sources */,
 				D27990E020DDD473003B451E /* Analytics.swift in Sources */,
+				D27889432F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D283B0B32E4269BD00AE5F43 /* OrgService.swift in Sources */,
 				D23C305020E5C6EA00666A2B /* HemlockTheme.swift in Sources */,
 				D27990E120DDD473003B451E /* MD5.swift in Sources */,
@@ -5156,6 +5177,7 @@
 				D24E08D32F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D27DF20921AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
+				D27889412F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D2CAFBC6246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D20B2FFD22CFD91900F69848 /* RecordAttributes.swift in Sources */,
@@ -5201,6 +5223,7 @@
 				D21735852F5F5F53002C8046 /* String+Tests.swift in Sources */,
 				D20B300422CFF8BA00F69848 /* RecordAttributesTests.swift in Sources */,
 				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
+				D27889462F8DA538001CA1DF /* TokenStoreTests.swift in Sources */,
 				D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */,
 				D228684B2ED4CA5200E2DAEB /* TypeHelpersTests.swift in Sources */,
 				D24D87A32B730D2200F1B77E /* AppBehaviorTests.swift in Sources */,
@@ -5344,6 +5367,7 @@
 				D24C3935254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BDA64C22D176BD00D9B60C /* UIFont+smallCaps.swift in Sources */,
 				D2D074922E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D27889402F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D2BDA64D22D176BD00D9B60C /* BarcodeUtils.swift in Sources */,
 				D233988C2E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
 				D2BDA64F22D176BD00D9B60C /* FineRecord.swift in Sources */,
