@@ -110,6 +110,20 @@ class TokenStoreTests: XCTestCase {
     }
 
     func test_initFromString_removesExpiredToken() {
-        
+        let json = """
+            {
+                "entries": [
+                    {"added_at": \(expiredTime), "token": "token-1"},
+                    {"added_at": \(now), "token": "token-2"}
+                ]
+            }
+            """.trimAllWhitespace()
+        let encoded = json.encodeToBase64URL()
+
+        let ts = TokenStore()
+        ts.initialize(fromString: encoded)
+        XCTAssertTrue(ts.isModified)
+        XCTAssertEqual(ts.entries.count, 1)
+        XCTAssertEqual(ts.entries[0].token, "token-2")
     }
 }
