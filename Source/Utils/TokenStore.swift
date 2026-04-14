@@ -1,0 +1,85 @@
+//
+//  Copyright (c) 2026 Kenneth H. Cox
+//
+//  This program is free software; you can redistribute it and/or
+//  modify it under the terms of the GNU General Public License
+//  as published by the Free Software Foundation; either version 2
+//  of the License, or (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+struct TokenEntry: Codable {
+    let token: String
+    let addedAt: Int64
+
+    enum CodingKeys: String, CodingKey {
+        case token
+        case addedAt = "added_at"
+    }
+}
+
+class TokenStore: Codable {
+    static let maxEntries = 4
+    static let tokenExpirationSeconds: Int64 = 86400 * 365 // 1 year
+    static let tokenRefreshIntervalSeconds: Int64 = 86400 * 365 / 2
+    // prefix for all v2 encoded tokens, which is base64url-encoded string '{"entries":['
+    static let v2EncodedTokenPrefix = "eyJlbnRyaWVzIjpb"
+
+    // only entries gets encoded
+    var entries: [TokenEntry] = []
+    enum CodingKeys: String, CodingKey {
+        case entries
+    }
+
+    var currentToken: String? = nil
+    var isModified = false
+
+    func loadEntries(fromStoredData storedData: String?) {
+        entries = []
+        isModified = false
+
+        guard let data = storedData, !data.isEmpty else { return }
+
+        // TODO:
+        // if it looks like a v2 encoded object, try to decode it
+
+        addCurrentToken(data)
+    }
+
+    func addCurrentToken(_ token: String) {
+        currentToken = token
+        let now = Int64(Date().timeIntervalSince1970)
+
+        // check if token exists and if it needs to be refreshed
+        if let currentEntry = entries.first(where: { $0.token == token }) {
+            if now - currentEntry.addedAt > TokenStore.tokenRefreshIntervalSeconds {
+                // exists but needs to be refreshed, remove and re-add
+                entries.removeAll(where: { $0.token == token })
+                pushToken(token, addedAt: now)
+            }
+            return
+        }
+
+        pushToken(token, addedAt: now)
+    }
+
+    private func pushToken(_ token: String, addedAt: Int64) {
+        entries.append(TokenEntry(token: token, addedAt: addedAt))
+        while entries.count > TokenStore.maxEntries {
+            entries.removeFirst()
+        }
+        isModified = true
+    }
+
+    func dumpEntries() {
+        for entry in entries {
+            print("[fcm]   added_at:\(entry.addedAt) token:\(entry.token)")
+        }
+    }
+}
