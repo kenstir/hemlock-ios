@@ -108,8 +108,32 @@ class TokenStoreTests: XCTestCase {
         XCTAssertEqual(ts.entries[0].token, "token-1")
         XCTAssertEqual(ts.entries[0].addedAt, 1775060400)
 
+        // check that encoding the store produces the original string (minus whitespace)
         let reencoded = ts.encodeToString()
         XCTAssertEqual(reencoded, encoded)
+    }
+
+    func test_initFromString_forwardCompatible() {
+        // v2 format with possible future additions
+        // NB: "entries" appears first
+        let json = """
+            {
+                "entries": [
+                    {"added_at": 1775060400, "token": "token-1", "extra_field": "ignored"},
+                    {"added_at": 1775060410, "token": "token-2", "extra_field": "ignored"}
+                ],
+                "version": 3
+            }
+            """.trimAllWhitespace()
+        let encoded = json.encodeToBase64URL()
+
+        // check that we ignore unknown fields and parse the known ones correctly
+        let ts = TokenStore()
+        ts.initialize(fromString: encoded)
+        XCTAssertFalse(ts.isModified)
+        XCTAssertEqual(ts.entries.count, 2)
+        XCTAssertEqual(ts.entries[0].token, "token-1")
+        XCTAssertEqual(ts.entries[0].addedAt, 1775060400)
     }
 
     func test_initFromString_removesExpiredToken() {
