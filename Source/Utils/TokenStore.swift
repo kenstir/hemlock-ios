@@ -37,7 +37,6 @@ class TokenStore: Codable {
         case entries
     }
 
-    var currentToken: String? = nil
     var isModified = false
 
     /// Initializes the TokenStore from a string, either a plain PN token (v1) or a base64url-encoded JSON TS object (v2)
@@ -71,7 +70,6 @@ class TokenStore: Codable {
     }
 
     func addCurrentToken(_ token: String) {
-        currentToken = token
         let now = Int64(Date().timeIntervalSince1970)
 
         // check if token exists and if it needs to be refreshed
