@@ -2109,11 +2109,8 @@
 		D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagTests.swift; sourceTree = "<group>"; };
 		D293EC12297CC33F00C9F1C4 /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINRemoteImage.xcframework; path = Carthage/Build/PINRemoteImage.xcframework; sourceTree = "<group>"; };
-		D2951DD32B8FBFF800193695 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		D2951DD42B8FBFF800193695 /* Valet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Valet.xcframework; path = Carthage/Build/Valet.xcframework; sourceTree = "<group>"; };
 		D2951DD52B8FBFF800193695 /* PINCache.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINCache.xcframework; path = Carthage/Build/PINCache.xcframework; sourceTree = "<group>"; };
-		D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PMKAlamofire.xcframework; path = Carthage/Build/PMKAlamofire.xcframework; sourceTree = "<group>"; };
-		D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromiseKit.xcframework; path = Carthage/Build/PromiseKit.xcframework; sourceTree = "<group>"; };
 		D2951DD82B8FBFF800193695 /* PINOperation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINOperation.xcframework; path = Carthage/Build/PINOperation.xcframework; sourceTree = "<group>"; };
 		D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ToastSwiftFramework.xcframework; path = Carthage/Build/ToastSwiftFramework.xcframework; sourceTree = "<group>"; };
 		D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZXingObjC.xcframework; path = Carthage/Build/ZXingObjC.xcframework; sourceTree = "<group>"; };
@@ -2627,12 +2624,9 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2951DD32B8FBFF800193695 /* Alamofire.xcframework */,
 				D2951DD52B8FBFF800193695 /* PINCache.xcframework */,
 				D2951DD82B8FBFF800193695 /* PINOperation.xcframework */,
 				D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */,
-				D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */,
-				D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */,
 				D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */,
 				D2951DD42B8FBFF800193695 /* Valet.xcframework */,
 				D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */,
