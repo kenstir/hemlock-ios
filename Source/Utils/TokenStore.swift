@@ -104,7 +104,7 @@ class TokenStore: Codable {
         return data?.base64urlEncodedString() ?? ""
     }
 
-    func dumpEntries() {
+    func dump() {
         for entry in entries {
             print("[fcm]   added_at:\(entry.addedAt) token:\(entry.token)")
         }

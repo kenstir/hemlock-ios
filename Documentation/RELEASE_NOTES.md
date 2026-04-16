@@ -1,5 +1,11 @@
 # iOS Release Notes
 
+## UPCOMING
+
+### New
+
+* Allow patron to receive push notifications on multiple devices for the same account
+
 ## 4.5.1
 
 ### Fixed

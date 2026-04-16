@@ -174,6 +174,7 @@ class EvergreenAccount : Account {
         ts.initialize(fromString: storedData)
         ts.addCurrentToken(fcmNotificationToken)
         print("[fcm] loaded \(ts.entries.count) tokens modified:\(ts.isModified)")
+        ts.dump()
 
         // update the stored user settings if needed
         if ts.isModified || !storedEnabledFlag {
