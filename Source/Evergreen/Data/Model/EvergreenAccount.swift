@@ -168,13 +168,20 @@ class EvergreenAccount : Account {
     /// we just read `storedData` and `storedEnabledFlag` from the user settings.
     /// If what we have in the app is different, we need to update the user setting in Evergreen
     func maybeUpdateUserSettings(storedData: String?, storedEnabledFlag: Bool) async {
-        print("[fcm] stored token was: \(storedData ?? "(nil)")")
-        if let currentFCMToken = App.fcmNotificationToken,
-           currentFCMToken != storedData || !storedEnabledFlag
-        {
-            print("[fcm] updating stored token")
+        guard let fcmNotificationToken = App.fcmNotificationToken else { return }
+
+        let ts = TokenStore()
+        ts.initialize(fromString: storedData)
+        ts.addCurrentToken(fcmNotificationToken)
+        print("[fcm] loaded \(ts.entries.count) tokens modified:\(ts.isModified)")
+        ts.dump()
+
+        // update the stored user settings if needed
+        if ts.isModified || !storedEnabledFlag {
+            print("[fcm] updating stored data")
             do {
-                try await App.svc.user.updatePushNotificationToken(account: self, token: currentFCMToken)
+                let newData = ts.encodeToString()
+                try await App.svc.user.updatePushNotificationToken(account: self, token: newData)
                 Analytics.logEvent(event: Analytics.Event.fcmTokenUpdate, parameters: [Analytics.Param.result: Analytics.Value.ok])
             } catch {
                 Analytics.logEvent(event: Analytics.Event.fcmTokenUpdate, parameters: [Analytics.Param.result: error.localizedDescription])
