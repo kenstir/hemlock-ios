@@ -45,6 +45,10 @@ extension String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
+    func trimAllWhitespace() -> String {
+        return self.components(separatedBy: .whitespacesAndNewlines).joined()
+    }
+
     func trimTrailing(_ suffixChar: Character) -> String {
         var s = self
         let suffix = "" + [suffixChar]
@@ -81,5 +85,15 @@ extension String {
         }
 
         return result as String
+    }
+
+    func encodeToBase64URL() -> String {
+        let data = self.data(using: .utf8) ?? Data()
+        return data.base64urlEncodedString()
+    }
+
+    func decodeFromBase64URL() -> String? {
+        guard let data = Data(base64urlEncoded: self) else { return nil }
+        return String(data: data, encoding: .utf8)
     }
 }
