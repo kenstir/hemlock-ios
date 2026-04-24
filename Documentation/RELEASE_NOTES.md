@@ -1,10 +1,13 @@
 # iOS Release Notes
 
-## UPCOMING
+## 4.6.0
 
 ### New
-
 * Allow patron to receive push notifications on multiple devices for the same account
+
+### Fixed
+* chore: Upgrade to Xcode 26.3
+* chore: Upgrade to fastlane 2.233.0
 
 ## 4.5.1
 
