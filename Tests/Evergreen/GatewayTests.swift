@@ -50,9 +50,10 @@ class GatewayTests: XCTestCase {
         XCTAssertEqual(p1, ["\"deadbeef\"","null","{\"active\":1}"])
     }
 
-    func test_createRequest_basic() {
+    // As of AF 5.11, all Requests are lazy, so so inspect the URLRequestConvertible instead.
+    func test_createRequest_basic() throws {
         let request = Gateway.makeRequest(service: API.auth, method: API.authInit, args: ["hemlock"], shouldCache: false)
-        print("request:  \(request.description)")
-        XCTAssertEqual(request.request?.url?.path, "/osrf-gateway-v1")
+        let urlRequest = try request.convertible.asURLRequest()
+        XCTAssertEqual(urlRequest.url?.path, "/osrf-gateway-v1")
     }
 }
