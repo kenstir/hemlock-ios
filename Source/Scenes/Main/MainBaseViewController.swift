@@ -144,13 +144,26 @@ class MainBaseViewController: UIViewController {
     func showSystemAlert() {
         guard let msg = App.svc.consortium.alertBanner else { return }
         guard !systemAlertIsSquelched(msg) else { return }
-        let alertController = UIAlertController(title: "System Alert", message: msg, preferredStyle: .alert)
-        Style.styleAlertController(alertController)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        alertController.addAction(UIAlertAction(title: "Don't show again", style: .default) { action in
-            self.squelchSystemAlert(msg)
-        })
-        self.present(alertController, animated: true)
+
+        // if the message looks like HTML, and parses as HTML, use a specialized alert controller;
+        // otherwise prefer the standard alert controller because it feels more native
+        if msg.looksLikeHTML,
+           let attributedString = AttributedAlertController.attributedString(fromHTML: msg)
+        {
+            let alert = AttributedAlertController(title: "Alert", message: attributedString)
+            alert.addAction(AlertAction(title: "OK", style: .default))
+            alert.addAction(AlertAction(title: "Don't show again", style: .default) {
+                self.squelchSystemAlert(msg)
+            })
+            self.present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            alert.addAction(UIAlertAction(title: "Don't show again", style: .default) { action in
+                self.squelchSystemAlert(msg)
+            })
+            self.present(alert, animated: true)
+        }
     }
 
     func systemAlertIsSquelched(_ msg: String) -> Bool {
