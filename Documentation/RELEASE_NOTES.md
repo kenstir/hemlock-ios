@@ -4,6 +4,7 @@
 
 ### New
 * Allow patron to receive push notifications on multiple devices for the same account
+* Handle public catalog alert banners containing HTML
 
 ### Fixed
 * chore: Upgrade to Xcode 26.3
