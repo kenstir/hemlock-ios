@@ -76,10 +76,10 @@ class MainBaseViewController: UIViewController {
                 let action = UIAlertAction(title: credential.chooserLabel, style: .default) { action in
                     self.doSwitchAccount(toAccount: credential)
                 }
-                var imageName = "Account"
+                var imageName = "account_list"
                 if credential.username == App.account?.username {
                     action.isEnabled = false
-                    imageName = "Account with Checkmark"
+                    imageName = "account_list_checked"
                 }
                 if let icon = loadAssetImage(named: imageName) {
                     action.setValue(icon, forKey: "image")
