@@ -7,8 +7,9 @@
 * Handle public catalog alert banners containing HTML
 
 ### Fixed
+* Fixed misaligned halo around account icon in app bar on iOS 26
 * chore: Upgrade to Xcode 26.3
-* chore: Upgrade to fastlane 2.233.0
+* chore: Upgrade to fastlane 2.233.1
 
 ## 4.5.1
 
