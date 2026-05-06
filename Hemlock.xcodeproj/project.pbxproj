@@ -665,6 +665,15 @@
 		D2572B2724AD7A13000BA698 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2324AD7A13000BA698 /* AppFactory.swift */; };
 		D2572B2824AD7A13000BA698 /* MoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2424AD7A13000BA698 /* MoTheme.swift */; };
 		D2572B2924AD7A13000BA698 /* MoAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */; };
+		D2579CBB2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CBC2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CBD2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CBE2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CBF2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CC02FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CC12FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CC22FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CC32FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
 		D2592D7D24AFA4C0009E80EC /* mo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2592D7C24AFA4C0009E80EC /* mo.xcassets */; };
 		D259671924511CA90076267D /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D259671824511CA90076267D /* UtilsTests.swift */; };
 		D25D97222E38412400DBFD65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D25D97212E38412400DBFD65 /* GoogleService-Info.plist */; };
@@ -2076,6 +2085,7 @@
 		D2572B2324AD7A13000BA698 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D2572B2424AD7A13000BA698 /* MoTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoTheme.swift; sourceTree = "<group>"; };
 		D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoAppBehavior.swift; sourceTree = "<group>"; };
+		D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedAlertController.swift; sourceTree = "<group>"; };
 		D2592D7C24AFA4C0009E80EC /* mo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mo.xcassets; sourceTree = "<group>"; };
 		D259671824511CA90076267D /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		D25D97212E38412400DBFD65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -2568,6 +2578,7 @@
 				D22AE118221B75FC0089C196 /* AFSession+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D21FF9B82E706D760058E2D3 /* AppState.swift */,
+				D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */,
 				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
@@ -3992,6 +4003,7 @@
 				D210EBD522B1EE55002FB5E0 /* MainTableViewCell.swift in Sources */,
 				D210EBD622B1EE55002FB5E0 /* EvergreenHoldRecord.swift in Sources */,
 				D210EBD722B1EE55002FB5E0 /* Bundle+.swift in Sources */,
+				D2579CBD2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D292736D2ED5348A004CAD82 /* HoldRecord.swift in Sources */,
 				D20B2FF422CE7BF500F69848 /* Link.swift in Sources */,
 				D283B0C12E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
@@ -4208,6 +4220,7 @@
 				D23E9F9923B9200A0030F5C1 /* CheckoutsViewController.swift in Sources */,
 				D23E9FEF23B923B80030F5C1 /* SagecatTheme.swift in Sources */,
 				D23E9F9B23B9200A0030F5C1 /* Theme.swift in Sources */,
+				D2579CC22FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D23E9F9C23B9200A0030F5C1 /* XUtils.swift in Sources */,
 				D2E7E3172F4A28350066D52B /* Collection+.swift in Sources */,
 				D23E9F9D23B9200A0030F5C1 /* Analytics.swift in Sources */,
@@ -4362,6 +4375,7 @@
 				D2477BE924785A6B00FD4CF6 /* Theme.swift in Sources */,
 				D2477BEA24785A6B00FD4CF6 /* XUtils.swift in Sources */,
 				D2477BEB24785A6B00FD4CF6 /* Analytics.swift in Sources */,
+				D2579CBB2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D2477BEE24785A6B00FD4CF6 /* MD5.swift in Sources */,
 				D2E7E3192F4A28350066D52B /* Collection+.swift in Sources */,
 				D2477BEF24785A6B00FD4CF6 /* FinesTableViewCell.swift in Sources */,
@@ -4516,6 +4530,7 @@
 				D2572ADA24AD7755000BA698 /* Theme.swift in Sources */,
 				D2572ADB24AD7755000BA698 /* XUtils.swift in Sources */,
 				D2572B2724AD7A13000BA698 /* AppFactory.swift in Sources */,
+				D2579CC02FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D2572ADC24AD7755000BA698 /* Analytics.swift in Sources */,
 				D2E7E31A2F4A28350066D52B /* Collection+.swift in Sources */,
 				D2572ADF24AD7755000BA698 /* MD5.swift in Sources */,
@@ -4670,6 +4685,7 @@
 				D25EEC7D28A1E8310090F108 /* CheckoutsViewController.swift in Sources */,
 				D25EEC7F28A1E8310090F108 /* Theme.swift in Sources */,
 				D25EEC8028A1E8310090F108 /* XUtils.swift in Sources */,
+				D2579CBE2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D25EEC8228A1E8310090F108 /* Analytics.swift in Sources */,
 				D2E7E3152F4A28350066D52B /* Collection+.swift in Sources */,
 				D25EEC8428A1E8310090F108 /* MD5.swift in Sources */,
@@ -4776,6 +4792,7 @@
 				D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */,
 				D2C300582E3E65AB0082C308 /* UserService.swift in Sources */,
 				D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */,
+				D2579CBC2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D2C300222E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2D074972E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -4929,6 +4946,7 @@
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
 				D2C300562E3E65AB0082C308 /* UserService.swift in Sources */,
 				D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
+				D2579CC12FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D2C300272E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D28F5E6429CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2D074952E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -5130,6 +5148,7 @@
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
+				D2579CBF2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D2E7E3182F4A28350066D52B /* Collection+.swift in Sources */,
 				D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */,
@@ -5267,6 +5286,7 @@
 				D2BDA61822D176BD00D9B60C /* MainTableViewCell.swift in Sources */,
 				D2BDA61922D176BD00D9B60C /* EvergreenHoldRecord.swift in Sources */,
 				D2BDA61A22D176BD00D9B60C /* Bundle+.swift in Sources */,
+				D2579CC32FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D29273722ED5348A004CAD82 /* HoldRecord.swift in Sources */,
 				D2BDA61B22D176BD00D9B60C /* Link.swift in Sources */,
 				D283B0C42E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
@@ -5820,7 +5840,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -5883,7 +5903,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

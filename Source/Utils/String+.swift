@@ -96,4 +96,10 @@ extension String {
         guard let data = Data(base64urlEncoded: self) else { return nil }
         return String(data: data, encoding: .utf8)
     }
+
+    /// Returns true if the string contains something like <tag>
+    var looksLikeHTML: Bool {
+        let pattern = "<[^>]+>"
+        return range(of: pattern, options: .regularExpression) != nil
+    }
 }
