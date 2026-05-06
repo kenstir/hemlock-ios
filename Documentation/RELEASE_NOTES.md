@@ -1,5 +1,16 @@
 # iOS Release Notes
 
+## 4.6.0
+
+### New
+* Allow patron to receive push notifications on multiple devices for the same account
+* Handle public catalog alert banners containing HTML
+
+### Fixed
+* Fixed misaligned halo around account icon in app bar on iOS 26
+* chore: Upgrade to Xcode 26.3
+* chore: Upgrade to fastlane 2.233.1
+
 ## 4.5.1
 
 ### Fixed

@@ -665,6 +665,15 @@
 		D2572B2724AD7A13000BA698 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2324AD7A13000BA698 /* AppFactory.swift */; };
 		D2572B2824AD7A13000BA698 /* MoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2424AD7A13000BA698 /* MoTheme.swift */; };
 		D2572B2924AD7A13000BA698 /* MoAppBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */; };
+		D2579CBB2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CBC2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CBD2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CBE2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CBF2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CC02FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CC12FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CC22FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
+		D2579CC32FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
 		D2592D7D24AFA4C0009E80EC /* mo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2592D7C24AFA4C0009E80EC /* mo.xcassets */; };
 		D259671924511CA90076267D /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D259671824511CA90076267D /* UtilsTests.swift */; };
 		D25D97222E38412400DBFD65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D25D97212E38412400DBFD65 /* GoogleService-Info.plist */; };
@@ -782,6 +791,15 @@
 		D2616764220BA1AF0071E1A5 /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2616761220BA1AF0071E1A5 /* Options.storyboard */; };
 		D263C2A72113DDFE00C35352 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
 		D263C2A82115564B00C35352 /* EvergreenCopyLocationCounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263C2A62113DDFE00C35352 /* EvergreenCopyLocationCounts.swift */; };
+		D26407B82F85BB5600C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407B72F85BB5600C68CE6 /* Alamofire */; };
+		D26407BA2F85BB9400C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407B92F85BB9400C68CE6 /* Alamofire */; };
+		D26407BC2F85BBA300C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407BB2F85BBA300C68CE6 /* Alamofire */; };
+		D26407BE2F85BBB000C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407BD2F85BBB000C68CE6 /* Alamofire */; };
+		D26407C02F85BBC100C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407BF2F85BBC100C68CE6 /* Alamofire */; };
+		D26407C22F85BBD000C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407C12F85BBD000C68CE6 /* Alamofire */; };
+		D26407C42F85BBDE00C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407C32F85BBDE00C68CE6 /* Alamofire */; };
+		D26407C62F85BBED00C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407C52F85BBED00C68CE6 /* Alamofire */; };
+		D26407C82F85BC0000C68CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D26407C72F85BC0000C68CE6 /* Alamofire */; };
 		D2647872291708AA00B672AC /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D2647871291708AA00B672AC /* custom_strings.json */; };
 		D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
@@ -842,6 +860,25 @@
 		D276DADB21336B20007FAA31 /* Fines.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACD141C20CDACFF008F02D3 /* Fines.storyboard */; };
 		D276DADD21336B20007FAA31 /* MainList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D287D4FF207AEF2B001AF644 /* MainList.storyboard */; };
 		D276DAE721336BE3007FAA31 /* cwmars.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D276DAE621336BE3007FAA31 /* cwmars.xcassets */; };
+		D27889322F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D27889332F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D27889342F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D27889352F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D27889362F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D27889372F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D27889382F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D27889392F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D278893A2F8D9AF7001CA1DF /* Data+base64url.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889312F8D9AF7001CA1DF /* Data+base64url.swift */; };
+		D278893C2F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D278893D2F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D278893E2F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D278893F2F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889402F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889412F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889422F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889432F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889442F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
+		D27889462F8DA538001CA1DF /* TokenStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889452F8DA538001CA1DF /* TokenStoreTests.swift */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
@@ -1091,8 +1128,6 @@
 		D293EC1D297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
 		D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DDE2B8FBFF900193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951DDF2B8FBFF900193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DE02B8FBFF900193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
 		D2951DE12B8FBFF900193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
@@ -1103,8 +1138,6 @@
 		D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DF12B8FC1D600193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951DF22B8FC1D600193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1117,8 +1150,6 @@
 		D2951E022B8FC1D600193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E1B2B8FC25800193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951E1C2B8FC25800193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1131,8 +1162,6 @@
 		D2951E2C2B8FC25900193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E302B8FC27500193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951E312B8FC27500193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1145,8 +1174,6 @@
 		D2951E412B8FC27600193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E452B8FC28E00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951E462B8FC28E00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1159,8 +1186,6 @@
 		D2951E562B8FC28F00193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E5A2B8FC29E00193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951E5B2B8FC29E00193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1173,8 +1198,6 @@
 		D2951E6B2B8FC29E00193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E842B8FC2B700193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951E852B8FC2B700193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1187,8 +1210,6 @@
 		D2951E952B8FC2B800193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E992B8FC2C400193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951E9A2B8FC2C400193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1201,8 +1222,6 @@
 		D2951EAA2B8FC2C500193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EAE2B8FC2D300193695 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; };
-		D2951EAF2B8FC2D300193695 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD32B8FBFF800193695 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1810,7 +1829,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D2951DDF2B8FBFF900193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */,
 				D2951DEB2B8FBFF900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
@@ -1832,7 +1850,6 @@
 				D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E002B8FC1D600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E022B8FC1D600193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951DF22B8FC1D600193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1849,7 +1866,6 @@
 				D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E2A2B8FC25900193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E2C2B8FC25900193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E1C2B8FC25800193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1866,7 +1882,6 @@
 				D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E3F2B8FC27600193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E412B8FC27600193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E312B8FC27500193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1883,7 +1898,6 @@
 				D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E542B8FC28F00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E562B8FC28F00193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E462B8FC28E00193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1900,7 +1914,6 @@
 				D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E692B8FC29E00193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E6B2B8FC29E00193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E5B2B8FC29E00193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1917,7 +1930,6 @@
 				D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951E932B8FC2B800193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951E952B8FC2B800193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E852B8FC2B700193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1934,7 +1946,6 @@
 				D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951EA82B8FC2C500193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951EAA2B8FC2C500193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951E9A2B8FC2C400193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1951,7 +1962,6 @@
 				D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
 				D2951EBD2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Embed Frameworks */,
 				D2951EBF2B8FC2D400193695 /* Valet.xcframework in Embed Frameworks */,
-				D2951EAF2B8FC2D300193695 /* Alamofire.xcframework in Embed Frameworks */,
 				D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -2075,6 +2085,7 @@
 		D2572B2324AD7A13000BA698 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D2572B2424AD7A13000BA698 /* MoTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoTheme.swift; sourceTree = "<group>"; };
 		D2572B2524AD7A13000BA698 /* MoAppBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoAppBehavior.swift; sourceTree = "<group>"; };
+		D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedAlertController.swift; sourceTree = "<group>"; };
 		D2592D7C24AFA4C0009E80EC /* mo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mo.xcassets; sourceTree = "<group>"; };
 		D259671824511CA90076267D /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		D25D97212E38412400DBFD65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -2097,6 +2108,9 @@
 		D276DAE221336B20007FAA31 /* cwmars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cwmars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D276DAE321336B20007FAA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D276DAE621336BE3007FAA31 /* cwmars.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cwmars.xcassets; sourceTree = "<group>"; };
+		D27889312F8D9AF7001CA1DF /* Data+base64url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+base64url.swift"; sourceTree = "<group>"; };
+		D278893B2F8D9D0E001CA1DF /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
+		D27889452F8DA538001CA1DF /* TokenStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStoreTests.swift; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D279910B20DDD473003B451E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D279910E20DDD760003B451E /* hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hemlock.xcassets; sourceTree = "<group>"; };
@@ -2158,11 +2172,8 @@
 		D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagTests.swift; sourceTree = "<group>"; };
 		D293EC12297CC33F00C9F1C4 /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINRemoteImage.xcframework; path = Carthage/Build/PINRemoteImage.xcframework; sourceTree = "<group>"; };
-		D2951DD32B8FBFF800193695 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		D2951DD42B8FBFF800193695 /* Valet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Valet.xcframework; path = Carthage/Build/Valet.xcframework; sourceTree = "<group>"; };
 		D2951DD52B8FBFF800193695 /* PINCache.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINCache.xcframework; path = Carthage/Build/PINCache.xcframework; sourceTree = "<group>"; };
-		D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PMKAlamofire.xcframework; path = Carthage/Build/PMKAlamofire.xcframework; sourceTree = "<group>"; };
-		D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromiseKit.xcframework; path = Carthage/Build/PromiseKit.xcframework; sourceTree = "<group>"; };
 		D2951DD82B8FBFF800193695 /* PINOperation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINOperation.xcframework; path = Carthage/Build/PINOperation.xcframework; sourceTree = "<group>"; };
 		D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ToastSwiftFramework.xcframework; path = Carthage/Build/ToastSwiftFramework.xcframework; sourceTree = "<group>"; };
 		D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZXingObjC.xcframework; path = Carthage/Build/ZXingObjC.xcframework; sourceTree = "<group>"; };
@@ -2283,10 +2294,10 @@
 				D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */,
 				D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */,
+				D26407BA2F85BB9400C68CE6 /* Alamofire in Frameworks */,
 				D2951DFF2B8FC1D600193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E012B8FC1D600193695 /* Valet.xcframework in Frameworks */,
 				D23A1CA92EE615A5003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951DF12B8FC1D600193695 /* Alamofire.xcframework in Frameworks */,
 				D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2295,6 +2306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26407C82F85BC0000C68CE6 /* Alamofire in Frameworks */,
 				D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */,
 				D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2302,7 +2314,6 @@
 				D23A1C9D2EE6152C003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2951EBC2B8FC2D400193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951EBE2B8FC2D400193695 /* Valet.xcframework in Frameworks */,
-				D2951EAE2B8FC2D300193695 /* Alamofire.xcframework in Frameworks */,
 				D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2311,6 +2322,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26407C02F85BBC100C68CE6 /* Alamofire in Frameworks */,
 				D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */,
 				D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2318,7 +2330,6 @@
 				D23A1CA52EE61586003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2951E3E2B8FC27600193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E402B8FC27600193695 /* Valet.xcframework in Frameworks */,
-				D2951E302B8FC27500193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2327,6 +2338,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26407C22F85BBD000C68CE6 /* Alamofire in Frameworks */,
 				D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2334,7 +2346,6 @@
 				D23A1CA32EE61578003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2951E532B8FC28F00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E552B8FC28F00193695 /* Valet.xcframework in Frameworks */,
-				D2951E452B8FC28E00193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2343,6 +2354,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26407C62F85BBED00C68CE6 /* Alamofire in Frameworks */,
 				D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */,
 				D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2350,7 +2362,6 @@
 				D23A1C9F2EE61551003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2951E922B8FC2B800193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E942B8FC2B800193695 /* Valet.xcframework in Frameworks */,
-				D2951E842B8FC2B700193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2359,7 +2370,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2951DDE2B8FBFF900193695 /* Alamofire.xcframework in Frameworks */,
+				D26407BC2F85BBA300C68CE6 /* Alamofire in Frameworks */,
 				D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */,
 				D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */,
@@ -2376,11 +2387,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */,
+				D26407BE2F85BBB000C68CE6 /* Alamofire in Frameworks */,
 				D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */,
 				D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2951E292B8FC25900193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E2B2B8FC25900193695 /* Valet.xcframework in Frameworks */,
-				D2951E1B2B8FC25800193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2394,10 +2405,10 @@
 				D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */,
 				D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2E409082BD1F72C00148FD5 /* FirebaseCrashlytics in Frameworks */,
+				D26407B82F85BB5600C68CE6 /* Alamofire in Frameworks */,
 				D2951EA72B8FC2C500193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951EA92B8FC2C500193695 /* Valet.xcframework in Frameworks */,
 				D23A1C9B2EE614CE003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E992B8FC2C400193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2413,6 +2424,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26407C42F85BBDE00C68CE6 /* Alamofire in Frameworks */,
 				D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */,
 				D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */,
@@ -2420,7 +2432,6 @@
 				D23A1CA12EE6156B003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2951E682B8FC29E00193695 /* ToastSwiftFramework.xcframework in Frameworks */,
 				D2951E6A2B8FC29E00193695 /* Valet.xcframework in Frameworks */,
-				D2951E5A2B8FC29E00193695 /* Alamofire.xcframework in Frameworks */,
 				D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2567,11 +2578,13 @@
 				D22AE118221B75FC0089C196 /* AFSession+.swift */,
 				D2DF196720CEF68700085255 /* Analytics.swift */,
 				D21FF9B82E706D760058E2D3 /* AppState.swift */,
+				D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */,
 				D27DF20721AB424A002DCC47 /* BarcodeUtils.swift */,
 				D28F5E6C29CF8E0700FAAAD6 /* BibRecord+prefetch.swift */,
 				D2A81795224699C700340074 /* Bundle+.swift */,
 				D2E7E3112F4A28350066D52B /* Collection+.swift */,
 				D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */,
+				D27889312F8D9AF7001CA1DF /* Data+base64url.swift */,
 				D2318BD720CC44FA00A027EE /* HemlockError.swift */,
 				D2A73B1E246CB54000874620 /* JSONUtils.swift */,
 				FA37C3F820FC2A09003C2003 /* LocationPicker.swift */,
@@ -2584,8 +2597,10 @@
 				D28290F720E6F770008EBE4B /* Style.swift */,
 				D253343B20C23305008176B9 /* Theme.swift */,
 				D28F5E6029CF89BB00FAAAD6 /* Thread+.swift */,
+				D278893B2F8D9D0E001CA1DF /* TokenStore.swift */,
 				D2CDCD002ED0B7E500B733E1 /* TypeHelpers.swift */,
 				D2346FFA24E8B71400FF4433 /* UIBarButtonItem+Badge.swift */,
+				D2F5573B2EF38E27003BE964 /* UIButton+.swift */,
 				D24D76902234418F00AFE50C /* UIColor+.swift */,
 				D28164AF213C502D000B64B4 /* UIFont+smallCaps.swift */,
 				D28164B3213C7D99000B64B4 /* UIScrollView+.swift */,
@@ -2595,7 +2610,6 @@
 				D24C392F254B9FA400ECAE64 /* URLRequest+.swift */,
 				D2CF924122471D210009C06A /* Utils.swift */,
 				D2DE83EB20F5AC280027FAA1 /* XUtils.swift */,
-				D2F5573B2EF38E27003BE964 /* UIButton+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2612,6 +2626,7 @@
 				D21735842F5F5F53002C8046 /* String+Tests.swift */,
 				D228684A2ED4CA5200E2DAEB /* TypeHelpersTests.swift */,
 				D259671824511CA90076267D /* UtilsTests.swift */,
+				D27889452F8DA538001CA1DF /* TokenStoreTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2680,12 +2695,9 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2951DD32B8FBFF800193695 /* Alamofire.xcframework */,
 				D2951DD52B8FBFF800193695 /* PINCache.xcframework */,
 				D2951DD82B8FBFF800193695 /* PINOperation.xcframework */,
 				D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */,
-				D2951DD62B8FBFF800193695 /* PMKAlamofire.xcframework */,
-				D2951DD72B8FBFF800193695 /* PromiseKit.xcframework */,
 				D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */,
 				D2951DD42B8FBFF800193695 /* Valet.xcframework */,
 				D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */,
@@ -3159,6 +3171,7 @@
 				D213904B2C5006BA007C4EFD /* FirebaseCrashlytics */,
 				D213904D2C5006C6007C4EFD /* FirebaseMessaging */,
 				D23A1CA82EE615A5003A673E /* FirebaseAnalyticsCore */,
+				D26407B92F85BB9400C68CE6 /* Alamofire */,
 			);
 			productName = Hemlock;
 			productReference = D210EC3622B1EE55002FB5E0 /* acorn.app */;
@@ -3258,6 +3271,7 @@
 			packageProductDependencies = (
 				D21889FA2D29E67200E8A1C3 /* FirebaseCrashlytics */,
 				D23A1CA62EE6159A003A673E /* FirebaseAnalyticsCore */,
+				D26407BB2F85BBA300C68CE6 /* Alamofire */,
 			);
 			productName = Hemlock;
 			productReference = D276DAE221336B20007FAA31 /* cwmars.app */;
@@ -3300,6 +3314,7 @@
 				D2E409072BD1F72C00148FD5 /* FirebaseCrashlytics */,
 				D2E409092BD1F72C00148FD5 /* FirebaseMessaging */,
 				D23A1C9A2EE614CE003A673E /* FirebaseAnalyticsCore */,
+				D26407B72F85BB5600C68CE6 /* Alamofire */,
 			);
 			productName = Hemlock;
 			productReference = D287D4F8207AEF2B001AF644 /* PINES.app */;
@@ -3342,6 +3357,7 @@
 			packageProductDependencies = (
 				D2C7F2E02CB1FDE300CA46B0 /* FirebaseCrashlytics */,
 				D23A1CA02EE6156B003A673E /* FirebaseAnalyticsCore */,
+				D26407C32F85BBDE00C68CE6 /* Alamofire */,
 			);
 			productName = Hemlock;
 			productReference = D2BDA67F22D176BD00D9B60C /* NOBLE.app */;
@@ -3355,7 +3371,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2630;
 				ORGANIZATIONNAME = "Ken Cox";
 				TargetAttributes = {
 					D276DA8321336B20007FAA31 = {
@@ -3386,6 +3402,7 @@
 			mainGroup = D287D4EF207AEF2B001AF644;
 			packageReferences = (
 				D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = D287D4F9207AEF2B001AF644 /* Products */;
 			projectDirPath = "";
@@ -3977,6 +3994,7 @@
 				D210EBD222B1EE55002FB5E0 /* UIView+disclosureIndicator.swift in Sources */,
 				D2C3EA2D29D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D210EBD322B1EE55002FB5E0 /* String+splitOnRegex.swift in Sources */,
+				D27889362F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2816CC728B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
 				D2EBBB752ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D22074BD2ECBCEF1003E9163 /* SearchService.swift in Sources */,
@@ -3985,6 +4003,7 @@
 				D210EBD522B1EE55002FB5E0 /* MainTableViewCell.swift in Sources */,
 				D210EBD622B1EE55002FB5E0 /* EvergreenHoldRecord.swift in Sources */,
 				D210EBD722B1EE55002FB5E0 /* Bundle+.swift in Sources */,
+				D2579CBD2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D292736D2ED5348A004CAD82 /* HoldRecord.swift in Sources */,
 				D20B2FF422CE7BF500F69848 /* Link.swift in Sources */,
 				D283B0C12E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
@@ -4066,6 +4085,7 @@
 				D210EC0622B1EE55002FB5E0 /* BarcodeUtils.swift in Sources */,
 				D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */,
 				D2D074912E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D278893C2F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D28E044B2BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
 				D23398862E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
 				D210EC0722B1EE55002FB5E0 /* FineRecord.swift in Sources */,
@@ -4200,6 +4220,7 @@
 				D23E9F9923B9200A0030F5C1 /* CheckoutsViewController.swift in Sources */,
 				D23E9FEF23B923B80030F5C1 /* SagecatTheme.swift in Sources */,
 				D23E9F9B23B9200A0030F5C1 /* Theme.swift in Sources */,
+				D2579CC22FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D23E9F9C23B9200A0030F5C1 /* XUtils.swift in Sources */,
 				D2E7E3172F4A28350066D52B /* Collection+.swift in Sources */,
 				D23E9F9D23B9200A0030F5C1 /* Analytics.swift in Sources */,
@@ -4228,6 +4249,7 @@
 				D24E08D22F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D23E9FAC23B9200A0030F5C1 /* BarcodeUtils.swift in Sources */,
 				D23E9FAD23B9200A0030F5C1 /* FineRecord.swift in Sources */,
+				D27889422F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D23E9FAE23B9200A0030F5C1 /* AppDelegate.swift in Sources */,
 				D2CAFBC7246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D23E9FB023B9200A0030F5C1 /* RecordAttributes.swift in Sources */,
@@ -4259,6 +4281,7 @@
 				D299069B2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2DA2E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D23E9FBC23B9200A0030F5C1 /* Account.swift in Sources */,
+				D27889392F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2CDCCF72ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4352,6 +4375,7 @@
 				D2477BE924785A6B00FD4CF6 /* Theme.swift in Sources */,
 				D2477BEA24785A6B00FD4CF6 /* XUtils.swift in Sources */,
 				D2477BEB24785A6B00FD4CF6 /* Analytics.swift in Sources */,
+				D2579CBB2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D2477BEE24785A6B00FD4CF6 /* MD5.swift in Sources */,
 				D2E7E3192F4A28350066D52B /* Collection+.swift in Sources */,
 				D2477BEF24785A6B00FD4CF6 /* FinesTableViewCell.swift in Sources */,
@@ -4380,6 +4404,7 @@
 				D24E08D82F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D2477BFB24785A6B00FD4CF6 /* BarcodeUtils.swift in Sources */,
 				D2477BFC24785A6B00FD4CF6 /* FineRecord.swift in Sources */,
+				D278893F2F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D2477BFD24785A6B00FD4CF6 /* AppDelegate.swift in Sources */,
 				D2477BFF24785A6B00FD4CF6 /* CredentialManager.swift in Sources */,
 				D2477C0024785A6B00FD4CF6 /* RecordAttributes.swift in Sources */,
@@ -4411,6 +4436,7 @@
 				D29906992E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D42E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D2477C0B24785A6B00FD4CF6 /* Account.swift in Sources */,
+				D27889382F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2CDCCF92ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4504,6 +4530,7 @@
 				D2572ADA24AD7755000BA698 /* Theme.swift in Sources */,
 				D2572ADB24AD7755000BA698 /* XUtils.swift in Sources */,
 				D2572B2724AD7A13000BA698 /* AppFactory.swift in Sources */,
+				D2579CC02FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D2572ADC24AD7755000BA698 /* Analytics.swift in Sources */,
 				D2E7E31A2F4A28350066D52B /* Collection+.swift in Sources */,
 				D2572ADF24AD7755000BA698 /* MD5.swift in Sources */,
@@ -4532,6 +4559,7 @@
 				D24E08D72F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D2572AEE24AD7755000BA698 /* AppDelegate.swift in Sources */,
 				D2572AF024AD7755000BA698 /* CredentialManager.swift in Sources */,
+				D27889442F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D2572AF124AD7755000BA698 /* RecordAttributes.swift in Sources */,
 				D2572AF224AD7755000BA698 /* Gateway.swift in Sources */,
 				D2572AF324AD7755000BA698 /* UIViewController+.swift in Sources */,
@@ -4563,6 +4591,7 @@
 				D29906962E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2DC2E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D2572AFE24AD7755000BA698 /* Account.swift in Sources */,
+				D27889342F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2CDCCFD2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4656,6 +4685,7 @@
 				D25EEC7D28A1E8310090F108 /* CheckoutsViewController.swift in Sources */,
 				D25EEC7F28A1E8310090F108 /* Theme.swift in Sources */,
 				D25EEC8028A1E8310090F108 /* XUtils.swift in Sources */,
+				D2579CBE2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D25EEC8228A1E8310090F108 /* Analytics.swift in Sources */,
 				D2E7E3152F4A28350066D52B /* Collection+.swift in Sources */,
 				D25EEC8428A1E8310090F108 /* MD5.swift in Sources */,
@@ -4684,6 +4714,7 @@
 				D24E08D52F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D25EEC9528A1E8310090F108 /* FineRecord.swift in Sources */,
 				D25EEC9628A1E8310090F108 /* AppDelegate.swift in Sources */,
+				D278893D2F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D25EEC9828A1E8310090F108 /* CredentialManager.swift in Sources */,
 				D25EEC9928A1E8310090F108 /* RecordAttributes.swift in Sources */,
 				D25EEC9A28A1E8310090F108 /* Gateway.swift in Sources */,
@@ -4715,6 +4746,7 @@
 				D299069C2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D82E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D25EECA928A1E8310090F108 /* Account.swift in Sources */,
+				D27889352F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2CDCCF82ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4760,6 +4792,7 @@
 				D276DA9521336B20007FAA31 /* AppConfiguration.swift in Sources */,
 				D2C300582E3E65AB0082C308 /* UserService.swift in Sources */,
 				D276DA9621336B20007FAA31 /* FinesViewController.swift in Sources */,
+				D2579CBC2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D2C300222E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D29911E6248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
 				D2D074972E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -4776,6 +4809,7 @@
 				D276DA9C21336B20007FAA31 /* App.swift in Sources */,
 				D2AA9D602738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D233988E2E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
+				D27889372F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2EA31232B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
@@ -4817,6 +4851,7 @@
 				D24E08CC2F25274100995751 /* ConsortiumService.swift in Sources */,
 				D276DAAC21336B20007FAA31 /* Theme.swift in Sources */,
 				D276DAAE21336B20007FAA31 /* XUtils.swift in Sources */,
+				D278893E2F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D283B0B42E4269BD00AE5F43 /* OrgService.swift in Sources */,
 				D276DAAF21336B20007FAA31 /* Analytics.swift in Sources */,
 				D276DAB121336B20007FAA31 /* MD5.swift in Sources */,
@@ -4911,6 +4946,7 @@
 				D2A74B1421289D63001D4B0F /* AppConfiguration.swift in Sources */,
 				D2C300562E3E65AB0082C308 /* UserService.swift in Sources */,
 				D29911E7248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
+				D2579CC12FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D2C300272E3C02220082C308 /* GatewayResponse+.swift in Sources */,
 				D28F5E6429CF89BB00FAAAD6 /* Thread+.swift in Sources */,
 				D2D074952E74C2F4003DFCCF /* SearchClass.swift in Sources */,
@@ -4927,6 +4963,7 @@
 				D2AA9D612738752E001E78DB /* BookBagDetailsTableViewCell.swift in Sources */,
 				D27990D820DDD473003B451E /* Library.swift in Sources */,
 				D233988F2E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
+				D278893A2F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2EA31242B3F59BD004CEF6E /* HistoryViewController.swift in Sources */,
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
 				D2BB668D297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
@@ -4968,6 +5005,7 @@
 				D24E08CA2F25274100995751 /* ConsortiumService.swift in Sources */,
 				D2DE83EC20F5AC280027FAA1 /* XUtils.swift in Sources */,
 				D27990E020DDD473003B451E /* Analytics.swift in Sources */,
+				D27889432F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D283B0B32E4269BD00AE5F43 /* OrgService.swift in Sources */,
 				D23C305020E5C6EA00666A2B /* HemlockTheme.swift in Sources */,
 				D27990E120DDD473003B451E /* MD5.swift in Sources */,
@@ -5110,6 +5148,7 @@
 				D22438AC20D357E900D098D0 /* HoldsViewController.swift in Sources */,
 				D20D14D120B783C1008F66B0 /* CircRecord.swift in Sources */,
 				D20D14CF20B7804C008F66B0 /* CheckoutsViewController.swift in Sources */,
+				D2579CBF2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D253343C20C23305008176B9 /* Theme.swift in Sources */,
 				D2E7E3182F4A28350066D52B /* Collection+.swift in Sources */,
 				D2DE83ED20F5AC7B0027FAA1 /* XUtils.swift in Sources */,
@@ -5138,6 +5177,7 @@
 				D24E08D32F252B0F00995751 /* EvergreenConsortiumService.swift in Sources */,
 				D27DF20921AB424A002DCC47 /* BarcodeUtils.swift in Sources */,
 				D2DF196620CEEE1200085255 /* FineRecord.swift in Sources */,
+				D27889412F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D287D4FC207AEF2B001AF644 /* AppDelegate.swift in Sources */,
 				D2CAFBC6246B7C3900A56945 /* CredentialManager.swift in Sources */,
 				D20B2FFD22CFD91900F69848 /* RecordAttributes.swift in Sources */,
@@ -5169,6 +5209,7 @@
 				D299069D2E73130500A3E0E2 /* PersistableOption.swift in Sources */,
 				D2E3B2D62E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */,
 				D287D51C207AEF3D001AF644 /* Account.swift in Sources */,
+				D27889322F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2CDCCFA2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5182,6 +5223,7 @@
 				D21735852F5F5F53002C8046 /* String+Tests.swift in Sources */,
 				D20B300422CFF8BA00F69848 /* RecordAttributesTests.swift in Sources */,
 				D29C72182094002100E90952 /* OSRFObjectTests.swift in Sources */,
+				D27889462F8DA538001CA1DF /* TokenStoreTests.swift in Sources */,
 				D22D0C8B22425E6500DBB31A /* AnalyticsTests.swift in Sources */,
 				D228684B2ED4CA5200E2DAEB /* TypeHelpersTests.swift in Sources */,
 				D24D87A32B730D2200F1B77E /* AppBehaviorTests.swift in Sources */,
@@ -5235,6 +5277,7 @@
 				D2C3EA3329D89D6C00583A96 /* DetailsViewController.swift in Sources */,
 				D2BDA61622D176BD00D9B60C /* String+splitOnRegex.swift in Sources */,
 				D2816CCC28B01AFA0060F688 /* ScanBarcodeViewController.swift in Sources */,
+				D27889332F8D9AF7001CA1DF /* Data+base64url.swift in Sources */,
 				D2BDA61722D176BD00D9B60C /* EvergreenOrganization.swift in Sources */,
 				D2EBBB712ECBD2AB00A1C961 /* EvergreenSearchService.swift in Sources */,
 				D22074BA2ECBCEF1003E9163 /* SearchService.swift in Sources */,
@@ -5243,6 +5286,7 @@
 				D2BDA61822D176BD00D9B60C /* MainTableViewCell.swift in Sources */,
 				D2BDA61922D176BD00D9B60C /* EvergreenHoldRecord.swift in Sources */,
 				D2BDA61A22D176BD00D9B60C /* Bundle+.swift in Sources */,
+				D2579CC32FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */,
 				D29273722ED5348A004CAD82 /* HoldRecord.swift in Sources */,
 				D2BDA61B22D176BD00D9B60C /* Link.swift in Sources */,
 				D283B0C42E426A3100AE5F43 /* EvergreenOrgService.swift in Sources */,
@@ -5324,6 +5368,7 @@
 				D24C3935254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
 				D2BDA64C22D176BD00D9B60C /* UIFont+smallCaps.swift in Sources */,
 				D2D074922E74C2F4003DFCCF /* SearchClass.swift in Sources */,
+				D27889402F8D9D0E001CA1DF /* TokenStore.swift in Sources */,
 				D2BDA64D22D176BD00D9B60C /* BarcodeUtils.swift in Sources */,
 				D233988C2E3BC3DB00CBDAEB /* Gateway+Async.swift in Sources */,
 				D2BDA64F22D176BD00D9B60C /* FineRecord.swift in Sources */,
@@ -5795,7 +5840,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -5858,7 +5903,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -6133,6 +6178,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.2;
+			};
+		};
 		D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -6218,6 +6271,51 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		D26407B72F85BB5600C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D26407B92F85BB9400C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D26407BB2F85BBA300C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D26407BD2F85BBB000C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D26407BF2F85BBC100C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D26407C12F85BBD000C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D26407C32F85BBDE00C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D26407C52F85BBED00C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D26407C72F85BC0000C68CE6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		D2C7F2E02CB1FDE300CA46B0 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
