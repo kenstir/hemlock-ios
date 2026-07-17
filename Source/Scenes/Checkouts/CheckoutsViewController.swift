@@ -15,7 +15,7 @@
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import UIKit
-import ToastSwiftFramework
+import Toast
 import os.log
 
 class CheckoutsViewController: UIViewController {
