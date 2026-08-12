@@ -1,5 +1,11 @@
 # iOS Release Notes
 
+## 4.7.0
+
+### Fixed
+* chore: Upgrade to Xcode 26.6
+* chore: Upgrade to fastlane 2.238.0
+
 ## 4.6.0
 
 ### New
