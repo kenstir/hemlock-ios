@@ -3,6 +3,10 @@
 ## 4.7.0
 
 ### Fixed
+* Fixed issue where Items Checked Out would fail to display anything if
+  any checked out item was deleted from the database.  Now it displays
+  the available data and the Details page says "item is marked deleted in
+  the database"
 * chore: Upgrade to Xcode 26.6
 * chore: Upgrade to fastlane 2.238.0
 

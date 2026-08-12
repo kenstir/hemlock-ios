@@ -81,13 +81,15 @@ class CheckoutsViewController: UIViewController {
         do {
             let checkouts = try await App.svc.circ.fetchCheckouts(account: account)
 
-            try await withThrowingTaskGroup(of: Void.self) { group in
+            // use `withTaskGroup` instead of `withThrowingTaskGroup` to handle the case
+            // where an checked out item might have a deleted bib record
+            await withTaskGroup(of: Void.self) { group in
                 for circRecord in checkouts {
                     group.addTask {
-                        try await App.svc.circ.loadCheckoutDetails(account: account, circRecord: circRecord)
+                        try? await App.svc.circ.loadCheckoutDetails(account: account, circRecord: circRecord)
                     }
                 }
-                try await group.waitForAll()
+                await group.waitForAll()
             }
             let elapsed = -startOfFetch.timeIntervalSinceNow
             os_log("%d circ records loaded, elapsed: %.3f", log: self.log, type: .info, checkouts.count, elapsed)
