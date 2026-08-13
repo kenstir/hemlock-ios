@@ -128,7 +128,7 @@ extension UIViewController {
     }
 
     private func enableSendErrorReportButton(error: Error) -> Bool {
-        return (Bundle.isTestFlightOrDebug || Analytics.wantReport(forError: error))
+        return Analytics.wantReport(forError: error)
             && (Bundle.isDebug || MFMailComposeViewController.canSendMail())
     }
 
