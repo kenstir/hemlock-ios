@@ -34,7 +34,7 @@ class Analytics {
     static let lock = NSRecursiveLock()
     static var buf = RingBuffer<String>(count: 256)
 //    static let maxBytesShown = 512
-    static let maxBytesShown = 128
+    static let maxBytesShown = 256
 
     class Event {
         static let bookbagAddItem = "bookbag_add_item"
@@ -165,6 +165,24 @@ class Analytics {
 
         if case .shouldNotHappen = error as? HemlockError {
             logNonFatalEvent(error)
+        }
+    }
+
+    static func wantReport(forError error: Error) -> Bool {
+        guard let error = error as? HemlockError else { return false }
+        switch error {
+        case .sessionExpired:
+            return false
+        case .notImplemented:
+            return true
+        case .unexpectedNetworkResponse(_):
+            return true
+        case .serverError(_):
+            return true
+        case .internalError(_):
+            return true
+        case .shouldNotHappen(_):
+            return true
         }
     }
 
