@@ -2,6 +2,9 @@
 
 ## 4.7.0
 
+### New
+* Add "Send report to developer" button to the alert for internal errors
+
 ### Fixed
 * Fixed issue where Items Checked Out would fail to display anything if
   any checked out item was deleted from the database.  Now it displays
