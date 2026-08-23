@@ -87,6 +87,7 @@
 		D253343C20C23305008176B9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253343B20C23305008176B9 /* Theme.swift */; };
 		D2562FB120CDD3080072F750 /* FinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB020CDD3080072F750 /* FinesViewController.swift */; };
 		D2562FB320CDE9CE0072F750 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2562FB220CDE9CE0072F750 /* UIViewController+.swift */; };
+		D2563019303B9E2F00BC46D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2563018303B9E2F00BC46D9 /* GoogleService-Info.plist */; };
 		D2579CBF2FA8E2A100F8DB6B /* AttributedAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */; };
 		D259671924511CA90076267D /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D259671824511CA90076267D /* UtilsTests.swift */; };
 		D260755920E0860300795124 /* EvergreenOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260755720E0860300795124 /* EvergreenOrganization.swift */; };
@@ -214,7 +215,6 @@
 		D2DF196820CEF68700085255 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DF196720CEF68700085255 /* Analytics.swift */; };
 		D2E3B2C72E526A4700EBFCF0 /* CircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B2C52E526A4700EBFCF0 /* CircService.swift */; };
 		D2E3B2D62E526BAD00EBFCF0 /* EvergreenCircService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3B2D12E526BAD00EBFCF0 /* EvergreenCircService.swift */; };
-		D2E409032BD1F5A900148FD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2E409022BD1F5A800148FD5 /* GoogleService-Info.plist */; };
 		D2E409082BD1F72C00148FD5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D2E409072BD1F72C00148FD5 /* FirebaseCrashlytics */; };
 		D2E4090A2BD1F72C00148FD5 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D2E409092BD1F72C00148FD5 /* FirebaseMessaging */; };
 		D2E7E3062F493FE70066D52B /* EvergreenAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E7E2FD2F493FE70066D52B /* EvergreenAccount.swift */; };
@@ -349,14 +349,13 @@
 		D24E08C62F25274100995751 /* ConsortiumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsortiumService.swift; sourceTree = "<group>"; };
 		D24E08D02F252B0F00995751 /* EvergreenConsortiumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenConsortiumService.swift; sourceTree = "<group>"; };
 		D24E08DB2F25680100995751 /* CopyLocationCounts+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CopyLocationCounts+.swift"; sourceTree = "<group>"; };
-		D24FD371300BFEDF00290DA4 /* openapi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = openapi.json; path = Source/Koha/openapi.json; sourceTree = "<group>"; };
-		D24FD372300BFEDF00290DA4 /* openapi-generator-config.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = "openapi-generator-config.yml"; path = "Source/Koha/openapi-generator-config.yml"; sourceTree = "<group>"; };
 		D252DA2723F616C000D11662 /* CircRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircRecordTests.swift; sourceTree = "<group>"; };
 		D252DA2923F6382000D11662 /* HoldRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldRecordTests.swift; sourceTree = "<group>"; };
 		D253343B20C23305008176B9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D2540DF12B9F8F3B0063B0C5 /* acorn-pro.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "acorn-pro.xcassets"; sourceTree = "<group>"; };
 		D2562FB020CDD3080072F750 /* FinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesViewController.swift; sourceTree = "<group>"; };
 		D2562FB220CDE9CE0072F750 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		D2563018303B9E2F00BC46D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2579CBA2FA8E2A100F8DB6B /* AttributedAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedAlertController.swift; sourceTree = "<group>"; };
 		D259671824511CA90076267D /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		D260755720E0860300795124 /* EvergreenOrganization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenOrganization.swift; sourceTree = "<group>"; };
@@ -492,8 +491,6 @@
 		D2DF196720CEF68700085255 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		D2E3B2C52E526A4700EBFCF0 /* CircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircService.swift; sourceTree = "<group>"; };
 		D2E3B2D12E526BAD00EBFCF0 /* EvergreenCircService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenCircService.swift; sourceTree = "<group>"; };
-		D2E409022BD1F5A800148FD5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D2E4090B2BD310AE00148FD5 /* pines.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pines.entitlements; sourceTree = "<group>"; };
 		D2E7E2FD2F493FE70066D52B /* EvergreenAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvergreenAccount.swift; sourceTree = "<group>"; };
 		D2E7E3072F4943BB0066D52B /* SMSCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCarrier.swift; sourceTree = "<group>"; };
 		D2E7E3112F4A28350066D52B /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
@@ -887,8 +884,6 @@
 		D287D4EF207AEF2B001AF644 = {
 			isa = PBXGroup;
 			children = (
-				D24FD371300BFEDF00290DA4 /* openapi.json */,
-				D24FD372300BFEDF00290DA4 /* openapi-generator-config.yml */,
 				D2D074A52E75CD12003DFCCF /* PrivacyInfo.xcprivacy */,
 				D296EE0F213381FE009BDB12 /* Default-568h@2x.png */,
 				D22D0274208516D600DC1F5B /* LICENSE */,
@@ -1023,6 +1018,7 @@
 		D2D49BFB20A90CA9000B3A27 /* matomato */ = {
 			isa = PBXGroup;
 			children = (
+				D2563018303B9E2F00BC46D9 /* GoogleService-Info.plist */,
 				D28AE26C24FDD9D400960E9E /* custom_strings.json */,
 				D29C95FE2599288100CACDBD /* event_msg_map.json */,
 				D29C95FD2599288100CACDBD /* fail_part_msg_map.json */,
@@ -1030,9 +1026,7 @@
 				D2B5A8AC2363DBFD0099CCDF /* PinesAppBehavior.swift */,
 				D2A74B1621289E8E001D4B0F /* PinesAppConfiguration.swift */,
 				D23C304D20E5C6C800666A2B /* PinesTheme.swift */,
-				D2E4090B2BD310AE00148FD5 /* pines.entitlements */,
 				D287D507207AEF2C001AF644 /* Info.plist */,
-				D2E409022BD1F5A800148FD5 /* GoogleService-Info.plist */,
 				D279911020DDD77F003B451E /* pines.xcassets */,
 			);
 			path = matomato;
@@ -1242,10 +1236,10 @@
 				D2616763220BA1AF0071E1A5 /* Options.storyboard in Resources */,
 				D293EC1C297CC33F00C9F1C4 /* Messages.storyboard in Resources */,
 				D29C95FF2599288100CACDBD /* fail_part_msg_map.json in Resources */,
+				D2563019303B9E2F00BC46D9 /* GoogleService-Info.plist in Resources */,
 				D279911120DDD77F003B451E /* pines.xcassets in Resources */,
 				D24628FE273722E0000DC659 /* BookBags.storyboard in Resources */,
 				D20F1A5A2B924B7300C76FC0 /* PlaceHold.storyboard in Resources */,
-				D2E409032BD1F5A900148FD5 /* GoogleService-Info.plist in Resources */,
 				FACD142720CDC0DF008F02D3 /* Search.storyboard in Resources */,
 				D23371172A6C78830080294F /* Login.storyboard in Resources */,
 				D27EFD5C2094E46400D7E22E /* Documentation in Resources */,
@@ -1572,7 +1566,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1635,7 +1629,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1663,18 +1657,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = accentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Source/pines_app/pines.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = Source/pines_app/Info.plist;
+				INFOPLIST_FILE = Source/matomato/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.matomato;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;
@@ -1691,18 +1685,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = accentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Source/pines_app/pines.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = FCHUE4234N;
-				INFOPLIST_FILE = Source/pines_app/Info.plist;
+				INFOPLIST_FILE = Source/matomato/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.pines;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kenstir.apps.matomato;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = USE_FCM;

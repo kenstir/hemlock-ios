@@ -59,8 +59,8 @@ end
 
 desc "Print version and build info"
 lane :print_build_info do |options|
-  # use target hemlock here, but they are all the same
-  target = options[:target] || "hemlock"
+  # use target matomato here, but they are all the same
+  target = options[:target] || "matomato"
   version = get_version_number(target: target)
   build = get_build_number()
   UI.message("target:  #{target}")
