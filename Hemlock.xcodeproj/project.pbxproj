@@ -231,6 +231,10 @@
 		D2F390352241E5950089D745 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F3902F2241E5950089D745 /* RingBuffer.swift */; };
 		D2F390392241E6090089D745 /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F390382241E6090089D745 /* RingBufferTests.swift */; };
 		D2F557432EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F6C737303C9B1E0036D5D9 /* openapi.json in Resources */ = {isa = PBXBuildFile; fileRef = D2F6C735303C9B1E0036D5D9 /* openapi.json */; };
+		D2F6C738303C9B1E0036D5D9 /* openapi-generator-config.yml in Resources */ = {isa = PBXBuildFile; fileRef = D2F6C736303C9B1E0036D5D9 /* openapi-generator-config.yml */; };
+		D2F6C73E303C9C570036D5D9 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = D2F6C73D303C9C570036D5D9 /* OpenAPIRuntime */; };
+		D2F6C740303C9C640036D5D9 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = D2F6C73F303C9C640036D5D9 /* OpenAPIURLSession */; };
 		D2FABA47300AE37D002A5B99 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D2FABA46300AE37D002A5B99 /* Toast */; };
 		D2FFED6C2DA97BDC0017377E /* CopyLocationCountsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFED6B2DA97BCE0017377E /* CopyLocationCountsTests.swift */; };
 		FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
@@ -505,6 +509,8 @@
 		D2F3902F2241E5950089D745 /* RingBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		D2F390382241E6090089D745 /* RingBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
 		D2F5573B2EF38E27003BE964 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		D2F6C735303C9B1E0036D5D9 /* openapi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = openapi.json; sourceTree = "<group>"; };
+		D2F6C736303C9B1E0036D5D9 /* openapi-generator-config.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yml"; sourceTree = "<group>"; };
 		D2FFED6B2DA97BCE0017377E /* CopyLocationCountsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCountsTests.swift; sourceTree = "<group>"; };
 		FA273D0420D884D8009B152F /* FinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesTableViewCell.swift; sourceTree = "<group>"; };
 		FA37C3F820FC2A09003C2003 /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
@@ -523,7 +529,9 @@
 			files = (
 				D2E4090A2BD1F72C00148FD5 /* FirebaseMessaging in Frameworks */,
 				D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2F6C73E303C9C570036D5D9 /* OpenAPIRuntime in Frameworks */,
 				D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */,
+				D2F6C740303C9C640036D5D9 /* OpenAPIURLSession in Frameworks */,
 				D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2E409082BD1F72C00148FD5 /* FirebaseCrashlytics in Frameworks */,
 				D26407B82F85BB5600C68CE6 /* Alamofire in Frameworks */,
@@ -1018,6 +1026,8 @@
 		D2D49BFB20A90CA9000B3A27 /* matomato */ = {
 			isa = PBXGroup;
 			children = (
+				D2F6C735303C9B1E0036D5D9 /* openapi.json */,
+				D2F6C736303C9B1E0036D5D9 /* openapi-generator-config.yml */,
 				D2563018303B9E2F00BC46D9 /* GoogleService-Info.plist */,
 				D28AE26C24FDD9D400960E9E /* custom_strings.json */,
 				D29C95FE2599288100CACDBD /* event_msg_map.json */,
@@ -1136,6 +1146,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D2F6C73C303C9C180036D5D9 /* PBXTargetDependency */,
 			);
 			name = matomato;
 			packageProductDependencies = (
@@ -1144,6 +1155,8 @@
 				D23A1C9A2EE614CE003A673E /* FirebaseAnalyticsCore */,
 				D26407B72F85BB5600C68CE6 /* Alamofire */,
 				D2FABA46300AE37D002A5B99 /* Toast */,
+				D2F6C73D303C9C570036D5D9 /* OpenAPIRuntime */,
+				D2F6C73F303C9C640036D5D9 /* OpenAPIURLSession */,
 			);
 			productName = Hemlock;
 			productReference = D287D4F8207AEF2B001AF644 /* matomato.app */;
@@ -1252,6 +1265,8 @@
 				D2F3537B29D0F09800494763 /* Results.storyboard in Resources */,
 				D287D501207AEF2B001AF644 /* MainList.storyboard in Resources */,
 				D2AA9D4D27383B75001E78DB /* BookBagDetails.storyboard in Resources */,
+				D2F6C737303C9B1E0036D5D9 /* openapi.json in Resources */,
+				D2F6C738303C9B1E0036D5D9 /* openapi-generator-config.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1500,6 +1515,10 @@
 			isa = PBXTargetDependency;
 			target = D287D4F7207AEF2B001AF644 /* matomato */;
 			targetProxy = D287D50D207AEF2D001AF644 /* PBXContainerItemProxy */;
+		};
+		D2F6C73C303C9C180036D5D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = D2F6C73B303C9C180036D5D9 /* OpenAPIGenerator */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1853,6 +1872,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		D2F6C73B303C9C180036D5D9 /* OpenAPIGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D2B4D91E300C009600136BA6 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
+			productName = "plugin:OpenAPIGenerator";
+		};
+		D2F6C73D303C9C570036D5D9 /* OpenAPIRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D24FD369300BF17700290DA4 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */;
+			productName = OpenAPIRuntime;
+		};
+		D2F6C73F303C9C640036D5D9 /* OpenAPIURLSession */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D24FD36C300BF28100290DA4 /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */;
+			productName = OpenAPIURLSession;
 		};
 		D2FABA46300AE37D002A5B99 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
