@@ -117,7 +117,7 @@ extension UIViewController {
         let message = error.localizedDescription
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         Style.styleAlertController(alertController)
-        if Bundle.isTestFlightOrDebug && MFMailComposeViewController.canSendMail() {
+        if enableSendErrorReportButton(error: error) {
             alertController.addAction(UIAlertAction(title: "Send report to developer", style: .destructive) { action in
                 self.sendErrorReport(errorMessage: message)
             })
@@ -125,6 +125,11 @@ extension UIViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true)
         Analytics.logError(error)
+    }
+
+    private func enableSendErrorReportButton(error: Error) -> Bool {
+        return Analytics.wantReport(forError: error)
+            && (Bundle.isDebug || MFMailComposeViewController.canSendMail())
     }
 
     private func sendErrorReport(errorMessage: String) {
@@ -135,6 +140,7 @@ extension UIViewController {
             + "version: \(Bundle.appVersion)\n"
             + "error: " + errorMessage
         vc.log = Analytics.getLog()
+        vc.msg = "Press \"Compose email\" to draft an email to the developer.  Personal information is redacted in the attached network.log."
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

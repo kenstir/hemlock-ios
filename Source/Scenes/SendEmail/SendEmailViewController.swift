@@ -29,6 +29,7 @@ class SendEmailViewController: UIViewController {
     var subject: String?
     var body: String?
     var log: String?
+    var msg: String?
 
     @IBOutlet weak var sendEmailButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
@@ -50,7 +51,7 @@ class SendEmailViewController: UIViewController {
         Style.styleButton(asOutline: sendEmailButton)
         sendEmailButton.addTarget(self, action: #selector(sendEmailButtonPressed(sender:)), for: .touchUpInside)
         
-        messageLabel.text = ""
+        messageLabel.text = msg
         messageLabel.sizeToFit()
 
         self.setupHomeButton()

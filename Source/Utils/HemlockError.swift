@@ -18,17 +18,21 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 public enum HemlockError: Error {
+    case sessionExpired
+    case notImplemented
     case unexpectedNetworkResponse(String)
     case serverError(String)
     case internalError(String)
     case shouldNotHappen(String)
-    case sessionExpired
-    case notImplemented
 }
 
 extension HemlockError: LocalizedError {
     public var errorDescription: String? {
         switch self {
+        case .sessionExpired:
+            return "Session expired"
+        case .notImplemented:
+            return "Not implemented yet"
         case .unexpectedNetworkResponse(let reason):
             return "Unexpected network response: \(reason)"
         case .serverError(let reason):
@@ -37,10 +41,6 @@ extension HemlockError: LocalizedError {
             return "Internal Error: \(reason)"
         case .shouldNotHappen(let reason):
             return reason
-        case .sessionExpired:
-            return "Session expired"
-        case .notImplemented:
-            return "Not implemented yet"
         }
     }
 }

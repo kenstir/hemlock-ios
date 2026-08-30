@@ -201,7 +201,7 @@ class DetailsViewController: UIViewController {
             print("record.hasMARC:     \(record.hasMARC)")
             print("record.hasMetadata: \(record.hasMetadata)")
             async let details: Void = App.svc.biblio.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
-            async let attrs: Void = App.svc.biblio.loadRecordAttributes(forRecord: record)
+            async let attrs: Void? = try? App.svc.biblio.loadRecordAttributes(forRecord: record)
             async let ccounts: Void = App.svc.biblio.loadRecordCopyCounts(forRecord: record, orgID: orgID)
             let _ = try await (details, attrs, ccounts)
         } catch {
