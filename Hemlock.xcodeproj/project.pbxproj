@@ -235,6 +235,10 @@
 		D2F6C738303C9B1E0036D5D9 /* openapi-generator-config.yml in Resources */ = {isa = PBXBuildFile; fileRef = D2F6C736303C9B1E0036D5D9 /* openapi-generator-config.yml */; };
 		D2F6C73E303C9C570036D5D9 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = D2F6C73D303C9C570036D5D9 /* OpenAPIRuntime */; };
 		D2F6C740303C9C640036D5D9 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = D2F6C73F303C9C640036D5D9 /* OpenAPIURLSession */; };
+		D2F6C747304493BA0036D5D9 /* KohaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6C746304493BA0036D5D9 /* KohaClient.swift */; };
+		D2F6C74C3044953F0036D5D9 /* AuthMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6C74B3044953F0036D5D9 /* AuthMiddleware.swift */; };
+		D2F6C75C3044CA140036D5D9 /* KohaServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6C75B3044CA140036D5D9 /* KohaServiceConfig.swift */; };
+		D2F6C7613044CAA20036D5D9 /* KohaLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F6C7603044CAA20036D5D9 /* KohaLoaderService.swift */; };
 		D2FABA47300AE37D002A5B99 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D2FABA46300AE37D002A5B99 /* Toast */; };
 		D2FFED6C2DA97BDC0017377E /* CopyLocationCountsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FFED6B2DA97BCE0017377E /* CopyLocationCountsTests.swift */; };
 		FA273D0520D884D8009B152F /* FinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273D0420D884D8009B152F /* FinesTableViewCell.swift */; };
@@ -511,6 +515,10 @@
 		D2F5573B2EF38E27003BE964 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		D2F6C735303C9B1E0036D5D9 /* openapi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = openapi.json; sourceTree = "<group>"; };
 		D2F6C736303C9B1E0036D5D9 /* openapi-generator-config.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yml"; sourceTree = "<group>"; };
+		D2F6C746304493BA0036D5D9 /* KohaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KohaClient.swift; sourceTree = "<group>"; };
+		D2F6C74B3044953F0036D5D9 /* AuthMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMiddleware.swift; sourceTree = "<group>"; };
+		D2F6C75B3044CA140036D5D9 /* KohaServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KohaServiceConfig.swift; sourceTree = "<group>"; };
+		D2F6C7603044CAA20036D5D9 /* KohaLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KohaLoaderService.swift; sourceTree = "<group>"; };
 		D2FFED6B2DA97BCE0017377E /* CopyLocationCountsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyLocationCountsTests.swift; sourceTree = "<group>"; };
 		FA273D0420D884D8009B152F /* FinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinesTableViewCell.swift; sourceTree = "<group>"; };
 		FA37C3F820FC2A09003C2003 /* LocationPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPicker.swift; sourceTree = "<group>"; };
@@ -928,6 +936,7 @@
 				D2AA9D5C27383EF3001E78DB /* Apps */,
 				D280322F2E3BAF2C00B05638 /* Data */,
 				D22D027620857DFE00DC1F5B /* Evergreen */,
+				D2F6C7443044939E0036D5D9 /* Koha */,
 				D212DB1120C3726F00267503 /* Scenes */,
 				D20D14D220B784E3008F66B0 /* Storyboards */,
 				D2F3902C2241E5950089D745 /* ThirdParty */,
@@ -1087,6 +1096,41 @@
 				D2F3902F2241E5950089D745 /* RingBuffer.swift */,
 			);
 			path = "swift-algorithm-club";
+			sourceTree = "<group>";
+		};
+		D2F6C7443044939E0036D5D9 /* Koha */ = {
+			isa = PBXGroup;
+			children = (
+				D2F6C7543044C9E10036D5D9 /* Data */,
+				D2F6C746304493BA0036D5D9 /* KohaClient.swift */,
+				D2F6C74B3044953F0036D5D9 /* AuthMiddleware.swift */,
+			);
+			path = Koha;
+			sourceTree = "<group>";
+		};
+		D2F6C7543044C9E10036D5D9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D2F6C7563044C9E90036D5D9 /* Model */,
+				D2F6C7583044C9F00036D5D9 /* Service */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D2F6C7563044C9E90036D5D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D2F6C7583044C9F00036D5D9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D2F6C75B3044CA140036D5D9 /* KohaServiceConfig.swift */,
+				D2F6C7603044CAA20036D5D9 /* KohaLoaderService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		FA88B4C420FC1AF9000F211F /* PlaceHold */ = {
@@ -1363,6 +1407,7 @@
 				D2D93CF6210AB6F1004306D8 /* CopyStatus.swift in Sources */,
 				D228FB6520D33402001A7E31 /* App.swift in Sources */,
 				D2EA310F2B3F2C67004CEF6E /* EvergreenHistoryRecord.swift in Sources */,
+				D2F6C74C3044953F0036D5D9 /* AuthMiddleware.swift in Sources */,
 				D231B52C2083C08000478D25 /* Library.swift in Sources */,
 				D2B3024A2E4D589D006C3BE6 /* EvergreenOrgClosure.swift in Sources */,
 				D28E04542BA3A26F001850C5 /* MainBaseViewController.swift in Sources */,
@@ -1384,6 +1429,7 @@
 				D279911A20DDE160003B451E /* AppFactory.swift in Sources */,
 				D29E87FD20D831540003EB27 /* SearchViewController.swift in Sources */,
 				D2462914273732DC000DC659 /* BookBagsViewController.swift in Sources */,
+				D2F6C747304493BA0036D5D9 /* KohaClient.swift in Sources */,
 				D2E3B2C72E526A4700EBFCF0 /* CircService.swift in Sources */,
 				D22AE11A221B82B90089C196 /* AFSession+.swift in Sources */,
 				D248CBE321211E510091D2E6 /* CopyInfoTableViewCell.swift in Sources */,
@@ -1419,6 +1465,7 @@
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D21090CD24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D263C2A82115564B00C35352 /* EvergreenCopyLocationCounts.swift in Sources */,
+				D2F6C75C3044CA140036D5D9 /* KohaServiceConfig.swift in Sources */,
 				D2C300452E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
 				D2CF924322471D210009C06A /* Utils.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
@@ -1452,6 +1499,7 @@
 				D292735E2ED5293F004CAD82 /* PatronMessage.swift in Sources */,
 				D21FF9BF2E706D760058E2D3 /* AppState.swift in Sources */,
 				D29911EB248464AD007DB26C /* OrgDetailsViewController.swift in Sources */,
+				D2F6C7613044CAA20036D5D9 /* KohaLoaderService.swift in Sources */,
 				D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */,
 				D27DF20D21AB4B84002DCC47 /* String+subscript.swift in Sources */,
 				D2C3002E2E3D393E0082C308 /* EvergreenLoaderService.swift in Sources */,

@@ -45,7 +45,8 @@ class App {
     static var launchNotificationUserInfo: [AnyHashable: Any]?
 
     /// TODO: make this injectable
-    static var svc: ServiceConfig = EvergreenServiceConfig()
+//    static var svc: ServiceConfig = EvergreenServiceConfig()
+    static var svc: ServiceConfig = KohaServiceConfig()
 
     /// the valet saves things in the iOS keychain
     static let valet = Valet.valet(with: Identifier(nonEmpty: "Hemlock")!, accessibility: .whenUnlockedThisDeviceOnly)
