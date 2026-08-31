@@ -15,6 +15,7 @@
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import OpenAPIRuntime
 import os.log
 
 class KohaLoaderService: LoaderService {
@@ -35,31 +36,34 @@ class KohaLoaderService: LoaderService {
 
     private func loadLibraries() async throws {
 
-        let response = try await KohaClient.client.listLibraries(.init())
+//        let response = try await KohaClient.client.listLibraries(.init())
+//        switch response {
+//        case .ok(let okResponse):
+//            switch okResponse.body {
+//            case .json(let x):
+//                print("json x:\(x)")
+//            }
+//        case .undocumented(statusCode: let statusCode, _):
+//            print(".undocumented statusCode:\(statusCode)")
+//        case .badRequest(let x):
+//            print(".badRequest x:\(x)")
+//        case .internalServerError(let x):
+//            print(".internalServerError x:\(x)")
+//        case .serviceUnavailable(let x):
+//            print(".serviceUnavailable x:\(x)")
+//        }
 
-        // TODO: refactor me
-        switch response {
-        case .ok(let okResponse):
-            switch okResponse.body {
-            case .json(let x):
-                print("json x:\(x)")
+        do {
+            let response = try await KohaClient.client.listLibraries(.init())
+            let libraries = try response.ok.body.json
+            print("\(libraries.count) libraries found")
+            for library in libraries {
+                print("library: \(library.libraryId) \(library.name)")
             }
-        case .undocumented(statusCode: let statusCode, _):
-            print(".undocumented statusCode:\(statusCode)")
-        case .badRequest(let x):
-            print(".badRequest x:\(x)")
-        case .internalServerError(let x):
-            print(".internalServerError x:\(x)")
-        case .serviceUnavailable(let x):
-            print(".serviceUnavailable x:\(x)")
+            print("")
+        } catch {
+            throw HemlockError.make(fromClientError: error)
         }
-
-        let libraries = try response.ok.body.json
-        print("\(libraries.count) libraries found")
-        for library in libraries {
-            print("library: \(library.libraryId) \(library.name)")
-        }
-        print("")
 
         // TODO: make mt-safe, remove await
         await MainActor.run {
@@ -69,5 +73,39 @@ class KohaLoaderService: LoaderService {
 
     func loadPlaceHoldPrerequisites() async throws {
         throw HemlockError.notImplemented
+    }
+}
+
+func mapError(_ error: Error) -> HemlockError {
+    if let clientError = error as? ClientError {
+
+        if let response = clientError.response {
+            os_log("error type:ClientError code:\(response.status.code) reason:\(response.status.reasonPhrase)")
+            let code = response.status.code
+            if code >= 500 {
+                return .serverError(response.status.reasonPhrase)
+            } else if code >= 400 && code < 500 {
+                return .internalError(response.status.reasonPhrase)
+            }
+        }
+
+        let underlying = clientError.underlyingError
+        if underlying is DecodingError {
+            os_log("error type:DecodingError desc:\(underlying.localizedDescription)")
+            return .internalError("Error decoding response: \(underlying.localizedDescription)")
+        }
+
+        os_log("error type:ClientError desc:\(underlying.localizedDescription)")
+        return .unexpectedNetworkResponse(underlying.localizedDescription)
+    }
+
+    os_log("error type:unknown desc:\(error.localizedDescription)")
+    return .unexpectedNetworkResponse(error.localizedDescription)
+
+}
+
+extension HemlockError {
+    public static func make(fromClientError error: Error) -> HemlockError {
+        return mapError(error)
     }
 }
