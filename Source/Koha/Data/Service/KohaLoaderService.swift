@@ -62,7 +62,7 @@ class KohaLoaderService: LoaderService {
             }
             print("")
         } catch {
-            throw HemlockError.make(fromClientError: error)
+            throw ClientErrorMapper.map(error)
         }
 
         // TODO: make mt-safe, remove await
@@ -79,6 +79,8 @@ class KohaLoaderService: LoaderService {
 func mapError(_ error: Error) -> HemlockError {
     if let clientError = error as? ClientError {
 
+        let desc = clientError.causeDescription
+        os_log("error type:ClientError desc:\(desc)")
         if let response = clientError.response {
             os_log("error type:ClientError code:\(response.status.code) reason:\(response.status.reasonPhrase)")
             let code = response.status.code

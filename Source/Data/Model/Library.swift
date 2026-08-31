@@ -19,6 +19,7 @@
 
 import Foundation
 
+// This is really "Library System" or "Consortium"
 class Library {
     let url: String
     let name: String?

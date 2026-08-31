@@ -63,3 +63,52 @@ func isSessionExpired(error: Error) -> Bool {
     }
     return false
 }
+
+// TODO: merge ServiceError into HemlockError
+enum ServiceError: LocalizedError, Sendable {
+    case noInternetConnection
+    case cannotConnect(host: String?)
+    case connectionLost
+    case timedOut
+    case cancelled
+    case invalidResponse
+    case decodingFailed
+    case httpError(statusCode: Int)
+    case unknown
+
+    var errorDescription: String? {
+        switch self {
+
+        case .noInternetConnection:
+            return "No internet connection is available."
+
+        case .cannotConnect(let host):
+            if let host {
+                return "Can't connect to \(host)."
+            } else {
+                return "Can't connect to the server."
+            }
+
+        case .connectionLost:
+            return "The connection to the server was lost. Please try again."
+
+        case .timedOut:
+            return "The server took too long to respond. Please try again."
+
+        case .cancelled:
+            return "The request was cancelled."
+
+        case .invalidResponse:
+            return "The server returned an invalid response."
+
+        case .decodingFailed:
+            return "The server returned data that could not be understood."
+
+        case .httpError(let statusCode):
+            return "The server returned an error (\(statusCode))."
+
+        case .unknown:
+            return "Something went wrong. Please try again."
+        }
+    }
+}
