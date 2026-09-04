@@ -1,5 +1,8 @@
 # iOS Release Notes
 
+## NEXT
+* New feature: Tap to zoom item image in Details screen
+
 ## 4.7.0
 
 ### New

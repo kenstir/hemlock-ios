@@ -120,6 +120,21 @@ class DetailsViewController: UIViewController {
         if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
             coverImage.pin_setImage(from: url)
         }
+
+        // add a tap gesture
+        coverImage.isUserInteractionEnabled = true
+        coverImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
+    }
+
+    @objc func imageTapped() {
+        let vc = FullScreenImageViewController()
+        vc.imageURL = App.config.url + "/opac/extras/ac/jacket/large/r/" + String(record.id)
+
+        // configure the vc to cover the whole screen
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+
+        present(vc, animated: true)
     }
 
     private func setupCopySummary() {

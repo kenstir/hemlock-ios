@@ -1560,6 +1560,15 @@
 		D2C3EA4229D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C3EA4329D905F100583A96 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C3EA3829D905F100583A96 /* Details.storyboard */; };
 		D2C7150B2B98CAC000A1F585 /* JSONUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */; };
+		D2C7BBFB304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
+		D2C7BBFC304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
+		D2C7BBFD304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
+		D2C7BBFE304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
+		D2C7BBFF304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
+		D2C7BC00304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
+		D2C7BC01304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
+		D2C7BC02304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
+		D2C7BC03304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */; };
 		D2C7F2E12CB1FDE300CA46B0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D2C7F2E02CB1FDE300CA46B0 /* FirebaseCrashlytics */; };
 		D2C7F2E32CB2052F00CA46B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C7F2E22CB2052F00CA46B0 /* GoogleService-Info.plist */; };
 		D2CAFBC0246B7C3900A56945 /* CredentialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */; };
@@ -2218,6 +2227,7 @@
 		D2C3EA2C29D89D6C00583A96 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		D2C3EA3829D905F100583A96 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		D2C7150A2B98CAC000A1F585 /* JSONUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtilsTests.swift; sourceTree = "<group>"; };
+		D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 		D2C7F2E22CB2052F00CA46B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2CAFBBF246B7C3900A56945 /* CredentialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManager.swift; sourceTree = "<group>"; };
 		D2CAFBC8246B842C00A56945 /* CredentialManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialManagerTests.swift; sourceTree = "<group>"; };
@@ -2421,7 +2431,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D2096E15244BAC2000627FF5 /* Pro */ = {
+		D2096E15244BAC2000627FF5 /* Assets/Pro */ = {
 			isa = PBXGroup;
 			children = (
 				D2096E16244BACD800627FF5 /* cwmars-pro.xcassets */,
@@ -2494,6 +2504,7 @@
 				D248CBDA2120E9D70091D2E6 /* CopyInfo */,
 				D21F683520D803F900D953C1 /* Details */,
 				FACD141920CDA97E008F02D3 /* Fines */,
+				D2C7BBF9304B86B4002FE3DC /* FullScreenImage */,
 				D2EA31132B3F50D0004CEF6E /* History */,
 				FACD141F20CDAFFD008F02D3 /* Holds */,
 				D212DB1620C37B2600267503 /* Login */,
@@ -2872,7 +2883,7 @@
 				D287D50F207AEF2D001AF644 /* Tests */,
 				D287D4F9207AEF2B001AF644 /* Products */,
 				D231B52520815EAC00478D25 /* Frameworks */,
-				D2096E15244BAC2000627FF5 /* Pro */,
+				D2096E15244BAC2000627FF5 /* Assets/Pro */,
 				D22D02612083CDF700DC1F5B /* ZX-Bridging-Header.h */,
 				D2A6C584221F1617007BAE6B /* ZXMultiFormatWriter+SafeEncode.h */,
 				D2A6C57F221F157D007BAE6B /* ZXMultiFormatWriter+SafeEncode.m */,
@@ -3023,6 +3034,14 @@
 				D2C3005C2E3E660A0082C308 /* EvergreenUserService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		D2C7BBF9304B86B4002FE3DC /* FullScreenImage */ = {
+			isa = PBXGroup;
+			children = (
+				D2C7BBFA304B873D002FE3DC /* FullScreenImageViewController.swift */,
+			);
+			path = FullScreenImage;
 			sourceTree = "<group>";
 		};
 		D2D49BFB20A90CA9000B3A27 /* pines_app */ = {
@@ -4023,6 +4042,7 @@
 				D210EBE722B1EE55002FB5E0 /* HemlockError.swift in Sources */,
 				D2BB668A297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D210EBE922B1EE55002FB5E0 /* SearchViewController.swift in Sources */,
+				D2C7BC03304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D246290D273732DC000DC659 /* BookBagsViewController.swift in Sources */,
 				D2CDCCFB2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 				D210EBEB22B1EE55002FB5E0 /* AFSession+.swift in Sources */,
@@ -4227,6 +4247,7 @@
 				D23E9FA323B9200A0030F5C1 /* CodedValueMap.swift in Sources */,
 				D21090CE24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D23E9FA523B9200A0030F5C1 /* EvergreenCopyLocationCounts.swift in Sources */,
+				D2C7BBFE304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D2C300472E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
 				D23E9FA723B9200A0030F5C1 /* MBRecord.swift in Sources */,
 				D23E9FA823B9200A0030F5C1 /* Utils.swift in Sources */,
@@ -4382,6 +4403,7 @@
 				D2477BF524785A6B00FD4CF6 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D21090CA24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2477BF624785A6B00FD4CF6 /* MBRecord.swift in Sources */,
+				D2C7BBFD304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D2C300482E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
 				D2477BF724785A6B00FD4CF6 /* Utils.swift in Sources */,
 				D2477BF824785A6B00FD4CF6 /* OSRFClass.swift in Sources */,
@@ -4537,6 +4559,7 @@
 				D2572AE724AD7755000BA698 /* MBRecord.swift in Sources */,
 				D21090CF24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D2572AE824AD7755000BA698 /* Utils.swift in Sources */,
+				D2C7BC02304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D2C3004F2E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
 				D2572AE924AD7755000BA698 /* OSRFClass.swift in Sources */,
 				D24C3939254B9FA400ECAE64 /* URLRequest+.swift in Sources */,
@@ -4692,6 +4715,7 @@
 				D25EEC8C28A1E8310090F108 /* EvergreenCopyLocationCounts.swift in Sources */,
 				D25EEC8D28A1E8310090F108 /* MBRecord.swift in Sources */,
 				D25EEC8E28A1E8310090F108 /* MessageMap.swift in Sources */,
+				D2C7BBFB304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D2C3004B2E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
 				D25EEC8F28A1E8310090F108 /* Utils.swift in Sources */,
 				D25EEC9028A1E8310090F108 /* OSRFClass.swift in Sources */,
@@ -4801,6 +4825,7 @@
 				D276DA9D21336B20007FAA31 /* Library.swift in Sources */,
 				D276DA9F21336B20007FAA31 /* GatewayResponse.swift in Sources */,
 				D2C300412E3D5AF90082C308 /* ServiceConfig.swift in Sources */,
+				D2C7BBFF304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D2AE785D2F2818830062C4B9 /* EvergreenAppBehavior.swift in Sources */,
 				D2BB668C297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D276DAA021336B20007FAA31 /* EvergreenSMSCarrier.swift in Sources */,
@@ -4955,6 +4980,7 @@
 				D27990D920DDD473003B451E /* GatewayResponse.swift in Sources */,
 				D2BB668D297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
 				D2C300402E3D5AF90082C308 /* ServiceConfig.swift in Sources */,
+				D2C7BC01304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D2AE78572F2818830062C4B9 /* EvergreenAppBehavior.swift in Sources */,
 				D2C24A33210178DD0028180B /* EvergreenSMSCarrier.swift in Sources */,
 				D24D491629D0B3E200EB9C8A /* ResultsViewController.swift in Sources */,
@@ -5155,6 +5181,7 @@
 				D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */,
 				D21090CD24D7243F004FE532 /* MessageMap.swift in Sources */,
 				D263C2A82115564B00C35352 /* EvergreenCopyLocationCounts.swift in Sources */,
+				D2C7BBFC304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D2C300452E3D5C990082C308 /* EvergreenServiceConfig.swift in Sources */,
 				D2CF924322471D210009C06A /* Utils.swift in Sources */,
 				FA64C96120E04D34009973E5 /* MBRecord.swift in Sources */,
@@ -5306,6 +5333,7 @@
 				D2BDA62D22D176BD00D9B60C /* RingBuffer.swift in Sources */,
 				D2BDA62E22D176BD00D9B60C /* HemlockError.swift in Sources */,
 				D2BB6690297C813A007E19E7 /* EvergreenPatronMessage.swift in Sources */,
+				D2C7BC00304B873D002FE3DC /* FullScreenImageViewController.swift in Sources */,
 				D2BDA63022D176BD00D9B60C /* SearchViewController.swift in Sources */,
 				D2CDCCFF2ECFD9A400B733E1 /* EvergreenCopyCount.swift in Sources */,
 				D2BDA63222D176BD00D9B60C /* AFSession+.swift in Sources */,
