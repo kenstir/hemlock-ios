@@ -117,7 +117,9 @@ class DetailsViewController: UIViewController {
 
     private func setupImage() {
         // async load the image
-        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)) {
+        if let imageURL = App.svc.biblio.imageUrl(forRecord: record, size: .medium),
+           let url = URL(string: imageURL)
+        {
             coverImage.pin_setImage(from: url)
         }
 
@@ -128,7 +130,7 @@ class DetailsViewController: UIViewController {
 
     @objc func imageTapped() {
         let vc = FullScreenImageViewController()
-        vc.imageURL = App.config.url + "/opac/extras/ac/jacket/large/r/" + String(record.id)
+        vc.imageURL = App.svc.biblio.imageUrl(forRecord: record, size: .large)
 
         // configure the vc to cover the whole screen
         vc.modalPresentationStyle = .fullScreen

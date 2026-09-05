@@ -209,7 +209,8 @@ extension ResultsViewController : UITableViewDataSource {
         // async load the image
         // This works here even when the record is not loaded, because the record.id
         // is stable and does not require any loading.
-        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(record.id)) {
+        if let imageURL = App.svc.biblio.imageUrl(forRecord: record, size: .small),
+           let url = URL(string: imageURL) {
             cell.coverImage.pin_setImage(from: url)
         }
 

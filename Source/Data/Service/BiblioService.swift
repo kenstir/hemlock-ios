@@ -17,8 +17,14 @@
 import Foundation
 
 protocol BiblioService {
-    func imageUrl(forRecord record: BibRecord) -> String?
+    func imageUrl(forRecord record: BibRecord, size: ImageSize) -> String?
     func loadRecordDetails(forRecord record: BibRecord, needMARC: Bool) async throws -> Void
     func loadRecordAttributes(forRecord record: BibRecord) async throws -> Void
     func loadRecordCopyCounts(forRecord record: BibRecord, orgID: Int) async throws -> Void
+}
+
+enum ImageSize {
+    case small
+    case medium
+    case large
 }
