@@ -28,6 +28,14 @@ class EvergreenBiblioService: BiblioService {
         }
     }
 
+    func iconFormatLabel(forCode code: String) -> String {
+        return CodedValueMap.iconFormatLabel(forCode: code)
+    }
+
+    func languageLabel(forCode code: String) -> String {
+        return CodedValueMap.languageLabel(forCode: code)
+    }
+
     func loadRecordDetails(forRecord bibRecord: BibRecord, needMARC: Bool) async throws -> Void {
         let record: MBRecord = try requireType(bibRecord)
 

@@ -28,9 +28,9 @@ struct HoldOptions {
     let expirationDate: Date? = nil
     let suspended: Bool = false
     let thawDate: Date? = nil
+    let metarecordHoldOptions: MetarecordHoldOptions? = nil
 }
-
-/// Options for updating a hold
+ /// Options for updating a hold
 struct HoldUpdateOptions {
     let notifyByEmail: Bool
     let phoneNotify: String?
@@ -40,4 +40,10 @@ struct HoldUpdateOptions {
     let expirationDate: Date?
     let suspended: Bool
     let thawDate: Date?
+}
+
+/// A set of hold formats and languages for a metarecord hold.
+struct MetarecordHoldOptions {
+    let formatCodes: [String]
+    let languageCodes: [String]
 }

@@ -612,16 +612,11 @@ class PlaceHoldViewController: UIViewController {
     }
 
     private func placeHoldEventParams(selectedOrg: Organization) -> [String: Any] {
-        var notifyTypes: [String] = []
-        if emailSwitch.isOn { notifyTypes.append("email") }
-        if phoneSwitch.isOn { notifyTypes.append("phone") }
-        if smsSwitch.isOn { notifyTypes.append("sms") }
-
         let defaultOrg = App.svc.consortium.find(byID: App.account?.pickupOrgID)
         let homeOrg = App.svc.consortium.find(byID: App.account?.homeOrgID)
 
         return [
-            Analytics.Param.holdNotify: notifyTypes.joined(separator: "|"),
+            Analytics.Param.holdNotify: Analytics.notifyDimension(notifyByEmail: emailSwitch.isOn, notifyByPhone: phoneSwitch.isOn, notifyBySMS: smsSwitch.isOn),
             Analytics.Param.holdPickupKey: Analytics.orgDimension(selectedOrg: selectedOrg, defaultOrg: defaultOrg, homeOrg: homeOrg)
         ]
     }

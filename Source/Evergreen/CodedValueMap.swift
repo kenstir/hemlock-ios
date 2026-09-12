@@ -28,10 +28,12 @@ class CodedValueMap {
     static let allFormats = "All Formats"
 
     static var iconFormats: [CodedValue] = []
+    static var languageFormats: [CodedValue] = []
     static var searchFormats: [CodedValue] = []
 
     static func load(fromArray objects: [OSRFObject]) -> Void {
         iconFormats = []
+        languageFormats = []
         searchFormats = []
         for obj in objects {
             if let ctype = obj.getString("ctype"),
@@ -44,13 +46,22 @@ class CodedValueMap {
                     searchFormats.append(codedValue)
                 } else if ctype == "icon_format" {
                     iconFormats.append(codedValue)
+                } else if ctype == "item_lang" {
+                    languageFormats.append(codedValue)
                 }
             }
         }
     }
-    
+
     static func iconFormatLabel(forCode code: String?) -> String {
         if let cv = iconFormats.first(where: { $0.code == code }) {
+            return cv.value
+        }
+        return ""
+    }
+
+    static func languageLabel(forCode code: String) -> String {
+        if let cv = languageFormats.first(where: { $0.code == code }) {
             return cv.value
         }
         return ""

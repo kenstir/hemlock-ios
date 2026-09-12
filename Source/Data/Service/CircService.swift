@@ -46,6 +46,9 @@ protocol CircService {
     /// Fetches whether a title hold is possible for the given item with parts for the specified pickup library
     func fetchTitleHoldIsPossible(account: Account, targetID: Int, pickupOrgID: Int) async throws -> Bool
 
+    /// Fetches a list of holdable format codes for the given metarecord and pickup library
+    func fetchMetarecordHoldOptions(account: Account, targetID: Int, pickupOrgID: Int) async throws -> MetarecordHoldOptions
+
     /// Places a hold
     func placeHold(account: Account, targetID: Int, withOptions options: HoldOptions) async throws -> Bool
 

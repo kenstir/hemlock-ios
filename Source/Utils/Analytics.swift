@@ -120,6 +120,14 @@ class Analytics {
         return "username"
     }
 
+    static func notifyDimension(notifyByEmail: Bool, notifyByPhone: Bool, notifyBySMS: Bool) -> String {
+        var notifyTypes: [String] = []
+        if notifyByEmail { notifyTypes.append("email") }
+        if notifyByPhone { notifyTypes.append("phone") }
+        if notifyBySMS { notifyTypes.append("sms") }
+        return notifyTypes.joined(separator: "|")
+    }
+
     /// Returns "true" or "false" to use as a value sent to analytics
     ///
     /// This is necessary because FA does not have real booleans, reports them as 0/1, and omits 0 values,
