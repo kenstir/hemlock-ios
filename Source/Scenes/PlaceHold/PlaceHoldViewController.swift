@@ -575,7 +575,7 @@ class PlaceHoldViewController: UIViewController {
     func doPlaceHold(account: Account, holdType: String, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
         activityIndicator.startAnimating()
 
-        let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
+        let eventParams = placeHoldEventParams(holdType: holdType, selectedOrg: pickupOrg)
         do {
             let options = HoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
             let _ = try await App.svc.circ.placeHold(account: account, targetID: targetID, withOptions: options)
@@ -611,11 +611,12 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    private func placeHoldEventParams(selectedOrg: Organization) -> [String: Any] {
+    private func placeHoldEventParams(holdType: String, selectedOrg: Organization) -> [String: Any] {
         let defaultOrg = App.svc.consortium.find(byID: App.account?.pickupOrgID)
         let homeOrg = App.svc.consortium.find(byID: App.account?.homeOrgID)
 
         return [
+            Analytics.Param.holdType: holdType,
             Analytics.Param.holdNotify: Analytics.notifyDimension(notifyByEmail: emailSwitch.isOn, notifyByPhone: phoneSwitch.isOn, notifyBySMS: smsSwitch.isOn),
             Analytics.Param.holdPickupKey: Analytics.orgDimension(selectedOrg: selectedOrg, defaultOrg: defaultOrg, homeOrg: homeOrg)
         ]

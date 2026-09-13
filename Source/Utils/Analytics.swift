@@ -55,6 +55,7 @@ class Analytics {
         static let holdNotify = "hold_notify"
         static let holdPickupKey = "hold_pickup" // { home | other }
         static let holdSuspend = "hold_suspend" // bool
+        static let holdType = "hold_type"
         static let loginType = "login_type" // { barcode | username }
         static let result = "result"
         static let searchClass = "search_class"
