@@ -46,8 +46,12 @@ class PlaceHoldViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var formatLabel: UILabel!
 
+    @IBOutlet weak var formatStack: UIStackView!
+    @IBOutlet weak var languageStack: UIStackView!
+    
     @IBOutlet weak var actionButton: UIButton!
-
+    @IBOutlet weak var advancedHoldButton: UIButton!
+    
     @IBOutlet var labels: [UILabel]!
 
     var record: BibRecord!
