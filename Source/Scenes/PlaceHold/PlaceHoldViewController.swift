@@ -46,16 +46,16 @@ class PlaceHoldViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var formatLabel: UILabel!
 
-    @IBOutlet weak var formatStack: UIStackView!
-    @IBOutlet weak var languageStack: UIStackView!
-    
+    @IBOutlet weak var advancedOptionsTable: UITableView!
+
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var advancedHoldButton: UIButton!
-    
+
     @IBOutlet var labels: [UILabel]!
 
     var record: BibRecord!
     var holdRecord: HoldRecord?
+    var isAdvancedHold = true // TODO: change me
     var parts: [HoldPart] = []
     var valueChangedHandler: (() -> Void)?
 
@@ -68,6 +68,11 @@ class PlaceHoldViewController: UIViewController {
     var didCompleteFetch = false
     var expirationDate: Date? = nil
     var thawDate: Date? = nil
+
+    var holdableFormats: [String] = []
+    var holdableLangs: [String] = []
+    var selectedFormats: [String] = []
+    var selectedLangs: [String] = []
 
     var activityIndicator: UIActivityIndicatorView!
 
@@ -120,6 +125,7 @@ class PlaceHoldViewController: UIViewController {
         setupExpirationRow()
         setupSuspendRow()
         setupThawRow()
+        setupAdvancedOptionsTable()
         setupButtonRow()
 
         setupActivityIndicator()
@@ -180,10 +186,21 @@ class PlaceHoldViewController: UIViewController {
         thawDatePicker.contentHorizontalAlignment = .left
     }
 
+    func setupAdvancedOptionsTable() {
+        // Ensure the table's delegate and data source are wired up in code
+        // (the storyboard may have outlets, but setting them here guarantees behavior).
+        advancedOptionsTable.delegate = self
+        advancedOptionsTable.dataSource = self
+        advancedOptionsTable.allowsSelection = true
+        // If the storyboard doesn't provide a prototype cell, register a default one.
+        advancedOptionsTable.register(UITableViewCell.self, forCellReuseIdentifier: "advancedHoldOptionsCell")
+    }
+
     func setupButtonRow() {
         actionButton.setTitle(isEditHold ? "Update Hold" : "Place Hold", for: .normal)
         actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asInverse: actionButton)
+        Style.styleButton(asOutline: advancedHoldButton)
     }
 
     func setupActivityIndicator() {
@@ -218,6 +235,9 @@ class PlaceHoldViewController: UIViewController {
         expirationDatePicker.alpha = suspendSwitch.isOn ? 0.25 : 1.0
         thawDatePicker.isEnabled = suspendSwitch.isOn
         thawDatePicker.alpha = suspendSwitch.isOn ? 1.0 : 0.25
+
+        // metarecord hold options are hidden if not advanced
+        advancedOptionsTable.isHidden = !isAdvancedHold
     }
 
     func setupLabelAlignment() {
@@ -299,6 +319,9 @@ class PlaceHoldViewController: UIViewController {
         loadOrgData()
         loadCarrierData()
         loadExpirationData()
+        loadAdvancedHoldData()
+        // After loading advanced hold data, refresh the table so rows appear
+        advancedOptionsTable.reloadData()
         enableViewsWhenReady()
         App.svc.consortium.dumpOrgStats()
     }
@@ -389,6 +412,22 @@ class PlaceHoldViewController: UIViewController {
         } else {
             thawDatePicker.date = defaultThawDate()
         }
+    }
+
+    func loadAdvancedHoldData() {
+        holdableFormats = [
+            "book",
+            "lpbook",
+            "braille",
+            "dvd",
+            "cdaudiobook",
+            "bluray",
+        ]
+        holdableLangs = [
+            "fra",
+            "eng",
+            "spa",
+        ]
     }
 
     @objc func expirationChanged(sender: UIDatePicker) {
@@ -700,5 +739,52 @@ extension PlaceHoldViewController: UITextFieldDelegate {
         default:
             return true
         }
+    }
+}
+
+//MARK: - UITableViewDataSource
+extension PlaceHoldViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2 // formats and languages
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return holdableFormats.count
+        } else if section == 1 {
+            return holdableLangs.count
+        }
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Desired formats"
+        } else {
+            return "Desired languages"
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return Style.tableHeaderHalfHeight
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "advancedHoldOptionsCell", for: indexPath)
+
+        let code = "code_\(indexPath.section)_\(indexPath.row)"
+        let label = "Label section \(indexPath.section) row \(indexPath.row)"
+        cell.textLabel?.text = label
+        cell.accessoryType = .checkmark
+
+        return cell
+    }
+}
+
+//MARK: - UITableViewDelegate
+extension PlaceHoldViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("selected \(indexPath.section), \(indexPath.row)")
     }
 }

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="8" y="36" width="398" height="684"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="630.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="800.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vaf-ps-4nt" userLabel="Summary Stack">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="113.66666666666667"/>
@@ -196,47 +196,51 @@
                                                     </datePicker>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdT-X0-l28" userLabel="Spacer">
-                                                <rect key="frame" x="0.0" y="487.66666666666663" width="398" height="16"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v29-Gv-qv9" userLabel="Advanced Options Table">
+                                                <rect key="frame" x="0.0" y="487.66666666666663" width="398" height="256"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="kw5-Hh-3b8"/>
+                                                    <constraint firstAttribute="height" constant="256" id="Diz-Ky-f4C"/>
+                                                </constraints>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="cbX-hA-PXm" style="IBUITableViewCellStyleDefault" id="8oG-U9-JIx">
+                                                        <rect key="frame" x="0.0" y="55.333332061767578" width="398" height="51"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8oG-U9-JIx" id="Rl4-mS-zae">
+                                                            <rect key="frame" x="0.0" y="0.0" width="358" height="51"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cbX-hA-PXm">
+                                                                    <rect key="frame" x="16" y="0.0" width="334" height="51"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYg-5n-LUs" userLabel="Spacer">
+                                                <rect key="frame" x="0.0" y="747.66666666666663" width="398" height="16"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="IS7-Yh-b0X"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" axis="vertical" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="R2T-SK-Cas" userLabel="Format Stack">
-                                                <rect key="frame" x="0.0" y="507.66666666666657" width="398" height="20.333333333333314"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Desired formats" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2i-TM-2bv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rj7-cP-jbQ" userLabel="Language Stack">
-                                                <rect key="frame" x="0.0" y="532" width="398" height="20.333333333333371"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desired languages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTC-j7-r1T">
-                                                        <rect key="frame" x="0.0" y="0.0" width="147.66666666666666" height="20.333333333333332"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zfW-Jt-MVq" userLabel="Action Stack">
-                                                <rect key="frame" x="0.0" y="556.33333333333337" width="398" height="74"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zfW-Jt-MVq" userLabel="Action Stack">
+                                                <rect key="frame" x="0.0" y="767.66666666666663" width="398" height="33"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5e-Fd-tzX">
-                                                        <rect key="frame" x="110" y="0.0" width="178" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="195" height="33"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <inset key="contentEdgeInsets" minX="48" minY="6" maxX="48" maxY="6"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Place Hold"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJB-fd-Sbl">
-                                                        <rect key="frame" x="93" y="41" width="212" height="33"/>
+                                                        <rect key="frame" x="203" y="0.0" width="195" height="33"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <inset key="contentEdgeInsets" minX="48" minY="6" maxX="48" maxY="6"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -270,14 +274,13 @@
                     <connections>
                         <outlet property="actionButton" destination="j5e-Fd-tzX" id="lnq-1b-nJv"/>
                         <outlet property="advancedHoldButton" destination="mJB-fd-Sbl" id="iLc-VN-B8p"/>
+                        <outlet property="advancedOptionsTable" destination="v29-Gv-qv9" id="3bY-pn-D8W"/>
                         <outlet property="authorLabel" destination="VPr-Hj-E1H" id="iSV-bh-5WX"/>
                         <outlet property="carrierTextField" destination="Cga-VH-hwY" id="5Ih-38-v4N"/>
                         <outlet property="emailSwitch" destination="UoI-3N-U0x" id="aUv-Mb-Q3e"/>
                         <outlet property="expirationDatePicker" destination="9rn-4r-Qyf" id="nw4-3T-ZFh"/>
                         <outlet property="expirationStack" destination="ZMb-WE-SXs" id="9Ff-9K-h8b"/>
                         <outlet property="formatLabel" destination="BAW-lX-hQX" id="ay9-gh-z7z"/>
-                        <outlet property="formatStack" destination="R2T-SK-Cas" id="FzW-Ua-I1c"/>
-                        <outlet property="languageStack" destination="rj7-cP-jbQ" id="12A-aE-kAR"/>
                         <outlet property="partSelectStack" destination="mF8-7v-r6B" id="KFW-td-sie"/>
                         <outlet property="partTextField" destination="nNl-IA-n8S" id="Ha6-jf-6NT"/>
                         <outlet property="phoneNotifyStack" destination="ZNd-t8-jsg" id="0q3-Hq-PBV"/>
