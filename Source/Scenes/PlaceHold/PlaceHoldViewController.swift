@@ -18,6 +18,13 @@
 import UIKit
 import os.log
 
+enum HoldLayout: String {
+    case titleHold
+    case partHold
+    case editHold
+    case advancedHold
+}
+
 class PlaceHoldViewController: UIViewController {
 
     //MARK: - Properties
@@ -47,6 +54,7 @@ class PlaceHoldViewController: UIViewController {
     @IBOutlet weak var formatLabel: UILabel!
 
     @IBOutlet weak var advancedOptionsTable: UITableView!
+    private var advancedOptionsHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var advancedHoldButton: UIButton!
@@ -55,7 +63,7 @@ class PlaceHoldViewController: UIViewController {
 
     var record: BibRecord!
     var holdRecord: HoldRecord?
-    var isAdvancedHold = true // TODO: change me
+    var layout = HoldLayout.titleHold
     var parts: [HoldPart] = []
     var valueChangedHandler: (() -> Void)?
 
@@ -83,10 +91,11 @@ class PlaceHoldViewController: UIViewController {
 
     //MARK: - Lifecycle
 
-    static func make(record: BibRecord, holdRecord: HoldRecord? = nil, valueChangedHandler: (() -> Void)? = nil) -> PlaceHoldViewController? {
+    static func make(record: BibRecord, holdRecord: HoldRecord? = nil, layout: HoldLayout = .titleHold, valueChangedHandler: (() -> Void)? = nil) -> PlaceHoldViewController? {
         if let vc = UIStoryboard(name: "PlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController {
             vc.record = record
             vc.holdRecord = holdRecord
+            vc.layout = (holdRecord != nil) ? .editHold : layout
             vc.valueChangedHandler = valueChangedHandler
             return vc
         }
@@ -97,7 +106,12 @@ class PlaceHoldViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = isEditHold ? "Edit Hold" : "Place Hold"
+        self.title = switch layout {
+        case .titleHold: "Place Hold"
+        case .partHold: "Place Hold"
+        case .editHold: "Edit Hold"
+        case .advancedHold: "Advanced Hold"
+        }
         setupViews()
     }
 
@@ -187,19 +201,25 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func setupAdvancedOptionsTable() {
-        // Ensure the table's delegate and data source are wired up in code
-        // (the storyboard may have outlets, but setting them here guarantees behavior).
         advancedOptionsTable.delegate = self
         advancedOptionsTable.dataSource = self
-        advancedOptionsTable.allowsSelection = true
-        // If the storyboard doesn't provide a prototype cell, register a default one.
+
+        // Disable the table's inner scroll
+//        advancedOptionsTable.allowsSelection = true
+        advancedOptionsTable.isScrollEnabled = false
         advancedOptionsTable.register(UITableViewCell.self, forCellReuseIdentifier: "advancedHoldOptionsCell")
+
+        // Give the table a height constraint that will be overridden if there are rows to display.
+        advancedOptionsHeightConstraint = advancedOptionsTable.heightAnchor.constraint(equalToConstant: 0)
+        advancedOptionsHeightConstraint.isActive = true
     }
 
     func setupButtonRow() {
         actionButton.setTitle(isEditHold ? "Update Hold" : "Place Hold", for: .normal)
         actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asInverse: actionButton)
+
+        advancedHoldButton.addTarget(self, action: #selector(advancedHoldButtonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asOutline: advancedHoldButton)
     }
 
@@ -236,8 +256,9 @@ class PlaceHoldViewController: UIViewController {
         thawDatePicker.isEnabled = suspendSwitch.isOn
         thawDatePicker.alpha = suspendSwitch.isOn ? 1.0 : 0.25
 
-        // metarecord hold options are hidden if not advanced
-        advancedOptionsTable.isHidden = !isAdvancedHold
+        // metarecord hold views are usually hidden
+        advancedOptionsTable.isHidden = (layout != .advancedHold)
+        advancedHoldButton.isHidden = (layout != .titleHold)
     }
 
     func setupLabelAlignment() {
@@ -288,6 +309,12 @@ class PlaceHoldViewController: UIViewController {
         print("PlaceHold: \(record.title): fetching parts")
 
         self.parts = try await App.svc.circ.fetchHoldParts(targetID: record.id)
+
+        if self.hasParts {
+            layout = .partHold
+        }
+
+        // If the app config permits title holds on parted items, check if it's allowed on this particular item
         if self.hasParts,
            App.config.enableTitleHoldOnItemWithParts,
            let pickupOrgID = account.pickupOrgID
@@ -320,8 +347,6 @@ class PlaceHoldViewController: UIViewController {
         loadCarrierData()
         loadExpirationData()
         loadAdvancedHoldData()
-        // After loading advanced hold data, refresh the table so rows appear
-        advancedOptionsTable.reloadData()
         enableViewsWhenReady()
         App.svc.consortium.dumpOrgStats()
     }
@@ -428,6 +453,9 @@ class PlaceHoldViewController: UIViewController {
             "eng",
             "spa",
         ]
+        advancedOptionsTable.reloadData()
+        advancedOptionsTable.layoutIfNeeded()
+        advancedOptionsHeightConstraint.constant = advancedOptionsTable.contentSize.height
     }
 
     @objc func expirationChanged(sender: UIDatePicker) {
@@ -440,6 +468,11 @@ class PlaceHoldViewController: UIViewController {
 
     @objc func holdButtonPressed(sender: Any) {
         placeOrUpdateHold()
+    }
+
+    @objc func advancedHoldButtonPressed(sender: Any) {
+        guard let vc = PlaceHoldViewController.make(record: record, holdRecord: nil, layout: .advancedHold) else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func suspendSwitchChanged(sender: UISwitch) {
