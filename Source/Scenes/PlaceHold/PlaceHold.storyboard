@@ -263,6 +263,7 @@
                         <outlet property="actionButton" destination="j5e-Fd-tzX" id="lnq-1b-nJv"/>
                         <outlet property="advancedHoldButton" destination="mJB-fd-Sbl" id="iLc-VN-B8p"/>
                         <outlet property="advancedOptionsTable" destination="v29-Gv-qv9" id="3bY-pn-D8W"/>
+                        <outlet property="advancedOptionsTableHeightConstraint" destination="tGv-jC-0D1" id="Pcc-5w-Blm"/>
                         <outlet property="authorLabel" destination="VPr-Hj-E1H" id="iSV-bh-5WX"/>
                         <outlet property="carrierTextField" destination="Cga-VH-hwY" id="5Ih-38-v4N"/>
                         <outlet property="emailSwitch" destination="UoI-3N-U0x" id="aUv-Mb-Q3e"/>

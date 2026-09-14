@@ -54,7 +54,7 @@ class PlaceHoldViewController: UIViewController {
     @IBOutlet weak var formatLabel: UILabel!
 
     @IBOutlet weak var advancedOptionsTable: UITableView!
-    private var advancedOptionsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var advancedOptionsTableHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var advancedHoldButton: UIButton!
@@ -205,13 +205,13 @@ class PlaceHoldViewController: UIViewController {
         advancedOptionsTable.dataSource = self
 
         // Disable the table's inner scroll
-//        advancedOptionsTable.allowsSelection = true
         advancedOptionsTable.isScrollEnabled = false
         advancedOptionsTable.register(UITableViewCell.self, forCellReuseIdentifier: "advancedHoldOptionsCell")
 
-        // Give the table a height constraint that will be overridden if there are rows to display.
-        advancedOptionsHeightConstraint = advancedOptionsTable.heightAnchor.constraint(equalToConstant: 0)
-        advancedOptionsHeightConstraint.isActive = true
+        // Use the zero-height IBOutlet constraint; we will change it if there are rows to display.
+        // We need to add it in IB instead of code because if we don't, IB generates a Missing Constraints warning.
+        //advancedOptionsHeightConstraint = advancedOptionsTable.heightAnchor.constraint(equalToConstant: 0)
+        advancedOptionsTableHeightConstraint.isActive = true
     }
 
     func setupButtonRow() {
@@ -455,7 +455,7 @@ class PlaceHoldViewController: UIViewController {
         ]
         advancedOptionsTable.reloadData()
         advancedOptionsTable.layoutIfNeeded()
-        advancedOptionsHeightConstraint.constant = advancedOptionsTable.contentSize.height
+        advancedOptionsTableHeightConstraint.constant = advancedOptionsTable.contentSize.height
     }
 
     @objc func expirationChanged(sender: UIDatePicker) {
