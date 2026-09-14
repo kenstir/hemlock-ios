@@ -209,7 +209,7 @@ class PlaceHoldViewController: UIViewController {
         advancedOptionsTable.register(UITableViewCell.self, forCellReuseIdentifier: "advancedHoldOptionsCell")
 
         // Use the zero-height IBOutlet constraint; we will change it if there are rows to display.
-        // We need to add it in IB instead of code because if we don't, IB generates a Missing Constraints warning.
+        // Add it in IB instead of code because if we don't, IB generates a Missing Constraints warning.
         //advancedOptionsHeightConstraint = advancedOptionsTable.heightAnchor.constraint(equalToConstant: 0)
         advancedOptionsTableHeightConstraint.isActive = true
     }
@@ -446,10 +446,9 @@ class PlaceHoldViewController: UIViewController {
             "braille",
             "dvd",
             "cdaudiobook",
-            "bluray",
+            "blu-ray"
         ]
         holdableLangs = [
-            "fra",
             "eng",
             "spa",
         ]
@@ -777,6 +776,10 @@ extension PlaceHoldViewController: UITextFieldDelegate {
 
 //MARK: - UITableViewDataSource
 extension PlaceHoldViewController: UITableViewDataSource {
+    func isSelected(code: String, in selectedArray: [String]) -> Bool {
+        return selectedArray.contains(code)
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2 // formats and languages
     }
@@ -805,10 +808,20 @@ extension PlaceHoldViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "advancedHoldOptionsCell", for: indexPath)
 
-        let code = "code_\(indexPath.section)_\(indexPath.row)"
-        let label = "Label section \(indexPath.section) row \(indexPath.row)"
+        let label: String
+        let isChecked: Bool
+        if indexPath.section == 0 {
+            let code = holdableFormats[indexPath.row]
+            label = App.svc.biblio.iconFormatLabel(forCode: code)
+            isChecked = isSelected(code: code, in: selectedFormats)
+        } else {
+            let code = holdableLangs[indexPath.row]
+            label = App.svc.biblio.languageLabel(forCode: code)
+            isChecked = isSelected(code: code, in: selectedLangs)
+        }
+
         cell.textLabel?.text = label
-        cell.accessoryType = .checkmark
+        cell.accessoryType = (isChecked ? .checkmark : .none)
 
         return cell
     }
@@ -818,6 +831,30 @@ extension PlaceHoldViewController: UITableViewDataSource {
 extension PlaceHoldViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("selected \(indexPath.section), \(indexPath.row)")
+
+        var isChecked: Bool
+        if indexPath.section == 0 {
+            let code = holdableFormats[indexPath.row]
+            if let index = selectedFormats.firstIndex(of: code) {
+                selectedFormats.remove(at: index)
+                isChecked = false
+            } else {
+                selectedFormats.append(code)
+                isChecked = true
+            }
+            print("\(code) \((isChecked ? "selected" : "UNSELECTED"))")
+        } else {
+            let code = holdableLangs[indexPath.row]
+            if let index = selectedLangs.firstIndex(of: code) {
+                selectedLangs.remove(at: index)
+                isChecked = false
+            } else {
+                selectedLangs.append(code)
+                isChecked = true
+            }
+            print("\(code) \((isChecked ? "selected" : "UNSELECTED"))")
+        }
+
+        tableView.cellForRow(at: indexPath)!.accessoryType = (isChecked ? .checkmark : .none)
     }
 }
