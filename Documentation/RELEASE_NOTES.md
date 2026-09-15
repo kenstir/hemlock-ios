@@ -1,7 +1,9 @@
 # iOS Release Notes
 
 ## NEXT
+* New feature: Advanced Hold
 * New feature: Tap to zoom item image in Details screen
+* noble: Enable hold_use_override
 
 ## 4.7.0
 
