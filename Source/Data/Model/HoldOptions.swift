@@ -25,12 +25,13 @@ struct HoldOptions {
     let smsNotify: String?
     let smsCarrierID: Int?
     let pickupOrgID: Int
+    let metarecordHoldOptions: MetarecordHoldOptions?
     let expirationDate: Date? = nil
     let suspended: Bool = false
     let thawDate: Date? = nil
-    let metarecordHoldOptions: MetarecordHoldOptions? = nil
 }
- /// Options for updating a hold
+
+/// Options for updating a hold
 struct HoldUpdateOptions {
     let notifyByEmail: Bool
     let phoneNotify: String?

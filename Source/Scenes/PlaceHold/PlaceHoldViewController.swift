@@ -606,6 +606,17 @@ class PlaceHoldViewController: UIViewController {
                 return
             }
             targetID = id
+        } else if layout == .advancedHold {
+            holdType = API.holdTypeMetarecord
+            if holdableFormats.count > 0 && selectedFormats.isEmpty {
+                self.showAlert(title: "No format selected", message: "You must select at least one format before placing a hold on this item")
+                return
+            }
+            if holdableLangs.count > 0 && selectedLangs.isEmpty {
+                self.showAlert(title: "No language selected", message: "You must select at least one language before placing a hold on this item")
+                return
+            }
+            targetID = record.metarecordID ?? record.id
         } else {
             holdType = API.holdTypeTitle
             targetID = record.id
@@ -652,7 +663,16 @@ class PlaceHoldViewController: UIViewController {
 
         let eventParams = placeHoldEventParams(holdType: holdType, selectedOrg: pickupOrg)
         do {
-            let options = HoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
+            let options = HoldOptions(
+                holdType: holdType,
+                useOverride: App.config.enableHoldUseOverride,
+                notifyByEmail: emailSwitch.isOn,
+                phoneNotify: notifyPhoneNumber,
+                smsNotify: notifySMSNumber,
+                smsCarrierID: notifyCarrierID,
+                pickupOrgID: pickupOrg.id,
+                metarecordHoldOptions: (layout == .advancedHold) ? MetarecordHoldOptions(formatCodes: selectedFormats, languageCodes: selectedLangs) : nil
+            )
             let _ = try await App.svc.circ.placeHold(account: account, targetID: targetID, withOptions: options)
             activityIndicator.stopAnimating()
             self.logPlaceHold(params: eventParams)
