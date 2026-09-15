@@ -25,6 +25,7 @@ class NobleAppConfiguration: BaseAppConfiguration {
     override var payChargesUrl: String? { return "https://catalog.noblenet.org/MyAccount/Fines" }
 
     override var enablePartHolds: Bool { return true }
+    override var enableHoldUseOverride: Bool { return true }
     override var enableTitleHoldOnItemWithParts: Bool { return true }
     override var needMARCRecord: Bool { return true }
     override var alwaysUseActionSheetForOnlineLinks: Bool { return true }
