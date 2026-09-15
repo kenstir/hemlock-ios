@@ -82,7 +82,7 @@ class BaseAppConfiguration: AppConfiguration {
     var enableEventsButton: Bool { return false }
     var groupCopyInfoBySystem: Bool { return false }
     var enableCopyInfoWebLinks: Bool { return false }
-    var needMARCRecord: Bool { return false }
+    var needMARCRecord: Bool { return true }
     var showOnlineAccessHostname: Bool { return false }
     var showFineStatusLabel: Bool { return true }
     var alwaysUseActionSheetForOnlineLinks: Bool { return false }
