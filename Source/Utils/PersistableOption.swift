@@ -109,7 +109,7 @@ class StringOption: PersistableOption, SelectableOption {
 
     func select(byValue selectedValue: String) {
         let values = (optionValues.isEmpty ? optionLabels : optionValues)
-        selectedIndex = values.firstIndex(of: selectedValue) ?? 0
+        selectedIndex = values.firstIndexOrZero(of: selectedValue)
     }
 
     @discardableResult

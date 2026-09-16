@@ -879,6 +879,7 @@
 		D27889432F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
 		D27889442F8D9D0E001CA1DF /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278893B2F8D9D0E001CA1DF /* TokenStore.swift */; };
 		D27889462F8DA538001CA1DF /* TokenStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27889452F8DA538001CA1DF /* TokenStoreTests.swift */; };
+		D2798CA6305ADD2F001C4BB5 /* Collection+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2798CA5305ADD2F001C4BB5 /* Collection+Tests.swift */; };
 		D27990CC20DDD473003B451E /* OSRFCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C720F209248F500E90952 /* OSRFCoder.swift */; };
 		D27990CD20DDD473003B451E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D287D4FD207AEF2B001AF644 /* LoginViewController.swift */; };
 		D27990CF20DDD473003B451E /* OSRFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C72152093A2C000E90952 /* OSRFObject.swift */; };
@@ -2102,6 +2103,7 @@
 		D27889312F8D9AF7001CA1DF /* Data+base64url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+base64url.swift"; sourceTree = "<group>"; };
 		D278893B2F8D9D0E001CA1DF /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
 		D27889452F8DA538001CA1DF /* TokenStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStoreTests.swift; sourceTree = "<group>"; };
+		D2798CA5305ADD2F001C4BB5 /* Collection+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Tests.swift"; sourceTree = "<group>"; };
 		D279910A20DDD473003B451E /* Hemlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hemlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D279910B20DDD473003B451E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D279910E20DDD760003B451E /* hemlock.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = hemlock.xcassets; sourceTree = "<group>"; };
@@ -2620,6 +2622,7 @@
 				D228684A2ED4CA5200E2DAEB /* TypeHelpersTests.swift */,
 				D259671824511CA90076267D /* UtilsTests.swift */,
 				D27889452F8DA538001CA1DF /* TokenStoreTests.swift */,
+				D2798CA5305ADD2F001C4BB5 /* Collection+Tests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -5245,6 +5248,7 @@
 				D231B52220804DF900478D25 /* AlamoTests.swift in Sources */,
 				D22D027A2085889A00DC1F5B /* GatewayResponseTests.swift in Sources */,
 				D287D51E207AEF54001AF644 /* AccountTests.swift in Sources */,
+				D2798CA6305ADD2F001C4BB5 /* Collection+Tests.swift in Sources */,
 				D2EA31122B3F3C20004CEF6E /* HistoryRecordTests.swift in Sources */,
 				D24D87A52B769FC800F1B77E /* TestUtils.swift in Sources */,
 				D23F57742DA9CB7C00A16941 /* JSONTestUtils.swift in Sources */,

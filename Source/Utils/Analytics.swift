@@ -55,6 +55,7 @@ class Analytics {
         static let holdNotify = "hold_notify"
         static let holdPickupKey = "hold_pickup" // { home | other }
         static let holdSuspend = "hold_suspend" // bool
+        static let holdType = "hold_type"
         static let loginType = "login_type" // { barcode | username }
         static let result = "result"
         static let searchClass = "search_class"
@@ -118,6 +119,14 @@ class Analytics {
             return "barcode"
         }
         return "username"
+    }
+
+    static func notifyDimension(notifyByEmail: Bool, notifyByPhone: Bool, notifyBySMS: Bool) -> String {
+        var notifyTypes: [String] = []
+        if notifyByEmail { notifyTypes.append("email") }
+        if notifyByPhone { notifyTypes.append("phone") }
+        if notifyBySMS { notifyTypes.append("sms") }
+        return notifyTypes.joined(separator: "|")
     }
 
     /// Returns "true" or "false" to use as a value sent to analytics

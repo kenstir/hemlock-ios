@@ -179,7 +179,26 @@ struct OSRFObject: Equatable {
         }
         return nil
     }
-    
+
+    /// Returns a list of OSRFObject associated with [key].
+    ///
+    /// Returns null if the key does not exist.
+    /// Returns nil if the key exists but is not a list of OSRFObject.
+    /// TODO: testme
+    func getObjectList(_ key: String) -> [OSRFObject]? {
+        // Check if exists
+        guard let val = dict[key] else {
+            return nil
+        }
+
+        // Check that it's a list
+        guard let list = val as? [OSRFObject] else {
+            //throw HemlockError.serverError("expected object list at [\(key)], got \(String(describing: val))")
+            return nil
+        }
+        return list
+    }
+
     func getAny(_ key: String) -> Any? {
         if let val = dict[key] {
             return val

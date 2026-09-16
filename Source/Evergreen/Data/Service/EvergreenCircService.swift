@@ -241,6 +241,24 @@ class EvergreenCircService: CircService {
         return true
     }
 
+    func fetchMetarecordHoldOptions(account: any Account, targetID: Int, pickupOrgID: Int) async throws -> MetarecordHoldOptions {
+        let params = [targetID, pickupOrgID]
+        let req = Gateway.makeRequest(service: API.circ, method: API.metarecordHoldsFilter, args: params, shouldCache: false)
+        // The response is a JSON object with a metarecord object field.  The metarecord object has "langs" and "formats"
+        // fields which are arrays of ccvm objects.
+        let obj = try await req.gatewayResponseAsync().asObject()
+        guard let metarecordObj = obj.getObject("metarecord"),
+              let formatsArray = metarecordObj.getObjectList("formats"),
+              let langsArray = metarecordObj.getObjectList("langs")
+        else {
+            throw HemlockError.unexpectedNetworkResponse("Failed to load metarecord hold options for target \(targetID)")
+        }
+
+        let formats = formatsArray.compactMap { $0.getString("code") }
+        let langs = langsArray.compactMap { $0.getString("code") }
+        return MetarecordHoldOptions(formatCodes: formats, languageCodes: langs)
+    }
+
     func placeHold(account: Account, targetID: Int, withOptions options: HoldOptions) async throws -> Bool {
         let obj = try await placeHoldImpl(account: account, targetID: targetID, withOptions: options)
 
@@ -296,9 +314,51 @@ class EvergreenCircService: CircService {
         if let date = options.expirationDate {
             complexParam["expire_time"] = OSRFObject.apiDateFormatter.string(from: date)
         }
+        if options.holdType == API.holdTypeMetarecord,
+           let metarecordOptions = options.metarecordHoldOptions {
+            complexParam["holdable_formats_map"] = makeHoldableFormatsMap(targetID: targetID, options: metarecordOptions)
+        }
+
         let method = options.useOverride ? API.holdTestAndCreateOverride : API.holdTestAndCreate
         let req = Gateway.makeRequest(service: API.circ, method: method, args: [account.authtoken, complexParam, [targetID]], shouldCache: false)
         return try await req.gatewayResponseAsync().asObject()
+    }
+
+    // Creates the `holdable_formats_map` for a metarecord hold, e.g.
+    // {"241": "{\"0\": [{\"_attr\":\"mr_hold_format\",\"_val\":\"book\"},{\"_attr\":\"mr_hold_format\",\"_val\":\"lpbook\"}],
+    //           \"1\": [{\"_attr\":\"item_lang\",\"_val\":\"eng\"}]}"
+    // }
+    //
+    // NOTE: For some crazy reason Evergreen only accepts a Map<String, String>.
+    // TODO: testme
+    func makeHoldableFormatsMap(targetID: Int, options: MetarecordHoldOptions) -> [String: String] {
+        var inner: [String: Any] = [:]
+
+        //if !options.formatCodes.isEmpty {
+            let fmtArr: [[String: String]] = options.formatCodes.map { code in
+                ["_attr": "mr_hold_format", "_val": code]
+            }
+            inner["0"] = fmtArr
+        //}
+
+        //if !options.languageCodes.isEmpty {
+            let langArr: [[String: String]] = options.languageCodes.map { code in
+                ["_attr": "item_lang", "_val": code]
+            }
+            inner["1"] = langArr
+        //}
+
+        // If nothing to send, return an empty map
+        //guard !inner.isEmpty else { return [:] }
+
+        // Serialize the inner structure to JSON string
+        if let data = try? JSONSerialization.data(withJSONObject: inner, options: []),
+           let jsonStr = String(data: data, encoding: .utf8) {
+            return [String(targetID): jsonStr]
+        } else {
+            // If serialization fails for some reason, return empty map to avoid sending malformed data
+            return [:]
+        }
     }
 
     func updateHold(account: Account, holdID: Int, withOptions options: HoldUpdateOptions) async throws -> Bool {

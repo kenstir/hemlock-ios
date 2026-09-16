@@ -18,6 +18,13 @@
 import UIKit
 import os.log
 
+enum HoldLayout: String {
+    case titleHold
+    case partHold
+    case editHold
+    case advancedHold
+}
+
 class PlaceHoldViewController: UIViewController {
 
     //MARK: - Properties
@@ -46,12 +53,17 @@ class PlaceHoldViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var formatLabel: UILabel!
 
+    @IBOutlet weak var advancedOptionsTable: UITableView!
+    @IBOutlet var advancedOptionsTableHeightConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var advancedHoldButton: UIButton!
 
     @IBOutlet var labels: [UILabel]!
 
     var record: BibRecord!
     var holdRecord: HoldRecord?
+    var layout = HoldLayout.titleHold
     var parts: [HoldPart] = []
     var valueChangedHandler: (() -> Void)?
 
@@ -65,6 +77,11 @@ class PlaceHoldViewController: UIViewController {
     var expirationDate: Date? = nil
     var thawDate: Date? = nil
 
+    var holdableFormats: [String] = []
+    var holdableLangs: [String] = []
+    var selectedFormats: [String] = []
+    var selectedLangs: [String] = []
+
     var activityIndicator: UIActivityIndicatorView!
 
     var isEditHold: Bool { return holdRecord != nil }
@@ -74,10 +91,11 @@ class PlaceHoldViewController: UIViewController {
 
     //MARK: - Lifecycle
 
-    static func make(record: BibRecord, holdRecord: HoldRecord? = nil, valueChangedHandler: (() -> Void)? = nil) -> PlaceHoldViewController? {
+    static func make(record: BibRecord, holdRecord: HoldRecord? = nil, layout: HoldLayout = .titleHold, valueChangedHandler: (() -> Void)? = nil) -> PlaceHoldViewController? {
         if let vc = UIStoryboard(name: "PlaceHold", bundle: nil).instantiateInitialViewController() as? PlaceHoldViewController {
             vc.record = record
             vc.holdRecord = holdRecord
+            vc.layout = (holdRecord != nil) ? .editHold : layout
             vc.valueChangedHandler = valueChangedHandler
             return vc
         }
@@ -88,7 +106,12 @@ class PlaceHoldViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = isEditHold ? "Edit Hold" : "Place Hold"
+        self.title = switch layout {
+        case .titleHold: "Place Hold"
+        case .partHold: "Place Hold"
+        case .editHold: "Edit Hold"
+        case .advancedHold: "Advanced Hold"
+        }
         setupViews()
     }
 
@@ -116,6 +139,7 @@ class PlaceHoldViewController: UIViewController {
         setupExpirationRow()
         setupSuspendRow()
         setupThawRow()
+        setupAdvancedOptionsTable()
         setupButtonRow()
 
         setupActivityIndicator()
@@ -176,10 +200,27 @@ class PlaceHoldViewController: UIViewController {
         thawDatePicker.contentHorizontalAlignment = .left
     }
 
+    func setupAdvancedOptionsTable() {
+        advancedOptionsTable.delegate = self
+        advancedOptionsTable.dataSource = self
+
+        // Disable the table's inner scroll
+        advancedOptionsTable.isScrollEnabled = false
+        advancedOptionsTable.register(UITableViewCell.self, forCellReuseIdentifier: "advancedHoldOptionsCell")
+
+        // Use the zero-height IBOutlet constraint; we will change it if there are rows to display.
+        // Add it in IB instead of code because if we don't, IB generates a Missing Constraints warning.
+        //advancedOptionsHeightConstraint = advancedOptionsTable.heightAnchor.constraint(equalToConstant: 0)
+        advancedOptionsTableHeightConstraint.isActive = true
+    }
+
     func setupButtonRow() {
         actionButton.setTitle(isEditHold ? "Update Hold" : "Place Hold", for: .normal)
         actionButton.addTarget(self, action: #selector(holdButtonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asInverse: actionButton)
+
+        advancedHoldButton.addTarget(self, action: #selector(advancedHoldButtonPressed(sender:)), for: .touchUpInside)
+        Style.styleButton(asOutline: advancedHoldButton)
     }
 
     func setupActivityIndicator() {
@@ -214,6 +255,10 @@ class PlaceHoldViewController: UIViewController {
         expirationDatePicker.alpha = suspendSwitch.isOn ? 0.25 : 1.0
         thawDatePicker.isEnabled = suspendSwitch.isOn
         thawDatePicker.alpha = suspendSwitch.isOn ? 1.0 : 0.25
+
+        // metarecord hold views are usually hidden
+        advancedOptionsTable.isHidden = (layout != .advancedHold)
+        advancedHoldButton.isHidden = (layout != .titleHold)
     }
 
     func setupLabelAlignment() {
@@ -244,7 +289,8 @@ class PlaceHoldViewController: UIViewController {
         do {
             async let prereq: Void = App.svc.loader.loadPlaceHoldPrerequisites()
             async let parts: Void = fetchPartsData(account: account)
-            _ = try await (prereq, parts)
+            async let metaStuff: Void = fetchMetarecordStuff(account: account)
+            _ = try await (prereq, parts, metaStuff)
             self.didCompleteFetch = true
             self.onDataLoaded()
         } catch {
@@ -264,6 +310,12 @@ class PlaceHoldViewController: UIViewController {
         print("PlaceHold: \(record.title): fetching parts")
 
         self.parts = try await App.svc.circ.fetchHoldParts(targetID: record.id)
+
+        if self.hasParts {
+            layout = .partHold
+        }
+
+        // If the app config permits title holds on parted items, check if it's allowed on this particular item
         if self.hasParts,
            App.config.enableTitleHoldOnItemWithParts,
            let pickupOrgID = account.pickupOrgID
@@ -277,6 +329,18 @@ class PlaceHoldViewController: UIViewController {
             }
             print("PlaceHold: \(self.record.title): titleHoldIsPossible=\(Utils.toString(self.titleHoldIsPossible))")
         }
+    }
+
+    func fetchMetarecordStuff(account: Account) async throws {
+        guard let targetId = record.metarecordID, layout == .advancedHold else {
+            return
+        }
+        print("PlaceHold: \(record.title): fetching metarecord hold options")
+
+        let pickupOrg = App.svc.consortium.visibleOrgs[selectedOrgIndex]
+        let options = try await App.svc.circ.fetchMetarecordHoldOptions(account: account, targetID: targetId, pickupOrgID: pickupOrg.id)
+        self.holdableFormats = options.formatCodes
+        self.holdableLangs = options.languageCodes
     }
 
     //MARK: - Options State Management
@@ -295,6 +359,7 @@ class PlaceHoldViewController: UIViewController {
         loadOrgData()
         loadCarrierData()
         loadExpirationData()
+        loadAdvancedHoldData()
         enableViewsWhenReady()
         App.svc.consortium.dumpOrgStats()
     }
@@ -387,6 +452,13 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
+    func loadAdvancedHoldData() {
+        guard layout == .advancedHold else { return }
+        advancedOptionsTable.reloadData()
+        advancedOptionsTable.layoutIfNeeded()
+        advancedOptionsTableHeightConstraint.constant = advancedOptionsTable.contentSize.height
+    }
+
     @objc func expirationChanged(sender: UIDatePicker) {
         expirationDate = sender.date
     }
@@ -397,6 +469,11 @@ class PlaceHoldViewController: UIViewController {
 
     @objc func holdButtonPressed(sender: Any) {
         placeOrUpdateHold()
+    }
+
+    @objc func advancedHoldButtonPressed(sender: Any) {
+        guard let vc = PlaceHoldViewController.make(record: record, holdRecord: nil, layout: .advancedHold) else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func suspendSwitchChanged(sender: UISwitch) {
@@ -453,7 +530,7 @@ class PlaceHoldViewController: UIViewController {
         let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgID,
                                                 App.account?.pickupOrgID)
 
-        selectedOrgIndex = consortiumService.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
+        selectedOrgIndex = consortiumService.visibleOrgs.firstIndexOrZero(where: { $0.id == defaultPickupOrgID })
         let label = orgLabels[selectedOrgIndex].trim()
         pickupTextField.text = label
         print("[prefs] Pickup org: default is \(label)")
@@ -531,6 +608,17 @@ class PlaceHoldViewController: UIViewController {
                 return
             }
             targetID = id
+        } else if layout == .advancedHold {
+            holdType = API.holdTypeMetarecord
+            if holdableFormats.count > 1 && selectedFormats.isEmpty {
+                self.showAlert(title: "No format selected", message: "You must select at least one format before placing a hold on this item")
+                return
+            }
+            if holdableLangs.count > 1 && selectedLangs.isEmpty {
+                self.showAlert(title: "No language selected", message: "You must select at least one language before placing a hold on this item")
+                return
+            }
+            targetID = record.metarecordID ?? record.id
         } else {
             holdType = API.holdTypeTitle
             targetID = record.id
@@ -575,19 +663,40 @@ class PlaceHoldViewController: UIViewController {
     func doPlaceHold(account: Account, holdType: String, targetID: Int, pickupOrg: Organization, notifyPhoneNumber: String?, notifySMSNumber: String?, notifyCarrierID: Int?) async {
         activityIndicator.startAnimating()
 
-        let eventParams = placeHoldEventParams(selectedOrg: pickupOrg)
+        let eventParams = placeHoldEventParams(holdType: holdType, selectedOrg: pickupOrg)
         do {
-            let options = HoldOptions(holdType: holdType, useOverride: App.config.enableHoldUseOverride, notifyByEmail: emailSwitch.isOn, phoneNotify: notifyPhoneNumber, smsNotify: notifySMSNumber, smsCarrierID: notifyCarrierID, pickupOrgID: pickupOrg.id)
+            let options = HoldOptions(
+                holdType: holdType,
+                useOverride: App.config.enableHoldUseOverride,
+                notifyByEmail: emailSwitch.isOn,
+                phoneNotify: notifyPhoneNumber,
+                smsNotify: notifySMSNumber,
+                smsCarrierID: notifyCarrierID,
+                pickupOrgID: pickupOrg.id,
+                metarecordHoldOptions: (layout == .advancedHold) ? MetarecordHoldOptions(formatCodes: selectedFormats, languageCodes: selectedLangs) : nil
+            )
             let _ = try await App.svc.circ.placeHold(account: account, targetID: targetID, withOptions: options)
             activityIndicator.stopAnimating()
             self.logPlaceHold(params: eventParams)
             self.valueChangedHandler?()
             self.navigationController?.view.makeToast("Hold successfully placed")
-            self.navigationController?.popViewController(animated: true)
+            self.popAfterSuccess()
         } catch {
             activityIndicator.stopAnimating()
             self.logPlaceHold(withError: error, params: eventParams)
             self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    // Pop navigation stack back to the VC prior to the PlaceHold VC.  In the case of Advanced Hold that means 2 back.
+    func popAfterSuccess() {
+        if layout == .advancedHold,
+           let vcStack = self.navigationController?.viewControllers,
+           vcStack.count >= 3
+        {
+            self.navigationController?.popToViewController(vcStack[vcStack.count - 3], animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
@@ -611,17 +720,13 @@ class PlaceHoldViewController: UIViewController {
         }
     }
 
-    private func placeHoldEventParams(selectedOrg: Organization) -> [String: Any] {
-        var notifyTypes: [String] = []
-        if emailSwitch.isOn { notifyTypes.append("email") }
-        if phoneSwitch.isOn { notifyTypes.append("phone") }
-        if smsSwitch.isOn { notifyTypes.append("sms") }
-
+    private func placeHoldEventParams(holdType: String, selectedOrg: Organization) -> [String: Any] {
         let defaultOrg = App.svc.consortium.find(byID: App.account?.pickupOrgID)
         let homeOrg = App.svc.consortium.find(byID: App.account?.homeOrgID)
 
         return [
-            Analytics.Param.holdNotify: notifyTypes.joined(separator: "|"),
+            Analytics.Param.holdType: holdType,
+            Analytics.Param.holdNotify: Analytics.notifyDimension(notifyByEmail: emailSwitch.isOn, notifyByPhone: phoneSwitch.isOn, notifyBySMS: smsSwitch.isOn),
             Analytics.Param.holdPickupKey: Analytics.orgDimension(selectedOrg: selectedOrg, defaultOrg: defaultOrg, homeOrg: homeOrg)
         ]
     }
@@ -700,5 +805,90 @@ extension PlaceHoldViewController: UITextFieldDelegate {
         default:
             return true
         }
+    }
+}
+
+//MARK: - UITableViewDataSource
+extension PlaceHoldViewController: UITableViewDataSource {
+    func isSelected(code: String, in selectedArray: [String]) -> Bool {
+        return selectedArray.contains(code)
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2 // formats and languages
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return holdableFormats.count
+        } else if section == 1 {
+            return holdableLangs.count
+        }
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Desired formats"
+        } else {
+            return "Desired languages"
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return Style.tableHeaderHalfHeight
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "advancedHoldOptionsCell", for: indexPath)
+
+        let label: String
+        let isChecked: Bool
+        if indexPath.section == 0 {
+            let code = holdableFormats[indexPath.row]
+            label = App.svc.biblio.iconFormatLabel(forCode: code)
+            isChecked = isSelected(code: code, in: selectedFormats)
+        } else {
+            let code = holdableLangs[indexPath.row]
+            label = App.svc.biblio.languageLabel(forCode: code)
+            isChecked = isSelected(code: code, in: selectedLangs)
+        }
+
+        cell.textLabel?.text = label
+        cell.accessoryType = (isChecked ? .checkmark : .none)
+
+        return cell
+    }
+}
+
+//MARK: - UITableViewDelegate
+extension PlaceHoldViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        var isChecked: Bool
+        if indexPath.section == 0 {
+            let code = holdableFormats[indexPath.row]
+            if let index = selectedFormats.firstIndex(of: code) {
+                selectedFormats.remove(at: index)
+                isChecked = false
+            } else {
+                selectedFormats.append(code)
+                isChecked = true
+            }
+            print("\(code) \((isChecked ? "selected" : "UNSELECTED"))")
+        } else {
+            let code = holdableLangs[indexPath.row]
+            if let index = selectedLangs.firstIndex(of: code) {
+                selectedLangs.remove(at: index)
+                isChecked = false
+            } else {
+                selectedLangs.append(code)
+                isChecked = true
+            }
+            print("\(code) \((isChecked ? "selected" : "UNSELECTED"))")
+        }
+
+        tableView.cellForRow(at: indexPath)!.accessoryType = (isChecked ? .checkmark : .none)
     }
 }

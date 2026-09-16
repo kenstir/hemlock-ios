@@ -25,6 +25,7 @@ struct HoldOptions {
     let smsNotify: String?
     let smsCarrierID: Int?
     let pickupOrgID: Int
+    let metarecordHoldOptions: MetarecordHoldOptions?
     let expirationDate: Date? = nil
     let suspended: Bool = false
     let thawDate: Date? = nil
@@ -40,4 +41,10 @@ struct HoldUpdateOptions {
     let expirationDate: Date?
     let suspended: Bool
     let thawDate: Date?
+}
+
+/// A set of hold formats and languages for a metarecord hold.
+struct MetarecordHoldOptions {
+    let formatCodes: [String]
+    let languageCodes: [String]
 }
