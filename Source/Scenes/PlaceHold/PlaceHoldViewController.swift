@@ -530,7 +530,7 @@ class PlaceHoldViewController: UIViewController {
         let defaultPickupOrgID = Utils.coalesce(holdRecord?.pickupOrgID,
                                                 App.account?.pickupOrgID)
 
-        selectedOrgIndex = consortiumService.visibleOrgs.firstIndex(where: { $0.id == defaultPickupOrgID }) ?? 0
+        selectedOrgIndex = consortiumService.visibleOrgs.firstIndexOrZero(where: { $0.id == defaultPickupOrgID })
         let label = orgLabels[selectedOrgIndex].trim()
         pickupTextField.text = label
         print("[prefs] Pickup org: default is \(label)")
