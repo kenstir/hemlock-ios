@@ -1,6 +1,6 @@
 # iOS Release Notes
 
-## NEXT
+## 4.8.0
 
 * New feature: Advanced Hold
 * New feature: Tap to zoom item image in Details screen
