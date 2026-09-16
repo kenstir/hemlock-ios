@@ -221,6 +221,7 @@ class PlaceHoldViewController: UIViewController {
 
         advancedHoldButton.addTarget(self, action: #selector(advancedHoldButtonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asOutline: advancedHoldButton)
+        advancedHoldButton.isHidden = true
     }
 
     func setupActivityIndicator() {
@@ -256,7 +257,7 @@ class PlaceHoldViewController: UIViewController {
         thawDatePicker.isEnabled = suspendSwitch.isOn
         thawDatePicker.alpha = suspendSwitch.isOn ? 1.0 : 0.25
 
-        // metarecord hold views are usually hidden
+        // metarecord hold views may be hidden
         advancedOptionsTable.isHidden = (layout != .advancedHold)
         advancedHoldButton.isHidden = (layout != .titleHold)
     }
