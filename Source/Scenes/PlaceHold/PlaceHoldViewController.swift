@@ -289,7 +289,8 @@ class PlaceHoldViewController: UIViewController {
         do {
             async let prereq: Void = App.svc.loader.loadPlaceHoldPrerequisites()
             async let parts: Void = fetchPartsData(account: account)
-            _ = try await (prereq, parts)
+            async let metaStuff: Void = fetchMetarecordStuff(account: account)
+            _ = try await (prereq, parts, metaStuff)
             self.didCompleteFetch = true
             self.onDataLoaded()
         } catch {
@@ -328,6 +329,18 @@ class PlaceHoldViewController: UIViewController {
             }
             print("PlaceHold: \(self.record.title): titleHoldIsPossible=\(Utils.toString(self.titleHoldIsPossible))")
         }
+    }
+
+    func fetchMetarecordStuff(account: Account) async throws {
+        guard let targetId = record.metarecordID, layout == .advancedHold else {
+            return
+        }
+        print("PlaceHold: \(record.title): fetching metarecord hold options")
+
+        let pickupOrg = App.svc.consortium.visibleOrgs[selectedOrgIndex]
+        let options = try await App.svc.circ.fetchMetarecordHoldOptions(account: account, targetID: targetId, pickupOrgID: pickupOrg.id)
+        self.holdableFormats = options.formatCodes
+        self.holdableLangs = options.languageCodes
     }
 
     //MARK: - Options State Management
@@ -440,18 +453,7 @@ class PlaceHoldViewController: UIViewController {
     }
 
     func loadAdvancedHoldData() {
-        holdableFormats = [
-            "book",
-            "lpbook",
-            "braille",
-            "dvd",
-            "cdaudiobook",
-            "blu-ray"
-        ]
-        holdableLangs = [
-            "eng",
-            "spa",
-        ]
+        guard layout == .advancedHold else { return }
         advancedOptionsTable.reloadData()
         advancedOptionsTable.layoutIfNeeded()
         advancedOptionsTableHeightConstraint.constant = advancedOptionsTable.contentSize.height
@@ -608,11 +610,11 @@ class PlaceHoldViewController: UIViewController {
             targetID = id
         } else if layout == .advancedHold {
             holdType = API.holdTypeMetarecord
-            if holdableFormats.count > 0 && selectedFormats.isEmpty {
+            if holdableFormats.count > 1 && selectedFormats.isEmpty {
                 self.showAlert(title: "No format selected", message: "You must select at least one format before placing a hold on this item")
                 return
             }
-            if holdableLangs.count > 0 && selectedLangs.isEmpty {
+            if holdableLangs.count > 1 && selectedLangs.isEmpty {
                 self.showAlert(title: "No language selected", message: "You must select at least one language before placing a hold on this item")
                 return
             }
@@ -678,11 +680,23 @@ class PlaceHoldViewController: UIViewController {
             self.logPlaceHold(params: eventParams)
             self.valueChangedHandler?()
             self.navigationController?.view.makeToast("Hold successfully placed")
-            self.navigationController?.popViewController(animated: true)
+            self.popAfterSuccess()
         } catch {
             activityIndicator.stopAnimating()
             self.logPlaceHold(withError: error, params: eventParams)
             self.presentGatewayAlert(forError: error)
+        }
+    }
+
+    // Pop navigation stack back to the VC prior to the PlaceHold VC.  In the case of Advanced Hold that means 2 back.
+    func popAfterSuccess() {
+        if layout == .advancedHold,
+           let vcStack = self.navigationController?.viewControllers,
+           vcStack.count >= 3
+        {
+            self.navigationController?.popToViewController(vcStack[vcStack.count - 3], animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
