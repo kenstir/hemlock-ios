@@ -112,11 +112,15 @@ class MainListViewController: MainBaseViewController {
         if App.config.enableMessages {
             messagesButton.target = self
             messagesButton.action = #selector(messagesButtonPressed(sender:))
+            messagesButton.accessibilityLabel = "Messages"
         } else {
             messagesButton.isEnabled = false
             messagesButton.isAccessibilityElement = false
+            if #available(iOS 16.0, *) {
+                // hide the button so that iOS26 doesn't draw a halo around it and it isn't visible to VoiceOver
+                messagesButton.isHidden = true
+            }
         }
-        messagesButton.accessibilityLabel = "Messages"
         accountButton.target = self
         accountButton.action = #selector(accountButtonPressed(sender:))
         accountButton.accessibilityLabel = "Accounts"
