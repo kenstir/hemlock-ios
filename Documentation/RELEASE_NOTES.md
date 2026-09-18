@@ -4,6 +4,9 @@
 
 * New feature: Advanced Hold
 * New feature: Tap to zoom item image in Details screen
+* Improve accessibility by removing phantom button in app bar that was
+  visible to VoiceOver and had a visible halo in iOS 26
+* Fixed misaligned halo around account icon in app bar on iOS 26 (!pines)
 * noble: Enable hold_use_override
 * chore: Upgrade to fastlane 2.240.1
 
@@ -27,7 +30,7 @@
 * Handle public catalog alert banners containing HTML
 
 ### Fixed
-* Fixed misaligned halo around account icon in app bar on iOS 26
+* Fixed misaligned halo around account icon in app bar on iOS 26 (pines)
 * chore: Upgrade to Xcode 26.3
 * chore: Upgrade to fastlane 2.233.1
 
