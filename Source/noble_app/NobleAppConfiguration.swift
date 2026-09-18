@@ -22,6 +22,7 @@ class NobleAppConfiguration: BaseAppConfiguration {
     override var sort: String? { return "poprel" }
     override var payChargesUrl: String? { return "https://catalog.noblenet.org/MyAccount/Fines" }
 
+    override var enableMetarecordHolds: Bool { return false }
     override var enablePartHolds: Bool { return true }
     override var enableHoldUseOverride: Bool { return true }
     override var enableTitleHoldOnItemWithParts: Bool { return true }

@@ -221,7 +221,12 @@ class PlaceHoldViewController: UIViewController {
 
         advancedHoldButton.addTarget(self, action: #selector(advancedHoldButtonPressed(sender:)), for: .touchUpInside)
         Style.styleButton(asOutline: advancedHoldButton)
-        advancedHoldButton.isHidden = true
+    }
+
+    func enableAdvancedHoldViews() {
+        advancedOptionsTable.isHidden = (layout != .advancedHold) || !App.config.enableMetarecordHolds
+        advancedHoldButton.isHidden = (layout != .titleHold) || !App.config.enableMetarecordHolds
+        print("\(advancedHoldButton.isHidden ? "HIDE" : "SHOW") adv hold button")
     }
 
     func setupActivityIndicator() {
@@ -232,10 +237,12 @@ class PlaceHoldViewController: UIViewController {
     func enableViewsWhenReady() {
         partSelectStack.isHidden = !hasParts
 
-        // these fields aren't available until we fetch
+        // these fields aren't enabled until we fetch
         pickupTextField.isEnabled = didCompleteFetch
         carrierTextField.isEnabled = didCompleteFetch
         actionButton.isEnabled = didCompleteFetch
+        advancedHoldButton.isEnabled = didCompleteFetch
+        print("\(advancedHoldButton.isEnabled ? "ENABLE" : "DISABLE") adv hold button")
 
         // phone number row is shown only when configured
         phoneNotifyStack.isHidden = !App.config.enableHoldPhoneNotification
@@ -257,9 +264,7 @@ class PlaceHoldViewController: UIViewController {
         thawDatePicker.isEnabled = suspendSwitch.isOn
         thawDatePicker.alpha = suspendSwitch.isOn ? 1.0 : 0.25
 
-        // metarecord hold views may be hidden
-        advancedOptionsTable.isHidden = (layout != .advancedHold)
-        advancedHoldButton.isHidden = (layout != .titleHold)
+        enableAdvancedHoldViews()
     }
 
     func setupLabelAlignment() {
@@ -360,6 +365,7 @@ class PlaceHoldViewController: UIViewController {
         loadOrgData()
         loadCarrierData()
         loadExpirationData()
+        enableAdvancedHoldViews()
         loadAdvancedHoldData()
         enableViewsWhenReady()
         App.svc.consortium.dumpOrgStats()

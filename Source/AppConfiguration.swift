@@ -34,6 +34,7 @@ protocol AppConfiguration {
     var enableHoldShowPickupLib: Bool { get }
     var enableHoldPhoneNotification: Bool { get }
     var enableHoldUseOverride: Bool { get }
+    var enableMetarecordHolds: Bool { get }
     var enablePartHolds: Bool { get }
     var enableTitleHoldOnItemWithParts: Bool { get }
     var enableMainSceneBottomToolbar: Bool { get }
@@ -72,6 +73,7 @@ class BaseAppConfiguration: AppConfiguration {
     var enableHoldShowPickupLib: Bool { return false }
     var enableHoldPhoneNotification: Bool { return false }
     var enableHoldUseOverride: Bool { return false }
+    var enableMetarecordHolds: Bool { return true }
     var enablePartHolds: Bool { return false }
     var enableTitleHoldOnItemWithParts: Bool { return false }
     var enableMainSceneBottomToolbar: Bool { return false }
