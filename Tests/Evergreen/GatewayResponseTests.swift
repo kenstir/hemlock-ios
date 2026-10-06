@@ -83,14 +83,34 @@ class GatewayResponseTests: XCTestCase {
     }
 
     // Checkout history has a plain array of objects - "payload":[obj,obj]
-    func test_arrayResponseForCheckoutHistory() throws {
+    func test_payloadAsObjectArray() throws {
         OSRFCoder.registerClass("test1", fields: ["id","str"])
+        // e.g. open-ils.actor.history.circ
         let json = """
             {"payload":[{"__c":"test1","__p":[1,"Johnny"]},{"__c":"test1","__p":[2,"rat"]}],"status":200}
             """
         let resp = GatewayResponse(json)
         XCTAssertEqual(resp.type, .array)
         XCTAssertEqual(resp.arrayResult?.count, 2)
+
+        let arr = try? resp.payloadAsObjectArray()
+        XCTAssertNotNil(arr)
+        XCTAssertEqual(arr?.count, 2)
+    }
+
+    // Same test but only one object - "payload":[obj]
+    func test_payloadAsObjectArray_oneObject() throws {
+        OSRFCoder.registerClass("test1", fields: ["id","str"])
+        // e.g. open-ils.actor.history.circ
+        let json = """
+            {"payload":[{"__c":"test1","__p":[1,"Johnny"]}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertFalse(resp.failed, String(describing: resp.error))
+
+        let arr = try? resp.payloadAsObjectArray()
+        XCTAssertNotNil(arr)
+        XCTAssertEqual(arr?.count, 1)
     }
 
     func test_emptyResponse() {
@@ -102,6 +122,10 @@ class GatewayResponseTests: XCTestCase {
         XCTAssertEqual(resp.type, .empty)
         XCTAssertNil(resp.obj)
         XCTAssertNil(resp.array)
+
+        let arr = try? resp.payloadAsObjectArray()
+        XCTAssertNotNil(arr)
+        XCTAssertEqual(arr?.count, 0)
     }
 
     func test_authInitResponse() {
@@ -251,15 +275,13 @@ class GatewayResponseTests: XCTestCase {
         let resp = GatewayResponse(json)
         XCTAssertFalse(resp.failed, String(describing: resp.error))
         XCTAssertEqual(resp.type, .unknown)
-        guard let payload = resp.payload,
-            let payloadArray = payload as? [Any],
-            let first = payloadArray.first as? [Any],
+        guard let first = resp.payload.first as? [Any],
             let counts = first.first as? [Any] else
         {
             XCTFail()
             return
         }
-        XCTAssertEqual(payloadArray.count, 1)
+        XCTAssertEqual(resp.payload.count, 1)
         XCTAssertEqual(first.count, 1)
         XCTAssertEqual(counts.count, 6)
     }

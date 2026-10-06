@@ -17,8 +17,23 @@
 import Foundation
 
 class EvergreenBiblioService: BiblioService {
-    func imageUrl(forRecord record: BibRecord) -> String? {
-        return nil
+    func imageUrl(forRecord record: BibRecord, size: ImageSize) -> String? {
+        switch size {
+        case .small:
+            return App.config.url + "/opac/extras/ac/jacket/small/r/" + String(record.id)
+        case .medium:
+            return App.config.url + "/opac/extras/ac/jacket/medium/r/" + String(record.id)
+        case .large:
+            return App.config.url + "/opac/extras/ac/jacket/large/r/" + String(record.id)
+        }
+    }
+
+    func iconFormatLabel(forCode code: String) -> String {
+        return CodedValueMap.iconFormatLabel(forCode: code)
+    }
+
+    func languageLabel(forCode code: String) -> String {
+        return CodedValueMap.languageLabel(forCode: code)
     }
 
     func loadRecordDetails(forRecord bibRecord: BibRecord, needMARC: Bool) async throws -> Void {

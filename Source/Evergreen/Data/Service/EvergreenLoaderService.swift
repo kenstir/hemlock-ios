@@ -127,7 +127,7 @@ class EvergreenLoaderService: LoaderService {
         if ccvmLoaded {
             return
         }
-        let query: [String: Any] = ["ctype": ["icon_format", "search_format"]]
+        let query: [String: Any] = ["ctype": ["icon_format", "search_format", "item_lang"]]
         let req = Gateway.makeRequest(service: API.pcrud, method: API.searchCCVM, args: [API.anonymousAuthToken, query], shouldCache: true)
         let array = try await req.gatewayResponseAsync().asArray()
         // TODO: make mt-safe, remove await

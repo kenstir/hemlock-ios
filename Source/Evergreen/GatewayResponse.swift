@@ -66,8 +66,8 @@ struct GatewayResponse {
     var str: String? { return stringResult }
     var obj: OSRFObject? { return objectResult }
     var array: [OSRFObject]? { return arrayResult }
-    
-    var payload: Any? // raw payload
+
+    var payload: [Any?] = [] // raw json payload before any OSRF decoding
 
     var failed: Bool {
         return type == .error
@@ -144,7 +144,7 @@ struct GatewayResponse {
         // sometimes an array of one json array: "payload": [[{}]]
         // rarely an arrayof json objects:       "payload": [{},{},...]
         // but in the cases of authInit it is an array of one string
-        guard let payload = json["payload"] as? [Any] else {
+        guard let payload = json["payload"] as? [Any?] else {
             error = .failure("Internal Server Error: response is missing payload")
             return
         }

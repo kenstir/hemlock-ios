@@ -21,7 +21,14 @@ class EvergreenAsync {
     //MARK: - Pcrud
 
     static func fetchBRE(id: Int) async throws -> OSRFObject {
-        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, id], shouldCache: true)
+        let fleshFields: JSONDictionary = [
+            "bre": ["metarecord"]
+        ]
+        let query: JSONDictionary = [
+            "flesh_fields": fleshFields,
+            "flesh": 1
+        ]
+        let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveBRE, args: [API.anonymousAuthToken, id, query], shouldCache: true)
         return try await req.gatewayResponseAsync().asObject()
     }
 

@@ -34,6 +34,7 @@ class Style {
     //MARK: - Sizes
 
     static var tableHeaderHeight = 55.0
+    static var tableHeaderHalfHeight = tableHeaderHeight / 2.0
     static let buttonCornerRadius = 6.0
 
     //MARK: - Colors

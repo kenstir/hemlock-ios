@@ -60,7 +60,7 @@ class EvergreenOrgService: OrgService {
         async let addressResp = addressReq.gatewayResponseAsync()
 
         // await responses in parallel
-        let (orgObj, hoursObj, closures, addressObj) = try await (orgResp.asObject(), hoursResp.asObjectOrNil(), closuresResp.asMaybeEmptyArray(), addressResp.asObjectOrNil())
+        let (orgObj, hoursObj, closures, addressObj) = try await (orgResp.asObject(), hoursResp.asObjectOrNil(), closuresResp.payloadAsObjectArray(), addressResp.asObjectOrNil())
 
         // load data
         org.updateOrg(fromObj: orgObj)

@@ -45,6 +45,7 @@ extension GatewayResponse {
         }
     }
 
+    // TODO: rename to payloadFirstAsArray
     func asArray() throws -> [OSRFObject] {
         if let error = self.error {
             throw error
@@ -55,16 +56,19 @@ extension GatewayResponse {
         }
     }
 
-    func asMaybeEmptyArray() throws -> [OSRFObject] {
+    /// Given `"payload":[obj,obj]` return `[obj,obj]`
+    /// Returned array may be empty
+    func payloadAsObjectArray() throws -> [OSRFObject] {
         if let error = self.error {
             throw error
         } else if self.type == .empty {
             return []
         } else if let array = self.array {
             return array
+        } else if let obj = self.obj {
+            return [obj]
         } else {
             throw HemlockError.serverError("expected array, got \(self.description)")
         }
     }
-
 }

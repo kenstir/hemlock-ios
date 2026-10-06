@@ -24,7 +24,7 @@ struct API {
     //MARK: - misc
 
     static let anonymousAuthToken = "ANONYMOUS" // can be passed as authtoken in some requests
-    static let netClasses = "ac,acn,acp,aec,aecs,ahr,ahrn,ahtc,aoa,aou,aoucd,aouhoo,aout,au,aua,auact,auch,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mous,mra,mraf,mus,mvr,perm_ex"
+    static let netClasses = "ac,acn,acp,aec,aecs,ahr,ahrn,ahtc,aoa,aou,aoucd,aouhoo,aout,au,aua,auact,auch,aum,aus,bmp,bre,cbreb,cbrebi,cbrebin,cbrebn,ccs,ccvm,cfg,circ,csc,cuat,ex,mbt,mbts,mmr,mous,mra,mraf,mus,mvr,perm_ex"
 
     //MARK: - actor service
 
@@ -96,6 +96,7 @@ struct API {
     static let holdTestAndCreateOverride = "open-ils.circ.holds.test_and_create.batch.override"
     static let holdUpdate = "open-ils.circ.hold.update"
     static let holdQueueStats = "open-ils.circ.hold.queue_stats.retrieve"
+    static let metarecordHoldsFilter = "open-ils.circ.mmr.holds.filters"
     static let renew = "open-ils.circ.renew"
     static let titleHoldIsPossible = "open-ils.circ.title_hold.is_possible"
     

@@ -16,6 +16,7 @@
 
 protocol BibRecord: AnyObject {
     var id: Int { get }
+    var metarecordID: Int? { get }
 
     var author: String { get }
     var firstOnlineLocation: String? { get }

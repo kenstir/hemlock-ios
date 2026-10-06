@@ -216,13 +216,8 @@ class HistoryViewController: UITableViewController {
             }
         }
 
-/*
-        // async load the image
-        // We cannot load the image here, because the bib record ID needs to be fetched
-        if let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(item.metabibRecord?.id ?? -1)) {
-            cell.coverImage.pin_setImage(from: url)
-        }
-*/
+        // NB: We cannot async load the image here, because the bib record ID needs to be fetched
+
         return cell
     }
 
@@ -233,8 +228,9 @@ class HistoryViewController: UITableViewController {
         cell.checkoutDate.text = "Checkout Date: \(item?.checkoutDateLabel ?? "")"
         cell.returnDate.text = "Returned Date: \(item?.returnedDateLabel ?? "")"
         // async load the image
-        if let recordID = item?.record?.id,
-            let url = URL(string: App.config.url + "/opac/extras/ac/jacket/small/r/" + String(recordID)) {
+        if let record = item?.record,
+           let imageURL = App.svc.biblio.imageUrl(forRecord: record, size: .small),
+           let url = URL(string: imageURL) {
             cell.coverImage.pin_setImage(from: url)
         } else {
             let url: URL? = nil

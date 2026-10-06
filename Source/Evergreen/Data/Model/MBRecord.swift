@@ -20,6 +20,7 @@ class MBRecord: BibRecord {
     private let lock = NSRecursiveLock()
 
     let id: Int
+    private(set) var metarecordID: Int?
     private(set) var mvrObj: OSRFObject?
     var hasMetadata: Bool { return mvrObj != nil }
     private(set) var attrs: [String: String]? // from MRA object
@@ -124,6 +125,7 @@ class MBRecord: BibRecord {
         let parser = MARCXMLParser(data: data)
         marcRecord = try? parser.parse()
         marcIsDeleted = obj.getBoolOrFalse("deleted")
+        metarecordID = obj.getObject("metarecord")?.getInt("id")
     }
 
     /// mt-safe
