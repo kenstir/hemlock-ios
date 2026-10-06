@@ -24,6 +24,7 @@ class OwwlAppConfiguration: BaseAppConfiguration {
 
     override var enableHoldPhoneNotification: Bool { return true }
     override var enableHoldUseOverride: Bool { return true }
+    override var enableMetarecordHolds: Bool { return false }
     override var enablePartHolds: Bool { return true }
     override var enablePayFines: Bool { return false }
     override var needMARCRecord: Bool { return true }

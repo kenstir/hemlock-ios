@@ -88,7 +88,7 @@ class EvergreenCircService: CircService {
 
     func fetchCheckoutHistory(account: Account) async throws -> [HistoryRecord] {
         let req = Gateway.makeRequest(service: API.actor, method: API.checkoutHistory, args: [account.authtoken], shouldCache: false)
-        let array = try await req.gatewayResponseAsync().asMaybeEmptyArray()
+        let array = try await req.gatewayResponseAsync().payloadAsObjectArray()
         return EvergreenHistoryRecord.makeArray(array)
     }
 
