@@ -1,5 +1,9 @@
 # iOS Release Notes
 
+## WIP
+
+* Fix bug where failed hold was reported as "Unexpected network response"
+
 ## 4.8.0
 
 * New feature: Advanced Hold
