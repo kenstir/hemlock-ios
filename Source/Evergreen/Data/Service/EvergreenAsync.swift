@@ -32,9 +32,9 @@ class EvergreenAsync {
         return try await req.gatewayResponseAsync().asObject()
     }
 
-    static func fetchMRA(id: Int) async throws -> OSRFObject {
+    static func fetchMRA(id: Int) async throws -> OSRFObject? {
         let req = Gateway.makeRequest(service: API.pcrud, method: API.retrieveMRA, args: [API.anonymousAuthToken, id], shouldCache: true)
-        return try await req.gatewayResponseAsync().asObject()
+        return try await req.gatewayResponseAsync().asObjectOrNil()
     }
 
     //MARK: - Search
