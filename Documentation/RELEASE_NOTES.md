@@ -5,6 +5,7 @@
 ### Fixed
 * Fix bug where failed hold was reported as "Unexpected network response"
 * chore: Upgrade to fastlane 2.241.1
+* chore: Upgrade firebase-ios-sdk to 12.19.2
 
 ## 4.8.0
 
