@@ -1,8 +1,10 @@
 # iOS Release Notes
 
-## WIP
+## 4.8.1
 
+### Fixed
 * Fix bug where failed hold was reported as "Unexpected network response"
+* chore: Upgrade to fastlane 2.241.1
 
 ## 4.8.0
 
