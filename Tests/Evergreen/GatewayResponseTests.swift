@@ -1,7 +1,5 @@
 //
-//  GatewayResponseTests.swift
-//
-//  Copyright (C) 2018 Kenneth H. Cox
+//  Copyright (c) 2026 Kenneth H. Cox
 //
 //  This program is free software; you can redistribute it and/or
 //  modify it under the terms of the GNU General Public License
@@ -14,8 +12,7 @@
 //  GNU General Public License for more details.
 //
 //  You should have received a copy of the GNU General Public License
-//  along with this program; if not, write to the Free Software
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+//  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import XCTest
 import Foundation
@@ -186,7 +183,7 @@ class GatewayResponseTests: XCTestCase {
         let customMessage = "Hold rules reject this item as unholdable" // fail_part_msg_map.json
         XCTAssertEqual(resp.errorMessage, customMessage)
     }
-    
+
     func test_placeHold_failWithHoldExists() {
         let json = """
             {"payload":[{"target":210,"result":[{"ilsevent":"1707","servertime":"Sun Aug  2 18:19:53 2020","stacktrace":"Holds.pm:302","desc":"User already has an open hold on the selected item","pid":9379,"textcode":"HOLD_EXISTS"}]}],"status":200}
@@ -194,6 +191,16 @@ class GatewayResponseTests: XCTestCase {
         let resp = GatewayResponse(json)
         XCTAssertTrue(resp.failed)
         XCTAssertEqual(resp.errorMessage, "User already has an open hold on the selected item")
+    }
+
+    /// Place hold fails slightly differently when using .override
+    func test_placeHold_failWithHoldExistsOverride() {
+        let json = """
+            {"payload":[{"result":{"ilsevent":"5000","textcode":"PERM_FAILURE","desc":"Permission Denied","ilsperm":"HOLD_EXISTS.override"},"target":5565605}],"status":200}
+            """
+        let resp = GatewayResponse(json)
+        XCTAssertTrue(resp.failed)
+        XCTAssertEqual(resp.errorMessage, "Permission Denied")
     }
 
     // This hold response has a result containing an auto-generated last_event, with an empty "ilsevent".

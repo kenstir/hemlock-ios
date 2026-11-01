@@ -234,7 +234,7 @@ struct GatewayResponse {
     // "some events, in particular auto-generated events, don't have an
     // ilsevent key.  Treat hashes with a 'textcode key as events."
     func parseEvent(fromObj obj: OSRFObject?) -> GatewayError? {
-        // case 1: obj is an event
+        // case: obj is an event
         if let ilsevent = obj?.getAny("ilsevent"),
            let textcode = obj?.getString("textcode"),
            textcode != "SUCCESS",
@@ -244,13 +244,18 @@ struct GatewayResponse {
             return .event(ilsevent: ilsevent, textcode: textcode, desc: desc, failpart: failpart)
         }
 
-        // case 2: obj has a last_event, or a result with a last_event
+        // case: obj has a last_event, or a result with a last_event
         if let lastEvent = obj?.getObject("result")?.getObject("last_event") ?? obj?.getObject("last_event")            
         {
             return parseEvent(fromObj: lastEvent)
         }
 
-        // case 3: obj has a result that is an array of events
+        // case: obj has a result which is an event
+        if let resultObj = obj?.getObject("result") {
+            return parseEvent(fromObj: resultObj)
+        }
+
+        // case: obj has a result that is an array of events
         if let array = obj?.getAny("result") as? [OSRFObject],
             let firstObj = array.first
         {
