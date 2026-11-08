@@ -130,20 +130,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginPressed(_ sender: Any) {
         doLogin()
     }
-    
+
     func doLogin() {
         guard !alreadyLoggedIn else { return }
-        guard usernameField.hasText else {
+
+        // Neither username nor password can be empty.
+        // Username cannot contain any spaces, so trim it for convenience.
+        // Password can contain spaces, so do not trim it.
+        guard usernameField.hasText, let username = usernameField.text?.trim() else {
             self.view.makeToast("Username cannot be empty")
             return
         }
-        guard passwordField.hasText else {
+        guard passwordField.hasText, let password = passwordField.text else {
             self.view.makeToast("Password cannot be empty")
-            return
-        }
-        guard let username = usernameField.text,
-              let password = passwordField.text else
-        {
             return
         }
         os_log("login: doLogin: username=%@", username)

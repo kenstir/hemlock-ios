@@ -4,6 +4,7 @@
 
 ### Fixed
 * Fix issue where Login button was disabled if startup loading failed
+* Fix issue where Login could fail on trailing space in username field
 
 ## 4.8.1
 
