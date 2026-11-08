@@ -132,9 +132,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doLogin() {
-        if alreadyLoggedIn {
-            return
-        }
+        guard !alreadyLoggedIn else { return }
         guard usernameField.hasText else {
             self.view.makeToast("Username cannot be empty")
             return
@@ -155,6 +153,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @MainActor
     func doLoginAsync(username: String, password: String) async {
+        guard !alreadyLoggedIn, !activityIndicator.isAnimating else { return }
+
         activityIndicator.startAnimating()
 
         do {
