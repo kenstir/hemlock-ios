@@ -1,5 +1,10 @@
 # iOS Release Notes
 
+## upcoming
+
+### Fixed
+* Fix issue where Login button was disabled if startup loading failed
+
 ## 4.8.1
 
 ### Fixed
