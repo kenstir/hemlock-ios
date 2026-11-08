@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    var didCompleteFetch = false
+    var didLoadPrerequisites = false
 
     /// This is a secondary Login to support the "Add Account" action
     var isAddingAccount = false
@@ -46,7 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        Task { await self.fetchData() }
+        attemptAutoLogin()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -69,9 +69,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // handle Return in the text fields
         usernameField.delegate = self
         passwordField.delegate = self
-        
+
         // add style
-        loginButton.isEnabled = false
         Style.styleButton(asInverse: loginButton)
         Style.styleButton(asPlain: cancelButton)
         Style.styleButton(asPlain: forgotPasswordButton)
@@ -88,24 +87,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.scrollView.setupKeyboardAutoResizer()
     }
 
-    @MainActor
-    func fetchData() async {
-        self.activityIndicator.startAnimating()
+    func loadStartupPrerequisites() async throws {
+        guard !self.didLoadPrerequisites else { return }
 
-        do {
-            let options = LoaderServiceOptions(clientCacheKey: Bundle.appVersionUrlSafe,
-                                             useHierarchicalOrgTree: App.config.enableHierarchicalOrgTree)
-            try await App.svc.loader.loadStartupPrerequisites(options: options)
-
-            self.loginButton.isEnabled = true
-            self.didCompleteFetch = true
-
-            attemptAutoLogin()
-        } catch {
-            self.presentGatewayAlert(forError: error)
-        }
-
-        self.activityIndicator.stopAnimating()
+        let options = LoaderServiceOptions(
+            clientCacheKey: Bundle.appVersionUrlSafe,
+            useHierarchicalOrgTree: App.config.enableHierarchicalOrgTree
+        )
+        try await App.svc.loader.loadStartupPrerequisites(options: options)
+        self.didLoadPrerequisites = true
     }
 
     //MARK: UITextFieldDelegate
@@ -115,9 +105,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.passwordField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
-            if self.didCompleteFetch {
-                doLogin()
-            }
+            doLogin()
         }
         return true
     }
@@ -169,8 +157,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func doLoginAsync(username: String, password: String) async {
         activityIndicator.startAnimating()
 
-        var credential = Credential(username: username, password: password)
         do {
+            try await loadStartupPrerequisites()
+
+            var credential = Credential(username: username, password: password)
             let authtoken = try await App.svc.auth.fetchAuthToken(credential: credential)
             let account = App.svc.user.makeAccount(username: username, password: password, authToken: authtoken)
 
