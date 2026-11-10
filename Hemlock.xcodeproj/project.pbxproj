@@ -65,6 +65,15 @@
 		D20F1A592B924B7300C76FC0 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* PlaceHold.storyboard */; };
 		D20F1A5A2B924B7300C76FC0 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* PlaceHold.storyboard */; };
 		D20F1A5B2B924B7300C76FC0 /* PlaceHold.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D20F1A502B924B7300C76FC0 /* PlaceHold.storyboard */; };
+		D20FCB2530A2548100E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB2430A2548100E48A5E /* Valet */; };
+		D20FCB2730A254DA00E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB2630A254DA00E48A5E /* Valet */; };
+		D20FCB2930A254E900E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB2830A254E900E48A5E /* Valet */; };
+		D20FCB2B30A254F900E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB2A30A254F900E48A5E /* Valet */; };
+		D20FCB2D30A2550C00E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB2C30A2550C00E48A5E /* Valet */; };
+		D20FCB2F30A2551A00E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB2E30A2551A00E48A5E /* Valet */; };
+		D20FCB3130A2552900E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB3030A2552900E48A5E /* Valet */; };
+		D20FCB3330A2553600E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB3230A2553600E48A5E /* Valet */; };
+		D20FCB3530A2554800E48A5E /* Valet in Frameworks */ = {isa = PBXBuildFile; productRef = D20FCB3430A2554800E48A5E /* Valet */; };
 		D21090C624D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
 		D21090C824D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
 		D21090C924D7243F004FE532 /* MessageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21090C524D7243F004FE532 /* MessageMap.swift */; };
@@ -1129,8 +1138,6 @@
 		D293EC1D297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
 		D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DE02B8FBFF900193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951DE12B8FBFF900193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
 		D2951DE32B8FBFF900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
@@ -1143,8 +1150,6 @@
 		D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E012B8FC1D600193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951E022B8FC1D600193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
@@ -1153,8 +1158,6 @@
 		D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E2B2B8FC25900193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951E2C2B8FC25900193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
@@ -1163,8 +1166,6 @@
 		D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E402B8FC27600193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951E412B8FC27600193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
@@ -1173,8 +1174,6 @@
 		D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E552B8FC28F00193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951E562B8FC28F00193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
@@ -1183,8 +1182,6 @@
 		D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E6A2B8FC29E00193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951E6B2B8FC29E00193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
@@ -1193,8 +1190,6 @@
 		D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E942B8FC2B800193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951E952B8FC2B800193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
@@ -1203,8 +1198,6 @@
 		D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EA92B8FC2C500193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951EAA2B8FC2C500193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
@@ -1213,8 +1206,6 @@
 		D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
 		D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EBE2B8FC2D400193695 /* Valet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; };
-		D2951EBF2B8FC2D400193695 /* Valet.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD42B8FBFF800193695 /* Valet.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D296EE0C21338030009BDB12 /* CwmarsAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE092133802F009BDB12 /* CwmarsAppConfiguration.swift */; };
@@ -1834,7 +1825,6 @@
 				D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */,
 				D2951DE32B8FBFF900193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951DE12B8FBFF900193695 /* Valet.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1848,7 +1838,6 @@
 				D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E022B8FC1D600193695 /* Valet.xcframework in Embed Frameworks */,
 				D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1863,7 +1852,6 @@
 				D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E2C2B8FC25900193695 /* Valet.xcframework in Embed Frameworks */,
 				D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1878,7 +1866,6 @@
 				D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E412B8FC27600193695 /* Valet.xcframework in Embed Frameworks */,
 				D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1893,7 +1880,6 @@
 				D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E562B8FC28F00193695 /* Valet.xcframework in Embed Frameworks */,
 				D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1908,7 +1894,6 @@
 				D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E6B2B8FC29E00193695 /* Valet.xcframework in Embed Frameworks */,
 				D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1923,7 +1908,6 @@
 				D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E952B8FC2B800193695 /* Valet.xcframework in Embed Frameworks */,
 				D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1938,7 +1922,6 @@
 				D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951EAA2B8FC2C500193695 /* Valet.xcframework in Embed Frameworks */,
 				D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1953,7 +1936,6 @@
 				D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 				D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951EBF2B8FC2D400193695 /* Valet.xcframework in Embed Frameworks */,
 				D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -2284,13 +2266,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2FABA39300AE2DF002A5B99 /* Toast in Frameworks */,
+				D20FCB2730A254DA00E48A5E /* Valet in Frameworks */,
 				D213904E2C5006C6007C4EFD /* FirebaseMessaging in Frameworks */,
 				D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */,
 				D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */,
 				D26407BA2F85BB9400C68CE6 /* Alamofire in Frameworks */,
-				D2951E012B8FC1D600193695 /* Valet.xcframework in Frameworks */,
 				D23A1CA92EE615A5003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2306,8 +2288,8 @@
 				D2FABA49300AE38A002A5B99 /* Toast in Frameworks */,
 				D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D25D972D2E39644C00DBFD65 /* FirebaseCrashlytics in Frameworks */,
+				D20FCB3530A2554800E48A5E /* Valet in Frameworks */,
 				D23A1C9D2EE6152C003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951EBE2B8FC2D400193695 /* Valet.xcframework in Frameworks */,
 				D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2322,8 +2304,8 @@
 				D2FABA3F300AE33F002A5B99 /* Toast in Frameworks */,
 				D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D25D97262E38418700DBFD65 /* FirebaseCrashlytics in Frameworks */,
+				D20FCB2D30A2550C00E48A5E /* Valet in Frameworks */,
 				D23A1CA52EE61586003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E402B8FC27600193695 /* Valet.xcframework in Frameworks */,
 				D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2338,8 +2320,8 @@
 				D2FABA41300AE356002A5B99 /* Toast in Frameworks */,
 				D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D22A7FF62D680B60003C5F20 /* FirebaseCrashlytics in Frameworks */,
+				D20FCB2F30A2551A00E48A5E /* Valet in Frameworks */,
 				D23A1CA32EE61578003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E552B8FC28F00193695 /* Valet.xcframework in Frameworks */,
 				D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2354,8 +2336,8 @@
 				D2FABA45300AE372002A5B99 /* Toast in Frameworks */,
 				D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D25D97342E39855300DBFD65 /* FirebaseCrashlytics in Frameworks */,
+				D20FCB3330A2553600E48A5E /* Valet in Frameworks */,
 				D23A1C9F2EE61551003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E942B8FC2B800193695 /* Valet.xcframework in Frameworks */,
 				D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2370,9 +2352,9 @@
 				D2FABA3B300AE307002A5B99 /* Toast in Frameworks */,
 				D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */,
 				D23A1CA72EE6159A003A673E /* FirebaseAnalyticsCore in Frameworks */,
+				D20FCB2930A254E900E48A5E /* Valet in Frameworks */,
 				D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */,
 				D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951DE02B8FBFF900193695 /* Valet.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2380,11 +2362,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20FCB2B30A254F900E48A5E /* Valet in Frameworks */,
 				D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */,
 				D26407BE2F85BBB000C68CE6 /* Alamofire in Frameworks */,
 				D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */,
 				D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */,
-				D2951E2B2B8FC25900193695 /* Valet.xcframework in Frameworks */,
 				D2FABA3D300AE328002A5B99 /* Toast in Frameworks */,
 				D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */,
 			);
@@ -2394,13 +2376,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20FCB2530A2548100E48A5E /* Valet in Frameworks */,
 				D2E4090A2BD1F72C00148FD5 /* FirebaseMessaging in Frameworks */,
 				D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */,
 				D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2E409082BD1F72C00148FD5 /* FirebaseCrashlytics in Frameworks */,
 				D26407B82F85BB5600C68CE6 /* Alamofire in Frameworks */,
-				D2951EA92B8FC2C500193695 /* Valet.xcframework in Frameworks */,
 				D23A1C9B2EE614CE003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2FABA47300AE37D002A5B99 /* Toast in Frameworks */,
 				D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */,
@@ -2424,8 +2406,8 @@
 				D2FABA43300AE363002A5B99 /* Toast in Frameworks */,
 				D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2C7F2E12CB1FDE300CA46B0 /* FirebaseCrashlytics in Frameworks */,
+				D20FCB3130A2552900E48A5E /* Valet in Frameworks */,
 				D23A1CA12EE6156B003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E6A2B8FC29E00193695 /* Valet.xcframework in Frameworks */,
 				D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3177,6 +3159,7 @@
 				D23A1CA82EE615A5003A673E /* FirebaseAnalyticsCore */,
 				D26407B92F85BB9400C68CE6 /* Alamofire */,
 				D2FABA38300AE2DF002A5B99 /* Toast */,
+				D20FCB2630A254DA00E48A5E /* Valet */,
 			);
 			productName = Hemlock;
 			productReference = D210EC3622B1EE55002FB5E0 /* acorn.app */;
@@ -3278,6 +3261,7 @@
 				D23A1CA62EE6159A003A673E /* FirebaseAnalyticsCore */,
 				D26407BB2F85BBA300C68CE6 /* Alamofire */,
 				D2FABA3A300AE307002A5B99 /* Toast */,
+				D20FCB2830A254E900E48A5E /* Valet */,
 			);
 			productName = Hemlock;
 			productReference = D276DAE221336B20007FAA31 /* cwmars.app */;
@@ -3322,6 +3306,7 @@
 				D23A1C9A2EE614CE003A673E /* FirebaseAnalyticsCore */,
 				D26407B72F85BB5600C68CE6 /* Alamofire */,
 				D2FABA46300AE37D002A5B99 /* Toast */,
+				D20FCB2430A2548100E48A5E /* Valet */,
 			);
 			productName = Hemlock;
 			productReference = D287D4F8207AEF2B001AF644 /* PINES.app */;
@@ -3366,6 +3351,7 @@
 				D23A1CA02EE6156B003A673E /* FirebaseAnalyticsCore */,
 				D26407C32F85BBDE00C68CE6 /* Alamofire */,
 				D2FABA42300AE363002A5B99 /* Toast */,
+				D20FCB3030A2552900E48A5E /* Valet */,
 			);
 			productName = Hemlock;
 			productReference = D2BDA67F22D176BD00D9B60C /* NOBLE.app */;
@@ -3412,6 +3398,7 @@
 				D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D2FABA37300AE2DF002A5B99 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */,
 			);
 			productRefGroup = D287D4F9207AEF2B001AF644 /* Products */;
 			projectDirPath = "";
@@ -6197,6 +6184,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/square/valet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
 		D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -6226,6 +6221,51 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D20FCB2430A2548100E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
+		D20FCB2630A254DA00E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
+		D20FCB2830A254E900E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
+		D20FCB2A30A254F900E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
+		D20FCB2C30A2550C00E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
+		D20FCB2E30A2551A00E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
+		D20FCB3030A2552900E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
+		D20FCB3230A2553600E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
+		D20FCB3430A2554800E48A5E /* Valet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
+			productName = Valet;
+		};
 		D213904B2C5006BA007C4EFD /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
