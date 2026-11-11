@@ -81,10 +81,10 @@ class CredentialManager {
         self.bundle = CredentialBundleV1(lastUsername: nil, credentials: [])
         loadFromStorage()
     }
-    
+
     func loadFromStorage() {
         // handle V1 storage
-        if let data = valet.object(forKey: CredentialManager.storageKeyV1),
+        if let data = try? valet.object(forKey: CredentialManager.storageKeyV1),
             let bundle = try? JSONDecoder().decode(CredentialBundleV1.self, from: data) {
             self.bundle = bundle
             os_log("creds: loaded %d V1 creds last=%@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
@@ -92,13 +92,13 @@ class CredentialManager {
         }
 
         // handle legacy storage
-        if let username = valet.string(forKey: CredentialManager.legacyUsernameKey),
-            let password = valet.string(forKey: CredentialManager.legacyPasswordKey)
+        if let username = try? valet.string(forKey: CredentialManager.legacyUsernameKey),
+            let password = try? valet.string(forKey: CredentialManager.legacyPasswordKey)
         {
             let credential = Credential(username: username, password: password)
             self.bundle = CredentialBundleV1(lastUsername: username, credentials: [credential])
-            valet.removeObject(forKey: CredentialManager.legacyUsernameKey)
-            valet.removeObject(forKey: CredentialManager.legacyPasswordKey)
+            try? valet.removeObject(forKey: CredentialManager.legacyUsernameKey)
+            try? valet.removeObject(forKey: CredentialManager.legacyPasswordKey)
             self.writeToStorage()
             os_log("creds: loaded %d legacy creds last=%@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
             return
@@ -109,7 +109,7 @@ class CredentialManager {
     
     func writeToStorage() {
         if let data = try? JSONEncoder().encode(bundle) {
-            valet.set(object: data, forKey: CredentialManager.storageKeyV1)
+            try? valet.setObject(data, forKey: CredentialManager.storageKeyV1)
             os_log("creds: wrote %d V1 creds last=%@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
         }
     }

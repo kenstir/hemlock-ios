@@ -6189,7 +6189,7 @@
 			repositoryURL = "https://github.com/square/valet";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.3;
+				minimumVersion = 4.0.0;
 			};
 		};
 		D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -6207,8 +6207,6 @@
 				kind = upToNextMajorVersion;
 				minimumVersion = 13.0.0;
 			};
-			traits = (
-			);
 		};
 		D2FABA37300AE2DF002A5B99 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;

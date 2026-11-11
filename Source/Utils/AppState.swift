@@ -41,7 +41,7 @@ class AppState {
 
     static func sensitiveString(forKey key: String) -> String? {
         // We use Valet for sensitive strings like phone numbers
-        if let value = App.valet.string(forKey: key) {
+        if let value = try? App.valet.string(forKey: key) {
             print("[state] Got sensitive \(key) = ***")
             return value
         }
@@ -77,7 +77,7 @@ class AppState {
     static func set(sensitiveString string: String, forKey key: String) {
         // We use Valet for sensitive strings like phone numbers
         print("[state] Set sensitive \(key) to ***")
-        App.valet.set(string: string, forKey: key)
+        try? App.valet.setString(string, forKey: key)
     }
 
     static func set(string: String, forKey key: String) {
@@ -102,25 +102,25 @@ class AppState {
         migrateOneSetting(from: "SMSCarrier", toInteger: AppState.Integer.holdSMSCarrierID)
     }
     static func migrateOneSetting(from oldKey: String, to newKey: String) {
-        if let val = App.valet.string(forKey: oldKey) {
+        if let val = try? App.valet.string(forKey: oldKey) {
             print("[state] migrate \(oldKey) = \(val) to newKey \(newKey)")
             UserDefaults.standard.set(val, forKey: newKey)
-            App.valet.removeObject(forKey: oldKey)
+            try? App.valet.removeObject(forKey: oldKey)
         }
     }
     static func migrateOneSetting(from oldKey: String, toBool newKey: String) {
-        if let val = App.valet.string(forKey: oldKey) {
+        if let val = try? App.valet.string(forKey: oldKey) {
             let boolVal = (val == "t")
             print("[state] migrate \(oldKey) = \(boolVal) to newKey \(newKey)")
             UserDefaults.standard.set(boolVal, forKey: newKey)
-            App.valet.removeObject(forKey: oldKey)
+            try? App.valet.removeObject(forKey: oldKey)
         }
     }
     static func migrateOneSetting(from oldKey: String, toInteger newKey: String) {
-        if let val = App.valet.string(forKey: oldKey), let intVal = Int(val) {
+        if let val = try? App.valet.string(forKey: oldKey), let intVal = Int(val) {
             print("[state] migrate \(oldKey) = \(intVal) to newKey \(newKey)")
             UserDefaults.standard.set(intVal, forKey: newKey)
-            App.valet.removeObject(forKey: oldKey)
+            try? App.valet.removeObject(forKey: oldKey)
         }
     }
 }
