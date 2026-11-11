@@ -6207,6 +6207,8 @@
 				kind = upToNextMajorVersion;
 				minimumVersion = 13.0.0;
 			};
+			traits = (
+			);
 		};
 		D2FABA37300AE2DF002A5B99 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
