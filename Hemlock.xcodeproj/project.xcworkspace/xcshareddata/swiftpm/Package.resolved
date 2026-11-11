@@ -1,5 +1,5 @@
 {
-  "originHash" : "2e1cadfbeb45958b474e2a6adfb77f7f7e9d5c9b9a787ed8d53983cbe0fcb9f0",
+  "originHash" : "8dc123e0f7461a8a1b99bca6174a9f753c8dd9239f1b38e93724f7f76aaa1058",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -152,6 +152,15 @@
       "state" : {
         "revision" : "43f517941ced37752c0cd5e2b53a3c9d021c848b",
         "version" : "5.1.1"
+      }
+    },
+    {
+      "identity" : "zxingify-objc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kenstir/zxingify-objc",
+      "state" : {
+        "revision" : "e2e9d4f996efb1c7eda4b867c69bc3a0547bd67c",
+        "version" : "3.6.9-kenstir.2"
       }
     }
   ],
