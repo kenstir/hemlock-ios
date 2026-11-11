@@ -812,6 +812,15 @@
 		D2647872291708AA00B672AC /* custom_strings.json in Resources */ = {isa = PBXBuildFile; fileRef = D2647871291708AA00B672AC /* custom_strings.json */; };
 		D267E4E7210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
 		D267E4E8210D17F900C56047 /* CopyCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267E4E6210D17F900C56047 /* CopyCount.swift */; };
+		D269A6A330A3F18700E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6A230A3F18700E61F64 /* PINRemoteImage */; };
+		D269A6A930A40B7700E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6A830A40B7700E61F64 /* PINRemoteImage */; };
+		D269A6AD30A40B9C00E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6AC30A40B9C00E61F64 /* PINRemoteImage */; };
+		D269A6AF30A40BBA00E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6AE30A40BBA00E61F64 /* PINRemoteImage */; };
+		D269A6B130A40C1200E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6B030A40C1200E61F64 /* PINRemoteImage */; };
+		D269A6B330A40C2700E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6B230A40C2700E61F64 /* PINRemoteImage */; };
+		D269A6B530A40C3500E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6B430A40C3500E61F64 /* PINRemoteImage */; };
+		D269A6B730A40C4000E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6B630A40C4000E61F64 /* PINRemoteImage */; };
+		D269A6B930A40C4B00E61F64 /* PINRemoteImage in Frameworks */ = {isa = PBXBuildFile; productRef = D269A6B830A40C4B00E61F64 /* PINRemoteImage */; };
 		D26A146A20B2029900DDA97C /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A146920B2029900DDA97C /* Gateway.swift */; };
 		D270C4092091FCAA00D27159 /* IDLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C4082091FCAA00D27159 /* IDLParser.swift */; };
 		D271862B28CEBE7C0046E9BC /* ScanBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2816CC628B01AFA0060F688 /* ScanBarcodeViewController.swift */; };
@@ -1136,76 +1145,22 @@
 		D293EC1B297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
 		D293EC1C297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
 		D293EC1D297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
-		D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951DE32B8FBFF900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; };
-		D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD52B8FBFF800193695 /* PINCache.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; };
-		D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD82B8FBFF800193695 /* PINOperation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; };
-		D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
 		D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D296EE0C21338030009BDB12 /* CwmarsAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE092133802F009BDB12 /* CwmarsAppConfiguration.swift */; };
@@ -1821,9 +1776,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D2951DDD2B8FBFF900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951DE92B8FBFF900193695 /* PINOperation.xcframework in Embed Frameworks */,
-				D2951DE32B8FBFF900193695 /* PINCache.xcframework in Embed Frameworks */,
 				D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -1836,9 +1788,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951DF62B8FC1D600193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951DFA2B8FC1D600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951DF82B8FC1D600193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1850,9 +1799,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E202B8FC25900193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951E242B8FC25900193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E222B8FC25900193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1864,9 +1810,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E352B8FC27600193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951E392B8FC27600193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E372B8FC27600193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1878,9 +1821,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E4A2B8FC28E00193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951E4E2B8FC28E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E4C2B8FC28E00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1892,9 +1832,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E5F2B8FC29E00193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951E632B8FC29E00193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E612B8FC29E00193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1906,9 +1843,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E892B8FC2B700193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951E8D2B8FC2B700193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951E8B2B8FC2B700193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1920,9 +1854,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951E9E2B8FC2C400193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951EA22B8FC2C500193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951EA02B8FC2C500193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1934,9 +1865,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-				D2951EB32B8FC2D300193695 /* PINCache.xcframework in Embed Frameworks */,
-				D2951EB72B8FC2D300193695 /* PINRemoteImage.xcframework in Embed Frameworks */,
-				D2951EB52B8FC2D300193695 /* PINOperation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2265,16 +2193,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D269A6A930A40B7700E61F64 /* PINRemoteImage in Frameworks */,
 				D2FABA39300AE2DF002A5B99 /* Toast in Frameworks */,
 				D20FCB2730A254DA00E48A5E /* Valet in Frameworks */,
 				D213904E2C5006C6007C4EFD /* FirebaseMessaging in Frameworks */,
 				D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951DF52B8FC1D600193695 /* PINCache.xcframework in Frameworks */,
-				D2951DF92B8FC1D600193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */,
 				D26407BA2F85BB9400C68CE6 /* Alamofire in Frameworks */,
 				D23A1CA92EE615A5003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951DF72B8FC1D600193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2284,13 +2210,11 @@
 			files = (
 				D26407C82F85BC0000C68CE6 /* Alamofire in Frameworks */,
 				D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951EB22B8FC2D300193695 /* PINCache.xcframework in Frameworks */,
 				D2FABA49300AE38A002A5B99 /* Toast in Frameworks */,
-				D2951EB62B8FC2D300193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D269A6B130A40C1200E61F64 /* PINRemoteImage in Frameworks */,
 				D25D972D2E39644C00DBFD65 /* FirebaseCrashlytics in Frameworks */,
 				D20FCB3530A2554800E48A5E /* Valet in Frameworks */,
 				D23A1C9D2EE6152C003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951EB42B8FC2D300193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2300,13 +2224,11 @@
 			files = (
 				D26407C02F85BBC100C68CE6 /* Alamofire in Frameworks */,
 				D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E342B8FC27600193695 /* PINCache.xcframework in Frameworks */,
 				D2FABA3F300AE33F002A5B99 /* Toast in Frameworks */,
-				D2951E382B8FC27600193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D269A6B930A40C4B00E61F64 /* PINRemoteImage in Frameworks */,
 				D25D97262E38418700DBFD65 /* FirebaseCrashlytics in Frameworks */,
 				D20FCB2D30A2550C00E48A5E /* Valet in Frameworks */,
 				D23A1CA52EE61586003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E362B8FC27600193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2316,13 +2238,11 @@
 			files = (
 				D26407C22F85BBD000C68CE6 /* Alamofire in Frameworks */,
 				D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E492B8FC28E00193695 /* PINCache.xcframework in Frameworks */,
 				D2FABA41300AE356002A5B99 /* Toast in Frameworks */,
-				D2951E4D2B8FC28E00193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D269A6B730A40C4000E61F64 /* PINRemoteImage in Frameworks */,
 				D22A7FF62D680B60003C5F20 /* FirebaseCrashlytics in Frameworks */,
 				D20FCB2F30A2551A00E48A5E /* Valet in Frameworks */,
 				D23A1CA32EE61578003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E4B2B8FC28E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2332,13 +2252,11 @@
 			files = (
 				D26407C62F85BBED00C68CE6 /* Alamofire in Frameworks */,
 				D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E882B8FC2B700193695 /* PINCache.xcframework in Frameworks */,
 				D2FABA45300AE372002A5B99 /* Toast in Frameworks */,
-				D2951E8C2B8FC2B700193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D269A6B330A40C2700E61F64 /* PINRemoteImage in Frameworks */,
 				D25D97342E39855300DBFD65 /* FirebaseCrashlytics in Frameworks */,
 				D20FCB3330A2553600E48A5E /* Valet in Frameworks */,
 				D23A1C9F2EE61551003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E8A2B8FC2B700193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2347,13 +2265,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26407BC2F85BBA300C68CE6 /* Alamofire in Frameworks */,
-				D2951DDC2B8FBFF900193695 /* PINRemoteImage.xcframework in Frameworks */,
-				D2951DE82B8FBFF900193695 /* PINOperation.xcframework in Frameworks */,
+				D269A6A330A3F18700E61F64 /* PINRemoteImage in Frameworks */,
 				D2FABA3B300AE307002A5B99 /* Toast in Frameworks */,
 				D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */,
 				D23A1CA72EE6159A003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D20FCB2930A254E900E48A5E /* Valet in Frameworks */,
-				D2951DE22B8FBFF900193695 /* PINCache.xcframework in Frameworks */,
 				D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2365,10 +2281,8 @@
 				D20FCB2B30A254F900E48A5E /* Valet in Frameworks */,
 				D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */,
 				D26407BE2F85BBB000C68CE6 /* Alamofire in Frameworks */,
-				D2951E1F2B8FC25900193695 /* PINCache.xcframework in Frameworks */,
-				D2951E232B8FC25900193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D269A6AD30A40B9C00E61F64 /* PINRemoteImage in Frameworks */,
 				D2FABA3D300AE328002A5B99 /* Toast in Frameworks */,
-				D2951E212B8FC25900193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2379,13 +2293,11 @@
 				D20FCB2530A2548100E48A5E /* Valet in Frameworks */,
 				D2E4090A2BD1F72C00148FD5 /* FirebaseMessaging in Frameworks */,
 				D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E9D2B8FC2C400193695 /* PINCache.xcframework in Frameworks */,
-				D2951EA12B8FC2C500193695 /* PINRemoteImage.xcframework in Frameworks */,
 				D2E409082BD1F72C00148FD5 /* FirebaseCrashlytics in Frameworks */,
+				D269A6AF30A40BBA00E61F64 /* PINRemoteImage in Frameworks */,
 				D26407B82F85BB5600C68CE6 /* Alamofire in Frameworks */,
 				D23A1C9B2EE614CE003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2FABA47300AE37D002A5B99 /* Toast in Frameworks */,
-				D2951E9F2B8FC2C400193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2402,13 +2314,11 @@
 			files = (
 				D26407C42F85BBDE00C68CE6 /* Alamofire in Frameworks */,
 				D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */,
-				D2951E5E2B8FC29E00193695 /* PINCache.xcframework in Frameworks */,
 				D2FABA43300AE363002A5B99 /* Toast in Frameworks */,
-				D2951E622B8FC29E00193695 /* PINRemoteImage.xcframework in Frameworks */,
+				D269A6B530A40C3500E61F64 /* PINRemoteImage in Frameworks */,
 				D2C7F2E12CB1FDE300CA46B0 /* FirebaseCrashlytics in Frameworks */,
 				D20FCB3130A2552900E48A5E /* Valet in Frameworks */,
 				D23A1CA12EE6156B003A673E /* FirebaseAnalyticsCore in Frameworks */,
-				D2951E602B8FC29E00193695 /* PINOperation.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3160,6 +3070,7 @@
 				D26407B92F85BB9400C68CE6 /* Alamofire */,
 				D2FABA38300AE2DF002A5B99 /* Toast */,
 				D20FCB2630A254DA00E48A5E /* Valet */,
+				D269A6A830A40B7700E61F64 /* PINRemoteImage */,
 			);
 			productName = Hemlock;
 			productReference = D210EC3622B1EE55002FB5E0 /* acorn.app */;
@@ -3262,6 +3173,7 @@
 				D26407BB2F85BBA300C68CE6 /* Alamofire */,
 				D2FABA3A300AE307002A5B99 /* Toast */,
 				D20FCB2830A254E900E48A5E /* Valet */,
+				D269A6A230A3F18700E61F64 /* PINRemoteImage */,
 			);
 			productName = Hemlock;
 			productReference = D276DAE221336B20007FAA31 /* cwmars.app */;
@@ -3307,6 +3219,7 @@
 				D26407B72F85BB5600C68CE6 /* Alamofire */,
 				D2FABA46300AE37D002A5B99 /* Toast */,
 				D20FCB2430A2548100E48A5E /* Valet */,
+				D269A6AE30A40BBA00E61F64 /* PINRemoteImage */,
 			);
 			productName = Hemlock;
 			productReference = D287D4F8207AEF2B001AF644 /* PINES.app */;
@@ -3352,6 +3265,7 @@
 				D26407C32F85BBDE00C68CE6 /* Alamofire */,
 				D2FABA42300AE363002A5B99 /* Toast */,
 				D20FCB3030A2552900E48A5E /* Valet */,
+				D269A6B430A40C3500E61F64 /* PINRemoteImage */,
 			);
 			productName = Hemlock;
 			productReference = D2BDA67F22D176BD00D9B60C /* NOBLE.app */;
@@ -3399,6 +3313,7 @@
 				D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D2FABA37300AE2DF002A5B99 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */,
+				D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */,
 			);
 			productRefGroup = D287D4F9207AEF2B001AF644 /* Products */;
 			projectDirPath = "";
@@ -6200,6 +6115,14 @@
 				minimumVersion = 5.11.2;
 			};
 		};
+		D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pinterest/PINRemoteImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.4;
+			};
+		};
 		D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -6385,6 +6308,51 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		D269A6A230A3F18700E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
+		};
+		D269A6A830A40B7700E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
+		};
+		D269A6AC30A40B9C00E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
+		};
+		D269A6AE30A40BBA00E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
+		};
+		D269A6B030A40C1200E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
+		};
+		D269A6B230A40C2700E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
+		};
+		D269A6B430A40C3500E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
+		};
+		D269A6B630A40C4000E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
+		};
+		D269A6B830A40C4B00E61F64 /* PINRemoteImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */;
+			productName = PINRemoteImage;
 		};
 		D2C7F2E02CB1FDE300CA46B0 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
