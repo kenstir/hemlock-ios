@@ -6,6 +6,7 @@
 * Fix issue where Login button was disabled if startup loading failed
 * Fix issue where Login could fail on trailing space in username field
 * chore: Upgrade to firebase-ios-sdk-13.1.1 and drop unnecessary Firestore dependencies
+* chore: Upgrade to Valet 5
 
 ## 4.8.1
 
