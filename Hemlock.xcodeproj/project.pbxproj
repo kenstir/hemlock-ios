@@ -1963,12 +1963,6 @@
 		D2931AA9272DE83200CBA5AA /* BookBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBag.swift; sourceTree = "<group>"; };
 		D2931AB6272DF49A00CBA5AA /* BookBagTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookBagTests.swift; sourceTree = "<group>"; };
 		D293EC12297CC33F00C9F1C4 /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
-		D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINRemoteImage.xcframework; path = Carthage/Build/PINRemoteImage.xcframework; sourceTree = "<group>"; };
-		D2951DD42B8FBFF800193695 /* Valet.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Valet.xcframework; path = Carthage/Build/Valet.xcframework; sourceTree = "<group>"; };
-		D2951DD52B8FBFF800193695 /* PINCache.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINCache.xcframework; path = Carthage/Build/PINCache.xcframework; sourceTree = "<group>"; };
-		D2951DD82B8FBFF800193695 /* PINOperation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PINOperation.xcframework; path = Carthage/Build/PINOperation.xcframework; sourceTree = "<group>"; };
-		D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ToastSwiftFramework.xcframework; path = Carthage/Build/ToastSwiftFramework.xcframework; sourceTree = "<group>"; };
-		D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ZXingObjC.xcframework; path = Carthage/Build/ZXingObjC.xcframework; sourceTree = "<group>"; };
 		D296EE092133802F009BDB12 /* CwmarsAppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwmarsAppConfiguration.swift; sourceTree = "<group>"; };
 		D296EE0A2133802F009BDB12 /* AppFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		D296EE0B21338030009BDB12 /* CwmarsTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CwmarsTheme.swift; sourceTree = "<group>"; };
@@ -2472,12 +2466,6 @@
 		D231B52520815EAC00478D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2951DD52B8FBFF800193695 /* PINCache.xcframework */,
-				D2951DD82B8FBFF800193695 /* PINOperation.xcframework */,
-				D2951DD22B8FBFF800193695 /* PINRemoteImage.xcframework */,
-				D2951DD92B8FBFF800193695 /* ToastSwiftFramework.xcframework */,
-				D2951DD42B8FBFF800193695 /* Valet.xcframework */,
-				D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
