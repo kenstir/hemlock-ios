@@ -28,7 +28,7 @@ class CredentialManagerTests: XCTestCase {
 
     override func setUp() {
         // cleanup any leftovers from prior runs
-        valet.removeAllObjects()
+        try? valet.removeAllObjects()
     }
 
     func test_load_empty() {
@@ -47,8 +47,8 @@ class CredentialManagerTests: XCTestCase {
             }
             """
         let data = str.data(using: .utf8)!
-        valet.set(object: data, forKey: CredentialManager.storageKeyV1)
-        
+        try? valet.setObject(data, forKey: CredentialManager.storageKeyV1)
+
         let cm = CredentialManager(valet: valet)
         XCTAssertEqual(cm.lastUsedCredential, Credential(username: "alice", password: "*"))
         XCTAssertEqual(cm.credentials.count, 1)
@@ -73,8 +73,8 @@ class CredentialManagerTests: XCTestCase {
             XCTFail()
             return
         }
-        valet.set(object: data, forKey: CredentialManager.storageKeyV1)
-        
+        try? valet.setObject(data, forKey: CredentialManager.storageKeyV1)
+
         let cm = CredentialManager(valet: valet)
         XCTAssertEqual(cm.lastUsedCredential, Credential(username: "bob", password: "*b"))
         XCTAssertEqual(cm.credentials.count, 3)
@@ -84,15 +84,18 @@ class CredentialManagerTests: XCTestCase {
     }
         
     func test_loadLegacyAccount() {
-        valet.set(string: alice.username, forKey: CredentialManager.legacyUsernameKey)
-        valet.set(string: alice.password, forKey: CredentialManager.legacyPasswordKey)
-        
+        try? valet.setString(alice.username, forKey: CredentialManager.legacyUsernameKey)
+        try? valet.setString(alice.password, forKey: CredentialManager.legacyPasswordKey)
+
         let cm = CredentialManager(valet: valet)
         XCTAssertEqual(cm.credentials.count, 1)
         XCTAssertEqual(cm.credentials.first, alice)
-        XCTAssertFalse(valet.containsObject(forKey: CredentialManager.legacyUsernameKey))
-        XCTAssertFalse(valet.containsObject(forKey: CredentialManager.legacyPasswordKey))
-        XCTAssertTrue(valet.containsObject(forKey: CredentialManager.storageKeyV1))
+        let containsLegacyUsername = try? valet.containsObject(forKey: CredentialManager.legacyUsernameKey)
+        XCTAssertEqual(containsLegacyUsername, false)
+        let containsLegacyPassword = try? valet.containsObject(forKey: CredentialManager.legacyPasswordKey)
+        XCTAssertEqual(containsLegacyPassword, false)
+        let containsStorageKeyV1 = try? valet.containsObject(forKey: CredentialManager.storageKeyV1)
+        XCTAssertEqual(containsStorageKeyV1, true)
     }
     
     // Test that adding and removing works; construce CredentialManager multiple

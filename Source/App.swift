@@ -76,12 +76,12 @@ class App {
     }
 
     static func updateLaunchCount() {
-        if let str = valet.string(forKey: "launchCount"),
+        if let str = try? valet.string(forKey: "launchCount"),
            let val = Int(str) {
             launchCount = val + 1
         } else {
             launchCount = 1
         }
-        valet.set(string: String(launchCount), forKey: "launchCount")
+        try? valet.setString(String(launchCount), forKey: "launchCount")
     }
 }
