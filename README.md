@@ -10,13 +10,5 @@ With the Hemlock app, you can:
 
 Quick Start for Developers
 --------------------------
-Before opening the project in Xcode, checkout and build the prerequisites using Carthage.
-
-```
- brew update
- brew install carthage
- brew upgrade carthage
- ./update
-```
-
+Carthage is dead.  Long live Swift Package Manager.  Move along.
 Read [the Developer Documentation](Documentation/README.md)

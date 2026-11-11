@@ -165,6 +165,7 @@
 		D210EC4722B1F24A002FB5E0 /* AcornTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4522B1F24A002FB5E0 /* AcornTheme.swift */; };
 		D210EC4822B1F24A002FB5E0 /* AcornAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210EC4622B1F24A002FB5E0 /* AcornAppConfiguration.swift */; };
 		D210EC4C22B1F331002FB5E0 /* acorn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D210EC4B22B1F331002FB5E0 /* acorn.xcassets */; };
+		D211A43630A41010004086D4 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D211A43530A41010004086D4 /* ZXingObjC */; };
 		D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D213904B2C5006BA007C4EFD /* FirebaseCrashlytics */; };
 		D213904E2C5006C6007C4EFD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D213904D2C5006C6007C4EFD /* FirebaseMessaging */; };
 		D21735852F5F5F53002C8046 /* String+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21735842F5F5F53002C8046 /* String+Tests.swift */; };
@@ -1145,24 +1146,6 @@
 		D293EC1B297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
 		D293EC1C297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
 		D293EC1D297CC33F00C9F1C4 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D293EC12297CC33F00C9F1C4 /* Messages.storyboard */; };
-		D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; };
-		D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2951DDA2B8FBFF800193695 /* ZXingObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D296EE0C21338030009BDB12 /* CwmarsAppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE092133802F009BDB12 /* CwmarsAppConfiguration.swift */; };
 		D296EE0D21338030009BDB12 /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0A2133802F009BDB12 /* AppFactory.swift */; };
 		D296EE0E21338030009BDB12 /* CwmarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296EE0B21338030009BDB12 /* CwmarsTheme.swift */; };
@@ -1728,6 +1711,14 @@
 		D2F557422EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
 		D2F557432EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
 		D2F557442EF38E27003BE964 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5573B2EF38E27003BE964 /* UIButton+.swift */; };
+		D2F96B8630A4149E002D6894 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D2F96B8530A4149E002D6894 /* ZXingObjC */; };
+		D2F96B8830A414AB002D6894 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D2F96B8730A414AB002D6894 /* ZXingObjC */; };
+		D2F96B8A30A414B8002D6894 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D2F96B8930A414B8002D6894 /* ZXingObjC */; };
+		D2F96B8C30A414C1002D6894 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D2F96B8B30A414C1002D6894 /* ZXingObjC */; };
+		D2F96B8E30A414CB002D6894 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D2F96B8D30A414CB002D6894 /* ZXingObjC */; };
+		D2F96B9030A414D5002D6894 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D2F96B8F30A414D5002D6894 /* ZXingObjC */; };
+		D2F96B9230A414DF002D6894 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D2F96B9130A414DF002D6894 /* ZXingObjC */; };
+		D2F96B9430A414E9002D6894 /* ZXingObjC in Frameworks */ = {isa = PBXBuildFile; productRef = D2F96B9330A414E9002D6894 /* ZXingObjC */; };
 		D2FABA39300AE2DF002A5B99 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D2FABA38300AE2DF002A5B99 /* Toast */; };
 		D2FABA3B300AE307002A5B99 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D2FABA3A300AE307002A5B99 /* Toast */; };
 		D2FABA3D300AE328002A5B99 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D2FABA3C300AE328002A5B99 /* Toast */; };
@@ -1768,108 +1759,6 @@
 			remoteInfo = Hemlock;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		D2951DF02B8FBFF900193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951DED2B8FBFF900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2951E052B8FC1D700193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951E042B8FC1D700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2951E2F2B8FC25A00193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951E2E2B8FC25900193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2951E442B8FC27700193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951E432B8FC27700193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2951E592B8FC28F00193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951E582B8FC28F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2951E6E2B8FC29F00193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951E6D2B8FC29F00193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2951E982B8FC2B800193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951E972B8FC2B800193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2951EAD2B8FC2C500193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951EAC2B8FC2C500193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D2951EC22B8FC2D400193695 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D2951EC12B8FC2D400193695 /* ZXingObjC.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D2029B4E297DBEDE000FF4C1 /* MessageDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageDetails.storyboard; sourceTree = "<group>"; };
@@ -2197,10 +2086,10 @@
 				D2FABA39300AE2DF002A5B99 /* Toast in Frameworks */,
 				D20FCB2730A254DA00E48A5E /* Valet in Frameworks */,
 				D213904E2C5006C6007C4EFD /* FirebaseMessaging in Frameworks */,
-				D2951E032B8FC1D700193695 /* ZXingObjC.xcframework in Frameworks */,
 				D213904C2C5006BA007C4EFD /* FirebaseCrashlytics in Frameworks */,
 				D26407BA2F85BB9400C68CE6 /* Alamofire in Frameworks */,
 				D23A1CA92EE615A5003A673E /* FirebaseAnalyticsCore in Frameworks */,
+				D2F96B8630A4149E002D6894 /* ZXingObjC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2209,10 +2098,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26407C82F85BC0000C68CE6 /* Alamofire in Frameworks */,
-				D2951EC02B8FC2D400193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2FABA49300AE38A002A5B99 /* Toast in Frameworks */,
 				D269A6B130A40C1200E61F64 /* PINRemoteImage in Frameworks */,
 				D25D972D2E39644C00DBFD65 /* FirebaseCrashlytics in Frameworks */,
+				D2F96B9430A414E9002D6894 /* ZXingObjC in Frameworks */,
 				D20FCB3530A2554800E48A5E /* Valet in Frameworks */,
 				D23A1C9D2EE6152C003A673E /* FirebaseAnalyticsCore in Frameworks */,
 			);
@@ -2223,10 +2112,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26407C02F85BBC100C68CE6 /* Alamofire in Frameworks */,
-				D2951E422B8FC27600193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2FABA3F300AE33F002A5B99 /* Toast in Frameworks */,
 				D269A6B930A40C4B00E61F64 /* PINRemoteImage in Frameworks */,
 				D25D97262E38418700DBFD65 /* FirebaseCrashlytics in Frameworks */,
+				D2F96B8A30A414B8002D6894 /* ZXingObjC in Frameworks */,
 				D20FCB2D30A2550C00E48A5E /* Valet in Frameworks */,
 				D23A1CA52EE61586003A673E /* FirebaseAnalyticsCore in Frameworks */,
 			);
@@ -2237,10 +2126,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26407C22F85BBD000C68CE6 /* Alamofire in Frameworks */,
-				D2951E572B8FC28F00193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2FABA41300AE356002A5B99 /* Toast in Frameworks */,
 				D269A6B730A40C4000E61F64 /* PINRemoteImage in Frameworks */,
 				D22A7FF62D680B60003C5F20 /* FirebaseCrashlytics in Frameworks */,
+				D2F96B8C30A414C1002D6894 /* ZXingObjC in Frameworks */,
 				D20FCB2F30A2551A00E48A5E /* Valet in Frameworks */,
 				D23A1CA32EE61578003A673E /* FirebaseAnalyticsCore in Frameworks */,
 			);
@@ -2251,10 +2140,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26407C62F85BBED00C68CE6 /* Alamofire in Frameworks */,
-				D2951E962B8FC2B800193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2FABA45300AE372002A5B99 /* Toast in Frameworks */,
 				D269A6B330A40C2700E61F64 /* PINRemoteImage in Frameworks */,
 				D25D97342E39855300DBFD65 /* FirebaseCrashlytics in Frameworks */,
+				D2F96B9030A414D5002D6894 /* ZXingObjC in Frameworks */,
 				D20FCB3330A2553600E48A5E /* Valet in Frameworks */,
 				D23A1C9F2EE61551003A673E /* FirebaseAnalyticsCore in Frameworks */,
 			);
@@ -2270,7 +2159,7 @@
 				D21889FB2D29E67200E8A1C3 /* FirebaseCrashlytics in Frameworks */,
 				D23A1CA72EE6159A003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D20FCB2930A254E900E48A5E /* Valet in Frameworks */,
-				D2951DEC2B8FBFF900193695 /* ZXingObjC.xcframework in Frameworks */,
+				D211A43630A41010004086D4 /* ZXingObjC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2279,7 +2168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D20FCB2B30A254F900E48A5E /* Valet in Frameworks */,
-				D2951E2D2B8FC25900193695 /* ZXingObjC.xcframework in Frameworks */,
+				D2F96B8830A414AB002D6894 /* ZXingObjC in Frameworks */,
 				D26407BE2F85BBB000C68CE6 /* Alamofire in Frameworks */,
 				D269A6AD30A40B9C00E61F64 /* PINRemoteImage in Frameworks */,
 				D2FABA3D300AE328002A5B99 /* Toast in Frameworks */,
@@ -2292,12 +2181,12 @@
 			files = (
 				D20FCB2530A2548100E48A5E /* Valet in Frameworks */,
 				D2E4090A2BD1F72C00148FD5 /* FirebaseMessaging in Frameworks */,
-				D2951EAB2B8FC2C500193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2E409082BD1F72C00148FD5 /* FirebaseCrashlytics in Frameworks */,
 				D269A6AF30A40BBA00E61F64 /* PINRemoteImage in Frameworks */,
 				D26407B82F85BB5600C68CE6 /* Alamofire in Frameworks */,
 				D23A1C9B2EE614CE003A673E /* FirebaseAnalyticsCore in Frameworks */,
 				D2FABA47300AE37D002A5B99 /* Toast in Frameworks */,
+				D2F96B9230A414DF002D6894 /* ZXingObjC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2313,10 +2202,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26407C42F85BBDE00C68CE6 /* Alamofire in Frameworks */,
-				D2951E6C2B8FC29F00193695 /* ZXingObjC.xcframework in Frameworks */,
 				D2FABA43300AE363002A5B99 /* Toast in Frameworks */,
 				D269A6B530A40C3500E61F64 /* PINRemoteImage in Frameworks */,
 				D2C7F2E12CB1FDE300CA46B0 /* FirebaseCrashlytics in Frameworks */,
+				D2F96B8E30A414CB002D6894 /* ZXingObjC in Frameworks */,
 				D20FCB3130A2552900E48A5E /* Valet in Frameworks */,
 				D23A1CA12EE6156B003A673E /* FirebaseAnalyticsCore in Frameworks */,
 			);
@@ -3055,7 +2944,6 @@
 				D210EBC722B1EE55002FB5E0 /* Sources */,
 				D210EC1622B1EE55002FB5E0 /* Frameworks */,
 				D210EC2122B1EE55002FB5E0 /* Resources */,
-				D2951E052B8FC1D700193695 /* Embed Frameworks */,
 				D29243E72C4FFF4B005833C7 /* ShellScript */,
 			);
 			buildRules = (
@@ -3071,6 +2959,7 @@
 				D2FABA38300AE2DF002A5B99 /* Toast */,
 				D20FCB2630A254DA00E48A5E /* Valet */,
 				D269A6A830A40B7700E61F64 /* PINRemoteImage */,
+				D2F96B8530A4149E002D6894 /* ZXingObjC */,
 			);
 			productName = Hemlock;
 			productReference = D210EC3622B1EE55002FB5E0 /* acorn.app */;
@@ -3083,7 +2972,6 @@
 				D23E9F6A23B9200A0030F5C1 /* Sources */,
 				D23E9FBE23B9200A0030F5C1 /* Frameworks */,
 				D23E9FC923B9200A0030F5C1 /* Resources */,
-				D2951EC22B8FC2D400193695 /* Embed Frameworks */,
 				D25D972E2E3964A600DBFD65 /* ShellScript */,
 			);
 			buildRules = (
@@ -3102,7 +2990,6 @@
 				D2477BB624785A6B00FD4CF6 /* Sources */,
 				D2477C0C24785A6B00FD4CF6 /* Frameworks */,
 				D2477C1724785A6B00FD4CF6 /* Resources */,
-				D2951E442B8FC27700193695 /* Embed Frameworks */,
 				D25D97272E38424700DBFD65 /* ShellScript */,
 			);
 			buildRules = (
@@ -3121,7 +3008,6 @@
 				D2572AA624AD7755000BA698 /* Sources */,
 				D2572AFF24AD7755000BA698 /* Frameworks */,
 				D2572B0A24AD7755000BA698 /* Resources */,
-				D2951E592B8FC28F00193695 /* Embed Frameworks */,
 				D22A7FF72D680BFD003C5F20 /* ShellScript */,
 			);
 			buildRules = (
@@ -3140,7 +3026,6 @@
 				D25EEC4928A1E8310090F108 /* Sources */,
 				D25EECAA28A1E8310090F108 /* Frameworks */,
 				D25EECB528A1E8310090F108 /* Resources */,
-				D2951E982B8FC2B800193695 /* Embed Frameworks */,
 				D25D97352E39858900DBFD65 /* ShellScript */,
 			);
 			buildRules = (
@@ -3159,7 +3044,6 @@
 				D276DA8421336B20007FAA31 /* Sources */,
 				D276DAC721336B20007FAA31 /* Frameworks */,
 				D276DAD121336B20007FAA31 /* Resources */,
-				D2951DF02B8FBFF900193695 /* Embed Frameworks */,
 				D290A4012D29E37500A08A6E /* ShellScript */,
 			);
 			buildRules = (
@@ -3174,6 +3058,7 @@
 				D2FABA3A300AE307002A5B99 /* Toast */,
 				D20FCB2830A254E900E48A5E /* Valet */,
 				D269A6A230A3F18700E61F64 /* PINRemoteImage */,
+				D211A43530A41010004086D4 /* ZXingObjC */,
 			);
 			productName = Hemlock;
 			productReference = D276DAE221336B20007FAA31 /* cwmars.app */;
@@ -3186,7 +3071,6 @@
 				D27990CB20DDD473003B451E /* Sources */,
 				D27990F120DDD473003B451E /* Frameworks */,
 				D27990FA20DDD473003B451E /* Resources */,
-				D2951E2F2B8FC25A00193695 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3204,7 +3088,6 @@
 				D287D4F4207AEF2B001AF644 /* Sources */,
 				D287D4F5207AEF2B001AF644 /* Frameworks */,
 				D287D4F6207AEF2B001AF644 /* Resources */,
-				D2951EAD2B8FC2C500193695 /* Embed Frameworks */,
 				D231C76C2BD2BF3D00440D9D /* ShellScript */,
 			);
 			buildRules = (
@@ -3220,6 +3103,7 @@
 				D2FABA46300AE37D002A5B99 /* Toast */,
 				D20FCB2430A2548100E48A5E /* Valet */,
 				D269A6AE30A40BBA00E61F64 /* PINRemoteImage */,
+				D2F96B9130A414DF002D6894 /* ZXingObjC */,
 			);
 			productName = Hemlock;
 			productReference = D287D4F8207AEF2B001AF644 /* PINES.app */;
@@ -3251,7 +3135,6 @@
 				D2BDA60A22D176BD00D9B60C /* Sources */,
 				D2BDA65F22D176BD00D9B60C /* Frameworks */,
 				D2BDA66A22D176BD00D9B60C /* Resources */,
-				D2951E6E2B8FC29F00193695 /* Embed Frameworks */,
 				D2B2B2052D0DD613003816F1 /* ShellScript */,
 			);
 			buildRules = (
@@ -3266,6 +3149,7 @@
 				D2FABA42300AE363002A5B99 /* Toast */,
 				D20FCB3030A2552900E48A5E /* Valet */,
 				D269A6B430A40C3500E61F64 /* PINRemoteImage */,
+				D2F96B8D30A414CB002D6894 /* ZXingObjC */,
 			);
 			productName = Hemlock;
 			productReference = D2BDA67F22D176BD00D9B60C /* NOBLE.app */;
@@ -3314,6 +3198,7 @@
 				D2FABA37300AE2DF002A5B99 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */,
 				D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */,
+				D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */,
 			);
 			productRefGroup = D287D4F9207AEF2B001AF644 /* Products */;
 			projectDirPath = "";
@@ -6107,6 +5992,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenstir/zxingify-objc";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "3.6.9-kenstir.2";
+			};
+		};
 		D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -6188,6 +6081,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D20FCB2330A2548100E48A5E /* XCRemoteSwiftPackageReference "valet" */;
 			productName = Valet;
+		};
+		D211A43530A41010004086D4 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
 		};
 		D213904B2C5006BA007C4EFD /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -6368,6 +6266,46 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D2E409042BD1F72C00148FD5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		D2F96B8530A4149E002D6894 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
+		};
+		D2F96B8730A414AB002D6894 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
+		};
+		D2F96B8930A414B8002D6894 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
+		};
+		D2F96B8B30A414C1002D6894 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
+		};
+		D2F96B8D30A414CB002D6894 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
+		};
+		D2F96B8F30A414D5002D6894 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
+		};
+		D2F96B9130A414DF002D6894 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
+		};
+		D2F96B9330A414E9002D6894 /* ZXingObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */;
+			productName = ZXingObjC;
 		};
 		D2FABA38300AE2DF002A5B99 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
