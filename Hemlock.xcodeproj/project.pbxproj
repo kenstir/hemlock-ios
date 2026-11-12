@@ -5993,7 +5993,7 @@
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.11.2;
+				minimumVersion = 5.12.2;
 			};
 		};
 		D269A6A130A3F18700E61F64 /* XCRemoteSwiftPackageReference "PINRemoteImage" */ = {

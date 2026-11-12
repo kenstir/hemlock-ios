@@ -7,6 +7,7 @@
 * Fix issue where Login could fail on trailing space in username field
 * Fix issue where highland cow appeared for missing jacket cover (cwmars)
 * Fix issue where the synopsis and Subject might be blank on Details screen
+* chore: Upgrade to Alamofire-5.12.2
 * chore: Upgrade to firebase-ios-sdk-13.1.1 and drop unnecessary Firestore dependencies
 * chore: Upgrade to Valet 5
 * chore: Migrate all dependencies from Carthage to Swift Package Manager
