@@ -11,6 +11,8 @@
 * chore: Upgrade to firebase-ios-sdk-13.1.1 and drop unnecessary Firestore dependencies
 * chore: Upgrade to Valet 5
 * chore: Migrate all dependencies from Carthage to Swift Package Manager
+* chore: Opt out of ad network attribution in Info.plist (cwmars, indiana, mo, owwl, sagecat)
+  Other apps were already opted out
 
 ## 4.8.1
 
