@@ -79,7 +79,6 @@ class DetailsViewController: UIViewController {
         setupButtons()
         setupAsyncViews()
         setupExtrasButton()
-        setupOtherRecordLabels()
     }
 
     // these views get setup twice: once during viewDidLoad,
@@ -88,6 +87,7 @@ class DetailsViewController: UIViewController {
         setupInfoVStack()
         setupCopySummary()
         updateButtonViews()
+        setupOtherRecordLabels()
     }
 
     private func setupPageHeader() {

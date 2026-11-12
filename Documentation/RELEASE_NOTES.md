@@ -5,7 +5,8 @@
 ### Fixed
 * Fix issue where Login button was disabled if startup loading failed
 * Fix issue where Login could fail on trailing space in username field
-* Fix issue where highland cow picture appeared if there is no jacket cover (cwmars)
+* Fix issue where highland cow appeared for missing jacket cover (cwmars)
+* Fix issue where the synopsis and Subject might be blank on Details screen
 * chore: Upgrade to firebase-ios-sdk-13.1.1 and drop unnecessary Firestore dependencies
 * chore: Upgrade to Valet 5
 * chore: Migrate all dependencies from Carthage to Swift Package Manager
