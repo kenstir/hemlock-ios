@@ -16,7 +16,7 @@ Search Results.  I tried replacing it with Alamofire 4 image loading, and
 it was janky, so I backed off.  I haven't tried with Alamofire 5.
 
 Sadly, PINRemoteImage has 2 dependencies and all together they do not seem
-to be so well maintained.  The relationships are:
+to be consistently maintained.  The relationships are:
 
 ```mermaid
 flowchart TD
@@ -26,31 +26,11 @@ flowchart TD
 ```
 
 This dependency chain is a giant pain to deal with when new Xcode releases
-come out that increase the minimum IPHONEOS_DEPLOYMENT_TARGET.  I maintain
-forks of all 3 projects on branch kenstir/main, and then tag them in this
-order:
-1. PINOperation
-2. PINCache
-3. PINRemoteImage
-
-At each stage, you need to
-a. Update any versions in ./Cartfile
-b. Run ./update to build an xcframework
-c. Edit the .xcodeproj to replace every framework with an xcframework
-d. Commit and add a new tag
-
-If ./update fails with something like
-```
-$ ./update
-*** Fetching PINOperation
-*** Fetching PINCache
-A shell task (/usr/bin/env git fetch --prune --quiet https://github.com/kenstir/PINCache.git refs/tags/*:refs/tags/* +refs/heads/*:refs/heads/* (launched in /Users/kenstir/Library/Caches/org.carthage.CarthageKit/dependencies/PINCache)) failed with exit code 1
-```
-then you need to make sure everything including tags is pushed to origin,
-and then clear the Carthage cache and try again:
-```
-$ rm -rf ~/Library/Caches/org.carthage.CarthageKit/*
-```
+come out that increase the minimum IPHONEOS_DEPLOYMENT_TARGET.  See these PRs
+for guidance in case this situation arises again:
+* https://github.com/pinterest/PINOperation/pull/56
+* https://github.com/pinterest/PINCache/pull/327
+* https://github.com/pinterest/PINRemoteImage/pull/641
 
 ## Valet - keychain storage
 
