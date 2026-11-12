@@ -28,8 +28,6 @@ import FirebaseCore
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         AppState.migrateLegacySettings()
@@ -123,6 +121,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Logger.fcm.perror("[fcm] Unable to register for remote notifications: \(error.localizedDescription)")
     }
 #endif
+}
+
+/// Scene delegate for the UIScene lifecycle.  The window and its root view controller are
+/// created by UIKit from the storyboard named by `UISceneStoryboardFile` in Info.plist.
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        // Nothing to do; UIKit loads the storyboard and attaches the window.
+    }
 }
 
 #if USE_FCM
