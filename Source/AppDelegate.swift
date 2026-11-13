@@ -123,6 +123,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 #if USE_FCM
+        // If the app was started by tapping a remoteNotification, stash it now
         if let response = connectionOptions.notificationResponse {
             let pn = PushNotification(userInfo: response.notification.request.content.userInfo, tag: "scene(_:willConnectTo:options:)")
             App.launchNotificationUserInfo = pn.userInfo
