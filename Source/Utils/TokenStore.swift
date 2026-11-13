@@ -106,7 +106,7 @@ class TokenStore: Codable {
 
     func dump() {
         for entry in entries {
-            Logger.fcm.info("[fcm]   added_at:\(entry.addedAt) token:\(entry.token)")
+            Logger.fcm.pinfo("[fcm]   added_at:\(entry.addedAt) token:\(entry.token)")
         }
     }
 }

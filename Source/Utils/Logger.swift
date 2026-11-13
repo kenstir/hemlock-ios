@@ -25,4 +25,12 @@ extension Logger {
     static let net = Logger(subsystem: subsystem, category: "net")
     static let orgs = Logger(subsystem: subsystem, category: "orgs")
     static let state = Logger(subsystem: subsystem, category: "state")
+
+    func pinfo(_ message: String) {
+        self.log(level: .info, "\(message, privacy: .public)")
+    }
+
+    func pdebug(_ message: String) {
+        self.log(level: .debug, "\(message, privacy: .public)")
+    }
 }

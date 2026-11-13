@@ -254,7 +254,7 @@ struct OSRFObject: Equatable {
     //MARK: - Debug
 
     func dump() {
-        Logger.app.info("\(netClass ?? "unknown class") OSRFObject:")
+        Logger.app.pinfo("\(netClass ?? "unknown class") OSRFObject:")
         Utils.dump(dict: dict)
     }
 

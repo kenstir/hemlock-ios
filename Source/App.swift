@@ -70,7 +70,7 @@ class App {
     static func printLaunchInfo() {
         if let userInfo = launchNotificationUserInfo {
             let pn = PushNotification(userInfo: userInfo)
-            Logger.fcm.info("[fcm] pn: \(pn)")
+            Logger.fcm.pinfo("[fcm] pn: \(pn)")
         }
     }
 

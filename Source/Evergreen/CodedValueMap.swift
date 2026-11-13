@@ -52,7 +52,7 @@ class CodedValueMap {
                 }
             }
         }
-        Logger.app.info("\(iconFormats.count) icon formats, \(searchFormats.count) search formats, \(languageFormats.count) language formats loaded")
+        Logger.app.pinfo("\(iconFormats.count) icon formats, \(searchFormats.count) search formats, \(languageFormats.count) language formats loaded")
     }
 
     static func iconFormatLabel(forCode code: String?) -> String {

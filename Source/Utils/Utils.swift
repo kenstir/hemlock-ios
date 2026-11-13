@@ -46,10 +46,9 @@ class Utils {
     static func dump(dict: JSONDictionary) {
         for i in dict.keys.sorted() {
             if let val = dict[i], let v = val {
-                let desc = String(describing: v)
-                Logger.app.info("  \(i) -> \(desc)")
+                Logger.app.pinfo("  \(i) -> \(v)")
             } else {
-                print("  \(i) -> nil")
+                Logger.app.pinfo("  \(i) -> nil")
             }
         }
     }

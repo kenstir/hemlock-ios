@@ -205,7 +205,7 @@ class EvergreenOrganization: Organization {
         lock.lock(); defer { lock.unlock() }
 
         aouObj = obj
-        //Logger.orgs.info("[orgs]  id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        //Logger.orgs.pinfo("[orgs]  id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
     }
 
     /// mt-safe
@@ -349,7 +349,7 @@ class EvergreenOrganization: Organization {
         self.orgs.append(org)
 
         let prefix = String(repeating: "   ", count: level)
-        Logger.orgs.debug("[orgs]  \(prefix)\(shortname) id=\(id) type=\(ouType) vis=\(opacVisible) name=\(name)")
+        Logger.orgs.pdebug("[orgs]  \(prefix)\(shortname) id=\(id) type=\(ouType) vis=\(opacVisible) name=\(name)")
 
         if let children = obj.getAny("children") {
             if let childObjArray = children as? [OSRFObject] {
@@ -368,11 +368,11 @@ class EvergreenOrganization: Organization {
         let numWithEresources = visibleOrgs.count { $0.eresourcesURL != nil }
         let numWithMeetingRooms = visibleOrgs.count { $0.meetingRoomsURL != nil }
         let numWithMuseumPasses = visibleOrgs.count { $0.museumPassesURL != nil }
-        Logger.orgs.info("[orgs]  \(visibleOrgs.count) visible orgs")
-        Logger.orgs.info("[orgs]  \(numPickupLocations) are pickup locations")
-        Logger.orgs.info("[orgs]  \(numWithEvents) have events URLs")
-        Logger.orgs.info("[orgs]  \(numWithEresources) have eresources URLs")
-        Logger.orgs.info("[orgs]  \(numWithMeetingRooms) have meeting rooms URLs")
-        Logger.orgs.info("[orgs]  \(numWithMuseumPasses) have museum passes URLs")
+        Logger.orgs.pinfo("[orgs]  \(visibleOrgs.count) visible orgs")
+        Logger.orgs.pinfo("[orgs]  \(numPickupLocations) are pickup locations")
+        Logger.orgs.pinfo("[orgs]  \(numWithEvents) have events URLs")
+        Logger.orgs.pinfo("[orgs]  \(numWithEresources) have eresources URLs")
+        Logger.orgs.pinfo("[orgs]  \(numWithMeetingRooms) have meeting rooms URLs")
+        Logger.orgs.pinfo("[orgs]  \(numWithMuseumPasses) have museum passes URLs")
     }
 }

@@ -175,7 +175,7 @@ class DetailsViewController: UIViewController {
 
     private func updateButtonViews() {
         if record.isDeleted {
-            logger.info("updateButtonViews: title:\(self.record.title) deleted")
+            logger.pinfo("updateButtonViews: title:\(record.title) deleted")
             placeHoldButton.isEnabled = false
             copyInfoButton.isEnabled = false
             addToListButton.isEnabled = false
@@ -185,7 +185,7 @@ class DetailsViewController: UIViewController {
         let org = App.svc.consortium.find(byShortName: displayOptions.orgShortName) ?? App.svc.consortium.consortium
         let links = App.behavior.onlineLocations(record: record, forSearchOrg: org?.shortname)
         let numCopies = record.copyCount(atOrgID: org?.id ?? App.svc.consortium.consortiumOrgID)?.count ?? 0
-        logger.info("updateButtonViews: titself.le:\(self.record.title) links:\(links.count) copies:\(numCopies)")
+        logger.pinfo("updateButtonViews: title:\(record.title) links:\(links.count) copies:\(numCopies)")
 
         if numCopies > 0 {
             placeHoldButton.isEnabled = displayOptions.enablePlaceHold
@@ -216,9 +216,9 @@ class DetailsViewController: UIViewController {
         let orgID = consortiumService.find(byShortName: displayOptions.orgShortName)?.id ?? consortiumService.consortiumOrgID
 
         do {
-            logger.info("record.hasAttrs:    \(self.record.hasAttributes)")
-            logger.info("record.hasMARC:     \(self.record.hasMARC)")
-            logger.info("record.hasMetadata: \(self.record.hasMetadata)")
+            logger.pinfo("record.hasAttrs:    \(record.hasAttributes)")
+            logger.pinfo("record.hasMARC:     \(record.hasMARC)")
+            logger.pinfo("record.hasMetadata: \(record.hasMetadata)")
             async let details: Void = App.svc.biblio.loadRecordDetails(forRecord: record, needMARC: App.config.needMARCRecord)
             async let attrs: Void? = try? App.svc.biblio.loadRecordAttributes(forRecord: record)
             async let ccounts: Void = App.svc.biblio.loadRecordCopyCounts(forRecord: record, orgID: orgID)
