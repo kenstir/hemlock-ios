@@ -16,6 +16,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import os.log
 
 struct CodedValue {
     let code: String
@@ -51,7 +52,7 @@ class CodedValueMap {
                 }
             }
         }
-        print("\(iconFormats.count) icon formats, \(searchFormats.count) search formats, \(languageFormats.count) language formats loaded")
+        Logger.app.pinfo("\(iconFormats.count) icon formats, \(searchFormats.count) search formats, \(languageFormats.count) language formats loaded")
     }
 
     static func iconFormatLabel(forCode code: String?) -> String {

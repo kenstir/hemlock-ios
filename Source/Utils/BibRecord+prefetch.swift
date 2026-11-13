@@ -26,7 +26,7 @@ extension BibRecord {
     /// `prefetch` does asynchronous prefetching of details and attributes.
     ///  It does not throw because we use it for preloading table rows.
     func prefetch() async -> Void {
-        print("\(Utils.tt) id=\(String(format: "%7d", id)) prefetch hasMetadata=\(self.hasMetadata) hasAttrs=\(self.hasAttributes)")
+        Logger.async.pinfo("\(Utils.tt) id=\(String(format: "%7d", self.id)) prefetch hasMetadata=\(self.hasMetadata) hasAttrs=\(self.hasAttributes)")
 
         async let details: Void = App.svc.biblio.loadRecordDetails(forRecord: self, needMARC: false)
         async let attrs: Void = App.svc.biblio.loadRecordAttributes(forRecord: self)

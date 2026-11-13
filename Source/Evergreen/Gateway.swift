@@ -178,7 +178,7 @@ class Gateway {
     static func reportCacheUsage() {
         let diskUsageKB = URLCache.shared.currentDiskUsage / 1024
         let memUsageKB = URLCache.shared.currentMemoryUsage / 1024
-        print("cache in mem : \(memUsageKB) kB")
-        print("cache on disk: \(diskUsageKB) kB")
+        Logger.app.pinfo("cache in mem : \(memUsageKB) kB")
+        Logger.app.pinfo("cache on disk: \(diskUsageKB) kB")
     }
 }

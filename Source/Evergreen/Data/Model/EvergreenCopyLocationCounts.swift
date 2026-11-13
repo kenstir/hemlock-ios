@@ -16,6 +16,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import os.log
 
 class EvergreenCopyLocationCounts: CopyLocationCounts {
     let orgID: Int
@@ -86,7 +87,7 @@ class EvergreenCopyLocationCounts: CopyLocationCounts {
                 }
             } else {
                 //TODO: analytics
-                print("failed to parse copyLocationCount \(elem)")
+                Logger.app.perror("failed to parse copyLocationCount \(elem)")
             }
         }
         

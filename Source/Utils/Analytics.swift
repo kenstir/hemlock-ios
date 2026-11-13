@@ -210,7 +210,7 @@ class Analytics {
 
     /// mt: MT-Safe
     static func logRequest(tag: String?, method: String, args: [String]) {
-        //print("\(Utils.tt) logRequest \(tag ?? nullTag): \(method)")
+        //Logger.async.pinfo("\(Utils.tt) logRequest \(tag ?? nullTag): \(method)")
 
         // TODO: redact authtoken inside args
         var argsDescription = "***"
@@ -246,7 +246,7 @@ class Analytics {
 
     /// mt: MT-Safe
     static func logResponse(tag: String?, wireString: String, cached: Bool? = nil, elapsedMs: Int? = nil) {
-        //print("\(Utils.tt) logResponse \(tag ?? nullTag)")
+        //Logger.async.pinfo("\(Utils.tt) logResponse \(tag ?? nullTag)")
 
         // build a prefix indicating cached status and elapsed time if available
         let netPrefix = netPrefix(tag)

@@ -18,6 +18,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import os.log
 
 typealias JSONValue = Any?
 typealias JSONDictionary = [String: Any?]
@@ -253,7 +254,7 @@ struct OSRFObject: Equatable {
     //MARK: - Debug
 
     func dump() {
-        print("\(netClass ?? "unknown class") OSRFObject:")
+        Logger.app.pinfo("\(netClass ?? "unknown class") OSRFObject:")
         Utils.dump(dict: dict)
     }
 

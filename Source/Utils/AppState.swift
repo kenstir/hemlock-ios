@@ -15,6 +15,7 @@
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
 import Foundation
+import os.log
 
 class AppState {
     class Str {
@@ -42,7 +43,7 @@ class AppState {
     static func sensitiveString(forKey key: String) -> String? {
         // We use Valet for sensitive strings like phone numbers
         if let value = try? App.valet.string(forKey: key) {
-            print("[state] Got sensitive \(key) = ***")
+            Logger.state.pinfo("[state] Got sensitive \(key) = ***")
             return value
         }
         return nil
@@ -50,7 +51,7 @@ class AppState {
 
     static func string(forKey key: String) -> String? {
         if let value = UserDefaults.standard.string(forKey: key) {
-            print("[state] Got \(key) = \(value)")
+            Logger.state.pinfo("[state] Got \(key) = \(value)")
             return value
         }
         return nil
@@ -59,7 +60,7 @@ class AppState {
     static func bool(forKey key: String) -> Bool? {
         // Use ``object(forKey:)`` so we can tell the difference between "not set" and "set to false"
         if let value = UserDefaults.standard.object(forKey: key) as? Bool {
-            print("[state] Got \(key) = \(value)")
+            Logger.state.pinfo("[state] Got \(key) = \(value)")
             return value
         }
         return nil
@@ -68,7 +69,7 @@ class AppState {
     static func integer(forKey key: String) -> Int? {
         // Use ``object(forKey:)`` so we can tell the difference between "not set" and "set to 0"
         if let value = UserDefaults.standard.object(forKey: key) as? Int {
-            print("[state] Got \(key) = \(value)")
+            Logger.state.pinfo("[state] Got \(key) = \(value)")
             return value
         }
         return nil
@@ -76,22 +77,22 @@ class AppState {
 
     static func set(sensitiveString string: String, forKey key: String) {
         // We use Valet for sensitive strings like phone numbers
-        print("[state] Set sensitive \(key) to ***")
+        Logger.state.pinfo("[state] Set sensitive \(key) to ***")
         try? App.valet.setString(string, forKey: key)
     }
 
     static func set(string: String, forKey key: String) {
-        print("[state] Set \(key) to \(string)")
+        Logger.state.pinfo("[state] Set \(key) to \(string)")
         UserDefaults.standard.set(string, forKey: key)
     }
 
     static func set(bool: Bool, forKey key: String) {
-        print("[state] Set \(key) to \(bool)")
+        Logger.state.pinfo("[state] Set \(key) to \(bool)")
         UserDefaults.standard.set(bool, forKey: key)
     }
 
     static func set(integer: Int, forKey key: String) {
-        print("[state] Set \(key) to \(integer)")
+        Logger.state.pinfo("[state] Set \(key) to \(integer)")
         UserDefaults.standard.set(integer, forKey: key)
     }
 
@@ -103,7 +104,7 @@ class AppState {
     }
     static func migrateOneSetting(from oldKey: String, to newKey: String) {
         if let val = try? App.valet.string(forKey: oldKey) {
-            print("[state] migrate \(oldKey) = \(val) to newKey \(newKey)")
+            Logger.state.pinfo("[state] migrate \(oldKey) = \(val) to newKey \(newKey)")
             UserDefaults.standard.set(val, forKey: newKey)
             try? App.valet.removeObject(forKey: oldKey)
         }
@@ -111,14 +112,14 @@ class AppState {
     static func migrateOneSetting(from oldKey: String, toBool newKey: String) {
         if let val = try? App.valet.string(forKey: oldKey) {
             let boolVal = (val == "t")
-            print("[state] migrate \(oldKey) = \(boolVal) to newKey \(newKey)")
+            Logger.state.pinfo("[state] migrate \(oldKey) = \(boolVal) to newKey \(newKey)")
             UserDefaults.standard.set(boolVal, forKey: newKey)
             try? App.valet.removeObject(forKey: oldKey)
         }
     }
     static func migrateOneSetting(from oldKey: String, toInteger newKey: String) {
         if let val = try? App.valet.string(forKey: oldKey), let intVal = Int(val) {
-            print("[state] migrate \(oldKey) = \(intVal) to newKey \(newKey)")
+            Logger.state.pinfo("[state] migrate \(oldKey) = \(intVal) to newKey \(newKey)")
             UserDefaults.standard.set(intVal, forKey: newKey)
             try? App.valet.removeObject(forKey: oldKey)
         }

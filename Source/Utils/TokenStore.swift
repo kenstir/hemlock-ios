@@ -14,6 +14,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program; if not, see <https://www.gnu.org/licenses/>.
 
+import os.log
+
 struct TokenEntry: Codable {
     let token: String
     let addedAt: Int64
@@ -104,7 +106,7 @@ class TokenStore: Codable {
 
     func dump() {
         for entry in entries {
-            print("[fcm]   added_at:\(entry.addedAt) token:\(entry.token)")
+            Logger.fcm.pinfo("[fcm]   added_at:\(entry.addedAt) token:\(entry.token)")
         }
     }
 }

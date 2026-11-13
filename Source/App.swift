@@ -67,14 +67,6 @@ class App {
         account?.clear()
     }
 
-    static func printLaunchInfo() {
-        if let userInfo = launchNotificationUserInfo {
-            let pn = PushNotification(userInfo: userInfo)
-            print("[fcm] pn: \(pn)")
-        }
-        print("")
-    }
-
     static func updateLaunchCount() {
         if let str = try? valet.string(forKey: "launchCount"),
            let val = Int(str) {

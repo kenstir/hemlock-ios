@@ -106,7 +106,7 @@ class CheckoutsViewController: UIViewController {
     func updateItems(withRecords records: [CircRecord]) {
         self.items = records
         sortList()
-        print("xxx \(records.count) records now, time to reloadData")
+        os_log("%d records now, time to reloadData", log: self.log, type: .info, items.count)
         tableView.reloadData()
     }
 

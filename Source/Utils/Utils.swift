@@ -46,20 +46,20 @@ class Utils {
     static func dump(dict: JSONDictionary) {
         for i in dict.keys.sorted() {
             if let val = dict[i], let v = val {
-                print("  \(i) -> \(v)")
+                Logger.app.pinfo("  \(i) -> \(v)")
             } else {
-                print("  \(i) -> nil")
+                Logger.app.pinfo("  \(i) -> nil")
             }
         }
     }
-    
+
     static func toString(_ val: Bool?) -> String {
         if let v = val {
             return v ? "true" : "false"
         }
         return "nil"
     }
-    
+
     // Given a pubdate like "2000", "c2002", "[2003]", or "2007-2014",
     // extract the first number as an Int for sorting.
     static func pubdateSortKey(_ pubdate: String?) -> Int? {
@@ -75,7 +75,7 @@ class Utils {
         }
         return nil
     }
-    
+
     // Given a title, return a sort key
     static func titleSortKey(_ title: String?) -> String {
         guard let t = title else { return "" }
