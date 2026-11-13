@@ -48,14 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #if USE_FCM
         FirebaseApp.configure()
         setupFirebaseCloudMessaging(application)
-
-        // If the app was started by tapping a remoteNotification, stash it now
-        if let remoteNotification = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification],
-           let userInfo = remoteNotification as? [AnyHashable: Any]
-        {
-            let pn = PushNotification(userInfo: userInfo, tag: "application(_:didFinishLaunchingWithOptions:)")
-            App.launchNotificationUserInfo = pn.userInfo
-        }
 #elseif USE_FA
         FirebaseApp.configure()
 #endif
@@ -130,7 +122,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Nothing to do; UIKit loads the storyboard and attaches the window.
+#if USE_FCM
+        if let response = connectionOptions.notificationResponse {
+            let pn = PushNotification(userInfo: response.notification.request.content.userInfo, tag: "scene(_:willConnectTo:options:)")
+            App.launchNotificationUserInfo = pn.userInfo
+        }
+#endif
     }
 }
 
