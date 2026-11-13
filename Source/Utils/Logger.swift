@@ -26,11 +26,15 @@ extension Logger {
     static let orgs = Logger(subsystem: subsystem, category: "orgs")
     static let state = Logger(subsystem: subsystem, category: "state")
 
+    func pdebug(_ message: String) {
+        self.log(level: .debug, "\(message, privacy: .public)")
+    }
+
     func pinfo(_ message: String) {
         self.log(level: .info, "\(message, privacy: .public)")
     }
 
-    func pdebug(_ message: String) {
-        self.log(level: .debug, "\(message, privacy: .public)")
+    func perror(_ message: String) {
+        self.log(level: .error, "\(message, privacy: .public)")
     }
 }
