@@ -203,7 +203,10 @@ extension UIViewController {
 
     /// if the app was launched from a notification, start the desired VC
     func handleLaunchNotification() -> Bool {
-        App.printLaunchInfo()
+        if let userInfo = App.launchNotificationUserInfo {
+            let pn = PushNotification(userInfo: userInfo)
+            Logger.fcm.pinfo("[fcm] launchNotificationUserInfo: \(pn)")
+        }
         return handleNotification(userInfo: App.launchNotificationUserInfo)
     }
 
