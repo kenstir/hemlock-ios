@@ -87,8 +87,7 @@ class EvergreenCopyLocationCounts: CopyLocationCounts {
                 }
             } else {
                 //TODO: analytics
-                let desc = String(describing: elem)
-                Logger.app.error("failed to parse copyLocationCount \(desc)")
+                Logger.app.perror("failed to parse copyLocationCount \(elem)")
             }
         }
         
