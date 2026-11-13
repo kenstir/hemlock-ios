@@ -129,14 +129,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     /// called by the system when the app receives a notification while running (fg or bg), to decide how to present it
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let pn = PushNotification(userInfo: notification.request.content.userInfo, tag: "userNotificationCenter(:willPresent:withCompletionHandler:)")
+        let pn = PushNotification(userInfo: notification.request.content.userInfo, tag: "userNotificationCenter(_:willPresent:withCompletionHandler:)")
         Logger.fcm.pinfo("[fcm] willPresent: \(pn)")
         completionHandler(notificationOptions())
     }
 
     /// called by the system when a notification is tapped while the app is running (fg or bg)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let pn = PushNotification(userInfo: response.notification.request.content.userInfo, tag: "userNotificationCenter(:didReceive:withCompletionHandler:)")
+        let pn = PushNotification(userInfo: response.notification.request.content.userInfo, tag: "userNotificationCenter(_:didReceive:withCompletionHandler:)")
         Logger.fcm.pinfo("[fcm] didReceive: \(pn)")
         notifyListeners(pn.userInfo)
         completionHandler()
