@@ -71,7 +71,7 @@ class EvergreenOrganization: Organization {
     static var alertBannerText: String? = nil
     static var consortiumOrgID = 1 // as defaulted in Open-ILS code
     static var visibleOrgs: [Organization] {
-        return EvergreenOrganization.orgs.compactMap { $0.opacVisible ? $0 : nil }
+        return orgs.compactMap { $0.opacVisible ? $0 : nil }
     }
 
     private let lock = NSRecursiveLock()
