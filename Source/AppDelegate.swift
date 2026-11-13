@@ -55,8 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let remoteNotification = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification],
            let userInfo = remoteNotification as? [AnyHashable: Any]
         {
-            let pn = PushNotification(userInfo: userInfo)
-            pn.tag = "launchOptions"
+            let pn = PushNotification(userInfo: userInfo, tag: "application(_:didFinishLaunchingWithOptions:)")
             App.launchNotificationUserInfo = pn.userInfo
         }
 #elseif USE_FA
@@ -95,8 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
-        let pn = PushNotification(userInfo: userInfo)
-        pn.tag = "didReceiveRemoteNotification(1)"
+        let pn = PushNotification(userInfo: userInfo, tag: "application(_:didReceiveRemoteNotification:)")
         Logger.fcm.pinfo("[fcm] didReceiveRemoteNotification: \(pn)")
         notifyListeners(pn.userInfo)
     }
@@ -104,8 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
-        let pn = PushNotification(userInfo: userInfo)
-        pn.tag = "didReceiveRemoteNotification(2)"
+        let pn = PushNotification(userInfo: userInfo, tag: "application(_:didReceiveRemoteNotification:fetchCompletionHandler:")
         Logger.fcm.pinfo("[fcm] didReceiveRemoteNotification: \(pn)")
         notifyListeners(pn.userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
@@ -132,15 +129,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     /// called by the system when the app receives a notification while running (fg or bg), to decide how to present it
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let pn = PushNotification(userInfo: notification.request.content.userInfo)
+        let pn = PushNotification(userInfo: notification.request.content.userInfo, tag: "userNotificationCenter(:willPresent:withCompletionHandler:)")
         Logger.fcm.pinfo("[fcm] willPresent: \(pn)")
         completionHandler(notificationOptions())
     }
 
     /// called by the system when a notification is tapped while the app is running (fg or bg)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let pn = PushNotification(userInfo: response.notification.request.content.userInfo)
-        pn.tag = "didReceive"
+        let pn = PushNotification(userInfo: response.notification.request.content.userInfo, tag: "userNotificationCenter(:didReceive:withCompletionHandler:)")
         Logger.fcm.pinfo("[fcm] didReceive: \(pn)")
         notifyListeners(pn.userInfo)
         completionHandler()

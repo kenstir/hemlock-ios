@@ -77,6 +77,13 @@ class PushNotification {
         title = alert?["title"]
         body = alert?["body"]
     }
+
+    convenience init(userInfo: [AnyHashable : Any], tag: String?) {
+        self.init(userInfo: userInfo)
+        if self.tag == nil {
+            self.tag = tag
+        }
+    }
 }
 
 extension PushNotification: CustomStringConvertible {
