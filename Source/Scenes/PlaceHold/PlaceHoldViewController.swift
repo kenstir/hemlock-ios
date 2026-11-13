@@ -540,7 +540,7 @@ class PlaceHoldViewController: UIViewController {
         selectedOrgIndex = consortiumService.visibleOrgs.firstIndexOrZero(where: { $0.id == defaultPickupOrgID })
         let label = orgLabels[selectedOrgIndex].trim()
         pickupTextField.text = label
-        print("[prefs] Pickup org: default is \(label)")
+        Logger.state.info("[state] Pickup org: default is \(label)")
 
         pickupTextField.isUserInteractionEnabled = true
     }
@@ -548,11 +548,11 @@ class PlaceHoldViewController: UIViewController {
     func maybeChangePickupOrg(newIndex: Int, newLabel: String) {
         let consortiumService = App.svc.consortium
         let newOrg = consortiumService.visibleOrgs[newIndex]
-        print("[prefs] Pickup org: selected \(newOrg.name)")
+        Logger.state.info("[state] Pickup org: selected \(newOrg.name)")
         guard newIndex != selectedOrgIndex else { return }
 
         if newOrg.id == App.account?.pickupOrgID {
-            print("[prefs] Pickup org: same as account setting")
+            Logger.state.info("[state] Pickup org: same as account setting")
             selectedOrgIndex = newIndex
             pickupTextField.text = newLabel
             return
@@ -560,15 +560,15 @@ class PlaceHoldViewController: UIViewController {
 
         let alertController = UIAlertController(title: "Change pickup location?", message: "Change pickup location to \(newOrg.name)?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            print("[prefs] Pickup org: cancel")
+            Logger.state.info("[state] Pickup org: cancel")
         })
         alertController.addAction(UIAlertAction(title: "Just once", style: .default) { _ in
-            print("[prefs] Pickup org: just once")
+            Logger.state.info("[state] Pickup org: just once")
             self.selectedOrgIndex = newIndex
             self.pickupTextField.text = newLabel
         })
         alertController.addAction(UIAlertAction(title: "Always", style: .default) { _ in
-            print("[prefs] Pickup org: always")
+            Logger.state.info("[state] Pickup org: always")
             self.selectedOrgIndex = newIndex
             self.pickupTextField.text = newLabel
             Task { await self.saveSelectedPickupOrg(org: newOrg) }

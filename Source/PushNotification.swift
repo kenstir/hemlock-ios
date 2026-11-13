@@ -79,8 +79,11 @@ class PushNotification {
     }
 }
 
-extension PushNotification: CustomDebugStringConvertible {
+extension PushNotification: CustomStringConvertible, CustomDebugStringConvertible {
     var debugDescription: String {
         return "id:\(id) user:\(username ?? "(nil)") title:\(title ?? "(nil)") body:\(body ?? "(nil)") tag:\(tag ?? "")"
+    }
+    var description: String {
+        return debugDescription
     }
 }

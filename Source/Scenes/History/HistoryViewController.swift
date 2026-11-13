@@ -197,7 +197,7 @@ class HistoryViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("\(Utils.tt) row=\(String(format: "%2d", indexPath.row)) cellForRowAt")
+        Logger.async.info("\(Utils.tt) row=\(String(format: "%2d", indexPath.row)) cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
         guard items.count > indexPath.row else { return cell }
         let item = items[indexPath.row]
@@ -222,7 +222,7 @@ class HistoryViewController: UITableViewController {
     }
 
     func setCellMetadata(_ cell: HistoryTableViewCell, forItem item: HistoryRecord?) {
-        print("\(Utils.tt) setCellMetadata for \(item?.title ?? "")")
+        Logger.async.info("\(Utils.tt) setCellMetadata for \(item?.title ?? "")")
         cell.title.text = item?.title
         cell.author.text = item?.author
         cell.checkoutDate.text = "Checkout Date: \(item?.checkoutDateLabel ?? "")"

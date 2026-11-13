@@ -16,6 +16,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import Foundation
+import os.log
 
 class OrgType {
     static var orgTypes: [OrgType] = []
@@ -204,7 +205,7 @@ class EvergreenOrganization: Organization {
         lock.lock(); defer { lock.unlock() }
 
         aouObj = obj
-        //print("xxx.org_update id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
+        //Logger.orgs.info("[orgs]  id=\(id) level=\(level) vis=\(opacVisible) site=\(shortname) name=\(name)")
     }
 
     /// mt-safe
@@ -348,7 +349,7 @@ class EvergreenOrganization: Organization {
         self.orgs.append(org)
 
         let prefix = String(repeating: "   ", count: level)
-        print("xxx.org_added \(prefix)\(shortname) id=\(id) type=\(ouType) vis=\(opacVisible) name=\(name)")
+        Logger.orgs.debug("[orgs]  \(prefix)\(shortname) id=\(id) type=\(ouType) vis=\(opacVisible) name=\(name)")
 
         if let children = obj.getAny("children") {
             if let childObjArray = children as? [OSRFObject] {
@@ -367,11 +368,11 @@ class EvergreenOrganization: Organization {
         let numWithEresources = visibleOrgs.count { $0.eresourcesURL != nil }
         let numWithMeetingRooms = visibleOrgs.count { $0.meetingRoomsURL != nil }
         let numWithMuseumPasses = visibleOrgs.count { $0.museumPassesURL != nil }
-        print("xxx.org_stats \(visibleOrgs.count) visible orgs")
-        print("xxx.org_stats \(numPickupLocations) are pickup locations")
-        print("xxx.org_stats \(numWithEvents) have events URLs")
-        print("xxx.org_stats \(numWithEresources) have eresources URLs")
-        print("xxx.org_stats \(numWithMeetingRooms) have meeting rooms URLs")
-        print("xxx.org_stats \(numWithMuseumPasses) have museum passes URLs")
+        Logger.orgs.info("[orgs]  \(visibleOrgs.count) visible orgs")
+        Logger.orgs.info("[orgs]  \(numPickupLocations) are pickup locations")
+        Logger.orgs.info("[orgs]  \(numWithEvents) have events URLs")
+        Logger.orgs.info("[orgs]  \(numWithEresources) have eresources URLs")
+        Logger.orgs.info("[orgs]  \(numWithMeetingRooms) have meeting rooms URLs")
+        Logger.orgs.info("[orgs]  \(numWithMuseumPasses) have museum passes URLs")
     }
 }

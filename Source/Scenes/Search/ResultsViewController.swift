@@ -104,7 +104,7 @@ class ResultsViewController: UIViewController {
         // individually on demand by cellForRowAt.
         let maxRecordsToPreload = 7 // best estimate is 6 on screen + 1 partial
         let preloadRecords = records.prefix(maxRecordsToPreload)
-        print("\(Utils.tt) fetchRecordDetails first \(preloadRecords.count)")
+        Logger.async.info("\(Utils.tt) fetchRecordDetails first \(preloadRecords.count)")
 
         // Prefetch
         do {
@@ -126,7 +126,7 @@ class ResultsViewController: UIViewController {
     }
 
     func reloadData() {
-        print("\(Utils.tt) \(items.count) records total, time to reloadData")
+        Logger.async.info("\(Utils.tt) \(self.items.count) records total, time to reloadData")
         tableView.reloadData()
     }
 
@@ -187,7 +187,7 @@ extension ResultsViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("\(Utils.tt) row=\(String(format: "%-2d", indexPath.row)) cellForRowAt")
+        Logger.async.info("\(Utils.tt) row=\(String(format: "%-2d", indexPath.row)) cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultsCell", for: indexPath) as! ResultsTableViewCell
         guard items.count > indexPath.row else { return cell }
         let record = items[indexPath.row]
@@ -230,7 +230,7 @@ extension ResultsViewController : UITableViewDataSource {
 extension ResultsViewController : UITableViewDataSourcePrefetching {
     // TODO: if prefetching is necessary to prevent hitching do it here; if not save the extra network requests
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        print("\(Utils.tt) prefetchRowsAt \(indexPaths.count) rows")
+        Logger.async.info("\(Utils.tt) prefetchRowsAt \(indexPaths.count) rows")
         for indexPath in indexPaths {
             guard items.count > indexPath.row else { return }
             let record = items[indexPath.row]
