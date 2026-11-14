@@ -79,9 +79,16 @@ class LiveServiceTests: XCTestCase {
     override class func tearDown() {
         super.tearDown()
 
+        let semaphore = DispatchSemaphore(value: 0)
         Task {
-            try await LiveServiceTests.once_deleteSession()
+            defer { semaphore.signal() }
+            do {
+                try await LiveServiceTests.once_deleteSession()
+            } catch {
+                print("tearDown failed: \(error)")
+            }
         }
+        semaphore.wait()
     }
 
     static func initTestState() {
