@@ -11,6 +11,7 @@
 * chore: Upgrade to Alamofire-5.12.2
 * chore: Upgrade to firebase-ios-sdk-13.1.1 and drop unnecessary Firestore dependencies
 * chore: Upgrade to Valet 5
+* chore: Upgrade to fastlane 2.241.2
 * chore: Migrate all dependencies from Carthage to Swift Package Manager
 * chore: Opt out of ad network attribution in Info.plist (cwmars, indiana, mo, owwl, sagecat)
   Other apps were already opted out
