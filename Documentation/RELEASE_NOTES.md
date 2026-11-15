@@ -3,7 +3,7 @@
 ## upcoming
 
 ### Fixed
-* Fix issue where Login button was disabled if startup loading failed
+* Fix issue where Login button was disabled if there was any error during app launch
 * Fix issue where Login could fail on trailing space in username field
 * Fix issue where highland cow appeared for missing jacket cover (cwmars)
 * Fix issue where the synopsis and Subject might be blank on Details screen
