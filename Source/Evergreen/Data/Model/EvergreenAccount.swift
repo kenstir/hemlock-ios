@@ -18,7 +18,6 @@ import Foundation
 import os.log
 
 class EvergreenAccount : Account {
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Account")
     private let lock = NSRecursiveLock()
 
     let username: String
@@ -232,7 +231,7 @@ class EvergreenAccount : Account {
         parseHoldNotifyValue(holdNotifySetting)
 
         Task { await maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled) }
-        os_log(.info, log: EvergreenAccount.log, "loadUserSettings finished")
+        Logger.async.pinfo("\(Utils.tt) loadUserSettings finished")
     }
 
     /// mt-safe
