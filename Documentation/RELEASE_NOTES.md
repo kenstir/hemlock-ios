@@ -2,6 +2,9 @@
 
 ## upcoming
 
+### New
+* Support for iOS 15 and iOS 16 is ending; version 5.0 will support iOS 17+
+
 ### Fixed
 * Fix issue where Login button was disabled if there was any error during app launch
 * Fix issue where Login could fail on trailing space in username field
