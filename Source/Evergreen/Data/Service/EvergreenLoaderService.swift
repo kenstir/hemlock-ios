@@ -39,7 +39,7 @@ class EvergreenLoaderService: LoaderService {
             try await group.waitForAll()
         }
 
-        os_log("startup.elapsed: %.3f", log: Gateway.log, type: .info, -start.timeIntervalSinceNow)
+        Logger.perf.pinfo("startup.elapsed: \(String(format: "%.3f", -start.timeIntervalSinceNow))")
     }
 
     private func loadGlobalOrgSettings() async throws -> String {

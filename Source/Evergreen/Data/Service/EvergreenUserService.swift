@@ -113,7 +113,7 @@ class EvergreenUserService: UserService {
         ], netClass: "cbreb")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[lists] createBag %@ result %@", name, str)
+        Logger.lists.pinfo("[lists] createBag \(name) result \(str)")
     }
 
     func deletePatronList(account: Account, listID: Int) async throws {
@@ -122,7 +122,7 @@ class EvergreenUserService: UserService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, listID], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[lists] bag %d deleteBag result %@", listID, str)
+        Logger.lists.pinfo("[lists] bag \(listID) deleteBag result \(str)")
     }
 
     func addItemToPatronList(account: Account, listID: Int, recordID: Int) async throws {
@@ -136,7 +136,7 @@ class EvergreenUserService: UserService {
         ], netClass: "cbrebi")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerItemCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[lists] addItem %d result %@", listID, str)
+        Logger.lists.pinfo("[lists] addItem \(listID) result \(str)")
     }
 
     func removeItemFromPatronList(account: Account, listID: Int, itemID: Int) async throws {
@@ -145,7 +145,7 @@ class EvergreenUserService: UserService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, itemID], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[lists] removeItem %d result %@", itemID, str)
+        Logger.lists.pinfo("[lists] removeItem \(itemID) result \(str)")
     }
 
     //MARK: - User Settings

@@ -24,8 +24,10 @@ extension Logger {
     static let async = Logger(subsystem: subsystem, category: "async")
     static let fcm = Logger(subsystem: subsystem, category: "fcm")
     static let holds = Logger(subsystem: subsystem, category: "holds")
+    static let lists = Logger(subsystem: subsystem, category: "lists")
     static let net = Logger(subsystem: subsystem, category: "net")
     static let orgs = Logger(subsystem: subsystem, category: "orgs")
+    static let perf = Logger(subsystem: subsystem, category: "perf")
     static let state = Logger(subsystem: subsystem, category: "state")
 
     func pdebug(_ message: String) {
