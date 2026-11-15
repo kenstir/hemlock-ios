@@ -1,0 +1,12 @@
+{
+    "Simulator Target Bundle": "net.kenstir.apps.pines",
+    "aps": {
+        "alert": {
+            "title": "Test Notification",
+            "body": "new system message"
+        },
+    },
+    "gcm.message_id": "test-notification-1",
+    "hemlock.t": "checkouts",
+    "hemlock.u": "hemlock"
+}
