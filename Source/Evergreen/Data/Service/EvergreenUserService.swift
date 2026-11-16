@@ -218,7 +218,8 @@ class EvergreenUserService: UserService {
         var url = App.library?.url ?? ""
         url += "/eg/opac/myopac/messages?action=\(action)&message_id=\(messageID)"
         let req = Gateway.makeOPACRequest(url: url, authtoken: authtoken, shouldCache: false)
-        let _ = try await req.serializingData().value
+        // a success response is the entire HTML page; ignore it
+        let _ = try await req.gatewayDataResponseAsync()
     }
 
     func markMessageRead(account: Account, messageID: Int) async throws {

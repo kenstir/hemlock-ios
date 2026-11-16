@@ -235,17 +235,17 @@ class Analytics {
     }
 
     /// mt: MT-Safe
-    static func logResponse(tag: String?, data responseData: Data?, cached: Bool? = nil, elapsedMs: Int? = nil) {
+    static func logResponse(tag: String?, data responseData: Data?, cached: Bool? = nil, elapsedMs: Int? = nil, squelchData: Bool = false) {
         if let d = responseData,
             let s = String(data: d, encoding: .utf8) {
-            logResponse(tag: tag, wireString: s, cached: cached, elapsedMs: elapsedMs)
+            logResponse(tag: tag, wireString: s, cached: cached, elapsedMs: elapsedMs, squelchData: squelchData)
         } else {
-            logResponse(tag: tag, wireString: "(null)", cached: cached, elapsedMs: elapsedMs)
+            logResponse(tag: tag, wireString: "(null)", cached: cached, elapsedMs: elapsedMs, squelchData: squelchData)
         }
     }
 
     /// mt: MT-Safe
-    static func logResponse(tag: String?, wireString: String, cached: Bool? = nil, elapsedMs: Int? = nil) {
+    static func logResponse(tag: String?, wireString: String, cached: Bool?, elapsedMs: Int?, squelchData: Bool) {
         //Logger.async.pinfo("\(Utils.tt) logResponse \(tag ?? nullTag)")
 
         // build a prefix indicating cached status and elapsed time if available
@@ -265,8 +265,8 @@ class Analytics {
             ("__c":"aum?"|"__c":"aou")
             """
         let s: String
-        if wireString.starts(with: "<IDL ") {
-            s = "\(prefix) <IDL>"
+        if squelchData {
+            s = "\(prefix) \(wireString.utf8.count) B"
         } else {
             let range = wireString.range(of: redactedResponseRegex, options: .regularExpression)
             if range == nil {

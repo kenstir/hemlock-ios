@@ -90,7 +90,7 @@ class Gateway {
                                          "_ck": clientCacheKey, "_sk": serverCacheKey]
         let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
         let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
-//        os_log("%@: req.params: %@", log: log, type: .info, tag, parameters.description)
+        //os_log("[net] %@: req.params: %@", log: log, type: .info, tag, parameters.description)
         Analytics.logRequest(tag: tag, method: method, args: gatewayParams(args))
         return request
     }
@@ -100,7 +100,7 @@ class Gateway {
     {
         let request = sessionManager.makeRequest(url, shouldCache: shouldCache)
         let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
-//        os_log("%@: url: %@", log: log, type: .info, tag, url)
+        //os_log("[net] %@: url: %@", log: log, type: .info, tag, url)
         Analytics.logRequest(tag: tag, url: url)
         return request
     }
@@ -111,8 +111,11 @@ class Gateway {
     {
         let cookie = "ses=\(authtoken); eg_loggedin=1"
         let headers: HTTPHeaders = ["Cookie": cookie]
-//        os_log("%s", log: log, type: .info, "url: \(url)")
-        return sessionManager.makeRequest(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, shouldCache: shouldCache)
+        let request = sessionManager.makeRequest(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, shouldCache: shouldCache)
+        let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
+        //os_log("[net] %@: url: %@", log: log, type: .info, tag, url)
+        Analytics.logRequest(tag: tag, url: url)
+        return request
     }
 
     /// encode params as needed by the gateway
