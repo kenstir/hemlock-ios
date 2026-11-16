@@ -3,7 +3,7 @@
 ## upcoming
 
 ### New
-* Support for iOS 15 and iOS 16 is ending; version 5.0 will support iOS 17+
+* This is the last release with support for iOS 15 and iOS 16; starting with version 5.0, we will support iOS 17+
 
 ### Fixed
 * Fix issue where Login button was disabled if there was any error during app launch
@@ -11,13 +11,15 @@
 * Fix issue where highland cow appeared for missing jacket cover (cwmars)
 * Fix issue where the synopsis and Subject might be blank on Details screen
 * chore: Adopt UIScene lifecycle as mandated by iOS 27
-* chore: Upgrade to Alamofire-5.12.2
-* chore: Upgrade to firebase-ios-sdk-13.1.1 and drop unnecessary Firestore dependencies
-* chore: Upgrade to Valet 5
-* chore: Upgrade to fastlane 2.241.2
-* chore: Migrate all dependencies from Carthage to Swift Package Manager
+* chore: Migrate all dependencies from Carthage to Swift Package Manager to simplify maintenance
+* chore: Upgrade app dependencies to simplify maintenance
+  - Upgrade to Alamofire-5.12.2
+  - Upgrade to firebase-ios-sdk-13.1.1 and drop unnecessary Firestore dependencies
+  - Upgrade to Valet 5
+  - Upgrade to fastlane 2.241.2
 * chore: Opt out of ad network attribution in Info.plist (cwmars, indiana, mo, owwl, sagecat)
   Other apps were already opted out
+* chore: Migrate all logging to structured logging using Logger
 
 ## 4.8.1
 
