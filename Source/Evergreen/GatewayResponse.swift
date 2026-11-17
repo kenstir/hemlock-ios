@@ -120,10 +120,10 @@ struct GatewayResponse {
 
     init(_ data: Data) {
         self.init()
-        let wire_str = String(data: data, encoding: .utf8) ?? "(nil)"
         guard let json = decodeJSON(data) else {
-            os_log("resp.json: decode_error", log: Gateway.log, type: .info)
-            let errorMessage = GatewayResponse.errorMessage(forInvalidJSON: wire_str)
+            let str = String(data: data, encoding: .utf8) ?? "(invalid utf8)"
+            Logger.net.perror("error decoding JSON: \(str)")
+            let errorMessage = GatewayResponse.errorMessage(forInvalidJSON: str)
             error = .failure(errorMessage)
             return
         }
