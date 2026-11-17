@@ -235,17 +235,17 @@ class Analytics {
     }
 
     /// mt: MT-Safe
-    static func logResponse(tag: String?, data responseData: Data?, cached: Bool? = nil, elapsedMs: Int? = nil, squelchData: Bool = false) {
+    static func logResponse(tag: String?, data responseData: Data?, cached: Bool? = nil, elapsedMs: Int? = nil, showContents: Bool = true) {
         if let d = responseData,
             let s = String(data: d, encoding: .utf8) {
-            logResponse(tag: tag, wireString: s, cached: cached, elapsedMs: elapsedMs, squelchData: squelchData)
+            logResponse(tag: tag, wireString: s, cached: cached, elapsedMs: elapsedMs, showContents: showContents)
         } else {
-            logResponse(tag: tag, wireString: "(null)", cached: cached, elapsedMs: elapsedMs, squelchData: squelchData)
+            logResponse(tag: tag, wireString: "(null)", cached: cached, elapsedMs: elapsedMs, showContents: showContents)
         }
     }
 
     /// mt: MT-Safe
-    static func logResponse(tag: String?, wireString: String, cached: Bool?, elapsedMs: Int?, squelchData: Bool) {
+    static func logResponse(tag: String?, wireString: String, cached: Bool?, elapsedMs: Int?, showContents: Bool) {
         //Logger.async.pinfo("\(Utils.tt) logResponse \(tag ?? nullTag)")
 
         // build a prefix indicating cached status and elapsed time if available
@@ -265,7 +265,7 @@ class Analytics {
             ("__c":"aum?"|"__c":"aou")
             """
         let s: String
-        if squelchData {
+        if !showContents {
             s = "\(prefix) \(wireString.utf8.count) B"
         } else {
             let range = wireString.range(of: redactedResponseRegex, options: .regularExpression)

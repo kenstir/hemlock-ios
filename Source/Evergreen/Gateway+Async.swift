@@ -48,7 +48,7 @@ extension Alamofire.DataRequest {
         let resp = await serializingData().response
         let data = try resp.result.get()
         let cached = self.wasCached(resp.metrics)
-        Analytics.logResponse(tag: self.request?.debugTag, data: data, cached: cached, elapsedMs: self.elapsedInMs(resp.metrics), squelchData: true)
+        Analytics.logResponse(tag: self.request?.debugTag, data: data, cached: cached, elapsedMs: self.elapsedInMs(resp.metrics), showContents: false)
         return data
     }
 
