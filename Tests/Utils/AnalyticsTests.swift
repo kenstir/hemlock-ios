@@ -29,7 +29,7 @@ class AnalyticsTests: XCTestCase {
     func test_getLog() {
         Analytics.clearLog()
         Analytics.logRequest(tag: "dedbeef", method: "m", args: ["p1","p2"])
-        Analytics.logResponse(tag: "dedbeef", wireString: "{}")
+        Analytics.logResponse(tag: "dedbeef", wireString: "{}", cached: false, elapsedMs: nil, showContents: true)
         let s = Analytics.getLog()
         XCTAssertEqual("[net] dedbeef  send  m p1,p2\n[net] dedbeef  recv  {}\n", s)
     }
