@@ -87,7 +87,7 @@ class CredentialManager {
         if let data = try? valet.object(forKey: CredentialManager.storageKeyV1),
             let bundle = try? JSONDecoder().decode(CredentialBundleV1.self, from: data) {
             self.bundle = bundle
-            os_log("creds: loaded %d V1 creds last=%@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
+            Logger.data.pinfo("[creds] loaded \(bundle.credentials.count) V1 creds last=\(bundle.lastUsername ?? "(nil)")")
             return
         }
 
@@ -100,29 +100,29 @@ class CredentialManager {
             try? valet.removeObject(forKey: CredentialManager.legacyUsernameKey)
             try? valet.removeObject(forKey: CredentialManager.legacyPasswordKey)
             self.writeToStorage()
-            os_log("creds: loaded %d legacy creds last=%@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
+            Logger.data.pinfo("[creds] loaded \(bundle.credentials.count) legacy creds last=\(bundle.lastUsername ?? "(nil)")")
             return
         }
 
-        os_log("creds: no creds loaded")
+        Logger.data.pinfo("[creds] no creds loaded")
     }
     
     func writeToStorage() {
         if let data = try? JSONEncoder().encode(bundle) {
             try? valet.setObject(data, forKey: CredentialManager.storageKeyV1)
-            os_log("creds: wrote %d V1 creds last=%@", bundle.credentials.count, bundle.lastUsername ?? "(nil)")
+            Logger.data.pinfo("[creds] wrote \(bundle.credentials.count) V1 creds last=\(bundle.lastUsername ?? "(nil)")")
         }
     }
 
     func add(credential: Credential) {
-        os_log("creds: add %@", credential.username)
+        Logger.data.pinfo("[creds] add \(credential.username)")
         if let index = bundle.credentials.firstIndex(where: { $0.username == credential.username }) {
             bundle.credentials[index] = credential
-            os_log("creds: replaced %@", credential.username)
+            Logger.data.pinfo("[creds] replaced \(credential.username)")
         } else {
             bundle.credentials.append(credential)
             sortCredentialsByName()
-            os_log("creds: added %@", credential.username)
+            Logger.data.pinfo("[creds] added \(credential.username)")
         }
         bundle.lastUsername = credential.username
         writeToStorage()
@@ -133,7 +133,7 @@ class CredentialManager {
             let _ = bundle.credentials.firstIndex(where: { $0.username == username }) {
             bundle.lastUsername = username
         }
-        os_log("creds: setActive %@ last=%@", credential?.username ?? "(nil)", bundle.lastUsername ?? "(nil)")
+        Logger.data.pinfo("[creds] setActive \(credential?.username ?? "(nil)") last=\(bundle.lastUsername ?? "(nil)")")
     }
 
     func removeCredential(forUsername username: String?) {
@@ -142,7 +142,7 @@ class CredentialManager {
             if bundle.lastUsername == username {
                 bundle.lastUsername = bundle.credentials.first?.username
             }
-            os_log("creds: removed %@ last=%@", username ?? "(nil)", bundle.lastUsername ?? "(nil)")
+            Logger.data.pinfo("[creds] removed \(username ?? "(nil)") last=\(bundle.lastUsername ?? "(nil)")")
             writeToStorage()
         }
     }
@@ -150,7 +150,7 @@ class CredentialManager {
     func clearAllCredentials() {
         bundle.credentials = []
         bundle.lastUsername = nil
-        os_log("creds: clear all")
+        Logger.data.pinfo("[creds] clear all")
         writeToStorage()
     }
 

@@ -85,7 +85,7 @@ class Analytics {
 
     static func logEvent(event: String, parameters: [String: Any]) {
         let s = String(describing: parameters)
-        os_log("[fa] logEvent %@ %@", event, s)
+        Logger.data.pinfo("[fa] logEvent \(event) \(s)")
 #if USE_FA || USE_FCM
         FA.logEvent(event, parameters: parameters)
 #endif
