@@ -20,15 +20,16 @@ extension Logger {
     private static let subsystem = Bundle.appIdentifier
 
     //static let account = Logger(subsystem: subsystem, category: "account")
-    static let app = Logger(subsystem: subsystem, category: "app")
     static let async = Logger(subsystem: subsystem, category: "async")
-    static let fcm = Logger(subsystem: subsystem, category: "fcm")
+    static let data = Logger(subsystem: subsystem, category: "data") //low-level data issues
+    static let fcm = Logger(subsystem: subsystem, category: "fcm") //firebase cloud messaging
     static let holds = Logger(subsystem: subsystem, category: "holds")
     static let lists = Logger(subsystem: subsystem, category: "lists")
     static let net = Logger(subsystem: subsystem, category: "net")
     static let orgs = Logger(subsystem: subsystem, category: "orgs")
     static let perf = Logger(subsystem: subsystem, category: "perf")
     static let state = Logger(subsystem: subsystem, category: "state")
+    static let vc = Logger(subsystem: subsystem, category: "vc") //high-level view controller events
 
     func pdebug(_ message: String) {
         self.log(level: .debug, "\(message, privacy: .public)")
