@@ -306,7 +306,7 @@ class PlaceHoldViewController: UIViewController {
         activityIndicator.stopAnimating()
 
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
+        Logger.vc.pinfo("fetch.elapsed: \(String(format: "%.3f", elapsed))")
     }
 
     func fetchPartsData(account: Account) async throws {

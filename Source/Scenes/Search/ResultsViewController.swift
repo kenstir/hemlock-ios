@@ -79,7 +79,7 @@ class ResultsViewController: UIViewController {
         do {
             let results = try await App.svc.search.fetchSearchResults(queryString: query, limit: App.config.searchLimit)
             let elapsed = -self.startOfSearch.timeIntervalSinceNow
-            os_log("query.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
+            Logger.vc.pinfo("query.elapsed: \(String(format: "%.3f", elapsed))")
 
             self.items = results.records
             Task {
@@ -117,7 +117,7 @@ class ResultsViewController: UIViewController {
         }
 
         let elapsed = -self.startOfSearch.timeIntervalSinceNow
-        os_log("preload %d details elapsed: %.3f", log: Gateway.log, type: .info, preloadRecords.count, elapsed)
+        Logger.vc.pinfo("preload \(preloadRecords.count) details elapsed: \(String(format: "%.3f", elapsed))")
     }
 
     // Force update of status string in table section header

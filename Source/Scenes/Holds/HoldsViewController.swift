@@ -30,7 +30,6 @@ class HoldsViewController: UIViewController {
 
     var items: [HoldRecord] = []
     var didCompleteFetch = false
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Holds")
 
     //MARK: - UIViewController
 
@@ -82,7 +81,7 @@ class HoldsViewController: UIViewController {
         activityIndicator.stopAnimating()
 
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        os_log("fetch.elapsed: %.3f", log: Gateway.log, type: .info, elapsed)
+        Logger.vc.pinfo("fetch.elapsed: \(String(format: "%.3f", elapsed))")
     }
 
     func loadHoldDetails(account: Account) async throws {
@@ -98,7 +97,7 @@ class HoldsViewController: UIViewController {
 
     func updateItems() {
         self.didCompleteFetch = true
-        os_log("updateItems %d items", log: self.log, type: .info, items.count)
+        Logger.vc.pinfo("updateItems \(items.count) items")
         holdsTable.reloadData()
     }
 

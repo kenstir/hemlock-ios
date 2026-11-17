@@ -89,7 +89,7 @@ class HistoryViewController: UITableViewController {
         activityIndicator.stopAnimating()
 
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        os_log("history fetch.elapsed: %.3f", log: self.log, type: .info, elapsed)
+        Logger.vc.pinfo("history fetch.elapsed: \(String(format: "%.3f", elapsed))")
     }
 
     @MainActor
@@ -111,7 +111,7 @@ class HistoryViewController: UITableViewController {
             await group.waitForAll()
         }
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        os_log("%d history records loaded, elapsed: %.3f", log: self.log, type: .info, preloadItems.count, elapsed)
+        Logger.vc.pinfo("\(preloadItems.count) history records loaded, elapsed: \(String(format: "%.3f", elapsed))")
     }
 
     func reloadData() {
