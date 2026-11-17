@@ -26,7 +26,6 @@ class HistoryViewController: UITableViewController {
     var items: [HistoryRecord] = []
     var didCompleteFetch = false
     var startOfFetch = Date()
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "History")
 
     //MARK: - UIViewController
 

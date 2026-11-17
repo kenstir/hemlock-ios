@@ -40,10 +40,8 @@ import os.log
 
 class ScanBarcodeViewController: UIViewController {
 
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "ScanBarcode")
-    
     //MARK: - Properties
-    
+
     var barcodeScannedHandler: ((_ barcode: String) -> Void)?
     var captureSession = AVCaptureSession()
 

@@ -38,7 +38,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var alreadyLoggedIn = false
 
     override func viewDidLoad() {
-        os_log("login: viewDidLoad:   adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
+        Logger.vc.pinfo("login: viewDidLoad:   adding=\(isAddingAccount) last=\(App.credentialManager.lastUsedCredential?.username ?? "(nil)")")
         super.viewDidLoad()
         setupViews()
     }
@@ -50,7 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        os_log("login: viewDidAppear: adding=%d last=%@", isAddingAccount, App.credentialManager.lastUsedCredential?.username ?? "(nil)")
+        Logger.vc.pinfo("login: viewDidAppear: adding=\(isAddingAccount) last=\(App.credentialManager.lastUsedCredential?.username ?? "(nil)")")
         super.viewDidAppear(animated)
     }
 
@@ -145,7 +145,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.view.makeToast("Password cannot be empty")
             return
         }
-        os_log("login: doLogin: username=%@", username)
+        Logger.vc.pinfo("login: doLogin: username=\(username)")
 
         Task { await doLoginAsync(username: username, password: password) }
     }

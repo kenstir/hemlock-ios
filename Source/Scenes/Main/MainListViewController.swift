@@ -41,7 +41,6 @@ class MainListViewController: MainBaseViewController {
 
     var buttons: [ButtonAction] = []
     var didFetchHomeOrgSettings = false
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
 
     //MARK: - UIViewController
     
@@ -219,7 +218,7 @@ class MainListViewController: MainBaseViewController {
     }
 
     @objc override func applicationDidBecomeActive() {
-        os_log("didBecomeActive: fetchData", log: log)
+        Logger.vc.pinfo("didBecomeActive: fetchData")
         Task { await fetchData() }
     }
 

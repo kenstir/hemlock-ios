@@ -39,7 +39,6 @@ class Gateway {
 
     //MARK: - fields
 
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Gateway")
     private static let lock = NSRecursiveLock()
 
     // NOTES ON CACHING

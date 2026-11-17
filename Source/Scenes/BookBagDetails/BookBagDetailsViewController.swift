@@ -26,8 +26,6 @@ class BookBagDetailsViewController : UITableViewController {
     var sortBy: String = ""
     var sortDescending = false
     var sortOrderButton = UIBarButtonItem()
-
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
     
     //MARK: - UIViewController
     

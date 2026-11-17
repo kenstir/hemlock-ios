@@ -30,7 +30,6 @@ typealias FA = FirebaseAnalytics.Analytics
 
 class Analytics {
     static let nullTag = "null_tag"
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Analytics")
     static let lock = NSRecursiveLock()
     static var buf = RingBuffer<String>(count: 256)
 //    static let maxBytesShown = 512
@@ -169,7 +168,7 @@ class Analytics {
 
     /// log any error shown to the user to the ring buffer, to be included in an error report if any
     static func logError(_ error: Error) {
-        os_log("[err] %{public}s", log: log, type: .error, error.localizedDescription)
+        Logger.data.perror("\(error.localizedDescription)")
         logToBuffer("[err] \(error.localizedDescription)")
 
         if case .shouldNotHappen = error as? HemlockError {
@@ -210,9 +209,7 @@ class Analytics {
 
     /// mt: MT-Safe
     static func logRequest(tag: String?, method: String, args: [String]) {
-        //Logger.async.pinfo("\(Utils.tt) logRequest \(tag ?? nullTag): \(method)")
-
-        // TODO: redact authtoken inside args
+        // redact auth-related args
         var argsDescription = "***"
         if method != "open-ils.auth.authenticate.init",
            method != "open-ils.auth.authenticate.complete" {
@@ -221,7 +218,7 @@ class Analytics {
         let prefix = netPrefix(tag)
         let s = "\(prefix) send  \(method) \(argsDescription)"
 
-        os_log("%{public}s", log: log, type: .info, s)
+        Logger.net.pinfo("\(s)")
         logToBuffer(s)
     }
 
@@ -230,7 +227,7 @@ class Analytics {
         let prefix = netPrefix(tag)
         let s = "\(prefix) send  \(url)"
 
-        os_log("%{public}s", log: log, type: .info, s)
+        Logger.net.pinfo("\(s)")
         logToBuffer(s)
     }
 
@@ -277,7 +274,7 @@ class Analytics {
         }
 
         // log the first bytes of the response
-        os_log("%{public}s", log: log, type: .info, s[0..<maxBytesShown])
+        Logger.net.pinfo("\(s[0..<maxBytesShown])")
         logToBuffer(s)
     }
 

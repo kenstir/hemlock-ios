@@ -23,7 +23,6 @@ class BookBagsViewController : UITableViewController {
 
     var items: [PatronList] = []
     var didCompleteFetch = false
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
 
     //MARK: - UIViewController
     

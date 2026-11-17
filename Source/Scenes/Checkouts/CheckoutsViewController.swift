@@ -29,7 +29,6 @@ class CheckoutsViewController: UIViewController {
     var items: [CircRecord] = []
     var selectedItem: CircRecord?
     var didCompleteFetch = false
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Checkouts")
 
     //MARK: - UIViewController
     
