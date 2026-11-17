@@ -90,7 +90,6 @@ class Gateway {
                                          "_ck": clientCacheKey, "_sk": serverCacheKey]
         let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
         let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
-        //os_log("[net] %@: req.params: %@", log: log, type: .info, tag, parameters.description)
         Analytics.logRequest(tag: tag, method: method, args: gatewayParams(args))
         return request
     }
@@ -100,7 +99,6 @@ class Gateway {
     {
         let request = sessionManager.makeRequest(url, shouldCache: shouldCache)
         let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
-        //os_log("[net] %@: url: %@", log: log, type: .info, tag, url)
         Analytics.logRequest(tag: tag, url: url)
         return request
     }
@@ -113,7 +111,6 @@ class Gateway {
         let headers: HTTPHeaders = ["Cookie": cookie]
         let request = sessionManager.makeRequest(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, shouldCache: shouldCache)
         let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
-        //os_log("[net] %@: url: %@", log: log, type: .info, tag, url)
         Analytics.logRequest(tag: tag, url: url)
         return request
     }
