@@ -122,7 +122,7 @@ struct GatewayResponse {
         self.init()
         guard let json = decodeJSON(data) else {
             let str = String(data: data, encoding: .utf8) ?? "(invalid utf8)"
-            Logger.net.perror("error decoding JSON: \(str)")
+            Logger.net.error("error decoding JSON")
             let errorMessage = GatewayResponse.errorMessage(forInvalidJSON: str)
             error = .failure(errorMessage)
             return

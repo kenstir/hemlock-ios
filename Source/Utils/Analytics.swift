@@ -85,7 +85,7 @@ class Analytics {
 
     static func logEvent(event: String, parameters: [String: Any]) {
         let s = String(describing: parameters)
-        Logger.data.pinfo("[fa] logEvent \(event) \(s)")
+        Logger.data.publicInfo("[fa] logEvent \(event) \(s)")
 #if USE_FA || USE_FCM
         FA.logEvent(event, parameters: parameters)
 #endif
@@ -168,7 +168,7 @@ class Analytics {
 
     /// log any error shown to the user to the ring buffer, to be included in an error report if any
     static func logError(_ error: Error) {
-        Logger.data.perror("\(error.localizedDescription)")
+        Logger.data.publicError("\(error.localizedDescription)")
         logToBuffer("[err] \(error.localizedDescription)")
 
         if case .shouldNotHappen = error as? HemlockError {
@@ -218,7 +218,7 @@ class Analytics {
         let prefix = netPrefix(tag)
         let s = "\(prefix) send  \(method) \(argsDescription)"
 
-        Logger.net.pinfo("\(s)")
+        Logger.net.publicInfo("\(s)")
         logToBuffer(s)
     }
 
@@ -227,7 +227,7 @@ class Analytics {
         let prefix = netPrefix(tag)
         let s = "\(prefix) send  \(url)"
 
-        Logger.net.pinfo("\(s)")
+        Logger.net.publicInfo("\(s)")
         logToBuffer(s)
     }
 
@@ -243,7 +243,7 @@ class Analytics {
 
     /// mt: MT-Safe
     static func logResponse(tag: String?, wireString: String, cached: Bool?, elapsedMs: Int?, showContents: Bool) {
-        //Logger.async.pinfo("\(Utils.tt) logResponse \(tag ?? nullTag)")
+        //Logger.async.publicInfo("\(Utils.tt) logResponse \(tag ?? nullTag)")
 
         // build a prefix indicating cached status and elapsed time if available
         let netPrefix = netPrefix(tag)
@@ -274,7 +274,7 @@ class Analytics {
         }
 
         // log the first bytes of the response
-        Logger.net.pinfo("\(s[0..<maxBytesShown])")
+        Logger.net.publicInfo("\(s[0..<maxBytesShown])")
         logToBuffer(s)
     }
 

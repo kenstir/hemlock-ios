@@ -34,7 +34,7 @@ class EvergreenUserService: UserService {
         // authGetSession must be called first, before any other API calls taking an authtoken.
         let req = Gateway.makeRequest(service: API.auth, method: API.authGetSession, args: [account.authtoken], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
-        Logger.async.pinfo("\(Utils.tt) about to account.loadSession")
+        Logger.async.publicInfo("\(Utils.tt) about to account.loadSession")
         account.loadSession(fromObject: obj)
 
         try await loadUserSettings(account: account)
@@ -47,7 +47,7 @@ class EvergreenUserService: UserService {
         let req = Gateway.makeRequest(service: API.actor, method: API.userFleshedRetrieve, args: [account.authtoken, account.userID, fields], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
 
-        Logger.async.pinfo("\(Utils.tt) about to account.loadUserSettings")
+        Logger.async.publicInfo("\(Utils.tt) about to account.loadUserSettings")
         account.loadUserSettings(fromObject: obj)
     }
 
@@ -57,7 +57,7 @@ class EvergreenUserService: UserService {
         let req = Gateway.makeRequest(service: API.auth, method: API.authDeleteSession, args: [account.authtoken], shouldCache: false)
         let _ = try await req.gatewayResponseAsync().asString()
 
-        Logger.async.pinfo("\(Utils.tt) about to account.clear")
+        Logger.async.publicInfo("\(Utils.tt) about to account.clear")
         account.clear()
     }
 
@@ -66,15 +66,15 @@ class EvergreenUserService: UserService {
     func loadPatronLists(account: Account) async throws {
         let account: EvergreenAccount = try requireType(account)
 
-        Logger.async.pinfo("\(Utils.tt) loadPatronLists")
+        Logger.async.publicInfo("\(Utils.tt) loadPatronLists")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerRetrieveByClass, args: [account.authtoken, account.userID, API.containerClassBiblio, API.containerTypeBookbag], shouldCache: false)
         let objects = try await req.gatewayResponseAsync().asArray()
-        Logger.async.pinfo("\(Utils.tt) about to call account.loadBookBags(fromArray:)")
+        Logger.async.publicInfo("\(Utils.tt) about to call account.loadBookBags(fromArray:)")
         account.loadBookBags(fromArray: objects)
     }
 
     func loadPatronListItems(account: Account, patronList: PatronList) async throws {
-        Logger.async.pinfo("\(Utils.tt) \(patronList.id) loadPatronListItems")
+        Logger.async.publicInfo("\(Utils.tt) \(patronList.id) loadPatronListItems")
         let account: EvergreenAccount = try requireType(account)
         let bookBag: BookBag = try requireType(patronList)
         guard let authtoken = account.authtoken else {
@@ -93,7 +93,7 @@ class EvergreenUserService: UserService {
 
         // TODO: make mt-safe, remove await
         await MainActor.run {
-            Logger.async.pinfo("\(Utils.tt) \(patronList.id) about to call .loadItems()")
+            Logger.async.publicInfo("\(Utils.tt) \(patronList.id) about to call .loadItems()")
             bookBag.initVisibleRecords(fromQueryObj: queryObj)
             bookBag.loadItems(fromFleshedObj: allItemsObj)
         }
@@ -113,7 +113,7 @@ class EvergreenUserService: UserService {
         ], netClass: "cbreb")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        Logger.lists.pinfo("[lists] createBag \(name) result \(str)")
+        Logger.lists.info("[lists] createBag \(name) result \(str, privacy: .public)")
     }
 
     func deletePatronList(account: Account, listID: Int) async throws {
@@ -122,7 +122,7 @@ class EvergreenUserService: UserService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.containerDelete, args: [authtoken, API.containerClassBiblio, listID], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        Logger.lists.pinfo("[lists] bag \(listID) deleteBag result \(str)")
+        Logger.lists.info("[lists] bag \(listID) deleteBag result \(str)")
     }
 
     func addItemToPatronList(account: Account, listID: Int, recordID: Int) async throws {
@@ -136,7 +136,7 @@ class EvergreenUserService: UserService {
         ], netClass: "cbrebi")
         let req = Gateway.makeRequest(service: API.actor, method: API.containerItemCreate, args: [authtoken, API.containerClassBiblio, obj], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        Logger.lists.pinfo("[lists] addItem \(listID) result \(str)")
+        Logger.lists.info("[lists] addItem \(listID) result \(str, privacy: .public)")
     }
 
     func removeItemFromPatronList(account: Account, listID: Int, itemID: Int) async throws {
@@ -145,7 +145,7 @@ class EvergreenUserService: UserService {
         }
         let req = Gateway.makeRequest(service: API.actor, method: API.containerItemDelete, args: [authtoken, API.containerClassBiblio, itemID], shouldCache: false)
         let str = try await req.gatewayResponseAsync().asString()
-        Logger.lists.pinfo("[lists] removeItem \(itemID) result \(str)")
+        Logger.lists.info("[lists] removeItem \(itemID) result \(str, privacy: .public)")
     }
 
     //MARK: - User Settings
@@ -158,7 +158,7 @@ class EvergreenUserService: UserService {
         ]
         let _ = try await updatePatronSettings(authtoken: authtoken, userID: userID, settings: settings)
         // `str` doesn't matter, it either worked or it errored.
-        Logger.fcm.pinfo("[fcm] token updated")
+        Logger.fcm.info("[fcm] token updated")
     }
 
     func enableCheckoutHistory(account: Account) async throws {
@@ -237,7 +237,7 @@ class EvergreenUserService: UserService {
     //MARK: - Charges (Fines)
 
     func fetchPatronCharges(account: Account) async throws -> PatronCharges{
-        Logger.async.pinfo("\(Utils.tt) loadPatronCharges")
+        Logger.async.publicInfo("\(Utils.tt) loadPatronCharges")
         guard let authtoken = account.authtoken else {
             throw HemlockError.sessionExpired
         }

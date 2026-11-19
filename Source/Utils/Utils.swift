@@ -45,9 +45,9 @@ class Utils {
     static func dump(dict: JSONDictionary) {
         for i in dict.keys.sorted() {
             if let val = dict[i], let v = val {
-                Logger.data.pinfo("  \(i) -> \(v)")
+                Logger.data.publicInfo("  \(i) -> \(v)")
             } else {
-                Logger.data.pinfo("  \(i) -> nil")
+                Logger.data.publicInfo("  \(i) -> nil")
             }
         }
     }

@@ -306,14 +306,14 @@ class PlaceHoldViewController: UIViewController {
         activityIndicator.stopAnimating()
 
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        Logger.vc.pinfo("fetch.elapsed: \(String(format: "%.3f", elapsed))")
+        Logger.vc.publicInfo("fetch.elapsed: \(String(format: "%.3f", elapsed))")
     }
 
     func fetchPartsData(account: Account) async throws {
         if !App.config.enablePartHolds || isEditHold {
             return
         }
-        print("PlaceHold: \(record.title): fetching parts")
+        Logger.vc.info("PlaceHold: \(self.record.title): fetching parts")
 
         self.parts = try await App.svc.circ.fetchHoldParts(targetID: record.id)
 
@@ -326,14 +326,14 @@ class PlaceHoldViewController: UIViewController {
            App.config.enableTitleHoldOnItemWithParts,
            let pickupOrgID = account.pickupOrgID
         {
-            print("PlaceHold: \(self.record.title): checking titleHoldIsPossible")
+            Logger.vc.info("PlaceHold: \(self.record.title): checking titleHoldIsPossible")
             do {
                 let _ = try await App.svc.circ.fetchTitleHoldIsPossible(account: account, targetID: self.record.id, pickupOrgID: pickupOrgID)
                 self.titleHoldIsPossible = true
             } catch {
                 self.titleHoldIsPossible = false
             }
-            print("PlaceHold: \(self.record.title): titleHoldIsPossible=\(Utils.toString(self.titleHoldIsPossible))")
+            Logger.vc.info("PlaceHold: \(self.record.title): titleHoldIsPossible=\(Utils.toString(self.titleHoldIsPossible), privacy: .public)")
         }
     }
 
@@ -341,7 +341,7 @@ class PlaceHoldViewController: UIViewController {
         guard let targetId = record.metarecordID, layout == .advancedHold else {
             return
         }
-        print("PlaceHold: \(record.title): fetching metarecord hold options")
+        Logger.vc.info("PlaceHold: \(self.record.title): fetching metarecord hold options")
 
         let pickupOrg = App.svc.consortium.visibleOrgs[selectedOrgIndex]
         let options = try await App.svc.circ.fetchMetarecordHoldOptions(account: account, targetID: targetId, pickupOrgID: pickupOrg.id)
@@ -540,7 +540,7 @@ class PlaceHoldViewController: UIViewController {
         selectedOrgIndex = consortiumService.visibleOrgs.firstIndexOrZero(where: { $0.id == defaultPickupOrgID })
         let label = orgLabels[selectedOrgIndex].trim()
         pickupTextField.text = label
-        Logger.state.pinfo("[state] Pickup org: default is \(label)")
+        Logger.state.info("[state] Pickup org: default is \(label, privacy: .private(mask: .hash))")
 
         pickupTextField.isUserInteractionEnabled = true
     }
@@ -548,11 +548,11 @@ class PlaceHoldViewController: UIViewController {
     func maybeChangePickupOrg(newIndex: Int, newLabel: String) {
         let consortiumService = App.svc.consortium
         let newOrg = consortiumService.visibleOrgs[newIndex]
-        Logger.state.pinfo("[state] Pickup org: selected \(newOrg.name)")
+        Logger.state.info("[state] Pickup org: selected \(newOrg.name, privacy: .private(mask: .hash))")
         guard newIndex != selectedOrgIndex else { return }
 
         if newOrg.id == App.account?.pickupOrgID {
-            Logger.state.pinfo("[state] Pickup org: same as account setting")
+            Logger.state.info("[state] Pickup org: same as account setting")
             selectedOrgIndex = newIndex
             pickupTextField.text = newLabel
             return
@@ -560,15 +560,15 @@ class PlaceHoldViewController: UIViewController {
 
         let alertController = UIAlertController(title: "Change pickup location?", message: "Change pickup location to \(newOrg.name)?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            Logger.state.pinfo("[state] Pickup org: cancel")
+            Logger.state.info("[state] Pickup org: cancel")
         })
         alertController.addAction(UIAlertAction(title: "Just once", style: .default) { _ in
-            Logger.state.pinfo("[state] Pickup org: just once")
+            Logger.state.info("[state] Pickup org: just once")
             self.selectedOrgIndex = newIndex
             self.pickupTextField.text = newLabel
         })
         alertController.addAction(UIAlertAction(title: "Always", style: .default) { _ in
-            Logger.state.pinfo("[state] Pickup org: always")
+            Logger.state.info("[state] Pickup org: always")
             self.selectedOrgIndex = newIndex
             self.pickupTextField.text = newLabel
             Task { await self.saveSelectedPickupOrg(org: newOrg) }

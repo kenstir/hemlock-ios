@@ -253,7 +253,7 @@ extension SearchViewController: UITableViewDataSource {
         cell.textLabel?.text = entry.title
         cell.detailTextLabel?.text = entry.description
         if indexPath.row == searchClassIndex {
-            Logger.vc.pinfo("[search] cellForRowAt value=\(entry.description)")
+            Logger.vc.info("[search] cellForRowAt value=\(entry.description, privacy: .private(mask: .hash))")
         }
 
         return cell
@@ -271,7 +271,7 @@ extension SearchViewController: UITableViewDelegate {
         vc.selectedIndex = entry.selectedIndex
 
         vc.selectionChangedHandler = { index, _ in
-            Logger.vc.pinfo("[search] selection    index=\(index)")
+            Logger.vc.info("[search] selection    index=\(index)")
             entry.selectedIndex = index
             entry.save()
             self.optionsTable.reloadData()

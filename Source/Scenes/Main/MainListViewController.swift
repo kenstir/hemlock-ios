@@ -218,7 +218,7 @@ class MainListViewController: MainBaseViewController {
     }
 
     @objc override func applicationDidBecomeActive() {
-        Logger.vc.pinfo("didBecomeActive: fetchData")
+        Logger.vc.info("didBecomeActive: fetchData")
         Task { await fetchData() }
     }
 

@@ -91,7 +91,7 @@ class CheckoutsViewController: UIViewController {
                 await group.waitForAll()
             }
             let elapsed = -startOfFetch.timeIntervalSinceNow
-            Logger.vc.pinfo("\(checkouts.count) circ records loaded, elapsed: \(String(format: "%.3f", elapsed))")
+            Logger.vc.publicInfo("\(checkouts.count) circ records loaded, elapsed: \(String(format: "%.3f", elapsed))")
 
             self.didCompleteFetch = true
             self.updateItems(withRecords: checkouts)
@@ -105,7 +105,7 @@ class CheckoutsViewController: UIViewController {
     func updateItems(withRecords records: [CircRecord]) {
         self.items = records
         sortList()
-        Logger.vc.pinfo("\(items.count) records now, time to reloadData")
+        Logger.vc.info("\(self.items.count) records now, time to reloadData")
         tableView.reloadData()
     }
 

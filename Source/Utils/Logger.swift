@@ -31,15 +31,18 @@ extension Logger {
     static let state = Logger(subsystem: subsystem, category: "state")
     static let vc = Logger(subsystem: subsystem, category: "vc") //high-level view controller events
 
-    func pdebug(_ message: String) {
+    /// debug log with public privacy
+    func publicDebug(_ message: String) {
         self.log(level: .debug, "\(message, privacy: .public)")
     }
 
-    func pinfo(_ message: String) {
+    /// info log with public privacy
+    func publicInfo(_ message: String) {
         self.log(level: .info, "\(message, privacy: .public)")
     }
 
-    func perror(_ message: String) {
+    /// error log with public privacy
+    func publicError(_ message: String) {
         self.log(level: .error, "\(message, privacy: .public)")
     }
 }

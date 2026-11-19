@@ -81,7 +81,7 @@ class HoldsViewController: UIViewController {
         activityIndicator.stopAnimating()
 
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        Logger.vc.pinfo("fetch.elapsed: \(String(format: "%.3f", elapsed))")
+        Logger.vc.publicInfo("fetch.elapsed: \(String(format: "%.3f", elapsed))")
     }
 
     func loadHoldDetails(account: Account) async throws {
@@ -97,7 +97,7 @@ class HoldsViewController: UIViewController {
 
     func updateItems() {
         self.didCompleteFetch = true
-        Logger.vc.pinfo("updateItems \(items.count) items")
+        Logger.vc.info("updateItems \(self.items.count) items")
         holdsTable.reloadData()
     }
 

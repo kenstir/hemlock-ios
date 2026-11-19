@@ -110,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        Logger.fcm.perror("[fcm] Unable to register for remote notifications: \(error.localizedDescription)")
+        Logger.fcm.error("[fcm] Unable to register for remote notifications: \(error.localizedDescription, privacy: .public)")
     }
 #endif
 }

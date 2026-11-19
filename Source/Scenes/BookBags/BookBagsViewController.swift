@@ -67,7 +67,7 @@ class BookBagsViewController : UITableViewController {
 
         do {
             try await App.svc.user.loadPatronLists(account: account)
-            Logger.lists.pinfo("[lists] fetched \(account.patronLists.count) lists")
+            Logger.lists.info("[lists] fetched \(account.patronLists.count) lists")
 
             try await withThrowingTaskGroup(of: Void.self) { group in
                 for list in account.patronLists {
