@@ -24,19 +24,17 @@ import UIKit
 extension UIView {
     /// add a disclosure indicator to a view ideally a UITextView with .round borderStyle
     func addDisclosureIndicator() {
-        if #available(iOS 13.0, *) {
-            // create and size a chevron image view
-            let configuration = UIImage.SymbolConfiguration(pointSize: 13, weight: .medium)
-            let view = UIImageView(image: UIImage(systemName: "chevron.right", withConfiguration: configuration))
-            view.tintColor = .lightGray
-            view.contentMode = .scaleAspectFit
-            NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 17.0/10.0, constant: 0).isActive = true
-            view.translatesAutoresizingMaskIntoConstraints = false
+        // create and size a chevron image view
+        let configuration = UIImage.SymbolConfiguration(pointSize: 13, weight: .medium)
+        let view = UIImageView(image: UIImage(systemName: "chevron.right", withConfiguration: configuration))
+        view.tintColor = .lightGray
+        view.contentMode = .scaleAspectFit
+        NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 17.0/10.0, constant: 0).isActive = true
+        view.translatesAutoresizingMaskIntoConstraints = false
 
-            // overload the image view on the right side of this view
-            self.addSubview(view)
-            view.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8.0).isActive = true
-            view.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        }
+        // overload the image view on the right side of this view
+        self.addSubview(view)
+        view.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8.0).isActive = true
+        view.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
 }

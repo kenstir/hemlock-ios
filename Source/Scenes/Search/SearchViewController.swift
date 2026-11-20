@@ -185,13 +185,7 @@ class SearchViewController: UIViewController {
 
 extension UISearchBar {
     var textField: UITextField? {
-        if #available(iOS 13.0, *) {
-            return searchTextField
-        } else {
-            let subViews = subviews.flatMap { $0.subviews }
-            let textField = (subViews.filter { $0 is UITextField }).first as? UITextField
-            return textField
-        }
+        return searchTextField
     }
 }
 

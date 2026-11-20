@@ -40,59 +40,31 @@ class Style {
     //MARK: - Colors
 
     class var systemBackground: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.systemBackground
-        } else {
-            return UIColor.white
-        }
+        return UIColor.systemBackground
     }
 
     class var systemGroupedBackground: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.systemGroupedBackground
-        } else {
-            return UIColor.groupTableViewBackground
-        }
+        return UIColor.systemGroupedBackground
     }
 
     class var secondarySystemGroupedBackground: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.secondarySystemGroupedBackground
-        } else {
-            return UIColor.white
-        }
+        return UIColor.secondarySystemGroupedBackground
     }
 
     class var labelColor: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.label
-        } else {
-            return UIColor.black
-        }
+        return UIColor.label
     }
 
     class var secondaryLabelColor: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.secondaryLabel
-        } else {
-            return UIColor.darkGray
-        }
+        return UIColor.secondaryLabel
     }
 
     class var tertiaryLabelColor: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.tertiaryLabel
-        } else {
-            return UIColor.darkGray
-        }
+        return UIColor.tertiaryLabel
     }
 
     class var separatorColor: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.separator
-        } else {
-            return UIColor.lightGray
-        }
+        return UIColor.separator
     }
 
     //MARK: - ActivityIndicator

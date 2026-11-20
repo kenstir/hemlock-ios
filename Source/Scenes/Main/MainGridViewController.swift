@@ -144,7 +144,7 @@ class MainGridViewController: MainBaseViewController {
     //MARK: - Callback Functions
 
     @objc override func applicationDidBecomeActive() {
-        Logger.vc.pinfo("didBecomeActive")
+        Logger.vc.info("didBecomeActive")
     }
 }
 
