@@ -27,7 +27,6 @@ extension Logger {
     static let lists = Logger(subsystem: subsystem, category: "lists")
     static let net = Logger(subsystem: subsystem, category: "net")
     static let orgs = Logger(subsystem: subsystem, category: "orgs")
-    static let perf = Logger(subsystem: subsystem, category: "perf")
     static let state = Logger(subsystem: subsystem, category: "state")
     static let vc = Logger(subsystem: subsystem, category: "vc") //high-level view controller events
 

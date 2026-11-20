@@ -40,7 +40,7 @@ class EvergreenLoaderService: LoaderService {
         }
 
         let elapsed = -start.timeIntervalSinceNow
-        Logger.perf.info("startup.elapsed: \(elapsed.ms, privacy: .public)")
+        Logger.data.info("startup.elapsed: \(elapsed.ms, privacy: .public)")
     }
 
     private func loadGlobalOrgSettings() async throws -> String {
