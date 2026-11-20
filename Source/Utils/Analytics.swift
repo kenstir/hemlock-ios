@@ -34,6 +34,7 @@ class Analytics {
     static var buf = RingBuffer<String>(count: 256)
 //    static let maxBytesShown = 512
     static let maxBytesShown = 256
+    static var authToken: String? = nil // used to redact args in logRequest
 
     class Event {
         static let bookbagAddItem = "bookbag_add_item"
@@ -207,15 +208,24 @@ class Analytics {
         return "[net] \(tag8)"
     }
 
+    static private func argsDescription(_ method: String, _ args: [String]) -> String {
+        // redact all args to auth-related methods
+        if method.starts(with: "open-ils.auth.") {
+            return "***"
+        }
+
+        // redact authToken if present in args
+        if let redactToken = authToken {
+            let cleanArgs = args.map { $0.contains(redactToken) ? "***" : $0 }
+            return cleanArgs.joined(separator: ",")
+        }
+        return args.joined(separator: ",")
+    }
+
     /// mt: MT-Safe
     static func logRequest(tag: String?, method: String, args: [String]) {
-        // redact auth-related args
-        var argsDescription = "***"
-        if method != "open-ils.auth.authenticate.init",
-           method != "open-ils.auth.authenticate.complete" {
-            argsDescription = args.joined(separator: ",")
-        }
         let prefix = netPrefix(tag)
+        let argsDescription = argsDescription(method, args)
         let s = "\(prefix) send  \(method) \(argsDescription)"
 
         Logger.net.publicInfo("\(s)")
@@ -242,9 +252,7 @@ class Analytics {
     }
 
     /// mt: MT-Safe
-    static func logResponse(tag: String?, wireString: String, cached: Bool?, elapsedMs: Int?, showContents: Bool) {
-        //Logger.async.publicInfo("\(Utils.tt) logResponse \(tag ?? nullTag)")
-
+    static func logResponse(tag: String?, wireString: String, cached: Bool? = nil, elapsedMs: Int? = nil, showContents: Bool = true) {
         // build a prefix indicating cached status and elapsed time if available
         let netPrefix = netPrefix(tag)
         let duration: String
@@ -256,26 +264,29 @@ class Analytics {
         let badge = cached == true ? "*" : " "
         let prefix = "\(netPrefix) recv\(badge)\(duration)"
 
-        // redact certain responses: login (au), message (aum), orgTree (aou)
-        // au? is sensitive; aou is just long
-        let redactedResponseRegex = """
-            ("__c":"aum?"|"__c":"aou")
-            """
+        // build the log message
         let s: String
-        if !showContents {
+        if !showContents || redactPayload(wireString) {
             s = "\(prefix) \(wireString.utf8.count) B"
         } else {
-            let range = wireString.range(of: redactedResponseRegex, options: .regularExpression)
-            if range == nil {
-                s = "\(prefix) \(wireString)"
-            } else {
-                s = "\(prefix) ***"
-            }
+            s = "\(prefix) \(wireString)"
         }
 
         // log the first bytes of the response
-        Logger.net.publicInfo("\(s[0..<maxBytesShown])")
+        Logger.net.info("\(s[0..<maxBytesShown], privacy: .public)")
         logToBuffer(s)
+    }
+
+    // TODO: make this faster by avoiding regex compilation every time
+    static func redactPayload(_ payload: String) -> Bool {
+        // redact certain responses: login (au), message (aum), orgTree (aou)
+        // au? and authtoken are sensitive; aou is just long
+        let redactedResponseRegex = """
+            ("__c":"aum?"|"__c":"aou"|"authtoken":)
+            """
+
+        let range = payload.range(of: redactedResponseRegex, options: .regularExpression)
+        return range != nil
     }
 
     /// mt: MT-Safe

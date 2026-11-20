@@ -162,6 +162,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             var credential = Credential(username: username, password: password)
             let authtoken = try await App.svc.auth.fetchAuthToken(credential: credential)
             let account = App.svc.user.makeAccount(username: username, password: password, authToken: authtoken)
+            Analytics.authToken = authtoken
 
             try await App.svc.user.loadSession(account: account)
 
