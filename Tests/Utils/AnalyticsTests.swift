@@ -26,19 +26,27 @@ class AnalyticsTests: XCTestCase {
         TestUtils.loadExampleOrgs()
     }
 
-    func test_getLog() {
+    func test_logFormatting() {
+        let tag = "abcbeef" // tag is 7 bytes to verify padding
+
         Analytics.clearLog()
-        Analytics.logRequest(tag: "dedbeef", method: "m", args: ["p1","p2"])
-        Analytics.logResponse(tag: "dedbeef", wireString: "{}")
-        let s = Analytics.getLog()
-        XCTAssertEqual("[net] dedbeef  send  m p1,p2\n[net] dedbeef  recv  {}\n", s)
+        Analytics.logRequest(tag: tag, method: "m", args: ["p1","p2"])
+        XCTAssertEqual("[net] abcbeef  send  m p1,p2\n", Analytics.getLog())
+
+        Analytics.clearLog()
+        Analytics.logResponse(tag: tag, wireString: "{}")
+        XCTAssertEqual("[net] abcbeef  recv  {}\n", Analytics.getLog())
+
+        Analytics.clearLog()
+        Analytics.logResponse(tag: tag, wireString: "{}", cached: true)
+        XCTAssertEqual("[net] abcbeef  recv* {}\n", Analytics.getLog())
     }
 
-    func test_redactAuthToken() {
+    func test_authTokenIsRedactedInLog() {
         let authToken = "123456abcdef"
-        let tag = "dedbeef"
+        let tag = "deadbeef"
         Analytics.clearLog()
-        Analytics.authToken = "123456abcdef"
+        Analytics.authToken = authToken
 
         Analytics.logRequest(tag: tag, method: "m1", args: ["\"\(authToken)\""])
         Analytics.logRequest(tag: tag, method: "m2", args: ["\"\(authToken)\"","1234"])
