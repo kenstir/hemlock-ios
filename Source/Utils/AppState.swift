@@ -104,7 +104,7 @@ class AppState {
     }
     static func migrateOneSetting(from oldKey: String, to newKey: String) {
         if let val = try? App.valet.string(forKey: oldKey) {
-            Logger.state.publicInfo("[state] migrate \(oldKey) = \(val) to newKey \(newKey)")
+            Logger.state.publicInfo("[state] migrate \(oldKey) to newKey \(newKey)")
             UserDefaults.standard.set(val, forKey: newKey)
             try? App.valet.removeObject(forKey: oldKey)
         }
@@ -112,14 +112,14 @@ class AppState {
     static func migrateOneSetting(from oldKey: String, toBool newKey: String) {
         if let val = try? App.valet.string(forKey: oldKey) {
             let boolVal = (val == "t")
-            Logger.state.publicInfo("[state] migrate \(oldKey) = \(boolVal) to newKey \(newKey)")
+            Logger.state.publicInfo("[state] migrate \(oldKey) to newKey \(newKey)")
             UserDefaults.standard.set(boolVal, forKey: newKey)
             try? App.valet.removeObject(forKey: oldKey)
         }
     }
     static func migrateOneSetting(from oldKey: String, toInteger newKey: String) {
         if let val = try? App.valet.string(forKey: oldKey), let intVal = Int(val) {
-            Logger.state.publicInfo("[state] migrate \(oldKey) = \(intVal) to newKey \(newKey)")
+            Logger.state.publicInfo("[state] migrate \(oldKey) to newKey \(newKey)")
             UserDefaults.standard.set(intVal, forKey: newKey)
             try? App.valet.removeObject(forKey: oldKey)
         }

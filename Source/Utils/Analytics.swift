@@ -85,8 +85,7 @@ class Analytics {
     }
 
     static func logEvent(event: String, parameters: [String: Any]) {
-        let s = String(describing: parameters)
-        Logger.data.publicInfo("[fa] logEvent \(event) \(s)")
+        Logger.data.info("[fa] logEvent \(event, privacy: .public) \(parameters, privacy: .public)")
 #if USE_FA || USE_FCM
         FA.logEvent(event, parameters: parameters)
 #endif
@@ -228,7 +227,7 @@ class Analytics {
         let argsDescription = argsDescription(method, args)
         let s = "\(prefix) send  \(method) \(argsDescription)"
 
-        Logger.net.publicInfo("\(s)")
+        Logger.net.publicInfo(s)
         logToBuffer(s)
     }
 
@@ -237,7 +236,7 @@ class Analytics {
         let prefix = netPrefix(tag)
         let s = "\(prefix) send  \(url)"
 
-        Logger.net.publicInfo("\(s)")
+        Logger.net.publicInfo(s)
         logToBuffer(s)
     }
 

@@ -138,7 +138,7 @@ class EvergreenAccount : Account {
     func loadSession(fromObject obj: OSRFObject) {
         lock.lock(); defer { lock.unlock() }
 
-        Logger.async.publicInfo("\(Utils.tt) loadSession")
+        Logger.async.info("\(Utils.tt) loadSession")
         userID = obj.getInt("id")
         homeOrgID = obj.getInt("home_ou")
         dayPhone = obj.getString("day_phone")
@@ -232,7 +232,7 @@ class EvergreenAccount : Account {
         parseHoldNotifyValue(holdNotifySetting)
 
         Task { await maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled) }
-        Logger.async.publicInfo("\(Utils.tt) loadUserSettings finished")
+        Logger.async.info("\(Utils.tt) loadUserSettings finished")
     }
 
     /// mt-safe

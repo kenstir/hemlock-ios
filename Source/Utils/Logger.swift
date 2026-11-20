@@ -46,3 +46,10 @@ extension Logger {
         self.log(level: .error, "\(message, privacy: .public)")
     }
 }
+
+extension TimeInterval {
+    /// Returns a string representation of the time interval in seconds with 3 decimal places.
+    var ms: String {
+        return String(format: "%.3f", self)
+    }
+}

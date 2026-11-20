@@ -108,7 +108,7 @@ class ScanBarcodeViewController: UIViewController {
                         let b = barcode as? VNBarcodeObservation,
                         let value = b.payloadStringValue
                     else { return }
-                    Logger.vc.publicInfo("[scan] confidence \(String(format: "%.2f", b.confidence)) symbology \(format(b)) len \(value.count) value \(value)")
+                    Logger.vc.info("[scan] confidence \(String(format: "%.2f", b.confidence), privacy: .public) symbology \(self.format(b), privacy: .public) len \(value.count) value \(value)")
                     guard b.confidence > 0.8 else { return }
 
                     // UPC-A is recognized as EAN-13 and a leading 0 is added; remove it.

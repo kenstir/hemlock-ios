@@ -88,7 +88,7 @@ class HistoryViewController: UITableViewController {
         activityIndicator.stopAnimating()
 
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        Logger.vc.publicInfo("history fetch.elapsed: \(String(format: "%.3f", elapsed))")
+        Logger.vc.info("history fetch.elapsed: \(elapsed.ms, privacy: .public)")
     }
 
     @MainActor
@@ -110,7 +110,7 @@ class HistoryViewController: UITableViewController {
             await group.waitForAll()
         }
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        Logger.vc.publicInfo("\(preloadItems.count) history records loaded, elapsed: \(String(format: "%.3f", elapsed))")
+        Logger.vc.info("\(preloadItems.count) history records loaded, elapsed: \(elapsed.ms, privacy: .public)")
     }
 
     func reloadData() {
@@ -196,7 +196,7 @@ class HistoryViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        Logger.async.publicInfo("\(Utils.tt) row=\(String(format: "%2d", indexPath.row)) cellForRowAt")
+        Logger.async.info("\(Utils.tt) row=\(indexPath.row, align: .left(columns: 3)) cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
         guard items.count > indexPath.row else { return cell }
         let item = items[indexPath.row]
@@ -221,7 +221,7 @@ class HistoryViewController: UITableViewController {
     }
 
     func setCellMetadata(_ cell: HistoryTableViewCell, forItem item: HistoryRecord?) {
-        Logger.async.publicInfo("\(Utils.tt) setCellMetadata for \(item?.title ?? "")")
+        Logger.async.info("\(Utils.tt) setCellMetadata for \(item?.title ?? "")")
         cell.title.text = item?.title
         cell.author.text = item?.author
         cell.checkoutDate.text = "Checkout Date: \(item?.checkoutDateLabel ?? "")"
