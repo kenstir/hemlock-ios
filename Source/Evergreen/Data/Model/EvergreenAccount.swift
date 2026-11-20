@@ -18,7 +18,6 @@ import Foundation
 import os.log
 
 class EvergreenAccount : Account {
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Account")
     private let lock = NSRecursiveLock()
 
     let username: String
@@ -139,7 +138,7 @@ class EvergreenAccount : Account {
     func loadSession(fromObject obj: OSRFObject) {
         lock.lock(); defer { lock.unlock() }
 
-        Logger.async.pinfo("\(Utils.tt) loadSession")
+        Logger.async.info("\(Utils.tt) loadSession")
         userID = obj.getInt("id")
         homeOrgID = obj.getInt("home_ou")
         dayPhone = obj.getString("day_phone")
@@ -173,19 +172,19 @@ class EvergreenAccount : Account {
         let ts = TokenStore()
         ts.initialize(fromString: storedData)
         ts.addCurrentToken(fcmNotificationToken)
-        Logger.fcm.pinfo("[fcm] loaded \(ts.entries.count) tokens modified:\(ts.isModified)")
+        Logger.fcm.info("[fcm] loaded \(ts.entries.count) tokens modified:\(ts.isModified)")
         ts.dump()
 
         // update the stored user settings if needed
         if ts.isModified || !storedEnabledFlag {
-            Logger.fcm.pinfo("[fcm] updating stored data")
+            Logger.fcm.info("[fcm] updating stored data")
             do {
                 let newData = ts.encodeToString()
                 try await App.svc.user.updatePushNotificationToken(account: self, token: newData)
                 Analytics.logEvent(event: Analytics.Event.fcmTokenUpdate, parameters: [Analytics.Param.result: Analytics.Value.ok])
             } catch {
                 Analytics.logEvent(event: Analytics.Event.fcmTokenUpdate, parameters: [Analytics.Param.result: error.localizedDescription])
-                Logger.fcm.pinfo("[fcm] caught error \(error.localizedDescription)")
+                Logger.fcm.publicError("[fcm] caught error \(error.localizedDescription)")
             }
         }
     }
@@ -193,7 +192,7 @@ class EvergreenAccount : Account {
     /// mt-safe
     func loadUserSettings(fromObject obj: OSRFObject) {
         lock.lock(); defer { lock.unlock() }
-        Logger.async.pinfo("\(Utils.tt) loadUserSettings")
+        Logger.async.info("\(Utils.tt) loadUserSettings")
 
         if let card = obj.getObject("card") {
             barcode = card.getString("barcode")
@@ -204,9 +203,10 @@ class EvergreenAccount : Account {
         if let settings = obj.getAny("settings") as? [OSRFObject] {
             for setting in settings {
                 if let name = setting.getString("name"),
-                    let strvalue = removeStupidExtraQuotes(setting.getString("value"))
+                    let rawValue = setting.getString("value"),
+                    let strvalue = removeStupidExtraQuotes(rawValue)
                 {
-                    Logger.async.pinfo("\(Utils.tt) setting name=\(name) value=\(strvalue) was=\(setting.getString("value") ?? "nil")")
+                    Logger.async.info("\(Utils.tt) loadUserSetting name=\(name, privacy: .public) value=\(strvalue) raw=\(rawValue)")
                     if name == API.userSettingDefaultPickupLocation, let value = Int(strvalue) {
                         userSettingDefaultPickupLocation = value
                     } else if name == API.userSettingDefaultPhone {
@@ -232,7 +232,7 @@ class EvergreenAccount : Account {
         parseHoldNotifyValue(holdNotifySetting)
 
         Task { await maybeUpdateUserSettings(storedData: storedPushNotificationData, storedEnabledFlag: storedPushNotificationEnabled) }
-        os_log(.info, log: EvergreenAccount.log, "loadUserSettings finished")
+        Logger.async.info("\(Utils.tt) loadUserSettings finished")
     }
 
     /// mt-safe

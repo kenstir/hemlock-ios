@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //TODO: move this request to later, e.g. when placing a hold
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: authorizationOptions(), completionHandler: { allowed, _ in
-            Logger.fcm.pinfo("[fcm] allowed is \(allowed)")
+            Logger.fcm.info("[fcm] allowed is \(allowed)")
             Analytics.setUserProperty(value: allowed ? "granted" : "denied", forName: Analytics.UserProperty.fcmNotificationPermitted)
         })
 
@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         let pn = PushNotification(userInfo: userInfo, tag: "application(_:didReceiveRemoteNotification:)")
-        Logger.fcm.pinfo("[fcm] didReceiveRemoteNotification: \(pn)")
+        Logger.fcm.info("[fcm] didReceiveRemoteNotification: \(pn, privacy: .private(mask: .hash))")
         notifyListeners(pn.userInfo)
     }
 
@@ -93,14 +93,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         let pn = PushNotification(userInfo: userInfo, tag: "application(_:didReceiveRemoteNotification:fetchCompletionHandler:")
-        Logger.fcm.pinfo("[fcm] didReceiveRemoteNotification: \(pn)")
+        Logger.fcm.info("[fcm] didReceiveRemoteNotification2: \(pn, privacy: .private(mask: .hash))")
         notifyListeners(pn.userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
     }
 
     private func notifyListeners(_ userInfo: [AnyHashable: Any]) {
         let pn = PushNotification(userInfo: userInfo)
-        Logger.fcm.pinfo("[fcm] notifyListeners: \(pn)")
+        Logger.fcm.info("[fcm] notifyListeners: \(pn, privacy: .private(mask: .hash))")
 
         NotificationCenter.default.post(
             name: Notification.Name("FCMNotification"),
@@ -110,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        Logger.fcm.perror("[fcm] Unable to register for remote notifications: \(error.localizedDescription)")
+        Logger.fcm.error("[fcm] Unable to register for remote notifications: \(error.localizedDescription, privacy: .public)")
     }
 #endif
 }
@@ -137,14 +137,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     /// called by the system when the app receives a notification while running (fg or bg), to decide how to present it
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let pn = PushNotification(userInfo: notification.request.content.userInfo, tag: "userNotificationCenter(_:willPresent:withCompletionHandler:)")
-        Logger.fcm.pinfo("[fcm] willPresent: \(pn)")
+        Logger.fcm.info("[fcm] willPresent: \(pn, privacy: .private(mask: .hash))")
         completionHandler(notificationOptions())
     }
 
     /// called by the system when a notification is tapped while the app is running (fg or bg)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let pn = PushNotification(userInfo: response.notification.request.content.userInfo, tag: "userNotificationCenter(_:didReceive:withCompletionHandler:)")
-        Logger.fcm.pinfo("[fcm] didReceive: \(pn)")
+        Logger.fcm.info("[fcm] didReceive: \(pn, privacy: .private(mask: .hash))")
         notifyListeners(pn.userInfo)
         completionHandler()
     }
@@ -155,7 +155,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: MessagingDelegate {
     /// called by FCM when the notification token is available
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        Logger.fcm.pinfo("[fcm] fetched token=\"\(fcmToken ?? "(nil)")\"")
+        Logger.fcm.info("[fcm] fetched token=\"\(fcmToken ?? "(nil)", privacy: .private(mask: .hash))\"")
         App.fcmNotificationToken = fcmToken
     }
 }

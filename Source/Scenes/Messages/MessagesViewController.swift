@@ -23,7 +23,6 @@ class MessagesViewController: UITableViewController {
     
     var items: [PatronMessage] = []
     var didCompleteFetch = false
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Messages")
     
     //MARK: - UIViewController
     

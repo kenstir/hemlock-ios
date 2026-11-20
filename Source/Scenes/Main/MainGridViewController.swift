@@ -35,7 +35,6 @@ class MainGridViewController: MainBaseViewController {
     private let sectionInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     private let mainButtonsPerRow: CGFloat = 2
     private let secondaryButtonsPerRow: CGFloat = 3
-    private let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
 
     //MARK: - UIViewController
 
@@ -145,7 +144,7 @@ class MainGridViewController: MainBaseViewController {
     //MARK: - Callback Functions
 
     @objc override func applicationDidBecomeActive() {
-        os_log("didBecomeActive", log: log)
+        Logger.vc.pinfo("didBecomeActive")
     }
 }
 

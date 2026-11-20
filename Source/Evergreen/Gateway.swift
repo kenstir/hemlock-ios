@@ -39,7 +39,6 @@ class Gateway {
 
     //MARK: - fields
 
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Gateway")
     private static let lock = NSRecursiveLock()
 
     // NOTES ON CACHING
@@ -90,7 +89,6 @@ class Gateway {
                                          "_ck": clientCacheKey, "_sk": serverCacheKey]
         let request = sessionManager.makeRequest(url, method: shouldCache ? .get : .post, parameters: parameters, encoding: gatewayEncoding, shouldCache: shouldCache)
         let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
-//        os_log("%@: req.params: %@", log: log, type: .info, tag, parameters.description)
         Analytics.logRequest(tag: tag, method: method, args: gatewayParams(args))
         return request
     }
@@ -100,7 +98,6 @@ class Gateway {
     {
         let request = sessionManager.makeRequest(url, shouldCache: shouldCache)
         let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
-//        os_log("%@: url: %@", log: log, type: .info, tag, url)
         Analytics.logRequest(tag: tag, url: url)
         return request
     }
@@ -111,8 +108,10 @@ class Gateway {
     {
         let cookie = "ses=\(authtoken); eg_loggedin=1"
         let headers: HTTPHeaders = ["Cookie": cookie]
-//        os_log("%s", log: log, type: .info, "url: \(url)")
-        return sessionManager.makeRequest(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, shouldCache: shouldCache)
+        let request = sessionManager.makeRequest(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, shouldCache: shouldCache)
+        let tag = Utils.coalesce(request.request?.debugTag, (request.convertible as? URLRequest)?.debugTag) ?? Analytics.nullTag
+        Analytics.logRequest(tag: tag, url: url)
+        return request
     }
 
     /// encode params as needed by the gateway
@@ -178,7 +177,7 @@ class Gateway {
     static func reportCacheUsage() {
         let diskUsageKB = URLCache.shared.currentDiskUsage / 1024
         let memUsageKB = URLCache.shared.currentMemoryUsage / 1024
-        Logger.app.pinfo("cache in mem : \(memUsageKB) kB")
-        Logger.app.pinfo("cache on disk: \(diskUsageKB) kB")
+        Logger.data.info("cache in mem : \(memUsageKB) kB")
+        Logger.data.info("cache on disk: \(diskUsageKB) kB")
     }
 }

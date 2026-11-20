@@ -26,7 +26,6 @@ class HistoryViewController: UITableViewController {
     var items: [HistoryRecord] = []
     var didCompleteFetch = false
     var startOfFetch = Date()
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "History")
 
     //MARK: - UIViewController
 
@@ -89,7 +88,7 @@ class HistoryViewController: UITableViewController {
         activityIndicator.stopAnimating()
 
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        os_log("history fetch.elapsed: %.3f", log: self.log, type: .info, elapsed)
+        Logger.vc.info("history fetch.elapsed: \(elapsed.ms, privacy: .public)")
     }
 
     @MainActor
@@ -111,7 +110,7 @@ class HistoryViewController: UITableViewController {
             await group.waitForAll()
         }
         let elapsed = -startOfFetch.timeIntervalSinceNow
-        os_log("%d history records loaded, elapsed: %.3f", log: self.log, type: .info, preloadItems.count, elapsed)
+        Logger.vc.info("\(preloadItems.count) history records loaded, elapsed: \(elapsed.ms, privacy: .public)")
     }
 
     func reloadData() {
@@ -197,7 +196,7 @@ class HistoryViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        Logger.async.pinfo("\(Utils.tt) row=\(String(format: "%2d", indexPath.row)) cellForRowAt")
+        Logger.async.info("\(Utils.tt) row=\(indexPath.row, align: .left(columns: 3)) cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
         guard items.count > indexPath.row else { return cell }
         let item = items[indexPath.row]
@@ -222,7 +221,7 @@ class HistoryViewController: UITableViewController {
     }
 
     func setCellMetadata(_ cell: HistoryTableViewCell, forItem item: HistoryRecord?) {
-        Logger.async.pinfo("\(Utils.tt) setCellMetadata for \(item?.title ?? "")")
+        Logger.async.info("\(Utils.tt) setCellMetadata for \(item?.title ?? "")")
         cell.title.text = item?.title
         cell.author.text = item?.author
         cell.checkoutDate.text = "Checkout Date: \(item?.checkoutDateLabel ?? "")"

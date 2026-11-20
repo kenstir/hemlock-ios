@@ -26,13 +26,41 @@ class AnalyticsTests: XCTestCase {
         TestUtils.loadExampleOrgs()
     }
 
-    func test_getLog() {
+    func test_logFormatting() {
+        let tag = "abcbeef" // tag is 7 bytes to verify padding
+
         Analytics.clearLog()
-        Analytics.logRequest(tag: "dedbeef", method: "m", args: ["p1","p2"])
-        Analytics.logResponse(tag: "dedbeef", wireString: "{}")
-        let s = Analytics.getLog()
-        XCTAssertEqual("[net] dedbeef  send  m p1,p2\n[net] dedbeef  recv  {}\n", s)
+        Analytics.logRequest(tag: tag, method: "m", args: ["p1","p2"])
+        XCTAssertEqual("[net] abcbeef  send  m p1,p2\n", Analytics.getLog())
+
+        Analytics.clearLog()
+        Analytics.logResponse(tag: tag, wireString: "{}")
+        XCTAssertEqual("[net] abcbeef  recv  {}\n", Analytics.getLog())
+
+        Analytics.clearLog()
+        Analytics.logResponse(tag: tag, wireString: "{}", cached: true)
+        XCTAssertEqual("[net] abcbeef  recv* {}\n", Analytics.getLog())
     }
+
+    func test_authTokenIsRedactedInLog() {
+        let authToken = "123456abcdef"
+        let tag = "deadbeef"
+        Analytics.clearLog()
+        Analytics.authToken = authToken
+
+        Analytics.logRequest(tag: tag, method: "m1", args: ["\"\(authToken)\""])
+        Analytics.logRequest(tag: tag, method: "m2", args: ["\"\(authToken)\"","1234"])
+        Analytics.logRequest(tag: tag, method: "m3", args: ["\"\(authToken)\"","12234","[\"setting1\",\"setting2\"]"])
+
+        let json = """
+            {"payload":[{"ilsevent":0,"textcode":"SUCCESS","desc":"Success","pid":6939,"stacktrace":"oils_auth.c:634","payload":{"authtoken":"\(authToken)","authtime":420}}],"status":200}
+            """
+        Analytics.logResponse(tag: tag, wireString: json)
+
+        let log = Analytics.getLog()
+        XCTAssertFalse(log.contains(authToken))
+    }
+
 
     func test_searchTermStats() {
         do {

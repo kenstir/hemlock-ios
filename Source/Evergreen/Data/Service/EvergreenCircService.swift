@@ -19,8 +19,6 @@ import os.log
 
 class EvergreenCircService: CircService {
 
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Circ")
-
     func fetchCheckouts(account: Account) async throws -> [CircRecord] {
         let req = Gateway.makeRequest(service: API.actor, method: API.actorCheckedOut, args: [account.authtoken, account.userID], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
@@ -129,7 +127,7 @@ class EvergreenCircService: CircService {
         } else if hold.holdType == API.holdTypeVolume {
             loadFunc = loadVolumeHoldTargetDetails
         } else {
-            os_log("[hold] target=%d holdType=%@ NOT HANDLED", log: log, type: .info, holdTarget, holdType)
+            Logger.holds.publicError("[hold] target=\(holdTarget) holdType=\(holdType) NOT HANDLED")
             return
         }
         let loadHoldTargetDetails = loadFunc
@@ -141,7 +139,7 @@ class EvergreenCircService: CircService {
     }
 
     func loadTitleHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
-        os_log("[hold] target=%d holdType=T start", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=T start")
         async let modsTask = EvergreenAsync.fetchRecordMODS(id: holdTarget)
         async let mraTask = EvergreenAsync.fetchMRA(id: holdTarget)
         let (obj, mraObj) = try await (modsTask, mraTask)
@@ -149,19 +147,19 @@ class EvergreenCircService: CircService {
         let record = MBRecord(id: holdTarget, mvrObj: obj)
         record.update(fromMraObj: mraObj)
         hold.setMetabibRecord(record)
-        os_log("[hold] target=%d holdType=T done", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=T done")
     }
 
     func loadMetarecordHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
-        os_log("[hold] target=%d holdType=M start", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=M start")
         let obj = try await EvergreenAsync.fetchMetarecordMODS(id: holdTarget)
         let record = MBRecord(id: obj.getInt("tcn") ?? -1, mvrObj: obj)
         hold.setMetabibRecord(record)
-        os_log("[hold] target=%d holdType=M done", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=M done")
     }
 
     func loadPartHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
-        os_log("[hold] target=%d holdType=P start", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=P start")
         let obj = try await fetchBMP(holdTarget: holdTarget)
         guard let target = obj.getInt("record") else {
             throw HemlockError.unexpectedNetworkResponse("Failed to load fields for part hold")
@@ -173,11 +171,11 @@ class EvergreenCircService: CircService {
         let mraObj = try await EvergreenAsync.fetchMRA(id: record.id)
         record.update(fromMraObj: mraObj)
         hold.setMetabibRecord(record)
-        os_log("[hold] target=%d holdType=P done", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=P done")
     }
 
     func loadCopyHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
-        os_log("[hold] target=%d holdType=C start", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=C start")
         let acpObj = try await fetchACP(id: holdTarget)
         guard let callNumber = acpObj.getID("call_number") else {
             throw HemlockError.unexpectedNetworkResponse("Failed to find call_number for copy hold")
@@ -191,11 +189,11 @@ class EvergreenCircService: CircService {
         let modsObj = try await EvergreenAsync.fetchRecordMODS(id: id)
         let record = MBRecord(mvrObj: modsObj)
         hold.setMetabibRecord(record)
-        os_log("[hold] target=%d holdType=C done", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=C done")
     }
 
     func loadVolumeHoldTargetDetails(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
-        os_log("[hold] target=%d holdType=V start", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=V start")
         let acnObj = try await fetchACN(id: holdTarget)
         guard let id = acnObj.getID("record") else {
             throw HemlockError.unexpectedNetworkResponse("Failed to find asset record for volume hold")
@@ -204,17 +202,17 @@ class EvergreenCircService: CircService {
         let modsObj = try await EvergreenAsync.fetchRecordMODS(id: id)
         let record = MBRecord(mvrObj: modsObj)
         hold.setMetabibRecord(record)
-        os_log("[hold] target=%d holdType=V done", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) holdType=V done")
     }
 
     func loadHoldQueueStats(hold: EvergreenHoldRecord, holdTarget: Int, authtoken: String) async throws {
         guard let id = hold.ahrObj.getID("id") else { return }
 
-        os_log("[hold] target=%d qstats start", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) qstats start")
         let req = Gateway.makeRequest(service: API.circ, method: API.holdQueueStats, args: [authtoken, id], shouldCache: false)
         let obj = try await req.gatewayResponseAsync().asObject()
         hold.setQstatsObj(obj)
-        os_log("[hold] target=%d qstats done", log: log, type: .info, holdTarget)
+        Logger.holds.info("[hold] target=\(holdTarget) qstats done")
     }
 
     func fetchHoldParts(targetID: Int) async throws -> [HoldPart] {
@@ -237,7 +235,7 @@ class EvergreenCircService: CircService {
         // The response is a JSON object with details, e.g. "success":1.  But if a title hold is not possible,
         // the response includes an event, and asObject() will throw.
         let _ = try await req.gatewayResponseAsync().asObject()
-        os_log("[hold] target=%d titleHoldIsPossible=true", log: log, type: .info, targetID)
+        Logger.holds.info("[hold] target=\(targetID) titleHoldIsPossible=true")
         return true
     }
 
@@ -392,7 +390,7 @@ class EvergreenCircService: CircService {
         let req = Gateway.makeRequest(service: API.circ, method: API.holdCancel, args: [account.authtoken, holdID, nil, note], shouldCache: false)
         // holdCancel returns "1" on success, and an error event if it fails.
         let str = try await req.gatewayResponseAsync().asString()
-        os_log("[hold] id=%d holdCancel result=%@", log: log, type: .info, holdID, str)
+        Logger.holds.info("[hold] id=\(holdID) holdCancel result=\(str)")
         return true
     }
 }

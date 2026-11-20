@@ -29,7 +29,6 @@ class CheckoutsViewController: UIViewController {
     var items: [CircRecord] = []
     var selectedItem: CircRecord?
     var didCompleteFetch = false
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "Checkouts")
 
     //MARK: - UIViewController
     
@@ -92,7 +91,7 @@ class CheckoutsViewController: UIViewController {
                 await group.waitForAll()
             }
             let elapsed = -startOfFetch.timeIntervalSinceNow
-            os_log("%d circ records loaded, elapsed: %.3f", log: self.log, type: .info, checkouts.count, elapsed)
+            Logger.vc.info("\(checkouts.count) circ records loaded, elapsed: \(elapsed.ms, privacy: .public)")
 
             self.didCompleteFetch = true
             self.updateItems(withRecords: checkouts)
@@ -106,7 +105,7 @@ class CheckoutsViewController: UIViewController {
     func updateItems(withRecords records: [CircRecord]) {
         self.items = records
         sortList()
-        os_log("%d records now, time to reloadData", log: self.log, type: .info, items.count)
+        Logger.vc.info("\(self.items.count) records now, time to reloadData")
         tableView.reloadData()
     }
 

@@ -104,7 +104,6 @@ struct GatewayResponse {
     
     init(_ jsonString: String) {
         self.init()
-        //os_log("resp.str: %@", log: Gateway.log, type: .info, jsonString)
         guard let data = jsonString.data(using: .utf8) else {
             error = .failure("Unable to encode as utf8: \(jsonString)")
             return
@@ -121,14 +120,13 @@ struct GatewayResponse {
 
     init(_ data: Data) {
         self.init()
-        let wire_str = String(data: data, encoding: .utf8) ?? "(nil)"
         guard let json = decodeJSON(data) else {
-            os_log("resp.json: decode_error", log: Gateway.log, type: .info)
-            let errorMessage = GatewayResponse.errorMessage(forInvalidJSON: wire_str)
+            let str = String(data: data, encoding: .utf8) ?? "(invalid utf8)"
+            Logger.net.error("error decoding JSON")
+            let errorMessage = GatewayResponse.errorMessage(forInvalidJSON: str)
             error = .failure(errorMessage)
             return
         }
-        //os_log("resp.json: %@", log: Gateway.log, type: .info, json)
 
         guard let status = json["status"] as? Int else {
             error = .failure("Internal Server Error: response has no status")
@@ -222,7 +220,6 @@ struct GatewayResponse {
     
     func decodeObject(_ jsonObject: [String: Any?]) throws -> OSRFObject {
         let obj = try OSRFCoder.decode(fromDictionary: jsonObject)
-        //os_log("resp.obj: %@", log: Gateway.log, type: .info, obj.dict)
         return obj
     }
     

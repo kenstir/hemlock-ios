@@ -23,7 +23,6 @@ class BookBagsViewController : UITableViewController {
 
     var items: [PatronList] = []
     var didCompleteFetch = false
-    let log = OSLog(subsystem: Bundle.appIdentifier, category: "BookBags")
 
     //MARK: - UIViewController
     
@@ -68,7 +67,7 @@ class BookBagsViewController : UITableViewController {
 
         do {
             try await App.svc.user.loadPatronLists(account: account)
-            os_log("[lists] fetched %d lists", log: self.log, type: .info, account.patronLists.count)
+            Logger.lists.info("[lists] fetched \(account.patronLists.count) lists")
 
             try await withThrowingTaskGroup(of: Void.self) { group in
                 for list in account.patronLists {

@@ -19,22 +19,36 @@ import OSLog
 extension Logger {
     private static let subsystem = Bundle.appIdentifier
 
-    static let app = Logger(subsystem: subsystem, category: "app")
+    //static let account = Logger(subsystem: subsystem, category: "account")
     static let async = Logger(subsystem: subsystem, category: "async")
-    static let fcm = Logger(subsystem: subsystem, category: "fcm")
+    static let data = Logger(subsystem: subsystem, category: "data") //low-level data issues
+    static let fcm = Logger(subsystem: subsystem, category: "fcm") //firebase cloud messaging
+    static let holds = Logger(subsystem: subsystem, category: "holds")
+    static let lists = Logger(subsystem: subsystem, category: "lists")
     static let net = Logger(subsystem: subsystem, category: "net")
     static let orgs = Logger(subsystem: subsystem, category: "orgs")
     static let state = Logger(subsystem: subsystem, category: "state")
+    static let vc = Logger(subsystem: subsystem, category: "vc") //high-level view controller events
 
-    func pdebug(_ message: String) {
+    /// debug log with public privacy
+    func publicDebug(_ message: String) {
         self.log(level: .debug, "\(message, privacy: .public)")
     }
 
-    func pinfo(_ message: String) {
+    /// info log with public privacy
+    func publicInfo(_ message: String) {
         self.log(level: .info, "\(message, privacy: .public)")
     }
 
-    func perror(_ message: String) {
+    /// error log with public privacy
+    func publicError(_ message: String) {
         self.log(level: .error, "\(message, privacy: .public)")
+    }
+}
+
+extension TimeInterval {
+    /// Returns a string representation of the time interval in seconds with 3 decimal places.
+    var ms: String {
+        return String(format: "%.3f", self)
     }
 }

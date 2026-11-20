@@ -192,12 +192,12 @@ extension UIViewController {
     //MARK: - FCM Functions
 #if USE_FCM
     func registerForRuntimeNotifications() {
-        Logger.fcm.pinfo("[fcm] registerForRuntimeNotifications")
+        Logger.fcm.info("[fcm] registerForRuntimeNotifications")
         NotificationCenter.default.addObserver(self, selector: #selector(handleRuntimeNotification(notification:)), name: Notification.Name("FCMNotification"), object: nil)
     }
 
     @objc func handleRuntimeNotification(notification: NSNotification) {
-        Logger.fcm.pinfo("[fcm] handleRuntimeNotification")
+        Logger.fcm.info("[fcm] handleRuntimeNotification")
         let _ = handleNotification(userInfo: notification.userInfo)
     }
 
@@ -205,7 +205,7 @@ extension UIViewController {
     func handleLaunchNotification() -> Bool {
         if let userInfo = App.launchNotificationUserInfo {
             let pn = PushNotification(userInfo: userInfo)
-            Logger.fcm.pinfo("[fcm] launchNotificationUserInfo: \(pn)")
+            Logger.fcm.info("[fcm] launchNotificationUserInfo: \(pn, privacy: .private(mask: .hash))")
         }
         return handleNotification(userInfo: App.launchNotificationUserInfo)
     }

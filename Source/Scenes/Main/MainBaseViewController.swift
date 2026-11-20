@@ -20,7 +20,6 @@ import UIKit
 import os.log
 
 class MainBaseViewController: UIViewController {
-    private let log = OSLog(subsystem: Bundle.appIdentifier, category: "Main")
     private var didShowSystemAlert = false
     private var systemAlertPending = false
 

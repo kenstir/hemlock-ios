@@ -22,8 +22,7 @@ import Foundation
 import os.log
 
 class Utils {
-    static let log = OSLog(subsystem: Bundle.appIdentifier, category: "Utils")
-
+    /// returns the first non-nil value from a list of optional values, or nil if all are nil
     static func coalesce<T>(_ values: T?...) -> T? {
         for value in values {
             if value != nil {
@@ -33,7 +32,7 @@ class Utils {
         return nil
     }
 
-    // coalesce for Strings returns first non-nil non-empty string
+    /// returns the first non-nil non-empty string, or nil
     static func coalesce(_ values: String?...) -> String? {
         for value in values {
             if let val = value, !val.isEmpty {
@@ -46,9 +45,9 @@ class Utils {
     static func dump(dict: JSONDictionary) {
         for i in dict.keys.sorted() {
             if let val = dict[i], let v = val {
-                Logger.app.pinfo("  \(i) -> \(v)")
+                Logger.data.publicInfo("  \(i) -> \(v)")
             } else {
-                Logger.app.pinfo("  \(i) -> nil")
+                Logger.data.publicInfo("  \(i) -> nil")
             }
         }
     }
