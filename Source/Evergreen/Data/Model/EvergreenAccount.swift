@@ -192,7 +192,7 @@ class EvergreenAccount : Account {
     /// mt-safe
     func loadUserSettings(fromObject obj: OSRFObject) {
         lock.lock(); defer { lock.unlock() }
-        Logger.async.publicInfo("\(Utils.tt) loadUserSettings")
+        Logger.async.info("\(Utils.tt) loadUserSettings")
 
         if let card = obj.getObject("card") {
             barcode = card.getString("barcode")
@@ -203,9 +203,10 @@ class EvergreenAccount : Account {
         if let settings = obj.getAny("settings") as? [OSRFObject] {
             for setting in settings {
                 if let name = setting.getString("name"),
-                    let strvalue = removeStupidExtraQuotes(setting.getString("value"))
+                    let rawValue = setting.getString("value"),
+                    let strvalue = removeStupidExtraQuotes(rawValue)
                 {
-                    Logger.async.publicInfo("\(Utils.tt) setting name=\(name) value=\(strvalue) was=\(setting.getString("value") ?? "nil")")
+                    Logger.async.info("\(Utils.tt) loadUserSetting name=\(name, privacy: .public) value=\(strvalue) raw=\(rawValue)")
                     if name == API.userSettingDefaultPickupLocation, let value = Int(strvalue) {
                         userSettingDefaultPickupLocation = value
                     } else if name == API.userSettingDefaultPhone {
