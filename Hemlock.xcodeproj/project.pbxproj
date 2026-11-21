@@ -6002,10 +6002,10 @@
 		};
 		D211A43430A41010004086D4 /* XCRemoteSwiftPackageReference "zxingify-objc" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kenstir/zxingify-objc";
+			repositoryURL = "https://github.com/zxingify/zxingify-objc";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "3.6.9-kenstir.2";
+				kind = revision;
+				revision = 7d4624b147f5e8fd4dd60dc4c9f105fe59825871;
 			};
 		};
 		D26407B62F85BB5600C68CE6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
