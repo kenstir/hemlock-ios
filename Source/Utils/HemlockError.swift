@@ -63,3 +63,7 @@ func isSessionExpired(error: Error) -> Bool {
     }
     return false
 }
+
+func isServerOffline(error: Error) -> Bool {
+    return false
+}

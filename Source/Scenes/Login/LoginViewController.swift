@@ -157,6 +157,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         activityIndicator.startAnimating()
 
         do {
+            throw HemlockError.shouldNotHappen("whatevs man")
             try await loadStartupPrerequisites()
 
             var credential = Credential(username: username, password: password)

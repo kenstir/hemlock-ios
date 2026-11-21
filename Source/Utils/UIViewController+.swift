@@ -52,7 +52,7 @@ extension UIViewController {
     func popToLogin(forAddingCredential: Bool = false) {
         guard let vc = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() else { return }
         if let loginNav = vc as? UINavigationController,
-        let loginVC = loginNav.topViewController as? LoginViewController {
+           let loginVC = loginNav.topViewController as? LoginViewController {
             loginVC.isAddingAccount = forAddingCredential
         }
         swapRootVC(vc, duration: 0.5)
@@ -129,7 +129,7 @@ extension UIViewController {
 
     private func enableSendErrorReportButton(error: Error) -> Bool {
         return Analytics.wantReport(forError: error)
-            && (Bundle.isDebug || MFMailComposeViewController.canSendMail())
+        && (Bundle.isDebug || MFMailComposeViewController.canSendMail())
     }
 
     private func sendErrorReport(errorMessage: String) {
@@ -137,8 +137,8 @@ extension UIViewController {
         vc.to = App.config.bugReportEmailAddress
         vc.subject = "[Hemlock] error report - \(Bundle.appName) \(Bundle.appVersion)"
         vc.body = "app: \(Bundle.appName)\n"
-            + "version: \(Bundle.appVersion)\n"
-            + "error: " + errorMessage
+        + "version: \(Bundle.appVersion)\n"
+        + "error: " + errorMessage
         vc.log = Analytics.getLog()
         vc.msg = "Press \"Compose email\" to draft an email to the developer.  Personal information is redacted in the attached network.log."
         self.navigationController?.pushViewController(vc, animated: true)
@@ -146,13 +146,23 @@ extension UIViewController {
 
     /// handle error in async operations by presenting the appropriate alert
     func presentGatewayAlert(forError error: Error, title: String = "Error") {
-        if isSessionExpired(error: error) {
+        if isServerOffline(error: error) {
+            self.showServerOfflineAlert(error)
+        } else if isSessionExpired(error: error) {
             self.showSessionExpiredAlert(error, relogHandler: {
                 self.popToLogin()
             })
         } else {
             self.showAlert(title: title, error: error)
         }
+    }
+
+    func showServerOfflineAlert(_ error: Error) {
+        let html = "The server appears to be offline.  Try again later or visit <a href='\(App.config.url)'>\(App.config.url)</a>"
+        let str = AttributedAlertController.attributedString(fromHTML: html) ?? NSAttributedString(string: html)
+        let alert = AttributedAlertController(title: "Server is offline", message: str)
+        alert.addAction(AlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
     }
 
     func showSessionExpiredAlert(_ error: Error, relogHandler: (() -> Void)?, cancelHandler: (() -> Void)? = nil) {
