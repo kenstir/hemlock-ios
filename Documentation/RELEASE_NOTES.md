@@ -10,6 +10,9 @@
 * Fix issue where Login could fail on trailing space in username field
 * Fix issue where highland cow appeared for missing jacket cover (cwmars)
 * Fix issue where the synopsis and Subject might be blank on Details screen
+* Fix app display name back to "Evergreen Indiana" (indiana)
+* Fix app display name back to "Missouri Evergreen" (mo)
+* Fix app display name back to "SageCat" (sagecat)
 * chore: Adopt UIScene lifecycle as mandated by iOS 27
 * chore: Migrate all dependencies from Carthage to Swift Package Manager to simplify maintenance
 * chore: Upgrade app dependencies to simplify maintenance
