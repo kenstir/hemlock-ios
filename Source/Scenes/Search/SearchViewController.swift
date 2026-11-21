@@ -120,7 +120,7 @@ class SearchViewController: UIViewController {
     
     func setupSearchButton() {
         searchButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        Style.styleButton(asInverse: searchButton)
+        Style.styleButton(asInverse: searchButton, withContentInsets: Style.extraWideInsets)
     }
 
     func doSearchOnStartup() {

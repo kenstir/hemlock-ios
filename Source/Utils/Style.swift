@@ -37,6 +37,11 @@ class Style {
     static var tableHeaderHalfHeight = tableHeaderHeight / 2.0
     static let buttonCornerRadius = 6.0
 
+    // Custom insets for a plain button so that the text aligns with other items in a VStack
+    static let trimmedLeadingInsets = NSDirectionalEdgeInsets(top: 7, leading: 0.1, bottom: 7, trailing: 0.1)
+    static let wideInsets = NSDirectionalEdgeInsets(top: 7, leading: 56, bottom: 7, trailing: 56)
+    static let extraWideInsets = NSDirectionalEdgeInsets(top: 7, leading: 56, bottom: 7, trailing: 56)
+
     //MARK: - Colors
 
     class var systemBackground: UIColor {
@@ -87,29 +92,35 @@ class Style {
 
     //MARK: - Button
 
-    static func styleButton(asInverse button: UIButton) {
+    static func styleButton(asInverse button: UIButton, withContentInsets insets: NSDirectionalEdgeInsets? = nil) {
         guard button.configuration == nil else { return }
 
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = App.theme.filledButtonColor
+        if let insets = insets {
+            config.contentInsets = insets
+        }
         button.configuration = config
         button.setNeedsUpdateConfiguration()
     }
 
-    static func styleButton(asOutline button: UIButton) {
+    static func styleButton(asOutline button: UIButton, withContentInsets insets: NSDirectionalEdgeInsets? = nil) {
         guard button.configuration == nil else { return }
 
-        button.configuration = .gray()
+        var config = UIButton.Configuration.gray()
+        if let insets = insets {
+            config.contentInsets = insets
+        }
+        button.configuration = config
         button.setNeedsUpdateConfiguration()
     }
 
-    static func styleButton(asPlain button: UIButton, trimLeadingInset: Bool = false) {
+    static func styleButton(asPlain button: UIButton, withContentInsets insets: NSDirectionalEdgeInsets? = nil) {
         guard button.configuration == nil else { return }
 
         var config = UIButton.Configuration.plain()
-        if trimLeadingInset {
-            // Reduce insets so that the text aligns with other items in a VStack
-            config.contentInsets = NSDirectionalEdgeInsets(top: config.contentInsets.top, leading: 0.1, bottom: config.contentInsets.bottom, trailing: 0.1)
+        if let insets = insets {
+            config.contentInsets = insets
         }
         button.configuration = config
         button.setNeedsUpdateConfiguration()

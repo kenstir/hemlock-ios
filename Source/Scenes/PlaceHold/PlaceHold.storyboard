@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYz-BO-bO1">
-                                <rect key="frame" x="8" y="36" width="398" height="651"/>
+                                <rect key="frame" x="8" y="36" width="398" height="635"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-G0-7ev">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="527.66666666666663"/>
@@ -230,18 +230,18 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="8un-df-cTQ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="yhN-lm-aMU"/>
                             </scrollView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zfW-Jt-MVq" userLabel="Action Stack">
-                                <rect key="frame" x="0.0" y="703" width="414" height="33"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zfW-Jt-MVq" userLabel="Action Stack">
+                                <rect key="frame" x="16" y="687" width="382" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5e-Fd-tzX">
-                                        <rect key="frame" x="0.0" y="0.0" width="203" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="156.66666666666666" height="33"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <inset key="contentEdgeInsets" minX="16" minY="6" maxX="16" maxY="6"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Place Hold"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJB-fd-Sbl">
-                                        <rect key="frame" x="211" y="0.0" width="203" height="33"/>
+                                        <rect key="frame" x="172.66666666666663" y="0.0" width="209.33333333333337" height="33"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <inset key="contentEdgeInsets" minX="16" minY="6" maxX="16" maxY="6"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -257,9 +257,9 @@
                             <constraint firstItem="zfW-Jt-MVq" firstAttribute="top" secondItem="EYz-BO-bO1" secondAttribute="bottom" constant="16" id="9xo-9V-OEo"/>
                             <constraint firstItem="EYz-BO-bO1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="JwY-Ud-YZM"/>
                             <constraint firstItem="EYz-BO-bO1" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-8" id="Mem-c4-FHd"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zfW-Jt-MVq" secondAttribute="trailing" id="OGI-MG-yoU"/>
-                            <constraint firstItem="zfW-Jt-MVq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qi5-PR-ZNi"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zfW-Jt-MVq" secondAttribute="bottom" id="xvW-uo-IRH"/>
+                            <constraint firstItem="zfW-Jt-MVq" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="OGI-MG-yoU"/>
+                            <constraint firstItem="zfW-Jt-MVq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="qi5-PR-ZNi"/>
+                            <constraint firstItem="zfW-Jt-MVq" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-16" id="xvW-uo-IRH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -305,7 +305,7 @@
     </scenes>
     <resources>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

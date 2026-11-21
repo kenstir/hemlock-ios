@@ -106,7 +106,7 @@ class DetailsViewController: UIViewController {
         pubinfoLabel.text = record.pubinfo
         physicalDescriptionLabel.text = record.physicalDescription
 
-        Style.styleButton(asPlain: authorButton, trimLeadingInset: true)
+        Style.styleButton(asPlain: authorButton, withContentInsets: Style.trimmedLeadingInsets)
         authorButton.setTitle(record.author, for: .normal)
         authorButton.addTarget(self, action: #selector(authorPressed(sender:)), for: .touchUpInside)
     }

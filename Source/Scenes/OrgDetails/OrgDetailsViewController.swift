@@ -107,10 +107,10 @@ class OrgDetailsViewController: UIViewController {
 
     func setupActionButtons() {
         Style.styleButton(asOutline: orgButton)
-        Style.styleButton(asPlain: webSiteButton, trimLeadingInset: true)
-        Style.styleButton(asPlain: mapButton, trimLeadingInset: true)
-        Style.styleButton(asPlain: emailButton, trimLeadingInset: true)
-        Style.styleButton(asPlain: phoneButton, trimLeadingInset: true)
+        Style.styleButton(asPlain: webSiteButton, withContentInsets: Style.trimmedLeadingInsets)
+        Style.styleButton(asPlain: mapButton, withContentInsets: Style.trimmedLeadingInsets)
+        Style.styleButton(asPlain: emailButton, withContentInsets: Style.trimmedLeadingInsets)
+        Style.styleButton(asPlain: phoneButton, withContentInsets: Style.trimmedLeadingInsets)
         orgButton.addTarget(self, action: #selector(orgButtonPressed(sender:)), for: .touchUpInside)
         webSiteButton.addTarget(self, action: #selector(webSiteButtonPressed(sender:)), for: .touchUpInside)
         emailButton.addTarget(self, action: #selector(emailButtonPressed(sender:)), for: .touchUpInside)
